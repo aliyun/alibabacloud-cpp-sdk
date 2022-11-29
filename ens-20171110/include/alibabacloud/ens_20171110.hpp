@@ -333,6 +333,78 @@ public:
 
   virtual ~HttpConfig() = default;
 };
+class InstanceActiveOpsGroup : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceIds{};
+
+  InstanceActiveOpsGroup() {}
+
+  explicit InstanceActiveOpsGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~InstanceActiveOpsGroup() = default;
+};
+class InstanceActiveOpsTask : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceActiveOpsTaskId{};
+  shared_ptr<string> instanceActiveOpsTaskStatus{};
+
+  InstanceActiveOpsTask() {}
+
+  explicit InstanceActiveOpsTask(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceActiveOpsTaskId) {
+      res["InstanceActiveOpsTaskId"] = boost::any(*instanceActiveOpsTaskId);
+    }
+    if (instanceActiveOpsTaskStatus) {
+      res["InstanceActiveOpsTaskStatus"] = boost::any(*instanceActiveOpsTaskStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceActiveOpsTaskId") != m.end() && !m["InstanceActiveOpsTaskId"].empty()) {
+      instanceActiveOpsTaskId = make_shared<string>(boost::any_cast<string>(m["InstanceActiveOpsTaskId"]));
+    }
+    if (m.find("InstanceActiveOpsTaskStatus") != m.end() && !m["InstanceActiveOpsTaskStatus"].empty()) {
+      instanceActiveOpsTaskStatus = make_shared<string>(boost::any_cast<string>(m["InstanceActiveOpsTaskStatus"]));
+    }
+  }
+
+
+  virtual ~InstanceActiveOpsTask() = default;
+};
 class SecurityGroupRule : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -4592,6 +4664,173 @@ public:
 
 
   virtual ~CreateInstanceResponse() = default;
+};
+class CreateInstanceActiveOpsTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> instanceIds{};
+
+  CreateInstanceActiveOpsTaskRequest() {}
+
+  explicit CreateInstanceActiveOpsTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIds) {
+      res["InstanceIds"] = boost::any(*instanceIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateInstanceActiveOpsTaskRequest() = default;
+};
+class CreateInstanceActiveOpsTaskShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceIdsShrink{};
+
+  CreateInstanceActiveOpsTaskShrinkRequest() {}
+
+  explicit CreateInstanceActiveOpsTaskShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceIdsShrink) {
+      res["InstanceIds"] = boost::any(*instanceIdsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
+      instanceIdsShrink = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceActiveOpsTaskShrinkRequest() = default;
+};
+class CreateInstanceActiveOpsTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<InstanceActiveOpsTask> instanceActiveOpsTask{};
+  shared_ptr<string> requestId{};
+
+  CreateInstanceActiveOpsTaskResponseBody() {}
+
+  explicit CreateInstanceActiveOpsTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceActiveOpsTask) {
+      res["InstanceActiveOpsTask"] = instanceActiveOpsTask ? boost::any(instanceActiveOpsTask->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceActiveOpsTask") != m.end() && !m["InstanceActiveOpsTask"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceActiveOpsTask"].type()) {
+        InstanceActiveOpsTask model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceActiveOpsTask"]));
+        instanceActiveOpsTask = make_shared<InstanceActiveOpsTask>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceActiveOpsTaskResponseBody() = default;
+};
+class CreateInstanceActiveOpsTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateInstanceActiveOpsTaskResponseBody> body{};
+
+  CreateInstanceActiveOpsTaskResponse() {}
+
+  explicit CreateInstanceActiveOpsTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateInstanceActiveOpsTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateInstanceActiveOpsTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateInstanceActiveOpsTaskResponse() = default;
 };
 class CreateKeyPairRequest : public Darabonba::Model {
 public:
@@ -9796,8 +10035,11 @@ public:
 };
 class DescribeARMServerInstancesResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeARMServerInstancesResponseBodyServers>> servers{};
+  shared_ptr<long> totalCount{};
 
   DescribeARMServerInstancesResponseBody() {}
 
@@ -9809,6 +10051,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -9819,10 +10067,19 @@ public:
       }
       res["Servers"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -9838,6 +10095,9 @@ public:
         }
         servers = make_shared<vector<DescribeARMServerInstancesResponseBodyServers>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -42876,6 +43136,8 @@ public:
   CreateImageResponse createImage(shared_ptr<CreateImageRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
+  CreateInstanceActiveOpsTaskResponse createInstanceActiveOpsTaskWithOptions(shared_ptr<CreateInstanceActiveOpsTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateInstanceActiveOpsTaskResponse createInstanceActiveOpsTask(shared_ptr<CreateInstanceActiveOpsTaskRequest> request);
   CreateKeyPairResponse createKeyPairWithOptions(shared_ptr<CreateKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateKeyPairResponse createKeyPair(shared_ptr<CreateKeyPairRequest> request);
   CreateLoadBalancerResponse createLoadBalancerWithOptions(shared_ptr<CreateLoadBalancerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
