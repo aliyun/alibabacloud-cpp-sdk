@@ -3475,6 +3475,285 @@ public:
 
   virtual ~QueryCardSmsTemplateReportResponse() = default;
 };
+class QueryMobilesCardSupportRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> mobiles{};
+  shared_ptr<string> templateCode{};
+
+  QueryMobilesCardSupportRequest() {}
+
+  explicit QueryMobilesCardSupportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobiles) {
+      res["Mobiles"] = boost::any(*mobiles);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mobiles") != m.end() && !m["Mobiles"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["Mobiles"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Mobiles"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      mobiles = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportRequest() = default;
+};
+class QueryMobilesCardSupportShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mobilesShrink{};
+  shared_ptr<string> templateCode{};
+
+  QueryMobilesCardSupportShrinkRequest() {}
+
+  explicit QueryMobilesCardSupportShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobilesShrink) {
+      res["Mobiles"] = boost::any(*mobilesShrink);
+    }
+    if (templateCode) {
+      res["TemplateCode"] = boost::any(*templateCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mobiles") != m.end() && !m["Mobiles"].empty()) {
+      mobilesShrink = make_shared<string>(boost::any_cast<string>(m["Mobiles"]));
+    }
+    if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
+      templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportShrinkRequest() = default;
+};
+class QueryMobilesCardSupportResponseBodyDataQueryResult : public Darabonba::Model {
+public:
+  shared_ptr<string> mobile{};
+  shared_ptr<bool> support{};
+
+  QueryMobilesCardSupportResponseBodyDataQueryResult() {}
+
+  explicit QueryMobilesCardSupportResponseBodyDataQueryResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mobile) {
+      res["Mobile"] = boost::any(*mobile);
+    }
+    if (support) {
+      res["Support"] = boost::any(*support);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mobile") != m.end() && !m["Mobile"].empty()) {
+      mobile = make_shared<string>(boost::any_cast<string>(m["Mobile"]));
+    }
+    if (m.find("Support") != m.end() && !m["Support"].empty()) {
+      support = make_shared<bool>(boost::any_cast<bool>(m["Support"]));
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportResponseBodyDataQueryResult() = default;
+};
+class QueryMobilesCardSupportResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryMobilesCardSupportResponseBodyDataQueryResult>> queryResult{};
+
+  QueryMobilesCardSupportResponseBodyData() {}
+
+  explicit QueryMobilesCardSupportResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (queryResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueryResult"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QueryResult") != m.end() && !m["QueryResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueryResult"].type()) {
+        vector<QueryMobilesCardSupportResponseBodyDataQueryResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueryResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMobilesCardSupportResponseBodyDataQueryResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryResult = make_shared<vector<QueryMobilesCardSupportResponseBodyDataQueryResult>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportResponseBodyData() = default;
+};
+class QueryMobilesCardSupportResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QueryMobilesCardSupportResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryMobilesCardSupportResponseBody() {}
+
+  explicit QueryMobilesCardSupportResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryMobilesCardSupportResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryMobilesCardSupportResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportResponseBody() = default;
+};
+class QueryMobilesCardSupportResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryMobilesCardSupportResponseBody> body{};
+
+  QueryMobilesCardSupportResponse() {}
+
+  explicit QueryMobilesCardSupportResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryMobilesCardSupportResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryMobilesCardSupportResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMobilesCardSupportResponse() = default;
+};
 class QuerySendDetailsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizId{};
@@ -6910,6 +7189,8 @@ public:
   QueryCardSmsTemplateResponse queryCardSmsTemplate(shared_ptr<QueryCardSmsTemplateRequest> request);
   QueryCardSmsTemplateReportResponse queryCardSmsTemplateReportWithOptions(shared_ptr<QueryCardSmsTemplateReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryCardSmsTemplateReportResponse queryCardSmsTemplateReport(shared_ptr<QueryCardSmsTemplateReportRequest> request);
+  QueryMobilesCardSupportResponse queryMobilesCardSupportWithOptions(shared_ptr<QueryMobilesCardSupportRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryMobilesCardSupportResponse queryMobilesCardSupport(shared_ptr<QueryMobilesCardSupportRequest> request);
   QuerySendDetailsResponse querySendDetailsWithOptions(shared_ptr<QuerySendDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySendDetailsResponse querySendDetails(shared_ptr<QuerySendDetailsRequest> request);
   QuerySendStatisticsResponse querySendStatisticsWithOptions(shared_ptr<QuerySendStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
