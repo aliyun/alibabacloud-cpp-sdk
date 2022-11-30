@@ -2170,6 +2170,8 @@ public:
   shared_ptr<string> city{};
   shared_ptr<string> common{};
   shared_ptr<string> country{};
+  shared_ptr<string> encryptCert{};
+  shared_ptr<string> encryptPrivateKey{};
   shared_ptr<string> endDate{};
   shared_ptr<bool> expired{};
   shared_ptr<string> fingerprint{};
@@ -2177,10 +2179,14 @@ public:
   shared_ptr<string> issuer{};
   shared_ptr<string> key{};
   shared_ptr<string> name{};
+  shared_ptr<long> orderId{};
   shared_ptr<string> orgName{};
   shared_ptr<string> province{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sans{};
+  shared_ptr<string> signCert{};
+  shared_ptr<string> signPrivateKey{};
   shared_ptr<string> startDate{};
 
   GetUserCertificateDetailResponseBody() {}
@@ -2208,6 +2214,12 @@ public:
     if (country) {
       res["Country"] = boost::any(*country);
     }
+    if (encryptCert) {
+      res["EncryptCert"] = boost::any(*encryptCert);
+    }
+    if (encryptPrivateKey) {
+      res["EncryptPrivateKey"] = boost::any(*encryptPrivateKey);
+    }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
@@ -2229,6 +2241,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
     if (orgName) {
       res["OrgName"] = boost::any(*orgName);
     }
@@ -2238,8 +2253,17 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sans) {
       res["Sans"] = boost::any(*sans);
+    }
+    if (signCert) {
+      res["SignCert"] = boost::any(*signCert);
+    }
+    if (signPrivateKey) {
+      res["SignPrivateKey"] = boost::any(*signPrivateKey);
     }
     if (startDate) {
       res["StartDate"] = boost::any(*startDate);
@@ -2263,6 +2287,12 @@ public:
     if (m.find("Country") != m.end() && !m["Country"].empty()) {
       country = make_shared<string>(boost::any_cast<string>(m["Country"]));
     }
+    if (m.find("EncryptCert") != m.end() && !m["EncryptCert"].empty()) {
+      encryptCert = make_shared<string>(boost::any_cast<string>(m["EncryptCert"]));
+    }
+    if (m.find("EncryptPrivateKey") != m.end() && !m["EncryptPrivateKey"].empty()) {
+      encryptPrivateKey = make_shared<string>(boost::any_cast<string>(m["EncryptPrivateKey"]));
+    }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
@@ -2284,6 +2314,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
     if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
       orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
     }
@@ -2293,8 +2326,17 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Sans") != m.end() && !m["Sans"].empty()) {
       sans = make_shared<string>(boost::any_cast<string>(m["Sans"]));
+    }
+    if (m.find("SignCert") != m.end() && !m["SignCert"].empty()) {
+      signCert = make_shared<string>(boost::any_cast<string>(m["SignCert"]));
+    }
+    if (m.find("SignPrivateKey") != m.end() && !m["SignPrivateKey"].empty()) {
+      signPrivateKey = make_shared<string>(boost::any_cast<string>(m["SignPrivateKey"]));
     }
     if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
@@ -2935,6 +2977,7 @@ public:
   shared_ptr<long> currentPage{};
   shared_ptr<string> keyword{};
   shared_ptr<string> orderType{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> showSize{};
   shared_ptr<string> status{};
 
@@ -2957,6 +3000,9 @@ public:
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (showSize) {
       res["ShowSize"] = boost::any(*showSize);
     }
@@ -2975,6 +3021,9 @@ public:
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ShowSize") != m.end() && !m["ShowSize"].empty()) {
       showSize = make_shared<long>(boost::any_cast<long>(m["ShowSize"]));
@@ -3014,6 +3063,7 @@ public:
   shared_ptr<string> productCode{};
   shared_ptr<string> productName{};
   shared_ptr<string> province{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> rootBrand{};
   shared_ptr<string> sans{};
   shared_ptr<string> serialNo{};
@@ -3109,6 +3159,9 @@ public:
     }
     if (province) {
       res["Province"] = boost::any(*province);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (rootBrand) {
       res["RootBrand"] = boost::any(*rootBrand);
@@ -3218,6 +3271,9 @@ public:
     }
     if (m.find("Province") != m.end() && !m["Province"].empty()) {
       province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("RootBrand") != m.end() && !m["RootBrand"].empty()) {
       rootBrand = make_shared<string>(boost::any_cast<string>(m["RootBrand"]));
@@ -3944,6 +4000,7 @@ public:
   shared_ptr<string> encryptPrivateKey{};
   shared_ptr<string> key{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> signCert{};
   shared_ptr<string> signPrivateKey{};
 
@@ -3972,6 +4029,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (signCert) {
       res["SignCert"] = boost::any(*signCert);
     }
@@ -3996,6 +4056,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SignCert") != m.end() && !m["SignCert"].empty()) {
       signCert = make_shared<string>(boost::any_cast<string>(m["SignCert"]));

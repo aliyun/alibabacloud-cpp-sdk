@@ -715,6 +715,9 @@ ListUserCertificateOrderResponse Alibabacloud_Cas20200407::Client::listUserCerti
   if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
     query->insert(pair<string, string>("OrderType", *request->orderType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->showSize)) {
     query->insert(pair<string, long>("ShowSize", *request->showSize));
   }
@@ -893,6 +896,9 @@ UploadUserCertificateResponse Alibabacloud_Cas20200407::Client::uploadUserCertif
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->signCert)) {
     query->insert(pair<string, string>("SignCert", *request->signCert));
