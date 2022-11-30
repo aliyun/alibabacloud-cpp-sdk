@@ -160,6 +160,37 @@ AirportSearchResponse Alibabacloud_BtripOpen20220520::Client::airportSearchWithO
   return AirportSearchResponse(callApi(params, req, runtime));
 }
 
+AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCityInfoQuery() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AllBaseCityInfoQueryHeaders> headers = make_shared<AllBaseCityInfoQueryHeaders>();
+  return allBaseCityInfoQueryWithOptions(headers, runtime);
+}
+
+AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCityInfoQueryWithOptions(shared_ptr<AllBaseCityInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripAccessToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AllBaseCityInfoQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/city/v1/code"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AllBaseCityInfoQueryResponse(callApi(params, req, runtime));
+}
+
 ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAdd(shared_ptr<ApplyAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ApplyAddHeaders> headers = make_shared<ApplyAddHeaders>();

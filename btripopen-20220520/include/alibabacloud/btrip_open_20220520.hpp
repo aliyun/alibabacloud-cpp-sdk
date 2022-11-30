@@ -827,6 +827,298 @@ public:
 
   virtual ~AirportSearchResponse() = default;
 };
+class AllBaseCityInfoQueryHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripAccessToken{};
+
+  AllBaseCityInfoQueryHeaders() {}
+
+  explicit AllBaseCityInfoQueryHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripAccessToken) {
+      res["x-acs-btrip-access-token"] = boost::any(*xAcsBtripAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-access-token") != m.end() && !m["x-acs-btrip-access-token"].empty()) {
+      xAcsBtripAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-access-token"]));
+    }
+  }
+
+
+  virtual ~AllBaseCityInfoQueryHeaders() = default;
+};
+class AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> adcode{};
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityLevel{};
+  shared_ptr<string> cityName{};
+  shared_ptr<string> cnNameTree{};
+  shared_ptr<long> id{};
+  shared_ptr<vector<string>> otherNameList{};
+
+  AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList() {}
+
+  explicit AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adcode) {
+      res["adcode"] = boost::any(*adcode);
+    }
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityLevel) {
+      res["city_level"] = boost::any(*cityLevel);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    if (cnNameTree) {
+      res["cn_name_tree"] = boost::any(*cnNameTree);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (otherNameList) {
+      res["other_name_list"] = boost::any(*otherNameList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("adcode") != m.end() && !m["adcode"].empty()) {
+      adcode = make_shared<string>(boost::any_cast<string>(m["adcode"]));
+    }
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_level") != m.end() && !m["city_level"].empty()) {
+      cityLevel = make_shared<string>(boost::any_cast<string>(m["city_level"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+    if (m.find("cn_name_tree") != m.end() && !m["cn_name_tree"].empty()) {
+      cnNameTree = make_shared<string>(boost::any_cast<string>(m["cn_name_tree"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("other_name_list") != m.end() && !m["other_name_list"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["other_name_list"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["other_name_list"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      otherNameList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList() = default;
+};
+class AllBaseCityInfoQueryResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<vector<AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList>> allCityBaseInfoList{};
+
+  AllBaseCityInfoQueryResponseBodyModule() {}
+
+  explicit AllBaseCityInfoQueryResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allCityBaseInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*allCityBaseInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["all_city_base_info_list"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("all_city_base_info_list") != m.end() && !m["all_city_base_info_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["all_city_base_info_list"].type()) {
+        vector<AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["all_city_base_info_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        allCityBaseInfoList = make_shared<vector<AllBaseCityInfoQueryResponseBodyModuleAllCityBaseInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AllBaseCityInfoQueryResponseBodyModule() = default;
+};
+class AllBaseCityInfoQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<AllBaseCityInfoQueryResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  AllBaseCityInfoQueryResponseBody() {}
+
+  explicit AllBaseCityInfoQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        AllBaseCityInfoQueryResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<AllBaseCityInfoQueryResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~AllBaseCityInfoQueryResponseBody() = default;
+};
+class AllBaseCityInfoQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AllBaseCityInfoQueryResponseBody> body{};
+
+  AllBaseCityInfoQueryResponse() {}
+
+  explicit AllBaseCityInfoQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AllBaseCityInfoQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AllBaseCityInfoQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AllBaseCityInfoQueryResponse() = default;
+};
 class ApplyAddHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -26873,6 +27165,8 @@ public:
   AddressGetResponse addressGetWithOptions(shared_ptr<AddressGetRequest> request, shared_ptr<AddressGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AirportSearchResponse airportSearch(shared_ptr<AirportSearchRequest> request);
   AirportSearchResponse airportSearchWithOptions(shared_ptr<AirportSearchRequest> request, shared_ptr<AirportSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AllBaseCityInfoQueryResponse allBaseCityInfoQuery();
+  AllBaseCityInfoQueryResponse allBaseCityInfoQueryWithOptions(shared_ptr<AllBaseCityInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyAddResponse applyAdd(shared_ptr<ApplyAddRequest> request);
   ApplyAddResponse applyAddWithOptions(shared_ptr<ApplyAddRequest> tmpReq, shared_ptr<ApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyApproveResponse applyApprove(shared_ptr<ApplyApproveRequest> request);
