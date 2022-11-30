@@ -326,8 +326,73 @@ public:
 
   virtual ~ContinueCreateStackRequest() = default;
 };
+class ContinueCreateStackResponseBodyDryRunResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> parametersAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersNotAllowedToBeModified{};
+
+  ContinueCreateStackResponseBodyDryRunResult() {}
+
+  explicit ContinueCreateStackResponseBodyDryRunResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parametersAllowedToBeModified) {
+      res["ParametersAllowedToBeModified"] = boost::any(*parametersAllowedToBeModified);
+    }
+    if (parametersConditionallyAllowedToBeModified) {
+      res["ParametersConditionallyAllowedToBeModified"] = boost::any(*parametersConditionallyAllowedToBeModified);
+    }
+    if (parametersNotAllowedToBeModified) {
+      res["ParametersNotAllowedToBeModified"] = boost::any(*parametersNotAllowedToBeModified);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParametersAllowedToBeModified") != m.end() && !m["ParametersAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyAllowedToBeModified") != m.end() && !m["ParametersConditionallyAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersNotAllowedToBeModified") != m.end() && !m["ParametersNotAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersNotAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersNotAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersNotAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ContinueCreateStackResponseBodyDryRunResult() = default;
+};
 class ContinueCreateStackResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<ContinueCreateStackResponseBodyDryRunResult> dryRunResult{};
   shared_ptr<string> requestId{};
   shared_ptr<string> stackId{};
 
@@ -341,6 +406,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dryRunResult) {
+      res["DryRunResult"] = dryRunResult ? boost::any(dryRunResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -351,6 +419,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRunResult") != m.end() && !m["DryRunResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DryRunResult"].type()) {
+        ContinueCreateStackResponseBodyDryRunResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DryRunResult"]));
+        dryRunResult = make_shared<ContinueCreateStackResponseBodyDryRunResult>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
