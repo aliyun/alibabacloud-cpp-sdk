@@ -1492,6 +1492,61 @@ EntitySetResponse Alibabacloud_BtripOpen20220520::Client::entitySetWithOptions(s
   return EntitySetResponse(callApi(params, req, runtime));
 }
 
+EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPriceQuery(shared_ptr<EstimatedPriceQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<EstimatedPriceQueryHeaders> headers = make_shared<EstimatedPriceQueryHeaders>();
+  return estimatedPriceQueryWithOptions(request, headers, runtime);
+}
+
+EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPriceQueryWithOptions(shared_ptr<EstimatedPriceQueryRequest> request, shared_ptr<EstimatedPriceQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->arrCity)) {
+    query->insert(pair<string, string>("arr_city", *request->arrCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
+    query->insert(pair<string, string>("category", *request->category));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->depCity)) {
+    query->insert(pair<string, string>("dep_city", *request->depCity));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("end_time", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itineraryId)) {
+    query->insert(pair<string, string>("itinerary_id", *request->itineraryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("start_time", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("user_id", *request->userId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripSoCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-so-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripSoCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EstimatedPriceQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/costcenter/v1/estimated-price"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EstimatedPriceQueryResponse(callApi(params, req, runtime));
+}
+
 ExceedApplySyncResponse Alibabacloud_BtripOpen20220520::Client::exceedApplySync(shared_ptr<ExceedApplySyncRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ExceedApplySyncHeaders> headers = make_shared<ExceedApplySyncHeaders>();
