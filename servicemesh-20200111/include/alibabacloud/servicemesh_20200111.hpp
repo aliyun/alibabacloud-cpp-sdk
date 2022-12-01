@@ -9157,6 +9157,7 @@ public:
   shared_ptr<string> includeInboundPorts{};
   shared_ptr<string> includeOutboundIPRanges{};
   shared_ptr<string> includeOutboundPorts{};
+  shared_ptr<string> interceptionMode{};
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycleStr{};
   shared_ptr<string> logLevel{};
@@ -9201,6 +9202,9 @@ public:
     }
     if (includeOutboundPorts) {
       res["IncludeOutboundPorts"] = boost::any(*includeOutboundPorts);
+    }
+    if (interceptionMode) {
+      res["InterceptionMode"] = boost::any(*interceptionMode);
     }
     if (istioDNSProxyEnabled) {
       res["IstioDNSProxyEnabled"] = boost::any(*istioDNSProxyEnabled);
@@ -9259,6 +9263,9 @@ public:
     }
     if (m.find("IncludeOutboundPorts") != m.end() && !m["IncludeOutboundPorts"].empty()) {
       includeOutboundPorts = make_shared<string>(boost::any_cast<string>(m["IncludeOutboundPorts"]));
+    }
+    if (m.find("InterceptionMode") != m.end() && !m["InterceptionMode"].empty()) {
+      interceptionMode = make_shared<string>(boost::any_cast<string>(m["InterceptionMode"]));
     }
     if (m.find("IstioDNSProxyEnabled") != m.end() && !m["IstioDNSProxyEnabled"].empty()) {
       istioDNSProxyEnabled = make_shared<bool>(boost::any_cast<bool>(m["IstioDNSProxyEnabled"]));
@@ -21089,6 +21096,7 @@ public:
   shared_ptr<string> includeInboundPorts{};
   shared_ptr<string> includeOutboundPorts{};
   shared_ptr<bool> integrateKiali{};
+  shared_ptr<string> interceptionMode{};
   shared_ptr<bool> kialiEnabled{};
   shared_ptr<string> lifecycle{};
   shared_ptr<string> localityLBConf{};
@@ -21272,6 +21280,9 @@ public:
     }
     if (integrateKiali) {
       res["IntegrateKiali"] = boost::any(*integrateKiali);
+    }
+    if (interceptionMode) {
+      res["InterceptionMode"] = boost::any(*interceptionMode);
     }
     if (kialiEnabled) {
       res["KialiEnabled"] = boost::any(*kialiEnabled);
@@ -21556,6 +21567,9 @@ public:
     if (m.find("IntegrateKiali") != m.end() && !m["IntegrateKiali"].empty()) {
       integrateKiali = make_shared<bool>(boost::any_cast<bool>(m["IntegrateKiali"]));
     }
+    if (m.find("InterceptionMode") != m.end() && !m["InterceptionMode"].empty()) {
+      interceptionMode = make_shared<string>(boost::any_cast<string>(m["InterceptionMode"]));
+    }
     if (m.find("KialiEnabled") != m.end() && !m["KialiEnabled"].empty()) {
       kialiEnabled = make_shared<bool>(boost::any_cast<bool>(m["KialiEnabled"]));
     }
@@ -21821,6 +21835,7 @@ public:
   shared_ptr<string> includeIPRanges{};
   shared_ptr<string> includeInboundPorts{};
   shared_ptr<string> includeOutboundPorts{};
+  shared_ptr<string> interceptionMode{};
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycle{};
   shared_ptr<string> logLevel{};
@@ -21873,6 +21888,9 @@ public:
     }
     if (includeOutboundPorts) {
       res["IncludeOutboundPorts"] = boost::any(*includeOutboundPorts);
+    }
+    if (interceptionMode) {
+      res["InterceptionMode"] = boost::any(*interceptionMode);
     }
     if (istioDNSProxyEnabled) {
       res["IstioDNSProxyEnabled"] = boost::any(*istioDNSProxyEnabled);
@@ -21955,6 +21973,9 @@ public:
     }
     if (m.find("IncludeOutboundPorts") != m.end() && !m["IncludeOutboundPorts"].empty()) {
       includeOutboundPorts = make_shared<string>(boost::any_cast<string>(m["IncludeOutboundPorts"]));
+    }
+    if (m.find("InterceptionMode") != m.end() && !m["InterceptionMode"].empty()) {
+      interceptionMode = make_shared<string>(boost::any_cast<string>(m["InterceptionMode"]));
     }
     if (m.find("IstioDNSProxyEnabled") != m.end() && !m["IstioDNSProxyEnabled"].empty()) {
       istioDNSProxyEnabled = make_shared<bool>(boost::any_cast<bool>(m["IstioDNSProxyEnabled"]));

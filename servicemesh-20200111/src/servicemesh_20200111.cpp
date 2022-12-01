@@ -2894,6 +2894,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<bool>(request->integrateKiali)) {
     body->insert(pair<string, bool>("IntegrateKiali", *request->integrateKiali));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interceptionMode)) {
+    body->insert(pair<string, string>("InterceptionMode", *request->interceptionMode));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->kialiEnabled)) {
     body->insert(pair<string, bool>("KialiEnabled", *request->kialiEnabled));
   }
@@ -3101,6 +3104,9 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeOutboundPorts)) {
     body->insert(pair<string, string>("IncludeOutboundPorts", *request->includeOutboundPorts));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interceptionMode)) {
+    body->insert(pair<string, string>("InterceptionMode", *request->interceptionMode));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->istioDNSProxyEnabled)) {
     body->insert(pair<string, bool>("IstioDNSProxyEnabled", *request->istioDNSProxyEnabled));
