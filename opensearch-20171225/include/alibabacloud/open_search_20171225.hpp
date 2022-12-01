@@ -4964,8 +4964,8 @@ public:
 };
 class DescribeAppGroupResponseBodyResultTags : public Darabonba::Model {
 public:
-  shared_ptr<string> tagKey{};
-  shared_ptr<string> tagValue{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
 
   DescribeAppGroupResponseBodyResultTags() {}
 
@@ -4977,21 +4977,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (tagKey) {
-      res["tagKey"] = boost::any(*tagKey);
+    if (key) {
+      res["key"] = boost::any(*key);
     }
-    if (tagValue) {
-      res["tagValue"] = boost::any(*tagValue);
+    if (value) {
+      res["value"] = boost::any(*value);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("tagKey") != m.end() && !m["tagKey"].empty()) {
-      tagKey = make_shared<string>(boost::any_cast<string>(m["tagKey"]));
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
     }
-    if (m.find("tagValue") != m.end() && !m["tagValue"].empty()) {
-      tagValue = make_shared<string>(boost::any_cast<string>(m["tagValue"]));
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
     }
   }
 
@@ -10183,6 +10183,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> fileName{};
   shared_ptr<string> modifyTime{};
+  shared_ptr<string> pathName{};
 
   GetScriptFileNamesResponseBodyResult() {}
 
@@ -10203,6 +10204,9 @@ public:
     if (modifyTime) {
       res["modifyTime"] = boost::any(*modifyTime);
     }
+    if (pathName) {
+      res["pathName"] = boost::any(*pathName);
+    }
     return res;
   }
 
@@ -10215,6 +10219,9 @@ public:
     }
     if (m.find("modifyTime") != m.end() && !m["modifyTime"].empty()) {
       modifyTime = make_shared<string>(boost::any_cast<string>(m["modifyTime"]));
+    }
+    if (m.find("pathName") != m.end() && !m["pathName"].empty()) {
+      pathName = make_shared<string>(boost::any_cast<string>(m["pathName"]));
     }
   }
 
@@ -12433,8 +12440,8 @@ public:
 };
 class ListAppGroupsResponseBodyResultTags : public Darabonba::Model {
 public:
-  shared_ptr<string> tagKey{};
-  shared_ptr<string> tagValue{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
 
   ListAppGroupsResponseBodyResultTags() {}
 
@@ -12446,21 +12453,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (tagKey) {
-      res["tagKey"] = boost::any(*tagKey);
+    if (key) {
+      res["key"] = boost::any(*key);
     }
-    if (tagValue) {
-      res["tagValue"] = boost::any(*tagValue);
+    if (value) {
+      res["value"] = boost::any(*value);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("tagKey") != m.end() && !m["tagKey"].empty()) {
-      tagKey = make_shared<string>(boost::any_cast<string>(m["tagKey"]));
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
     }
-    if (m.find("tagValue") != m.end() && !m["tagValue"].empty()) {
-      tagValue = make_shared<string>(boost::any_cast<string>(m["tagValue"]));
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
     }
   }
 
@@ -22398,6 +22405,7 @@ public:
 class RenewAppGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
 
   RenewAppGroupResponseBody() {}
 
@@ -22412,12 +22420,18 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
+    if (result) {
+      res["result"] = boost::any(*result);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["result"]));
     }
   }
 
