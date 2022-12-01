@@ -1123,6 +1123,126 @@ public:
 
   virtual ~CancelPromoteResourceAccountResponse() = default;
 };
+class CheckAccountDeleteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  CheckAccountDeleteRequest() {}
+
+  explicit CheckAccountDeleteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~CheckAccountDeleteRequest() = default;
+};
+class CheckAccountDeleteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CheckAccountDeleteResponseBody() {}
+
+  explicit CheckAccountDeleteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CheckAccountDeleteResponseBody() = default;
+};
+class CheckAccountDeleteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CheckAccountDeleteResponseBody> body{};
+
+  CheckAccountDeleteResponse() {}
+
+  explicit CheckAccountDeleteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CheckAccountDeleteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CheckAccountDeleteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CheckAccountDeleteResponse() = default;
+};
 class CreateCloudAccountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
@@ -3451,6 +3571,183 @@ public:
 
   virtual ~DeclineHandshakeResponse() = default;
 };
+class DeleteAccountRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> abandonableCheckId{};
+  shared_ptr<string> accountId{};
+
+  DeleteAccountRequest() {}
+
+  explicit DeleteAccountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abandonableCheckId) {
+      res["AbandonableCheckId"] = boost::any(*abandonableCheckId);
+    }
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonableCheckId") != m.end() && !m["AbandonableCheckId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AbandonableCheckId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AbandonableCheckId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      abandonableCheckId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccountRequest() = default;
+};
+class DeleteAccountShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> abandonableCheckIdShrink{};
+  shared_ptr<string> accountId{};
+
+  DeleteAccountShrinkRequest() {}
+
+  explicit DeleteAccountShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abandonableCheckIdShrink) {
+      res["AbandonableCheckId"] = boost::any(*abandonableCheckIdShrink);
+    }
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonableCheckId") != m.end() && !m["AbandonableCheckId"].empty()) {
+      abandonableCheckIdShrink = make_shared<string>(boost::any_cast<string>(m["AbandonableCheckId"]));
+    }
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccountShrinkRequest() = default;
+};
+class DeleteAccountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deletionType{};
+  shared_ptr<string> requestId{};
+
+  DeleteAccountResponseBody() {}
+
+  explicit DeleteAccountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deletionType) {
+      res["DeletionType"] = boost::any(*deletionType);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeletionType") != m.end() && !m["DeletionType"].empty()) {
+      deletionType = make_shared<string>(boost::any_cast<string>(m["DeletionType"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAccountResponseBody() = default;
+};
+class DeleteAccountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAccountResponseBody> body{};
+
+  DeleteAccountResponse() {}
+
+  explicit DeleteAccountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAccountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAccountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAccountResponse() = default;
+};
 class DeleteControlPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> policyId{};
@@ -5675,6 +5972,546 @@ public:
 
 
   virtual ~GetAccountResponse() = default;
+};
+class GetAccountDeletionCheckResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  GetAccountDeletionCheckResultRequest() {}
+
+  explicit GetAccountDeletionCheckResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultRequest() = default;
+};
+class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks : public Darabonba::Model {
+public:
+  shared_ptr<string> checkId{};
+  shared_ptr<string> checkName{};
+  shared_ptr<string> description{};
+
+  GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks() {}
+
+  explicit GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkId) {
+      res["CheckId"] = boost::any(*checkId);
+    }
+    if (checkName) {
+      res["CheckName"] = boost::any(*checkName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
+      checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
+    }
+    if (m.find("CheckName") != m.end() && !m["CheckName"].empty()) {
+      checkName = make_shared<string>(boost::any_cast<string>(m["CheckName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks() = default;
+};
+class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason : public Darabonba::Model {
+public:
+  shared_ptr<string> checkId{};
+  shared_ptr<string> checkName{};
+  shared_ptr<string> description{};
+
+  GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason() {}
+
+  explicit GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkId) {
+      res["CheckId"] = boost::any(*checkId);
+    }
+    if (checkName) {
+      res["CheckName"] = boost::any(*checkName);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckId") != m.end() && !m["CheckId"].empty()) {
+      checkId = make_shared<string>(boost::any_cast<string>(m["CheckId"]));
+    }
+    if (m.find("CheckName") != m.end() && !m["CheckName"].empty()) {
+      checkName = make_shared<string>(boost::any_cast<string>(m["CheckName"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason() = default;
+};
+class GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks>> abandonableChecks{};
+  shared_ptr<string> allowDelete{};
+  shared_ptr<vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason>> notAllowReason{};
+  shared_ptr<string> status{};
+
+  GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo() {}
+
+  explicit GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (abandonableChecks) {
+      vector<boost::any> temp1;
+      for(auto item1:*abandonableChecks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AbandonableChecks"] = boost::any(temp1);
+    }
+    if (allowDelete) {
+      res["AllowDelete"] = boost::any(*allowDelete);
+    }
+    if (notAllowReason) {
+      vector<boost::any> temp1;
+      for(auto item1:*notAllowReason){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NotAllowReason"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonableChecks") != m.end() && !m["AbandonableChecks"].empty()) {
+      if (typeid(vector<boost::any>) == m["AbandonableChecks"].type()) {
+        vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AbandonableChecks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        abandonableChecks = make_shared<vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoAbandonableChecks>>(expect1);
+      }
+    }
+    if (m.find("AllowDelete") != m.end() && !m["AllowDelete"].empty()) {
+      allowDelete = make_shared<string>(boost::any_cast<string>(m["AllowDelete"]));
+    }
+    if (m.find("NotAllowReason") != m.end() && !m["NotAllowReason"].empty()) {
+      if (typeid(vector<boost::any>) == m["NotAllowReason"].type()) {
+        vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NotAllowReason"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        notAllowReason = make_shared<vector<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfoNotAllowReason>>(expect1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo() = default;
+};
+class GetAccountDeletionCheckResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo> accountDeletionCheckResultInfo{};
+  shared_ptr<string> requestId{};
+
+  GetAccountDeletionCheckResultResponseBody() {}
+
+  explicit GetAccountDeletionCheckResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountDeletionCheckResultInfo) {
+      res["AccountDeletionCheckResultInfo"] = accountDeletionCheckResultInfo ? boost::any(accountDeletionCheckResultInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountDeletionCheckResultInfo") != m.end() && !m["AccountDeletionCheckResultInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AccountDeletionCheckResultInfo"].type()) {
+        GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccountDeletionCheckResultInfo"]));
+        accountDeletionCheckResultInfo = make_shared<GetAccountDeletionCheckResultResponseBodyAccountDeletionCheckResultInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultResponseBody() = default;
+};
+class GetAccountDeletionCheckResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAccountDeletionCheckResultResponseBody> body{};
+
+  GetAccountDeletionCheckResultResponse() {}
+
+  explicit GetAccountDeletionCheckResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAccountDeletionCheckResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAccountDeletionCheckResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAccountDeletionCheckResultResponse() = default;
+};
+class GetAccountDeletionStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  GetAccountDeletionStatusRequest() {}
+
+  explicit GetAccountDeletionStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionStatusRequest() = default;
+};
+class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+
+  GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList() {}
+
+  explicit GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList() = default;
+};
+class GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> deletionTime{};
+  shared_ptr<string> deletionType{};
+  shared_ptr<vector<GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList>> failReasonList{};
+  shared_ptr<string> status{};
+
+  GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus() {}
+
+  explicit GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deletionTime) {
+      res["DeletionTime"] = boost::any(*deletionTime);
+    }
+    if (deletionType) {
+      res["DeletionType"] = boost::any(*deletionType);
+    }
+    if (failReasonList) {
+      vector<boost::any> temp1;
+      for(auto item1:*failReasonList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailReasonList"] = boost::any(temp1);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeletionTime") != m.end() && !m["DeletionTime"].empty()) {
+      deletionTime = make_shared<string>(boost::any_cast<string>(m["DeletionTime"]));
+    }
+    if (m.find("DeletionType") != m.end() && !m["DeletionType"].empty()) {
+      deletionType = make_shared<string>(boost::any_cast<string>(m["DeletionType"]));
+    }
+    if (m.find("FailReasonList") != m.end() && !m["FailReasonList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailReasonList"].type()) {
+        vector<GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailReasonList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failReasonList = make_shared<vector<GetAccountDeletionStatusResponseBodyRdAccountDeletionStatusFailReasonList>>(expect1);
+      }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus() = default;
+};
+class GetAccountDeletionStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus> rdAccountDeletionStatus{};
+  shared_ptr<string> requestId{};
+
+  GetAccountDeletionStatusResponseBody() {}
+
+  explicit GetAccountDeletionStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rdAccountDeletionStatus) {
+      res["RdAccountDeletionStatus"] = rdAccountDeletionStatus ? boost::any(rdAccountDeletionStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RdAccountDeletionStatus") != m.end() && !m["RdAccountDeletionStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RdAccountDeletionStatus"].type()) {
+        GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RdAccountDeletionStatus"]));
+        rdAccountDeletionStatus = make_shared<GetAccountDeletionStatusResponseBodyRdAccountDeletionStatus>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAccountDeletionStatusResponseBody() = default;
+};
+class GetAccountDeletionStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAccountDeletionStatusResponseBody> body{};
+
+  GetAccountDeletionStatusResponse() {}
+
+  explicit GetAccountDeletionStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAccountDeletionStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAccountDeletionStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAccountDeletionStatusResponse() = default;
 };
 class GetControlPolicyRequest : public Darabonba::Model {
 public:
@@ -10633,6 +11470,7 @@ class ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedServi
 public:
   shared_ptr<string> delegationEnabledTime{};
   shared_ptr<string> servicePrincipal{};
+  shared_ptr<string> status{};
 
   ListDelegatedServicesForAccountResponseBodyDelegatedServicesDelegatedService() {}
 
@@ -10650,6 +11488,9 @@ public:
     if (servicePrincipal) {
       res["ServicePrincipal"] = boost::any(*servicePrincipal);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     return res;
   }
 
@@ -10659,6 +11500,9 @@ public:
     }
     if (m.find("ServicePrincipal") != m.end() && !m["ServicePrincipal"].empty()) {
       servicePrincipal = make_shared<string>(boost::any_cast<string>(m["ServicePrincipal"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
   }
 
@@ -18131,6 +18975,8 @@ public:
   CancelHandshakeResponse cancelHandshake(shared_ptr<CancelHandshakeRequest> request);
   CancelPromoteResourceAccountResponse cancelPromoteResourceAccountWithOptions(shared_ptr<CancelPromoteResourceAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelPromoteResourceAccountResponse cancelPromoteResourceAccount(shared_ptr<CancelPromoteResourceAccountRequest> request);
+  CheckAccountDeleteResponse checkAccountDeleteWithOptions(shared_ptr<CheckAccountDeleteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CheckAccountDeleteResponse checkAccountDelete(shared_ptr<CheckAccountDeleteRequest> request);
   CreateCloudAccountResponse createCloudAccountWithOptions(shared_ptr<CreateCloudAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCloudAccountResponse createCloudAccount(shared_ptr<CreateCloudAccountRequest> request);
   CreateControlPolicyResponse createControlPolicyWithOptions(shared_ptr<CreateControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18151,6 +18997,8 @@ public:
   CreateServiceLinkedRoleResponse createServiceLinkedRole(shared_ptr<CreateServiceLinkedRoleRequest> request);
   DeclineHandshakeResponse declineHandshakeWithOptions(shared_ptr<DeclineHandshakeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeclineHandshakeResponse declineHandshake(shared_ptr<DeclineHandshakeRequest> request);
+  DeleteAccountResponse deleteAccountWithOptions(shared_ptr<DeleteAccountRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAccountResponse deleteAccount(shared_ptr<DeleteAccountRequest> request);
   DeleteControlPolicyResponse deleteControlPolicyWithOptions(shared_ptr<DeleteControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteControlPolicyResponse deleteControlPolicy(shared_ptr<DeleteControlPolicyRequest> request);
   DeleteFolderResponse deleteFolderWithOptions(shared_ptr<DeleteFolderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18181,6 +19029,10 @@ public:
   EnableResourceDirectoryResponse enableResourceDirectory(shared_ptr<EnableResourceDirectoryRequest> request);
   GetAccountResponse getAccountWithOptions(shared_ptr<GetAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAccountResponse getAccount(shared_ptr<GetAccountRequest> request);
+  GetAccountDeletionCheckResultResponse getAccountDeletionCheckResultWithOptions(shared_ptr<GetAccountDeletionCheckResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAccountDeletionCheckResultResponse getAccountDeletionCheckResult(shared_ptr<GetAccountDeletionCheckResultRequest> request);
+  GetAccountDeletionStatusResponse getAccountDeletionStatusWithOptions(shared_ptr<GetAccountDeletionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAccountDeletionStatusResponse getAccountDeletionStatus(shared_ptr<GetAccountDeletionStatusRequest> request);
   GetControlPolicyResponse getControlPolicyWithOptions(shared_ptr<GetControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetControlPolicyResponse getControlPolicy(shared_ptr<GetControlPolicyRequest> request);
   GetControlPolicyEnablementStatusResponse getControlPolicyEnablementStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
