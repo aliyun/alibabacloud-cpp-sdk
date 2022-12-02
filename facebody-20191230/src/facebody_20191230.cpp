@@ -43,48 +43,6 @@ string Alibabacloud_Facebody20191230::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-AddBodyTraceResponse Alibabacloud_Facebody20191230::Client::addBodyTraceWithOptions(shared_ptr<AddBodyTraceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<AddBodyTraceShrinkRequest> request = make_shared<AddBodyTraceShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<AddBodyTraceRequestImages>>(tmpReq->images)) {
-    request->imagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->images, make_shared<string>("Images"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
-    body->insert(pair<string, long>("DbId", *request->dbId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extraData)) {
-    body->insert(pair<string, string>("ExtraData", *request->extraData));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imagesShrink)) {
-    body->insert(pair<string, string>("Images", *request->imagesShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->personId)) {
-    body->insert(pair<string, long>("PersonId", *request->personId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("AddBodyTrace"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return AddBodyTraceResponse(callApi(params, req, runtime));
-}
-
-AddBodyTraceResponse Alibabacloud_Facebody20191230::Client::addBodyTrace(shared_ptr<AddBodyTraceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return addBodyTraceWithOptions(request, runtime);
-}
-
 AddFaceResponse Alibabacloud_Facebody20191230::Client::addFaceWithOptions(shared_ptr<AddFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -241,9 +199,6 @@ AddFaceImageTemplateResponse Alibabacloud_Facebody20191230::Client::addFaceImage
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->imageURL)) {
     body->insert(pair<string, string>("ImageURL", *request->imageURL));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -968,65 +923,6 @@ CountCrowdResponse Alibabacloud_Facebody20191230::Client::countCrowdAdvance(shar
   return *countCrowdResp;
 }
 
-CreateBodyDbResponse Alibabacloud_Facebody20191230::Client::createBodyDbWithOptions(shared_ptr<CreateBodyDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    body->insert(pair<string, string>("Name", *request->name));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateBodyDb"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateBodyDbResponse(callApi(params, req, runtime));
-}
-
-CreateBodyDbResponse Alibabacloud_Facebody20191230::Client::createBodyDb(shared_ptr<CreateBodyDbRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createBodyDbWithOptions(request, runtime);
-}
-
-CreateBodyPersonResponse Alibabacloud_Facebody20191230::Client::createBodyPersonWithOptions(shared_ptr<CreateBodyPersonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
-    body->insert(pair<string, long>("DbId", *request->dbId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
-    body->insert(pair<string, string>("Name", *request->name));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CreateBodyPerson"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CreateBodyPersonResponse(callApi(params, req, runtime));
-}
-
-CreateBodyPersonResponse Alibabacloud_Facebody20191230::Client::createBodyPerson(shared_ptr<CreateBodyPersonRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createBodyPersonWithOptions(request, runtime);
-}
-
 CreateFaceDbResponse Alibabacloud_Facebody20191230::Client::createFaceDbWithOptions(shared_ptr<CreateFaceDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1053,65 +949,6 @@ CreateFaceDbResponse Alibabacloud_Facebody20191230::Client::createFaceDbWithOpti
 CreateFaceDbResponse Alibabacloud_Facebody20191230::Client::createFaceDb(shared_ptr<CreateFaceDbRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createFaceDbWithOptions(request, runtime);
-}
-
-DeleteBodyDbResponse Alibabacloud_Facebody20191230::Client::deleteBodyDbWithOptions(shared_ptr<DeleteBodyDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
-    body->insert(pair<string, long>("Id", *request->id));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteBodyDb"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeleteBodyDbResponse(callApi(params, req, runtime));
-}
-
-DeleteBodyDbResponse Alibabacloud_Facebody20191230::Client::deleteBodyDb(shared_ptr<DeleteBodyDbRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteBodyDbWithOptions(request, runtime);
-}
-
-DeleteBodyPersonResponse Alibabacloud_Facebody20191230::Client::deleteBodyPersonWithOptions(shared_ptr<DeleteBodyPersonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
-    body->insert(pair<string, long>("DbId", *request->dbId));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->personId)) {
-    body->insert(pair<string, long>("PersonId", *request->personId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DeleteBodyPerson"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DeleteBodyPersonResponse(callApi(params, req, runtime));
-}
-
-DeleteBodyPersonResponse Alibabacloud_Facebody20191230::Client::deleteBodyPerson(shared_ptr<DeleteBodyPersonRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteBodyPersonWithOptions(request, runtime);
 }
 
 DeleteFaceResponse Alibabacloud_Facebody20191230::Client::deleteFaceWithOptions(shared_ptr<DeleteFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1209,9 +1046,6 @@ DeleteFaceImageTemplateResponse Alibabacloud_Facebody20191230::Client::deleteFac
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3135,31 +2969,6 @@ GenerateHumanSketchStyleResponse Alibabacloud_Facebody20191230::Client::generate
   return *generateHumanSketchStyleResp;
 }
 
-GetBodyPersonResponse Alibabacloud_Facebody20191230::Client::getBodyPersonWithOptions(shared_ptr<GetBodyPersonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetBodyPerson"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetBodyPersonResponse(callApi(params, req, runtime));
-}
-
-GetBodyPersonResponse Alibabacloud_Facebody20191230::Client::getBodyPerson(shared_ptr<GetBodyPersonRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getBodyPersonWithOptions(request, runtime);
-}
-
 GetFaceEntityResponse Alibabacloud_Facebody20191230::Client::getFaceEntityWithOptions(shared_ptr<GetFaceEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3420,56 +3229,6 @@ LiquifyFaceResponse Alibabacloud_Facebody20191230::Client::liquifyFaceAdvance(sh
   return *liquifyFaceResp;
 }
 
-ListBodyDbsResponse Alibabacloud_Facebody20191230::Client::listBodyDbsWithOptions(shared_ptr<ListBodyDbsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListBodyDbs"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListBodyDbsResponse(callApi(params, req, runtime));
-}
-
-ListBodyDbsResponse Alibabacloud_Facebody20191230::Client::listBodyDbs(shared_ptr<ListBodyDbsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listBodyDbsWithOptions(request, runtime);
-}
-
-ListBodyPersonResponse Alibabacloud_Facebody20191230::Client::listBodyPersonWithOptions(shared_ptr<ListBodyPersonRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListBodyPerson"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListBodyPersonResponse(callApi(params, req, runtime));
-}
-
-ListBodyPersonResponse Alibabacloud_Facebody20191230::Client::listBodyPerson(shared_ptr<ListBodyPersonRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listBodyPersonWithOptions(request, runtime);
-}
-
 ListFaceDbsResponse Alibabacloud_Facebody20191230::Client::listFaceDbsWithOptions(shared_ptr<ListFaceDbsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3555,9 +3314,6 @@ MergeImageFaceResponse Alibabacloud_Facebody20191230::Client::mergeImageFaceWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -4637,126 +4393,6 @@ RetouchSkinResponse Alibabacloud_Facebody20191230::Client::retouchSkinAdvance(sh
   }
   shared_ptr<RetouchSkinResponse> retouchSkinResp = make_shared<RetouchSkinResponse>(retouchSkinWithOptions(retouchSkinReq, runtime));
   return *retouchSkinResp;
-}
-
-SearchBodyTraceResponse Alibabacloud_Facebody20191230::Client::searchBodyTraceWithOptions(shared_ptr<SearchBodyTraceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<SearchBodyTraceShrinkRequest> request = make_shared<SearchBodyTraceShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<SearchBodyTraceRequestImages>>(tmpReq->images)) {
-    request->imagesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->images, make_shared<string>("Images"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
-    body->insert(pair<string, long>("DbId", *request->dbId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->imagesShrink)) {
-    body->insert(pair<string, string>("Images", *request->imagesShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
-    body->insert(pair<string, long>("Limit", *request->limit));
-  }
-  if (!Darabonba_Util::Client::isUnset<double>(request->minScore)) {
-    body->insert(pair<string, double>("MinScore", *request->minScore));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SearchBodyTrace"))},
-    {"version", boost::any(string("2019-12-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SearchBodyTraceResponse(callApi(params, req, runtime));
-}
-
-SearchBodyTraceResponse Alibabacloud_Facebody20191230::Client::searchBodyTrace(shared_ptr<SearchBodyTraceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return searchBodyTraceWithOptions(request, runtime);
-}
-
-SearchBodyTraceResponse Alibabacloud_Facebody20191230::Client::searchBodyTraceAdvance(shared_ptr<SearchBodyTraceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  // Step 0: init client
-  shared_ptr<string> accessKeyId = make_shared<string>(_credential->getAccessKeyId());
-  shared_ptr<string> accessKeySecret = make_shared<string>(_credential->getAccessKeySecret());
-  shared_ptr<string> securityToken = make_shared<string>(_credential->getSecurityToken());
-  shared_ptr<string> credentialType = make_shared<string>(_credential->getType());
-  shared_ptr<string> openPlatformEndpoint = _openPlatformEndpoint;
-  if (Darabonba_Util::Client::isUnset<string>(openPlatformEndpoint)) {
-    openPlatformEndpoint = make_shared<string>("openplatform.aliyuncs.com");
-  }
-  if (Darabonba_Util::Client::isUnset<string>(credentialType)) {
-    credentialType = make_shared<string>("access_key");
-  }
-  shared_ptr<Alibabacloud_OpenApi::Config> authConfig = make_shared<Alibabacloud_OpenApi::Config>(map<string, boost::any>({
-    {"accessKeyId", !accessKeyId ? boost::any() : boost::any(*accessKeyId)},
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"securityToken", !securityToken ? boost::any() : boost::any(*securityToken)},
-    {"type", !credentialType ? boost::any() : boost::any(*credentialType)},
-    {"endpoint", !openPlatformEndpoint ? boost::any() : boost::any(*openPlatformEndpoint)},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
-  }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::Client> authClient = make_shared<Alibabacloud_OpenPlatform20191219::Client>(authConfig);
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest> authRequest = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadRequest>(map<string, boost::any>({
-    {"product", boost::any(string("facebody"))},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
-  }));
-  shared_ptr<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse> authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>();
-  shared_ptr<Alibabacloud_OSS::Config> ossConfig = make_shared<Alibabacloud_OSS::Config>(map<string, boost::any>({
-    {"accessKeySecret", !accessKeySecret ? boost::any() : boost::any(*accessKeySecret)},
-    {"type", boost::any(string("access_key"))},
-    {"protocol", !_protocol ? boost::any() : boost::any(*_protocol)},
-    {"regionId", !_regionId ? boost::any() : boost::any(*_regionId)}
-  }));
-  shared_ptr<Alibabacloud_OSS::Client> ossClient;
-  shared_ptr<Darabonba_FileForm::FileField> fileObj = make_shared<Darabonba_FileForm::FileField>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequestHeader> ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>();
-  shared_ptr<Alibabacloud_OSS::PostObjectRequest> uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>();
-  shared_ptr<Alibabacloud_OSSUtil::RuntimeOptions> ossRuntime = make_shared<Alibabacloud_OSSUtil::RuntimeOptions>();
-  Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
-  shared_ptr<SearchBodyTraceRequest> searchBodyTraceReq = make_shared<SearchBodyTraceRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(request, searchBodyTraceReq);
-  if (!Darabonba_Util::Client::isUnset<vector<SearchBodyTraceAdvanceRequestImages>>(request->images)) {
-    shared_ptr<int> i = make_shared<int>(0);
-    for(auto item0 : *request->images) {
-      if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.imageURLObject)) {
-        authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-        ossConfig->accessKeyId = authResponse->body->accessKeyId;
-        ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-        ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
-        fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-          {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
-          {"content", !item0.imageURLObject ? boost::any() : boost::any(*item0.imageURLObject)},
-          {"contentType", boost::any(string(""))}
-        }));
-        ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-          {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-          {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-          {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-          {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
-          {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-          {"successActionStatus", boost::any(string("201"))}
-        }));
-        uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-          {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-          {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-        }));
-        ossClient->postObject(uploadRequest, ossRuntime);
-        shared_ptr<SearchBodyTraceRequestImages> tmp = make_shared<SearchBodyTraceRequestImages>((*searchBodyTraceReq->images)[[object Object]]);
-        tmp->imageURL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
-      }
-    }
-  }
-  shared_ptr<SearchBodyTraceResponse> searchBodyTraceResp = make_shared<SearchBodyTraceResponse>(searchBodyTraceWithOptions(searchBodyTraceReq, runtime));
-  return *searchBodyTraceResp;
 }
 
 SearchFaceResponse Alibabacloud_Facebody20191230::Client::searchFaceWithOptions(shared_ptr<SearchFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
