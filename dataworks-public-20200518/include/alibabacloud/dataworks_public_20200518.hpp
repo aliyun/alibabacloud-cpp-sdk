@@ -628,6 +628,161 @@ public:
 
   virtual ~ApprovePermissionApplyOrderResponse() = default;
 };
+class ChangeResourceManagerResourceGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceManagerResourceGroupId{};
+  shared_ptr<string> resourceType{};
+
+  ChangeResourceManagerResourceGroupRequest() {}
+
+  explicit ChangeResourceManagerResourceGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceManagerResourceGroupId) {
+      res["ResourceManagerResourceGroupId"] = boost::any(*resourceManagerResourceGroupId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceManagerResourceGroupId") != m.end() && !m["ResourceManagerResourceGroupId"].empty()) {
+      resourceManagerResourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceManagerResourceGroupId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceManagerResourceGroupRequest() = default;
+};
+class ChangeResourceManagerResourceGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ChangeResourceManagerResourceGroupResponseBody() {}
+
+  explicit ChangeResourceManagerResourceGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ChangeResourceManagerResourceGroupResponseBody() = default;
+};
+class ChangeResourceManagerResourceGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeResourceManagerResourceGroupResponseBody> body{};
+
+  ChangeResourceManagerResourceGroupResponse() {}
+
+  explicit ChangeResourceManagerResourceGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeResourceManagerResourceGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeResourceManagerResourceGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeResourceManagerResourceGroupResponse() = default;
+};
 class CheckFileDeploymentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkDetailUrl{};
@@ -36304,7 +36459,6 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> priority{};
-  shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
   shared_ptr<string> searchText{};
 
@@ -36336,9 +36490,6 @@ public:
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
-    if (projectEnv) {
-      res["ProjectEnv"] = boost::any(*projectEnv);
-    }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
@@ -36366,9 +36517,6 @@ public:
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
-    }
-    if (m.find("ProjectEnv") != m.end() && !m["ProjectEnv"].empty()) {
-      projectEnv = make_shared<string>(boost::any_cast<string>(m["ProjectEnv"]));
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
@@ -53666,6 +53814,7 @@ public:
   shared_ptr<long> resourceGroupType{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<vector<ListResourceGroupsRequestTags>> tags{};
+  shared_ptr<string> typeNames{};
 
   ListResourceGroupsRequest() {}
 
@@ -53696,6 +53845,9 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (typeNames) {
+      res["TypeNames"] = boost::any(*typeNames);
+    }
     return res;
   }
 
@@ -53725,6 +53877,9 @@ public:
         tags = make_shared<vector<ListResourceGroupsRequestTags>>(expect1);
       }
     }
+    if (m.find("TypeNames") != m.end() && !m["TypeNames"].empty()) {
+      typeNames = make_shared<string>(boost::any_cast<string>(m["TypeNames"]));
+    }
   }
 
 
@@ -53737,6 +53892,7 @@ public:
   shared_ptr<long> resourceGroupType{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> tagsShrink{};
+  shared_ptr<string> typeNames{};
 
   ListResourceGroupsShrinkRequest() {}
 
@@ -53763,6 +53919,9 @@ public:
     if (tagsShrink) {
       res["Tags"] = boost::any(*tagsShrink);
     }
+    if (typeNames) {
+      res["TypeNames"] = boost::any(*typeNames);
+    }
     return res;
   }
 
@@ -53781,6 +53940,9 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("TypeNames") != m.end() && !m["TypeNames"].empty()) {
+      typeNames = make_shared<string>(boost::any_cast<string>(m["TypeNames"]));
     }
   }
 
@@ -67001,6 +67163,8 @@ public:
   AddToMetaCategoryResponse addToMetaCategory(shared_ptr<AddToMetaCategoryRequest> request);
   ApprovePermissionApplyOrderResponse approvePermissionApplyOrderWithOptions(shared_ptr<ApprovePermissionApplyOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApprovePermissionApplyOrderResponse approvePermissionApplyOrder(shared_ptr<ApprovePermissionApplyOrderRequest> request);
+  ChangeResourceManagerResourceGroupResponse changeResourceManagerResourceGroupWithOptions(shared_ptr<ChangeResourceManagerResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeResourceManagerResourceGroupResponse changeResourceManagerResourceGroup(shared_ptr<ChangeResourceManagerResourceGroupRequest> request);
   CheckFileDeploymentResponse checkFileDeploymentWithOptions(shared_ptr<CheckFileDeploymentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckFileDeploymentResponse checkFileDeployment(shared_ptr<CheckFileDeploymentRequest> request);
   CheckMetaPartitionResponse checkMetaPartitionWithOptions(shared_ptr<CheckMetaPartitionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
