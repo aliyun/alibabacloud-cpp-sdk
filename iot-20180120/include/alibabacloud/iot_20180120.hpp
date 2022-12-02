@@ -49189,10 +49189,12 @@ public:
 };
 class PubRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> contentType{};
   shared_ptr<string> correlationData{};
   shared_ptr<string> deviceName{};
   shared_ptr<string> iotInstanceId{};
   shared_ptr<string> messageContent{};
+  shared_ptr<long> payloadFormatIndicator{};
   shared_ptr<string> productKey{};
   shared_ptr<long> qos{};
   shared_ptr<string> responseTopic{};
@@ -49209,6 +49211,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
     if (correlationData) {
       res["CorrelationData"] = boost::any(*correlationData);
     }
@@ -49220,6 +49225,9 @@ public:
     }
     if (messageContent) {
       res["MessageContent"] = boost::any(*messageContent);
+    }
+    if (payloadFormatIndicator) {
+      res["PayloadFormatIndicator"] = boost::any(*payloadFormatIndicator);
     }
     if (productKey) {
       res["ProductKey"] = boost::any(*productKey);
@@ -49244,6 +49252,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
     if (m.find("CorrelationData") != m.end() && !m["CorrelationData"].empty()) {
       correlationData = make_shared<string>(boost::any_cast<string>(m["CorrelationData"]));
     }
@@ -49255,6 +49266,9 @@ public:
     }
     if (m.find("MessageContent") != m.end() && !m["MessageContent"].empty()) {
       messageContent = make_shared<string>(boost::any_cast<string>(m["MessageContent"]));
+    }
+    if (m.find("PayloadFormatIndicator") != m.end() && !m["PayloadFormatIndicator"].empty()) {
+      payloadFormatIndicator = make_shared<long>(boost::any_cast<long>(m["PayloadFormatIndicator"]));
     }
     if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
       productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));

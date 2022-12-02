@@ -8182,6 +8182,9 @@ PrintByTemplateResponse Alibabacloud_Iot20180120::Client::printByTemplate(shared
 PubResponse Alibabacloud_Iot20180120::Client::pubWithOptions(shared_ptr<PubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentType)) {
+    query->insert(pair<string, string>("ContentType", *request->contentType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->correlationData)) {
     query->insert(pair<string, string>("CorrelationData", *request->correlationData));
   }
@@ -8190,6 +8193,9 @@ PubResponse Alibabacloud_Iot20180120::Client::pubWithOptions(shared_ptr<PubReque
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
     query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->payloadFormatIndicator)) {
+    query->insert(pair<string, long>("PayloadFormatIndicator", *request->payloadFormatIndicator));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
     query->insert(pair<string, string>("ProductKey", *request->productKey));
