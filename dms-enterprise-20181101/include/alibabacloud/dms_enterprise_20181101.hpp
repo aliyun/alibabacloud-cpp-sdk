@@ -127,6 +127,7 @@ public:
   shared_ptr<vector<AsyncTaskVO>> asyncTaskList{};
   shared_ptr<long> datasetStatus{};
   shared_ptr<long> datasetType{};
+  shared_ptr<string> digest{};
   shared_ptr<string> fileSystem{};
   shared_ptr<string> id{};
   shared_ptr<string> keyName{};
@@ -161,6 +162,9 @@ public:
     }
     if (datasetType) {
       res["DatasetType"] = boost::any(*datasetType);
+    }
+    if (digest) {
+      res["Digest"] = boost::any(*digest);
     }
     if (fileSystem) {
       res["FileSystem"] = boost::any(*fileSystem);
@@ -221,6 +225,9 @@ public:
     }
     if (m.find("DatasetType") != m.end() && !m["DatasetType"].empty()) {
       datasetType = make_shared<long>(boost::any_cast<long>(m["DatasetType"]));
+    }
+    if (m.find("Digest") != m.end() && !m["Digest"].empty()) {
+      digest = make_shared<string>(boost::any_cast<string>(m["Digest"]));
     }
     if (m.find("FileSystem") != m.end() && !m["FileSystem"].empty()) {
       fileSystem = make_shared<string>(boost::any_cast<string>(m["FileSystem"]));
@@ -15366,6 +15373,42 @@ public:
 
   virtual ~GetLogicDatabaseRequest() = default;
 };
+class GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> databaseIds{};
+
+  GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds() {}
+
+  explicit GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseIds) {
+      res["DatabaseIds"] = boost::any(*databaseIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseIds") != m.end() && !m["DatabaseIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["DatabaseIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DatabaseIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      databaseIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds() = default;
+};
 class GetLogicDatabaseResponseBodyLogicDatabaseOwnerIdList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ownerIds{};
@@ -15442,6 +15485,7 @@ class GetLogicDatabaseResponseBodyLogicDatabase : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
   shared_ptr<string> databaseId{};
+  shared_ptr<GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds> databaseIds{};
   shared_ptr<string> dbType{};
   shared_ptr<string> envType{};
   shared_ptr<bool> logic{};
@@ -15465,6 +15509,9 @@ public:
     }
     if (databaseId) {
       res["DatabaseId"] = boost::any(*databaseId);
+    }
+    if (databaseIds) {
+      res["DatabaseIds"] = databaseIds ? boost::any(databaseIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (dbType) {
       res["DbType"] = boost::any(*dbType);
@@ -15496,6 +15543,13 @@ public:
     }
     if (m.find("DatabaseId") != m.end() && !m["DatabaseId"].empty()) {
       databaseId = make_shared<string>(boost::any_cast<string>(m["DatabaseId"]));
+    }
+    if (m.find("DatabaseIds") != m.end() && !m["DatabaseIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DatabaseIds"].type()) {
+        GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DatabaseIds"]));
+        databaseIds = make_shared<GetLogicDatabaseResponseBodyLogicDatabaseDatabaseIds>(model1);
+      }
     }
     if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
       dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
@@ -16307,6 +16361,278 @@ public:
 
 
   virtual ~GetMetaTableDetailInfoResponse() = default;
+};
+class GetOnlineDDLProgressRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> jobDetailId{};
+  shared_ptr<long> tid{};
+
+  GetOnlineDDLProgressRequest() {}
+
+  explicit GetOnlineDDLProgressRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobDetailId) {
+      res["JobDetailId"] = boost::any(*jobDetailId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobDetailId") != m.end() && !m["JobDetailId"].empty()) {
+      jobDetailId = make_shared<long>(boost::any_cast<long>(m["JobDetailId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetOnlineDDLProgressRequest() = default;
+};
+class GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> cleanStrategy{};
+  shared_ptr<string> copyChunkMode{};
+  shared_ptr<long> copyChunkSize{};
+  shared_ptr<long> copyCount{};
+  shared_ptr<long> copyTotal{};
+  shared_ptr<long> cutoverFailRetryTimes{};
+  shared_ptr<long> cutoverLockTimeSeconds{};
+  shared_ptr<string> cutoverWindowEndTime{};
+  shared_ptr<string> cutoverWindowStartTime{};
+  shared_ptr<long> delaySeconds{};
+  shared_ptr<string> jobStatus{};
+  shared_ptr<string> progressRatio{};
+  shared_ptr<string> statusDesc{};
+
+  GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail() {}
+
+  explicit GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cleanStrategy) {
+      res["CleanStrategy"] = boost::any(*cleanStrategy);
+    }
+    if (copyChunkMode) {
+      res["CopyChunkMode"] = boost::any(*copyChunkMode);
+    }
+    if (copyChunkSize) {
+      res["CopyChunkSize"] = boost::any(*copyChunkSize);
+    }
+    if (copyCount) {
+      res["CopyCount"] = boost::any(*copyCount);
+    }
+    if (copyTotal) {
+      res["CopyTotal"] = boost::any(*copyTotal);
+    }
+    if (cutoverFailRetryTimes) {
+      res["CutoverFailRetryTimes"] = boost::any(*cutoverFailRetryTimes);
+    }
+    if (cutoverLockTimeSeconds) {
+      res["CutoverLockTimeSeconds"] = boost::any(*cutoverLockTimeSeconds);
+    }
+    if (cutoverWindowEndTime) {
+      res["CutoverWindowEndTime"] = boost::any(*cutoverWindowEndTime);
+    }
+    if (cutoverWindowStartTime) {
+      res["CutoverWindowStartTime"] = boost::any(*cutoverWindowStartTime);
+    }
+    if (delaySeconds) {
+      res["DelaySeconds"] = boost::any(*delaySeconds);
+    }
+    if (jobStatus) {
+      res["JobStatus"] = boost::any(*jobStatus);
+    }
+    if (progressRatio) {
+      res["ProgressRatio"] = boost::any(*progressRatio);
+    }
+    if (statusDesc) {
+      res["StatusDesc"] = boost::any(*statusDesc);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CleanStrategy") != m.end() && !m["CleanStrategy"].empty()) {
+      cleanStrategy = make_shared<string>(boost::any_cast<string>(m["CleanStrategy"]));
+    }
+    if (m.find("CopyChunkMode") != m.end() && !m["CopyChunkMode"].empty()) {
+      copyChunkMode = make_shared<string>(boost::any_cast<string>(m["CopyChunkMode"]));
+    }
+    if (m.find("CopyChunkSize") != m.end() && !m["CopyChunkSize"].empty()) {
+      copyChunkSize = make_shared<long>(boost::any_cast<long>(m["CopyChunkSize"]));
+    }
+    if (m.find("CopyCount") != m.end() && !m["CopyCount"].empty()) {
+      copyCount = make_shared<long>(boost::any_cast<long>(m["CopyCount"]));
+    }
+    if (m.find("CopyTotal") != m.end() && !m["CopyTotal"].empty()) {
+      copyTotal = make_shared<long>(boost::any_cast<long>(m["CopyTotal"]));
+    }
+    if (m.find("CutoverFailRetryTimes") != m.end() && !m["CutoverFailRetryTimes"].empty()) {
+      cutoverFailRetryTimes = make_shared<long>(boost::any_cast<long>(m["CutoverFailRetryTimes"]));
+    }
+    if (m.find("CutoverLockTimeSeconds") != m.end() && !m["CutoverLockTimeSeconds"].empty()) {
+      cutoverLockTimeSeconds = make_shared<long>(boost::any_cast<long>(m["CutoverLockTimeSeconds"]));
+    }
+    if (m.find("CutoverWindowEndTime") != m.end() && !m["CutoverWindowEndTime"].empty()) {
+      cutoverWindowEndTime = make_shared<string>(boost::any_cast<string>(m["CutoverWindowEndTime"]));
+    }
+    if (m.find("CutoverWindowStartTime") != m.end() && !m["CutoverWindowStartTime"].empty()) {
+      cutoverWindowStartTime = make_shared<string>(boost::any_cast<string>(m["CutoverWindowStartTime"]));
+    }
+    if (m.find("DelaySeconds") != m.end() && !m["DelaySeconds"].empty()) {
+      delaySeconds = make_shared<long>(boost::any_cast<long>(m["DelaySeconds"]));
+    }
+    if (m.find("JobStatus") != m.end() && !m["JobStatus"].empty()) {
+      jobStatus = make_shared<string>(boost::any_cast<string>(m["JobStatus"]));
+    }
+    if (m.find("ProgressRatio") != m.end() && !m["ProgressRatio"].empty()) {
+      progressRatio = make_shared<string>(boost::any_cast<string>(m["ProgressRatio"]));
+    }
+    if (m.find("StatusDesc") != m.end() && !m["StatusDesc"].empty()) {
+      statusDesc = make_shared<string>(boost::any_cast<string>(m["StatusDesc"]));
+    }
+  }
+
+
+  virtual ~GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail() = default;
+};
+class GetOnlineDDLProgressResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail> onlineDDLTaskDetail{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetOnlineDDLProgressResponseBody() {}
+
+  explicit GetOnlineDDLProgressResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (onlineDDLTaskDetail) {
+      res["OnlineDDLTaskDetail"] = onlineDDLTaskDetail ? boost::any(onlineDDLTaskDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("OnlineDDLTaskDetail") != m.end() && !m["OnlineDDLTaskDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OnlineDDLTaskDetail"].type()) {
+        GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OnlineDDLTaskDetail"]));
+        onlineDDLTaskDetail = make_shared<GetOnlineDDLProgressResponseBodyOnlineDDLTaskDetail>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetOnlineDDLProgressResponseBody() = default;
+};
+class GetOnlineDDLProgressResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOnlineDDLProgressResponseBody> body{};
+
+  GetOnlineDDLProgressResponse() {}
+
+  explicit GetOnlineDDLProgressResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOnlineDDLProgressResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOnlineDDLProgressResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOnlineDDLProgressResponse() = default;
 };
 class GetOpLogRequest : public Darabonba::Model {
 public:
@@ -30277,6 +30603,42 @@ public:
 
   virtual ~ListLogicDatabasesRequest() = default;
 };
+class ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> databaseIds{};
+
+  ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds() {}
+
+  explicit ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (databaseIds) {
+      res["DatabaseIds"] = boost::any(*databaseIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseIds") != m.end() && !m["DatabaseIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["DatabaseIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DatabaseIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      databaseIds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds() = default;
+};
 class ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseOwnerIdList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ownerIds{};
@@ -30353,6 +30715,7 @@ class ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabase : public Dara
 public:
   shared_ptr<string> alias{};
   shared_ptr<string> databaseId{};
+  shared_ptr<ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds> databaseIds{};
   shared_ptr<string> dbType{};
   shared_ptr<string> envType{};
   shared_ptr<bool> logic{};
@@ -30376,6 +30739,9 @@ public:
     }
     if (databaseId) {
       res["DatabaseId"] = boost::any(*databaseId);
+    }
+    if (databaseIds) {
+      res["DatabaseIds"] = databaseIds ? boost::any(databaseIds->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (dbType) {
       res["DbType"] = boost::any(*dbType);
@@ -30407,6 +30773,13 @@ public:
     }
     if (m.find("DatabaseId") != m.end() && !m["DatabaseId"].empty()) {
       databaseId = make_shared<string>(boost::any_cast<string>(m["DatabaseId"]));
+    }
+    if (m.find("DatabaseIds") != m.end() && !m["DatabaseIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DatabaseIds"].type()) {
+        ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DatabaseIds"]));
+        databaseIds = make_shared<ListLogicDatabasesResponseBodyLogicDatabaseListLogicDatabaseDatabaseIds>(model1);
+      }
     }
     if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
       dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
@@ -48002,6 +48375,8 @@ public:
   GetMetaTableColumnResponse getMetaTableColumn(shared_ptr<GetMetaTableColumnRequest> request);
   GetMetaTableDetailInfoResponse getMetaTableDetailInfoWithOptions(shared_ptr<GetMetaTableDetailInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMetaTableDetailInfoResponse getMetaTableDetailInfo(shared_ptr<GetMetaTableDetailInfoRequest> request);
+  GetOnlineDDLProgressResponse getOnlineDDLProgressWithOptions(shared_ptr<GetOnlineDDLProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOnlineDDLProgressResponse getOnlineDDLProgress(shared_ptr<GetOnlineDDLProgressRequest> request);
   GetOpLogResponse getOpLogWithOptions(shared_ptr<GetOpLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOpLogResponse getOpLog(shared_ptr<GetOpLogRequest> request);
   GetOrderAttachmentFileResponse getOrderAttachmentFileWithOptions(shared_ptr<GetOrderAttachmentFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
