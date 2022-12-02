@@ -926,6 +926,74 @@ PutEnvironmentResponse Alibabacloud_Serverless20210924::Client::putEnvironmentWi
   return PutEnvironmentResponse(callApi(params, req, runtime));
 }
 
+PutPipelineStatusResponse Alibabacloud_Serverless20210924::Client::putPipelineStatus(shared_ptr<string> name, shared_ptr<PutPipelineStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putPipelineStatusWithOptions(name, request, headers, runtime);
+}
+
+PutPipelineStatusResponse Alibabacloud_Serverless20210924::Client::putPipelineStatusWithOptions(shared_ptr<string> name,
+                                                                                                shared_ptr<PutPipelineStatusRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("force", *request->force));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutPipelineStatus"))},
+    {"version", boost::any(string("2021-09-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apis/serverlessdeployment/v1/pipelines/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)) + string("/status"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutPipelineStatusResponse(callApi(params, req, runtime));
+}
+
+PutPipelineTemplateResponse Alibabacloud_Serverless20210924::Client::putPipelineTemplate(shared_ptr<string> name, shared_ptr<PutPipelineTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putPipelineTemplateWithOptions(name, request, headers, runtime);
+}
+
+PutPipelineTemplateResponse Alibabacloud_Serverless20210924::Client::putPipelineTemplateWithOptions(shared_ptr<string> name,
+                                                                                                    shared_ptr<PutPipelineTemplateRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("force", *request->force));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutPipelineTemplate"))},
+    {"version", boost::any(string("2021-09-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apis/serverlessdeployment/v1/pipelinetemplates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutPipelineTemplateResponse(callApi(params, req, runtime));
+}
+
 PutServiceResponse Alibabacloud_Serverless20210924::Client::putService(shared_ptr<string> name, shared_ptr<PutServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
@@ -953,6 +1021,74 @@ PutServiceResponse Alibabacloud_Serverless20210924::Client::putServiceWithOption
     {"bodyType", boost::any(string("json"))}
   }));
   return PutServiceResponse(callApi(params, req, runtime));
+}
+
+PutTaskStatusResponse Alibabacloud_Serverless20210924::Client::putTaskStatus(shared_ptr<string> name, shared_ptr<PutTaskStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putTaskStatusWithOptions(name, request, headers, runtime);
+}
+
+PutTaskStatusResponse Alibabacloud_Serverless20210924::Client::putTaskStatusWithOptions(shared_ptr<string> name,
+                                                                                        shared_ptr<PutTaskStatusRequest> request,
+                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("force", *request->force));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutTaskStatus"))},
+    {"version", boost::any(string("2021-09-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apis/serverlessdeployment/v1/tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)) + string("/status"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutTaskStatusResponse(callApi(params, req, runtime));
+}
+
+PutTaskTemplateResponse Alibabacloud_Serverless20210924::Client::putTaskTemplate(shared_ptr<string> name, shared_ptr<PutTaskTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putTaskTemplateWithOptions(name, request, headers, runtime);
+}
+
+PutTaskTemplateResponse Alibabacloud_Serverless20210924::Client::putTaskTemplateWithOptions(shared_ptr<string> name,
+                                                                                            shared_ptr<PutTaskTemplateRequest> request,
+                                                                                            shared_ptr<map<string, string>> headers,
+                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("force", *request->force));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutTaskTemplate"))},
+    {"version", boost::any(string("2021-09-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apis/serverlessdeployment/v1/tasktemplates/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutTaskTemplateResponse(callApi(params, req, runtime));
 }
 
 PutTemplateResponse Alibabacloud_Serverless20210924::Client::putTemplate(shared_ptr<string> name, shared_ptr<PutTemplateRequest> request) {
