@@ -256,9 +256,6 @@ AbstractFilmVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractFilmV
 AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVideoTemplateWithOptions(shared_ptr<AddFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoURL)) {
     body->insert(pair<string, string>("VideoURL", *request->videoURL));
   }
@@ -702,9 +699,6 @@ DeleteFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::deleteF
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1491,9 +1485,6 @@ MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoM
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    body->insert(pair<string, string>("UserId", *request->userId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1592,9 +1583,6 @@ QueryFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::queryFac
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
-    query->insert(pair<string, string>("UserId", *request->userId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
