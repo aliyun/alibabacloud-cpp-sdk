@@ -1214,6 +1214,7 @@ public:
 };
 class CreateDBClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> allowShutDown{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<string> backupRetentionPolicyOnClusterDeletion{};
   shared_ptr<string> clientToken{};
@@ -1238,8 +1239,14 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> scaleMax{};
+  shared_ptr<string> scaleMin{};
+  shared_ptr<string> scaleRoNumMax{};
+  shared_ptr<string> scaleRoNumMin{};
   shared_ptr<string> securityIPList{};
+  shared_ptr<string> serverlessType{};
   shared_ptr<string> sourceResourceId{};
+  shared_ptr<string> storageType{};
   shared_ptr<bool> TDEStatus{};
   shared_ptr<vector<CreateDBClusterRequestTag>> tag{};
   shared_ptr<string> usedTime{};
@@ -1257,6 +1264,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowShutDown) {
+      res["AllowShutDown"] = boost::any(*allowShutDown);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -1329,11 +1339,29 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
+    if (scaleRoNumMax) {
+      res["ScaleRoNumMax"] = boost::any(*scaleRoNumMax);
+    }
+    if (scaleRoNumMin) {
+      res["ScaleRoNumMin"] = boost::any(*scaleRoNumMin);
+    }
     if (securityIPList) {
       res["SecurityIPList"] = boost::any(*securityIPList);
     }
+    if (serverlessType) {
+      res["ServerlessType"] = boost::any(*serverlessType);
+    }
     if (sourceResourceId) {
       res["SourceResourceId"] = boost::any(*sourceResourceId);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (TDEStatus) {
       res["TDEStatus"] = boost::any(*TDEStatus);
@@ -1361,6 +1389,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowShutDown") != m.end() && !m["AllowShutDown"].empty()) {
+      allowShutDown = make_shared<string>(boost::any_cast<string>(m["AllowShutDown"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -1433,11 +1464,29 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<string>(boost::any_cast<string>(m["ScaleMin"]));
+    }
+    if (m.find("ScaleRoNumMax") != m.end() && !m["ScaleRoNumMax"].empty()) {
+      scaleRoNumMax = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMax"]));
+    }
+    if (m.find("ScaleRoNumMin") != m.end() && !m["ScaleRoNumMin"].empty()) {
+      scaleRoNumMin = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMin"]));
+    }
     if (m.find("SecurityIPList") != m.end() && !m["SecurityIPList"].empty()) {
       securityIPList = make_shared<string>(boost::any_cast<string>(m["SecurityIPList"]));
     }
+    if (m.find("ServerlessType") != m.end() && !m["ServerlessType"].empty()) {
+      serverlessType = make_shared<string>(boost::any_cast<string>(m["ServerlessType"]));
+    }
     if (m.find("SourceResourceId") != m.end() && !m["SourceResourceId"].empty()) {
       sourceResourceId = make_shared<string>(boost::any_cast<string>(m["SourceResourceId"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("TDEStatus") != m.end() && !m["TDEStatus"].empty()) {
       TDEStatus = make_shared<bool>(boost::any_cast<bool>(m["TDEStatus"]));
@@ -2862,6 +2911,253 @@ public:
 
 
   virtual ~CreateGlobalDatabaseNetworkResponse() = default;
+};
+class CreateGlobalSecurityIPGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  CreateGlobalSecurityIPGroupRequest() {}
+
+  explicit CreateGlobalSecurityIPGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~CreateGlobalSecurityIPGroupRequest() = default;
+};
+class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() {}
+
+  explicit CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() = default;
+};
+class CreateGlobalSecurityIPGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>> globalSecurityIPGroup{};
+  shared_ptr<string> requestId{};
+
+  CreateGlobalSecurityIPGroupResponseBody() {}
+
+  explicit CreateGlobalSecurityIPGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityIPGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroup"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityIPGroup") != m.end() && !m["GlobalSecurityIPGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroup"].type()) {
+        vector<CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroup = make_shared<vector<CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateGlobalSecurityIPGroupResponseBody() = default;
+};
+class CreateGlobalSecurityIPGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateGlobalSecurityIPGroupResponseBody> body{};
+
+  CreateGlobalSecurityIPGroupResponse() {}
+
+  explicit CreateGlobalSecurityIPGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateGlobalSecurityIPGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateGlobalSecurityIPGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateGlobalSecurityIPGroupResponse() = default;
 };
 class CreateParameterGroupRequest : public Darabonba::Model {
 public:
@@ -4686,6 +4982,267 @@ public:
 
 
   virtual ~DeleteGlobalDatabaseNetworkResponse() = default;
+};
+class DeleteGlobalSecurityIPGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  DeleteGlobalSecurityIPGroupRequest() {}
+
+  explicit DeleteGlobalSecurityIPGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DeleteGlobalSecurityIPGroupRequest() = default;
+};
+class DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> DBInstances{};
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() {}
+
+  explicit DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstances) {
+      res["DBInstances"] = boost::any(*DBInstances);
+    }
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstances") != m.end() && !m["DBInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstances = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() = default;
+};
+class DeleteGlobalSecurityIPGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>> globalSecurityIPGroup{};
+  shared_ptr<string> requestId{};
+
+  DeleteGlobalSecurityIPGroupResponseBody() {}
+
+  explicit DeleteGlobalSecurityIPGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityIPGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroup"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityIPGroup") != m.end() && !m["GlobalSecurityIPGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroup"].type()) {
+        vector<DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroup = make_shared<vector<DeleteGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteGlobalSecurityIPGroupResponseBody() = default;
+};
+class DeleteGlobalSecurityIPGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteGlobalSecurityIPGroupResponseBody> body{};
+
+  DeleteGlobalSecurityIPGroupResponse() {}
+
+  explicit DeleteGlobalSecurityIPGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteGlobalSecurityIPGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteGlobalSecurityIPGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteGlobalSecurityIPGroupResponse() = default;
 };
 class DeleteMaskingRulesRequest : public Darabonba::Model {
 public:
@@ -7944,6 +8501,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
   shared_ptr<string> sccMode{};
+  shared_ptr<string> serverWeight{};
   shared_ptr<string> zoneId{};
 
   DescribeDBClusterAttributeResponseBodyDBNodes() {}
@@ -7995,6 +8553,9 @@ public:
     if (sccMode) {
       res["SccMode"] = boost::any(*sccMode);
     }
+    if (serverWeight) {
+      res["ServerWeight"] = boost::any(*serverWeight);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -8040,6 +8601,9 @@ public:
     }
     if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
       sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
+    }
+    if (m.find("ServerWeight") != m.end() && !m["ServerWeight"].empty()) {
+      serverWeight = make_shared<string>(boost::any_cast<string>(m["ServerWeight"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -9687,6 +10251,7 @@ public:
   shared_ptr<string> rdsReadWriteMode{};
   shared_ptr<string> requestId{};
   shared_ptr<string> sourceRDSDBInstanceId{};
+  shared_ptr<string> srcDbType{};
   shared_ptr<string> topologies{};
 
   DescribeDBClusterMigrationResponseBody() {}
@@ -9742,6 +10307,9 @@ public:
     }
     if (sourceRDSDBInstanceId) {
       res["SourceRDSDBInstanceId"] = boost::any(*sourceRDSDBInstanceId);
+    }
+    if (srcDbType) {
+      res["SrcDbType"] = boost::any(*srcDbType);
     }
     if (topologies) {
       res["Topologies"] = boost::any(*topologies);
@@ -9805,6 +10373,9 @@ public:
     }
     if (m.find("SourceRDSDBInstanceId") != m.end() && !m["SourceRDSDBInstanceId"].empty()) {
       sourceRDSDBInstanceId = make_shared<string>(boost::any_cast<string>(m["SourceRDSDBInstanceId"]));
+    }
+    if (m.find("SrcDbType") != m.end() && !m["SrcDbType"].empty()) {
+      srcDbType = make_shared<string>(boost::any_cast<string>(m["SrcDbType"]));
     }
     if (m.find("Topologies") != m.end() && !m["Topologies"].empty()) {
       topologies = make_shared<string>(boost::any_cast<string>(m["Topologies"]));
@@ -10949,6 +11520,203 @@ public:
 
   virtual ~DescribeDBClusterSSLResponse() = default;
 };
+class DescribeDBClusterServerlessConfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DescribeDBClusterServerlessConfRequest() {}
+
+  explicit DescribeDBClusterServerlessConfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DescribeDBClusterServerlessConfRequest() = default;
+};
+class DescribeDBClusterServerlessConfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> allowShutDown{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> scaleMax{};
+  shared_ptr<string> scaleMin{};
+  shared_ptr<string> scaleRoNumMax{};
+  shared_ptr<string> scaleRoNumMin{};
+  shared_ptr<string> secondsUntilAutoPause{};
+
+  DescribeDBClusterServerlessConfResponseBody() {}
+
+  explicit DescribeDBClusterServerlessConfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowShutDown) {
+      res["AllowShutDown"] = boost::any(*allowShutDown);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
+    if (scaleRoNumMax) {
+      res["ScaleRoNumMax"] = boost::any(*scaleRoNumMax);
+    }
+    if (scaleRoNumMin) {
+      res["ScaleRoNumMin"] = boost::any(*scaleRoNumMin);
+    }
+    if (secondsUntilAutoPause) {
+      res["SecondsUntilAutoPause"] = boost::any(*secondsUntilAutoPause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowShutDown") != m.end() && !m["AllowShutDown"].empty()) {
+      allowShutDown = make_shared<string>(boost::any_cast<string>(m["AllowShutDown"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<string>(boost::any_cast<string>(m["ScaleMin"]));
+    }
+    if (m.find("ScaleRoNumMax") != m.end() && !m["ScaleRoNumMax"].empty()) {
+      scaleRoNumMax = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMax"]));
+    }
+    if (m.find("ScaleRoNumMin") != m.end() && !m["ScaleRoNumMin"].empty()) {
+      scaleRoNumMin = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMin"]));
+    }
+    if (m.find("SecondsUntilAutoPause") != m.end() && !m["SecondsUntilAutoPause"].empty()) {
+      secondsUntilAutoPause = make_shared<string>(boost::any_cast<string>(m["SecondsUntilAutoPause"]));
+    }
+  }
+
+
+  virtual ~DescribeDBClusterServerlessConfResponseBody() = default;
+};
+class DescribeDBClusterServerlessConfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDBClusterServerlessConfResponseBody> body{};
+
+  DescribeDBClusterServerlessConfResponse() {}
+
+  explicit DescribeDBClusterServerlessConfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDBClusterServerlessConfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDBClusterServerlessConfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDBClusterServerlessConfResponse() = default;
+};
 class DescribeDBClusterTDERequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
@@ -11395,11 +12163,13 @@ public:
 };
 class DescribeDBClustersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> connectionString{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterIds{};
   shared_ptr<string> DBClusterStatus{};
   shared_ptr<string> DBNodeIds{};
   shared_ptr<string> DBType{};
+  shared_ptr<string> DBVersion{};
   shared_ptr<bool> expired{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -11424,6 +12194,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (connectionString) {
+      res["ConnectionString"] = boost::any(*connectionString);
+    }
     if (DBClusterDescription) {
       res["DBClusterDescription"] = boost::any(*DBClusterDescription);
     }
@@ -11438,6 +12211,9 @@ public:
     }
     if (DBType) {
       res["DBType"] = boost::any(*DBType);
+    }
+    if (DBVersion) {
+      res["DBVersion"] = boost::any(*DBVersion);
     }
     if (expired) {
       res["Expired"] = boost::any(*expired);
@@ -11486,6 +12262,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
+      connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
     if (m.find("DBClusterDescription") != m.end() && !m["DBClusterDescription"].empty()) {
       DBClusterDescription = make_shared<string>(boost::any_cast<string>(m["DBClusterDescription"]));
     }
@@ -11500,6 +12279,9 @@ public:
     }
     if (m.find("DBType") != m.end() && !m["DBType"].empty()) {
       DBType = make_shared<string>(boost::any_cast<string>(m["DBType"]));
+    }
+    if (m.find("DBVersion") != m.end() && !m["DBVersion"].empty()) {
+      DBVersion = make_shared<string>(boost::any_cast<string>(m["DBVersion"]));
     }
     if (m.find("Expired") != m.end() && !m["Expired"].empty()) {
       expired = make_shared<bool>(boost::any_cast<bool>(m["Expired"]));
@@ -15788,6 +16570,507 @@ public:
 
 
   virtual ~DescribeGlobalDatabaseNetworksResponse() = default;
+};
+class DescribeGlobalSecurityIPGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  DescribeGlobalSecurityIPGroupRequest() {}
+
+  explicit DescribeGlobalSecurityIPGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupRequest() = default;
+};
+class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> DBInstances{};
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() {}
+
+  explicit DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstances) {
+      res["DBInstances"] = boost::any(*DBInstances);
+    }
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstances") != m.end() && !m["DBInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstances = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() = default;
+};
+class DescribeGlobalSecurityIPGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>> globalSecurityIPGroup{};
+  shared_ptr<string> requestId{};
+
+  DescribeGlobalSecurityIPGroupResponseBody() {}
+
+  explicit DescribeGlobalSecurityIPGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityIPGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroup"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityIPGroup") != m.end() && !m["GlobalSecurityIPGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroup"].type()) {
+        vector<DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroup = make_shared<vector<DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupResponseBody() = default;
+};
+class DescribeGlobalSecurityIPGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGlobalSecurityIPGroupResponseBody> body{};
+
+  DescribeGlobalSecurityIPGroupResponse() {}
+
+  explicit DescribeGlobalSecurityIPGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGlobalSecurityIPGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGlobalSecurityIPGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupResponse() = default;
+};
+class DescribeGlobalSecurityIPGroupRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  DescribeGlobalSecurityIPGroupRelationRequest() {}
+
+  explicit DescribeGlobalSecurityIPGroupRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupRelationRequest() = default;
+};
+class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel() {}
+
+  explicit DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel() = default;
+};
+class DescribeGlobalSecurityIPGroupRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<vector<DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel>> globalSecurityIPGroupRel{};
+  shared_ptr<string> requestId{};
+
+  DescribeGlobalSecurityIPGroupRelationResponseBody() {}
+
+  explicit DescribeGlobalSecurityIPGroupRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (globalSecurityIPGroupRel) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroupRel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroupRel"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("GlobalSecurityIPGroupRel") != m.end() && !m["GlobalSecurityIPGroupRel"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroupRel"].type()) {
+        vector<DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroupRel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroupRel = make_shared<vector<DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupRelationResponseBody() = default;
+};
+class DescribeGlobalSecurityIPGroupRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGlobalSecurityIPGroupRelationResponseBody> body{};
+
+  DescribeGlobalSecurityIPGroupRelationResponse() {}
+
+  explicit DescribeGlobalSecurityIPGroupRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGlobalSecurityIPGroupRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGlobalSecurityIPGroupRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGlobalSecurityIPGroupRelationResponse() = default;
 };
 class DescribeLogBackupPolicyRequest : public Darabonba::Model {
 public:
@@ -24427,6 +25710,203 @@ public:
 
   virtual ~ModifyDBClusterSSLResponse() = default;
 };
+class ModifyDBClusterServerlessConfRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> allowShutDown{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> scaleMax{};
+  shared_ptr<string> scaleMin{};
+  shared_ptr<string> scaleRoNumMax{};
+  shared_ptr<string> scaleRoNumMin{};
+  shared_ptr<string> secondsUntilAutoPause{};
+
+  ModifyDBClusterServerlessConfRequest() {}
+
+  explicit ModifyDBClusterServerlessConfRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowShutDown) {
+      res["AllowShutDown"] = boost::any(*allowShutDown);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
+    if (scaleRoNumMax) {
+      res["ScaleRoNumMax"] = boost::any(*scaleRoNumMax);
+    }
+    if (scaleRoNumMin) {
+      res["ScaleRoNumMin"] = boost::any(*scaleRoNumMin);
+    }
+    if (secondsUntilAutoPause) {
+      res["SecondsUntilAutoPause"] = boost::any(*secondsUntilAutoPause);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowShutDown") != m.end() && !m["AllowShutDown"].empty()) {
+      allowShutDown = make_shared<string>(boost::any_cast<string>(m["AllowShutDown"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<string>(boost::any_cast<string>(m["ScaleMin"]));
+    }
+    if (m.find("ScaleRoNumMax") != m.end() && !m["ScaleRoNumMax"].empty()) {
+      scaleRoNumMax = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMax"]));
+    }
+    if (m.find("ScaleRoNumMin") != m.end() && !m["ScaleRoNumMin"].empty()) {
+      scaleRoNumMin = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMin"]));
+    }
+    if (m.find("SecondsUntilAutoPause") != m.end() && !m["SecondsUntilAutoPause"].empty()) {
+      secondsUntilAutoPause = make_shared<string>(boost::any_cast<string>(m["SecondsUntilAutoPause"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterServerlessConfRequest() = default;
+};
+class ModifyDBClusterServerlessConfResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> requestId{};
+
+  ModifyDBClusterServerlessConfResponseBody() {}
+
+  explicit ModifyDBClusterServerlessConfResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyDBClusterServerlessConfResponseBody() = default;
+};
+class ModifyDBClusterServerlessConfResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDBClusterServerlessConfResponseBody> body{};
+
+  ModifyDBClusterServerlessConfResponse() {}
+
+  explicit ModifyDBClusterServerlessConfResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDBClusterServerlessConfResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDBClusterServerlessConfResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDBClusterServerlessConfResponse() = default;
+};
 class ModifyDBClusterTDERequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
@@ -25771,6 +27251,775 @@ public:
 
 
   virtual ~ModifyGlobalDatabaseNetworkResponse() = default;
+};
+class ModifyGlobalSecurityIPGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  ModifyGlobalSecurityIPGroupRequest() {}
+
+  explicit ModifyGlobalSecurityIPGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupRequest() = default;
+};
+class ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> DBInstances{};
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() {}
+
+  explicit ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstances) {
+      res["DBInstances"] = boost::any(*DBInstances);
+    }
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstances") != m.end() && !m["DBInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DBInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DBInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      DBInstances = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup() = default;
+};
+class ModifyGlobalSecurityIPGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>> globalSecurityIPGroup{};
+  shared_ptr<string> requestId{};
+
+  ModifyGlobalSecurityIPGroupResponseBody() {}
+
+  explicit ModifyGlobalSecurityIPGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityIPGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroup"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityIPGroup") != m.end() && !m["GlobalSecurityIPGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroup"].type()) {
+        vector<ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroup = make_shared<vector<ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupResponseBody() = default;
+};
+class ModifyGlobalSecurityIPGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyGlobalSecurityIPGroupResponseBody> body{};
+
+  ModifyGlobalSecurityIPGroupResponse() {}
+
+  explicit ModifyGlobalSecurityIPGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyGlobalSecurityIPGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyGlobalSecurityIPGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupResponse() = default;
+};
+class ModifyGlobalSecurityIPGroupNameRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  ModifyGlobalSecurityIPGroupNameRequest() {}
+
+  explicit ModifyGlobalSecurityIPGroupNameRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupNameRequest() = default;
+};
+class ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup() {}
+
+  explicit ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup() = default;
+};
+class ModifyGlobalSecurityIPGroupNameResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup>> globalSecurityIPGroup{};
+  shared_ptr<string> requestId{};
+
+  ModifyGlobalSecurityIPGroupNameResponseBody() {}
+
+  explicit ModifyGlobalSecurityIPGroupNameResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (globalSecurityIPGroup) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroup){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroup"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GlobalSecurityIPGroup") != m.end() && !m["GlobalSecurityIPGroup"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroup"].type()) {
+        vector<ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroup"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroup = make_shared<vector<ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupNameResponseBody() = default;
+};
+class ModifyGlobalSecurityIPGroupNameResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyGlobalSecurityIPGroupNameResponseBody> body{};
+
+  ModifyGlobalSecurityIPGroupNameResponse() {}
+
+  explicit ModifyGlobalSecurityIPGroupNameResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyGlobalSecurityIPGroupNameResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyGlobalSecurityIPGroupNameResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupNameResponse() = default;
+};
+class ModifyGlobalSecurityIPGroupRelationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  ModifyGlobalSecurityIPGroupRelationRequest() {}
+
+  explicit ModifyGlobalSecurityIPGroupRelationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupRelationRequest() = default;
+};
+class ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel : public Darabonba::Model {
+public:
+  shared_ptr<string> GIpList{};
+  shared_ptr<string> globalIgName{};
+  shared_ptr<string> globalSecurityGroupId{};
+  shared_ptr<string> regionId{};
+
+  ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel() {}
+
+  explicit ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (GIpList) {
+      res["GIpList"] = boost::any(*GIpList);
+    }
+    if (globalIgName) {
+      res["GlobalIgName"] = boost::any(*globalIgName);
+    }
+    if (globalSecurityGroupId) {
+      res["GlobalSecurityGroupId"] = boost::any(*globalSecurityGroupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GIpList") != m.end() && !m["GIpList"].empty()) {
+      GIpList = make_shared<string>(boost::any_cast<string>(m["GIpList"]));
+    }
+    if (m.find("GlobalIgName") != m.end() && !m["GlobalIgName"].empty()) {
+      globalIgName = make_shared<string>(boost::any_cast<string>(m["GlobalIgName"]));
+    }
+    if (m.find("GlobalSecurityGroupId") != m.end() && !m["GlobalSecurityGroupId"].empty()) {
+      globalSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["GlobalSecurityGroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel() = default;
+};
+class ModifyGlobalSecurityIPGroupRelationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<vector<ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel>> globalSecurityIPGroupRel{};
+  shared_ptr<string> requestId{};
+
+  ModifyGlobalSecurityIPGroupRelationResponseBody() {}
+
+  explicit ModifyGlobalSecurityIPGroupRelationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (globalSecurityIPGroupRel) {
+      vector<boost::any> temp1;
+      for(auto item1:*globalSecurityIPGroupRel){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["GlobalSecurityIPGroupRel"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("GlobalSecurityIPGroupRel") != m.end() && !m["GlobalSecurityIPGroupRel"].empty()) {
+      if (typeid(vector<boost::any>) == m["GlobalSecurityIPGroupRel"].type()) {
+        vector<ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["GlobalSecurityIPGroupRel"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        globalSecurityIPGroupRel = make_shared<vector<ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupRelationResponseBody() = default;
+};
+class ModifyGlobalSecurityIPGroupRelationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyGlobalSecurityIPGroupRelationResponseBody> body{};
+
+  ModifyGlobalSecurityIPGroupRelationResponse() {}
+
+  explicit ModifyGlobalSecurityIPGroupRelationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyGlobalSecurityIPGroupRelationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyGlobalSecurityIPGroupRelationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyGlobalSecurityIPGroupRelationResponse() = default;
 };
 class ModifyLogBackupPolicyRequest : public Darabonba::Model {
 public:
@@ -27430,6 +29679,7 @@ public:
 class SwitchOverGlobalDatabaseNetworkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> forced{};
   shared_ptr<string> GDNId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -27451,6 +29701,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (forced) {
+      res["Forced"] = boost::any(*forced);
     }
     if (GDNId) {
       res["GDNId"] = boost::any(*GDNId);
@@ -27482,6 +29735,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("Forced") != m.end() && !m["Forced"].empty()) {
+      forced = make_shared<bool>(boost::any_cast<bool>(m["Forced"]));
     }
     if (m.find("GDNId") != m.end() && !m["GDNId"].empty()) {
       GDNId = make_shared<string>(boost::any_cast<string>(m["GDNId"]));
@@ -28895,6 +31151,8 @@ public:
   CreateDatabaseResponse createDatabase(shared_ptr<CreateDatabaseRequest> request);
   CreateGlobalDatabaseNetworkResponse createGlobalDatabaseNetworkWithOptions(shared_ptr<CreateGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateGlobalDatabaseNetworkResponse createGlobalDatabaseNetwork(shared_ptr<CreateGlobalDatabaseNetworkRequest> request);
+  CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroupWithOptions(shared_ptr<CreateGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateGlobalSecurityIPGroupResponse createGlobalSecurityIPGroup(shared_ptr<CreateGlobalSecurityIPGroupRequest> request);
   CreateParameterGroupResponse createParameterGroupWithOptions(shared_ptr<CreateParameterGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateParameterGroupResponse createParameterGroup(shared_ptr<CreateParameterGroupRequest> request);
   CreateStoragePlanResponse createStoragePlanWithOptions(shared_ptr<CreateStoragePlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28917,6 +31175,8 @@ public:
   DeleteDatabaseResponse deleteDatabase(shared_ptr<DeleteDatabaseRequest> request);
   DeleteGlobalDatabaseNetworkResponse deleteGlobalDatabaseNetworkWithOptions(shared_ptr<DeleteGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGlobalDatabaseNetworkResponse deleteGlobalDatabaseNetwork(shared_ptr<DeleteGlobalDatabaseNetworkRequest> request);
+  DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroupWithOptions(shared_ptr<DeleteGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteGlobalSecurityIPGroupResponse deleteGlobalSecurityIPGroup(shared_ptr<DeleteGlobalSecurityIPGroupRequest> request);
   DeleteMaskingRulesResponse deleteMaskingRulesWithOptions(shared_ptr<DeleteMaskingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteMaskingRulesResponse deleteMaskingRules(shared_ptr<DeleteMaskingRulesRequest> request);
   DeleteParameterGroupResponse deleteParameterGroupWithOptions(shared_ptr<DeleteParameterGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28959,6 +31219,8 @@ public:
   DescribeDBClusterPerformanceResponse describeDBClusterPerformance(shared_ptr<DescribeDBClusterPerformanceRequest> request);
   DescribeDBClusterSSLResponse describeDBClusterSSLWithOptions(shared_ptr<DescribeDBClusterSSLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBClusterSSLResponse describeDBClusterSSL(shared_ptr<DescribeDBClusterSSLRequest> request);
+  DescribeDBClusterServerlessConfResponse describeDBClusterServerlessConfWithOptions(shared_ptr<DescribeDBClusterServerlessConfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDBClusterServerlessConfResponse describeDBClusterServerlessConf(shared_ptr<DescribeDBClusterServerlessConfRequest> request);
   DescribeDBClusterTDEResponse describeDBClusterTDEWithOptions(shared_ptr<DescribeDBClusterTDERequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDBClusterTDEResponse describeDBClusterTDE(shared_ptr<DescribeDBClusterTDERequest> request);
   DescribeDBClusterVersionResponse describeDBClusterVersionWithOptions(shared_ptr<DescribeDBClusterVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -28985,6 +31247,10 @@ public:
   DescribeGlobalDatabaseNetworkResponse describeGlobalDatabaseNetwork(shared_ptr<DescribeGlobalDatabaseNetworkRequest> request);
   DescribeGlobalDatabaseNetworksResponse describeGlobalDatabaseNetworksWithOptions(shared_ptr<DescribeGlobalDatabaseNetworksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGlobalDatabaseNetworksResponse describeGlobalDatabaseNetworks(shared_ptr<DescribeGlobalDatabaseNetworksRequest> request);
+  DescribeGlobalSecurityIPGroupResponse describeGlobalSecurityIPGroupWithOptions(shared_ptr<DescribeGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGlobalSecurityIPGroupResponse describeGlobalSecurityIPGroup(shared_ptr<DescribeGlobalSecurityIPGroupRequest> request);
+  DescribeGlobalSecurityIPGroupRelationResponse describeGlobalSecurityIPGroupRelationWithOptions(shared_ptr<DescribeGlobalSecurityIPGroupRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGlobalSecurityIPGroupRelationResponse describeGlobalSecurityIPGroupRelation(shared_ptr<DescribeGlobalSecurityIPGroupRelationRequest> request);
   DescribeLogBackupPolicyResponse describeLogBackupPolicyWithOptions(shared_ptr<DescribeLogBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLogBackupPolicyResponse describeLogBackupPolicy(shared_ptr<DescribeLogBackupPolicyRequest> request);
   DescribeMaskingRulesResponse describeMaskingRulesWithOptions(shared_ptr<DescribeMaskingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -29059,6 +31325,8 @@ public:
   ModifyDBClusterResourceGroupResponse modifyDBClusterResourceGroup(shared_ptr<ModifyDBClusterResourceGroupRequest> request);
   ModifyDBClusterSSLResponse modifyDBClusterSSLWithOptions(shared_ptr<ModifyDBClusterSSLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterSSLResponse modifyDBClusterSSL(shared_ptr<ModifyDBClusterSSLRequest> request);
+  ModifyDBClusterServerlessConfResponse modifyDBClusterServerlessConfWithOptions(shared_ptr<ModifyDBClusterServerlessConfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDBClusterServerlessConfResponse modifyDBClusterServerlessConf(shared_ptr<ModifyDBClusterServerlessConfRequest> request);
   ModifyDBClusterTDEResponse modifyDBClusterTDEWithOptions(shared_ptr<ModifyDBClusterTDERequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDBClusterTDEResponse modifyDBClusterTDE(shared_ptr<ModifyDBClusterTDERequest> request);
   ModifyDBDescriptionResponse modifyDBDescriptionWithOptions(shared_ptr<ModifyDBDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -29073,6 +31341,12 @@ public:
   ModifyDBNodesParametersResponse modifyDBNodesParameters(shared_ptr<ModifyDBNodesParametersRequest> request);
   ModifyGlobalDatabaseNetworkResponse modifyGlobalDatabaseNetworkWithOptions(shared_ptr<ModifyGlobalDatabaseNetworkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyGlobalDatabaseNetworkResponse modifyGlobalDatabaseNetwork(shared_ptr<ModifyGlobalDatabaseNetworkRequest> request);
+  ModifyGlobalSecurityIPGroupResponse modifyGlobalSecurityIPGroupWithOptions(shared_ptr<ModifyGlobalSecurityIPGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyGlobalSecurityIPGroupResponse modifyGlobalSecurityIPGroup(shared_ptr<ModifyGlobalSecurityIPGroupRequest> request);
+  ModifyGlobalSecurityIPGroupNameResponse modifyGlobalSecurityIPGroupNameWithOptions(shared_ptr<ModifyGlobalSecurityIPGroupNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyGlobalSecurityIPGroupNameResponse modifyGlobalSecurityIPGroupName(shared_ptr<ModifyGlobalSecurityIPGroupNameRequest> request);
+  ModifyGlobalSecurityIPGroupRelationResponse modifyGlobalSecurityIPGroupRelationWithOptions(shared_ptr<ModifyGlobalSecurityIPGroupRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyGlobalSecurityIPGroupRelationResponse modifyGlobalSecurityIPGroupRelation(shared_ptr<ModifyGlobalSecurityIPGroupRelationRequest> request);
   ModifyLogBackupPolicyResponse modifyLogBackupPolicyWithOptions(shared_ptr<ModifyLogBackupPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyLogBackupPolicyResponse modifyLogBackupPolicy(shared_ptr<ModifyLogBackupPolicyRequest> request);
   ModifyMaskingRulesResponse modifyMaskingRulesWithOptions(shared_ptr<ModifyMaskingRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
