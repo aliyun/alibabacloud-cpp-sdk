@@ -38444,7 +38444,7 @@ class QueryRequestLogsResponseBodyRequestLogsRequestLog : public Darabonba::Mode
 public:
   shared_ptr<string> apiId{};
   shared_ptr<string> apiName{};
-  shared_ptr<long> clientIp{};
+  shared_ptr<string> clientIp{};
   shared_ptr<string> clientNonce{};
   shared_ptr<string> consumerAppId{};
   shared_ptr<string> consumerAppKey{};
@@ -38604,7 +38604,7 @@ public:
       apiName = make_shared<string>(boost::any_cast<string>(m["ApiName"]));
     }
     if (m.find("ClientIp") != m.end() && !m["ClientIp"].empty()) {
-      clientIp = make_shared<long>(boost::any_cast<long>(m["ClientIp"]));
+      clientIp = make_shared<string>(boost::any_cast<string>(m["ClientIp"]));
     }
     if (m.find("ClientNonce") != m.end() && !m["ClientNonce"].empty()) {
       clientNonce = make_shared<string>(boost::any_cast<string>(m["ClientNonce"]));
