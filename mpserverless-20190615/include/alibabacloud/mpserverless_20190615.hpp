@@ -12035,7 +12035,6 @@ public:
 class QuerySpaceUsageResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
-  shared_ptr<string> gmtCreate{};
   shared_ptr<string> requestId{};
   shared_ptr<string> spaceId{};
   shared_ptr<vector<QuerySpaceUsageResponseBodySpaceUsageDataList>> spaceUsageDataList{};
@@ -12053,9 +12052,6 @@ public:
     map<string, boost::any> res;
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
-    }
-    if (gmtCreate) {
-      res["GmtCreate"] = boost::any(*gmtCreate);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -12079,9 +12075,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
-      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
