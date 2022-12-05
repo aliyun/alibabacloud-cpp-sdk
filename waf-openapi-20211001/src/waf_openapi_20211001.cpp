@@ -412,6 +412,9 @@ DeleteDefenseTemplateResponse Alibabacloud_Waf-openapi20211001::Client::deleteDe
 DeleteDomainResponse Alibabacloud_Waf-openapi20211001::Client::deleteDomainWithOptions(shared_ptr<DeleteDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessType)) {
+    query->insert(pair<string, string>("AccessType", *request->accessType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
   }

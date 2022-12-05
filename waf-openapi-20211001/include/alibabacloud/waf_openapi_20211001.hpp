@@ -787,11 +787,17 @@ public:
 class CreateDomainRequestRedirect : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> backends{};
+  shared_ptr<bool> cnameEnabled{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
   shared_ptr<string> loadbalance{};
   shared_ptr<long> readTimeout{};
   shared_ptr<vector<CreateDomainRequestRedirectRequestHeaders>> requestHeaders{};
+  shared_ptr<bool> retry{};
+  shared_ptr<string> routingRules{};
   shared_ptr<bool> sniEnabled{};
   shared_ptr<string> sniHost{};
   shared_ptr<long> writeTimeout{};
@@ -809,11 +815,23 @@ public:
     if (backends) {
       res["Backends"] = boost::any(*backends);
     }
+    if (cnameEnabled) {
+      res["CnameEnabled"] = boost::any(*cnameEnabled);
+    }
     if (connectTimeout) {
       res["ConnectTimeout"] = boost::any(*connectTimeout);
     }
     if (focusHttpBackend) {
       res["FocusHttpBackend"] = boost::any(*focusHttpBackend);
+    }
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
     }
     if (loadbalance) {
       res["Loadbalance"] = boost::any(*loadbalance);
@@ -827,6 +845,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RequestHeaders"] = boost::any(temp1);
+    }
+    if (retry) {
+      res["Retry"] = boost::any(*retry);
+    }
+    if (routingRules) {
+      res["RoutingRules"] = boost::any(*routingRules);
     }
     if (sniEnabled) {
       res["SniEnabled"] = boost::any(*sniEnabled);
@@ -851,11 +875,23 @@ public:
       }
       backends = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("CnameEnabled") != m.end() && !m["CnameEnabled"].empty()) {
+      cnameEnabled = make_shared<bool>(boost::any_cast<bool>(m["CnameEnabled"]));
+    }
     if (m.find("ConnectTimeout") != m.end() && !m["ConnectTimeout"].empty()) {
       connectTimeout = make_shared<long>(boost::any_cast<long>(m["ConnectTimeout"]));
     }
     if (m.find("FocusHttpBackend") != m.end() && !m["FocusHttpBackend"].empty()) {
       focusHttpBackend = make_shared<bool>(boost::any_cast<bool>(m["FocusHttpBackend"]));
+    }
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
     }
     if (m.find("Loadbalance") != m.end() && !m["Loadbalance"].empty()) {
       loadbalance = make_shared<string>(boost::any_cast<string>(m["Loadbalance"]));
@@ -875,6 +911,12 @@ public:
         }
         requestHeaders = make_shared<vector<CreateDomainRequestRedirectRequestHeaders>>(expect1);
       }
+    }
+    if (m.find("Retry") != m.end() && !m["Retry"].empty()) {
+      retry = make_shared<bool>(boost::any_cast<bool>(m["Retry"]));
+    }
+    if (m.find("RoutingRules") != m.end() && !m["RoutingRules"].empty()) {
+      routingRules = make_shared<string>(boost::any_cast<string>(m["RoutingRules"]));
     }
     if (m.find("SniEnabled") != m.end() && !m["SniEnabled"].empty()) {
       sniEnabled = make_shared<bool>(boost::any_cast<bool>(m["SniEnabled"]));
@@ -1709,6 +1751,7 @@ public:
 };
 class DeleteDomainRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessType{};
   shared_ptr<string> domain{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionId{};
@@ -1723,6 +1766,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessType) {
+      res["AccessType"] = boost::any(*accessType);
+    }
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
@@ -1736,6 +1782,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessType") != m.end() && !m["AccessType"].empty()) {
+      accessType = make_shared<string>(boost::any_cast<string>(m["AccessType"]));
+    }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
@@ -3404,9 +3453,13 @@ public:
   shared_ptr<vector<DescribeDomainDetailResponseBodyRedirectBackends>> backends{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
   shared_ptr<string> loadbalance{};
   shared_ptr<long> readTimeout{};
   shared_ptr<vector<DescribeDomainDetailResponseBodyRedirectRequestHeaders>> requestHeaders{};
+  shared_ptr<bool> retry{};
   shared_ptr<bool> sniEnabled{};
   shared_ptr<string> sniHost{};
   shared_ptr<long> writeTimeout{};
@@ -3434,6 +3487,15 @@ public:
     if (focusHttpBackend) {
       res["FocusHttpBackend"] = boost::any(*focusHttpBackend);
     }
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
     if (loadbalance) {
       res["Loadbalance"] = boost::any(*loadbalance);
     }
@@ -3446,6 +3508,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RequestHeaders"] = boost::any(temp1);
+    }
+    if (retry) {
+      res["Retry"] = boost::any(*retry);
     }
     if (sniEnabled) {
       res["SniEnabled"] = boost::any(*sniEnabled);
@@ -3479,6 +3544,15 @@ public:
     if (m.find("FocusHttpBackend") != m.end() && !m["FocusHttpBackend"].empty()) {
       focusHttpBackend = make_shared<bool>(boost::any_cast<bool>(m["FocusHttpBackend"]));
     }
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
     if (m.find("Loadbalance") != m.end() && !m["Loadbalance"].empty()) {
       loadbalance = make_shared<string>(boost::any_cast<string>(m["Loadbalance"]));
     }
@@ -3497,6 +3571,9 @@ public:
         }
         requestHeaders = make_shared<vector<DescribeDomainDetailResponseBodyRedirectRequestHeaders>>(expect1);
       }
+    }
+    if (m.find("Retry") != m.end() && !m["Retry"].empty()) {
+      retry = make_shared<bool>(boost::any_cast<bool>(m["Retry"]));
     }
     if (m.find("SniEnabled") != m.end() && !m["SniEnabled"].empty()) {
       sniEnabled = make_shared<bool>(boost::any_cast<bool>(m["SniEnabled"]));
@@ -9479,9 +9556,13 @@ public:
   shared_ptr<vector<string>> backends{};
   shared_ptr<long> connectTimeout{};
   shared_ptr<bool> focusHttpBackend{};
+  shared_ptr<bool> keepalive{};
+  shared_ptr<long> keepaliveRequests{};
+  shared_ptr<long> keepaliveTimeout{};
   shared_ptr<string> loadbalance{};
   shared_ptr<long> readTimeout{};
   shared_ptr<vector<ModifyDomainRequestRedirectRequestHeaders>> requestHeaders{};
+  shared_ptr<bool> retry{};
   shared_ptr<bool> sniEnabled{};
   shared_ptr<string> sniHost{};
   shared_ptr<long> writeTimeout{};
@@ -9505,6 +9586,15 @@ public:
     if (focusHttpBackend) {
       res["FocusHttpBackend"] = boost::any(*focusHttpBackend);
     }
+    if (keepalive) {
+      res["Keepalive"] = boost::any(*keepalive);
+    }
+    if (keepaliveRequests) {
+      res["KeepaliveRequests"] = boost::any(*keepaliveRequests);
+    }
+    if (keepaliveTimeout) {
+      res["KeepaliveTimeout"] = boost::any(*keepaliveTimeout);
+    }
     if (loadbalance) {
       res["Loadbalance"] = boost::any(*loadbalance);
     }
@@ -9517,6 +9607,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RequestHeaders"] = boost::any(temp1);
+    }
+    if (retry) {
+      res["Retry"] = boost::any(*retry);
     }
     if (sniEnabled) {
       res["SniEnabled"] = boost::any(*sniEnabled);
@@ -9547,6 +9640,15 @@ public:
     if (m.find("FocusHttpBackend") != m.end() && !m["FocusHttpBackend"].empty()) {
       focusHttpBackend = make_shared<bool>(boost::any_cast<bool>(m["FocusHttpBackend"]));
     }
+    if (m.find("Keepalive") != m.end() && !m["Keepalive"].empty()) {
+      keepalive = make_shared<bool>(boost::any_cast<bool>(m["Keepalive"]));
+    }
+    if (m.find("KeepaliveRequests") != m.end() && !m["KeepaliveRequests"].empty()) {
+      keepaliveRequests = make_shared<long>(boost::any_cast<long>(m["KeepaliveRequests"]));
+    }
+    if (m.find("KeepaliveTimeout") != m.end() && !m["KeepaliveTimeout"].empty()) {
+      keepaliveTimeout = make_shared<long>(boost::any_cast<long>(m["KeepaliveTimeout"]));
+    }
     if (m.find("Loadbalance") != m.end() && !m["Loadbalance"].empty()) {
       loadbalance = make_shared<string>(boost::any_cast<string>(m["Loadbalance"]));
     }
@@ -9565,6 +9667,9 @@ public:
         }
         requestHeaders = make_shared<vector<ModifyDomainRequestRedirectRequestHeaders>>(expect1);
       }
+    }
+    if (m.find("Retry") != m.end() && !m["Retry"].empty()) {
+      retry = make_shared<bool>(boost::any_cast<bool>(m["Retry"]));
     }
     if (m.find("SniEnabled") != m.end() && !m["SniEnabled"].empty()) {
       sniEnabled = make_shared<bool>(boost::any_cast<bool>(m["SniEnabled"]));
