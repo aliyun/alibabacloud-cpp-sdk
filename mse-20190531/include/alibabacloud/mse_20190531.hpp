@@ -34505,6 +34505,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> configType{};
   shared_ptr<string> instanceId{};
+  shared_ptr<bool> needRunningConf{};
   shared_ptr<string> requestPars{};
 
   QueryConfigRequest() {}
@@ -34529,6 +34530,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (needRunningConf) {
+      res["NeedRunningConf"] = boost::any(*needRunningConf);
+    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -34548,6 +34552,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("NeedRunningConf") != m.end() && !m["NeedRunningConf"].empty()) {
+      needRunningConf = make_shared<bool>(boost::any_cast<bool>(m["NeedRunningConf"]));
+    }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
     }
@@ -34556,6 +34563,35 @@ public:
 
   virtual ~QueryConfigRequest() = default;
 };
+class QueryConfigResponseBodyDataNacosRunningEnv : public Darabonba::Model {
+public:
+  shared_ptr<bool> emptyProtect{};
+
+  QueryConfigResponseBodyDataNacosRunningEnv() {}
+
+  explicit QueryConfigResponseBodyDataNacosRunningEnv(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (emptyProtect) {
+      res["emptyProtect"] = boost::any(*emptyProtect);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("emptyProtect") != m.end() && !m["emptyProtect"].empty()) {
+      emptyProtect = make_shared<bool>(boost::any_cast<bool>(m["emptyProtect"]));
+    }
+  }
+
+
+  virtual ~QueryConfigResponseBodyDataNacosRunningEnv() = default;
+};
 class QueryConfigResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> autopurgePurgeInterval{};
@@ -34563,6 +34599,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<bool> configAuthEnabled{};
   shared_ptr<bool> configAuthSupported{};
+  shared_ptr<long> configContentLimit{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<bool> configSecretSupported{};
   shared_ptr<string> initLimit{};
@@ -34573,6 +34610,7 @@ public:
   shared_ptr<string> maxClientCnxns{};
   shared_ptr<string> maxSessionTimeout{};
   shared_ptr<string> minSessionTimeout{};
+  shared_ptr<QueryConfigResponseBodyDataNacosRunningEnv> nacosRunningEnv{};
   shared_ptr<bool> namingAuthEnabled{};
   shared_ptr<bool> namingAuthSupported{};
   shared_ptr<bool> namingCreateServiceSupported{};
@@ -34609,6 +34647,9 @@ public:
     if (configAuthSupported) {
       res["ConfigAuthSupported"] = boost::any(*configAuthSupported);
     }
+    if (configContentLimit) {
+      res["ConfigContentLimit"] = boost::any(*configContentLimit);
+    }
     if (configSecretEnabled) {
       res["ConfigSecretEnabled"] = boost::any(*configSecretEnabled);
     }
@@ -34638,6 +34679,9 @@ public:
     }
     if (minSessionTimeout) {
       res["MinSessionTimeout"] = boost::any(*minSessionTimeout);
+    }
+    if (nacosRunningEnv) {
+      res["NacosRunningEnv"] = nacosRunningEnv ? boost::any(nacosRunningEnv->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (namingAuthEnabled) {
       res["NamingAuthEnabled"] = boost::any(*namingAuthEnabled);
@@ -34688,6 +34732,9 @@ public:
     if (m.find("ConfigAuthSupported") != m.end() && !m["ConfigAuthSupported"].empty()) {
       configAuthSupported = make_shared<bool>(boost::any_cast<bool>(m["ConfigAuthSupported"]));
     }
+    if (m.find("ConfigContentLimit") != m.end() && !m["ConfigContentLimit"].empty()) {
+      configContentLimit = make_shared<long>(boost::any_cast<long>(m["ConfigContentLimit"]));
+    }
     if (m.find("ConfigSecretEnabled") != m.end() && !m["ConfigSecretEnabled"].empty()) {
       configSecretEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConfigSecretEnabled"]));
     }
@@ -34717,6 +34764,13 @@ public:
     }
     if (m.find("MinSessionTimeout") != m.end() && !m["MinSessionTimeout"].empty()) {
       minSessionTimeout = make_shared<string>(boost::any_cast<string>(m["MinSessionTimeout"]));
+    }
+    if (m.find("NacosRunningEnv") != m.end() && !m["NacosRunningEnv"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NacosRunningEnv"].type()) {
+        QueryConfigResponseBodyDataNacosRunningEnv model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NacosRunningEnv"]));
+        nacosRunningEnv = make_shared<QueryConfigResponseBodyDataNacosRunningEnv>(model1);
+      }
     }
     if (m.find("NamingAuthEnabled") != m.end() && !m["NamingAuthEnabled"].empty()) {
       namingAuthEnabled = make_shared<bool>(boost::any_cast<bool>(m["NamingAuthEnabled"]));
