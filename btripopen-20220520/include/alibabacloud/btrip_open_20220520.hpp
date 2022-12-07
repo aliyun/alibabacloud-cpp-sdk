@@ -13428,16 +13428,14 @@ public:
 };
 class EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes : public Darabonba::Model {
 public:
+  shared_ptr<string> arrCity{};
   shared_ptr<long> arrDate{};
-  shared_ptr<long> btripType{};
   shared_ptr<EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest> cheapest{};
+  shared_ptr<string> depCity{};
   shared_ptr<long> depDate{};
-  shared_ptr<string> destCity{};
   shared_ptr<string> errMsg{};
   shared_ptr<string> itineraryId{};
-  shared_ptr<long> itineraryIndex{};
   shared_ptr<EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive> mostExpensive{};
-  shared_ptr<string> orgCity{};
   shared_ptr<bool> success{};
 
   EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutes() {}
@@ -13450,20 +13448,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (arrCity) {
+      res["arr_city"] = boost::any(*arrCity);
+    }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
-    }
-    if (btripType) {
-      res["btrip_type"] = boost::any(*btripType);
     }
     if (cheapest) {
       res["cheapest"] = cheapest ? boost::any(cheapest->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (depCity) {
+      res["dep_city"] = boost::any(*depCity);
+    }
     if (depDate) {
       res["dep_date"] = boost::any(*depDate);
-    }
-    if (destCity) {
-      res["dest_city"] = boost::any(*destCity);
     }
     if (errMsg) {
       res["err_msg"] = boost::any(*errMsg);
@@ -13471,14 +13469,8 @@ public:
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
     }
-    if (itineraryIndex) {
-      res["itinerary_index"] = boost::any(*itineraryIndex);
-    }
     if (mostExpensive) {
       res["most_expensive"] = mostExpensive ? boost::any(mostExpensive->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (orgCity) {
-      res["org_city"] = boost::any(*orgCity);
     }
     if (success) {
       res["success"] = boost::any(*success);
@@ -13487,11 +13479,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
+      arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
+    }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<long>(boost::any_cast<long>(m["arr_date"]));
-    }
-    if (m.find("btrip_type") != m.end() && !m["btrip_type"].empty()) {
-      btripType = make_shared<long>(boost::any_cast<long>(m["btrip_type"]));
     }
     if (m.find("cheapest") != m.end() && !m["cheapest"].empty()) {
       if (typeid(map<string, boost::any>) == m["cheapest"].type()) {
@@ -13500,11 +13492,11 @@ public:
         cheapest = make_shared<EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesCheapest>(model1);
       }
     }
+    if (m.find("dep_city") != m.end() && !m["dep_city"].empty()) {
+      depCity = make_shared<string>(boost::any_cast<string>(m["dep_city"]));
+    }
     if (m.find("dep_date") != m.end() && !m["dep_date"].empty()) {
       depDate = make_shared<long>(boost::any_cast<long>(m["dep_date"]));
-    }
-    if (m.find("dest_city") != m.end() && !m["dest_city"].empty()) {
-      destCity = make_shared<string>(boost::any_cast<string>(m["dest_city"]));
     }
     if (m.find("err_msg") != m.end() && !m["err_msg"].empty()) {
       errMsg = make_shared<string>(boost::any_cast<string>(m["err_msg"]));
@@ -13512,18 +13504,12 @@ public:
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
     }
-    if (m.find("itinerary_index") != m.end() && !m["itinerary_index"].empty()) {
-      itineraryIndex = make_shared<long>(boost::any_cast<long>(m["itinerary_index"]));
-    }
     if (m.find("most_expensive") != m.end() && !m["most_expensive"].empty()) {
       if (typeid(map<string, boost::any>) == m["most_expensive"].type()) {
         EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["most_expensive"]));
         mostExpensive = make_shared<EstimatedPriceQueryResponseBodyModuleTrafficFeeBtripRoutesMostExpensive>(model1);
       }
-    }
-    if (m.find("org_city") != m.end() && !m["org_city"].empty()) {
-      orgCity = make_shared<string>(boost::any_cast<string>(m["org_city"]));
     }
     if (m.find("success") != m.end() && !m["success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
