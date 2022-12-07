@@ -4297,6 +4297,7 @@ public:
 };
 class CreateJobFileRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> content{};
   shared_ptr<string> runasUser{};
@@ -4313,6 +4314,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -4332,6 +4336,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -5503,6 +5510,7 @@ public:
 };
 class DeleteJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> jobs{};
 
@@ -5516,6 +5524,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -5526,6 +5537,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -28046,6 +28060,7 @@ public:
 };
 class RerunJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> jobs{};
 
@@ -28059,6 +28074,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -28069,6 +28087,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -31091,6 +31112,7 @@ public:
 };
 class StopJobsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> jobs{};
 
@@ -31104,6 +31126,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -31114,6 +31139,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -31544,10 +31572,12 @@ public:
 class SubmitJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> arrayRequest{};
+  shared_ptr<bool> async{};
   shared_ptr<string> clockTime{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> commandLine{};
   shared_ptr<string> containerId{};
+  shared_ptr<long> cpu{};
   shared_ptr<long> gpu{};
   shared_ptr<string> inputFileUrl{};
   shared_ptr<string> jobQueue{};
@@ -31580,6 +31610,9 @@ public:
     if (arrayRequest) {
       res["ArrayRequest"] = boost::any(*arrayRequest);
     }
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clockTime) {
       res["ClockTime"] = boost::any(*clockTime);
     }
@@ -31591,6 +31624,9 @@ public:
     }
     if (containerId) {
       res["ContainerId"] = boost::any(*containerId);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
     }
     if (gpu) {
       res["Gpu"] = boost::any(*gpu);
@@ -31653,6 +31689,9 @@ public:
     if (m.find("ArrayRequest") != m.end() && !m["ArrayRequest"].empty()) {
       arrayRequest = make_shared<string>(boost::any_cast<string>(m["ArrayRequest"]));
     }
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClockTime") != m.end() && !m["ClockTime"].empty()) {
       clockTime = make_shared<string>(boost::any_cast<string>(m["ClockTime"]));
     }
@@ -31664,6 +31703,9 @@ public:
     }
     if (m.find("ContainerId") != m.end() && !m["ContainerId"].empty()) {
       containerId = make_shared<string>(boost::any_cast<string>(m["ContainerId"]));
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
     }
     if (m.find("Gpu") != m.end() && !m["Gpu"].empty()) {
       gpu = make_shared<long>(boost::any_cast<long>(m["Gpu"]));
