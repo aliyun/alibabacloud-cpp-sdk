@@ -5282,6 +5282,7 @@ public:
 };
 class GenerateTemplatePolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> operationTypes{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateURL{};
@@ -5297,6 +5298,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (operationTypes) {
+      res["OperationTypes"] = boost::any(*operationTypes);
+    }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
     }
@@ -5313,6 +5317,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OperationTypes") != m.end() && !m["OperationTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OperationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OperationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      operationTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
     }

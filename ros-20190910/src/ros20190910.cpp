@@ -1028,6 +1028,9 @@ GenerateTemplateByScratchResponse Alibabacloud_ROS20190910::Client::generateTemp
 GenerateTemplatePolicyResponse Alibabacloud_ROS20190910::Client::generateTemplatePolicyWithOptions(shared_ptr<GenerateTemplatePolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operationTypes)) {
+    query->insert(pair<string, vector<string>>("OperationTypes", *request->operationTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
     query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   }
