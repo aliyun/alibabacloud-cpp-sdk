@@ -38,6 +38,30 @@ string Alibabacloud_Serverless20210924::Client::getEndpoint(shared_ptr<string> p
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CancelTaskResponse Alibabacloud_Serverless20210924::Client::cancelTask(shared_ptr<string> name) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelTaskWithOptions(name, headers, runtime);
+}
+
+CancelTaskResponse Alibabacloud_Serverless20210924::Client::cancelTaskWithOptions(shared_ptr<string> name, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelTask"))},
+    {"version", boost::any(string("2021-09-24"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/apis/serverlessdeployment/v1/tasks/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(name)) + string("/cancel"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelTaskResponse(callApi(params, req, runtime));
+}
+
 CreateApplicationResponse Alibabacloud_Serverless20210924::Client::createApplication(shared_ptr<CreateApplicationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
