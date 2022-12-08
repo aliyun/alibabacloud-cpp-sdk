@@ -2084,14 +2084,18 @@ public:
 };
 class GetStyleTopResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> attributeContent{};
+  shared_ptr<string> brandName{};
   shared_ptr<string> buyerTags{};
   shared_ptr<string> cateName{};
   shared_ptr<string> color{};
   shared_ptr<vector<string>> images{};
   shared_ptr<string> material{};
+  shared_ptr<double> price{};
   shared_ptr<string> productLink{};
   shared_ptr<double> salesVolume{};
   shared_ptr<double> searchVolume{};
+  shared_ptr<string> shopName{};
   shared_ptr<string> style{};
   shared_ptr<string> title{};
 
@@ -2105,6 +2109,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attributeContent) {
+      res["AttributeContent"] = boost::any(*attributeContent);
+    }
+    if (brandName) {
+      res["BrandName"] = boost::any(*brandName);
+    }
     if (buyerTags) {
       res["BuyerTags"] = boost::any(*buyerTags);
     }
@@ -2120,6 +2130,9 @@ public:
     if (material) {
       res["Material"] = boost::any(*material);
     }
+    if (price) {
+      res["Price"] = boost::any(*price);
+    }
     if (productLink) {
       res["ProductLink"] = boost::any(*productLink);
     }
@@ -2128,6 +2141,9 @@ public:
     }
     if (searchVolume) {
       res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (shopName) {
+      res["ShopName"] = boost::any(*shopName);
     }
     if (style) {
       res["Style"] = boost::any(*style);
@@ -2139,6 +2155,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeContent") != m.end() && !m["AttributeContent"].empty()) {
+      attributeContent = make_shared<string>(boost::any_cast<string>(m["AttributeContent"]));
+    }
+    if (m.find("BrandName") != m.end() && !m["BrandName"].empty()) {
+      brandName = make_shared<string>(boost::any_cast<string>(m["BrandName"]));
+    }
     if (m.find("BuyerTags") != m.end() && !m["BuyerTags"].empty()) {
       buyerTags = make_shared<string>(boost::any_cast<string>(m["BuyerTags"]));
     }
@@ -2161,6 +2183,9 @@ public:
     if (m.find("Material") != m.end() && !m["Material"].empty()) {
       material = make_shared<string>(boost::any_cast<string>(m["Material"]));
     }
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      price = make_shared<double>(boost::any_cast<double>(m["Price"]));
+    }
     if (m.find("ProductLink") != m.end() && !m["ProductLink"].empty()) {
       productLink = make_shared<string>(boost::any_cast<string>(m["ProductLink"]));
     }
@@ -2169,6 +2194,9 @@ public:
     }
     if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
       searchVolume = make_shared<double>(boost::any_cast<double>(m["SearchVolume"]));
+    }
+    if (m.find("ShopName") != m.end() && !m["ShopName"].empty()) {
+      shopName = make_shared<string>(boost::any_cast<string>(m["ShopName"]));
     }
     if (m.find("Style") != m.end() && !m["Style"].empty()) {
       style = make_shared<string>(boost::any_cast<string>(m["Style"]));
