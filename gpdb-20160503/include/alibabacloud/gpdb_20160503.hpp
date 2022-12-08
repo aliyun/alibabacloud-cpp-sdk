@@ -2687,6 +2687,7 @@ public:
 };
 class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClasses : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<string> description{};
   shared_ptr<string> displayClass{};
   shared_ptr<string> instanceClass{};
@@ -2704,6 +2705,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -2726,6 +2730,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
