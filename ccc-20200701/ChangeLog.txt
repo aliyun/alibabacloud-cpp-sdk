@@ -1,3 +1,6 @@
+2022-12-08 Version: 2.8.0
+- Supported ListCallDetailRecords DialingTime.
+
 2022-04-26 Version: 2.4.1
 - Support to pass variables to authentication IVR.
 
