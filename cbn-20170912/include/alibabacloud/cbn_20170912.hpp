@@ -9868,6 +9868,7 @@ class DeleteTransitRouterVbrAttachmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> force{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -9889,6 +9890,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -9914,6 +9918,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -10030,6 +10037,7 @@ class DeleteTransitRouterVpcAttachmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> force{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -10051,6 +10059,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -10076,6 +10087,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -10192,6 +10206,7 @@ class DeleteTransitRouterVpnAttachmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<bool> force{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -10213,6 +10228,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -10238,6 +10256,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -16422,6 +16443,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeFlowlogsRequestTag>> tag{};
+  shared_ptr<string> transitRouterAttachmentId{};
 
   DescribeFlowlogsRequest() {}
 
@@ -16485,6 +16507,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
     return res;
   }
 
@@ -16546,6 +16571,9 @@ public:
         }
         tag = make_shared<vector<DescribeFlowlogsRequestTag>>(expect1);
       }
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
     }
   }
 
@@ -20493,6 +20521,8 @@ public:
   shared_ptr<string> trafficQosPolicyName{};
   shared_ptr<string> trafficQosPolicyStatus{};
   shared_ptr<vector<ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues>> trafficQosQueues{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterId{};
 
   ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies() {}
 
@@ -20523,6 +20553,12 @@ public:
       }
       res["TrafficQosQueues"] = boost::any(temp1);
     }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
     return res;
   }
 
@@ -20551,6 +20587,12 @@ public:
         }
         trafficQosQueues = make_shared<vector<ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues>>(expect1);
       }
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
     }
   }
 
@@ -21763,6 +21805,7 @@ public:
   shared_ptr<string> trafficMarkingPolicyName{};
   shared_ptr<string> trafficMarkingPolicyStatus{};
   shared_ptr<vector<ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules>> trafficMatchRules{};
+  shared_ptr<string> transitRouterId{};
 
   ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPolicies() {}
 
@@ -21799,6 +21842,9 @@ public:
       }
       res["TrafficMatchRules"] = boost::any(temp1);
     }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
     return res;
   }
 
@@ -21833,6 +21879,9 @@ public:
         }
         trafficMatchRules = make_shared<vector<ListTrafficMarkingPoliciesResponseBodyTrafficMarkingPoliciesTrafficMatchRules>>(expect1);
       }
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
     }
   }
 
@@ -23492,6 +23541,7 @@ class ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomains
 public:
   shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags>> tags{};
+  shared_ptr<string> transitRouterId{};
   shared_ptr<string> transitRouterMulticastDomainDescription{};
   shared_ptr<string> transitRouterMulticastDomainId{};
   shared_ptr<string> transitRouterMulticastDomainName{};
@@ -23515,6 +23565,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tags"] = boost::any(temp1);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
     }
     if (transitRouterMulticastDomainDescription) {
       res["TransitRouterMulticastDomainDescription"] = boost::any(*transitRouterMulticastDomainDescription);
@@ -23544,6 +23597,9 @@ public:
         }
         tags = make_shared<vector<ListTransitRouterMulticastDomainsResponseBodyTransitRouterMulticastDomainsTags>>(expect1);
       }
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
     }
     if (m.find("TransitRouterMulticastDomainDescription") != m.end() && !m["TransitRouterMulticastDomainDescription"].empty()) {
       transitRouterMulticastDomainDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouterMulticastDomainDescription"]));
@@ -23696,7 +23752,10 @@ class ListTransitRouterMulticastGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> groupIpAddress{};
+  shared_ptr<bool> isGroupMember{};
+  shared_ptr<bool> isGroupSource{};
   shared_ptr<long> maxResults{};
+  shared_ptr<vector<string>> networkInterfaceIds{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -23725,8 +23784,17 @@ public:
     if (groupIpAddress) {
       res["GroupIpAddress"] = boost::any(*groupIpAddress);
     }
+    if (isGroupMember) {
+      res["IsGroupMember"] = boost::any(*isGroupMember);
+    }
+    if (isGroupSource) {
+      res["IsGroupSource"] = boost::any(*isGroupSource);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (networkInterfaceIds) {
+      res["NetworkInterfaceIds"] = boost::any(*networkInterfaceIds);
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
@@ -23771,8 +23839,24 @@ public:
     if (m.find("GroupIpAddress") != m.end() && !m["GroupIpAddress"].empty()) {
       groupIpAddress = make_shared<string>(boost::any_cast<string>(m["GroupIpAddress"]));
     }
+    if (m.find("IsGroupMember") != m.end() && !m["IsGroupMember"].empty()) {
+      isGroupMember = make_shared<bool>(boost::any_cast<bool>(m["IsGroupMember"]));
+    }
+    if (m.find("IsGroupSource") != m.end() && !m["IsGroupSource"].empty()) {
+      isGroupSource = make_shared<bool>(boost::any_cast<bool>(m["IsGroupSource"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NetworkInterfaceIds") != m.end() && !m["NetworkInterfaceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NetworkInterfaceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NetworkInterfaceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      networkInterfaceIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
@@ -23840,6 +23924,7 @@ public:
   shared_ptr<string> sourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterMulticastDomainId{};
   shared_ptr<string> vSwitchId{};
 
   ListTransitRouterMulticastGroupsResponseBodyTransitRouterMulticastGroups() {}
@@ -23888,6 +23973,9 @@ public:
     if (transitRouterAttachmentId) {
       res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
     }
+    if (transitRouterMulticastDomainId) {
+      res["TransitRouterMulticastDomainId"] = boost::any(*transitRouterMulticastDomainId);
+    }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
@@ -23930,6 +24018,9 @@ public:
     }
     if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
       transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterMulticastDomainId") != m.end() && !m["TransitRouterMulticastDomainId"].empty()) {
+      transitRouterMulticastDomainId = make_shared<string>(boost::any_cast<string>(m["TransitRouterMulticastDomainId"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -26661,6 +26752,7 @@ public:
   shared_ptr<vector<ListTransitRouterVpcAttachmentsRequestTag>> tag{};
   shared_ptr<string> transitRouterAttachmentId{};
   shared_ptr<string> transitRouterId{};
+  shared_ptr<string> vpcId{};
 
   ListTransitRouterVpcAttachmentsRequest() {}
 
@@ -26709,6 +26801,9 @@ public:
     if (transitRouterId) {
       res["TransitRouterId"] = boost::any(*transitRouterId);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -26755,6 +26850,9 @@ public:
     }
     if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
       transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 

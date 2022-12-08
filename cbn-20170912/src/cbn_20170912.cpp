@@ -2590,6 +2590,9 @@ DeleteTransitRouterVbrAttachmentResponse Alibabacloud_Cbn20170912::Client::delet
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -2636,6 +2639,9 @@ DeleteTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::delet
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -2681,6 +2687,9 @@ DeleteTransitRouterVpnAttachmentResponse Alibabacloud_Cbn20170912::Client::delet
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -3531,6 +3540,9 @@ DescribeFlowlogsResponse Alibabacloud_Cbn20170912::Client::describeFlowlogsWithO
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeFlowlogsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeFlowlogsRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterAttachmentId)) {
+    query->insert(pair<string, string>("TransitRouterAttachmentId", *request->transitRouterAttachmentId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4917,8 +4929,17 @@ ListTransitRouterMulticastGroupsResponse Alibabacloud_Cbn20170912::Client::listT
   if (!Darabonba_Util::Client::isUnset<string>(request->groupIpAddress)) {
     query->insert(pair<string, string>("GroupIpAddress", *request->groupIpAddress));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isGroupMember)) {
+    query->insert(pair<string, bool>("IsGroupMember", *request->isGroupMember));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isGroupSource)) {
+    query->insert(pair<string, bool>("IsGroupSource", *request->isGroupSource));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->networkInterfaceIds)) {
+    query->insert(pair<string, vector<string>>("NetworkInterfaceIds", *request->networkInterfaceIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
@@ -5407,6 +5428,9 @@ ListTransitRouterVpcAttachmentsResponse Alibabacloud_Cbn20170912::Client::listTr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
     query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
