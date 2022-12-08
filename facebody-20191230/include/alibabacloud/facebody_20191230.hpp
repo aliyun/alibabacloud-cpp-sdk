@@ -2767,8 +2767,8 @@ public:
 };
 class CompareFaceRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageDataA{};
-  shared_ptr<vector<uint8_t>> imageDataB{};
+  shared_ptr<string> imageDataA{};
+  shared_ptr<string> imageDataB{};
   shared_ptr<string> imageURLA{};
   shared_ptr<string> imageURLB{};
   shared_ptr<double> qualityScoreThreshold{};
@@ -2803,10 +2803,10 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageDataA") != m.end() && !m["ImageDataA"].empty()) {
-      imageDataA = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataA"]));
+      imageDataA = make_shared<string>(boost::any_cast<string>(m["ImageDataA"]));
     }
     if (m.find("ImageDataB") != m.end() && !m["ImageDataB"].empty()) {
-      imageDataB = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataB"]));
+      imageDataB = make_shared<string>(boost::any_cast<string>(m["ImageDataB"]));
     }
     if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
       imageURLA = make_shared<string>(boost::any_cast<string>(m["ImageURLA"]));
@@ -2824,8 +2824,8 @@ public:
 };
 class CompareFaceAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageDataA{};
-  shared_ptr<vector<uint8_t>> imageDataB{};
+  shared_ptr<string> imageDataA{};
+  shared_ptr<string> imageDataB{};
   shared_ptr<Darabonba::Stream> imageURLAObject{};
   shared_ptr<Darabonba::Stream> imageURLBObject{};
   shared_ptr<double> qualityScoreThreshold{};
@@ -2860,10 +2860,10 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageDataA") != m.end() && !m["ImageDataA"].empty()) {
-      imageDataA = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataA"]));
+      imageDataA = make_shared<string>(boost::any_cast<string>(m["ImageDataA"]));
     }
     if (m.find("ImageDataB") != m.end() && !m["ImageDataB"].empty()) {
-      imageDataB = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageDataB"]));
+      imageDataB = make_shared<string>(boost::any_cast<string>(m["ImageDataB"]));
     }
     if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
       imageURLAObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLA"]));
@@ -5399,7 +5399,7 @@ public:
 };
 class DetectLivingFaceRequestTasks : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<string> imageURL{};
 
   DetectLivingFaceRequestTasks() {}
@@ -5423,7 +5423,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
@@ -5478,7 +5478,7 @@ public:
 };
 class DetectLivingFaceAdvanceRequestTasks : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<Darabonba::Stream> imageURLObject{};
 
   DetectLivingFaceAdvanceRequestTasks() {}
@@ -5502,7 +5502,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
@@ -7358,7 +7358,7 @@ public:
 };
 class ExtractFingerPrintRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<string> imageURL{};
 
   ExtractFingerPrintRequest() {}
@@ -7382,7 +7382,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
@@ -7394,7 +7394,7 @@ public:
 };
 class ExtractFingerPrintAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<Darabonba::Stream> imageURLObject{};
 
   ExtractFingerPrintAdvanceRequest() {}
@@ -7418,7 +7418,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
@@ -12819,7 +12819,7 @@ public:
 class RecognizeActionRequestURLList : public Darabonba::Model {
 public:
   shared_ptr<string> URL{};
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
 
   RecognizeActionRequestURLList() {}
 
@@ -12845,7 +12845,7 @@ public:
       URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
     }
     if (m.find("imageData") != m.end() && !m["imageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["imageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["imageData"]));
     }
   }
 
@@ -12856,7 +12856,7 @@ class RecognizeActionRequest : public Darabonba::Model {
 public:
   shared_ptr<long> type{};
   shared_ptr<vector<RecognizeActionRequestURLList>> URLList{};
-  shared_ptr<vector<uint8_t>> videoData{};
+  shared_ptr<string> videoData{};
   shared_ptr<string> videoUrl{};
 
   RecognizeActionRequest() {}
@@ -12906,7 +12906,7 @@ public:
       }
     }
     if (m.find("VideoData") != m.end() && !m["VideoData"].empty()) {
-      videoData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["VideoData"]));
+      videoData = make_shared<string>(boost::any_cast<string>(m["VideoData"]));
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
@@ -12919,7 +12919,7 @@ public:
 class RecognizeActionAdvanceRequestURLList : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> URLObject{};
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
 
   RecognizeActionAdvanceRequestURLList() {}
 
@@ -12945,7 +12945,7 @@ public:
       URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
     }
     if (m.find("imageData") != m.end() && !m["imageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["imageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["imageData"]));
     }
   }
 
@@ -12956,7 +12956,7 @@ class RecognizeActionAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> type{};
   shared_ptr<vector<RecognizeActionAdvanceRequestURLList>> URLList{};
-  shared_ptr<vector<uint8_t>> videoData{};
+  shared_ptr<string> videoData{};
   shared_ptr<string> videoUrl{};
 
   RecognizeActionAdvanceRequest() {}
@@ -13006,7 +13006,7 @@ public:
       }
     }
     if (m.find("VideoData") != m.end() && !m["VideoData"].empty()) {
-      videoData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["VideoData"]));
+      videoData = make_shared<string>(boost::any_cast<string>(m["VideoData"]));
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
@@ -14485,7 +14485,7 @@ public:
 };
 class RecognizePublicFaceRequestTask : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<string> imageURL{};
 
   RecognizePublicFaceRequestTask() {}
@@ -14509,7 +14509,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
@@ -14564,7 +14564,7 @@ public:
 };
 class RecognizePublicFaceAdvanceRequestTask : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> imageData{};
+  shared_ptr<string> imageData{};
   shared_ptr<Darabonba::Stream> imageURLObject{};
 
   RecognizePublicFaceAdvanceRequestTask() {}
@@ -14588,7 +14588,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
-      imageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["ImageData"]));
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
     }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));

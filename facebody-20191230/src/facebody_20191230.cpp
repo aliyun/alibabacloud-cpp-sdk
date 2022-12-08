@@ -688,11 +688,11 @@ BodyPostureResponse Alibabacloud_Facebody20191230::Client::bodyPostureAdvance(sh
 CompareFaceResponse Alibabacloud_Facebody20191230::Client::compareFaceWithOptions(shared_ptr<CompareFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->imageDataA)) {
-    body->insert(pair<string, vector<uint8_t>>("ImageDataA", *request->imageDataA));
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageDataA)) {
+    body->insert(pair<string, string>("ImageDataA", *request->imageDataA));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->imageDataB)) {
-    body->insert(pair<string, vector<uint8_t>>("ImageDataB", *request->imageDataB));
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageDataB)) {
+    body->insert(pair<string, string>("ImageDataB", *request->imageDataB));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageURLA)) {
     body->insert(pair<string, string>("ImageURLA", *request->imageURLA));
@@ -2101,8 +2101,8 @@ EnhanceFaceResponse Alibabacloud_Facebody20191230::Client::enhanceFaceAdvance(sh
 ExtractFingerPrintResponse Alibabacloud_Facebody20191230::Client::extractFingerPrintWithOptions(shared_ptr<ExtractFingerPrintRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->imageData)) {
-    body->insert(pair<string, vector<uint8_t>>("ImageData", *request->imageData));
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageData)) {
+    body->insert(pair<string, string>("ImageData", *request->imageData));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageURL)) {
     body->insert(pair<string, string>("ImageURL", *request->imageURL));
@@ -3643,8 +3643,8 @@ RecognizeActionResponse Alibabacloud_Facebody20191230::Client::recognizeActionWi
   if (!Darabonba_Util::Client::isUnset<vector<RecognizeActionRequestURLList>>(request->URLList)) {
     body->insert(pair<string, vector<RecognizeActionRequestURLList>>("URLList", *request->URLList));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->videoData)) {
-    body->insert(pair<string, vector<uint8_t>>("VideoData", *request->videoData));
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoData)) {
+    body->insert(pair<string, string>("VideoData", *request->videoData));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoUrl)) {
     body->insert(pair<string, string>("VideoUrl", *request->videoUrl));
