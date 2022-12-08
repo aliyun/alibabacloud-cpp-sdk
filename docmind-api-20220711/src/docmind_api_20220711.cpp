@@ -21,7 +21,66 @@ using namespace std;
 using namespace Alibabacloud_Docmind-api20220711;
 
 Alibabacloud_Docmind-api20220711::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
-  _endpointRule = make_shared<string>("");
+  _endpointRule = make_shared<string>("regional");
+  _endpointMap = make_shared<map<string, string>>(map<string, string>({
+    {"ap-northeast-1", "docmind-api.aliyuncs.com"},
+    {"ap-northeast-2-pop", "docmind-api.aliyuncs.com"},
+    {"ap-south-1", "docmind-api.aliyuncs.com"},
+    {"ap-southeast-1", "docmind-api.aliyuncs.com"},
+    {"ap-southeast-2", "docmind-api.aliyuncs.com"},
+    {"ap-southeast-3", "docmind-api.aliyuncs.com"},
+    {"ap-southeast-5", "docmind-api.aliyuncs.com"},
+    {"cn-beijing", "docmind-api.aliyuncs.com"},
+    {"cn-beijing-finance-1", "docmind-api.aliyuncs.com"},
+    {"cn-beijing-finance-pop", "docmind-api.aliyuncs.com"},
+    {"cn-beijing-gov-1", "docmind-api.aliyuncs.com"},
+    {"cn-beijing-nu16-b01", "docmind-api.aliyuncs.com"},
+    {"cn-chengdu", "docmind-api.aliyuncs.com"},
+    {"cn-edge-1", "docmind-api.aliyuncs.com"},
+    {"cn-fujian", "docmind-api.aliyuncs.com"},
+    {"cn-haidian-cm12-c01", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-finance", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3", "docmind-api.aliyuncs.com"},
+    {"cn-hangzhou-test-306", "docmind-api.aliyuncs.com"},
+    {"cn-hongkong", "docmind-api.aliyuncs.com"},
+    {"cn-hongkong-finance-pop", "docmind-api.aliyuncs.com"},
+    {"cn-huhehaote", "docmind-api.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1", "docmind-api.aliyuncs.com"},
+    {"cn-north-2-gov-1", "docmind-api.aliyuncs.com"},
+    {"cn-qingdao", "docmind-api.aliyuncs.com"},
+    {"cn-qingdao-nebula", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai-et15-b01", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai-et2-b01", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai-finance-1", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai-inner", "docmind-api.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1", "docmind-api.aliyuncs.com"},
+    {"cn-shenzhen", "docmind-api.aliyuncs.com"},
+    {"cn-shenzhen-finance-1", "docmind-api.aliyuncs.com"},
+    {"cn-shenzhen-inner", "docmind-api.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01", "docmind-api.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01", "docmind-api.aliyuncs.com"},
+    {"cn-wuhan", "docmind-api.aliyuncs.com"},
+    {"cn-wulanchabu", "docmind-api.aliyuncs.com"},
+    {"cn-yushanfang", "docmind-api.aliyuncs.com"},
+    {"cn-zhangbei", "docmind-api.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01", "docmind-api.aliyuncs.com"},
+    {"cn-zhangjiakou", "docmind-api.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01", "docmind-api.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1", "docmind-api.aliyuncs.com"},
+    {"eu-central-1", "docmind-api.aliyuncs.com"},
+    {"eu-west-1", "docmind-api.aliyuncs.com"},
+    {"eu-west-1-oxs", "docmind-api.aliyuncs.com"},
+    {"me-east-1", "docmind-api.aliyuncs.com"},
+    {"rus-west-1-pop", "docmind-api.aliyuncs.com"},
+    {"us-east-1", "docmind-api.aliyuncs.com"},
+    {"us-west-1", "docmind-api.aliyuncs.com"}
+  })
+);
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("docmind-api"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };

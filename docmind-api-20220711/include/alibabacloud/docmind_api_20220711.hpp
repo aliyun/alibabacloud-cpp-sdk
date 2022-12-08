@@ -48,7 +48,7 @@ class GetDocStructureResultResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<bool> completed{};
-  shared_ptr<boost::any> data{};
+  shared_ptr<map<string, boost::any>> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -92,7 +92,12 @@ public:
       completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -577,7 +582,7 @@ class GetDocumentExtractResultResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<bool> completed{};
-  shared_ptr<boost::any> data{};
+  shared_ptr<map<string, boost::any>> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -621,7 +626,12 @@ public:
       completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -732,7 +742,7 @@ class GetTableUnderstandingResultResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<bool> completed{};
-  shared_ptr<boost::any> data{};
+  shared_ptr<map<string, boost::any>> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
@@ -776,7 +786,12 @@ public:
       completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
