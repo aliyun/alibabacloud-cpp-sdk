@@ -1304,7 +1304,7 @@ public:
 class ErasePersonAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<string> userMask{};
+  shared_ptr<Darabonba::Stream> userMaskObject{};
 
   ErasePersonAdvanceRequest() {}
 
@@ -1319,8 +1319,8 @@ public:
     if (imageURLObject) {
       res["ImageURL"] = boost::any(*imageURLObject);
     }
-    if (userMask) {
-      res["UserMask"] = boost::any(*userMask);
+    if (userMaskObject) {
+      res["UserMask"] = boost::any(*userMaskObject);
     }
     return res;
   }
@@ -1330,7 +1330,7 @@ public:
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("UserMask") != m.end() && !m["UserMask"].empty()) {
-      userMask = make_shared<string>(boost::any_cast<string>(m["UserMask"]));
+      userMaskObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["UserMask"]));
     }
   }
 
