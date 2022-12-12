@@ -155,6 +155,188 @@ public:
 
   virtual ~AddDiskReplicaPairResponse() = default;
 };
+class ApplyLensServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ApplyLensServiceResponseBody() {}
+
+  explicit ApplyLensServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ApplyLensServiceResponseBody() = default;
+};
+class ApplyLensServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyLensServiceResponseBody> body{};
+
+  ApplyLensServiceResponse() {}
+
+  explicit ApplyLensServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyLensServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyLensServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyLensServiceResponse() = default;
+};
+class CancelLensServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelLensServiceResponseBody() {}
+
+  explicit CancelLensServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelLensServiceResponseBody() = default;
+};
+class CancelLensServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelLensServiceResponseBody> body{};
+
+  CancelLensServiceResponse() {}
+
+  explicit CancelLensServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelLensServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelLensServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelLensServiceResponse() = default;
+};
 class CreateDedicatedBlockStorageClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> azone{};
@@ -162,6 +344,7 @@ public:
   shared_ptr<string> dbscId{};
   shared_ptr<string> dbscName{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> type{};
 
   CreateDedicatedBlockStorageClusterRequest() {}
@@ -189,6 +372,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -210,6 +396,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -1491,6 +1680,42 @@ public:
 
   virtual ~DescribeDedicatedBlockStorageClusterDisksResponse() = default;
 };
+class DescribeDedicatedBlockStorageClustersRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeDedicatedBlockStorageClustersRequestTag() {}
+
+  explicit DescribeDedicatedBlockStorageClustersRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersRequestTag() = default;
+};
 class DescribeDedicatedBlockStorageClustersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> azoneId{};
@@ -1499,8 +1724,12 @@ public:
   shared_ptr<vector<string>> dedicatedBlockStorageClusterId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> status{};
+  shared_ptr<vector<DescribeDedicatedBlockStorageClustersRequestTag>> tag{};
 
   DescribeDedicatedBlockStorageClustersRequest() {}
 
@@ -1530,11 +1759,27 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -1565,8 +1810,17 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       vector<string> toVec1;
@@ -1577,6 +1831,19 @@ public:
         }
       }
       status = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeDedicatedBlockStorageClustersRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDedicatedBlockStorageClustersRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeDedicatedBlockStorageClustersRequestTag>>(expect1);
+      }
     }
   }
 
@@ -1633,6 +1900,42 @@ public:
 
   virtual ~DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity() = default;
 };
+class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags() {}
+
+  explicit DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags() = default;
+};
 class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -1644,8 +1947,10 @@ public:
   shared_ptr<string> expiredTime{};
   shared_ptr<string> performanceLevel{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> supportedCategory{};
+  shared_ptr<vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> zoneId{};
 
@@ -1686,11 +1991,21 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
     if (supportedCategory) {
       res["SupportedCategory"] = boost::any(*supportedCategory);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -1733,11 +2048,27 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("SupportedCategory") != m.end() && !m["SupportedCategory"].empty()) {
       supportedCategory = make_shared<string>(boost::any_cast<string>(m["SupportedCategory"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -1754,7 +2085,10 @@ class DescribeDedicatedBlockStorageClustersResponseBody : public Darabonba::Mode
 public:
   shared_ptr<vector<DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters>> dedicatedBlockStorageClusters{};
   shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   DescribeDedicatedBlockStorageClustersResponseBody() {}
 
@@ -1776,8 +2110,17 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
     }
     return res;
   }
@@ -1799,8 +2142,17 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -1868,6 +2220,789 @@ public:
 
 
   virtual ~DescribeDedicatedBlockStorageClustersResponse() = default;
+};
+class DescribeDiskEventsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskCategory{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> type{};
+
+  DescribeDiskEventsRequest() {}
+
+  explicit DescribeDiskEventsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskCategory) {
+      res["DiskCategory"] = boost::any(*diskCategory);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskCategory") != m.end() && !m["DiskCategory"].empty()) {
+      diskCategory = make_shared<string>(boost::any_cast<string>(m["DiskCategory"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskEventsRequest() = default;
+};
+class DescribeDiskEventsResponseBodyDiskEvents : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> recommendAction{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> status{};
+  shared_ptr<string> timestamp{};
+  shared_ptr<string> type{};
+
+  DescribeDiskEventsResponseBodyDiskEvents() {}
+
+  explicit DescribeDiskEventsResponseBodyDiskEvents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (recommendAction) {
+      res["RecommendAction"] = boost::any(*recommendAction);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("RecommendAction") != m.end() && !m["RecommendAction"].empty()) {
+      recommendAction = make_shared<string>(boost::any_cast<string>(m["RecommendAction"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<string>(boost::any_cast<string>(m["Timestamp"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskEventsResponseBodyDiskEvents() = default;
+};
+class DescribeDiskEventsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDiskEventsResponseBodyDiskEvents>> diskEvents{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeDiskEventsResponseBody() {}
+
+  explicit DescribeDiskEventsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskEvents) {
+      vector<boost::any> temp1;
+      for(auto item1:*diskEvents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DiskEvents"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskEvents") != m.end() && !m["DiskEvents"].empty()) {
+      if (typeid(vector<boost::any>) == m["DiskEvents"].type()) {
+        vector<DescribeDiskEventsResponseBodyDiskEvents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DiskEvents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiskEventsResponseBodyDiskEvents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        diskEvents = make_shared<vector<DescribeDiskEventsResponseBodyDiskEvents>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskEventsResponseBody() = default;
+};
+class DescribeDiskEventsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDiskEventsResponseBody> body{};
+
+  DescribeDiskEventsResponse() {}
+
+  explicit DescribeDiskEventsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDiskEventsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDiskEventsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDiskEventsResponse() = default;
+};
+class DescribeDiskMonitorDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<long> period{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> type{};
+
+  DescribeDiskMonitorDataRequest() {}
+
+  explicit DescribeDiskMonitorDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataRequest() = default;
+};
+class DescribeDiskMonitorDataResponseBodyMonitorData : public Darabonba::Model {
+public:
+  shared_ptr<long> BPSPercent{};
+  shared_ptr<long> burstIOCount{};
+  shared_ptr<string> diskId{};
+  shared_ptr<long> IOPSPercent{};
+  shared_ptr<long> readBPS{};
+  shared_ptr<long> readIOPS{};
+  shared_ptr<string> timestamp{};
+  shared_ptr<long> writeBPS{};
+  shared_ptr<long> writeIOPS{};
+
+  DescribeDiskMonitorDataResponseBodyMonitorData() {}
+
+  explicit DescribeDiskMonitorDataResponseBodyMonitorData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (BPSPercent) {
+      res["BPSPercent"] = boost::any(*BPSPercent);
+    }
+    if (burstIOCount) {
+      res["BurstIOCount"] = boost::any(*burstIOCount);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (IOPSPercent) {
+      res["IOPSPercent"] = boost::any(*IOPSPercent);
+    }
+    if (readBPS) {
+      res["ReadBPS"] = boost::any(*readBPS);
+    }
+    if (readIOPS) {
+      res["ReadIOPS"] = boost::any(*readIOPS);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    if (writeBPS) {
+      res["WriteBPS"] = boost::any(*writeBPS);
+    }
+    if (writeIOPS) {
+      res["WriteIOPS"] = boost::any(*writeIOPS);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BPSPercent") != m.end() && !m["BPSPercent"].empty()) {
+      BPSPercent = make_shared<long>(boost::any_cast<long>(m["BPSPercent"]));
+    }
+    if (m.find("BurstIOCount") != m.end() && !m["BurstIOCount"].empty()) {
+      burstIOCount = make_shared<long>(boost::any_cast<long>(m["BurstIOCount"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("IOPSPercent") != m.end() && !m["IOPSPercent"].empty()) {
+      IOPSPercent = make_shared<long>(boost::any_cast<long>(m["IOPSPercent"]));
+    }
+    if (m.find("ReadBPS") != m.end() && !m["ReadBPS"].empty()) {
+      readBPS = make_shared<long>(boost::any_cast<long>(m["ReadBPS"]));
+    }
+    if (m.find("ReadIOPS") != m.end() && !m["ReadIOPS"].empty()) {
+      readIOPS = make_shared<long>(boost::any_cast<long>(m["ReadIOPS"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<string>(boost::any_cast<string>(m["Timestamp"]));
+    }
+    if (m.find("WriteBPS") != m.end() && !m["WriteBPS"].empty()) {
+      writeBPS = make_shared<long>(boost::any_cast<long>(m["WriteBPS"]));
+    }
+    if (m.find("WriteIOPS") != m.end() && !m["WriteIOPS"].empty()) {
+      writeIOPS = make_shared<long>(boost::any_cast<long>(m["WriteIOPS"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataResponseBodyMonitorData() = default;
+};
+class DescribeDiskMonitorDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDiskMonitorDataResponseBodyMonitorData>> monitorData{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeDiskMonitorDataResponseBody() {}
+
+  explicit DescribeDiskMonitorDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (monitorData) {
+      vector<boost::any> temp1;
+      for(auto item1:*monitorData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MonitorData"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MonitorData") != m.end() && !m["MonitorData"].empty()) {
+      if (typeid(vector<boost::any>) == m["MonitorData"].type()) {
+        vector<DescribeDiskMonitorDataResponseBodyMonitorData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MonitorData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiskMonitorDataResponseBodyMonitorData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        monitorData = make_shared<vector<DescribeDiskMonitorDataResponseBodyMonitorData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataResponseBody() = default;
+};
+class DescribeDiskMonitorDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDiskMonitorDataResponseBody> body{};
+
+  DescribeDiskMonitorDataResponse() {}
+
+  explicit DescribeDiskMonitorDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDiskMonitorDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDiskMonitorDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataResponse() = default;
+};
+class DescribeDiskMonitorDataListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskIds{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> type{};
+
+  DescribeDiskMonitorDataListRequest() {}
+
+  explicit DescribeDiskMonitorDataListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      diskIds = make_shared<string>(boost::any_cast<string>(m["DiskIds"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<string>(boost::any_cast<string>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataListRequest() = default;
+};
+class DescribeDiskMonitorDataListResponseBodyMonitorData : public Darabonba::Model {
+public:
+  shared_ptr<long> burstIOCount{};
+  shared_ptr<string> diskId{};
+  shared_ptr<string> timestamp{};
+
+  DescribeDiskMonitorDataListResponseBodyMonitorData() {}
+
+  explicit DescribeDiskMonitorDataListResponseBodyMonitorData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (burstIOCount) {
+      res["BurstIOCount"] = boost::any(*burstIOCount);
+    }
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BurstIOCount") != m.end() && !m["BurstIOCount"].empty()) {
+      burstIOCount = make_shared<long>(boost::any_cast<long>(m["BurstIOCount"]));
+    }
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<string>(boost::any_cast<string>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataListResponseBodyMonitorData() = default;
+};
+class DescribeDiskMonitorDataListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDiskMonitorDataListResponseBodyMonitorData>> monitorData{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeDiskMonitorDataListResponseBody() {}
+
+  explicit DescribeDiskMonitorDataListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (monitorData) {
+      vector<boost::any> temp1;
+      for(auto item1:*monitorData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MonitorData"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MonitorData") != m.end() && !m["MonitorData"].empty()) {
+      if (typeid(vector<boost::any>) == m["MonitorData"].type()) {
+        vector<DescribeDiskMonitorDataListResponseBodyMonitorData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MonitorData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDiskMonitorDataListResponseBodyMonitorData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        monitorData = make_shared<vector<DescribeDiskMonitorDataListResponseBodyMonitorData>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataListResponseBody() = default;
+};
+class DescribeDiskMonitorDataListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDiskMonitorDataListResponseBody> body{};
+
+  DescribeDiskMonitorDataListResponse() {}
+
+  explicit DescribeDiskMonitorDataListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDiskMonitorDataListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDiskMonitorDataListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDiskMonitorDataListResponse() = default;
 };
 class DescribeDiskReplicaGroupsRequest : public Darabonba::Model {
 public:
@@ -2784,6 +3919,104 @@ public:
 
   virtual ~DescribeDiskReplicaPairsResponse() = default;
 };
+class DescribeLensServiceStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  DescribeLensServiceStatusResponseBody() {}
+
+  explicit DescribeLensServiceStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeLensServiceStatusResponseBody() = default;
+};
+class DescribeLensServiceStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeLensServiceStatusResponseBody> body{};
+
+  DescribeLensServiceStatusResponse() {}
+
+  explicit DescribeLensServiceStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeLensServiceStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeLensServiceStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeLensServiceStatusResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -2830,6 +4063,7 @@ public:
 class DescribeRegionsResponseBodyRegionsZones : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
+  shared_ptr<vector<string>> resourceTypes{};
   shared_ptr<string> zoneId{};
 
   DescribeRegionsResponseBodyRegionsZones() {}
@@ -2845,6 +4079,9 @@ public:
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
+    if (resourceTypes) {
+      res["ResourceTypes"] = boost::any(*resourceTypes);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -2854,6 +4091,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -4478,6 +5725,176 @@ public:
 
   virtual ~ReprotectDiskReplicaPairResponse() = default;
 };
+class StartDiskMonitorRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> diskIds{};
+  shared_ptr<string> regionId{};
+
+  StartDiskMonitorRequest() {}
+
+  explicit StartDiskMonitorRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StartDiskMonitorRequest() = default;
+};
+class StartDiskMonitorShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskIdsShrink{};
+  shared_ptr<string> regionId{};
+
+  StartDiskMonitorShrinkRequest() {}
+
+  explicit StartDiskMonitorShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskIdsShrink) {
+      res["DiskIds"] = boost::any(*diskIdsShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      diskIdsShrink = make_shared<string>(boost::any_cast<string>(m["DiskIds"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StartDiskMonitorShrinkRequest() = default;
+};
+class StartDiskMonitorResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StartDiskMonitorResponseBody() {}
+
+  explicit StartDiskMonitorResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartDiskMonitorResponseBody() = default;
+};
+class StartDiskMonitorResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartDiskMonitorResponseBody> body{};
+
+  StartDiskMonitorResponse() {}
+
+  explicit StartDiskMonitorResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartDiskMonitorResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartDiskMonitorResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartDiskMonitorResponse() = default;
+};
 class StartDiskReplicaGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -4759,6 +6176,176 @@ public:
 
 
   virtual ~StartDiskReplicaPairResponse() = default;
+};
+class StopDiskMonitorRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> diskIds{};
+  shared_ptr<string> regionId{};
+
+  StopDiskMonitorRequest() {}
+
+  explicit StopDiskMonitorRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskIds) {
+      res["DiskIds"] = boost::any(*diskIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DiskIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DiskIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      diskIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StopDiskMonitorRequest() = default;
+};
+class StopDiskMonitorShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskIdsShrink{};
+  shared_ptr<string> regionId{};
+
+  StopDiskMonitorShrinkRequest() {}
+
+  explicit StopDiskMonitorShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskIdsShrink) {
+      res["DiskIds"] = boost::any(*diskIdsShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskIds") != m.end() && !m["DiskIds"].empty()) {
+      diskIdsShrink = make_shared<string>(boost::any_cast<string>(m["DiskIds"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StopDiskMonitorShrinkRequest() = default;
+};
+class StopDiskMonitorResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopDiskMonitorResponseBody() {}
+
+  explicit StopDiskMonitorResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopDiskMonitorResponseBody() = default;
+};
+class StopDiskMonitorResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopDiskMonitorResponseBody> body{};
+
+  StopDiskMonitorResponse() {}
+
+  explicit StopDiskMonitorResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopDiskMonitorResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopDiskMonitorResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopDiskMonitorResponse() = default;
 };
 class StopDiskReplicaGroupRequest : public Darabonba::Model {
 public:
@@ -5414,6 +7001,10 @@ public:
                      shared_ptr<string> endpoint);
   AddDiskReplicaPairResponse addDiskReplicaPairWithOptions(shared_ptr<AddDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddDiskReplicaPairResponse addDiskReplicaPair(shared_ptr<AddDiskReplicaPairRequest> request);
+  ApplyLensServiceResponse applyLensServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyLensServiceResponse applyLensService();
+  CancelLensServiceResponse cancelLensServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelLensServiceResponse cancelLensService();
   CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageClusterWithOptions(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageCluster(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request);
   CreateDiskReplicaGroupResponse createDiskReplicaGroupWithOptions(shared_ptr<CreateDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5428,12 +7019,20 @@ public:
   DescribeDedicatedBlockStorageClusterDisksResponse describeDedicatedBlockStorageClusterDisks(shared_ptr<DescribeDedicatedBlockStorageClusterDisksRequest> request);
   DescribeDedicatedBlockStorageClustersResponse describeDedicatedBlockStorageClustersWithOptions(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDedicatedBlockStorageClustersResponse describeDedicatedBlockStorageClusters(shared_ptr<DescribeDedicatedBlockStorageClustersRequest> request);
+  DescribeDiskEventsResponse describeDiskEventsWithOptions(shared_ptr<DescribeDiskEventsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDiskEventsResponse describeDiskEvents(shared_ptr<DescribeDiskEventsRequest> request);
+  DescribeDiskMonitorDataResponse describeDiskMonitorDataWithOptions(shared_ptr<DescribeDiskMonitorDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDiskMonitorDataResponse describeDiskMonitorData(shared_ptr<DescribeDiskMonitorDataRequest> request);
+  DescribeDiskMonitorDataListResponse describeDiskMonitorDataListWithOptions(shared_ptr<DescribeDiskMonitorDataListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDiskMonitorDataListResponse describeDiskMonitorDataList(shared_ptr<DescribeDiskMonitorDataListRequest> request);
   DescribeDiskReplicaGroupsResponse describeDiskReplicaGroupsWithOptions(shared_ptr<DescribeDiskReplicaGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDiskReplicaGroupsResponse describeDiskReplicaGroups(shared_ptr<DescribeDiskReplicaGroupsRequest> request);
   DescribeDiskReplicaPairProgressResponse describeDiskReplicaPairProgressWithOptions(shared_ptr<DescribeDiskReplicaPairProgressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDiskReplicaPairProgressResponse describeDiskReplicaPairProgress(shared_ptr<DescribeDiskReplicaPairProgressRequest> request);
   DescribeDiskReplicaPairsResponse describeDiskReplicaPairsWithOptions(shared_ptr<DescribeDiskReplicaPairsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDiskReplicaPairsResponse describeDiskReplicaPairs(shared_ptr<DescribeDiskReplicaPairsRequest> request);
+  DescribeLensServiceStatusResponse describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeLensServiceStatusResponse describeLensServiceStatus();
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroupWithOptions(shared_ptr<FailoverDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5454,10 +7053,14 @@ public:
   ReprotectDiskReplicaGroupResponse reprotectDiskReplicaGroup(shared_ptr<ReprotectDiskReplicaGroupRequest> request);
   ReprotectDiskReplicaPairResponse reprotectDiskReplicaPairWithOptions(shared_ptr<ReprotectDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ReprotectDiskReplicaPairResponse reprotectDiskReplicaPair(shared_ptr<ReprotectDiskReplicaPairRequest> request);
+  StartDiskMonitorResponse startDiskMonitorWithOptions(shared_ptr<StartDiskMonitorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartDiskMonitorResponse startDiskMonitor(shared_ptr<StartDiskMonitorRequest> request);
   StartDiskReplicaGroupResponse startDiskReplicaGroupWithOptions(shared_ptr<StartDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartDiskReplicaGroupResponse startDiskReplicaGroup(shared_ptr<StartDiskReplicaGroupRequest> request);
   StartDiskReplicaPairResponse startDiskReplicaPairWithOptions(shared_ptr<StartDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartDiskReplicaPairResponse startDiskReplicaPair(shared_ptr<StartDiskReplicaPairRequest> request);
+  StopDiskMonitorResponse stopDiskMonitorWithOptions(shared_ptr<StopDiskMonitorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopDiskMonitorResponse stopDiskMonitor(shared_ptr<StopDiskMonitorRequest> request);
   StopDiskReplicaGroupResponse stopDiskReplicaGroupWithOptions(shared_ptr<StopDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopDiskReplicaGroupResponse stopDiskReplicaGroup(shared_ptr<StopDiskReplicaGroupRequest> request);
   StopDiskReplicaPairResponse stopDiskReplicaPairWithOptions(shared_ptr<StopDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
