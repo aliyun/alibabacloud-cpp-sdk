@@ -38,12 +38,6 @@ string Alibabacloud_GEMP20210413::Client::getEndpoint(shared_ptr<string> product
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-AddProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::addProblemServiceGroup(shared_ptr<AddProblemServiceGroupRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return addProblemServiceGroupWithOptions(request, headers, runtime);
-}
-
 AddProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::addProblemServiceGroupWithOptions(shared_ptr<AddProblemServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -71,10 +65,34 @@ AddProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::addProblemServ
   return AddProblemServiceGroupResponse(callApi(params, req, runtime));
 }
 
-CancelProblemResponse Alibabacloud_GEMP20210413::Client::cancelProblem(shared_ptr<CancelProblemRequest> request) {
+AddProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::addProblemServiceGroup(shared_ptr<AddProblemServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelProblemWithOptions(request, headers, runtime);
+  return addProblemServiceGroupWithOptions(request, headers, runtime);
+}
+
+BillingStatisticsResponse Alibabacloud_GEMP20210413::Client::billingStatisticsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BillingStatistics"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/charging/details"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BillingStatisticsResponse(callApi(params, req, runtime));
+}
+
+BillingStatisticsResponse Alibabacloud_GEMP20210413::Client::billingStatistics() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return billingStatisticsWithOptions(headers, runtime);
 }
 
 CancelProblemResponse Alibabacloud_GEMP20210413::Client::cancelProblemWithOptions(shared_ptr<CancelProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -113,10 +131,10 @@ CancelProblemResponse Alibabacloud_GEMP20210413::Client::cancelProblemWithOption
   return CancelProblemResponse(callApi(params, req, runtime));
 }
 
-CheckWebhookResponse Alibabacloud_GEMP20210413::Client::checkWebhook(shared_ptr<CheckWebhookRequest> request) {
+CancelProblemResponse Alibabacloud_GEMP20210413::Client::cancelProblem(shared_ptr<CancelProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return checkWebhookWithOptions(request, headers, runtime);
+  return cancelProblemWithOptions(request, headers, runtime);
 }
 
 CheckWebhookResponse Alibabacloud_GEMP20210413::Client::checkWebhookWithOptions(shared_ptr<CheckWebhookRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -149,10 +167,10 @@ CheckWebhookResponse Alibabacloud_GEMP20210413::Client::checkWebhookWithOptions(
   return CheckWebhookResponse(callApi(params, req, runtime));
 }
 
-ConfirmIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::confirmIntegrationConfig(shared_ptr<ConfirmIntegrationConfigRequest> request) {
+CheckWebhookResponse Alibabacloud_GEMP20210413::Client::checkWebhook(shared_ptr<CheckWebhookRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return confirmIntegrationConfigWithOptions(request, headers, runtime);
+  return checkWebhookWithOptions(request, headers, runtime);
 }
 
 ConfirmIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::confirmIntegrationConfigWithOptions(shared_ptr<ConfirmIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -182,10 +200,10 @@ ConfirmIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::confirmInteg
   return ConfirmIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-CreateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::createEscalationPlan(shared_ptr<CreateEscalationPlanRequest> request) {
+ConfirmIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::confirmIntegrationConfig(shared_ptr<ConfirmIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createEscalationPlanWithOptions(request, headers, runtime);
+  return confirmIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 CreateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::createEscalationPlanWithOptions(shared_ptr<CreateEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -224,10 +242,10 @@ CreateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::createEscalation
   return CreateEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-CreateIncidentResponse Alibabacloud_GEMP20210413::Client::createIncident(shared_ptr<CreateIncidentRequest> request) {
+CreateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::createEscalationPlan(shared_ptr<CreateEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createIncidentWithOptions(request, headers, runtime);
+  return createEscalationPlanWithOptions(request, headers, runtime);
 }
 
 CreateIncidentResponse Alibabacloud_GEMP20210413::Client::createIncidentWithOptions(shared_ptr<CreateIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -278,10 +296,10 @@ CreateIncidentResponse Alibabacloud_GEMP20210413::Client::createIncidentWithOpti
   return CreateIncidentResponse(callApi(params, req, runtime));
 }
 
-CreateIncidentSubtotalResponse Alibabacloud_GEMP20210413::Client::createIncidentSubtotal(shared_ptr<CreateIncidentSubtotalRequest> request) {
+CreateIncidentResponse Alibabacloud_GEMP20210413::Client::createIncident(shared_ptr<CreateIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createIncidentSubtotalWithOptions(request, headers, runtime);
+  return createIncidentWithOptions(request, headers, runtime);
 }
 
 CreateIncidentSubtotalResponse Alibabacloud_GEMP20210413::Client::createIncidentSubtotalWithOptions(shared_ptr<CreateIncidentSubtotalRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -314,10 +332,10 @@ CreateIncidentSubtotalResponse Alibabacloud_GEMP20210413::Client::createIncident
   return CreateIncidentSubtotalResponse(callApi(params, req, runtime));
 }
 
-CreateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::createIntegrationConfig(shared_ptr<CreateIntegrationConfigRequest> request) {
+CreateIncidentSubtotalResponse Alibabacloud_GEMP20210413::Client::createIncidentSubtotal(shared_ptr<CreateIncidentSubtotalRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createIntegrationConfigWithOptions(request, headers, runtime);
+  return createIncidentSubtotalWithOptions(request, headers, runtime);
 }
 
 CreateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::createIntegrationConfigWithOptions(shared_ptr<CreateIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -347,10 +365,10 @@ CreateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::createIntegra
   return CreateIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-CreateProblemResponse Alibabacloud_GEMP20210413::Client::createProblem(shared_ptr<CreateProblemRequest> request) {
+CreateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::createIntegrationConfig(shared_ptr<CreateIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemWithOptions(request, headers, runtime);
+  return createIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 CreateProblemResponse Alibabacloud_GEMP20210413::Client::createProblemWithOptions(shared_ptr<CreateProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -419,10 +437,10 @@ CreateProblemResponse Alibabacloud_GEMP20210413::Client::createProblemWithOption
   return CreateProblemResponse(callApi(params, req, runtime));
 }
 
-CreateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::createProblemEffectionService(shared_ptr<CreateProblemEffectionServiceRequest> request) {
+CreateProblemResponse Alibabacloud_GEMP20210413::Client::createProblem(shared_ptr<CreateProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemEffectionServiceWithOptions(request, headers, runtime);
+  return createProblemWithOptions(request, headers, runtime);
 }
 
 CreateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::createProblemEffectionServiceWithOptions(shared_ptr<CreateProblemEffectionServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -467,10 +485,10 @@ CreateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::createP
   return CreateProblemEffectionServiceResponse(callApi(params, req, runtime));
 }
 
-CreateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::createProblemMeasure(shared_ptr<CreateProblemMeasureRequest> request) {
+CreateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::createProblemEffectionService(shared_ptr<CreateProblemEffectionServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemMeasureWithOptions(request, headers, runtime);
+  return createProblemEffectionServiceWithOptions(request, headers, runtime);
 }
 
 CreateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::createProblemMeasureWithOptions(shared_ptr<CreateProblemMeasureRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -524,10 +542,10 @@ CreateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::createProblemMea
   return CreateProblemMeasureResponse(callApi(params, req, runtime));
 }
 
-CreateProblemSubtotalResponse Alibabacloud_GEMP20210413::Client::createProblemSubtotal(shared_ptr<CreateProblemSubtotalRequest> request) {
+CreateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::createProblemMeasure(shared_ptr<CreateProblemMeasureRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemSubtotalWithOptions(request, headers, runtime);
+  return createProblemMeasureWithOptions(request, headers, runtime);
 }
 
 CreateProblemSubtotalResponse Alibabacloud_GEMP20210413::Client::createProblemSubtotalWithOptions(shared_ptr<CreateProblemSubtotalRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -560,10 +578,10 @@ CreateProblemSubtotalResponse Alibabacloud_GEMP20210413::Client::createProblemSu
   return CreateProblemSubtotalResponse(callApi(params, req, runtime));
 }
 
-CreateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::createProblemTimeline(shared_ptr<CreateProblemTimelineRequest> request) {
+CreateProblemSubtotalResponse Alibabacloud_GEMP20210413::Client::createProblemSubtotal(shared_ptr<CreateProblemSubtotalRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemTimelineWithOptions(request, headers, runtime);
+  return createProblemSubtotalWithOptions(request, headers, runtime);
 }
 
 CreateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::createProblemTimelineWithOptions(shared_ptr<CreateProblemTimelineRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -602,10 +620,10 @@ CreateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::createProblemTi
   return CreateProblemTimelineResponse(callApi(params, req, runtime));
 }
 
-CreateProblemTimelinesResponse Alibabacloud_GEMP20210413::Client::createProblemTimelines(shared_ptr<CreateProblemTimelinesRequest> request) {
+CreateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::createProblemTimeline(shared_ptr<CreateProblemTimelineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProblemTimelinesWithOptions(request, headers, runtime);
+  return createProblemTimelineWithOptions(request, headers, runtime);
 }
 
 CreateProblemTimelinesResponse Alibabacloud_GEMP20210413::Client::createProblemTimelinesWithOptions(shared_ptr<CreateProblemTimelinesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -638,10 +656,10 @@ CreateProblemTimelinesResponse Alibabacloud_GEMP20210413::Client::createProblemT
   return CreateProblemTimelinesResponse(callApi(params, req, runtime));
 }
 
-CreateRichTextResponse Alibabacloud_GEMP20210413::Client::createRichText(shared_ptr<CreateRichTextRequest> request) {
+CreateProblemTimelinesResponse Alibabacloud_GEMP20210413::Client::createProblemTimelines(shared_ptr<CreateProblemTimelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createRichTextWithOptions(request, headers, runtime);
+  return createProblemTimelinesWithOptions(request, headers, runtime);
 }
 
 CreateRichTextResponse Alibabacloud_GEMP20210413::Client::createRichTextWithOptions(shared_ptr<CreateRichTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -674,10 +692,10 @@ CreateRichTextResponse Alibabacloud_GEMP20210413::Client::createRichTextWithOpti
   return CreateRichTextResponse(callApi(params, req, runtime));
 }
 
-CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRule(shared_ptr<CreateRouteRuleRequest> request) {
+CreateRichTextResponse Alibabacloud_GEMP20210413::Client::createRichText(shared_ptr<CreateRichTextRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createRouteRuleWithOptions(request, headers, runtime);
+  return createRichTextWithOptions(request, headers, runtime);
 }
 
 CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOptions(shared_ptr<CreateRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -695,6 +713,9 @@ CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->coverageProblemLevels)) {
+    body->insert(pair<string, vector<string>>("coverageProblemLevels", *request->coverageProblemLevels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->effection)) {
     body->insert(pair<string, string>("effection", *request->effection));
   }
@@ -709,6 +730,12 @@ CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOp
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->notifyChannels)) {
     body->insert(pair<string, vector<string>>("notifyChannels", *request->notifyChannels));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->problemEffectionServices)) {
+    body->insert(pair<string, vector<long>>("problemEffectionServices", *request->problemEffectionServices));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, ProblemLevelGroupValue>>(request->problemLevelGroup)) {
+    body->insert(pair<string, map<string, ProblemLevelGroupValue>>("problemLevelGroup", *request->problemLevelGroup));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->relatedServiceId)) {
     body->insert(pair<string, long>("relatedServiceId", *request->relatedServiceId));
@@ -746,10 +773,10 @@ CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOp
   return CreateRouteRuleResponse(callApi(params, req, runtime));
 }
 
-CreateServiceResponse Alibabacloud_GEMP20210413::Client::createService(shared_ptr<CreateServiceRequest> request) {
+CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRule(shared_ptr<CreateRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceWithOptions(request, headers, runtime);
+  return createRouteRuleWithOptions(request, headers, runtime);
 }
 
 CreateServiceResponse Alibabacloud_GEMP20210413::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -782,10 +809,10 @@ CreateServiceResponse Alibabacloud_GEMP20210413::Client::createServiceWithOption
   return CreateServiceResponse(callApi(params, req, runtime));
 }
 
-CreateServiceGroupResponse Alibabacloud_GEMP20210413::Client::createServiceGroup(shared_ptr<CreateServiceGroupRequest> request) {
+CreateServiceResponse Alibabacloud_GEMP20210413::Client::createService(shared_ptr<CreateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceGroupWithOptions(request, headers, runtime);
+  return createServiceWithOptions(request, headers, runtime);
 }
 
 CreateServiceGroupResponse Alibabacloud_GEMP20210413::Client::createServiceGroupWithOptions(shared_ptr<CreateServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -833,10 +860,10 @@ CreateServiceGroupResponse Alibabacloud_GEMP20210413::Client::createServiceGroup
   return CreateServiceGroupResponse(callApi(params, req, runtime));
 }
 
-CreateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::createServiceGroupScheduling(shared_ptr<CreateServiceGroupSchedulingRequest> request) {
+CreateServiceGroupResponse Alibabacloud_GEMP20210413::Client::createServiceGroup(shared_ptr<CreateServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceGroupSchedulingWithOptions(request, headers, runtime);
+  return createServiceGroupWithOptions(request, headers, runtime);
 }
 
 CreateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::createServiceGroupSchedulingWithOptions(shared_ptr<CreateServiceGroupSchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -875,10 +902,10 @@ CreateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::createSe
   return CreateServiceGroupSchedulingResponse(callApi(params, req, runtime));
 }
 
-CreateSubscriptionResponse Alibabacloud_GEMP20210413::Client::createSubscription(shared_ptr<CreateSubscriptionRequest> request) {
+CreateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::createServiceGroupScheduling(shared_ptr<CreateServiceGroupSchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createSubscriptionWithOptions(request, headers, runtime);
+  return createServiceGroupSchedulingWithOptions(request, headers, runtime);
 }
 
 CreateSubscriptionResponse Alibabacloud_GEMP20210413::Client::createSubscriptionWithOptions(shared_ptr<CreateSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -935,10 +962,10 @@ CreateSubscriptionResponse Alibabacloud_GEMP20210413::Client::createSubscription
   return CreateSubscriptionResponse(callApi(params, req, runtime));
 }
 
-CreateTenantApplicationResponse Alibabacloud_GEMP20210413::Client::createTenantApplication(shared_ptr<CreateTenantApplicationRequest> request) {
+CreateSubscriptionResponse Alibabacloud_GEMP20210413::Client::createSubscription(shared_ptr<CreateSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTenantApplicationWithOptions(request, headers, runtime);
+  return createSubscriptionWithOptions(request, headers, runtime);
 }
 
 CreateTenantApplicationResponse Alibabacloud_GEMP20210413::Client::createTenantApplicationWithOptions(shared_ptr<CreateTenantApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -968,10 +995,10 @@ CreateTenantApplicationResponse Alibabacloud_GEMP20210413::Client::createTenantA
   return CreateTenantApplicationResponse(callApi(params, req, runtime));
 }
 
-CreateUserResponse Alibabacloud_GEMP20210413::Client::createUser(shared_ptr<CreateUserRequest> request) {
+CreateTenantApplicationResponse Alibabacloud_GEMP20210413::Client::createTenantApplication(shared_ptr<CreateTenantApplicationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createUserWithOptions(request, headers, runtime);
+  return createTenantApplicationWithOptions(request, headers, runtime);
 }
 
 CreateUserResponse Alibabacloud_GEMP20210413::Client::createUserWithOptions(shared_ptr<CreateUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1010,10 +1037,10 @@ CreateUserResponse Alibabacloud_GEMP20210413::Client::createUserWithOptions(shar
   return CreateUserResponse(callApi(params, req, runtime));
 }
 
-DeleteEscalationPlanResponse Alibabacloud_GEMP20210413::Client::deleteEscalationPlan(shared_ptr<DeleteEscalationPlanRequest> request) {
+CreateUserResponse Alibabacloud_GEMP20210413::Client::createUser(shared_ptr<CreateUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteEscalationPlanWithOptions(request, headers, runtime);
+  return createUserWithOptions(request, headers, runtime);
 }
 
 DeleteEscalationPlanResponse Alibabacloud_GEMP20210413::Client::deleteEscalationPlanWithOptions(shared_ptr<DeleteEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1043,10 +1070,10 @@ DeleteEscalationPlanResponse Alibabacloud_GEMP20210413::Client::deleteEscalation
   return DeleteEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-DeleteIncidentResponse Alibabacloud_GEMP20210413::Client::deleteIncident(shared_ptr<DeleteIncidentRequest> request) {
+DeleteEscalationPlanResponse Alibabacloud_GEMP20210413::Client::deleteEscalationPlan(shared_ptr<DeleteEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteIncidentWithOptions(request, headers, runtime);
+  return deleteEscalationPlanWithOptions(request, headers, runtime);
 }
 
 DeleteIncidentResponse Alibabacloud_GEMP20210413::Client::deleteIncidentWithOptions(shared_ptr<DeleteIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1076,10 +1103,10 @@ DeleteIncidentResponse Alibabacloud_GEMP20210413::Client::deleteIncidentWithOpti
   return DeleteIncidentResponse(callApi(params, req, runtime));
 }
 
-DeleteIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::deleteIntegrationConfig(shared_ptr<DeleteIntegrationConfigRequest> request) {
+DeleteIncidentResponse Alibabacloud_GEMP20210413::Client::deleteIncident(shared_ptr<DeleteIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteIntegrationConfigWithOptions(request, headers, runtime);
+  return deleteIncidentWithOptions(request, headers, runtime);
 }
 
 DeleteIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::deleteIntegrationConfigWithOptions(shared_ptr<DeleteIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1109,10 +1136,10 @@ DeleteIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::deleteIntegra
   return DeleteIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-DeleteProblemResponse Alibabacloud_GEMP20210413::Client::deleteProblem(shared_ptr<DeleteProblemRequest> request) {
+DeleteIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::deleteIntegrationConfig(shared_ptr<DeleteIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProblemWithOptions(request, headers, runtime);
+  return deleteIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 DeleteProblemResponse Alibabacloud_GEMP20210413::Client::deleteProblemWithOptions(shared_ptr<DeleteProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1142,10 +1169,10 @@ DeleteProblemResponse Alibabacloud_GEMP20210413::Client::deleteProblemWithOption
   return DeleteProblemResponse(callApi(params, req, runtime));
 }
 
-DeleteProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::deleteProblemEffectionService(shared_ptr<DeleteProblemEffectionServiceRequest> request) {
+DeleteProblemResponse Alibabacloud_GEMP20210413::Client::deleteProblem(shared_ptr<DeleteProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProblemEffectionServiceWithOptions(request, headers, runtime);
+  return deleteProblemWithOptions(request, headers, runtime);
 }
 
 DeleteProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::deleteProblemEffectionServiceWithOptions(shared_ptr<DeleteProblemEffectionServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1178,10 +1205,10 @@ DeleteProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::deleteP
   return DeleteProblemEffectionServiceResponse(callApi(params, req, runtime));
 }
 
-DeleteProblemMeasureResponse Alibabacloud_GEMP20210413::Client::deleteProblemMeasure(shared_ptr<DeleteProblemMeasureRequest> request) {
+DeleteProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::deleteProblemEffectionService(shared_ptr<DeleteProblemEffectionServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProblemMeasureWithOptions(request, headers, runtime);
+  return deleteProblemEffectionServiceWithOptions(request, headers, runtime);
 }
 
 DeleteProblemMeasureResponse Alibabacloud_GEMP20210413::Client::deleteProblemMeasureWithOptions(shared_ptr<DeleteProblemMeasureRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1214,10 +1241,10 @@ DeleteProblemMeasureResponse Alibabacloud_GEMP20210413::Client::deleteProblemMea
   return DeleteProblemMeasureResponse(callApi(params, req, runtime));
 }
 
-DeleteProblemTimelineResponse Alibabacloud_GEMP20210413::Client::deleteProblemTimeline(shared_ptr<DeleteProblemTimelineRequest> request) {
+DeleteProblemMeasureResponse Alibabacloud_GEMP20210413::Client::deleteProblemMeasure(shared_ptr<DeleteProblemMeasureRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProblemTimelineWithOptions(request, headers, runtime);
+  return deleteProblemMeasureWithOptions(request, headers, runtime);
 }
 
 DeleteProblemTimelineResponse Alibabacloud_GEMP20210413::Client::deleteProblemTimelineWithOptions(shared_ptr<DeleteProblemTimelineRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1250,10 +1277,10 @@ DeleteProblemTimelineResponse Alibabacloud_GEMP20210413::Client::deleteProblemTi
   return DeleteProblemTimelineResponse(callApi(params, req, runtime));
 }
 
-DeleteRouteRuleResponse Alibabacloud_GEMP20210413::Client::deleteRouteRule(shared_ptr<DeleteRouteRuleRequest> request) {
+DeleteProblemTimelineResponse Alibabacloud_GEMP20210413::Client::deleteProblemTimeline(shared_ptr<DeleteProblemTimelineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteRouteRuleWithOptions(request, headers, runtime);
+  return deleteProblemTimelineWithOptions(request, headers, runtime);
 }
 
 DeleteRouteRuleResponse Alibabacloud_GEMP20210413::Client::deleteRouteRuleWithOptions(shared_ptr<DeleteRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1283,10 +1310,10 @@ DeleteRouteRuleResponse Alibabacloud_GEMP20210413::Client::deleteRouteRuleWithOp
   return DeleteRouteRuleResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceResponse Alibabacloud_GEMP20210413::Client::deleteService(shared_ptr<DeleteServiceRequest> request) {
+DeleteRouteRuleResponse Alibabacloud_GEMP20210413::Client::deleteRouteRule(shared_ptr<DeleteRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceWithOptions(request, headers, runtime);
+  return deleteRouteRuleWithOptions(request, headers, runtime);
 }
 
 DeleteServiceResponse Alibabacloud_GEMP20210413::Client::deleteServiceWithOptions(shared_ptr<DeleteServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1316,10 +1343,10 @@ DeleteServiceResponse Alibabacloud_GEMP20210413::Client::deleteServiceWithOption
   return DeleteServiceResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceGroupResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroup(shared_ptr<DeleteServiceGroupRequest> request) {
+DeleteServiceResponse Alibabacloud_GEMP20210413::Client::deleteService(shared_ptr<DeleteServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceGroupWithOptions(request, headers, runtime);
+  return deleteServiceWithOptions(request, headers, runtime);
 }
 
 DeleteServiceGroupResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupWithOptions(shared_ptr<DeleteServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1349,10 +1376,34 @@ DeleteServiceGroupResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroup
   return DeleteServiceGroupResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceGroupUserResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupUser(shared_ptr<DeleteServiceGroupUserRequest> request) {
+DeleteServiceGroupResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroup(shared_ptr<DeleteServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceGroupUserWithOptions(request, headers, runtime);
+  return deleteServiceGroupWithOptions(request, headers, runtime);
+}
+
+DeleteServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupSchedulingWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteServiceGroupScheduling"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/services/group/scheduling/delete"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteServiceGroupSchedulingResponse(callApi(params, req, runtime));
+}
+
+DeleteServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupScheduling() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteServiceGroupSchedulingWithOptions(headers, runtime);
 }
 
 DeleteServiceGroupUserResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupUserWithOptions(shared_ptr<DeleteServiceGroupUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1391,10 +1442,10 @@ DeleteServiceGroupUserResponse Alibabacloud_GEMP20210413::Client::deleteServiceG
   return DeleteServiceGroupUserResponse(callApi(params, req, runtime));
 }
 
-DeleteSubscriptionResponse Alibabacloud_GEMP20210413::Client::deleteSubscription(shared_ptr<DeleteSubscriptionRequest> request) {
+DeleteServiceGroupUserResponse Alibabacloud_GEMP20210413::Client::deleteServiceGroupUser(shared_ptr<DeleteServiceGroupUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteSubscriptionWithOptions(request, headers, runtime);
+  return deleteServiceGroupUserWithOptions(request, headers, runtime);
 }
 
 DeleteSubscriptionResponse Alibabacloud_GEMP20210413::Client::deleteSubscriptionWithOptions(shared_ptr<DeleteSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1421,10 +1472,10 @@ DeleteSubscriptionResponse Alibabacloud_GEMP20210413::Client::deleteSubscription
   return DeleteSubscriptionResponse(callApi(params, req, runtime));
 }
 
-DeleteUserResponse Alibabacloud_GEMP20210413::Client::deleteUser(shared_ptr<DeleteUserRequest> request) {
+DeleteSubscriptionResponse Alibabacloud_GEMP20210413::Client::deleteSubscription(shared_ptr<DeleteSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteUserWithOptions(request, headers, runtime);
+  return deleteSubscriptionWithOptions(request, headers, runtime);
 }
 
 DeleteUserResponse Alibabacloud_GEMP20210413::Client::deleteUserWithOptions(shared_ptr<DeleteUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1454,10 +1505,10 @@ DeleteUserResponse Alibabacloud_GEMP20210413::Client::deleteUserWithOptions(shar
   return DeleteUserResponse(callApi(params, req, runtime));
 }
 
-DeliverIncidentResponse Alibabacloud_GEMP20210413::Client::deliverIncident(shared_ptr<DeliverIncidentRequest> request) {
+DeleteUserResponse Alibabacloud_GEMP20210413::Client::deleteUser(shared_ptr<DeleteUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deliverIncidentWithOptions(request, headers, runtime);
+  return deleteUserWithOptions(request, headers, runtime);
 }
 
 DeliverIncidentResponse Alibabacloud_GEMP20210413::Client::deliverIncidentWithOptions(shared_ptr<DeliverIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1490,10 +1541,10 @@ DeliverIncidentResponse Alibabacloud_GEMP20210413::Client::deliverIncidentWithOp
   return DeliverIncidentResponse(callApi(params, req, runtime));
 }
 
-DisableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::disableEscalationPlan(shared_ptr<DisableEscalationPlanRequest> request) {
+DeliverIncidentResponse Alibabacloud_GEMP20210413::Client::deliverIncident(shared_ptr<DeliverIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return disableEscalationPlanWithOptions(request, headers, runtime);
+  return deliverIncidentWithOptions(request, headers, runtime);
 }
 
 DisableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::disableEscalationPlanWithOptions(shared_ptr<DisableEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1523,10 +1574,10 @@ DisableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::disableEscalati
   return DisableEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-DisableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::disableIntegrationConfig(shared_ptr<DisableIntegrationConfigRequest> request) {
+DisableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::disableEscalationPlan(shared_ptr<DisableEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return disableIntegrationConfigWithOptions(request, headers, runtime);
+  return disableEscalationPlanWithOptions(request, headers, runtime);
 }
 
 DisableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::disableIntegrationConfigWithOptions(shared_ptr<DisableIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1556,10 +1607,10 @@ DisableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::disableInteg
   return DisableIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-DisableRouteRuleResponse Alibabacloud_GEMP20210413::Client::disableRouteRule(shared_ptr<DisableRouteRuleRequest> request) {
+DisableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::disableIntegrationConfig(shared_ptr<DisableIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return disableRouteRuleWithOptions(request, headers, runtime);
+  return disableIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 DisableRouteRuleResponse Alibabacloud_GEMP20210413::Client::disableRouteRuleWithOptions(shared_ptr<DisableRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1589,10 +1640,10 @@ DisableRouteRuleResponse Alibabacloud_GEMP20210413::Client::disableRouteRuleWith
   return DisableRouteRuleResponse(callApi(params, req, runtime));
 }
 
-DisableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::disableServiceGroupWebhook(shared_ptr<DisableServiceGroupWebhookRequest> request) {
+DisableRouteRuleResponse Alibabacloud_GEMP20210413::Client::disableRouteRule(shared_ptr<DisableRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return disableServiceGroupWebhookWithOptions(request, headers, runtime);
+  return disableRouteRuleWithOptions(request, headers, runtime);
 }
 
 DisableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::disableServiceGroupWebhookWithOptions(shared_ptr<DisableServiceGroupWebhookRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1622,10 +1673,10 @@ DisableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::disableSer
   return DisableServiceGroupWebhookResponse(callApi(params, req, runtime));
 }
 
-DisableSubscriptionResponse Alibabacloud_GEMP20210413::Client::disableSubscription(shared_ptr<DisableSubscriptionRequest> request) {
+DisableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::disableServiceGroupWebhook(shared_ptr<DisableServiceGroupWebhookRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return disableSubscriptionWithOptions(request, headers, runtime);
+  return disableServiceGroupWebhookWithOptions(request, headers, runtime);
 }
 
 DisableSubscriptionResponse Alibabacloud_GEMP20210413::Client::disableSubscriptionWithOptions(shared_ptr<DisableSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1652,10 +1703,10 @@ DisableSubscriptionResponse Alibabacloud_GEMP20210413::Client::disableSubscripti
   return DisableSubscriptionResponse(callApi(params, req, runtime));
 }
 
-EnableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::enableEscalationPlan(shared_ptr<EnableEscalationPlanRequest> request) {
+DisableSubscriptionResponse Alibabacloud_GEMP20210413::Client::disableSubscription(shared_ptr<DisableSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return enableEscalationPlanWithOptions(request, headers, runtime);
+  return disableSubscriptionWithOptions(request, headers, runtime);
 }
 
 EnableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::enableEscalationPlanWithOptions(shared_ptr<EnableEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1685,10 +1736,10 @@ EnableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::enableEscalation
   return EnableEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-EnableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::enableIntegrationConfig(shared_ptr<EnableIntegrationConfigRequest> request) {
+EnableEscalationPlanResponse Alibabacloud_GEMP20210413::Client::enableEscalationPlan(shared_ptr<EnableEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return enableIntegrationConfigWithOptions(request, headers, runtime);
+  return enableEscalationPlanWithOptions(request, headers, runtime);
 }
 
 EnableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::enableIntegrationConfigWithOptions(shared_ptr<EnableIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1718,10 +1769,10 @@ EnableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::enableIntegra
   return EnableIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-EnableRouteRuleResponse Alibabacloud_GEMP20210413::Client::enableRouteRule(shared_ptr<EnableRouteRuleRequest> request) {
+EnableIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::enableIntegrationConfig(shared_ptr<EnableIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return enableRouteRuleWithOptions(request, headers, runtime);
+  return enableIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 EnableRouteRuleResponse Alibabacloud_GEMP20210413::Client::enableRouteRuleWithOptions(shared_ptr<EnableRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1751,10 +1802,10 @@ EnableRouteRuleResponse Alibabacloud_GEMP20210413::Client::enableRouteRuleWithOp
   return EnableRouteRuleResponse(callApi(params, req, runtime));
 }
 
-EnableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::enableServiceGroupWebhook(shared_ptr<EnableServiceGroupWebhookRequest> request) {
+EnableRouteRuleResponse Alibabacloud_GEMP20210413::Client::enableRouteRule(shared_ptr<EnableRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return enableServiceGroupWebhookWithOptions(request, headers, runtime);
+  return enableRouteRuleWithOptions(request, headers, runtime);
 }
 
 EnableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::enableServiceGroupWebhookWithOptions(shared_ptr<EnableServiceGroupWebhookRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1784,10 +1835,10 @@ EnableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::enableServi
   return EnableServiceGroupWebhookResponse(callApi(params, req, runtime));
 }
 
-EnableSubscriptionResponse Alibabacloud_GEMP20210413::Client::enableSubscription(shared_ptr<EnableSubscriptionRequest> request) {
+EnableServiceGroupWebhookResponse Alibabacloud_GEMP20210413::Client::enableServiceGroupWebhook(shared_ptr<EnableServiceGroupWebhookRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return enableSubscriptionWithOptions(request, headers, runtime);
+  return enableServiceGroupWebhookWithOptions(request, headers, runtime);
 }
 
 EnableSubscriptionResponse Alibabacloud_GEMP20210413::Client::enableSubscriptionWithOptions(shared_ptr<EnableSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1814,10 +1865,10 @@ EnableSubscriptionResponse Alibabacloud_GEMP20210413::Client::enableSubscription
   return EnableSubscriptionResponse(callApi(params, req, runtime));
 }
 
-FinishIncidentResponse Alibabacloud_GEMP20210413::Client::finishIncident(shared_ptr<FinishIncidentRequest> request) {
+EnableSubscriptionResponse Alibabacloud_GEMP20210413::Client::enableSubscription(shared_ptr<EnableSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return finishIncidentWithOptions(request, headers, runtime);
+  return enableSubscriptionWithOptions(request, headers, runtime);
 }
 
 FinishIncidentResponse Alibabacloud_GEMP20210413::Client::finishIncidentWithOptions(shared_ptr<FinishIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1859,10 +1910,10 @@ FinishIncidentResponse Alibabacloud_GEMP20210413::Client::finishIncidentWithOpti
   return FinishIncidentResponse(callApi(params, req, runtime));
 }
 
-FinishProblemResponse Alibabacloud_GEMP20210413::Client::finishProblem(shared_ptr<FinishProblemRequest> request) {
+FinishIncidentResponse Alibabacloud_GEMP20210413::Client::finishIncident(shared_ptr<FinishIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return finishProblemWithOptions(request, headers, runtime);
+  return finishIncidentWithOptions(request, headers, runtime);
 }
 
 FinishProblemResponse Alibabacloud_GEMP20210413::Client::finishProblemWithOptions(shared_ptr<FinishProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1892,10 +1943,10 @@ FinishProblemResponse Alibabacloud_GEMP20210413::Client::finishProblemWithOption
   return FinishProblemResponse(callApi(params, req, runtime));
 }
 
-GeneratePictureLinkResponse Alibabacloud_GEMP20210413::Client::generatePictureLink(shared_ptr<GeneratePictureLinkRequest> request) {
+FinishProblemResponse Alibabacloud_GEMP20210413::Client::finishProblem(shared_ptr<FinishProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generatePictureLinkWithOptions(request, headers, runtime);
+  return finishProblemWithOptions(request, headers, runtime);
 }
 
 GeneratePictureLinkResponse Alibabacloud_GEMP20210413::Client::generatePictureLinkWithOptions(shared_ptr<GeneratePictureLinkRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1925,10 +1976,10 @@ GeneratePictureLinkResponse Alibabacloud_GEMP20210413::Client::generatePictureLi
   return GeneratePictureLinkResponse(callApi(params, req, runtime));
 }
 
-GeneratePictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generatePictureUploadSign(shared_ptr<GeneratePictureUploadSignRequest> request) {
+GeneratePictureLinkResponse Alibabacloud_GEMP20210413::Client::generatePictureLink(shared_ptr<GeneratePictureLinkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generatePictureUploadSignWithOptions(request, headers, runtime);
+  return generatePictureLinkWithOptions(request, headers, runtime);
 }
 
 GeneratePictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generatePictureUploadSignWithOptions(shared_ptr<GeneratePictureUploadSignRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1961,10 +2012,10 @@ GeneratePictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generatePic
   return GeneratePictureUploadSignResponse(callApi(params, req, runtime));
 }
 
-GenerateProblemPictureLinkResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureLink(shared_ptr<GenerateProblemPictureLinkRequest> request) {
+GeneratePictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generatePictureUploadSign(shared_ptr<GeneratePictureUploadSignRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generateProblemPictureLinkWithOptions(request, headers, runtime);
+  return generatePictureUploadSignWithOptions(request, headers, runtime);
 }
 
 GenerateProblemPictureLinkResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureLinkWithOptions(shared_ptr<GenerateProblemPictureLinkRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1994,10 +2045,10 @@ GenerateProblemPictureLinkResponse Alibabacloud_GEMP20210413::Client::generatePr
   return GenerateProblemPictureLinkResponse(callApi(params, req, runtime));
 }
 
-GenerateProblemPictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureUploadSign(shared_ptr<GenerateProblemPictureUploadSignRequest> request) {
+GenerateProblemPictureLinkResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureLink(shared_ptr<GenerateProblemPictureLinkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generateProblemPictureUploadSignWithOptions(request, headers, runtime);
+  return generateProblemPictureLinkWithOptions(request, headers, runtime);
 }
 
 GenerateProblemPictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureUploadSignWithOptions(shared_ptr<GenerateProblemPictureUploadSignRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2033,10 +2084,10 @@ GenerateProblemPictureUploadSignResponse Alibabacloud_GEMP20210413::Client::gene
   return GenerateProblemPictureUploadSignResponse(callApi(params, req, runtime));
 }
 
-GetEscalationPlanResponse Alibabacloud_GEMP20210413::Client::getEscalationPlan(shared_ptr<GetEscalationPlanRequest> request) {
+GenerateProblemPictureUploadSignResponse Alibabacloud_GEMP20210413::Client::generateProblemPictureUploadSign(shared_ptr<GenerateProblemPictureUploadSignRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEscalationPlanWithOptions(request, headers, runtime);
+  return generateProblemPictureUploadSignWithOptions(request, headers, runtime);
 }
 
 GetEscalationPlanResponse Alibabacloud_GEMP20210413::Client::getEscalationPlanWithOptions(shared_ptr<GetEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2066,10 +2117,10 @@ GetEscalationPlanResponse Alibabacloud_GEMP20210413::Client::getEscalationPlanWi
   return GetEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-GetEventResponse Alibabacloud_GEMP20210413::Client::getEvent(shared_ptr<GetEventRequest> request) {
+GetEscalationPlanResponse Alibabacloud_GEMP20210413::Client::getEscalationPlan(shared_ptr<GetEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEventWithOptions(request, headers, runtime);
+  return getEscalationPlanWithOptions(request, headers, runtime);
 }
 
 GetEventResponse Alibabacloud_GEMP20210413::Client::getEventWithOptions(shared_ptr<GetEventRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2096,10 +2147,10 @@ GetEventResponse Alibabacloud_GEMP20210413::Client::getEventWithOptions(shared_p
   return GetEventResponse(callApi(params, req, runtime));
 }
 
-GetHomePageGuidanceResponse Alibabacloud_GEMP20210413::Client::getHomePageGuidance(shared_ptr<GetHomePageGuidanceRequest> request) {
+GetEventResponse Alibabacloud_GEMP20210413::Client::getEvent(shared_ptr<GetEventRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getHomePageGuidanceWithOptions(request, headers, runtime);
+  return getEventWithOptions(request, headers, runtime);
 }
 
 GetHomePageGuidanceResponse Alibabacloud_GEMP20210413::Client::getHomePageGuidanceWithOptions(shared_ptr<GetHomePageGuidanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2126,10 +2177,10 @@ GetHomePageGuidanceResponse Alibabacloud_GEMP20210413::Client::getHomePageGuidan
   return GetHomePageGuidanceResponse(callApi(params, req, runtime));
 }
 
-GetIncidentResponse Alibabacloud_GEMP20210413::Client::getIncident(shared_ptr<GetIncidentRequest> request) {
+GetHomePageGuidanceResponse Alibabacloud_GEMP20210413::Client::getHomePageGuidance(shared_ptr<GetHomePageGuidanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getIncidentWithOptions(request, headers, runtime);
+  return getHomePageGuidanceWithOptions(request, headers, runtime);
 }
 
 GetIncidentResponse Alibabacloud_GEMP20210413::Client::getIncidentWithOptions(shared_ptr<GetIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2159,10 +2210,10 @@ GetIncidentResponse Alibabacloud_GEMP20210413::Client::getIncidentWithOptions(sh
   return GetIncidentResponse(callApi(params, req, runtime));
 }
 
-GetIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getIncidentStatistics(shared_ptr<GetIncidentStatisticsRequest> request) {
+GetIncidentResponse Alibabacloud_GEMP20210413::Client::getIncident(shared_ptr<GetIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getIncidentStatisticsWithOptions(request, headers, runtime);
+  return getIncidentWithOptions(request, headers, runtime);
 }
 
 GetIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getIncidentStatisticsWithOptions(shared_ptr<GetIncidentStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2189,10 +2240,10 @@ GetIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getIncidentStat
   return GetIncidentStatisticsResponse(callApi(params, req, runtime));
 }
 
-GetIncidentSubtotalCountResponse Alibabacloud_GEMP20210413::Client::getIncidentSubtotalCount(shared_ptr<GetIncidentSubtotalCountRequest> request) {
+GetIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getIncidentStatistics(shared_ptr<GetIncidentStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getIncidentSubtotalCountWithOptions(request, headers, runtime);
+  return getIncidentStatisticsWithOptions(request, headers, runtime);
 }
 
 GetIncidentSubtotalCountResponse Alibabacloud_GEMP20210413::Client::getIncidentSubtotalCountWithOptions(shared_ptr<GetIncidentSubtotalCountRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2222,10 +2273,10 @@ GetIncidentSubtotalCountResponse Alibabacloud_GEMP20210413::Client::getIncidentS
   return GetIncidentSubtotalCountResponse(callApi(params, req, runtime));
 }
 
-GetIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::getIntegrationConfig(shared_ptr<GetIntegrationConfigRequest> request) {
+GetIncidentSubtotalCountResponse Alibabacloud_GEMP20210413::Client::getIncidentSubtotalCount(shared_ptr<GetIncidentSubtotalCountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getIntegrationConfigWithOptions(request, headers, runtime);
+  return getIncidentSubtotalCountWithOptions(request, headers, runtime);
 }
 
 GetIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::getIntegrationConfigWithOptions(shared_ptr<GetIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2255,10 +2306,10 @@ GetIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::getIntegrationCo
   return GetIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-GetProblemResponse Alibabacloud_GEMP20210413::Client::getProblem(shared_ptr<GetProblemRequest> request) {
+GetIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::getIntegrationConfig(shared_ptr<GetIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProblemWithOptions(request, headers, runtime);
+  return getIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 GetProblemResponse Alibabacloud_GEMP20210413::Client::getProblemWithOptions(shared_ptr<GetProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2288,10 +2339,10 @@ GetProblemResponse Alibabacloud_GEMP20210413::Client::getProblemWithOptions(shar
   return GetProblemResponse(callApi(params, req, runtime));
 }
 
-GetProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::getProblemEffectionService(shared_ptr<GetProblemEffectionServiceRequest> request) {
+GetProblemResponse Alibabacloud_GEMP20210413::Client::getProblem(shared_ptr<GetProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProblemEffectionServiceWithOptions(request, headers, runtime);
+  return getProblemWithOptions(request, headers, runtime);
 }
 
 GetProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::getProblemEffectionServiceWithOptions(shared_ptr<GetProblemEffectionServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2324,10 +2375,10 @@ GetProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::getProblem
   return GetProblemEffectionServiceResponse(callApi(params, req, runtime));
 }
 
-GetProblemImprovementResponse Alibabacloud_GEMP20210413::Client::getProblemImprovement(shared_ptr<GetProblemImprovementRequest> request) {
+GetProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::getProblemEffectionService(shared_ptr<GetProblemEffectionServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProblemImprovementWithOptions(request, headers, runtime);
+  return getProblemEffectionServiceWithOptions(request, headers, runtime);
 }
 
 GetProblemImprovementResponse Alibabacloud_GEMP20210413::Client::getProblemImprovementWithOptions(shared_ptr<GetProblemImprovementRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2357,10 +2408,10 @@ GetProblemImprovementResponse Alibabacloud_GEMP20210413::Client::getProblemImpro
   return GetProblemImprovementResponse(callApi(params, req, runtime));
 }
 
-GetProblemPreviewResponse Alibabacloud_GEMP20210413::Client::getProblemPreview(shared_ptr<GetProblemPreviewRequest> request) {
+GetProblemImprovementResponse Alibabacloud_GEMP20210413::Client::getProblemImprovement(shared_ptr<GetProblemImprovementRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProblemPreviewWithOptions(request, headers, runtime);
+  return getProblemImprovementWithOptions(request, headers, runtime);
 }
 
 GetProblemPreviewResponse Alibabacloud_GEMP20210413::Client::getProblemPreviewWithOptions(shared_ptr<GetProblemPreviewRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2408,10 +2459,10 @@ GetProblemPreviewResponse Alibabacloud_GEMP20210413::Client::getProblemPreviewWi
   return GetProblemPreviewResponse(callApi(params, req, runtime));
 }
 
-GetResourceStatisticsResponse Alibabacloud_GEMP20210413::Client::getResourceStatistics(shared_ptr<GetResourceStatisticsRequest> request) {
+GetProblemPreviewResponse Alibabacloud_GEMP20210413::Client::getProblemPreview(shared_ptr<GetProblemPreviewRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getResourceStatisticsWithOptions(request, headers, runtime);
+  return getProblemPreviewWithOptions(request, headers, runtime);
 }
 
 GetResourceStatisticsResponse Alibabacloud_GEMP20210413::Client::getResourceStatisticsWithOptions(shared_ptr<GetResourceStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2438,10 +2489,10 @@ GetResourceStatisticsResponse Alibabacloud_GEMP20210413::Client::getResourceStat
   return GetResourceStatisticsResponse(callApi(params, req, runtime));
 }
 
-GetRichTextResponse Alibabacloud_GEMP20210413::Client::getRichText(shared_ptr<GetRichTextRequest> request) {
+GetResourceStatisticsResponse Alibabacloud_GEMP20210413::Client::getResourceStatistics(shared_ptr<GetResourceStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getRichTextWithOptions(request, headers, runtime);
+  return getResourceStatisticsWithOptions(request, headers, runtime);
 }
 
 GetRichTextResponse Alibabacloud_GEMP20210413::Client::getRichTextWithOptions(shared_ptr<GetRichTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2474,10 +2525,10 @@ GetRichTextResponse Alibabacloud_GEMP20210413::Client::getRichTextWithOptions(sh
   return GetRichTextResponse(callApi(params, req, runtime));
 }
 
-GetRouteRuleResponse Alibabacloud_GEMP20210413::Client::getRouteRule(shared_ptr<GetRouteRuleRequest> request) {
+GetRichTextResponse Alibabacloud_GEMP20210413::Client::getRichText(shared_ptr<GetRichTextRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getRouteRuleWithOptions(request, headers, runtime);
+  return getRichTextWithOptions(request, headers, runtime);
 }
 
 GetRouteRuleResponse Alibabacloud_GEMP20210413::Client::getRouteRuleWithOptions(shared_ptr<GetRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2507,10 +2558,10 @@ GetRouteRuleResponse Alibabacloud_GEMP20210413::Client::getRouteRuleWithOptions(
   return GetRouteRuleResponse(callApi(params, req, runtime));
 }
 
-GetServiceResponse Alibabacloud_GEMP20210413::Client::getService(shared_ptr<GetServiceRequest> request) {
+GetRouteRuleResponse Alibabacloud_GEMP20210413::Client::getRouteRule(shared_ptr<GetRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceWithOptions(request, headers, runtime);
+  return getRouteRuleWithOptions(request, headers, runtime);
 }
 
 GetServiceResponse Alibabacloud_GEMP20210413::Client::getServiceWithOptions(shared_ptr<GetServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2540,10 +2591,10 @@ GetServiceResponse Alibabacloud_GEMP20210413::Client::getServiceWithOptions(shar
   return GetServiceResponse(callApi(params, req, runtime));
 }
 
-GetServiceGroupResponse Alibabacloud_GEMP20210413::Client::getServiceGroup(shared_ptr<GetServiceGroupRequest> request) {
+GetServiceResponse Alibabacloud_GEMP20210413::Client::getService(shared_ptr<GetServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceGroupWithOptions(request, headers, runtime);
+  return getServiceWithOptions(request, headers, runtime);
 }
 
 GetServiceGroupResponse Alibabacloud_GEMP20210413::Client::getServiceGroupWithOptions(shared_ptr<GetServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2573,10 +2624,10 @@ GetServiceGroupResponse Alibabacloud_GEMP20210413::Client::getServiceGroupWithOp
   return GetServiceGroupResponse(callApi(params, req, runtime));
 }
 
-GetServiceGroupPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupPersonScheduling(shared_ptr<GetServiceGroupPersonSchedulingRequest> request) {
+GetServiceGroupResponse Alibabacloud_GEMP20210413::Client::getServiceGroup(shared_ptr<GetServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceGroupPersonSchedulingWithOptions(request, headers, runtime);
+  return getServiceGroupWithOptions(request, headers, runtime);
 }
 
 GetServiceGroupPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupPersonSchedulingWithOptions(shared_ptr<GetServiceGroupPersonSchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2615,10 +2666,10 @@ GetServiceGroupPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getSe
   return GetServiceGroupPersonSchedulingResponse(callApi(params, req, runtime));
 }
 
-GetServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupScheduling(shared_ptr<GetServiceGroupSchedulingRequest> request) {
+GetServiceGroupPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupPersonScheduling(shared_ptr<GetServiceGroupPersonSchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceGroupSchedulingWithOptions(request, headers, runtime);
+  return getServiceGroupPersonSchedulingWithOptions(request, headers, runtime);
 }
 
 GetServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSchedulingWithOptions(shared_ptr<GetServiceGroupSchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2648,10 +2699,10 @@ GetServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceG
   return GetServiceGroupSchedulingResponse(callApi(params, req, runtime));
 }
 
-GetServiceGroupSchedulingPreviewResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSchedulingPreview(shared_ptr<GetServiceGroupSchedulingPreviewRequest> request) {
+GetServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupScheduling(shared_ptr<GetServiceGroupSchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceGroupSchedulingPreviewWithOptions(request, headers, runtime);
+  return getServiceGroupSchedulingWithOptions(request, headers, runtime);
 }
 
 GetServiceGroupSchedulingPreviewResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSchedulingPreviewWithOptions(shared_ptr<GetServiceGroupSchedulingPreviewRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2696,10 +2747,10 @@ GetServiceGroupSchedulingPreviewResponse Alibabacloud_GEMP20210413::Client::getS
   return GetServiceGroupSchedulingPreviewResponse(callApi(params, req, runtime));
 }
 
-GetServiceGroupSpecialPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSpecialPersonScheduling(shared_ptr<GetServiceGroupSpecialPersonSchedulingRequest> request) {
+GetServiceGroupSchedulingPreviewResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSchedulingPreview(shared_ptr<GetServiceGroupSchedulingPreviewRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getServiceGroupSpecialPersonSchedulingWithOptions(request, headers, runtime);
+  return getServiceGroupSchedulingPreviewWithOptions(request, headers, runtime);
 }
 
 GetServiceGroupSpecialPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSpecialPersonSchedulingWithOptions(shared_ptr<GetServiceGroupSpecialPersonSchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2732,10 +2783,10 @@ GetServiceGroupSpecialPersonSchedulingResponse Alibabacloud_GEMP20210413::Client
   return GetServiceGroupSpecialPersonSchedulingResponse(callApi(params, req, runtime));
 }
 
-GetSimilarIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getSimilarIncidentStatistics(shared_ptr<GetSimilarIncidentStatisticsRequest> request) {
+GetServiceGroupSpecialPersonSchedulingResponse Alibabacloud_GEMP20210413::Client::getServiceGroupSpecialPersonScheduling(shared_ptr<GetServiceGroupSpecialPersonSchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSimilarIncidentStatisticsWithOptions(request, headers, runtime);
+  return getServiceGroupSpecialPersonSchedulingWithOptions(request, headers, runtime);
 }
 
 GetSimilarIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getSimilarIncidentStatisticsWithOptions(shared_ptr<GetSimilarIncidentStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2777,15 +2828,18 @@ GetSimilarIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getSimil
   return GetSimilarIncidentStatisticsResponse(callApi(params, req, runtime));
 }
 
-GetSubscriptionResponse Alibabacloud_GEMP20210413::Client::getSubscription(shared_ptr<GetSubscriptionRequest> request) {
+GetSimilarIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getSimilarIncidentStatistics(shared_ptr<GetSimilarIncidentStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSubscriptionWithOptions(request, headers, runtime);
+  return getSimilarIncidentStatisticsWithOptions(request, headers, runtime);
 }
 
 GetSubscriptionResponse Alibabacloud_GEMP20210413::Client::getSubscriptionWithOptions(shared_ptr<GetSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->notFilterScopeObjectDeleted)) {
+    body->insert(pair<string, bool>("notFilterScopeObjectDeleted", *request->notFilterScopeObjectDeleted));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->subscriptionId)) {
     body->insert(pair<string, long>("subscriptionId", *request->subscriptionId));
   }
@@ -2807,10 +2861,10 @@ GetSubscriptionResponse Alibabacloud_GEMP20210413::Client::getSubscriptionWithOp
   return GetSubscriptionResponse(callApi(params, req, runtime));
 }
 
-GetTenantApplicationResponse Alibabacloud_GEMP20210413::Client::getTenantApplication(shared_ptr<GetTenantApplicationRequest> request) {
+GetSubscriptionResponse Alibabacloud_GEMP20210413::Client::getSubscription(shared_ptr<GetSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTenantApplicationWithOptions(request, headers, runtime);
+  return getSubscriptionWithOptions(request, headers, runtime);
 }
 
 GetTenantApplicationResponse Alibabacloud_GEMP20210413::Client::getTenantApplicationWithOptions(shared_ptr<GetTenantApplicationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2837,10 +2891,40 @@ GetTenantApplicationResponse Alibabacloud_GEMP20210413::Client::getTenantApplica
   return GetTenantApplicationResponse(callApi(params, req, runtime));
 }
 
-GetUserResponse Alibabacloud_GEMP20210413::Client::getUser(shared_ptr<GetUserRequest> request) {
+GetTenantApplicationResponse Alibabacloud_GEMP20210413::Client::getTenantApplication(shared_ptr<GetTenantApplicationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getUserWithOptions(request, headers, runtime);
+  return getTenantApplicationWithOptions(request, headers, runtime);
+}
+
+GetTenantStatusResponse Alibabacloud_GEMP20210413::Client::getTenantStatusWithOptions(shared_ptr<GetTenantStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->tenantRamId)) {
+    body->insert(pair<string, long>("tenantRamId", *request->tenantRamId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTenantStatus"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/tenant/getTenantStatus"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTenantStatusResponse(callApi(params, req, runtime));
+}
+
+GetTenantStatusResponse Alibabacloud_GEMP20210413::Client::getTenantStatus(shared_ptr<GetTenantStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getTenantStatusWithOptions(request, headers, runtime);
 }
 
 GetUserResponse Alibabacloud_GEMP20210413::Client::getUserWithOptions(shared_ptr<GetUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2870,10 +2954,10 @@ GetUserResponse Alibabacloud_GEMP20210413::Client::getUserWithOptions(shared_ptr
   return GetUserResponse(callApi(params, req, runtime));
 }
 
-GetUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::getUserGuideStatus(shared_ptr<GetUserGuideStatusRequest> request) {
+GetUserResponse Alibabacloud_GEMP20210413::Client::getUser(shared_ptr<GetUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getUserGuideStatusWithOptions(request, headers, runtime);
+  return getUserWithOptions(request, headers, runtime);
 }
 
 GetUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::getUserGuideStatusWithOptions(shared_ptr<GetUserGuideStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2900,10 +2984,10 @@ GetUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::getUserGuideStatus
   return GetUserGuideStatusResponse(callApi(params, req, runtime));
 }
 
-ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlerts(shared_ptr<ListAlertsRequest> request) {
+GetUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::getUserGuideStatus(shared_ptr<GetUserGuideStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAlertsWithOptions(request, headers, runtime);
+  return getUserGuideStatusWithOptions(request, headers, runtime);
 }
 
 ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlertsWithOptions(shared_ptr<ListAlertsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2920,6 +3004,9 @@ ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlertsWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("endTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorSourceId)) {
+    body->insert(pair<string, string>("monitorSourceId", *request->monitorSourceId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("pageNumber", *request->pageNumber));
@@ -2954,10 +3041,40 @@ ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlertsWithOptions(shar
   return ListAlertsResponse(callApi(params, req, runtime));
 }
 
-ListChartDataForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listChartDataForServiceGroup(shared_ptr<ListChartDataForServiceGroupRequest> request) {
+ListAlertsResponse Alibabacloud_GEMP20210413::Client::listAlerts(shared_ptr<ListAlertsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listChartDataForServiceGroupWithOptions(request, headers, runtime);
+  return listAlertsWithOptions(request, headers, runtime);
+}
+
+ListByMonitorSourceIdResponse Alibabacloud_GEMP20210413::Client::listByMonitorSourceIdWithOptions(shared_ptr<ListByMonitorSourceIdRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->monitorSourceId)) {
+    body->insert(pair<string, string>("monitorSourceId", *request->monitorSourceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListByMonitorSourceId"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/routeRule/listByMonitorSourceId"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListByMonitorSourceIdResponse(callApi(params, req, runtime));
+}
+
+ListByMonitorSourceIdResponse Alibabacloud_GEMP20210413::Client::listByMonitorSourceId(shared_ptr<ListByMonitorSourceIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listByMonitorSourceIdWithOptions(request, headers, runtime);
 }
 
 ListChartDataForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listChartDataForServiceGroupWithOptions(shared_ptr<ListChartDataForServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2990,10 +3107,10 @@ ListChartDataForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listChar
   return ListChartDataForServiceGroupResponse(callApi(params, req, runtime));
 }
 
-ListChartDataForUserResponse Alibabacloud_GEMP20210413::Client::listChartDataForUser(shared_ptr<ListChartDataForUserRequest> request) {
+ListChartDataForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listChartDataForServiceGroup(shared_ptr<ListChartDataForServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listChartDataForUserWithOptions(request, headers, runtime);
+  return listChartDataForServiceGroupWithOptions(request, headers, runtime);
 }
 
 ListChartDataForUserResponse Alibabacloud_GEMP20210413::Client::listChartDataForUserWithOptions(shared_ptr<ListChartDataForUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3026,10 +3143,10 @@ ListChartDataForUserResponse Alibabacloud_GEMP20210413::Client::listChartDataFor
   return ListChartDataForUserResponse(callApi(params, req, runtime));
 }
 
-ListConfigsResponse Alibabacloud_GEMP20210413::Client::listConfigs(shared_ptr<ListConfigsRequest> request) {
+ListChartDataForUserResponse Alibabacloud_GEMP20210413::Client::listChartDataForUser(shared_ptr<ListChartDataForUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listConfigsWithOptions(request, headers, runtime);
+  return listChartDataForUserWithOptions(request, headers, runtime);
 }
 
 ListConfigsResponse Alibabacloud_GEMP20210413::Client::listConfigsWithOptions(shared_ptr<ListConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3056,10 +3173,10 @@ ListConfigsResponse Alibabacloud_GEMP20210413::Client::listConfigsWithOptions(sh
   return ListConfigsResponse(callApi(params, req, runtime));
 }
 
-ListDataReportForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listDataReportForServiceGroup(shared_ptr<ListDataReportForServiceGroupRequest> request) {
+ListConfigsResponse Alibabacloud_GEMP20210413::Client::listConfigs(shared_ptr<ListConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDataReportForServiceGroupWithOptions(request, headers, runtime);
+  return listConfigsWithOptions(request, headers, runtime);
 }
 
 ListDataReportForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listDataReportForServiceGroupWithOptions(shared_ptr<ListDataReportForServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3092,10 +3209,10 @@ ListDataReportForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listDat
   return ListDataReportForServiceGroupResponse(callApi(params, req, runtime));
 }
 
-ListDataReportForUserResponse Alibabacloud_GEMP20210413::Client::listDataReportForUser(shared_ptr<ListDataReportForUserRequest> request) {
+ListDataReportForServiceGroupResponse Alibabacloud_GEMP20210413::Client::listDataReportForServiceGroup(shared_ptr<ListDataReportForServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDataReportForUserWithOptions(request, headers, runtime);
+  return listDataReportForServiceGroupWithOptions(request, headers, runtime);
 }
 
 ListDataReportForUserResponse Alibabacloud_GEMP20210413::Client::listDataReportForUserWithOptions(shared_ptr<ListDataReportForUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3131,10 +3248,10 @@ ListDataReportForUserResponse Alibabacloud_GEMP20210413::Client::listDataReportF
   return ListDataReportForUserResponse(callApi(params, req, runtime));
 }
 
-ListDictionariesResponse Alibabacloud_GEMP20210413::Client::listDictionaries(shared_ptr<ListDictionariesRequest> request) {
+ListDataReportForUserResponse Alibabacloud_GEMP20210413::Client::listDataReportForUser(shared_ptr<ListDataReportForUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDictionariesWithOptions(request, headers, runtime);
+  return listDataReportForUserWithOptions(request, headers, runtime);
 }
 
 ListDictionariesResponse Alibabacloud_GEMP20210413::Client::listDictionariesWithOptions(shared_ptr<ListDictionariesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3161,10 +3278,10 @@ ListDictionariesResponse Alibabacloud_GEMP20210413::Client::listDictionariesWith
   return ListDictionariesResponse(callApi(params, req, runtime));
 }
 
-ListEscalationPlanServicesResponse Alibabacloud_GEMP20210413::Client::listEscalationPlanServices(shared_ptr<ListEscalationPlanServicesRequest> request) {
+ListDictionariesResponse Alibabacloud_GEMP20210413::Client::listDictionaries(shared_ptr<ListDictionariesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEscalationPlanServicesWithOptions(request, headers, runtime);
+  return listDictionariesWithOptions(request, headers, runtime);
 }
 
 ListEscalationPlanServicesResponse Alibabacloud_GEMP20210413::Client::listEscalationPlanServicesWithOptions(shared_ptr<ListEscalationPlanServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3191,10 +3308,10 @@ ListEscalationPlanServicesResponse Alibabacloud_GEMP20210413::Client::listEscala
   return ListEscalationPlanServicesResponse(callApi(params, req, runtime));
 }
 
-ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPlans(shared_ptr<ListEscalationPlansRequest> request) {
+ListEscalationPlanServicesResponse Alibabacloud_GEMP20210413::Client::listEscalationPlanServices(shared_ptr<ListEscalationPlanServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEscalationPlansWithOptions(request, headers, runtime);
+  return listEscalationPlanServicesWithOptions(request, headers, runtime);
 }
 
 ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPlansWithOptions(shared_ptr<ListEscalationPlansRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3233,10 +3350,43 @@ ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPla
   return ListEscalationPlansResponse(callApi(params, req, runtime));
 }
 
-ListIncidentDetailEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailEscalationPlans(shared_ptr<ListIncidentDetailEscalationPlansRequest> request) {
+ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPlans(shared_ptr<ListEscalationPlansRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIncidentDetailEscalationPlansWithOptions(request, headers, runtime);
+  return listEscalationPlansWithOptions(request, headers, runtime);
+}
+
+ListEscalationPlansByNoticeObjectResponse Alibabacloud_GEMP20210413::Client::listEscalationPlansByNoticeObjectWithOptions(shared_ptr<ListEscalationPlansByNoticeObjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->noticeObjectId)) {
+    body->insert(pair<string, long>("noticeObjectId", *request->noticeObjectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->noticeObjectType)) {
+    body->insert(pair<string, long>("noticeObjectType", *request->noticeObjectType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListEscalationPlansByNoticeObject"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/escalationPlan/listByNoticeObject"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListEscalationPlansByNoticeObjectResponse(callApi(params, req, runtime));
+}
+
+ListEscalationPlansByNoticeObjectResponse Alibabacloud_GEMP20210413::Client::listEscalationPlansByNoticeObject(shared_ptr<ListEscalationPlansByNoticeObjectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listEscalationPlansByNoticeObjectWithOptions(request, headers, runtime);
 }
 
 ListIncidentDetailEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailEscalationPlansWithOptions(shared_ptr<ListIncidentDetailEscalationPlansRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3266,10 +3416,10 @@ ListIncidentDetailEscalationPlansResponse Alibabacloud_GEMP20210413::Client::lis
   return ListIncidentDetailEscalationPlansResponse(callApi(params, req, runtime));
 }
 
-ListIncidentDetailTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailTimelines(shared_ptr<ListIncidentDetailTimelinesRequest> request) {
+ListIncidentDetailEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailEscalationPlans(shared_ptr<ListIncidentDetailEscalationPlansRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIncidentDetailTimelinesWithOptions(request, headers, runtime);
+  return listIncidentDetailEscalationPlansWithOptions(request, headers, runtime);
 }
 
 ListIncidentDetailTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailTimelinesWithOptions(shared_ptr<ListIncidentDetailTimelinesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3277,6 +3427,9 @@ ListIncidentDetailTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncid
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idSort)) {
+    body->insert(pair<string, string>("idSort", *request->idSort));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->incidentId)) {
     body->insert(pair<string, long>("incidentId", *request->incidentId));
@@ -3305,10 +3458,10 @@ ListIncidentDetailTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncid
   return ListIncidentDetailTimelinesResponse(callApi(params, req, runtime));
 }
 
-ListIncidentSubtotalsResponse Alibabacloud_GEMP20210413::Client::listIncidentSubtotals(shared_ptr<ListIncidentSubtotalsRequest> request) {
+ListIncidentDetailTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentDetailTimelines(shared_ptr<ListIncidentDetailTimelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIncidentSubtotalsWithOptions(request, headers, runtime);
+  return listIncidentDetailTimelinesWithOptions(request, headers, runtime);
 }
 
 ListIncidentSubtotalsResponse Alibabacloud_GEMP20210413::Client::listIncidentSubtotalsWithOptions(shared_ptr<ListIncidentSubtotalsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3338,10 +3491,10 @@ ListIncidentSubtotalsResponse Alibabacloud_GEMP20210413::Client::listIncidentSub
   return ListIncidentSubtotalsResponse(callApi(params, req, runtime));
 }
 
-ListIncidentTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentTimelines(shared_ptr<ListIncidentTimelinesRequest> request) {
+ListIncidentSubtotalsResponse Alibabacloud_GEMP20210413::Client::listIncidentSubtotals(shared_ptr<ListIncidentSubtotalsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIncidentTimelinesWithOptions(request, headers, runtime);
+  return listIncidentSubtotalsWithOptions(request, headers, runtime);
 }
 
 ListIncidentTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentTimelinesWithOptions(shared_ptr<ListIncidentTimelinesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3374,10 +3527,10 @@ ListIncidentTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentTim
   return ListIncidentTimelinesResponse(callApi(params, req, runtime));
 }
 
-ListIncidentsResponse Alibabacloud_GEMP20210413::Client::listIncidents(shared_ptr<ListIncidentsRequest> request) {
+ListIncidentTimelinesResponse Alibabacloud_GEMP20210413::Client::listIncidentTimelines(shared_ptr<ListIncidentTimelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIncidentsWithOptions(request, headers, runtime);
+  return listIncidentTimelinesWithOptions(request, headers, runtime);
 }
 
 ListIncidentsResponse Alibabacloud_GEMP20210413::Client::listIncidentsWithOptions(shared_ptr<ListIncidentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3434,10 +3587,10 @@ ListIncidentsResponse Alibabacloud_GEMP20210413::Client::listIncidentsWithOption
   return ListIncidentsResponse(callApi(params, req, runtime));
 }
 
-ListIntegrationConfigTimelinesResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigTimelines(shared_ptr<ListIntegrationConfigTimelinesRequest> request) {
+ListIncidentsResponse Alibabacloud_GEMP20210413::Client::listIncidents(shared_ptr<ListIncidentsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIntegrationConfigTimelinesWithOptions(request, headers, runtime);
+  return listIncidentsWithOptions(request, headers, runtime);
 }
 
 ListIntegrationConfigTimelinesResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigTimelinesWithOptions(shared_ptr<ListIntegrationConfigTimelinesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3473,10 +3626,10 @@ ListIntegrationConfigTimelinesResponse Alibabacloud_GEMP20210413::Client::listIn
   return ListIntegrationConfigTimelinesResponse(callApi(params, req, runtime));
 }
 
-ListIntegrationConfigsResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigs(shared_ptr<ListIntegrationConfigsRequest> request) {
+ListIntegrationConfigTimelinesResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigTimelines(shared_ptr<ListIntegrationConfigTimelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIntegrationConfigsWithOptions(request, headers, runtime);
+  return listIntegrationConfigTimelinesWithOptions(request, headers, runtime);
 }
 
 ListIntegrationConfigsResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigsWithOptions(shared_ptr<ListIntegrationConfigsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3506,10 +3659,10 @@ ListIntegrationConfigsResponse Alibabacloud_GEMP20210413::Client::listIntegratio
   return ListIntegrationConfigsResponse(callApi(params, req, runtime));
 }
 
-ListMonitorSourcesResponse Alibabacloud_GEMP20210413::Client::listMonitorSources(shared_ptr<ListMonitorSourcesRequest> request) {
+ListIntegrationConfigsResponse Alibabacloud_GEMP20210413::Client::listIntegrationConfigs(shared_ptr<ListIntegrationConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listMonitorSourcesWithOptions(request, headers, runtime);
+  return listIntegrationConfigsWithOptions(request, headers, runtime);
 }
 
 ListMonitorSourcesResponse Alibabacloud_GEMP20210413::Client::listMonitorSourcesWithOptions(shared_ptr<ListMonitorSourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3536,10 +3689,10 @@ ListMonitorSourcesResponse Alibabacloud_GEMP20210413::Client::listMonitorSources
   return ListMonitorSourcesResponse(callApi(params, req, runtime));
 }
 
-ListProblemDetailOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemDetailOperations(shared_ptr<ListProblemDetailOperationsRequest> request) {
+ListMonitorSourcesResponse Alibabacloud_GEMP20210413::Client::listMonitorSources(shared_ptr<ListMonitorSourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProblemDetailOperationsWithOptions(request, headers, runtime);
+  return listMonitorSourcesWithOptions(request, headers, runtime);
 }
 
 ListProblemDetailOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemDetailOperationsWithOptions(shared_ptr<ListProblemDetailOperationsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3578,10 +3731,10 @@ ListProblemDetailOperationsResponse Alibabacloud_GEMP20210413::Client::listProbl
   return ListProblemDetailOperationsResponse(callApi(params, req, runtime));
 }
 
-ListProblemOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemOperations(shared_ptr<ListProblemOperationsRequest> request) {
+ListProblemDetailOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemDetailOperations(shared_ptr<ListProblemDetailOperationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProblemOperationsWithOptions(request, headers, runtime);
+  return listProblemDetailOperationsWithOptions(request, headers, runtime);
 }
 
 ListProblemOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemOperationsWithOptions(shared_ptr<ListProblemOperationsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3614,10 +3767,10 @@ ListProblemOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemOper
   return ListProblemOperationsResponse(callApi(params, req, runtime));
 }
 
-ListProblemSubtotalsResponse Alibabacloud_GEMP20210413::Client::listProblemSubtotals(shared_ptr<ListProblemSubtotalsRequest> request) {
+ListProblemOperationsResponse Alibabacloud_GEMP20210413::Client::listProblemOperations(shared_ptr<ListProblemOperationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProblemSubtotalsWithOptions(request, headers, runtime);
+  return listProblemOperationsWithOptions(request, headers, runtime);
 }
 
 ListProblemSubtotalsResponse Alibabacloud_GEMP20210413::Client::listProblemSubtotalsWithOptions(shared_ptr<ListProblemSubtotalsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3647,10 +3800,10 @@ ListProblemSubtotalsResponse Alibabacloud_GEMP20210413::Client::listProblemSubto
   return ListProblemSubtotalsResponse(callApi(params, req, runtime));
 }
 
-ListProblemTimeLinesResponse Alibabacloud_GEMP20210413::Client::listProblemTimeLines(shared_ptr<ListProblemTimeLinesRequest> request) {
+ListProblemSubtotalsResponse Alibabacloud_GEMP20210413::Client::listProblemSubtotals(shared_ptr<ListProblemSubtotalsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProblemTimeLinesWithOptions(request, headers, runtime);
+  return listProblemSubtotalsWithOptions(request, headers, runtime);
 }
 
 ListProblemTimeLinesResponse Alibabacloud_GEMP20210413::Client::listProblemTimeLinesWithOptions(shared_ptr<ListProblemTimeLinesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3680,10 +3833,10 @@ ListProblemTimeLinesResponse Alibabacloud_GEMP20210413::Client::listProblemTimeL
   return ListProblemTimeLinesResponse(callApi(params, req, runtime));
 }
 
-ListProblemsResponse Alibabacloud_GEMP20210413::Client::listProblems(shared_ptr<ListProblemsRequest> request) {
+ListProblemTimeLinesResponse Alibabacloud_GEMP20210413::Client::listProblemTimeLines(shared_ptr<ListProblemTimeLinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProblemsWithOptions(request, headers, runtime);
+  return listProblemTimeLinesWithOptions(request, headers, runtime);
 }
 
 ListProblemsResponse Alibabacloud_GEMP20210413::Client::listProblemsWithOptions(shared_ptr<ListProblemsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3749,10 +3902,10 @@ ListProblemsResponse Alibabacloud_GEMP20210413::Client::listProblemsWithOptions(
   return ListProblemsResponse(callApi(params, req, runtime));
 }
 
-ListRouteRulesResponse Alibabacloud_GEMP20210413::Client::listRouteRules(shared_ptr<ListRouteRulesRequest> request) {
+ListProblemsResponse Alibabacloud_GEMP20210413::Client::listProblems(shared_ptr<ListProblemsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listRouteRulesWithOptions(request, headers, runtime);
+  return listProblemsWithOptions(request, headers, runtime);
 }
 
 ListRouteRulesResponse Alibabacloud_GEMP20210413::Client::listRouteRulesWithOptions(shared_ptr<ListRouteRulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3760,6 +3913,9 @@ ListRouteRulesResponse Alibabacloud_GEMP20210413::Client::listRouteRulesWithOpti
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->notFilterRouteRuleDeleted)) {
+    body->insert(pair<string, bool>("notFilterRouteRuleDeleted", *request->notFilterRouteRuleDeleted));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("pageNumber", *request->pageNumber));
@@ -3794,10 +3950,67 @@ ListRouteRulesResponse Alibabacloud_GEMP20210413::Client::listRouteRulesWithOpti
   return ListRouteRulesResponse(callApi(params, req, runtime));
 }
 
-ListServiceGroupMonitorSourceTemplatesResponse Alibabacloud_GEMP20210413::Client::listServiceGroupMonitorSourceTemplates(shared_ptr<ListServiceGroupMonitorSourceTemplatesRequest> request) {
+ListRouteRulesResponse Alibabacloud_GEMP20210413::Client::listRouteRules(shared_ptr<ListRouteRulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServiceGroupMonitorSourceTemplatesWithOptions(request, headers, runtime);
+  return listRouteRulesWithOptions(request, headers, runtime);
+}
+
+ListRouteRulesByAssignWhoIdResponse Alibabacloud_GEMP20210413::Client::listRouteRulesByAssignWhoIdWithOptions(shared_ptr<ListRouteRulesByAssignWhoIdRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->assignWhoId)) {
+    body->insert(pair<string, long>("assignWhoId", *request->assignWhoId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->assignWhoType)) {
+    body->insert(pair<string, long>("assignWhoType", *request->assignWhoType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListRouteRulesByAssignWhoId"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/routeRule/listByAssignWhoId"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListRouteRulesByAssignWhoIdResponse(callApi(params, req, runtime));
+}
+
+ListRouteRulesByAssignWhoIdResponse Alibabacloud_GEMP20210413::Client::listRouteRulesByAssignWhoId(shared_ptr<ListRouteRulesByAssignWhoIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listRouteRulesByAssignWhoIdWithOptions(request, headers, runtime);
+}
+
+ListRouteRulesByServiceResponse Alibabacloud_GEMP20210413::Client::listRouteRulesByServiceWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListRouteRulesByService"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/routeRule/listByService"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListRouteRulesByServiceResponse(callApi(params, req, runtime));
+}
+
+ListRouteRulesByServiceResponse Alibabacloud_GEMP20210413::Client::listRouteRulesByService() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listRouteRulesByServiceWithOptions(headers, runtime);
 }
 
 ListServiceGroupMonitorSourceTemplatesResponse Alibabacloud_GEMP20210413::Client::listServiceGroupMonitorSourceTemplatesWithOptions(shared_ptr<ListServiceGroupMonitorSourceTemplatesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3830,10 +4043,10 @@ ListServiceGroupMonitorSourceTemplatesResponse Alibabacloud_GEMP20210413::Client
   return ListServiceGroupMonitorSourceTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listServiceGroups(shared_ptr<ListServiceGroupsRequest> request) {
+ListServiceGroupMonitorSourceTemplatesResponse Alibabacloud_GEMP20210413::Client::listServiceGroupMonitorSourceTemplates(shared_ptr<ListServiceGroupMonitorSourceTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServiceGroupsWithOptions(request, headers, runtime);
+  return listServiceGroupMonitorSourceTemplatesWithOptions(request, headers, runtime);
 }
 
 ListServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listServiceGroupsWithOptions(shared_ptr<ListServiceGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3881,10 +4094,34 @@ ListServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listServiceGroupsWi
   return ListServiceGroupsResponse(callApi(params, req, runtime));
 }
 
-ListServicesResponse Alibabacloud_GEMP20210413::Client::listServices(shared_ptr<ListServicesRequest> request) {
+ListServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listServiceGroups(shared_ptr<ListServiceGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServicesWithOptions(request, headers, runtime);
+  return listServiceGroupsWithOptions(request, headers, runtime);
+}
+
+ListServiceGroupsByUserIdResponse Alibabacloud_GEMP20210413::Client::listServiceGroupsByUserIdWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceGroupsByUserId"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/services/group/listByUserId"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServiceGroupsByUserIdResponse(callApi(params, req, runtime));
+}
+
+ListServiceGroupsByUserIdResponse Alibabacloud_GEMP20210413::Client::listServiceGroupsByUserId() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listServiceGroupsByUserIdWithOptions(headers, runtime);
 }
 
 ListServicesResponse Alibabacloud_GEMP20210413::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3920,10 +4157,10 @@ ListServicesResponse Alibabacloud_GEMP20210413::Client::listServicesWithOptions(
   return ListServicesResponse(callApi(params, req, runtime));
 }
 
-ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEvents(shared_ptr<ListSourceEventsRequest> request) {
+ListServicesResponse Alibabacloud_GEMP20210413::Client::listServices(shared_ptr<ListServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSourceEventsWithOptions(request, headers, runtime);
+  return listServicesWithOptions(request, headers, runtime);
 }
 
 ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEventsWithOptions(shared_ptr<ListSourceEventsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3974,10 +4211,10 @@ ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEventsWith
   return ListSourceEventsResponse(callApi(params, req, runtime));
 }
 
-ListSourceEventsForMonitorSourceResponse Alibabacloud_GEMP20210413::Client::listSourceEventsForMonitorSource(shared_ptr<ListSourceEventsForMonitorSourceRequest> request) {
+ListSourceEventsResponse Alibabacloud_GEMP20210413::Client::listSourceEvents(shared_ptr<ListSourceEventsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSourceEventsForMonitorSourceWithOptions(request, headers, runtime);
+  return listSourceEventsWithOptions(request, headers, runtime);
 }
 
 ListSourceEventsForMonitorSourceResponse Alibabacloud_GEMP20210413::Client::listSourceEventsForMonitorSourceWithOptions(shared_ptr<ListSourceEventsForMonitorSourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4004,10 +4241,10 @@ ListSourceEventsForMonitorSourceResponse Alibabacloud_GEMP20210413::Client::list
   return ListSourceEventsForMonitorSourceResponse(callApi(params, req, runtime));
 }
 
-ListSubscriptionServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionServiceGroups(shared_ptr<ListSubscriptionServiceGroupsRequest> request) {
+ListSourceEventsForMonitorSourceResponse Alibabacloud_GEMP20210413::Client::listSourceEventsForMonitorSource(shared_ptr<ListSourceEventsForMonitorSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSubscriptionServiceGroupsWithOptions(request, headers, runtime);
+  return listSourceEventsForMonitorSourceWithOptions(request, headers, runtime);
 }
 
 ListSubscriptionServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionServiceGroupsWithOptions(shared_ptr<ListSubscriptionServiceGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4037,10 +4274,10 @@ ListSubscriptionServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listSub
   return ListSubscriptionServiceGroupsResponse(callApi(params, req, runtime));
 }
 
-ListSubscriptionsResponse Alibabacloud_GEMP20210413::Client::listSubscriptions(shared_ptr<ListSubscriptionsRequest> request) {
+ListSubscriptionServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionServiceGroups(shared_ptr<ListSubscriptionServiceGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSubscriptionsWithOptions(request, headers, runtime);
+  return listSubscriptionServiceGroupsWithOptions(request, headers, runtime);
 }
 
 ListSubscriptionsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionsWithOptions(shared_ptr<ListSubscriptionsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4048,6 +4285,9 @@ ListSubscriptionsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionsWi
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->notFilterScopeObjectDeleted)) {
+    body->insert(pair<string, bool>("notFilterScopeObjectDeleted", *request->notFilterScopeObjectDeleted));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyObject)) {
     body->insert(pair<string, string>("notifyObject", *request->notifyObject));
@@ -4088,10 +4328,10 @@ ListSubscriptionsResponse Alibabacloud_GEMP20210413::Client::listSubscriptionsWi
   return ListSubscriptionsResponse(callApi(params, req, runtime));
 }
 
-ListTrendForSourceEventResponse Alibabacloud_GEMP20210413::Client::listTrendForSourceEvent(shared_ptr<ListTrendForSourceEventRequest> request) {
+ListSubscriptionsResponse Alibabacloud_GEMP20210413::Client::listSubscriptions(shared_ptr<ListSubscriptionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTrendForSourceEventWithOptions(request, headers, runtime);
+  return listSubscriptionsWithOptions(request, headers, runtime);
 }
 
 ListTrendForSourceEventResponse Alibabacloud_GEMP20210413::Client::listTrendForSourceEventWithOptions(shared_ptr<ListTrendForSourceEventRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4133,10 +4373,10 @@ ListTrendForSourceEventResponse Alibabacloud_GEMP20210413::Client::listTrendForS
   return ListTrendForSourceEventResponse(callApi(params, req, runtime));
 }
 
-ListUserSerivceGroupsResponse Alibabacloud_GEMP20210413::Client::listUserSerivceGroups(shared_ptr<ListUserSerivceGroupsRequest> request) {
+ListTrendForSourceEventResponse Alibabacloud_GEMP20210413::Client::listTrendForSourceEvent(shared_ptr<ListTrendForSourceEventRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listUserSerivceGroupsWithOptions(request, headers, runtime);
+  return listTrendForSourceEventWithOptions(request, headers, runtime);
 }
 
 ListUserSerivceGroupsResponse Alibabacloud_GEMP20210413::Client::listUserSerivceGroupsWithOptions(shared_ptr<ListUserSerivceGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4166,10 +4406,10 @@ ListUserSerivceGroupsResponse Alibabacloud_GEMP20210413::Client::listUserSerivce
   return ListUserSerivceGroupsResponse(callApi(params, req, runtime));
 }
 
-ListUsersResponse Alibabacloud_GEMP20210413::Client::listUsers(shared_ptr<ListUsersRequest> request) {
+ListUserSerivceGroupsResponse Alibabacloud_GEMP20210413::Client::listUserSerivceGroups(shared_ptr<ListUserSerivceGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listUsersWithOptions(request, headers, runtime);
+  return listUserSerivceGroupsWithOptions(request, headers, runtime);
 }
 
 ListUsersResponse Alibabacloud_GEMP20210413::Client::listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4217,10 +4457,10 @@ ListUsersResponse Alibabacloud_GEMP20210413::Client::listUsersWithOptions(shared
   return ListUsersResponse(callApi(params, req, runtime));
 }
 
-RecoverProblemResponse Alibabacloud_GEMP20210413::Client::recoverProblem(shared_ptr<RecoverProblemRequest> request) {
+ListUsersResponse Alibabacloud_GEMP20210413::Client::listUsers(shared_ptr<ListUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return recoverProblemWithOptions(request, headers, runtime);
+  return listUsersWithOptions(request, headers, runtime);
 }
 
 RecoverProblemResponse Alibabacloud_GEMP20210413::Client::recoverProblemWithOptions(shared_ptr<RecoverProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4253,10 +4493,10 @@ RecoverProblemResponse Alibabacloud_GEMP20210413::Client::recoverProblemWithOpti
   return RecoverProblemResponse(callApi(params, req, runtime));
 }
 
-RefreshIntegrationConfigKeyResponse Alibabacloud_GEMP20210413::Client::refreshIntegrationConfigKey(shared_ptr<RefreshIntegrationConfigKeyRequest> request) {
+RecoverProblemResponse Alibabacloud_GEMP20210413::Client::recoverProblem(shared_ptr<RecoverProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return refreshIntegrationConfigKeyWithOptions(request, headers, runtime);
+  return recoverProblemWithOptions(request, headers, runtime);
 }
 
 RefreshIntegrationConfigKeyResponse Alibabacloud_GEMP20210413::Client::refreshIntegrationConfigKeyWithOptions(shared_ptr<RefreshIntegrationConfigKeyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4286,10 +4526,43 @@ RefreshIntegrationConfigKeyResponse Alibabacloud_GEMP20210413::Client::refreshIn
   return RefreshIntegrationConfigKeyResponse(callApi(params, req, runtime));
 }
 
-RemoveProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::removeProblemServiceGroup(shared_ptr<RemoveProblemServiceGroupRequest> request) {
+RefreshIntegrationConfigKeyResponse Alibabacloud_GEMP20210413::Client::refreshIntegrationConfigKey(shared_ptr<RefreshIntegrationConfigKeyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeProblemServiceGroupWithOptions(request, headers, runtime);
+  return refreshIntegrationConfigKeyWithOptions(request, headers, runtime);
+}
+
+RemoveIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::removeIntegrationConfigWithOptions(shared_ptr<RemoveIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->integrationConfigId)) {
+    body->insert(pair<string, long>("integrationConfigId", *request->integrationConfigId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveIntegrationConfig"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/integrationConfig/remove"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RemoveIntegrationConfigResponse(callApi(params, req, runtime));
+}
+
+RemoveIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::removeIntegrationConfig(shared_ptr<RemoveIntegrationConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return removeIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 RemoveProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::removeProblemServiceGroupWithOptions(shared_ptr<RemoveProblemServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4319,10 +4592,10 @@ RemoveProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::removeProbl
   return RemoveProblemServiceGroupResponse(callApi(params, req, runtime));
 }
 
-ReplayProblemResponse Alibabacloud_GEMP20210413::Client::replayProblem(shared_ptr<ReplayProblemRequest> request) {
+RemoveProblemServiceGroupResponse Alibabacloud_GEMP20210413::Client::removeProblemServiceGroup(shared_ptr<RemoveProblemServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return replayProblemWithOptions(request, headers, runtime);
+  return removeProblemServiceGroupWithOptions(request, headers, runtime);
 }
 
 ReplayProblemResponse Alibabacloud_GEMP20210413::Client::replayProblemWithOptions(shared_ptr<ReplayProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4355,10 +4628,10 @@ ReplayProblemResponse Alibabacloud_GEMP20210413::Client::replayProblemWithOption
   return ReplayProblemResponse(callApi(params, req, runtime));
 }
 
-RespondIncidentResponse Alibabacloud_GEMP20210413::Client::respondIncident(shared_ptr<RespondIncidentRequest> request) {
+ReplayProblemResponse Alibabacloud_GEMP20210413::Client::replayProblem(shared_ptr<ReplayProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return respondIncidentWithOptions(request, headers, runtime);
+  return replayProblemWithOptions(request, headers, runtime);
 }
 
 RespondIncidentResponse Alibabacloud_GEMP20210413::Client::respondIncidentWithOptions(shared_ptr<RespondIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4388,10 +4661,10 @@ RespondIncidentResponse Alibabacloud_GEMP20210413::Client::respondIncidentWithOp
   return RespondIncidentResponse(callApi(params, req, runtime));
 }
 
-RevokeProblemRecoveryResponse Alibabacloud_GEMP20210413::Client::revokeProblemRecovery(shared_ptr<RevokeProblemRecoveryRequest> request) {
+RespondIncidentResponse Alibabacloud_GEMP20210413::Client::respondIncident(shared_ptr<RespondIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return revokeProblemRecoveryWithOptions(request, headers, runtime);
+  return respondIncidentWithOptions(request, headers, runtime);
 }
 
 RevokeProblemRecoveryResponse Alibabacloud_GEMP20210413::Client::revokeProblemRecoveryWithOptions(shared_ptr<RevokeProblemRecoveryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4424,10 +4697,34 @@ RevokeProblemRecoveryResponse Alibabacloud_GEMP20210413::Client::revokeProblemRe
   return RevokeProblemRecoveryResponse(callApi(params, req, runtime));
 }
 
-UpdateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::updateEscalationPlan(shared_ptr<UpdateEscalationPlanRequest> request) {
+RevokeProblemRecoveryResponse Alibabacloud_GEMP20210413::Client::revokeProblemRecovery(shared_ptr<RevokeProblemRecoveryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateEscalationPlanWithOptions(request, headers, runtime);
+  return revokeProblemRecoveryWithOptions(request, headers, runtime);
+}
+
+UnbindUserResponse Alibabacloud_GEMP20210413::Client::unbindUserWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnbindUser"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/user/unbind"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnbindUserResponse(callApi(params, req, runtime));
+}
+
+UnbindUserResponse Alibabacloud_GEMP20210413::Client::unbindUser() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return unbindUserWithOptions(headers, runtime);
 }
 
 UpdateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::updateEscalationPlanWithOptions(shared_ptr<UpdateEscalationPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4469,10 +4766,10 @@ UpdateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::updateEscalation
   return UpdateEscalationPlanResponse(callApi(params, req, runtime));
 }
 
-UpdateIncidentResponse Alibabacloud_GEMP20210413::Client::updateIncident(shared_ptr<UpdateIncidentRequest> request) {
+UpdateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::updateEscalationPlan(shared_ptr<UpdateEscalationPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateIncidentWithOptions(request, headers, runtime);
+  return updateEscalationPlanWithOptions(request, headers, runtime);
 }
 
 UpdateIncidentResponse Alibabacloud_GEMP20210413::Client::updateIncidentWithOptions(shared_ptr<UpdateIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4511,10 +4808,10 @@ UpdateIncidentResponse Alibabacloud_GEMP20210413::Client::updateIncidentWithOpti
   return UpdateIncidentResponse(callApi(params, req, runtime));
 }
 
-UpdateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::updateIntegrationConfig(shared_ptr<UpdateIntegrationConfigRequest> request) {
+UpdateIncidentResponse Alibabacloud_GEMP20210413::Client::updateIncident(shared_ptr<UpdateIncidentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateIntegrationConfigWithOptions(request, headers, runtime);
+  return updateIncidentWithOptions(request, headers, runtime);
 }
 
 UpdateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::updateIntegrationConfigWithOptions(shared_ptr<UpdateIntegrationConfigRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4547,10 +4844,10 @@ UpdateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::updateIntegra
   return UpdateIntegrationConfigResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemResponse Alibabacloud_GEMP20210413::Client::updateProblem(shared_ptr<UpdateProblemRequest> request) {
+UpdateIntegrationConfigResponse Alibabacloud_GEMP20210413::Client::updateIntegrationConfig(shared_ptr<UpdateIntegrationConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemWithOptions(request, headers, runtime);
+  return updateIntegrationConfigWithOptions(request, headers, runtime);
 }
 
 UpdateProblemResponse Alibabacloud_GEMP20210413::Client::updateProblemWithOptions(shared_ptr<UpdateProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4604,10 +4901,10 @@ UpdateProblemResponse Alibabacloud_GEMP20210413::Client::updateProblemWithOption
   return UpdateProblemResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::updateProblemEffectionService(shared_ptr<UpdateProblemEffectionServiceRequest> request) {
+UpdateProblemResponse Alibabacloud_GEMP20210413::Client::updateProblem(shared_ptr<UpdateProblemRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemEffectionServiceWithOptions(request, headers, runtime);
+  return updateProblemWithOptions(request, headers, runtime);
 }
 
 UpdateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::updateProblemEffectionServiceWithOptions(shared_ptr<UpdateProblemEffectionServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4655,10 +4952,10 @@ UpdateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::updateP
   return UpdateProblemEffectionServiceResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemImprovementResponse Alibabacloud_GEMP20210413::Client::updateProblemImprovement(shared_ptr<UpdateProblemImprovementRequest> request) {
+UpdateProblemEffectionServiceResponse Alibabacloud_GEMP20210413::Client::updateProblemEffectionService(shared_ptr<UpdateProblemEffectionServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemImprovementWithOptions(request, headers, runtime);
+  return updateProblemEffectionServiceWithOptions(request, headers, runtime);
 }
 
 UpdateProblemImprovementResponse Alibabacloud_GEMP20210413::Client::updateProblemImprovementWithOptions(shared_ptr<UpdateProblemImprovementRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4666,6 +4963,9 @@ UpdateProblemImprovementResponse Alibabacloud_GEMP20210413::Client::updateProble
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customProblemReason)) {
+    body->insert(pair<string, string>("customProblemReason", *request->customProblemReason));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->discoverSource)) {
     body->insert(pair<string, long>("discoverSource", *request->discoverSource));
@@ -4727,10 +5027,10 @@ UpdateProblemImprovementResponse Alibabacloud_GEMP20210413::Client::updateProble
   return UpdateProblemImprovementResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::updateProblemMeasure(shared_ptr<UpdateProblemMeasureRequest> request) {
+UpdateProblemImprovementResponse Alibabacloud_GEMP20210413::Client::updateProblemImprovement(shared_ptr<UpdateProblemImprovementRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemMeasureWithOptions(request, headers, runtime);
+  return updateProblemImprovementWithOptions(request, headers, runtime);
 }
 
 UpdateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::updateProblemMeasureWithOptions(shared_ptr<UpdateProblemMeasureRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4787,10 +5087,10 @@ UpdateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::updateProblemMea
   return UpdateProblemMeasureResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemNoticeResponse Alibabacloud_GEMP20210413::Client::updateProblemNotice(shared_ptr<UpdateProblemNoticeRequest> request) {
+UpdateProblemMeasureResponse Alibabacloud_GEMP20210413::Client::updateProblemMeasure(shared_ptr<UpdateProblemMeasureRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemNoticeWithOptions(request, headers, runtime);
+  return updateProblemMeasureWithOptions(request, headers, runtime);
 }
 
 UpdateProblemNoticeResponse Alibabacloud_GEMP20210413::Client::updateProblemNoticeWithOptions(shared_ptr<UpdateProblemNoticeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4823,10 +5123,10 @@ UpdateProblemNoticeResponse Alibabacloud_GEMP20210413::Client::updateProblemNoti
   return UpdateProblemNoticeResponse(callApi(params, req, runtime));
 }
 
-UpdateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::updateProblemTimeline(shared_ptr<UpdateProblemTimelineRequest> request) {
+UpdateProblemNoticeResponse Alibabacloud_GEMP20210413::Client::updateProblemNotice(shared_ptr<UpdateProblemNoticeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProblemTimelineWithOptions(request, headers, runtime);
+  return updateProblemNoticeWithOptions(request, headers, runtime);
 }
 
 UpdateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::updateProblemTimelineWithOptions(shared_ptr<UpdateProblemTimelineRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4868,10 +5168,10 @@ UpdateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::updateProblemTi
   return UpdateProblemTimelineResponse(callApi(params, req, runtime));
 }
 
-UpdateRichTextResponse Alibabacloud_GEMP20210413::Client::updateRichText(shared_ptr<UpdateRichTextRequest> request) {
+UpdateProblemTimelineResponse Alibabacloud_GEMP20210413::Client::updateProblemTimeline(shared_ptr<UpdateProblemTimelineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateRichTextWithOptions(request, headers, runtime);
+  return updateProblemTimelineWithOptions(request, headers, runtime);
 }
 
 UpdateRichTextResponse Alibabacloud_GEMP20210413::Client::updateRichTextWithOptions(shared_ptr<UpdateRichTextRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4907,10 +5207,10 @@ UpdateRichTextResponse Alibabacloud_GEMP20210413::Client::updateRichTextWithOpti
   return UpdateRichTextResponse(callApi(params, req, runtime));
 }
 
-UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRule(shared_ptr<UpdateRouteRuleRequest> request) {
+UpdateRichTextResponse Alibabacloud_GEMP20210413::Client::updateRichText(shared_ptr<UpdateRichTextRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateRouteRuleWithOptions(request, headers, runtime);
+  return updateRichTextWithOptions(request, headers, runtime);
 }
 
 UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRuleWithOptions(shared_ptr<UpdateRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4928,6 +5228,9 @@ UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRuleWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->coverageProblemLevels)) {
+    body->insert(pair<string, vector<string>>("coverageProblemLevels", *request->coverageProblemLevels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->effection)) {
     body->insert(pair<string, string>("effection", *request->effection));
   }
@@ -4939,6 +5242,12 @@ UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRuleWithOp
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->notifyChannels)) {
     body->insert(pair<string, vector<string>>("notifyChannels", *request->notifyChannels));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->problemEffectionServices)) {
+    body->insert(pair<string, vector<long>>("problemEffectionServices", *request->problemEffectionServices));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, ProblemLevelGroupValue>>(request->problemLevelGroup)) {
+    body->insert(pair<string, map<string, ProblemLevelGroupValue>>("problemLevelGroup", *request->problemLevelGroup));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->relatedServiceId)) {
     body->insert(pair<string, long>("relatedServiceId", *request->relatedServiceId));
@@ -4979,10 +5288,10 @@ UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRuleWithOp
   return UpdateRouteRuleResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceResponse Alibabacloud_GEMP20210413::Client::updateService(shared_ptr<UpdateServiceRequest> request) {
+UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRule(shared_ptr<UpdateRouteRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceWithOptions(request, headers, runtime);
+  return updateRouteRuleWithOptions(request, headers, runtime);
 }
 
 UpdateServiceResponse Alibabacloud_GEMP20210413::Client::updateServiceWithOptions(shared_ptr<UpdateServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5018,10 +5327,10 @@ UpdateServiceResponse Alibabacloud_GEMP20210413::Client::updateServiceWithOption
   return UpdateServiceResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceGroupResponse Alibabacloud_GEMP20210413::Client::updateServiceGroup(shared_ptr<UpdateServiceGroupRequest> request) {
+UpdateServiceResponse Alibabacloud_GEMP20210413::Client::updateService(shared_ptr<UpdateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceGroupWithOptions(request, headers, runtime);
+  return updateServiceWithOptions(request, headers, runtime);
 }
 
 UpdateServiceGroupResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupWithOptions(shared_ptr<UpdateServiceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5072,10 +5381,10 @@ UpdateServiceGroupResponse Alibabacloud_GEMP20210413::Client::updateServiceGroup
   return UpdateServiceGroupResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupScheduling(shared_ptr<UpdateServiceGroupSchedulingRequest> request) {
+UpdateServiceGroupResponse Alibabacloud_GEMP20210413::Client::updateServiceGroup(shared_ptr<UpdateServiceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceGroupSchedulingWithOptions(request, headers, runtime);
+  return updateServiceGroupWithOptions(request, headers, runtime);
 }
 
 UpdateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupSchedulingWithOptions(shared_ptr<UpdateServiceGroupSchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5114,10 +5423,10 @@ UpdateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::updateSe
   return UpdateServiceGroupSchedulingResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceGroupSpecialDaySchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupSpecialDayScheduling(shared_ptr<UpdateServiceGroupSpecialDaySchedulingRequest> request) {
+UpdateServiceGroupSchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupScheduling(shared_ptr<UpdateServiceGroupSchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceGroupSpecialDaySchedulingWithOptions(request, headers, runtime);
+  return updateServiceGroupSchedulingWithOptions(request, headers, runtime);
 }
 
 UpdateServiceGroupSpecialDaySchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupSpecialDaySchedulingWithOptions(shared_ptr<UpdateServiceGroupSpecialDaySchedulingRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5153,10 +5462,10 @@ UpdateServiceGroupSpecialDaySchedulingResponse Alibabacloud_GEMP20210413::Client
   return UpdateServiceGroupSpecialDaySchedulingResponse(callApi(params, req, runtime));
 }
 
-UpdateSubscriptionResponse Alibabacloud_GEMP20210413::Client::updateSubscription(shared_ptr<UpdateSubscriptionRequest> request) {
+UpdateServiceGroupSpecialDaySchedulingResponse Alibabacloud_GEMP20210413::Client::updateServiceGroupSpecialDayScheduling(shared_ptr<UpdateServiceGroupSpecialDaySchedulingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateSubscriptionWithOptions(request, headers, runtime);
+  return updateServiceGroupSpecialDaySchedulingWithOptions(request, headers, runtime);
 }
 
 UpdateSubscriptionResponse Alibabacloud_GEMP20210413::Client::updateSubscriptionWithOptions(shared_ptr<UpdateSubscriptionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5213,10 +5522,10 @@ UpdateSubscriptionResponse Alibabacloud_GEMP20210413::Client::updateSubscription
   return UpdateSubscriptionResponse(callApi(params, req, runtime));
 }
 
-UpdateUserResponse Alibabacloud_GEMP20210413::Client::updateUser(shared_ptr<UpdateUserRequest> request) {
+UpdateSubscriptionResponse Alibabacloud_GEMP20210413::Client::updateSubscription(shared_ptr<UpdateSubscriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateUserWithOptions(request, headers, runtime);
+  return updateSubscriptionWithOptions(request, headers, runtime);
 }
 
 UpdateUserResponse Alibabacloud_GEMP20210413::Client::updateUserWithOptions(shared_ptr<UpdateUserRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5258,10 +5567,10 @@ UpdateUserResponse Alibabacloud_GEMP20210413::Client::updateUserWithOptions(shar
   return UpdateUserResponse(callApi(params, req, runtime));
 }
 
-UpdateUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::updateUserGuideStatus(shared_ptr<UpdateUserGuideStatusRequest> request) {
+UpdateUserResponse Alibabacloud_GEMP20210413::Client::updateUser(shared_ptr<UpdateUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateUserGuideStatusWithOptions(request, headers, runtime);
+  return updateUserWithOptions(request, headers, runtime);
 }
 
 UpdateUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::updateUserGuideStatusWithOptions(shared_ptr<UpdateUserGuideStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5291,10 +5600,10 @@ UpdateUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::updateUserGuide
   return UpdateUserGuideStatusResponse(callApi(params, req, runtime));
 }
 
-VerifyRouteRuleResponse Alibabacloud_GEMP20210413::Client::verifyRouteRule(shared_ptr<VerifyRouteRuleRequest> request) {
+UpdateUserGuideStatusResponse Alibabacloud_GEMP20210413::Client::updateUserGuideStatus(shared_ptr<UpdateUserGuideStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return verifyRouteRuleWithOptions(request, headers, runtime);
+  return updateUserGuideStatusWithOptions(request, headers, runtime);
 }
 
 VerifyRouteRuleResponse Alibabacloud_GEMP20210413::Client::verifyRouteRuleWithOptions(shared_ptr<VerifyRouteRuleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5322,5 +5631,11 @@ VerifyRouteRuleResponse Alibabacloud_GEMP20210413::Client::verifyRouteRuleWithOp
     {"bodyType", boost::any(string("json"))}
   }));
   return VerifyRouteRuleResponse(callApi(params, req, runtime));
+}
+
+VerifyRouteRuleResponse Alibabacloud_GEMP20210413::Client::verifyRouteRule(shared_ptr<VerifyRouteRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return verifyRouteRuleWithOptions(request, headers, runtime);
 }
 
