@@ -15276,8 +15276,10 @@ public:
   shared_ptr<string> datasetName{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> order{};
   shared_ptr<string> projectName{};
   shared_ptr<string> query{};
+  shared_ptr<string> sort{};
 
   FuzzyQueryRequest() {}
 
@@ -15298,11 +15300,17 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
     if (query) {
       res["Query"] = boost::any(*query);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
     }
     return res;
   }
@@ -15317,11 +15325,17 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
   }
 
@@ -22376,109 +22390,8 @@ public:
 
   virtual ~SemanticQueryRequest() = default;
 };
-class SemanticQueryResponseBodyAggregationsGroups : public Darabonba::Model {
-public:
-  shared_ptr<long> count{};
-  shared_ptr<string> value{};
-
-  SemanticQueryResponseBodyAggregationsGroups() {}
-
-  explicit SemanticQueryResponseBodyAggregationsGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (count) {
-      res["Count"] = boost::any(*count);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Count") != m.end() && !m["Count"].empty()) {
-      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
-    }
-  }
-
-
-  virtual ~SemanticQueryResponseBodyAggregationsGroups() = default;
-};
-class SemanticQueryResponseBodyAggregations : public Darabonba::Model {
-public:
-  shared_ptr<string> field{};
-  shared_ptr<vector<SemanticQueryResponseBodyAggregationsGroups>> groups{};
-  shared_ptr<string> operation{};
-  shared_ptr<double> value{};
-
-  SemanticQueryResponseBodyAggregations() {}
-
-  explicit SemanticQueryResponseBodyAggregations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (field) {
-      res["Field"] = boost::any(*field);
-    }
-    if (groups) {
-      vector<boost::any> temp1;
-      for(auto item1:*groups){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Groups"] = boost::any(temp1);
-    }
-    if (operation) {
-      res["Operation"] = boost::any(*operation);
-    }
-    if (value) {
-      res["Value"] = boost::any(*value);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Field") != m.end() && !m["Field"].empty()) {
-      field = make_shared<string>(boost::any_cast<string>(m["Field"]));
-    }
-    if (m.find("Groups") != m.end() && !m["Groups"].empty()) {
-      if (typeid(vector<boost::any>) == m["Groups"].type()) {
-        vector<SemanticQueryResponseBodyAggregationsGroups> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Groups"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SemanticQueryResponseBodyAggregationsGroups model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        groups = make_shared<vector<SemanticQueryResponseBodyAggregationsGroups>>(expect1);
-      }
-    }
-    if (m.find("Operation") != m.end() && !m["Operation"].empty()) {
-      operation = make_shared<string>(boost::any_cast<string>(m["Operation"]));
-    }
-    if (m.find("Value") != m.end() && !m["Value"].empty()) {
-      value = make_shared<double>(boost::any_cast<double>(m["Value"]));
-    }
-  }
-
-
-  virtual ~SemanticQueryResponseBodyAggregations() = default;
-};
 class SemanticQueryResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<vector<SemanticQueryResponseBodyAggregations>> aggregations{};
   shared_ptr<vector<File>> files{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
@@ -22493,13 +22406,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (aggregations) {
-      vector<boost::any> temp1;
-      for(auto item1:*aggregations){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Aggregations"] = boost::any(temp1);
-    }
     if (files) {
       vector<boost::any> temp1;
       for(auto item1:*files){
@@ -22517,19 +22423,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Aggregations") != m.end() && !m["Aggregations"].empty()) {
-      if (typeid(vector<boost::any>) == m["Aggregations"].type()) {
-        vector<SemanticQueryResponseBodyAggregations> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Aggregations"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SemanticQueryResponseBodyAggregations model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        aggregations = make_shared<vector<SemanticQueryResponseBodyAggregations>>(expect1);
-      }
-    }
     if (m.find("Files") != m.end() && !m["Files"].empty()) {
       if (typeid(vector<boost::any>) == m["Files"].type()) {
         vector<File> expect1;

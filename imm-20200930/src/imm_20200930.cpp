@@ -2098,11 +2098,17 @@ FuzzyQueryResponse Alibabacloud_Imm20200930::Client::fuzzyQueryWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    query->insert(pair<string, string>("Sort", *request->sort));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
