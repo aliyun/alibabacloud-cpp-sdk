@@ -1394,6 +1394,7 @@ public:
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
+  shared_ptr<bool> enableOssAppend{};
   shared_ptr<bool> enableRDMA{};
   shared_ptr<bool> enableTideResource{};
   shared_ptr<string> errorMonitoringArgs{};
@@ -1418,6 +1419,9 @@ public:
     }
     if (enableErrorMonitoringInAIMaster) {
       res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
+    }
+    if (enableOssAppend) {
+      res["EnableOssAppend"] = boost::any(*enableOssAppend);
     }
     if (enableRDMA) {
       res["EnableRDMA"] = boost::any(*enableRDMA);
@@ -1446,6 +1450,9 @@ public:
     }
     if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
       enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
+    }
+    if (m.find("EnableOssAppend") != m.end() && !m["EnableOssAppend"].empty()) {
+      enableOssAppend = make_shared<bool>(boost::any_cast<bool>(m["EnableOssAppend"]));
     }
     if (m.find("EnableRDMA") != m.end() && !m["EnableRDMA"].empty()) {
       enableRDMA = make_shared<bool>(boost::any_cast<bool>(m["EnableRDMA"]));
@@ -1924,6 +1931,63 @@ public:
 
   virtual ~PodMetric() = default;
 };
+class QuotaConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> allowedMaxPriority{};
+  shared_ptr<bool> enableDLC{};
+  shared_ptr<bool> enableDSW{};
+  shared_ptr<bool> enableTideResource{};
+  shared_ptr<string> resourceLevel{};
+
+  QuotaConfig() {}
+
+  explicit QuotaConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowedMaxPriority) {
+      res["AllowedMaxPriority"] = boost::any(*allowedMaxPriority);
+    }
+    if (enableDLC) {
+      res["EnableDLC"] = boost::any(*enableDLC);
+    }
+    if (enableDSW) {
+      res["EnableDSW"] = boost::any(*enableDSW);
+    }
+    if (enableTideResource) {
+      res["EnableTideResource"] = boost::any(*enableTideResource);
+    }
+    if (resourceLevel) {
+      res["ResourceLevel"] = boost::any(*resourceLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowedMaxPriority") != m.end() && !m["AllowedMaxPriority"].empty()) {
+      allowedMaxPriority = make_shared<long>(boost::any_cast<long>(m["AllowedMaxPriority"]));
+    }
+    if (m.find("EnableDLC") != m.end() && !m["EnableDLC"].empty()) {
+      enableDLC = make_shared<bool>(boost::any_cast<bool>(m["EnableDLC"]));
+    }
+    if (m.find("EnableDSW") != m.end() && !m["EnableDSW"].empty()) {
+      enableDSW = make_shared<bool>(boost::any_cast<bool>(m["EnableDSW"]));
+    }
+    if (m.find("EnableTideResource") != m.end() && !m["EnableTideResource"].empty()) {
+      enableTideResource = make_shared<bool>(boost::any_cast<bool>(m["EnableTideResource"]));
+    }
+    if (m.find("ResourceLevel") != m.end() && !m["ResourceLevel"].empty()) {
+      resourceLevel = make_shared<string>(boost::any_cast<string>(m["ResourceLevel"]));
+    }
+  }
+
+
+  virtual ~QuotaConfig() = default;
+};
 class QuotaDetail : public Darabonba::Model {
 public:
   shared_ptr<string> CPU{};
@@ -2006,12 +2070,10 @@ class Quota : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
-  shared_ptr<bool> enableTideResource{};
-  shared_ptr<bool> isExclusiveQuota{};
+  shared_ptr<QuotaConfig> quotaConfig{};
   shared_ptr<string> quotaId{};
   shared_ptr<string> quotaName{};
   shared_ptr<string> quotaType{};
-  shared_ptr<string> resourceLevel{};
   shared_ptr<QuotaDetail> totalQuota{};
   shared_ptr<QuotaDetail> totalTideQuota{};
   shared_ptr<QuotaDetail> usedQuota{};
@@ -2033,11 +2095,8 @@ public:
     if (clusterName) {
       res["ClusterName"] = boost::any(*clusterName);
     }
-    if (enableTideResource) {
-      res["EnableTideResource"] = boost::any(*enableTideResource);
-    }
-    if (isExclusiveQuota) {
-      res["IsExclusiveQuota"] = boost::any(*isExclusiveQuota);
+    if (quotaConfig) {
+      res["QuotaConfig"] = quotaConfig ? boost::any(quotaConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (quotaId) {
       res["QuotaId"] = boost::any(*quotaId);
@@ -2047,9 +2106,6 @@ public:
     }
     if (quotaType) {
       res["QuotaType"] = boost::any(*quotaType);
-    }
-    if (resourceLevel) {
-      res["ResourceLevel"] = boost::any(*resourceLevel);
     }
     if (totalQuota) {
       res["TotalQuota"] = totalQuota ? boost::any(totalQuota->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2073,11 +2129,12 @@ public:
     if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
       clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
     }
-    if (m.find("EnableTideResource") != m.end() && !m["EnableTideResource"].empty()) {
-      enableTideResource = make_shared<bool>(boost::any_cast<bool>(m["EnableTideResource"]));
-    }
-    if (m.find("IsExclusiveQuota") != m.end() && !m["IsExclusiveQuota"].empty()) {
-      isExclusiveQuota = make_shared<bool>(boost::any_cast<bool>(m["IsExclusiveQuota"]));
+    if (m.find("QuotaConfig") != m.end() && !m["QuotaConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QuotaConfig"].type()) {
+        QuotaConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QuotaConfig"]));
+        quotaConfig = make_shared<QuotaConfig>(model1);
+      }
     }
     if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
       quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
@@ -2087,9 +2144,6 @@ public:
     }
     if (m.find("QuotaType") != m.end() && !m["QuotaType"].empty()) {
       quotaType = make_shared<string>(boost::any_cast<string>(m["QuotaType"]));
-    }
-    if (m.find("ResourceLevel") != m.end() && !m["ResourceLevel"].empty()) {
-      resourceLevel = make_shared<string>(boost::any_cast<string>(m["ResourceLevel"]));
     }
     if (m.find("TotalQuota") != m.end() && !m["TotalQuota"].empty()) {
       if (typeid(map<string, boost::any>) == m["TotalQuota"].type()) {
@@ -2710,6 +2764,7 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<string> resourceId{};
   shared_ptr<JobSettings> settings{};
+  shared_ptr<string> successPolicy{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<string> userCommand{};
@@ -2772,6 +2827,9 @@ public:
     }
     if (settings) {
       res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (successPolicy) {
+      res["SuccessPolicy"] = boost::any(*successPolicy);
     }
     if (thirdpartyLibDir) {
       res["ThirdpartyLibDir"] = boost::any(*thirdpartyLibDir);
@@ -2867,6 +2925,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Settings"]));
         settings = make_shared<JobSettings>(model1);
       }
+    }
+    if (m.find("SuccessPolicy") != m.end() && !m["SuccessPolicy"].empty()) {
+      successPolicy = make_shared<string>(boost::any_cast<string>(m["SuccessPolicy"]));
     }
     if (m.find("ThirdpartyLibDir") != m.end() && !m["ThirdpartyLibDir"].empty()) {
       thirdpartyLibDir = make_shared<string>(boost::any_cast<string>(m["ThirdpartyLibDir"]));
@@ -5076,6 +5137,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> endTime{};
   shared_ptr<bool> fromAllWorkspaces{};
+  shared_ptr<string> jobId{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
@@ -5113,6 +5175,9 @@ public:
     }
     if (fromAllWorkspaces) {
       res["FromAllWorkspaces"] = boost::any(*fromAllWorkspaces);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
@@ -5169,6 +5234,9 @@ public:
     if (m.find("FromAllWorkspaces") != m.end() && !m["FromAllWorkspaces"].empty()) {
       fromAllWorkspaces = make_shared<bool>(boost::any_cast<bool>(m["FromAllWorkspaces"]));
     }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
     }
@@ -5222,6 +5290,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> endTime{};
   shared_ptr<bool> fromAllWorkspaces{};
+  shared_ptr<string> jobId{};
   shared_ptr<string> jobType{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
@@ -5259,6 +5328,9 @@ public:
     }
     if (fromAllWorkspaces) {
       res["FromAllWorkspaces"] = boost::any(*fromAllWorkspaces);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
     if (jobType) {
       res["JobType"] = boost::any(*jobType);
@@ -5314,6 +5386,9 @@ public:
     }
     if (m.find("FromAllWorkspaces") != m.end() && !m["FromAllWorkspaces"].empty()) {
       fromAllWorkspaces = make_shared<bool>(boost::any_cast<bool>(m["FromAllWorkspaces"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
       jobType = make_shared<string>(boost::any_cast<string>(m["JobType"]));
@@ -6337,74 +6412,74 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateJobResponse createJob(shared_ptr<CreateJobRequest> request);
   CreateJobResponse createJobWithOptions(shared_ptr<CreateJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTensorboardResponse createTensorboard(shared_ptr<CreateTensorboardRequest> request);
+  CreateJobResponse createJob(shared_ptr<CreateJobRequest> request);
   CreateTensorboardResponse createTensorboardWithOptions(shared_ptr<CreateTensorboardRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteJobResponse deleteJob(shared_ptr<string> JobId);
+  CreateTensorboardResponse createTensorboard(shared_ptr<CreateTensorboardRequest> request);
   DeleteJobResponse deleteJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTensorboardResponse deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request);
+  DeleteJobResponse deleteJob(shared_ptr<string> JobId);
   DeleteTensorboardResponse deleteTensorboardWithOptions(shared_ptr<string> TensorboardId,
                                                          shared_ptr<DeleteTensorboardRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobResponse getJob(shared_ptr<string> JobId);
+  DeleteTensorboardResponse deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request);
   GetJobResponse getJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobEventsResponse getJobEvents(shared_ptr<string> JobId, shared_ptr<GetJobEventsRequest> request);
+  GetJobResponse getJob(shared_ptr<string> JobId);
   GetJobEventsResponse getJobEventsWithOptions(shared_ptr<string> JobId,
                                                shared_ptr<GetJobEventsRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobMetricsResponse getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request);
+  GetJobEventsResponse getJobEvents(shared_ptr<string> JobId, shared_ptr<GetJobEventsRequest> request);
   GetJobMetricsResponse getJobMetricsWithOptions(shared_ptr<string> JobId,
                                                  shared_ptr<GetJobMetricsRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetPodEventsResponse getPodEvents(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodEventsRequest> request);
+  GetJobMetricsResponse getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request);
   GetPodEventsResponse getPodEventsWithOptions(shared_ptr<string> JobId,
                                                shared_ptr<string> PodId,
                                                shared_ptr<GetPodEventsRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetPodLogsResponse getPodLogs(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodLogsRequest> request);
+  GetPodEventsResponse getPodEvents(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodEventsRequest> request);
   GetPodLogsResponse getPodLogsWithOptions(shared_ptr<string> JobId,
                                            shared_ptr<string> PodId,
                                            shared_ptr<GetPodLogsRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTensorboardResponse getTensorboard(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardRequest> request);
+  GetPodLogsResponse getPodLogs(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodLogsRequest> request);
   GetTensorboardResponse getTensorboardWithOptions(shared_ptr<string> TensorboardId,
                                                    shared_ptr<GetTensorboardRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEcsSpecsResponse listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request);
+  GetTensorboardResponse getTensorboard(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardRequest> request);
   ListEcsSpecsResponse listEcsSpecsWithOptions(shared_ptr<ListEcsSpecsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListJobsResponse listJobs(shared_ptr<ListJobsRequest> request);
+  ListEcsSpecsResponse listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request);
   ListJobsResponse listJobsWithOptions(shared_ptr<ListJobsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTensorboardsResponse listTensorboards(shared_ptr<ListTensorboardsRequest> request);
+  ListJobsResponse listJobs(shared_ptr<ListJobsRequest> request);
   ListTensorboardsResponse listTensorboardsWithOptions(shared_ptr<ListTensorboardsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartTensorboardResponse startTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StartTensorboardRequest> request);
+  ListTensorboardsResponse listTensorboards(shared_ptr<ListTensorboardsRequest> request);
   StartTensorboardResponse startTensorboardWithOptions(shared_ptr<string> TensorboardId,
                                                        shared_ptr<StartTensorboardRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopJobResponse stopJob(shared_ptr<string> JobId);
+  StartTensorboardResponse startTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StartTensorboardRequest> request);
   StopJobResponse stopJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopTensorboardResponse stopTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StopTensorboardRequest> request);
+  StopJobResponse stopJob(shared_ptr<string> JobId);
   StopTensorboardResponse stopTensorboardWithOptions(shared_ptr<string> TensorboardId,
                                                      shared_ptr<StopTensorboardRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateJobResponse updateJob(shared_ptr<string> JobId, shared_ptr<UpdateJobRequest> request);
+  StopTensorboardResponse stopTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StopTensorboardRequest> request);
   UpdateJobResponse updateJobWithOptions(shared_ptr<string> JobId,
                                          shared_ptr<UpdateJobRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTensorboardResponse updateTensorboard(shared_ptr<string> TensorboardId, shared_ptr<UpdateTensorboardRequest> request);
+  UpdateJobResponse updateJob(shared_ptr<string> JobId, shared_ptr<UpdateJobRequest> request);
   UpdateTensorboardResponse updateTensorboardWithOptions(shared_ptr<string> TensorboardId,
                                                          shared_ptr<UpdateTensorboardRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTensorboardResponse updateTensorboard(shared_ptr<string> TensorboardId, shared_ptr<UpdateTensorboardRequest> request);
 
   virtual ~Client() = default;
 };

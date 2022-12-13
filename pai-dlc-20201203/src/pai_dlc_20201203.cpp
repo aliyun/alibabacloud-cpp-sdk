@@ -91,12 +91,6 @@ string Alibabacloud_Pai-dlc20201203::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJob(shared_ptr<CreateJobRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createJobWithOptions(request, headers, runtime);
-}
-
 CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(shared_ptr<CreateJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -139,6 +133,9 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<JobSettings>(request->settings)) {
     body->insert(pair<string, JobSettings>("Settings", *request->settings));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->successPolicy)) {
+    body->insert(pair<string, string>("SuccessPolicy", *request->successPolicy));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartyLibDir)) {
     body->insert(pair<string, string>("ThirdpartyLibDir", *request->thirdpartyLibDir));
   }
@@ -172,10 +169,10 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJobWithOptions(sha
   return CreateJobResponse(callApi(params, req, runtime));
 }
 
-CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboard(shared_ptr<CreateTensorboardRequest> request) {
+CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJob(shared_ptr<CreateJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTensorboardWithOptions(request, headers, runtime);
+  return createJobWithOptions(request, headers, runtime);
 }
 
 CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboardWithOptions(shared_ptr<CreateTensorboardRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -238,14 +235,13 @@ CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboar
   return CreateTensorboardResponse(callApi(params, req, runtime));
 }
 
-DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJob(shared_ptr<string> JobId) {
+CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboard(shared_ptr<CreateTensorboardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteJobWithOptions(JobId, headers, runtime);
+  return createTensorboardWithOptions(request, headers, runtime);
 }
 
 DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -253,7 +249,7 @@ DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJobWithOptions(sha
     {"action", boost::any(string("DeleteJob"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -263,10 +259,10 @@ DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJobWithOptions(sha
   return DeleteJobResponse(callApi(params, req, runtime));
 }
 
-DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request) {
+DeleteJobResponse Alibabacloud_Pai-dlc20201203::Client::deleteJob(shared_ptr<string> JobId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  return deleteJobWithOptions(JobId, headers, runtime);
 }
 
 DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboardWithOptions(shared_ptr<string> TensorboardId,
@@ -274,7 +270,6 @@ DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboar
                                                                                              shared_ptr<map<string, string>> headers,
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  TensorboardId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -287,7 +282,7 @@ DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboar
     {"action", boost::any(string("DeleteTensorboard"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(*TensorboardId))},
+    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -297,14 +292,13 @@ DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboar
   return DeleteTensorboardResponse(callApi(params, req, runtime));
 }
 
-GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJob(shared_ptr<string> JobId) {
+DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getJobWithOptions(JobId, headers, runtime);
+  return deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
 GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -312,7 +306,7 @@ GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_pt
     {"action", boost::any(string("GetJob"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -322,10 +316,10 @@ GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_pt
   return GetJobResponse(callApi(params, req, runtime));
 }
 
-GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEvents(shared_ptr<string> JobId, shared_ptr<GetJobEventsRequest> request) {
+GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJob(shared_ptr<string> JobId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getJobEventsWithOptions(JobId, request, headers, runtime);
+  return getJobWithOptions(JobId, headers, runtime);
 }
 
 GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptions(shared_ptr<string> JobId,
@@ -333,7 +327,6 @@ GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptio
                                                                                    shared_ptr<map<string, string>> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
@@ -352,7 +345,7 @@ GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptio
     {"action", boost::any(string("GetJobEvents"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId) + string("/events"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/events"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -362,10 +355,10 @@ GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptio
   return GetJobEventsResponse(callApi(params, req, runtime));
 }
 
-GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request) {
+GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEvents(shared_ptr<string> JobId, shared_ptr<GetJobEventsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getJobMetricsWithOptions(JobId, request, headers, runtime);
+  return getJobEventsWithOptions(JobId, request, headers, runtime);
 }
 
 GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetricsWithOptions(shared_ptr<string> JobId,
@@ -373,7 +366,6 @@ GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetricsWithOpt
                                                                                      shared_ptr<map<string, string>> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
@@ -398,7 +390,7 @@ GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetricsWithOpt
     {"action", boost::any(string("GetJobMetrics"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId) + string("/metrics"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/metrics"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -408,10 +400,10 @@ GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetricsWithOpt
   return GetJobMetricsResponse(callApi(params, req, runtime));
 }
 
-GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEvents(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodEventsRequest> request) {
+GetJobMetricsResponse Alibabacloud_Pai-dlc20201203::Client::getJobMetrics(shared_ptr<string> JobId, shared_ptr<GetJobMetricsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
+  return getJobMetricsWithOptions(JobId, request, headers, runtime);
 }
 
 GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptions(shared_ptr<string> JobId,
@@ -420,8 +412,6 @@ GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptio
                                                                                    shared_ptr<map<string, string>> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
-  PodId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(PodId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
@@ -443,7 +433,7 @@ GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptio
     {"action", boost::any(string("GetPodEvents"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId) + string("/pods/") + string(*PodId) + string("/events"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/pods/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(PodId)) + string("/events"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -453,10 +443,10 @@ GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEventsWithOptio
   return GetPodEventsResponse(callApi(params, req, runtime));
 }
 
-GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogs(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodLogsRequest> request) {
+GetPodEventsResponse Alibabacloud_Pai-dlc20201203::Client::getPodEvents(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodEventsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
+  return getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
 }
 
 GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogsWithOptions(shared_ptr<string> JobId,
@@ -465,8 +455,6 @@ GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogsWithOptions(s
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
-  PodId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(PodId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->downloadToFile)) {
     query->insert(pair<string, bool>("DownloadToFile", *request->downloadToFile));
@@ -491,7 +479,7 @@ GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogsWithOptions(s
     {"action", boost::any(string("GetPodLogs"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId) + string("/pods/") + string(*PodId) + string("/logs"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/pods/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(PodId)) + string("/logs"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -501,10 +489,10 @@ GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogsWithOptions(s
   return GetPodLogsResponse(callApi(params, req, runtime));
 }
 
-GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboard(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardRequest> request) {
+GetPodLogsResponse Alibabacloud_Pai-dlc20201203::Client::getPodLogs(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetPodLogsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  return getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
 }
 
 GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardWithOptions(shared_ptr<string> TensorboardId,
@@ -512,7 +500,6 @@ GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardWithO
                                                                                        shared_ptr<map<string, string>> headers,
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  TensorboardId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->jodId)) {
     query->insert(pair<string, string>("JodId", *request->jodId));
@@ -528,7 +515,7 @@ GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardWithO
     {"action", boost::any(string("GetTensorboard"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(*TensorboardId))},
+    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -538,10 +525,10 @@ GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboardWithO
   return GetTensorboardResponse(callApi(params, req, runtime));
 }
 
-ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request) {
+GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboard(shared_ptr<string> TensorboardId, shared_ptr<GetTensorboardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEcsSpecsWithOptions(request, headers, runtime);
+  return getTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
 ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptions(shared_ptr<ListEcsSpecsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -580,10 +567,10 @@ ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptio
   return ListEcsSpecsResponse(callApi(params, req, runtime));
 }
 
-ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobs(shared_ptr<ListJobsRequest> request) {
+ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecs(shared_ptr<ListEcsSpecsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listJobsWithOptions(request, headers, runtime);
+  return listEcsSpecsWithOptions(request, headers, runtime);
 }
 
 ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(shared_ptr<ListJobsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -608,6 +595,9 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->fromAllWorkspaces)) {
     query->insert(pair<string, bool>("FromAllWorkspaces", *request->fromAllWorkspaces));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobType)) {
     query->insert(pair<string, string>("JobType", *request->jobType));
@@ -663,10 +653,10 @@ ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobsWithOptions(share
   return ListJobsResponse(callApi(params, req, runtime));
 }
 
-ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboards(shared_ptr<ListTensorboardsRequest> request) {
+ListJobsResponse Alibabacloud_Pai-dlc20201203::Client::listJobs(shared_ptr<ListJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTensorboardsWithOptions(request, headers, runtime);
+  return listJobsWithOptions(request, headers, runtime);
 }
 
 ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsWithOptions(shared_ptr<ListTensorboardsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -732,10 +722,10 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
   return ListTensorboardsResponse(callApi(params, req, runtime));
 }
 
-StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StartTensorboardRequest> request) {
+ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboards(shared_ptr<ListTensorboardsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  return listTensorboardsWithOptions(request, headers, runtime);
 }
 
 StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboardWithOptions(shared_ptr<string> TensorboardId,
@@ -743,7 +733,6 @@ StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboardW
                                                                                            shared_ptr<map<string, string>> headers,
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  TensorboardId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -756,7 +745,7 @@ StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboardW
     {"action", boost::any(string("StartTensorboard"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(*TensorboardId) + string("/start"))},
+    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId)) + string("/start"))},
     {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -766,14 +755,13 @@ StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboardW
   return StartTensorboardResponse(callApi(params, req, runtime));
 }
 
-StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJob(shared_ptr<string> JobId) {
+StartTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::startTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StartTensorboardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopJobWithOptions(JobId, headers, runtime);
+  return startTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
 StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -781,7 +769,7 @@ StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJobWithOptions(shared_
     {"action", boost::any(string("StopJob"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId) + string("/stop"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/stop"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -791,10 +779,10 @@ StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJobWithOptions(shared_
   return StopJobResponse(callApi(params, req, runtime));
 }
 
-StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StopTensorboardRequest> request) {
+StopJobResponse Alibabacloud_Pai-dlc20201203::Client::stopJob(shared_ptr<string> JobId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  return stopJobWithOptions(JobId, headers, runtime);
 }
 
 StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboardWithOptions(shared_ptr<string> TensorboardId,
@@ -802,7 +790,6 @@ StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboardWit
                                                                                          shared_ptr<map<string, string>> headers,
                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  TensorboardId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -815,7 +802,7 @@ StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboardWit
     {"action", boost::any(string("StopTensorboard"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(*TensorboardId) + string("/stop"))},
+    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId)) + string("/stop"))},
     {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -825,10 +812,10 @@ StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboardWit
   return StopTensorboardResponse(callApi(params, req, runtime));
 }
 
-UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJob(shared_ptr<string> JobId, shared_ptr<UpdateJobRequest> request) {
+StopTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::stopTensorboard(shared_ptr<string> TensorboardId, shared_ptr<StopTensorboardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateJobWithOptions(JobId, request, headers, runtime);
+  return stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
 UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(shared_ptr<string> JobId,
@@ -836,7 +823,6 @@ UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(sha
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  JobId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
     body->insert(pair<string, long>("Priority", *request->priority));
@@ -849,7 +835,7 @@ UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(sha
     {"action", boost::any(string("UpdateJob"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/jobs/") + string(*JobId))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)))},
     {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -859,10 +845,10 @@ UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJobWithOptions(sha
   return UpdateJobResponse(callApi(params, req, runtime));
 }
 
-UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboard(shared_ptr<string> TensorboardId, shared_ptr<UpdateTensorboardRequest> request) {
+UpdateJobResponse Alibabacloud_Pai-dlc20201203::Client::updateJob(shared_ptr<string> JobId, shared_ptr<UpdateJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTensorboardWithOptions(TensorboardId, request, headers, runtime);
+  return updateJobWithOptions(JobId, request, headers, runtime);
 }
 
 UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboardWithOptions(shared_ptr<string> TensorboardId,
@@ -870,7 +856,6 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
                                                                                              shared_ptr<map<string, string>> headers,
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  TensorboardId = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId));
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->maxRunningTimeMinutes)) {
     query->insert(pair<string, long>("MaxRunningTimeMinutes", *request->maxRunningTimeMinutes));
@@ -886,7 +871,7 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
     {"action", boost::any(string("UpdateTensorboard"))},
     {"version", boost::any(string("2020-12-03"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(*TensorboardId))},
+    {"pathname", boost::any(string("/api/v1/tensorboards/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(TensorboardId)))},
     {"method", boost::any(string("PUT"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -894,5 +879,11 @@ UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboar
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateTensorboardResponse(callApi(params, req, runtime));
+}
+
+UpdateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::updateTensorboard(shared_ptr<string> TensorboardId, shared_ptr<UpdateTensorboardRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
