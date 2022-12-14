@@ -462,6 +462,42 @@ public:
 
   virtual ~EstimateStereoImageDepthRequest() = default;
 };
+class EstimateStereoImageDepthAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> leftImageURLObject{};
+  shared_ptr<Darabonba::Stream> rightImageURLObject{};
+
+  EstimateStereoImageDepthAdvanceRequest() {}
+
+  explicit EstimateStereoImageDepthAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (leftImageURLObject) {
+      res["LeftImageURL"] = boost::any(*leftImageURLObject);
+    }
+    if (rightImageURLObject) {
+      res["RightImageURL"] = boost::any(*rightImageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LeftImageURL") != m.end() && !m["LeftImageURL"].empty()) {
+      leftImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["LeftImageURL"]));
+    }
+    if (m.find("RightImageURL") != m.end() && !m["RightImageURL"].empty()) {
+      rightImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["RightImageURL"]));
+    }
+  }
+
+
+  virtual ~EstimateStereoImageDepthAdvanceRequest() = default;
+};
 class EstimateStereoImageDepthResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> disparityMapURL{};
@@ -1212,6 +1248,7 @@ public:
   EstimateMonocularVideoDepthResponse estimateMonocularVideoDepthAdvance(shared_ptr<EstimateMonocularVideoDepthAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstimateStereoImageDepthResponse estimateStereoImageDepthWithOptions(shared_ptr<EstimateStereoImageDepthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EstimateStereoImageDepthResponse estimateStereoImageDepth(shared_ptr<EstimateStereoImageDepthRequest> request);
+  EstimateStereoImageDepthResponse estimateStereoImageDepthAdvance(shared_ptr<EstimateStereoImageDepthAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncJobResultResponse getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncJobResultResponse getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request);
   ReconstructBodyBySingleImageResponse reconstructBodyBySingleImageWithOptions(shared_ptr<ReconstructBodyBySingleImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
