@@ -115,6 +115,106 @@ public:
 
   virtual ~AnalyzeChestVesselRequest() = default;
 };
+class AnalyzeChestVesselAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  AnalyzeChestVesselAdvanceRequestURLList() {}
+
+  explicit AnalyzeChestVesselAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselAdvanceRequestURLList() = default;
+};
+class AnalyzeChestVesselAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<AnalyzeChestVesselAdvanceRequestURLList>> URLList{};
+
+  AnalyzeChestVesselAdvanceRequest() {}
+
+  explicit AnalyzeChestVesselAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<AnalyzeChestVesselAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AnalyzeChestVesselAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<AnalyzeChestVesselAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~AnalyzeChestVesselAdvanceRequest() = default;
+};
 class AnalyzeChestVesselResponseBodyDataAortaInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<double>> area{};
@@ -551,6 +651,106 @@ public:
 
 
   virtual ~CalcCACSRequest() = default;
+};
+class CalcCACSAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  CalcCACSAdvanceRequestURLList() {}
+
+  explicit CalcCACSAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~CalcCACSAdvanceRequestURLList() = default;
+};
+class CalcCACSAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<CalcCACSAdvanceRequestURLList>> URLList{};
+
+  CalcCACSAdvanceRequest() {}
+
+  explicit CalcCACSAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<CalcCACSAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CalcCACSAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<CalcCACSAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CalcCACSAdvanceRequest() = default;
 };
 class CalcCACSResponseBodyDataDetections : public Darabonba::Model {
 public:
@@ -1237,6 +1437,99 @@ public:
 
 
   virtual ~DetectCovid19CadRequest() = default;
+};
+class DetectCovid19CadAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectCovid19CadAdvanceRequestURLList() {}
+
+  explicit DetectCovid19CadAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectCovid19CadAdvanceRequestURLList() = default;
+};
+class DetectCovid19CadAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<DetectCovid19CadAdvanceRequestURLList>> URLList{};
+
+  DetectCovid19CadAdvanceRequest() {}
+
+  explicit DetectCovid19CadAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectCovid19CadAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectCovid19CadAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectCovid19CadAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectCovid19CadAdvanceRequest() = default;
 };
 class DetectCovid19CadResponseBodyData : public Darabonba::Model {
 public:
@@ -2525,6 +2818,106 @@ public:
 
   virtual ~DetectLungNoduleRequest() = default;
 };
+class DetectLungNoduleAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectLungNoduleAdvanceRequestURLList() {}
+
+  explicit DetectLungNoduleAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectLungNoduleAdvanceRequestURLList() = default;
+};
+class DetectLungNoduleAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<double> threshold{};
+  shared_ptr<vector<DetectLungNoduleAdvanceRequestURLList>> URLList{};
+
+  DetectLungNoduleAdvanceRequest() {}
+
+  explicit DetectLungNoduleAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<double>(boost::any_cast<double>(m["Threshold"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectLungNoduleAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectLungNoduleAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectLungNoduleAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectLungNoduleAdvanceRequest() = default;
+};
 class DetectLungNoduleResponseBodyDataSeriesElements : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
@@ -2961,6 +3354,85 @@ public:
 
   virtual ~DetectLymphRequest() = default;
 };
+class DetectLymphAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectLymphAdvanceRequestURLList() {}
+
+  explicit DetectLymphAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectLymphAdvanceRequestURLList() = default;
+};
+class DetectLymphAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<vector<DetectLymphAdvanceRequestURLList>> URLList{};
+
+  DetectLymphAdvanceRequest() {}
+
+  explicit DetectLymphAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectLymphAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectLymphAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectLymphAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectLymphAdvanceRequest() = default;
+};
 class DetectLymphResponseBodyDataLesions : public Darabonba::Model {
 public:
   shared_ptr<vector<double>> boxes{};
@@ -3270,6 +3742,85 @@ public:
 
   virtual ~DetectPancRequest() = default;
 };
+class DetectPancAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectPancAdvanceRequestURLList() {}
+
+  explicit DetectPancAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectPancAdvanceRequestURLList() = default;
+};
+class DetectPancAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<vector<DetectPancAdvanceRequestURLList>> URLList{};
+
+  DetectPancAdvanceRequest() {}
+
+  explicit DetectPancAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectPancAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectPancAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectPancAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectPancAdvanceRequest() = default;
+};
 class DetectPancResponseBodyDataLesion : public Darabonba::Model {
 public:
   shared_ptr<string> mask{};
@@ -3569,10 +4120,111 @@ public:
 
   virtual ~DetectRibFractureRequest() = default;
 };
+class DetectRibFractureAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectRibFractureAdvanceRequestURLList() {}
+
+  explicit DetectRibFractureAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectRibFractureAdvanceRequestURLList() = default;
+};
+class DetectRibFractureAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<DetectRibFractureAdvanceRequestURLList>> URLList{};
+
+  DetectRibFractureAdvanceRequest() {}
+
+  explicit DetectRibFractureAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectRibFractureAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectRibFractureAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectRibFractureAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectRibFractureAdvanceRequest() = default;
+};
 class DetectRibFractureResponseBodyDataDetections : public Darabonba::Model {
 public:
   shared_ptr<vector<long>> coordinateImage{};
   shared_ptr<vector<long>> coordinates{};
+  shared_ptr<string> fracSOPInstanceUID{};
   shared_ptr<string> fractureCategory{};
   shared_ptr<double> fractureConfidence{};
   shared_ptr<long> fractureId{};
@@ -3594,6 +4246,9 @@ public:
     }
     if (coordinates) {
       res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (fracSOPInstanceUID) {
+      res["FracSOPInstanceUID"] = boost::any(*fracSOPInstanceUID);
     }
     if (fractureCategory) {
       res["FractureCategory"] = boost::any(*fractureCategory);
@@ -3633,6 +4288,9 @@ public:
         }
       }
       coordinates = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("FracSOPInstanceUID") != m.end() && !m["FracSOPInstanceUID"].empty()) {
+      fracSOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["FracSOPInstanceUID"]));
     }
     if (m.find("FractureCategory") != m.end() && !m["FractureCategory"].empty()) {
       fractureCategory = make_shared<string>(boost::any_cast<string>(m["FractureCategory"]));
@@ -4188,6 +4846,99 @@ public:
 
 
   virtual ~DetectSpineMRIRequest() = default;
+};
+class DetectSpineMRIAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  DetectSpineMRIAdvanceRequestURLList() {}
+
+  explicit DetectSpineMRIAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~DetectSpineMRIAdvanceRequestURLList() = default;
+};
+class DetectSpineMRIAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<DetectSpineMRIAdvanceRequestURLList>> URLList{};
+
+  DetectSpineMRIAdvanceRequest() {}
+
+  explicit DetectSpineMRIAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<DetectSpineMRIAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectSpineMRIAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<DetectSpineMRIAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectSpineMRIAdvanceRequest() = default;
 };
 class DetectSpineMRIResponseBodyDataDiscs : public Darabonba::Model {
 public:
@@ -4920,6 +5671,156 @@ public:
 
   virtual ~RunCTRegistrationRequest() = default;
 };
+class RunCTRegistrationAdvanceRequestFloatingList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> floatingURLObject{};
+
+  RunCTRegistrationAdvanceRequestFloatingList() {}
+
+  explicit RunCTRegistrationAdvanceRequestFloatingList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (floatingURLObject) {
+      res["FloatingURL"] = boost::any(*floatingURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FloatingURL") != m.end() && !m["FloatingURL"].empty()) {
+      floatingURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FloatingURL"]));
+    }
+  }
+
+
+  virtual ~RunCTRegistrationAdvanceRequestFloatingList() = default;
+};
+class RunCTRegistrationAdvanceRequestReferenceList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> referenceURLObject{};
+
+  RunCTRegistrationAdvanceRequestReferenceList() {}
+
+  explicit RunCTRegistrationAdvanceRequestReferenceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (referenceURLObject) {
+      res["ReferenceURL"] = boost::any(*referenceURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReferenceURL") != m.end() && !m["ReferenceURL"].empty()) {
+      referenceURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ReferenceURL"]));
+    }
+  }
+
+
+  virtual ~RunCTRegistrationAdvanceRequestReferenceList() = default;
+};
+class RunCTRegistrationAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<vector<RunCTRegistrationAdvanceRequestFloatingList>> floatingList{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<RunCTRegistrationAdvanceRequestReferenceList>> referenceList{};
+
+  RunCTRegistrationAdvanceRequest() {}
+
+  explicit RunCTRegistrationAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (floatingList) {
+      vector<boost::any> temp1;
+      for(auto item1:*floatingList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FloatingList"] = boost::any(temp1);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (referenceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*referenceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReferenceList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("FloatingList") != m.end() && !m["FloatingList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FloatingList"].type()) {
+        vector<RunCTRegistrationAdvanceRequestFloatingList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FloatingList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCTRegistrationAdvanceRequestFloatingList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        floatingList = make_shared<vector<RunCTRegistrationAdvanceRequestFloatingList>>(expect1);
+      }
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("ReferenceList") != m.end() && !m["ReferenceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReferenceList"].type()) {
+        vector<RunCTRegistrationAdvanceRequestReferenceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReferenceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunCTRegistrationAdvanceRequestReferenceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        referenceList = make_shared<vector<RunCTRegistrationAdvanceRequestReferenceList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RunCTRegistrationAdvanceRequest() = default;
+};
 class RunCTRegistrationResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> DUrl{};
@@ -5067,7 +5968,7 @@ public:
 };
 class RunMedQARequestAnswerImageDataList : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> answerImageData{};
+  shared_ptr<string> answerImageData{};
 
   RunMedQARequestAnswerImageDataList() {}
 
@@ -5087,7 +5988,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AnswerImageData") != m.end() && !m["AnswerImageData"].empty()) {
-      answerImageData = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["AnswerImageData"]));
+      answerImageData = make_shared<string>(boost::any_cast<string>(m["AnswerImageData"]));
     }
   }
 
@@ -5271,6 +6172,213 @@ public:
 
 
   virtual ~RunMedQARequest() = default;
+};
+class RunMedQAAdvanceRequestAnswerImageDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> answerImageData{};
+
+  RunMedQAAdvanceRequestAnswerImageDataList() {}
+
+  explicit RunMedQAAdvanceRequestAnswerImageDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerImageData) {
+      res["AnswerImageData"] = boost::any(*answerImageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerImageData") != m.end() && !m["AnswerImageData"].empty()) {
+      answerImageData = make_shared<string>(boost::any_cast<string>(m["AnswerImageData"]));
+    }
+  }
+
+
+  virtual ~RunMedQAAdvanceRequestAnswerImageDataList() = default;
+};
+class RunMedQAAdvanceRequestAnswerImageURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> answerImageURLObject{};
+
+  RunMedQAAdvanceRequestAnswerImageURLList() {}
+
+  explicit RunMedQAAdvanceRequestAnswerImageURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerImageURLObject) {
+      res["AnswerImageURL"] = boost::any(*answerImageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerImageURL") != m.end() && !m["AnswerImageURL"].empty()) {
+      answerImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["AnswerImageURL"]));
+    }
+  }
+
+
+  virtual ~RunMedQAAdvanceRequestAnswerImageURLList() = default;
+};
+class RunMedQAAdvanceRequestAnswerTextList : public Darabonba::Model {
+public:
+  shared_ptr<string> answerText{};
+
+  RunMedQAAdvanceRequestAnswerTextList() {}
+
+  explicit RunMedQAAdvanceRequestAnswerTextList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerText) {
+      res["AnswerText"] = boost::any(*answerText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerText") != m.end() && !m["AnswerText"].empty()) {
+      answerText = make_shared<string>(boost::any_cast<string>(m["AnswerText"]));
+    }
+  }
+
+
+  virtual ~RunMedQAAdvanceRequestAnswerTextList() = default;
+};
+class RunMedQAAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<RunMedQAAdvanceRequestAnswerImageDataList>> answerImageDataList{};
+  shared_ptr<vector<RunMedQAAdvanceRequestAnswerImageURLList>> answerImageURLList{};
+  shared_ptr<vector<RunMedQAAdvanceRequestAnswerTextList>> answerTextList{};
+  shared_ptr<string> department{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<string> questionType{};
+  shared_ptr<string> sessionId{};
+
+  RunMedQAAdvanceRequest() {}
+
+  explicit RunMedQAAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerImageDataList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerImageDataList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerImageDataList"] = boost::any(temp1);
+    }
+    if (answerImageURLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerImageURLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerImageURLList"] = boost::any(temp1);
+    }
+    if (answerTextList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerTextList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerTextList"] = boost::any(temp1);
+    }
+    if (department) {
+      res["Department"] = boost::any(*department);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (questionType) {
+      res["QuestionType"] = boost::any(*questionType);
+    }
+    if (sessionId) {
+      res["SessionId"] = boost::any(*sessionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerImageDataList") != m.end() && !m["AnswerImageDataList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerImageDataList"].type()) {
+        vector<RunMedQAAdvanceRequestAnswerImageDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerImageDataList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQAAdvanceRequestAnswerImageDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerImageDataList = make_shared<vector<RunMedQAAdvanceRequestAnswerImageDataList>>(expect1);
+      }
+    }
+    if (m.find("AnswerImageURLList") != m.end() && !m["AnswerImageURLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerImageURLList"].type()) {
+        vector<RunMedQAAdvanceRequestAnswerImageURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerImageURLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQAAdvanceRequestAnswerImageURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerImageURLList = make_shared<vector<RunMedQAAdvanceRequestAnswerImageURLList>>(expect1);
+      }
+    }
+    if (m.find("AnswerTextList") != m.end() && !m["AnswerTextList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerTextList"].type()) {
+        vector<RunMedQAAdvanceRequestAnswerTextList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerTextList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RunMedQAAdvanceRequestAnswerTextList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerTextList = make_shared<vector<RunMedQAAdvanceRequestAnswerTextList>>(expect1);
+      }
+    }
+    if (m.find("Department") != m.end() && !m["Department"].empty()) {
+      department = make_shared<string>(boost::any_cast<string>(m["Department"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("QuestionType") != m.end() && !m["QuestionType"].empty()) {
+      questionType = make_shared<string>(boost::any_cast<string>(m["QuestionType"]));
+    }
+    if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
+      sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+  }
+
+
+  virtual ~RunMedQAAdvanceRequest() = default;
 };
 class RunMedQAResponseBodyData : public Darabonba::Model {
 public:
@@ -5556,6 +6664,113 @@ public:
 
 
   virtual ~ScreenChestCTRequest() = default;
+};
+class ScreenChestCTAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  ScreenChestCTAdvanceRequestURLList() {}
+
+  explicit ScreenChestCTAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTAdvanceRequestURLList() = default;
+};
+class ScreenChestCTAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataFormat{};
+  shared_ptr<long> mask{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<ScreenChestCTAdvanceRequestURLList>> URLList{};
+  shared_ptr<long> verbose{};
+
+  ScreenChestCTAdvanceRequest() {}
+
+  explicit ScreenChestCTAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    if (verbose) {
+      res["Verbose"] = boost::any(*verbose);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<long>(boost::any_cast<long>(m["Mask"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<ScreenChestCTAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScreenChestCTAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<ScreenChestCTAdvanceRequestURLList>>(expect1);
+      }
+    }
+    if (m.find("Verbose") != m.end() && !m["Verbose"].empty()) {
+      verbose = make_shared<long>(boost::any_cast<long>(m["Verbose"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTAdvanceRequest() = default;
 };
 class ScreenChestCTResponseBodyDataAnalyzeChestVesselAortaInfo : public Darabonba::Model {
 public:
@@ -6220,6 +7435,7 @@ class ScreenChestCTResponseBodyDataDetectRibFractureDetections : public Darabonb
 public:
   shared_ptr<vector<long>> coordinateImage{};
   shared_ptr<vector<long>> coordinates{};
+  shared_ptr<string> fracSOPInstanceUID{};
   shared_ptr<long> fractureCategory{};
   shared_ptr<double> fractureConfidence{};
   shared_ptr<long> fractureId{};
@@ -6241,6 +7457,9 @@ public:
     }
     if (coordinates) {
       res["Coordinates"] = boost::any(*coordinates);
+    }
+    if (fracSOPInstanceUID) {
+      res["FracSOPInstanceUID"] = boost::any(*fracSOPInstanceUID);
     }
     if (fractureCategory) {
       res["FractureCategory"] = boost::any(*fractureCategory);
@@ -6280,6 +7499,9 @@ public:
         }
       }
       coordinates = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("FracSOPInstanceUID") != m.end() && !m["FracSOPInstanceUID"].empty()) {
+      fracSOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["FracSOPInstanceUID"]));
     }
     if (m.find("FractureCategory") != m.end() && !m["FractureCategory"].empty()) {
       fractureCategory = make_shared<long>(boost::any_cast<long>(m["FractureCategory"]));
@@ -6648,6 +7870,110 @@ public:
 
   virtual ~ScreenChestCTResponseBodyDataLungNodule() = default;
 };
+class ScreenChestCTResponseBodyDataScreenEcLesion : public Darabonba::Model {
+public:
+  shared_ptr<string> benignVolume{};
+  shared_ptr<string> ecVolume{};
+  shared_ptr<string> esoVolume{};
+  shared_ptr<string> mask{};
+  shared_ptr<vector<string>> possibilities{};
+
+  ScreenChestCTResponseBodyDataScreenEcLesion() {}
+
+  explicit ScreenChestCTResponseBodyDataScreenEcLesion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (benignVolume) {
+      res["BenignVolume"] = boost::any(*benignVolume);
+    }
+    if (ecVolume) {
+      res["EcVolume"] = boost::any(*ecVolume);
+    }
+    if (esoVolume) {
+      res["EsoVolume"] = boost::any(*esoVolume);
+    }
+    if (mask) {
+      res["Mask"] = boost::any(*mask);
+    }
+    if (possibilities) {
+      res["Possibilities"] = boost::any(*possibilities);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BenignVolume") != m.end() && !m["BenignVolume"].empty()) {
+      benignVolume = make_shared<string>(boost::any_cast<string>(m["BenignVolume"]));
+    }
+    if (m.find("EcVolume") != m.end() && !m["EcVolume"].empty()) {
+      ecVolume = make_shared<string>(boost::any_cast<string>(m["EcVolume"]));
+    }
+    if (m.find("EsoVolume") != m.end() && !m["EsoVolume"].empty()) {
+      esoVolume = make_shared<string>(boost::any_cast<string>(m["EsoVolume"]));
+    }
+    if (m.find("Mask") != m.end() && !m["Mask"].empty()) {
+      mask = make_shared<string>(boost::any_cast<string>(m["Mask"]));
+    }
+    if (m.find("Possibilities") != m.end() && !m["Possibilities"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Possibilities"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Possibilities"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      possibilities = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataScreenEcLesion() = default;
+};
+class ScreenChestCTResponseBodyDataScreenEc : public Darabonba::Model {
+public:
+  shared_ptr<ScreenChestCTResponseBodyDataScreenEcLesion> lesion{};
+  shared_ptr<string> seriesInsanceUid{};
+
+  ScreenChestCTResponseBodyDataScreenEc() {}
+
+  explicit ScreenChestCTResponseBodyDataScreenEc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lesion) {
+      res["Lesion"] = lesion ? boost::any(lesion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (seriesInsanceUid) {
+      res["SeriesInsanceUid"] = boost::any(*seriesInsanceUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Lesion") != m.end() && !m["Lesion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Lesion"].type()) {
+        ScreenChestCTResponseBodyDataScreenEcLesion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Lesion"]));
+        lesion = make_shared<ScreenChestCTResponseBodyDataScreenEcLesion>(model1);
+      }
+    }
+    if (m.find("SeriesInsanceUid") != m.end() && !m["SeriesInsanceUid"].empty()) {
+      seriesInsanceUid = make_shared<string>(boost::any_cast<string>(m["SeriesInsanceUid"]));
+    }
+  }
+
+
+  virtual ~ScreenChestCTResponseBodyDataScreenEc() = default;
+};
 class ScreenChestCTResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<ScreenChestCTResponseBodyDataAnalyzeChestVessel> analyzeChestVessel{};
@@ -6659,6 +7985,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<ScreenChestCTResponseBodyDataLungNodule> lungNodule{};
   shared_ptr<map<string, boost::any>> nestedUrlList{};
+  shared_ptr<ScreenChestCTResponseBodyDataScreenEc> screenEc{};
   shared_ptr<map<string, boost::any>> URLList{};
 
   ScreenChestCTResponseBodyData() {}
@@ -6697,6 +8024,9 @@ public:
     }
     if (nestedUrlList) {
       res["NestedUrlList"] = boost::any(*nestedUrlList);
+    }
+    if (screenEc) {
+      res["ScreenEc"] = screenEc ? boost::any(screenEc->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (URLList) {
       res["URLList"] = boost::any(*URLList);
@@ -6764,6 +8094,13 @@ public:
          toMap1[item.first] = item.second;
       }
       nestedUrlList = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("ScreenEc") != m.end() && !m["ScreenEc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ScreenEc"].type()) {
+        ScreenChestCTResponseBodyDataScreenEc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ScreenEc"]));
+        screenEc = make_shared<ScreenChestCTResponseBodyDataScreenEc>(model1);
+      }
     }
     if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["URLList"]);
@@ -7293,6 +8630,127 @@ public:
 
   virtual ~SegmentOARRequest() = default;
 };
+class SegmentOARAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  SegmentOARAdvanceRequestURLList() {}
+
+  explicit SegmentOARAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~SegmentOARAdvanceRequestURLList() = default;
+};
+class SegmentOARAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyPart{};
+  shared_ptr<bool> contrast{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<vector<long>> maskList{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<SegmentOARAdvanceRequestURLList>> URLList{};
+
+  SegmentOARAdvanceRequest() {}
+
+  explicit SegmentOARAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyPart) {
+      res["BodyPart"] = boost::any(*bodyPart);
+    }
+    if (contrast) {
+      res["Contrast"] = boost::any(*contrast);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (maskList) {
+      res["MaskList"] = boost::any(*maskList);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyPart") != m.end() && !m["BodyPart"].empty()) {
+      bodyPart = make_shared<string>(boost::any_cast<string>(m["BodyPart"]));
+    }
+    if (m.find("Contrast") != m.end() && !m["Contrast"].empty()) {
+      contrast = make_shared<bool>(boost::any_cast<bool>(m["Contrast"]));
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("MaskList") != m.end() && !m["MaskList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["MaskList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MaskList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      maskList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<SegmentOARAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SegmentOARAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<SegmentOARAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentOARAdvanceRequest() = default;
+};
 class SegmentOARResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> resultURL{};
@@ -7624,13 +9082,16 @@ public:
                      shared_ptr<string> endpoint);
   AnalyzeChestVesselResponse analyzeChestVesselWithOptions(shared_ptr<AnalyzeChestVesselRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AnalyzeChestVesselResponse analyzeChestVessel(shared_ptr<AnalyzeChestVesselRequest> request);
+  AnalyzeChestVesselResponse analyzeChestVesselAdvance(shared_ptr<AnalyzeChestVesselAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CalcCACSResponse calcCACSWithOptions(shared_ptr<CalcCACSRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CalcCACSResponse calcCACS(shared_ptr<CalcCACSRequest> request);
+  CalcCACSResponse calcCACSAdvance(shared_ptr<CalcCACSAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ClassifyFNFResponse classifyFNFWithOptions(shared_ptr<ClassifyFNFRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ClassifyFNFResponse classifyFNF(shared_ptr<ClassifyFNFRequest> request);
   ClassifyFNFResponse classifyFNFAdvance(shared_ptr<ClassifyFNFAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectCovid19CadResponse detectCovid19CadWithOptions(shared_ptr<DetectCovid19CadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectCovid19CadResponse detectCovid19Cad(shared_ptr<DetectCovid19CadRequest> request);
+  DetectCovid19CadResponse detectCovid19CadAdvance(shared_ptr<DetectCovid19CadAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectHipKeypointXRayResponse detectHipKeypointXRayWithOptions(shared_ptr<DetectHipKeypointXRayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectHipKeypointXRayResponse detectHipKeypointXRay(shared_ptr<DetectHipKeypointXRayRequest> request);
   DetectHipKeypointXRayResponse detectHipKeypointXRayAdvance(shared_ptr<DetectHipKeypointXRayAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7642,31 +9103,40 @@ public:
   DetectKneeXRayResponse detectKneeXRayAdvance(shared_ptr<DetectKneeXRayAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLungNoduleResponse detectLungNoduleWithOptions(shared_ptr<DetectLungNoduleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLungNoduleResponse detectLungNodule(shared_ptr<DetectLungNoduleRequest> request);
+  DetectLungNoduleResponse detectLungNoduleAdvance(shared_ptr<DetectLungNoduleAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLymphResponse detectLymphWithOptions(shared_ptr<DetectLymphRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLymphResponse detectLymph(shared_ptr<DetectLymphRequest> request);
+  DetectLymphResponse detectLymphAdvance(shared_ptr<DetectLymphAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectPancResponse detectPancWithOptions(shared_ptr<DetectPancRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectPancResponse detectPanc(shared_ptr<DetectPancRequest> request);
+  DetectPancResponse detectPancAdvance(shared_ptr<DetectPancAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectRibFractureResponse detectRibFractureWithOptions(shared_ptr<DetectRibFractureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectRibFractureResponse detectRibFracture(shared_ptr<DetectRibFractureRequest> request);
+  DetectRibFractureResponse detectRibFractureAdvance(shared_ptr<DetectRibFractureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectSkinDiseaseResponse detectSkinDiseaseWithOptions(shared_ptr<DetectSkinDiseaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectSkinDiseaseResponse detectSkinDisease(shared_ptr<DetectSkinDiseaseRequest> request);
   DetectSkinDiseaseResponse detectSkinDiseaseAdvance(shared_ptr<DetectSkinDiseaseAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectSpineMRIResponse detectSpineMRIWithOptions(shared_ptr<DetectSpineMRIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectSpineMRIResponse detectSpineMRI(shared_ptr<DetectSpineMRIRequest> request);
+  DetectSpineMRIResponse detectSpineMRIAdvance(shared_ptr<DetectSpineMRIAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FeedbackSessionResponse feedbackSessionWithOptions(shared_ptr<FeedbackSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FeedbackSessionResponse feedbackSession(shared_ptr<FeedbackSessionRequest> request);
   GetAsyncJobResultResponse getAsyncJobResultWithOptions(shared_ptr<GetAsyncJobResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncJobResultResponse getAsyncJobResult(shared_ptr<GetAsyncJobResultRequest> request);
   RunCTRegistrationResponse runCTRegistrationWithOptions(shared_ptr<RunCTRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunCTRegistrationResponse runCTRegistration(shared_ptr<RunCTRegistrationRequest> request);
+  RunCTRegistrationResponse runCTRegistrationAdvance(shared_ptr<RunCTRegistrationAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunMedQAResponse runMedQAWithOptions(shared_ptr<RunMedQARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunMedQAResponse runMedQA(shared_ptr<RunMedQARequest> request);
+  RunMedQAResponse runMedQAAdvance(shared_ptr<RunMedQAAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenChestCTResponse screenChestCTWithOptions(shared_ptr<ScreenChestCTRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenChestCTResponse screenChestCT(shared_ptr<ScreenChestCTRequest> request);
+  ScreenChestCTResponse screenChestCTAdvance(shared_ptr<ScreenChestCTAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenECWithOptions(shared_ptr<ScreenECRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenEC(shared_ptr<ScreenECRequest> request);
   SegmentOARResponse segmentOARWithOptions(shared_ptr<SegmentOARRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentOARResponse segmentOAR(shared_ptr<SegmentOARRequest> request);
+  SegmentOARResponse segmentOARAdvance(shared_ptr<SegmentOARAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TranslateMedResponse translateMedWithOptions(shared_ptr<TranslateMedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TranslateMedResponse translateMed(shared_ptr<TranslateMedRequest> request);
 
