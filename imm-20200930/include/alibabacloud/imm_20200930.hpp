@@ -15137,6 +15137,404 @@ public:
 
   virtual ~DetectImageScoreResponse() = default;
 };
+class DetectMediaMetaRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+
+  DetectMediaMetaRequest() {}
+
+  explicit DetectMediaMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+  }
+
+
+  virtual ~DetectMediaMetaRequest() = default;
+};
+class DetectMediaMetaShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> sourceURI{};
+
+  DetectMediaMetaShrinkRequest() {}
+
+  explicit DetectMediaMetaShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+  }
+
+
+  virtual ~DetectMediaMetaShrinkRequest() = default;
+};
+class DetectMediaMetaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<Address>> addresses{};
+  shared_ptr<string> album{};
+  shared_ptr<string> albumArtist{};
+  shared_ptr<string> artist{};
+  shared_ptr<vector<AudioStream>> audioStreams{};
+  shared_ptr<long> bitrate{};
+  shared_ptr<string> composer{};
+  shared_ptr<double> duration{};
+  shared_ptr<string> formatLongName{};
+  shared_ptr<string> formatName{};
+  shared_ptr<string> language{};
+  shared_ptr<string> latLong{};
+  shared_ptr<string> performer{};
+  shared_ptr<string> produceTime{};
+  shared_ptr<long> programCount{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> size{};
+  shared_ptr<double> startTime{};
+  shared_ptr<long> streamCount{};
+  shared_ptr<vector<SubtitleStream>> subtitles{};
+  shared_ptr<string> title{};
+  shared_ptr<long> videoHeight{};
+  shared_ptr<vector<VideoStream>> videoStreams{};
+  shared_ptr<long> videoWidth{};
+
+  DetectMediaMetaResponseBody() {}
+
+  explicit DetectMediaMetaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addresses) {
+      vector<boost::any> temp1;
+      for(auto item1:*addresses){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Addresses"] = boost::any(temp1);
+    }
+    if (album) {
+      res["Album"] = boost::any(*album);
+    }
+    if (albumArtist) {
+      res["AlbumArtist"] = boost::any(*albumArtist);
+    }
+    if (artist) {
+      res["Artist"] = boost::any(*artist);
+    }
+    if (audioStreams) {
+      vector<boost::any> temp1;
+      for(auto item1:*audioStreams){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AudioStreams"] = boost::any(temp1);
+    }
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (composer) {
+      res["Composer"] = boost::any(*composer);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (formatLongName) {
+      res["FormatLongName"] = boost::any(*formatLongName);
+    }
+    if (formatName) {
+      res["FormatName"] = boost::any(*formatName);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (latLong) {
+      res["LatLong"] = boost::any(*latLong);
+    }
+    if (performer) {
+      res["Performer"] = boost::any(*performer);
+    }
+    if (produceTime) {
+      res["ProduceTime"] = boost::any(*produceTime);
+    }
+    if (programCount) {
+      res["ProgramCount"] = boost::any(*programCount);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (size) {
+      res["Size"] = boost::any(*size);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (streamCount) {
+      res["StreamCount"] = boost::any(*streamCount);
+    }
+    if (subtitles) {
+      vector<boost::any> temp1;
+      for(auto item1:*subtitles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Subtitles"] = boost::any(temp1);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    if (videoHeight) {
+      res["VideoHeight"] = boost::any(*videoHeight);
+    }
+    if (videoStreams) {
+      vector<boost::any> temp1;
+      for(auto item1:*videoStreams){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VideoStreams"] = boost::any(temp1);
+    }
+    if (videoWidth) {
+      res["VideoWidth"] = boost::any(*videoWidth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
+        vector<Address> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Addresses"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Address model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addresses = make_shared<vector<Address>>(expect1);
+      }
+    }
+    if (m.find("Album") != m.end() && !m["Album"].empty()) {
+      album = make_shared<string>(boost::any_cast<string>(m["Album"]));
+    }
+    if (m.find("AlbumArtist") != m.end() && !m["AlbumArtist"].empty()) {
+      albumArtist = make_shared<string>(boost::any_cast<string>(m["AlbumArtist"]));
+    }
+    if (m.find("Artist") != m.end() && !m["Artist"].empty()) {
+      artist = make_shared<string>(boost::any_cast<string>(m["Artist"]));
+    }
+    if (m.find("AudioStreams") != m.end() && !m["AudioStreams"].empty()) {
+      if (typeid(vector<boost::any>) == m["AudioStreams"].type()) {
+        vector<AudioStream> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AudioStreams"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AudioStream model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        audioStreams = make_shared<vector<AudioStream>>(expect1);
+      }
+    }
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
+    }
+    if (m.find("Composer") != m.end() && !m["Composer"].empty()) {
+      composer = make_shared<string>(boost::any_cast<string>(m["Composer"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("FormatLongName") != m.end() && !m["FormatLongName"].empty()) {
+      formatLongName = make_shared<string>(boost::any_cast<string>(m["FormatLongName"]));
+    }
+    if (m.find("FormatName") != m.end() && !m["FormatName"].empty()) {
+      formatName = make_shared<string>(boost::any_cast<string>(m["FormatName"]));
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("LatLong") != m.end() && !m["LatLong"].empty()) {
+      latLong = make_shared<string>(boost::any_cast<string>(m["LatLong"]));
+    }
+    if (m.find("Performer") != m.end() && !m["Performer"].empty()) {
+      performer = make_shared<string>(boost::any_cast<string>(m["Performer"]));
+    }
+    if (m.find("ProduceTime") != m.end() && !m["ProduceTime"].empty()) {
+      produceTime = make_shared<string>(boost::any_cast<string>(m["ProduceTime"]));
+    }
+    if (m.find("ProgramCount") != m.end() && !m["ProgramCount"].empty()) {
+      programCount = make_shared<long>(boost::any_cast<long>(m["ProgramCount"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Size") != m.end() && !m["Size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+    if (m.find("StreamCount") != m.end() && !m["StreamCount"].empty()) {
+      streamCount = make_shared<long>(boost::any_cast<long>(m["StreamCount"]));
+    }
+    if (m.find("Subtitles") != m.end() && !m["Subtitles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Subtitles"].type()) {
+        vector<SubtitleStream> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Subtitles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubtitleStream model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subtitles = make_shared<vector<SubtitleStream>>(expect1);
+      }
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+    if (m.find("VideoHeight") != m.end() && !m["VideoHeight"].empty()) {
+      videoHeight = make_shared<long>(boost::any_cast<long>(m["VideoHeight"]));
+    }
+    if (m.find("VideoStreams") != m.end() && !m["VideoStreams"].empty()) {
+      if (typeid(vector<boost::any>) == m["VideoStreams"].type()) {
+        vector<VideoStream> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VideoStreams"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            VideoStream model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        videoStreams = make_shared<vector<VideoStream>>(expect1);
+      }
+    }
+    if (m.find("VideoWidth") != m.end() && !m["VideoWidth"].empty()) {
+      videoWidth = make_shared<long>(boost::any_cast<long>(m["VideoWidth"]));
+    }
+  }
+
+
+  virtual ~DetectMediaMetaResponseBody() = default;
+};
+class DetectMediaMetaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetectMediaMetaResponseBody> body{};
+
+  DetectMediaMetaResponse() {}
+
+  explicit DetectMediaMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetectMediaMetaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetectMediaMetaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetectMediaMetaResponse() = default;
+};
 class DetectTextAnomalyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -15460,6 +15858,1333 @@ public:
 
 
   virtual ~FuzzyQueryResponse() = default;
+};
+class GenerateDRMLicenseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keyId{};
+  shared_ptr<string> notifyEndpoint{};
+  shared_ptr<string> notifyTopicName{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> protectionSystem{};
+
+  GenerateDRMLicenseRequest() {}
+
+  explicit GenerateDRMLicenseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyId) {
+      res["KeyId"] = boost::any(*keyId);
+    }
+    if (notifyEndpoint) {
+      res["NotifyEndpoint"] = boost::any(*notifyEndpoint);
+    }
+    if (notifyTopicName) {
+      res["NotifyTopicName"] = boost::any(*notifyTopicName);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (protectionSystem) {
+      res["ProtectionSystem"] = boost::any(*protectionSystem);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyId") != m.end() && !m["KeyId"].empty()) {
+      keyId = make_shared<string>(boost::any_cast<string>(m["KeyId"]));
+    }
+    if (m.find("NotifyEndpoint") != m.end() && !m["NotifyEndpoint"].empty()) {
+      notifyEndpoint = make_shared<string>(boost::any_cast<string>(m["NotifyEndpoint"]));
+    }
+    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
+      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("ProtectionSystem") != m.end() && !m["ProtectionSystem"].empty()) {
+      protectionSystem = make_shared<string>(boost::any_cast<string>(m["ProtectionSystem"]));
+    }
+  }
+
+
+  virtual ~GenerateDRMLicenseRequest() = default;
+};
+class GenerateDRMLicenseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceInfo{};
+  shared_ptr<string> license{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> states{};
+
+  GenerateDRMLicenseResponseBody() {}
+
+  explicit GenerateDRMLicenseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceInfo) {
+      res["DeviceInfo"] = boost::any(*deviceInfo);
+    }
+    if (license) {
+      res["License"] = boost::any(*license);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (states) {
+      res["States"] = boost::any(*states);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceInfo") != m.end() && !m["DeviceInfo"].empty()) {
+      deviceInfo = make_shared<string>(boost::any_cast<string>(m["DeviceInfo"]));
+    }
+    if (m.find("License") != m.end() && !m["License"].empty()) {
+      license = make_shared<string>(boost::any_cast<string>(m["License"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("States") != m.end() && !m["States"].empty()) {
+      states = make_shared<long>(boost::any_cast<long>(m["States"]));
+    }
+  }
+
+
+  virtual ~GenerateDRMLicenseResponseBody() = default;
+};
+class GenerateDRMLicenseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateDRMLicenseResponseBody> body{};
+
+  GenerateDRMLicenseResponse() {}
+
+  explicit GenerateDRMLicenseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateDRMLicenseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateDRMLicenseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateDRMLicenseResponse() = default;
+};
+class GenerateVideoPlaylistRequestSourceSubtitles : public Darabonba::Model {
+public:
+  shared_ptr<string> language{};
+  shared_ptr<string> URI{};
+
+  GenerateVideoPlaylistRequestSourceSubtitles() {}
+
+  explicit GenerateVideoPlaylistRequestSourceSubtitles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (language) {
+      res["Language"] = boost::any(*language);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestSourceSubtitles() = default;
+};
+class GenerateVideoPlaylistRequestTargetsAudioFilterAudio : public Darabonba::Model {
+public:
+  shared_ptr<bool> mixing{};
+
+  GenerateVideoPlaylistRequestTargetsAudioFilterAudio() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsAudioFilterAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mixing) {
+      res["Mixing"] = boost::any(*mixing);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mixing") != m.end() && !m["Mixing"].empty()) {
+      mixing = make_shared<bool>(boost::any_cast<bool>(m["Mixing"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsAudioFilterAudio() = default;
+};
+class GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio : public Darabonba::Model {
+public:
+  shared_ptr<long> bitrate{};
+  shared_ptr<string> bitrateOption{};
+  shared_ptr<long> channel{};
+  shared_ptr<string> codec{};
+  shared_ptr<long> quality{};
+  shared_ptr<long> sampleRate{};
+  shared_ptr<string> sampleRateOption{};
+
+  GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (bitrateOption) {
+      res["BitrateOption"] = boost::any(*bitrateOption);
+    }
+    if (channel) {
+      res["Channel"] = boost::any(*channel);
+    }
+    if (codec) {
+      res["Codec"] = boost::any(*codec);
+    }
+    if (quality) {
+      res["Quality"] = boost::any(*quality);
+    }
+    if (sampleRate) {
+      res["SampleRate"] = boost::any(*sampleRate);
+    }
+    if (sampleRateOption) {
+      res["SampleRateOption"] = boost::any(*sampleRateOption);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
+    }
+    if (m.find("BitrateOption") != m.end() && !m["BitrateOption"].empty()) {
+      bitrateOption = make_shared<string>(boost::any_cast<string>(m["BitrateOption"]));
+    }
+    if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
+      channel = make_shared<long>(boost::any_cast<long>(m["Channel"]));
+    }
+    if (m.find("Codec") != m.end() && !m["Codec"].empty()) {
+      codec = make_shared<string>(boost::any_cast<string>(m["Codec"]));
+    }
+    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
+      quality = make_shared<long>(boost::any_cast<long>(m["Quality"]));
+    }
+    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
+      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
+    }
+    if (m.find("SampleRateOption") != m.end() && !m["SampleRateOption"].empty()) {
+      sampleRateOption = make_shared<string>(boost::any_cast<string>(m["SampleRateOption"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio() = default;
+};
+class GenerateVideoPlaylistRequestTargetsAudio : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableAudio{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsAudioFilterAudio> filterAudio{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio> transcodeAudio{};
+
+  GenerateVideoPlaylistRequestTargetsAudio() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableAudio) {
+      res["DisableAudio"] = boost::any(*disableAudio);
+    }
+    if (filterAudio) {
+      res["FilterAudio"] = filterAudio ? boost::any(filterAudio->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transcodeAudio) {
+      res["TranscodeAudio"] = transcodeAudio ? boost::any(transcodeAudio->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableAudio") != m.end() && !m["DisableAudio"].empty()) {
+      disableAudio = make_shared<bool>(boost::any_cast<bool>(m["DisableAudio"]));
+    }
+    if (m.find("FilterAudio") != m.end() && !m["FilterAudio"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FilterAudio"].type()) {
+        GenerateVideoPlaylistRequestTargetsAudioFilterAudio model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FilterAudio"]));
+        filterAudio = make_shared<GenerateVideoPlaylistRequestTargetsAudioFilterAudio>(model1);
+      }
+    }
+    if (m.find("TranscodeAudio") != m.end() && !m["TranscodeAudio"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TranscodeAudio"].type()) {
+        GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeAudio"]));
+        transcodeAudio = make_shared<GenerateVideoPlaylistRequestTargetsAudioTranscodeAudio>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsAudio() = default;
+};
+class GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle : public Darabonba::Model {
+public:
+  shared_ptr<string> format{};
+  shared_ptr<string> URI{};
+
+  GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (format) {
+      res["Format"] = boost::any(*format);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Format") != m.end() && !m["Format"].empty()) {
+      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle() = default;
+};
+class GenerateVideoPlaylistRequestTargetsSubtitle : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableSubtitle{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle> extractSubtitle{};
+
+  GenerateVideoPlaylistRequestTargetsSubtitle() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsSubtitle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableSubtitle) {
+      res["DisableSubtitle"] = boost::any(*disableSubtitle);
+    }
+    if (extractSubtitle) {
+      res["ExtractSubtitle"] = extractSubtitle ? boost::any(extractSubtitle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableSubtitle") != m.end() && !m["DisableSubtitle"].empty()) {
+      disableSubtitle = make_shared<bool>(boost::any_cast<bool>(m["DisableSubtitle"]));
+    }
+    if (m.find("ExtractSubtitle") != m.end() && !m["ExtractSubtitle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ExtractSubtitle"].type()) {
+        GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExtractSubtitle"]));
+        extractSubtitle = make_shared<GenerateVideoPlaylistRequestTargetsSubtitleExtractSubtitle>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsSubtitle() = default;
+};
+class GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos : public Darabonba::Model {
+public:
+  shared_ptr<double> duration{};
+  shared_ptr<double> dx{};
+  shared_ptr<double> dy{};
+  shared_ptr<double> height{};
+  shared_ptr<string> referPos{};
+  shared_ptr<double> startTime{};
+  shared_ptr<double> width{};
+
+  GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (dx) {
+      res["Dx"] = boost::any(*dx);
+    }
+    if (dy) {
+      res["Dy"] = boost::any(*dy);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (referPos) {
+      res["ReferPos"] = boost::any(*referPos);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("Dx") != m.end() && !m["Dx"].empty()) {
+      dx = make_shared<double>(boost::any_cast<double>(m["Dx"]));
+    }
+    if (m.find("Dy") != m.end() && !m["Dy"].empty()) {
+      dy = make_shared<double>(boost::any_cast<double>(m["Dy"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ReferPos") != m.end() && !m["ReferPos"].empty()) {
+      referPos = make_shared<string>(boost::any_cast<string>(m["ReferPos"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos() = default;
+};
+class GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks : public Darabonba::Model {
+public:
+  shared_ptr<long> boardWidth{};
+  shared_ptr<string> borderColor{};
+  shared_ptr<string> content{};
+  shared_ptr<double> duration{};
+  shared_ptr<double> dx{};
+  shared_ptr<double> dy{};
+  shared_ptr<double> fontApha{};
+  shared_ptr<string> fontColor{};
+  shared_ptr<string> fontName{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<double> height{};
+  shared_ptr<string> referPos{};
+  shared_ptr<double> startTime{};
+  shared_ptr<string> type{};
+  shared_ptr<string> URI{};
+  shared_ptr<double> width{};
+
+  GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (boardWidth) {
+      res["BoardWidth"] = boost::any(*boardWidth);
+    }
+    if (borderColor) {
+      res["BorderColor"] = boost::any(*borderColor);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (dx) {
+      res["Dx"] = boost::any(*dx);
+    }
+    if (dy) {
+      res["Dy"] = boost::any(*dy);
+    }
+    if (fontApha) {
+      res["FontApha"] = boost::any(*fontApha);
+    }
+    if (fontColor) {
+      res["FontColor"] = boost::any(*fontColor);
+    }
+    if (fontName) {
+      res["FontName"] = boost::any(*fontName);
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (referPos) {
+      res["ReferPos"] = boost::any(*referPos);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BoardWidth") != m.end() && !m["BoardWidth"].empty()) {
+      boardWidth = make_shared<long>(boost::any_cast<long>(m["BoardWidth"]));
+    }
+    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
+      borderColor = make_shared<string>(boost::any_cast<string>(m["BorderColor"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("Dx") != m.end() && !m["Dx"].empty()) {
+      dx = make_shared<double>(boost::any_cast<double>(m["Dx"]));
+    }
+    if (m.find("Dy") != m.end() && !m["Dy"].empty()) {
+      dy = make_shared<double>(boost::any_cast<double>(m["Dy"]));
+    }
+    if (m.find("FontApha") != m.end() && !m["FontApha"].empty()) {
+      fontApha = make_shared<double>(boost::any_cast<double>(m["FontApha"]));
+    }
+    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
+      fontColor = make_shared<string>(boost::any_cast<string>(m["FontColor"]));
+    }
+    if (m.find("FontName") != m.end() && !m["FontName"].empty()) {
+      fontName = make_shared<string>(boost::any_cast<string>(m["FontName"]));
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
+    }
+    if (m.find("ReferPos") != m.end() && !m["ReferPos"].empty()) {
+      referPos = make_shared<string>(boost::any_cast<string>(m["ReferPos"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks() = default;
+};
+class GenerateVideoPlaylistRequestTargetsVideoFilterVideo : public Darabonba::Model {
+public:
+  shared_ptr<vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos>> delogos{};
+  shared_ptr<vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks>> watermarks{};
+
+  GenerateVideoPlaylistRequestTargetsVideoFilterVideo() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsVideoFilterVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (delogos) {
+      vector<boost::any> temp1;
+      for(auto item1:*delogos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Delogos"] = boost::any(temp1);
+    }
+    if (watermarks) {
+      vector<boost::any> temp1;
+      for(auto item1:*watermarks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Watermarks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Delogos") != m.end() && !m["Delogos"].empty()) {
+      if (typeid(vector<boost::any>) == m["Delogos"].type()) {
+        vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Delogos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        delogos = make_shared<vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoDelogos>>(expect1);
+      }
+    }
+    if (m.find("Watermarks") != m.end() && !m["Watermarks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Watermarks"].type()) {
+        vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Watermarks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        watermarks = make_shared<vector<GenerateVideoPlaylistRequestTargetsVideoFilterVideoWatermarks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsVideoFilterVideo() = default;
+};
+class GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo : public Darabonba::Model {
+public:
+  shared_ptr<bool> adaptiveResolutionDirection{};
+  shared_ptr<long> BFrames{};
+  shared_ptr<long> bitrate{};
+  shared_ptr<string> bitrateOption{};
+  shared_ptr<long> bufferSize{};
+  shared_ptr<double> CRF{};
+  shared_ptr<string> codec{};
+  shared_ptr<double> frameRate{};
+  shared_ptr<string> frameRateOption{};
+  shared_ptr<long> GOPSize{};
+  shared_ptr<long> maxBitrate{};
+  shared_ptr<string> pixelFormat{};
+  shared_ptr<long> refs{};
+  shared_ptr<string> resolution{};
+  shared_ptr<string> resolutionOption{};
+  shared_ptr<long> rotation{};
+  shared_ptr<string> scaleType{};
+
+  GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adaptiveResolutionDirection) {
+      res["AdaptiveResolutionDirection"] = boost::any(*adaptiveResolutionDirection);
+    }
+    if (BFrames) {
+      res["BFrames"] = boost::any(*BFrames);
+    }
+    if (bitrate) {
+      res["Bitrate"] = boost::any(*bitrate);
+    }
+    if (bitrateOption) {
+      res["BitrateOption"] = boost::any(*bitrateOption);
+    }
+    if (bufferSize) {
+      res["BufferSize"] = boost::any(*bufferSize);
+    }
+    if (CRF) {
+      res["CRF"] = boost::any(*CRF);
+    }
+    if (codec) {
+      res["Codec"] = boost::any(*codec);
+    }
+    if (frameRate) {
+      res["FrameRate"] = boost::any(*frameRate);
+    }
+    if (frameRateOption) {
+      res["FrameRateOption"] = boost::any(*frameRateOption);
+    }
+    if (GOPSize) {
+      res["GOPSize"] = boost::any(*GOPSize);
+    }
+    if (maxBitrate) {
+      res["MaxBitrate"] = boost::any(*maxBitrate);
+    }
+    if (pixelFormat) {
+      res["PixelFormat"] = boost::any(*pixelFormat);
+    }
+    if (refs) {
+      res["Refs"] = boost::any(*refs);
+    }
+    if (resolution) {
+      res["Resolution"] = boost::any(*resolution);
+    }
+    if (resolutionOption) {
+      res["ResolutionOption"] = boost::any(*resolutionOption);
+    }
+    if (rotation) {
+      res["Rotation"] = boost::any(*rotation);
+    }
+    if (scaleType) {
+      res["ScaleType"] = boost::any(*scaleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdaptiveResolutionDirection") != m.end() && !m["AdaptiveResolutionDirection"].empty()) {
+      adaptiveResolutionDirection = make_shared<bool>(boost::any_cast<bool>(m["AdaptiveResolutionDirection"]));
+    }
+    if (m.find("BFrames") != m.end() && !m["BFrames"].empty()) {
+      BFrames = make_shared<long>(boost::any_cast<long>(m["BFrames"]));
+    }
+    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
+      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
+    }
+    if (m.find("BitrateOption") != m.end() && !m["BitrateOption"].empty()) {
+      bitrateOption = make_shared<string>(boost::any_cast<string>(m["BitrateOption"]));
+    }
+    if (m.find("BufferSize") != m.end() && !m["BufferSize"].empty()) {
+      bufferSize = make_shared<long>(boost::any_cast<long>(m["BufferSize"]));
+    }
+    if (m.find("CRF") != m.end() && !m["CRF"].empty()) {
+      CRF = make_shared<double>(boost::any_cast<double>(m["CRF"]));
+    }
+    if (m.find("Codec") != m.end() && !m["Codec"].empty()) {
+      codec = make_shared<string>(boost::any_cast<string>(m["Codec"]));
+    }
+    if (m.find("FrameRate") != m.end() && !m["FrameRate"].empty()) {
+      frameRate = make_shared<double>(boost::any_cast<double>(m["FrameRate"]));
+    }
+    if (m.find("FrameRateOption") != m.end() && !m["FrameRateOption"].empty()) {
+      frameRateOption = make_shared<string>(boost::any_cast<string>(m["FrameRateOption"]));
+    }
+    if (m.find("GOPSize") != m.end() && !m["GOPSize"].empty()) {
+      GOPSize = make_shared<long>(boost::any_cast<long>(m["GOPSize"]));
+    }
+    if (m.find("MaxBitrate") != m.end() && !m["MaxBitrate"].empty()) {
+      maxBitrate = make_shared<long>(boost::any_cast<long>(m["MaxBitrate"]));
+    }
+    if (m.find("PixelFormat") != m.end() && !m["PixelFormat"].empty()) {
+      pixelFormat = make_shared<string>(boost::any_cast<string>(m["PixelFormat"]));
+    }
+    if (m.find("Refs") != m.end() && !m["Refs"].empty()) {
+      refs = make_shared<long>(boost::any_cast<long>(m["Refs"]));
+    }
+    if (m.find("Resolution") != m.end() && !m["Resolution"].empty()) {
+      resolution = make_shared<string>(boost::any_cast<string>(m["Resolution"]));
+    }
+    if (m.find("ResolutionOption") != m.end() && !m["ResolutionOption"].empty()) {
+      resolutionOption = make_shared<string>(boost::any_cast<string>(m["ResolutionOption"]));
+    }
+    if (m.find("Rotation") != m.end() && !m["Rotation"].empty()) {
+      rotation = make_shared<long>(boost::any_cast<long>(m["Rotation"]));
+    }
+    if (m.find("ScaleType") != m.end() && !m["ScaleType"].empty()) {
+      scaleType = make_shared<string>(boost::any_cast<string>(m["ScaleType"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo() = default;
+};
+class GenerateVideoPlaylistRequestTargetsVideo : public Darabonba::Model {
+public:
+  shared_ptr<bool> disableVideo{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsVideoFilterVideo> filterVideo{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo> transcodeVideo{};
+
+  GenerateVideoPlaylistRequestTargetsVideo() {}
+
+  explicit GenerateVideoPlaylistRequestTargetsVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (disableVideo) {
+      res["DisableVideo"] = boost::any(*disableVideo);
+    }
+    if (filterVideo) {
+      res["FilterVideo"] = filterVideo ? boost::any(filterVideo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transcodeVideo) {
+      res["TranscodeVideo"] = transcodeVideo ? boost::any(transcodeVideo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DisableVideo") != m.end() && !m["DisableVideo"].empty()) {
+      disableVideo = make_shared<bool>(boost::any_cast<bool>(m["DisableVideo"]));
+    }
+    if (m.find("FilterVideo") != m.end() && !m["FilterVideo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FilterVideo"].type()) {
+        GenerateVideoPlaylistRequestTargetsVideoFilterVideo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FilterVideo"]));
+        filterVideo = make_shared<GenerateVideoPlaylistRequestTargetsVideoFilterVideo>(model1);
+      }
+    }
+    if (m.find("TranscodeVideo") != m.end() && !m["TranscodeVideo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TranscodeVideo"].type()) {
+        GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeVideo"]));
+        transcodeVideo = make_shared<GenerateVideoPlaylistRequestTargetsVideoTranscodeVideo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargetsVideo() = default;
+};
+class GenerateVideoPlaylistRequestTargets : public Darabonba::Model {
+public:
+  shared_ptr<GenerateVideoPlaylistRequestTargetsAudio> audio{};
+  shared_ptr<double> duration{};
+  shared_ptr<vector<double>> initialSegments{};
+  shared_ptr<double> initialTranscode{};
+  shared_ptr<PresetReference> presetId{};
+  shared_ptr<double> speed{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsSubtitle> subtitle{};
+  shared_ptr<long> transcodeAhead{};
+  shared_ptr<string> URI{};
+  shared_ptr<GenerateVideoPlaylistRequestTargetsVideo> video{};
+
+  GenerateVideoPlaylistRequestTargets() {}
+
+  explicit GenerateVideoPlaylistRequestTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (audio) {
+      res["Audio"] = audio ? boost::any(audio->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    if (initialSegments) {
+      res["InitialSegments"] = boost::any(*initialSegments);
+    }
+    if (initialTranscode) {
+      res["InitialTranscode"] = boost::any(*initialTranscode);
+    }
+    if (presetId) {
+      res["PresetId"] = presetId ? boost::any(presetId->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (speed) {
+      res["Speed"] = boost::any(*speed);
+    }
+    if (subtitle) {
+      res["Subtitle"] = subtitle ? boost::any(subtitle->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transcodeAhead) {
+      res["TranscodeAhead"] = boost::any(*transcodeAhead);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    if (video) {
+      res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Audio") != m.end() && !m["Audio"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Audio"].type()) {
+        GenerateVideoPlaylistRequestTargetsAudio model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Audio"]));
+        audio = make_shared<GenerateVideoPlaylistRequestTargetsAudio>(model1);
+      }
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
+    }
+    if (m.find("InitialSegments") != m.end() && !m["InitialSegments"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["InitialSegments"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InitialSegments"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      initialSegments = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("InitialTranscode") != m.end() && !m["InitialTranscode"].empty()) {
+      initialTranscode = make_shared<double>(boost::any_cast<double>(m["InitialTranscode"]));
+    }
+    if (m.find("PresetId") != m.end() && !m["PresetId"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PresetId"].type()) {
+        PresetReference model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PresetId"]));
+        presetId = make_shared<PresetReference>(model1);
+      }
+    }
+    if (m.find("Speed") != m.end() && !m["Speed"].empty()) {
+      speed = make_shared<double>(boost::any_cast<double>(m["Speed"]));
+    }
+    if (m.find("Subtitle") != m.end() && !m["Subtitle"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Subtitle"].type()) {
+        GenerateVideoPlaylistRequestTargetsSubtitle model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Subtitle"]));
+        subtitle = make_shared<GenerateVideoPlaylistRequestTargetsSubtitle>(model1);
+      }
+    }
+    if (m.find("TranscodeAhead") != m.end() && !m["TranscodeAhead"].empty()) {
+      transcodeAhead = make_shared<long>(boost::any_cast<long>(m["TranscodeAhead"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+    if (m.find("Video") != m.end() && !m["Video"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Video"].type()) {
+        GenerateVideoPlaylistRequestTargetsVideo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Video"]));
+        video = make_shared<GenerateVideoPlaylistRequestTargetsVideo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequestTargets() = default;
+};
+class GenerateVideoPlaylistRequest : public Darabonba::Model {
+public:
+  shared_ptr<CredentialConfig> credentialConfig{};
+  shared_ptr<string> masterURI{};
+  shared_ptr<string> projectName{};
+  shared_ptr<double> sourceDuration{};
+  shared_ptr<double> sourceStartTime{};
+  shared_ptr<vector<GenerateVideoPlaylistRequestSourceSubtitles>> sourceSubtitles{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<vector<GenerateVideoPlaylistRequestTargets>> targets{};
+
+  GenerateVideoPlaylistRequest() {}
+
+  explicit GenerateVideoPlaylistRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfig) {
+      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (masterURI) {
+      res["MasterURI"] = boost::any(*masterURI);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceDuration) {
+      res["SourceDuration"] = boost::any(*sourceDuration);
+    }
+    if (sourceStartTime) {
+      res["SourceStartTime"] = boost::any(*sourceStartTime);
+    }
+    if (sourceSubtitles) {
+      vector<boost::any> temp1;
+      for(auto item1:*sourceSubtitles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SourceSubtitles"] = boost::any(temp1);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (targets) {
+      vector<boost::any> temp1;
+      for(auto item1:*targets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Targets"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
+        CredentialConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
+        credentialConfig = make_shared<CredentialConfig>(model1);
+      }
+    }
+    if (m.find("MasterURI") != m.end() && !m["MasterURI"].empty()) {
+      masterURI = make_shared<string>(boost::any_cast<string>(m["MasterURI"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceDuration") != m.end() && !m["SourceDuration"].empty()) {
+      sourceDuration = make_shared<double>(boost::any_cast<double>(m["SourceDuration"]));
+    }
+    if (m.find("SourceStartTime") != m.end() && !m["SourceStartTime"].empty()) {
+      sourceStartTime = make_shared<double>(boost::any_cast<double>(m["SourceStartTime"]));
+    }
+    if (m.find("SourceSubtitles") != m.end() && !m["SourceSubtitles"].empty()) {
+      if (typeid(vector<boost::any>) == m["SourceSubtitles"].type()) {
+        vector<GenerateVideoPlaylistRequestSourceSubtitles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceSubtitles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateVideoPlaylistRequestSourceSubtitles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sourceSubtitles = make_shared<vector<GenerateVideoPlaylistRequestSourceSubtitles>>(expect1);
+      }
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
+      if (typeid(vector<boost::any>) == m["Targets"].type()) {
+        vector<GenerateVideoPlaylistRequestTargets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Targets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GenerateVideoPlaylistRequestTargets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        targets = make_shared<vector<GenerateVideoPlaylistRequestTargets>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistRequest() = default;
+};
+class GenerateVideoPlaylistShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> credentialConfigShrink{};
+  shared_ptr<string> masterURI{};
+  shared_ptr<string> projectName{};
+  shared_ptr<double> sourceDuration{};
+  shared_ptr<double> sourceStartTime{};
+  shared_ptr<string> sourceSubtitlesShrink{};
+  shared_ptr<string> sourceURI{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> targetsShrink{};
+
+  GenerateVideoPlaylistShrinkRequest() {}
+
+  explicit GenerateVideoPlaylistShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (credentialConfigShrink) {
+      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
+    }
+    if (masterURI) {
+      res["MasterURI"] = boost::any(*masterURI);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (sourceDuration) {
+      res["SourceDuration"] = boost::any(*sourceDuration);
+    }
+    if (sourceStartTime) {
+      res["SourceStartTime"] = boost::any(*sourceStartTime);
+    }
+    if (sourceSubtitlesShrink) {
+      res["SourceSubtitles"] = boost::any(*sourceSubtitlesShrink);
+    }
+    if (sourceURI) {
+      res["SourceURI"] = boost::any(*sourceURI);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (targetsShrink) {
+      res["Targets"] = boost::any(*targetsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
+      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
+    }
+    if (m.find("MasterURI") != m.end() && !m["MasterURI"].empty()) {
+      masterURI = make_shared<string>(boost::any_cast<string>(m["MasterURI"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("SourceDuration") != m.end() && !m["SourceDuration"].empty()) {
+      sourceDuration = make_shared<double>(boost::any_cast<double>(m["SourceDuration"]));
+    }
+    if (m.find("SourceStartTime") != m.end() && !m["SourceStartTime"].empty()) {
+      sourceStartTime = make_shared<double>(boost::any_cast<double>(m["SourceStartTime"]));
+    }
+    if (m.find("SourceSubtitles") != m.end() && !m["SourceSubtitles"].empty()) {
+      sourceSubtitlesShrink = make_shared<string>(boost::any_cast<string>(m["SourceSubtitles"]));
+    }
+    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
+      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
+      targetsShrink = make_shared<string>(boost::any_cast<string>(m["Targets"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistShrinkRequest() = default;
+};
+class GenerateVideoPlaylistResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> signedURL{};
+  shared_ptr<string> token{};
+  shared_ptr<string> URI{};
+
+  GenerateVideoPlaylistResponseBody() {}
+
+  explicit GenerateVideoPlaylistResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (signedURL) {
+      res["SignedURL"] = boost::any(*signedURL);
+    }
+    if (token) {
+      res["Token"] = boost::any(*token);
+    }
+    if (URI) {
+      res["URI"] = boost::any(*URI);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SignedURL") != m.end() && !m["SignedURL"].empty()) {
+      signedURL = make_shared<string>(boost::any_cast<string>(m["SignedURL"]));
+    }
+    if (m.find("Token") != m.end() && !m["Token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
+    }
+    if (m.find("URI") != m.end() && !m["URI"].empty()) {
+      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistResponseBody() = default;
+};
+class GenerateVideoPlaylistResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateVideoPlaylistResponseBody> body{};
+
+  GenerateVideoPlaylistResponse() {}
+
+  explicit GenerateVideoPlaylistResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateVideoPlaylistResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateVideoPlaylistResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateVideoPlaylistResponse() = default;
 };
 class GetBindingRequest : public Darabonba::Model {
 public:
@@ -16275,404 +18000,6 @@ public:
 
 
   virtual ~GetFileMetaResponse() = default;
-};
-class GetMediaMetaRequest : public Darabonba::Model {
-public:
-  shared_ptr<CredentialConfig> credentialConfig{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> sourceURI{};
-
-  GetMediaMetaRequest() {}
-
-  explicit GetMediaMetaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (credentialConfig) {
-      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
-        CredentialConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
-        credentialConfig = make_shared<CredentialConfig>(model1);
-      }
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-  }
-
-
-  virtual ~GetMediaMetaRequest() = default;
-};
-class GetMediaMetaShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> credentialConfigShrink{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> sourceURI{};
-
-  GetMediaMetaShrinkRequest() {}
-
-  explicit GetMediaMetaShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (credentialConfigShrink) {
-      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-  }
-
-
-  virtual ~GetMediaMetaShrinkRequest() = default;
-};
-class GetMediaMetaResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<vector<Address>> addresses{};
-  shared_ptr<string> album{};
-  shared_ptr<string> albumArtist{};
-  shared_ptr<string> artist{};
-  shared_ptr<vector<AudioStream>> audioStreams{};
-  shared_ptr<long> bitrate{};
-  shared_ptr<string> composer{};
-  shared_ptr<double> duration{};
-  shared_ptr<string> formatLongName{};
-  shared_ptr<string> formatName{};
-  shared_ptr<string> language{};
-  shared_ptr<string> latLong{};
-  shared_ptr<string> performer{};
-  shared_ptr<string> produceTime{};
-  shared_ptr<long> programCount{};
-  shared_ptr<string> requestId{};
-  shared_ptr<long> size{};
-  shared_ptr<double> startTime{};
-  shared_ptr<long> streamCount{};
-  shared_ptr<vector<SubtitleStream>> subtitles{};
-  shared_ptr<string> title{};
-  shared_ptr<long> videoHeight{};
-  shared_ptr<vector<VideoStream>> videoStreams{};
-  shared_ptr<long> videoWidth{};
-
-  GetMediaMetaResponseBody() {}
-
-  explicit GetMediaMetaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (addresses) {
-      vector<boost::any> temp1;
-      for(auto item1:*addresses){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Addresses"] = boost::any(temp1);
-    }
-    if (album) {
-      res["Album"] = boost::any(*album);
-    }
-    if (albumArtist) {
-      res["AlbumArtist"] = boost::any(*albumArtist);
-    }
-    if (artist) {
-      res["Artist"] = boost::any(*artist);
-    }
-    if (audioStreams) {
-      vector<boost::any> temp1;
-      for(auto item1:*audioStreams){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["AudioStreams"] = boost::any(temp1);
-    }
-    if (bitrate) {
-      res["Bitrate"] = boost::any(*bitrate);
-    }
-    if (composer) {
-      res["Composer"] = boost::any(*composer);
-    }
-    if (duration) {
-      res["Duration"] = boost::any(*duration);
-    }
-    if (formatLongName) {
-      res["FormatLongName"] = boost::any(*formatLongName);
-    }
-    if (formatName) {
-      res["FormatName"] = boost::any(*formatName);
-    }
-    if (language) {
-      res["Language"] = boost::any(*language);
-    }
-    if (latLong) {
-      res["LatLong"] = boost::any(*latLong);
-    }
-    if (performer) {
-      res["Performer"] = boost::any(*performer);
-    }
-    if (produceTime) {
-      res["ProduceTime"] = boost::any(*produceTime);
-    }
-    if (programCount) {
-      res["ProgramCount"] = boost::any(*programCount);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (size) {
-      res["Size"] = boost::any(*size);
-    }
-    if (startTime) {
-      res["StartTime"] = boost::any(*startTime);
-    }
-    if (streamCount) {
-      res["StreamCount"] = boost::any(*streamCount);
-    }
-    if (subtitles) {
-      vector<boost::any> temp1;
-      for(auto item1:*subtitles){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Subtitles"] = boost::any(temp1);
-    }
-    if (title) {
-      res["Title"] = boost::any(*title);
-    }
-    if (videoHeight) {
-      res["VideoHeight"] = boost::any(*videoHeight);
-    }
-    if (videoStreams) {
-      vector<boost::any> temp1;
-      for(auto item1:*videoStreams){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["VideoStreams"] = boost::any(temp1);
-    }
-    if (videoWidth) {
-      res["VideoWidth"] = boost::any(*videoWidth);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
-      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
-        vector<Address> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Addresses"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            Address model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        addresses = make_shared<vector<Address>>(expect1);
-      }
-    }
-    if (m.find("Album") != m.end() && !m["Album"].empty()) {
-      album = make_shared<string>(boost::any_cast<string>(m["Album"]));
-    }
-    if (m.find("AlbumArtist") != m.end() && !m["AlbumArtist"].empty()) {
-      albumArtist = make_shared<string>(boost::any_cast<string>(m["AlbumArtist"]));
-    }
-    if (m.find("Artist") != m.end() && !m["Artist"].empty()) {
-      artist = make_shared<string>(boost::any_cast<string>(m["Artist"]));
-    }
-    if (m.find("AudioStreams") != m.end() && !m["AudioStreams"].empty()) {
-      if (typeid(vector<boost::any>) == m["AudioStreams"].type()) {
-        vector<AudioStream> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["AudioStreams"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            AudioStream model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        audioStreams = make_shared<vector<AudioStream>>(expect1);
-      }
-    }
-    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
-      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
-    }
-    if (m.find("Composer") != m.end() && !m["Composer"].empty()) {
-      composer = make_shared<string>(boost::any_cast<string>(m["Composer"]));
-    }
-    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
-      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
-    }
-    if (m.find("FormatLongName") != m.end() && !m["FormatLongName"].empty()) {
-      formatLongName = make_shared<string>(boost::any_cast<string>(m["FormatLongName"]));
-    }
-    if (m.find("FormatName") != m.end() && !m["FormatName"].empty()) {
-      formatName = make_shared<string>(boost::any_cast<string>(m["FormatName"]));
-    }
-    if (m.find("Language") != m.end() && !m["Language"].empty()) {
-      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
-    }
-    if (m.find("LatLong") != m.end() && !m["LatLong"].empty()) {
-      latLong = make_shared<string>(boost::any_cast<string>(m["LatLong"]));
-    }
-    if (m.find("Performer") != m.end() && !m["Performer"].empty()) {
-      performer = make_shared<string>(boost::any_cast<string>(m["Performer"]));
-    }
-    if (m.find("ProduceTime") != m.end() && !m["ProduceTime"].empty()) {
-      produceTime = make_shared<string>(boost::any_cast<string>(m["ProduceTime"]));
-    }
-    if (m.find("ProgramCount") != m.end() && !m["ProgramCount"].empty()) {
-      programCount = make_shared<long>(boost::any_cast<long>(m["ProgramCount"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Size") != m.end() && !m["Size"].empty()) {
-      size = make_shared<long>(boost::any_cast<long>(m["Size"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
-    }
-    if (m.find("StreamCount") != m.end() && !m["StreamCount"].empty()) {
-      streamCount = make_shared<long>(boost::any_cast<long>(m["StreamCount"]));
-    }
-    if (m.find("Subtitles") != m.end() && !m["Subtitles"].empty()) {
-      if (typeid(vector<boost::any>) == m["Subtitles"].type()) {
-        vector<SubtitleStream> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Subtitles"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SubtitleStream model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        subtitles = make_shared<vector<SubtitleStream>>(expect1);
-      }
-    }
-    if (m.find("Title") != m.end() && !m["Title"].empty()) {
-      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
-    }
-    if (m.find("VideoHeight") != m.end() && !m["VideoHeight"].empty()) {
-      videoHeight = make_shared<long>(boost::any_cast<long>(m["VideoHeight"]));
-    }
-    if (m.find("VideoStreams") != m.end() && !m["VideoStreams"].empty()) {
-      if (typeid(vector<boost::any>) == m["VideoStreams"].type()) {
-        vector<VideoStream> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["VideoStreams"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            VideoStream model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        videoStreams = make_shared<vector<VideoStream>>(expect1);
-      }
-    }
-    if (m.find("VideoWidth") != m.end() && !m["VideoWidth"].empty()) {
-      videoWidth = make_shared<long>(boost::any_cast<long>(m["VideoWidth"]));
-    }
-  }
-
-
-  virtual ~GetMediaMetaResponseBody() = default;
-};
-class GetMediaMetaResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetMediaMetaResponseBody> body{};
-
-  GetMediaMetaResponse() {}
-
-  explicit GetMediaMetaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetMediaMetaResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetMediaMetaResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetMediaMetaResponse() = default;
 };
 class GetOSSBucketAttachmentRequest : public Darabonba::Model {
 public:
@@ -17524,1560 +18851,6 @@ public:
 
 
   virtual ~GetVideoLabelClassificationResultResponse() = default;
-};
-class GetVideoPlaylistRequestSourceSubtitles : public Darabonba::Model {
-public:
-  shared_ptr<string> language{};
-  shared_ptr<string> URI{};
-
-  GetVideoPlaylistRequestSourceSubtitles() {}
-
-  explicit GetVideoPlaylistRequestSourceSubtitles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (language) {
-      res["Language"] = boost::any(*language);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Language") != m.end() && !m["Language"].empty()) {
-      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestSourceSubtitles() = default;
-};
-class GetVideoPlaylistRequestTargetsAudioFilterAudio : public Darabonba::Model {
-public:
-  shared_ptr<bool> mixing{};
-
-  GetVideoPlaylistRequestTargetsAudioFilterAudio() {}
-
-  explicit GetVideoPlaylistRequestTargetsAudioFilterAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (mixing) {
-      res["Mixing"] = boost::any(*mixing);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Mixing") != m.end() && !m["Mixing"].empty()) {
-      mixing = make_shared<bool>(boost::any_cast<bool>(m["Mixing"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsAudioFilterAudio() = default;
-};
-class GetVideoPlaylistRequestTargetsAudioTranscodeAudio : public Darabonba::Model {
-public:
-  shared_ptr<long> bitrate{};
-  shared_ptr<string> bitrateOption{};
-  shared_ptr<long> channel{};
-  shared_ptr<string> codec{};
-  shared_ptr<long> quality{};
-  shared_ptr<long> sampleRate{};
-  shared_ptr<string> sampleRateOption{};
-
-  GetVideoPlaylistRequestTargetsAudioTranscodeAudio() {}
-
-  explicit GetVideoPlaylistRequestTargetsAudioTranscodeAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (bitrate) {
-      res["Bitrate"] = boost::any(*bitrate);
-    }
-    if (bitrateOption) {
-      res["BitrateOption"] = boost::any(*bitrateOption);
-    }
-    if (channel) {
-      res["Channel"] = boost::any(*channel);
-    }
-    if (codec) {
-      res["Codec"] = boost::any(*codec);
-    }
-    if (quality) {
-      res["Quality"] = boost::any(*quality);
-    }
-    if (sampleRate) {
-      res["SampleRate"] = boost::any(*sampleRate);
-    }
-    if (sampleRateOption) {
-      res["SampleRateOption"] = boost::any(*sampleRateOption);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
-      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
-    }
-    if (m.find("BitrateOption") != m.end() && !m["BitrateOption"].empty()) {
-      bitrateOption = make_shared<string>(boost::any_cast<string>(m["BitrateOption"]));
-    }
-    if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
-      channel = make_shared<long>(boost::any_cast<long>(m["Channel"]));
-    }
-    if (m.find("Codec") != m.end() && !m["Codec"].empty()) {
-      codec = make_shared<string>(boost::any_cast<string>(m["Codec"]));
-    }
-    if (m.find("Quality") != m.end() && !m["Quality"].empty()) {
-      quality = make_shared<long>(boost::any_cast<long>(m["Quality"]));
-    }
-    if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
-      sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
-    }
-    if (m.find("SampleRateOption") != m.end() && !m["SampleRateOption"].empty()) {
-      sampleRateOption = make_shared<string>(boost::any_cast<string>(m["SampleRateOption"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsAudioTranscodeAudio() = default;
-};
-class GetVideoPlaylistRequestTargetsAudio : public Darabonba::Model {
-public:
-  shared_ptr<bool> disableAudio{};
-  shared_ptr<GetVideoPlaylistRequestTargetsAudioFilterAudio> filterAudio{};
-  shared_ptr<GetVideoPlaylistRequestTargetsAudioTranscodeAudio> transcodeAudio{};
-
-  GetVideoPlaylistRequestTargetsAudio() {}
-
-  explicit GetVideoPlaylistRequestTargetsAudio(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (disableAudio) {
-      res["DisableAudio"] = boost::any(*disableAudio);
-    }
-    if (filterAudio) {
-      res["FilterAudio"] = filterAudio ? boost::any(filterAudio->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (transcodeAudio) {
-      res["TranscodeAudio"] = transcodeAudio ? boost::any(transcodeAudio->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DisableAudio") != m.end() && !m["DisableAudio"].empty()) {
-      disableAudio = make_shared<bool>(boost::any_cast<bool>(m["DisableAudio"]));
-    }
-    if (m.find("FilterAudio") != m.end() && !m["FilterAudio"].empty()) {
-      if (typeid(map<string, boost::any>) == m["FilterAudio"].type()) {
-        GetVideoPlaylistRequestTargetsAudioFilterAudio model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FilterAudio"]));
-        filterAudio = make_shared<GetVideoPlaylistRequestTargetsAudioFilterAudio>(model1);
-      }
-    }
-    if (m.find("TranscodeAudio") != m.end() && !m["TranscodeAudio"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TranscodeAudio"].type()) {
-        GetVideoPlaylistRequestTargetsAudioTranscodeAudio model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeAudio"]));
-        transcodeAudio = make_shared<GetVideoPlaylistRequestTargetsAudioTranscodeAudio>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsAudio() = default;
-};
-class GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle : public Darabonba::Model {
-public:
-  shared_ptr<string> format{};
-  shared_ptr<string> URI{};
-
-  GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle() {}
-
-  explicit GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (format) {
-      res["Format"] = boost::any(*format);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Format") != m.end() && !m["Format"].empty()) {
-      format = make_shared<string>(boost::any_cast<string>(m["Format"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle() = default;
-};
-class GetVideoPlaylistRequestTargetsSubtitle : public Darabonba::Model {
-public:
-  shared_ptr<bool> disableSubtitle{};
-  shared_ptr<GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle> extractSubtitle{};
-
-  GetVideoPlaylistRequestTargetsSubtitle() {}
-
-  explicit GetVideoPlaylistRequestTargetsSubtitle(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (disableSubtitle) {
-      res["DisableSubtitle"] = boost::any(*disableSubtitle);
-    }
-    if (extractSubtitle) {
-      res["ExtractSubtitle"] = extractSubtitle ? boost::any(extractSubtitle->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DisableSubtitle") != m.end() && !m["DisableSubtitle"].empty()) {
-      disableSubtitle = make_shared<bool>(boost::any_cast<bool>(m["DisableSubtitle"]));
-    }
-    if (m.find("ExtractSubtitle") != m.end() && !m["ExtractSubtitle"].empty()) {
-      if (typeid(map<string, boost::any>) == m["ExtractSubtitle"].type()) {
-        GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ExtractSubtitle"]));
-        extractSubtitle = make_shared<GetVideoPlaylistRequestTargetsSubtitleExtractSubtitle>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsSubtitle() = default;
-};
-class GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos : public Darabonba::Model {
-public:
-  shared_ptr<double> duration{};
-  shared_ptr<double> dx{};
-  shared_ptr<double> dy{};
-  shared_ptr<double> height{};
-  shared_ptr<string> referPos{};
-  shared_ptr<double> startTime{};
-  shared_ptr<double> width{};
-
-  GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos() {}
-
-  explicit GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (duration) {
-      res["Duration"] = boost::any(*duration);
-    }
-    if (dx) {
-      res["Dx"] = boost::any(*dx);
-    }
-    if (dy) {
-      res["Dy"] = boost::any(*dy);
-    }
-    if (height) {
-      res["Height"] = boost::any(*height);
-    }
-    if (referPos) {
-      res["ReferPos"] = boost::any(*referPos);
-    }
-    if (startTime) {
-      res["StartTime"] = boost::any(*startTime);
-    }
-    if (width) {
-      res["Width"] = boost::any(*width);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
-      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
-    }
-    if (m.find("Dx") != m.end() && !m["Dx"].empty()) {
-      dx = make_shared<double>(boost::any_cast<double>(m["Dx"]));
-    }
-    if (m.find("Dy") != m.end() && !m["Dy"].empty()) {
-      dy = make_shared<double>(boost::any_cast<double>(m["Dy"]));
-    }
-    if (m.find("Height") != m.end() && !m["Height"].empty()) {
-      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
-    }
-    if (m.find("ReferPos") != m.end() && !m["ReferPos"].empty()) {
-      referPos = make_shared<string>(boost::any_cast<string>(m["ReferPos"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
-    }
-    if (m.find("Width") != m.end() && !m["Width"].empty()) {
-      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos() = default;
-};
-class GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks : public Darabonba::Model {
-public:
-  shared_ptr<long> boardWidth{};
-  shared_ptr<string> borderColor{};
-  shared_ptr<string> content{};
-  shared_ptr<double> duration{};
-  shared_ptr<double> dx{};
-  shared_ptr<double> dy{};
-  shared_ptr<double> fontApha{};
-  shared_ptr<string> fontColor{};
-  shared_ptr<string> fontName{};
-  shared_ptr<long> fontSize{};
-  shared_ptr<double> height{};
-  shared_ptr<string> referPos{};
-  shared_ptr<double> startTime{};
-  shared_ptr<string> type{};
-  shared_ptr<string> URI{};
-  shared_ptr<double> width{};
-
-  GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks() {}
-
-  explicit GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (boardWidth) {
-      res["BoardWidth"] = boost::any(*boardWidth);
-    }
-    if (borderColor) {
-      res["BorderColor"] = boost::any(*borderColor);
-    }
-    if (content) {
-      res["Content"] = boost::any(*content);
-    }
-    if (duration) {
-      res["Duration"] = boost::any(*duration);
-    }
-    if (dx) {
-      res["Dx"] = boost::any(*dx);
-    }
-    if (dy) {
-      res["Dy"] = boost::any(*dy);
-    }
-    if (fontApha) {
-      res["FontApha"] = boost::any(*fontApha);
-    }
-    if (fontColor) {
-      res["FontColor"] = boost::any(*fontColor);
-    }
-    if (fontName) {
-      res["FontName"] = boost::any(*fontName);
-    }
-    if (fontSize) {
-      res["FontSize"] = boost::any(*fontSize);
-    }
-    if (height) {
-      res["Height"] = boost::any(*height);
-    }
-    if (referPos) {
-      res["ReferPos"] = boost::any(*referPos);
-    }
-    if (startTime) {
-      res["StartTime"] = boost::any(*startTime);
-    }
-    if (type) {
-      res["Type"] = boost::any(*type);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    if (width) {
-      res["Width"] = boost::any(*width);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("BoardWidth") != m.end() && !m["BoardWidth"].empty()) {
-      boardWidth = make_shared<long>(boost::any_cast<long>(m["BoardWidth"]));
-    }
-    if (m.find("BorderColor") != m.end() && !m["BorderColor"].empty()) {
-      borderColor = make_shared<string>(boost::any_cast<string>(m["BorderColor"]));
-    }
-    if (m.find("Content") != m.end() && !m["Content"].empty()) {
-      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
-    }
-    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
-      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
-    }
-    if (m.find("Dx") != m.end() && !m["Dx"].empty()) {
-      dx = make_shared<double>(boost::any_cast<double>(m["Dx"]));
-    }
-    if (m.find("Dy") != m.end() && !m["Dy"].empty()) {
-      dy = make_shared<double>(boost::any_cast<double>(m["Dy"]));
-    }
-    if (m.find("FontApha") != m.end() && !m["FontApha"].empty()) {
-      fontApha = make_shared<double>(boost::any_cast<double>(m["FontApha"]));
-    }
-    if (m.find("FontColor") != m.end() && !m["FontColor"].empty()) {
-      fontColor = make_shared<string>(boost::any_cast<string>(m["FontColor"]));
-    }
-    if (m.find("FontName") != m.end() && !m["FontName"].empty()) {
-      fontName = make_shared<string>(boost::any_cast<string>(m["FontName"]));
-    }
-    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
-      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
-    }
-    if (m.find("Height") != m.end() && !m["Height"].empty()) {
-      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
-    }
-    if (m.find("ReferPos") != m.end() && !m["ReferPos"].empty()) {
-      referPos = make_shared<string>(boost::any_cast<string>(m["ReferPos"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<double>(boost::any_cast<double>(m["StartTime"]));
-    }
-    if (m.find("Type") != m.end() && !m["Type"].empty()) {
-      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-    if (m.find("Width") != m.end() && !m["Width"].empty()) {
-      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks() = default;
-};
-class GetVideoPlaylistRequestTargetsVideoFilterVideo : public Darabonba::Model {
-public:
-  shared_ptr<vector<GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos>> delogos{};
-  shared_ptr<vector<GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks>> watermarks{};
-
-  GetVideoPlaylistRequestTargetsVideoFilterVideo() {}
-
-  explicit GetVideoPlaylistRequestTargetsVideoFilterVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (delogos) {
-      vector<boost::any> temp1;
-      for(auto item1:*delogos){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Delogos"] = boost::any(temp1);
-    }
-    if (watermarks) {
-      vector<boost::any> temp1;
-      for(auto item1:*watermarks){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Watermarks"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Delogos") != m.end() && !m["Delogos"].empty()) {
-      if (typeid(vector<boost::any>) == m["Delogos"].type()) {
-        vector<GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Delogos"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        delogos = make_shared<vector<GetVideoPlaylistRequestTargetsVideoFilterVideoDelogos>>(expect1);
-      }
-    }
-    if (m.find("Watermarks") != m.end() && !m["Watermarks"].empty()) {
-      if (typeid(vector<boost::any>) == m["Watermarks"].type()) {
-        vector<GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Watermarks"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        watermarks = make_shared<vector<GetVideoPlaylistRequestTargetsVideoFilterVideoWatermarks>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsVideoFilterVideo() = default;
-};
-class GetVideoPlaylistRequestTargetsVideoTranscodeVideo : public Darabonba::Model {
-public:
-  shared_ptr<bool> adaptiveResolutionDirection{};
-  shared_ptr<long> BFrames{};
-  shared_ptr<long> bitrate{};
-  shared_ptr<string> bitrateOption{};
-  shared_ptr<long> bufferSize{};
-  shared_ptr<double> CRF{};
-  shared_ptr<string> codec{};
-  shared_ptr<double> frameRate{};
-  shared_ptr<string> frameRateOption{};
-  shared_ptr<long> GOPSize{};
-  shared_ptr<long> maxBitrate{};
-  shared_ptr<string> pixelFormat{};
-  shared_ptr<long> refs{};
-  shared_ptr<string> resolution{};
-  shared_ptr<string> resolutionOption{};
-  shared_ptr<long> rotation{};
-  shared_ptr<string> scaleType{};
-
-  GetVideoPlaylistRequestTargetsVideoTranscodeVideo() {}
-
-  explicit GetVideoPlaylistRequestTargetsVideoTranscodeVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (adaptiveResolutionDirection) {
-      res["AdaptiveResolutionDirection"] = boost::any(*adaptiveResolutionDirection);
-    }
-    if (BFrames) {
-      res["BFrames"] = boost::any(*BFrames);
-    }
-    if (bitrate) {
-      res["Bitrate"] = boost::any(*bitrate);
-    }
-    if (bitrateOption) {
-      res["BitrateOption"] = boost::any(*bitrateOption);
-    }
-    if (bufferSize) {
-      res["BufferSize"] = boost::any(*bufferSize);
-    }
-    if (CRF) {
-      res["CRF"] = boost::any(*CRF);
-    }
-    if (codec) {
-      res["Codec"] = boost::any(*codec);
-    }
-    if (frameRate) {
-      res["FrameRate"] = boost::any(*frameRate);
-    }
-    if (frameRateOption) {
-      res["FrameRateOption"] = boost::any(*frameRateOption);
-    }
-    if (GOPSize) {
-      res["GOPSize"] = boost::any(*GOPSize);
-    }
-    if (maxBitrate) {
-      res["MaxBitrate"] = boost::any(*maxBitrate);
-    }
-    if (pixelFormat) {
-      res["PixelFormat"] = boost::any(*pixelFormat);
-    }
-    if (refs) {
-      res["Refs"] = boost::any(*refs);
-    }
-    if (resolution) {
-      res["Resolution"] = boost::any(*resolution);
-    }
-    if (resolutionOption) {
-      res["ResolutionOption"] = boost::any(*resolutionOption);
-    }
-    if (rotation) {
-      res["Rotation"] = boost::any(*rotation);
-    }
-    if (scaleType) {
-      res["ScaleType"] = boost::any(*scaleType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AdaptiveResolutionDirection") != m.end() && !m["AdaptiveResolutionDirection"].empty()) {
-      adaptiveResolutionDirection = make_shared<bool>(boost::any_cast<bool>(m["AdaptiveResolutionDirection"]));
-    }
-    if (m.find("BFrames") != m.end() && !m["BFrames"].empty()) {
-      BFrames = make_shared<long>(boost::any_cast<long>(m["BFrames"]));
-    }
-    if (m.find("Bitrate") != m.end() && !m["Bitrate"].empty()) {
-      bitrate = make_shared<long>(boost::any_cast<long>(m["Bitrate"]));
-    }
-    if (m.find("BitrateOption") != m.end() && !m["BitrateOption"].empty()) {
-      bitrateOption = make_shared<string>(boost::any_cast<string>(m["BitrateOption"]));
-    }
-    if (m.find("BufferSize") != m.end() && !m["BufferSize"].empty()) {
-      bufferSize = make_shared<long>(boost::any_cast<long>(m["BufferSize"]));
-    }
-    if (m.find("CRF") != m.end() && !m["CRF"].empty()) {
-      CRF = make_shared<double>(boost::any_cast<double>(m["CRF"]));
-    }
-    if (m.find("Codec") != m.end() && !m["Codec"].empty()) {
-      codec = make_shared<string>(boost::any_cast<string>(m["Codec"]));
-    }
-    if (m.find("FrameRate") != m.end() && !m["FrameRate"].empty()) {
-      frameRate = make_shared<double>(boost::any_cast<double>(m["FrameRate"]));
-    }
-    if (m.find("FrameRateOption") != m.end() && !m["FrameRateOption"].empty()) {
-      frameRateOption = make_shared<string>(boost::any_cast<string>(m["FrameRateOption"]));
-    }
-    if (m.find("GOPSize") != m.end() && !m["GOPSize"].empty()) {
-      GOPSize = make_shared<long>(boost::any_cast<long>(m["GOPSize"]));
-    }
-    if (m.find("MaxBitrate") != m.end() && !m["MaxBitrate"].empty()) {
-      maxBitrate = make_shared<long>(boost::any_cast<long>(m["MaxBitrate"]));
-    }
-    if (m.find("PixelFormat") != m.end() && !m["PixelFormat"].empty()) {
-      pixelFormat = make_shared<string>(boost::any_cast<string>(m["PixelFormat"]));
-    }
-    if (m.find("Refs") != m.end() && !m["Refs"].empty()) {
-      refs = make_shared<long>(boost::any_cast<long>(m["Refs"]));
-    }
-    if (m.find("Resolution") != m.end() && !m["Resolution"].empty()) {
-      resolution = make_shared<string>(boost::any_cast<string>(m["Resolution"]));
-    }
-    if (m.find("ResolutionOption") != m.end() && !m["ResolutionOption"].empty()) {
-      resolutionOption = make_shared<string>(boost::any_cast<string>(m["ResolutionOption"]));
-    }
-    if (m.find("Rotation") != m.end() && !m["Rotation"].empty()) {
-      rotation = make_shared<long>(boost::any_cast<long>(m["Rotation"]));
-    }
-    if (m.find("ScaleType") != m.end() && !m["ScaleType"].empty()) {
-      scaleType = make_shared<string>(boost::any_cast<string>(m["ScaleType"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsVideoTranscodeVideo() = default;
-};
-class GetVideoPlaylistRequestTargetsVideo : public Darabonba::Model {
-public:
-  shared_ptr<bool> disableVideo{};
-  shared_ptr<GetVideoPlaylistRequestTargetsVideoFilterVideo> filterVideo{};
-  shared_ptr<GetVideoPlaylistRequestTargetsVideoTranscodeVideo> transcodeVideo{};
-
-  GetVideoPlaylistRequestTargetsVideo() {}
-
-  explicit GetVideoPlaylistRequestTargetsVideo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (disableVideo) {
-      res["DisableVideo"] = boost::any(*disableVideo);
-    }
-    if (filterVideo) {
-      res["FilterVideo"] = filterVideo ? boost::any(filterVideo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (transcodeVideo) {
-      res["TranscodeVideo"] = transcodeVideo ? boost::any(transcodeVideo->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DisableVideo") != m.end() && !m["DisableVideo"].empty()) {
-      disableVideo = make_shared<bool>(boost::any_cast<bool>(m["DisableVideo"]));
-    }
-    if (m.find("FilterVideo") != m.end() && !m["FilterVideo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["FilterVideo"].type()) {
-        GetVideoPlaylistRequestTargetsVideoFilterVideo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FilterVideo"]));
-        filterVideo = make_shared<GetVideoPlaylistRequestTargetsVideoFilterVideo>(model1);
-      }
-    }
-    if (m.find("TranscodeVideo") != m.end() && !m["TranscodeVideo"].empty()) {
-      if (typeid(map<string, boost::any>) == m["TranscodeVideo"].type()) {
-        GetVideoPlaylistRequestTargetsVideoTranscodeVideo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TranscodeVideo"]));
-        transcodeVideo = make_shared<GetVideoPlaylistRequestTargetsVideoTranscodeVideo>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargetsVideo() = default;
-};
-class GetVideoPlaylistRequestTargets : public Darabonba::Model {
-public:
-  shared_ptr<GetVideoPlaylistRequestTargetsAudio> audio{};
-  shared_ptr<double> duration{};
-  shared_ptr<vector<double>> initialSegments{};
-  shared_ptr<double> initialTranscode{};
-  shared_ptr<PresetReference> presetId{};
-  shared_ptr<double> speed{};
-  shared_ptr<GetVideoPlaylistRequestTargetsSubtitle> subtitle{};
-  shared_ptr<long> transcodeAhead{};
-  shared_ptr<string> URI{};
-  shared_ptr<GetVideoPlaylistRequestTargetsVideo> video{};
-
-  GetVideoPlaylistRequestTargets() {}
-
-  explicit GetVideoPlaylistRequestTargets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (audio) {
-      res["Audio"] = audio ? boost::any(audio->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (duration) {
-      res["Duration"] = boost::any(*duration);
-    }
-    if (initialSegments) {
-      res["InitialSegments"] = boost::any(*initialSegments);
-    }
-    if (initialTranscode) {
-      res["InitialTranscode"] = boost::any(*initialTranscode);
-    }
-    if (presetId) {
-      res["PresetId"] = presetId ? boost::any(presetId->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (speed) {
-      res["Speed"] = boost::any(*speed);
-    }
-    if (subtitle) {
-      res["Subtitle"] = subtitle ? boost::any(subtitle->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (transcodeAhead) {
-      res["TranscodeAhead"] = boost::any(*transcodeAhead);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    if (video) {
-      res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Audio") != m.end() && !m["Audio"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Audio"].type()) {
-        GetVideoPlaylistRequestTargetsAudio model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Audio"]));
-        audio = make_shared<GetVideoPlaylistRequestTargetsAudio>(model1);
-      }
-    }
-    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
-      duration = make_shared<double>(boost::any_cast<double>(m["Duration"]));
-    }
-    if (m.find("InitialSegments") != m.end() && !m["InitialSegments"].empty()) {
-      vector<double> toVec1;
-      if (typeid(vector<boost::any>) == m["InitialSegments"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InitialSegments"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<double>(item));
-        }
-      }
-      initialSegments = make_shared<vector<double>>(toVec1);
-    }
-    if (m.find("InitialTranscode") != m.end() && !m["InitialTranscode"].empty()) {
-      initialTranscode = make_shared<double>(boost::any_cast<double>(m["InitialTranscode"]));
-    }
-    if (m.find("PresetId") != m.end() && !m["PresetId"].empty()) {
-      if (typeid(map<string, boost::any>) == m["PresetId"].type()) {
-        PresetReference model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PresetId"]));
-        presetId = make_shared<PresetReference>(model1);
-      }
-    }
-    if (m.find("Speed") != m.end() && !m["Speed"].empty()) {
-      speed = make_shared<double>(boost::any_cast<double>(m["Speed"]));
-    }
-    if (m.find("Subtitle") != m.end() && !m["Subtitle"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Subtitle"].type()) {
-        GetVideoPlaylistRequestTargetsSubtitle model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Subtitle"]));
-        subtitle = make_shared<GetVideoPlaylistRequestTargetsSubtitle>(model1);
-      }
-    }
-    if (m.find("TranscodeAhead") != m.end() && !m["TranscodeAhead"].empty()) {
-      transcodeAhead = make_shared<long>(boost::any_cast<long>(m["TranscodeAhead"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-    if (m.find("Video") != m.end() && !m["Video"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Video"].type()) {
-        GetVideoPlaylistRequestTargetsVideo model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Video"]));
-        video = make_shared<GetVideoPlaylistRequestTargetsVideo>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequestTargets() = default;
-};
-class GetVideoPlaylistRequest : public Darabonba::Model {
-public:
-  shared_ptr<CredentialConfig> credentialConfig{};
-  shared_ptr<string> masterURI{};
-  shared_ptr<string> projectName{};
-  shared_ptr<double> sourceDuration{};
-  shared_ptr<double> sourceStartTime{};
-  shared_ptr<vector<GetVideoPlaylistRequestSourceSubtitles>> sourceSubtitles{};
-  shared_ptr<string> sourceURI{};
-  shared_ptr<map<string, boost::any>> tags{};
-  shared_ptr<vector<GetVideoPlaylistRequestTargets>> targets{};
-
-  GetVideoPlaylistRequest() {}
-
-  explicit GetVideoPlaylistRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (credentialConfig) {
-      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (masterURI) {
-      res["MasterURI"] = boost::any(*masterURI);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (sourceDuration) {
-      res["SourceDuration"] = boost::any(*sourceDuration);
-    }
-    if (sourceStartTime) {
-      res["SourceStartTime"] = boost::any(*sourceStartTime);
-    }
-    if (sourceSubtitles) {
-      vector<boost::any> temp1;
-      for(auto item1:*sourceSubtitles){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SourceSubtitles"] = boost::any(temp1);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    if (tags) {
-      res["Tags"] = boost::any(*tags);
-    }
-    if (targets) {
-      vector<boost::any> temp1;
-      for(auto item1:*targets){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Targets"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
-        CredentialConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
-        credentialConfig = make_shared<CredentialConfig>(model1);
-      }
-    }
-    if (m.find("MasterURI") != m.end() && !m["MasterURI"].empty()) {
-      masterURI = make_shared<string>(boost::any_cast<string>(m["MasterURI"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("SourceDuration") != m.end() && !m["SourceDuration"].empty()) {
-      sourceDuration = make_shared<double>(boost::any_cast<double>(m["SourceDuration"]));
-    }
-    if (m.find("SourceStartTime") != m.end() && !m["SourceStartTime"].empty()) {
-      sourceStartTime = make_shared<double>(boost::any_cast<double>(m["SourceStartTime"]));
-    }
-    if (m.find("SourceSubtitles") != m.end() && !m["SourceSubtitles"].empty()) {
-      if (typeid(vector<boost::any>) == m["SourceSubtitles"].type()) {
-        vector<GetVideoPlaylistRequestSourceSubtitles> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SourceSubtitles"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetVideoPlaylistRequestSourceSubtitles model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        sourceSubtitles = make_shared<vector<GetVideoPlaylistRequestSourceSubtitles>>(expect1);
-      }
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      tags = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
-      if (typeid(vector<boost::any>) == m["Targets"].type()) {
-        vector<GetVideoPlaylistRequestTargets> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Targets"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            GetVideoPlaylistRequestTargets model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        targets = make_shared<vector<GetVideoPlaylistRequestTargets>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistRequest() = default;
-};
-class GetVideoPlaylistShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> credentialConfigShrink{};
-  shared_ptr<string> masterURI{};
-  shared_ptr<string> projectName{};
-  shared_ptr<double> sourceDuration{};
-  shared_ptr<double> sourceStartTime{};
-  shared_ptr<string> sourceSubtitlesShrink{};
-  shared_ptr<string> sourceURI{};
-  shared_ptr<string> tagsShrink{};
-  shared_ptr<string> targetsShrink{};
-
-  GetVideoPlaylistShrinkRequest() {}
-
-  explicit GetVideoPlaylistShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (credentialConfigShrink) {
-      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
-    }
-    if (masterURI) {
-      res["MasterURI"] = boost::any(*masterURI);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (sourceDuration) {
-      res["SourceDuration"] = boost::any(*sourceDuration);
-    }
-    if (sourceStartTime) {
-      res["SourceStartTime"] = boost::any(*sourceStartTime);
-    }
-    if (sourceSubtitlesShrink) {
-      res["SourceSubtitles"] = boost::any(*sourceSubtitlesShrink);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    if (tagsShrink) {
-      res["Tags"] = boost::any(*tagsShrink);
-    }
-    if (targetsShrink) {
-      res["Targets"] = boost::any(*targetsShrink);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
-    }
-    if (m.find("MasterURI") != m.end() && !m["MasterURI"].empty()) {
-      masterURI = make_shared<string>(boost::any_cast<string>(m["MasterURI"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("SourceDuration") != m.end() && !m["SourceDuration"].empty()) {
-      sourceDuration = make_shared<double>(boost::any_cast<double>(m["SourceDuration"]));
-    }
-    if (m.find("SourceStartTime") != m.end() && !m["SourceStartTime"].empty()) {
-      sourceStartTime = make_shared<double>(boost::any_cast<double>(m["SourceStartTime"]));
-    }
-    if (m.find("SourceSubtitles") != m.end() && !m["SourceSubtitles"].empty()) {
-      sourceSubtitlesShrink = make_shared<string>(boost::any_cast<string>(m["SourceSubtitles"]));
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
-    }
-    if (m.find("Targets") != m.end() && !m["Targets"].empty()) {
-      targetsShrink = make_shared<string>(boost::any_cast<string>(m["Targets"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistShrinkRequest() = default;
-};
-class GetVideoPlaylistResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<string> signedURL{};
-  shared_ptr<string> token{};
-  shared_ptr<string> URI{};
-
-  GetVideoPlaylistResponseBody() {}
-
-  explicit GetVideoPlaylistResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (signedURL) {
-      res["SignedURL"] = boost::any(*signedURL);
-    }
-    if (token) {
-      res["Token"] = boost::any(*token);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("SignedURL") != m.end() && !m["SignedURL"].empty()) {
-      signedURL = make_shared<string>(boost::any_cast<string>(m["SignedURL"]));
-    }
-    if (m.find("Token") != m.end() && !m["Token"].empty()) {
-      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistResponseBody() = default;
-};
-class GetVideoPlaylistResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetVideoPlaylistResponseBody> body{};
-
-  GetVideoPlaylistResponse() {}
-
-  explicit GetVideoPlaylistResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetVideoPlaylistResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetVideoPlaylistResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetVideoPlaylistResponse() = default;
-};
-class GetWebofficeURLRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> cachePreview{};
-  shared_ptr<CredentialConfig> credentialConfig{};
-  shared_ptr<bool> externalUploaded{};
-  shared_ptr<string> filename{};
-  shared_ptr<bool> hidecmb{};
-  shared_ptr<string> notifyTopicName{};
-  shared_ptr<string> password{};
-  shared_ptr<WebofficePermission> permission{};
-  shared_ptr<long> previewPages{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> referer{};
-  shared_ptr<string> sourceURI{};
-  shared_ptr<WebofficeUser> user{};
-  shared_ptr<string> userData{};
-  shared_ptr<WebofficeWatermark> watermark{};
-
-  GetWebofficeURLRequest() {}
-
-  explicit GetWebofficeURLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (cachePreview) {
-      res["CachePreview"] = boost::any(*cachePreview);
-    }
-    if (credentialConfig) {
-      res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (externalUploaded) {
-      res["ExternalUploaded"] = boost::any(*externalUploaded);
-    }
-    if (filename) {
-      res["Filename"] = boost::any(*filename);
-    }
-    if (hidecmb) {
-      res["Hidecmb"] = boost::any(*hidecmb);
-    }
-    if (notifyTopicName) {
-      res["NotifyTopicName"] = boost::any(*notifyTopicName);
-    }
-    if (password) {
-      res["Password"] = boost::any(*password);
-    }
-    if (permission) {
-      res["Permission"] = permission ? boost::any(permission->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (previewPages) {
-      res["PreviewPages"] = boost::any(*previewPages);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (referer) {
-      res["Referer"] = boost::any(*referer);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    if (user) {
-      res["User"] = user ? boost::any(user->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (userData) {
-      res["UserData"] = boost::any(*userData);
-    }
-    if (watermark) {
-      res["Watermark"] = watermark ? boost::any(watermark->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CachePreview") != m.end() && !m["CachePreview"].empty()) {
-      cachePreview = make_shared<bool>(boost::any_cast<bool>(m["CachePreview"]));
-    }
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
-        CredentialConfig model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CredentialConfig"]));
-        credentialConfig = make_shared<CredentialConfig>(model1);
-      }
-    }
-    if (m.find("ExternalUploaded") != m.end() && !m["ExternalUploaded"].empty()) {
-      externalUploaded = make_shared<bool>(boost::any_cast<bool>(m["ExternalUploaded"]));
-    }
-    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
-      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
-    }
-    if (m.find("Hidecmb") != m.end() && !m["Hidecmb"].empty()) {
-      hidecmb = make_shared<bool>(boost::any_cast<bool>(m["Hidecmb"]));
-    }
-    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
-      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
-    }
-    if (m.find("Password") != m.end() && !m["Password"].empty()) {
-      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
-    }
-    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Permission"].type()) {
-        WebofficePermission model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Permission"]));
-        permission = make_shared<WebofficePermission>(model1);
-      }
-    }
-    if (m.find("PreviewPages") != m.end() && !m["PreviewPages"].empty()) {
-      previewPages = make_shared<long>(boost::any_cast<long>(m["PreviewPages"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("Referer") != m.end() && !m["Referer"].empty()) {
-      referer = make_shared<string>(boost::any_cast<string>(m["Referer"]));
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-    if (m.find("User") != m.end() && !m["User"].empty()) {
-      if (typeid(map<string, boost::any>) == m["User"].type()) {
-        WebofficeUser model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["User"]));
-        user = make_shared<WebofficeUser>(model1);
-      }
-    }
-    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
-    }
-    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Watermark"].type()) {
-        WebofficeWatermark model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Watermark"]));
-        watermark = make_shared<WebofficeWatermark>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetWebofficeURLRequest() = default;
-};
-class GetWebofficeURLShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<bool> cachePreview{};
-  shared_ptr<string> credentialConfigShrink{};
-  shared_ptr<bool> externalUploaded{};
-  shared_ptr<string> filename{};
-  shared_ptr<bool> hidecmb{};
-  shared_ptr<string> notifyTopicName{};
-  shared_ptr<string> password{};
-  shared_ptr<string> permissionShrink{};
-  shared_ptr<long> previewPages{};
-  shared_ptr<string> projectName{};
-  shared_ptr<string> referer{};
-  shared_ptr<string> sourceURI{};
-  shared_ptr<string> userShrink{};
-  shared_ptr<string> userData{};
-  shared_ptr<string> watermarkShrink{};
-
-  GetWebofficeURLShrinkRequest() {}
-
-  explicit GetWebofficeURLShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (cachePreview) {
-      res["CachePreview"] = boost::any(*cachePreview);
-    }
-    if (credentialConfigShrink) {
-      res["CredentialConfig"] = boost::any(*credentialConfigShrink);
-    }
-    if (externalUploaded) {
-      res["ExternalUploaded"] = boost::any(*externalUploaded);
-    }
-    if (filename) {
-      res["Filename"] = boost::any(*filename);
-    }
-    if (hidecmb) {
-      res["Hidecmb"] = boost::any(*hidecmb);
-    }
-    if (notifyTopicName) {
-      res["NotifyTopicName"] = boost::any(*notifyTopicName);
-    }
-    if (password) {
-      res["Password"] = boost::any(*password);
-    }
-    if (permissionShrink) {
-      res["Permission"] = boost::any(*permissionShrink);
-    }
-    if (previewPages) {
-      res["PreviewPages"] = boost::any(*previewPages);
-    }
-    if (projectName) {
-      res["ProjectName"] = boost::any(*projectName);
-    }
-    if (referer) {
-      res["Referer"] = boost::any(*referer);
-    }
-    if (sourceURI) {
-      res["SourceURI"] = boost::any(*sourceURI);
-    }
-    if (userShrink) {
-      res["User"] = boost::any(*userShrink);
-    }
-    if (userData) {
-      res["UserData"] = boost::any(*userData);
-    }
-    if (watermarkShrink) {
-      res["Watermark"] = boost::any(*watermarkShrink);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("CachePreview") != m.end() && !m["CachePreview"].empty()) {
-      cachePreview = make_shared<bool>(boost::any_cast<bool>(m["CachePreview"]));
-    }
-    if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
-      credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
-    }
-    if (m.find("ExternalUploaded") != m.end() && !m["ExternalUploaded"].empty()) {
-      externalUploaded = make_shared<bool>(boost::any_cast<bool>(m["ExternalUploaded"]));
-    }
-    if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
-      filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
-    }
-    if (m.find("Hidecmb") != m.end() && !m["Hidecmb"].empty()) {
-      hidecmb = make_shared<bool>(boost::any_cast<bool>(m["Hidecmb"]));
-    }
-    if (m.find("NotifyTopicName") != m.end() && !m["NotifyTopicName"].empty()) {
-      notifyTopicName = make_shared<string>(boost::any_cast<string>(m["NotifyTopicName"]));
-    }
-    if (m.find("Password") != m.end() && !m["Password"].empty()) {
-      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
-    }
-    if (m.find("Permission") != m.end() && !m["Permission"].empty()) {
-      permissionShrink = make_shared<string>(boost::any_cast<string>(m["Permission"]));
-    }
-    if (m.find("PreviewPages") != m.end() && !m["PreviewPages"].empty()) {
-      previewPages = make_shared<long>(boost::any_cast<long>(m["PreviewPages"]));
-    }
-    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
-      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("Referer") != m.end() && !m["Referer"].empty()) {
-      referer = make_shared<string>(boost::any_cast<string>(m["Referer"]));
-    }
-    if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
-      sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-    if (m.find("User") != m.end() && !m["User"].empty()) {
-      userShrink = make_shared<string>(boost::any_cast<string>(m["User"]));
-    }
-    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
-      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
-    }
-    if (m.find("Watermark") != m.end() && !m["Watermark"].empty()) {
-      watermarkShrink = make_shared<string>(boost::any_cast<string>(m["Watermark"]));
-    }
-  }
-
-
-  virtual ~GetWebofficeURLShrinkRequest() = default;
-};
-class GetWebofficeURLResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> accessToken{};
-  shared_ptr<string> accessTokenExpiredTime{};
-  shared_ptr<string> refreshToken{};
-  shared_ptr<string> refreshTokenExpiredTime{};
-  shared_ptr<string> requestId{};
-  shared_ptr<string> webofficeURL{};
-
-  GetWebofficeURLResponseBody() {}
-
-  explicit GetWebofficeURLResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (accessToken) {
-      res["AccessToken"] = boost::any(*accessToken);
-    }
-    if (accessTokenExpiredTime) {
-      res["AccessTokenExpiredTime"] = boost::any(*accessTokenExpiredTime);
-    }
-    if (refreshToken) {
-      res["RefreshToken"] = boost::any(*refreshToken);
-    }
-    if (refreshTokenExpiredTime) {
-      res["RefreshTokenExpiredTime"] = boost::any(*refreshTokenExpiredTime);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (webofficeURL) {
-      res["WebofficeURL"] = boost::any(*webofficeURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AccessToken") != m.end() && !m["AccessToken"].empty()) {
-      accessToken = make_shared<string>(boost::any_cast<string>(m["AccessToken"]));
-    }
-    if (m.find("AccessTokenExpiredTime") != m.end() && !m["AccessTokenExpiredTime"].empty()) {
-      accessTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["AccessTokenExpiredTime"]));
-    }
-    if (m.find("RefreshToken") != m.end() && !m["RefreshToken"].empty()) {
-      refreshToken = make_shared<string>(boost::any_cast<string>(m["RefreshToken"]));
-    }
-    if (m.find("RefreshTokenExpiredTime") != m.end() && !m["RefreshTokenExpiredTime"].empty()) {
-      refreshTokenExpiredTime = make_shared<string>(boost::any_cast<string>(m["RefreshTokenExpiredTime"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("WebofficeURL") != m.end() && !m["WebofficeURL"].empty()) {
-      webofficeURL = make_shared<string>(boost::any_cast<string>(m["WebofficeURL"]));
-    }
-  }
-
-
-  virtual ~GetWebofficeURLResponseBody() = default;
-};
-class GetWebofficeURLResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetWebofficeURLResponseBody> body{};
-
-  GetWebofficeURLResponse() {}
-
-  explicit GetWebofficeURLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetWebofficeURLResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetWebofficeURLResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetWebofficeURLResponse() = default;
 };
 class IndexFileMetaRequest : public Darabonba::Model {
 public:
@@ -24474,10 +24247,16 @@ public:
   DetectImageLabelsResponse detectImageLabels(shared_ptr<DetectImageLabelsRequest> request);
   DetectImageScoreResponse detectImageScoreWithOptions(shared_ptr<DetectImageScoreRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectImageScoreResponse detectImageScore(shared_ptr<DetectImageScoreRequest> request);
+  DetectMediaMetaResponse detectMediaMetaWithOptions(shared_ptr<DetectMediaMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetectMediaMetaResponse detectMediaMeta(shared_ptr<DetectMediaMetaRequest> request);
   DetectTextAnomalyResponse detectTextAnomalyWithOptions(shared_ptr<DetectTextAnomalyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectTextAnomalyResponse detectTextAnomaly(shared_ptr<DetectTextAnomalyRequest> request);
   FuzzyQueryResponse fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FuzzyQueryResponse fuzzyQuery(shared_ptr<FuzzyQueryRequest> request);
+  GenerateDRMLicenseResponse generateDRMLicenseWithOptions(shared_ptr<GenerateDRMLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateDRMLicenseResponse generateDRMLicense(shared_ptr<GenerateDRMLicenseRequest> request);
+  GenerateVideoPlaylistResponse generateVideoPlaylistWithOptions(shared_ptr<GenerateVideoPlaylistRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateVideoPlaylistResponse generateVideoPlaylist(shared_ptr<GenerateVideoPlaylistRequest> request);
   GetBindingResponse getBindingWithOptions(shared_ptr<GetBindingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBindingResponse getBinding(shared_ptr<GetBindingRequest> request);
   GetDatasetResponse getDatasetWithOptions(shared_ptr<GetDatasetRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24488,8 +24267,6 @@ public:
   GetFigureClusterResponse getFigureCluster(shared_ptr<GetFigureClusterRequest> request);
   GetFileMetaResponse getFileMetaWithOptions(shared_ptr<GetFileMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetFileMetaResponse getFileMeta(shared_ptr<GetFileMetaRequest> request);
-  GetMediaMetaResponse getMediaMetaWithOptions(shared_ptr<GetMediaMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetMediaMetaResponse getMediaMeta(shared_ptr<GetMediaMetaRequest> request);
   GetOSSBucketAttachmentResponse getOSSBucketAttachmentWithOptions(shared_ptr<GetOSSBucketAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOSSBucketAttachmentResponse getOSSBucketAttachment(shared_ptr<GetOSSBucketAttachmentRequest> request);
   GetProjectResponse getProjectWithOptions(shared_ptr<GetProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24500,10 +24277,6 @@ public:
   GetTaskResponse getTask(shared_ptr<GetTaskRequest> request);
   GetVideoLabelClassificationResultResponse getVideoLabelClassificationResultWithOptions(shared_ptr<GetVideoLabelClassificationResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVideoLabelClassificationResultResponse getVideoLabelClassificationResult(shared_ptr<GetVideoLabelClassificationResultRequest> request);
-  GetVideoPlaylistResponse getVideoPlaylistWithOptions(shared_ptr<GetVideoPlaylistRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetVideoPlaylistResponse getVideoPlaylist(shared_ptr<GetVideoPlaylistRequest> request);
-  GetWebofficeURLResponse getWebofficeURLWithOptions(shared_ptr<GetWebofficeURLRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetWebofficeURLResponse getWebofficeURL(shared_ptr<GetWebofficeURLRequest> request);
   IndexFileMetaResponse indexFileMetaWithOptions(shared_ptr<IndexFileMetaRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IndexFileMetaResponse indexFileMeta(shared_ptr<IndexFileMetaRequest> request);
   ListBindingsResponse listBindingsWithOptions(shared_ptr<ListBindingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
