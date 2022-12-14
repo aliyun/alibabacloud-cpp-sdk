@@ -1153,7 +1153,7 @@ GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoAdva
   shared_ptr<GenerateVideoRequest> generateVideoReq = make_shared<GenerateVideoRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, generateVideoReq);
   if (!Darabonba_Util::Client::isUnset<vector<GenerateVideoAdvanceRequestFileList>>(request->fileList)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->fileList) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.fileUrlObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -1180,7 +1180,7 @@ GenerateVideoResponse Alibabacloud_Videoenhan20200320::Client::generateVideoAdva
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<GenerateVideoRequestFileList> tmp = make_shared<GenerateVideoRequestFileList>((*generateVideoReq->fileList)[[object Object]]);
         tmp->fileUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
   }
