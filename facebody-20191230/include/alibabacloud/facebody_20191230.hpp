@@ -12957,7 +12957,7 @@ public:
   shared_ptr<long> type{};
   shared_ptr<vector<RecognizeActionAdvanceRequestURLList>> URLList{};
   shared_ptr<string> videoData{};
-  shared_ptr<string> videoUrl{};
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
 
   RecognizeActionAdvanceRequest() {}
 
@@ -12982,8 +12982,8 @@ public:
     if (videoData) {
       res["VideoData"] = boost::any(*videoData);
     }
-    if (videoUrl) {
-      res["VideoUrl"] = boost::any(*videoUrl);
+    if (videoUrlObject) {
+      res["VideoUrl"] = boost::any(*videoUrlObject);
     }
     return res;
   }
@@ -13009,7 +13009,7 @@ public:
       videoData = make_shared<string>(boost::any_cast<string>(m["VideoData"]));
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
-      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
   }
 

@@ -346,7 +346,7 @@ BeautifyBodyResponse Alibabacloud_Facebody20191230::Client::beautifyBodyWithOpti
   shared_ptr<BeautifyBodyShrinkRequest> request = make_shared<BeautifyBodyShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<BeautifyBodyRequestAgeRange>(tmpReq->ageRange)) {
-    request->ageRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->ageRange->toMap()), make_shared<string>("AgeRange"), make_shared<string>("json")));
+    request->ageRangeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ageRange, make_shared<string>("AgeRange"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<BeautifyBodyRequestBodyBoxes>>(tmpReq->bodyBoxes)) {
     request->bodyBoxesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bodyBoxes, make_shared<string>("BodyBoxes"), make_shared<string>("json")));
@@ -1656,7 +1656,7 @@ DetectLivingFaceResponse Alibabacloud_Facebody20191230::Client::detectLivingFace
   shared_ptr<DetectLivingFaceRequest> detectLivingFaceReq = make_shared<DetectLivingFaceRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, detectLivingFaceReq);
   if (!Darabonba_Util::Client::isUnset<vector<DetectLivingFaceAdvanceRequestTasks>>(request->tasks)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->tasks) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.imageURLObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -1683,7 +1683,7 @@ DetectLivingFaceResponse Alibabacloud_Facebody20191230::Client::detectLivingFace
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<DetectLivingFaceRequestTasks> tmp = make_shared<DetectLivingFaceRequestTasks>((*detectLivingFaceReq->tasks)[[object Object]]);
         tmp->imageURL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
   }
@@ -3714,7 +3714,7 @@ RecognizeActionResponse Alibabacloud_Facebody20191230::Client::recognizeActionAd
   shared_ptr<RecognizeActionRequest> recognizeActionReq = make_shared<RecognizeActionRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, recognizeActionReq);
   if (!Darabonba_Util::Client::isUnset<vector<RecognizeActionAdvanceRequestURLList>>(request->URLList)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->URLList) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.URLObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -3741,9 +3741,34 @@ RecognizeActionResponse Alibabacloud_Facebody20191230::Client::recognizeActionAd
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<RecognizeActionRequestURLList> tmp = make_shared<RecognizeActionRequestURLList>((*recognizeActionReq->URLList)[[object Object]]);
         tmp->URL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
+  }
+  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->videoUrlObject)) {
+    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
+    ossConfig->accessKeyId = authResponse->body->accessKeyId;
+    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
+    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
+    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
+      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"content", !request->videoUrlObject ? boost::any() : boost::any(*request->videoUrlObject)},
+      {"contentType", boost::any(string(""))}
+    }));
+    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
+      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
+      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
+      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
+      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
+      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
+      {"successActionStatus", boost::any(string("201"))}
+    }));
+    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
+      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
+      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
+    }));
+    ossClient->postObject(uploadRequest, ossRuntime);
+    recognizeActionReq->videoUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
   }
   shared_ptr<RecognizeActionResponse> recognizeActionResp = make_shared<RecognizeActionResponse>(recognizeActionWithOptions(recognizeActionReq, runtime));
   return *recognizeActionResp;
@@ -4150,7 +4175,7 @@ RecognizePublicFaceResponse Alibabacloud_Facebody20191230::Client::recognizePubl
   shared_ptr<RecognizePublicFaceRequest> recognizePublicFaceReq = make_shared<RecognizePublicFaceRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, recognizePublicFaceReq);
   if (!Darabonba_Util::Client::isUnset<vector<RecognizePublicFaceAdvanceRequestTask>>(request->task)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->task) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.imageURLObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -4177,7 +4202,7 @@ RecognizePublicFaceResponse Alibabacloud_Facebody20191230::Client::recognizePubl
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<RecognizePublicFaceRequestTask> tmp = make_shared<RecognizePublicFaceRequestTask>((*recognizePublicFaceReq->task)[[object Object]]);
         tmp->imageURL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
   }
