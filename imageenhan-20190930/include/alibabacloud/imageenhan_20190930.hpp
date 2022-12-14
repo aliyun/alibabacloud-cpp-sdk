@@ -2640,7 +2640,7 @@ public:
 class ImitatePhotoStyleAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<string> styleUrl{};
+  shared_ptr<Darabonba::Stream> styleUrlObject{};
 
   ImitatePhotoStyleAdvanceRequest() {}
 
@@ -2655,8 +2655,8 @@ public:
     if (imageURLObject) {
       res["ImageURL"] = boost::any(*imageURLObject);
     }
-    if (styleUrl) {
-      res["StyleUrl"] = boost::any(*styleUrl);
+    if (styleUrlObject) {
+      res["StyleUrl"] = boost::any(*styleUrlObject);
     }
     return res;
   }
@@ -2666,7 +2666,7 @@ public:
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
     }
     if (m.find("StyleUrl") != m.end() && !m["StyleUrl"].empty()) {
-      styleUrl = make_shared<string>(boost::any_cast<string>(m["StyleUrl"]));
+      styleUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["StyleUrl"]));
     }
   }
 
