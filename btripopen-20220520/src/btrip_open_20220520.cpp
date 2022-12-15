@@ -38,12 +38,6 @@ string Alibabacloud_BtripOpen20220520::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessToken(shared_ptr<AccessTokenRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return accessTokenWithOptions(request, headers, runtime);
-}
-
 AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessTokenWithOptions(shared_ptr<AccessTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -71,10 +65,10 @@ AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessTokenWithOptio
   return AccessTokenResponse(callApi(params, req, runtime));
 }
 
-AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGet(shared_ptr<AddressGetRequest> request) {
+AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessToken(shared_ptr<AccessTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<AddressGetHeaders> headers = make_shared<AddressGetHeaders>();
-  return addressGetWithOptions(request, headers, runtime);
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return accessTokenWithOptions(request, headers, runtime);
 }
 
 AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions(shared_ptr<AddressGetRequest> request, shared_ptr<AddressGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -120,10 +114,10 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   return AddressGetResponse(callApi(params, req, runtime));
 }
 
-AirportSearchResponse Alibabacloud_BtripOpen20220520::Client::airportSearch(shared_ptr<AirportSearchRequest> request) {
+AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGet(shared_ptr<AddressGetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<AirportSearchHeaders> headers = make_shared<AirportSearchHeaders>();
-  return airportSearchWithOptions(request, headers, runtime);
+  shared_ptr<AddressGetHeaders> headers = make_shared<AddressGetHeaders>();
+  return addressGetWithOptions(request, headers, runtime);
 }
 
 AirportSearchResponse Alibabacloud_BtripOpen20220520::Client::airportSearchWithOptions(shared_ptr<AirportSearchRequest> request, shared_ptr<AirportSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -160,10 +154,10 @@ AirportSearchResponse Alibabacloud_BtripOpen20220520::Client::airportSearchWithO
   return AirportSearchResponse(callApi(params, req, runtime));
 }
 
-AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCityInfoQuery() {
+AirportSearchResponse Alibabacloud_BtripOpen20220520::Client::airportSearch(shared_ptr<AirportSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<AllBaseCityInfoQueryHeaders> headers = make_shared<AllBaseCityInfoQueryHeaders>();
-  return allBaseCityInfoQueryWithOptions(headers, runtime);
+  shared_ptr<AirportSearchHeaders> headers = make_shared<AirportSearchHeaders>();
+  return airportSearchWithOptions(request, headers, runtime);
 }
 
 AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCityInfoQueryWithOptions(shared_ptr<AllBaseCityInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -191,10 +185,10 @@ AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCity
   return AllBaseCityInfoQueryResponse(callApi(params, req, runtime));
 }
 
-ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAdd(shared_ptr<ApplyAddRequest> request) {
+AllBaseCityInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::allBaseCityInfoQuery() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ApplyAddHeaders> headers = make_shared<ApplyAddHeaders>();
-  return applyAddWithOptions(request, headers, runtime);
+  shared_ptr<AllBaseCityInfoQueryHeaders> headers = make_shared<AllBaseCityInfoQueryHeaders>();
+  return allBaseCityInfoQueryWithOptions(headers, runtime);
 }
 
 ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(shared_ptr<ApplyAddRequest> tmpReq, shared_ptr<ApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -205,10 +199,10 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
     request->externalTravelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerList, make_shared<string>("external_traveler_list"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ApplyAddRequestExternalTravelerStandard>(tmpReq->externalTravelerStandard)) {
-    request->externalTravelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->externalTravelerStandard->toMap()), make_shared<string>("external_traveler_standard"), make_shared<string>("json")));
+    request->externalTravelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerStandard, make_shared<string>("external_traveler_standard"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ApplyAddRequestHotelShare>(tmpReq->hotelShare)) {
-    request->hotelShareShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->hotelShare->toMap()), make_shared<string>("hotel_share"), make_shared<string>("json")));
+    request->hotelShareShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hotelShare, make_shared<string>("hotel_share"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestItineraryList>>(tmpReq->itineraryList)) {
     request->itineraryListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itineraryList, make_shared<string>("itinerary_list"), make_shared<string>("json")));
@@ -343,10 +337,10 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   return ApplyAddResponse(callApi(params, req, runtime));
 }
 
-ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApprove(shared_ptr<ApplyApproveRequest> request) {
+ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAdd(shared_ptr<ApplyAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ApplyApproveHeaders> headers = make_shared<ApplyApproveHeaders>();
-  return applyApproveWithOptions(request, headers, runtime);
+  shared_ptr<ApplyAddHeaders> headers = make_shared<ApplyAddHeaders>();
+  return applyAddWithOptions(request, headers, runtime);
 }
 
 ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApproveWithOptions(shared_ptr<ApplyApproveRequest> request, shared_ptr<ApplyApproveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -395,10 +389,10 @@ ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApproveWithOpt
   return ApplyApproveResponse(callApi(params, req, runtime));
 }
 
-ApplyListQueryResponse Alibabacloud_BtripOpen20220520::Client::applyListQuery(shared_ptr<ApplyListQueryRequest> request) {
+ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApprove(shared_ptr<ApplyApproveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ApplyListQueryHeaders> headers = make_shared<ApplyListQueryHeaders>();
-  return applyListQueryWithOptions(request, headers, runtime);
+  shared_ptr<ApplyApproveHeaders> headers = make_shared<ApplyApproveHeaders>();
+  return applyApproveWithOptions(request, headers, runtime);
 }
 
 ApplyListQueryResponse Alibabacloud_BtripOpen20220520::Client::applyListQueryWithOptions(shared_ptr<ApplyListQueryRequest> request, shared_ptr<ApplyListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -462,10 +456,10 @@ ApplyListQueryResponse Alibabacloud_BtripOpen20220520::Client::applyListQueryWit
   return ApplyListQueryResponse(callApi(params, req, runtime));
 }
 
-ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModify(shared_ptr<ApplyModifyRequest> request) {
+ApplyListQueryResponse Alibabacloud_BtripOpen20220520::Client::applyListQuery(shared_ptr<ApplyListQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ApplyModifyHeaders> headers = make_shared<ApplyModifyHeaders>();
-  return applyModifyWithOptions(request, headers, runtime);
+  shared_ptr<ApplyListQueryHeaders> headers = make_shared<ApplyListQueryHeaders>();
+  return applyListQueryWithOptions(request, headers, runtime);
 }
 
 ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptions(shared_ptr<ApplyModifyRequest> tmpReq, shared_ptr<ApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -476,10 +470,10 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
     request->externalTravelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerList, make_shared<string>("external_traveler_list"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ApplyModifyRequestExternalTravelerStandard>(tmpReq->externalTravelerStandard)) {
-    request->externalTravelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->externalTravelerStandard->toMap()), make_shared<string>("external_traveler_standard"), make_shared<string>("json")));
+    request->externalTravelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerStandard, make_shared<string>("external_traveler_standard"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<ApplyModifyRequestHotelShare>(tmpReq->hotelShare)) {
-    request->hotelShareShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->hotelShare->toMap()), make_shared<string>("hotel_share"), make_shared<string>("json")));
+    request->hotelShareShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->hotelShare, make_shared<string>("hotel_share"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyModifyRequestItineraryList>>(tmpReq->itineraryList)) {
     request->itineraryListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->itineraryList, make_shared<string>("itinerary_list"), make_shared<string>("json")));
@@ -606,10 +600,10 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   return ApplyModifyResponse(callApi(params, req, runtime));
 }
 
-ApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::applyQuery(shared_ptr<ApplyQueryRequest> request) {
+ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModify(shared_ptr<ApplyModifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ApplyQueryHeaders> headers = make_shared<ApplyQueryHeaders>();
-  return applyQueryWithOptions(request, headers, runtime);
+  shared_ptr<ApplyModifyHeaders> headers = make_shared<ApplyModifyHeaders>();
+  return applyModifyWithOptions(request, headers, runtime);
 }
 
 ApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::applyQueryWithOptions(shared_ptr<ApplyQueryRequest> request, shared_ptr<ApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -652,10 +646,10 @@ ApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::applyQueryWithOptions
   return ApplyQueryResponse(callApi(params, req, runtime));
 }
 
-CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAdd(shared_ptr<CarApplyAddRequest> request) {
+ApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::applyQuery(shared_ptr<ApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarApplyAddHeaders> headers = make_shared<CarApplyAddHeaders>();
-  return carApplyAddWithOptions(request, headers, runtime);
+  shared_ptr<ApplyQueryHeaders> headers = make_shared<ApplyQueryHeaders>();
+  return applyQueryWithOptions(request, headers, runtime);
 }
 
 CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> request, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -731,10 +725,10 @@ CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAddWithOptio
   return CarApplyAddResponse(callApi(params, req, runtime));
 }
 
-CarApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::carApplyModify(shared_ptr<CarApplyModifyRequest> request) {
+CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAdd(shared_ptr<CarApplyAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarApplyModifyHeaders> headers = make_shared<CarApplyModifyHeaders>();
-  return carApplyModifyWithOptions(request, headers, runtime);
+  shared_ptr<CarApplyAddHeaders> headers = make_shared<CarApplyAddHeaders>();
+  return carApplyAddWithOptions(request, headers, runtime);
 }
 
 CarApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::carApplyModifyWithOptions(shared_ptr<CarApplyModifyRequest> request, shared_ptr<CarApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -780,10 +774,10 @@ CarApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::carApplyModifyWit
   return CarApplyModifyResponse(callApi(params, req, runtime));
 }
 
-CarApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::carApplyQuery(shared_ptr<CarApplyQueryRequest> request) {
+CarApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::carApplyModify(shared_ptr<CarApplyModifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarApplyQueryHeaders> headers = make_shared<CarApplyQueryHeaders>();
-  return carApplyQueryWithOptions(request, headers, runtime);
+  shared_ptr<CarApplyModifyHeaders> headers = make_shared<CarApplyModifyHeaders>();
+  return carApplyModifyWithOptions(request, headers, runtime);
 }
 
 CarApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::carApplyQueryWithOptions(shared_ptr<CarApplyQueryRequest> request, shared_ptr<CarApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -832,10 +826,10 @@ CarApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::carApplyQueryWithO
   return CarApplyQueryResponse(callApi(params, req, runtime));
 }
 
-CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSettlementQuery(shared_ptr<CarBillSettlementQueryRequest> request) {
+CarApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::carApplyQuery(shared_ptr<CarApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarBillSettlementQueryHeaders> headers = make_shared<CarBillSettlementQueryHeaders>();
-  return carBillSettlementQueryWithOptions(request, headers, runtime);
+  shared_ptr<CarApplyQueryHeaders> headers = make_shared<CarApplyQueryHeaders>();
+  return carApplyQueryWithOptions(request, headers, runtime);
 }
 
 CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSettlementQueryWithOptions(shared_ptr<CarBillSettlementQueryRequest> request, shared_ptr<CarBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -878,10 +872,10 @@ CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSe
   return CarBillSettlementQueryResponse(callApi(params, req, runtime));
 }
 
-CarOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderListQuery(shared_ptr<CarOrderListQueryRequest> request) {
+CarBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::carBillSettlementQuery(shared_ptr<CarBillSettlementQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarOrderListQueryHeaders> headers = make_shared<CarOrderListQueryHeaders>();
-  return carOrderListQueryWithOptions(request, headers, runtime);
+  shared_ptr<CarBillSettlementQueryHeaders> headers = make_shared<CarBillSettlementQueryHeaders>();
+  return carBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
 CarOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderListQueryWithOptions(shared_ptr<CarOrderListQueryRequest> request, shared_ptr<CarOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -945,10 +939,10 @@ CarOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderListQu
   return CarOrderListQueryResponse(callApi(params, req, runtime));
 }
 
-CarOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderQuery(shared_ptr<CarOrderQueryRequest> request) {
+CarOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderListQuery(shared_ptr<CarOrderListQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CarOrderQueryHeaders> headers = make_shared<CarOrderQueryHeaders>();
-  return carOrderQueryWithOptions(request, headers, runtime);
+  shared_ptr<CarOrderListQueryHeaders> headers = make_shared<CarOrderListQueryHeaders>();
+  return carOrderListQueryWithOptions(request, headers, runtime);
 }
 
 CarOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderQueryWithOptions(shared_ptr<CarOrderQueryRequest> request, shared_ptr<CarOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -985,10 +979,10 @@ CarOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderQueryWithO
   return CarOrderQueryResponse(callApi(params, req, runtime));
 }
 
-CitySearchResponse Alibabacloud_BtripOpen20220520::Client::citySearch(shared_ptr<CitySearchRequest> request) {
+CarOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::carOrderQuery(shared_ptr<CarOrderQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CitySearchHeaders> headers = make_shared<CitySearchHeaders>();
-  return citySearchWithOptions(request, headers, runtime);
+  shared_ptr<CarOrderQueryHeaders> headers = make_shared<CarOrderQueryHeaders>();
+  return carOrderQueryWithOptions(request, headers, runtime);
 }
 
 CitySearchResponse Alibabacloud_BtripOpen20220520::Client::citySearchWithOptions(shared_ptr<CitySearchRequest> request, shared_ptr<CitySearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1022,10 +1016,10 @@ CitySearchResponse Alibabacloud_BtripOpen20220520::Client::citySearchWithOptions
   return CitySearchResponse(callApi(params, req, runtime));
 }
 
-CommonApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request) {
+CitySearchResponse Alibabacloud_BtripOpen20220520::Client::citySearch(shared_ptr<CitySearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CommonApplyQueryHeaders> headers = make_shared<CommonApplyQueryHeaders>();
-  return commonApplyQueryWithOptions(request, headers, runtime);
+  shared_ptr<CitySearchHeaders> headers = make_shared<CitySearchHeaders>();
+  return citySearchWithOptions(request, headers, runtime);
 }
 
 CommonApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::commonApplyQueryWithOptions(shared_ptr<CommonApplyQueryRequest> request, shared_ptr<CommonApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1065,10 +1059,10 @@ CommonApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::commonApplyQuer
   return CommonApplyQueryResponse(callApi(params, req, runtime));
 }
 
-CommonApplySyncResponse Alibabacloud_BtripOpen20220520::Client::commonApplySync(shared_ptr<CommonApplySyncRequest> request) {
+CommonApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CommonApplySyncHeaders> headers = make_shared<CommonApplySyncHeaders>();
-  return commonApplySyncWithOptions(request, headers, runtime);
+  shared_ptr<CommonApplyQueryHeaders> headers = make_shared<CommonApplyQueryHeaders>();
+  return commonApplyQueryWithOptions(request, headers, runtime);
 }
 
 CommonApplySyncResponse Alibabacloud_BtripOpen20220520::Client::commonApplySyncWithOptions(shared_ptr<CommonApplySyncRequest> request, shared_ptr<CommonApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1117,10 +1111,10 @@ CommonApplySyncResponse Alibabacloud_BtripOpen20220520::Client::commonApplySyncW
   return CommonApplySyncResponse(callApi(params, req, runtime));
 }
 
-CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpToken(shared_ptr<CorpTokenRequest> request) {
+CommonApplySyncResponse Alibabacloud_BtripOpen20220520::Client::commonApplySync(shared_ptr<CommonApplySyncRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CorpTokenHeaders> headers = make_shared<CorpTokenHeaders>();
-  return corpTokenWithOptions(request, headers, runtime);
+  shared_ptr<CommonApplySyncHeaders> headers = make_shared<CommonApplySyncHeaders>();
+  return commonApplySyncWithOptions(request, headers, runtime);
 }
 
 CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpTokenWithOptions(shared_ptr<CorpTokenRequest> request, shared_ptr<CorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1160,10 +1154,10 @@ CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpTokenWithOptions(s
   return CorpTokenResponse(callApi(params, req, runtime));
 }
 
-CostCenterDeleteResponse Alibabacloud_BtripOpen20220520::Client::costCenterDelete(shared_ptr<CostCenterDeleteRequest> request) {
+CorpTokenResponse Alibabacloud_BtripOpen20220520::Client::corpToken(shared_ptr<CorpTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CostCenterDeleteHeaders> headers = make_shared<CostCenterDeleteHeaders>();
-  return costCenterDeleteWithOptions(request, headers, runtime);
+  shared_ptr<CorpTokenHeaders> headers = make_shared<CorpTokenHeaders>();
+  return corpTokenWithOptions(request, headers, runtime);
 }
 
 CostCenterDeleteResponse Alibabacloud_BtripOpen20220520::Client::costCenterDeleteWithOptions(shared_ptr<CostCenterDeleteRequest> request, shared_ptr<CostCenterDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1197,10 +1191,10 @@ CostCenterDeleteResponse Alibabacloud_BtripOpen20220520::Client::costCenterDelet
   return CostCenterDeleteResponse(callApi(params, req, runtime));
 }
 
-CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModify(shared_ptr<CostCenterModifyRequest> request) {
+CostCenterDeleteResponse Alibabacloud_BtripOpen20220520::Client::costCenterDelete(shared_ptr<CostCenterDeleteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CostCenterModifyHeaders> headers = make_shared<CostCenterModifyHeaders>();
-  return costCenterModifyWithOptions(request, headers, runtime);
+  shared_ptr<CostCenterDeleteHeaders> headers = make_shared<CostCenterDeleteHeaders>();
+  return costCenterDeleteWithOptions(request, headers, runtime);
 }
 
 CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModifyWithOptions(shared_ptr<CostCenterModifyRequest> request, shared_ptr<CostCenterModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1246,10 +1240,10 @@ CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModif
   return CostCenterModifyResponse(callApi(params, req, runtime));
 }
 
-CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQuery(shared_ptr<CostCenterQueryRequest> request) {
+CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModify(shared_ptr<CostCenterModifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CostCenterQueryHeaders> headers = make_shared<CostCenterQueryHeaders>();
-  return costCenterQueryWithOptions(request, headers, runtime);
+  shared_ptr<CostCenterModifyHeaders> headers = make_shared<CostCenterModifyHeaders>();
+  return costCenterModifyWithOptions(request, headers, runtime);
 }
 
 CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<CostCenterQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1292,10 +1286,10 @@ CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryW
   return CostCenterQueryResponse(callApi(params, req, runtime));
 }
 
-CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSave(shared_ptr<CostCenterSaveRequest> request) {
+CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQuery(shared_ptr<CostCenterQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CostCenterSaveHeaders> headers = make_shared<CostCenterSaveHeaders>();
-  return costCenterSaveWithOptions(request, headers, runtime);
+  shared_ptr<CostCenterQueryHeaders> headers = make_shared<CostCenterQueryHeaders>();
+  return costCenterQueryWithOptions(request, headers, runtime);
 }
 
 CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSaveWithOptions(shared_ptr<CostCenterSaveRequest> request, shared_ptr<CostCenterSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1341,10 +1335,10 @@ CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSaveWit
   return CostCenterSaveResponse(callApi(params, req, runtime));
 }
 
-DepartmentSaveResponse Alibabacloud_BtripOpen20220520::Client::departmentSave(shared_ptr<DepartmentSaveRequest> request) {
+CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSave(shared_ptr<CostCenterSaveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DepartmentSaveHeaders> headers = make_shared<DepartmentSaveHeaders>();
-  return departmentSaveWithOptions(request, headers, runtime);
+  shared_ptr<CostCenterSaveHeaders> headers = make_shared<CostCenterSaveHeaders>();
+  return costCenterSaveWithOptions(request, headers, runtime);
 }
 
 DepartmentSaveResponse Alibabacloud_BtripOpen20220520::Client::departmentSaveWithOptions(shared_ptr<DepartmentSaveRequest> tmpReq, shared_ptr<DepartmentSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1383,10 +1377,10 @@ DepartmentSaveResponse Alibabacloud_BtripOpen20220520::Client::departmentSaveWit
   return DepartmentSaveResponse(callApi(params, req, runtime));
 }
 
-EntityAddResponse Alibabacloud_BtripOpen20220520::Client::entityAdd(shared_ptr<EntityAddRequest> request) {
+DepartmentSaveResponse Alibabacloud_BtripOpen20220520::Client::departmentSave(shared_ptr<DepartmentSaveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<EntityAddHeaders> headers = make_shared<EntityAddHeaders>();
-  return entityAddWithOptions(request, headers, runtime);
+  shared_ptr<DepartmentSaveHeaders> headers = make_shared<DepartmentSaveHeaders>();
+  return departmentSaveWithOptions(request, headers, runtime);
 }
 
 EntityAddResponse Alibabacloud_BtripOpen20220520::Client::entityAddWithOptions(shared_ptr<EntityAddRequest> tmpReq, shared_ptr<EntityAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1428,10 +1422,10 @@ EntityAddResponse Alibabacloud_BtripOpen20220520::Client::entityAddWithOptions(s
   return EntityAddResponse(callApi(params, req, runtime));
 }
 
-EntityDeleteResponse Alibabacloud_BtripOpen20220520::Client::entityDelete(shared_ptr<EntityDeleteRequest> request) {
+EntityAddResponse Alibabacloud_BtripOpen20220520::Client::entityAdd(shared_ptr<EntityAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<EntityDeleteHeaders> headers = make_shared<EntityDeleteHeaders>();
-  return entityDeleteWithOptions(request, headers, runtime);
+  shared_ptr<EntityAddHeaders> headers = make_shared<EntityAddHeaders>();
+  return entityAddWithOptions(request, headers, runtime);
 }
 
 EntityDeleteResponse Alibabacloud_BtripOpen20220520::Client::entityDeleteWithOptions(shared_ptr<EntityDeleteRequest> tmpReq, shared_ptr<EntityDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1478,10 +1472,10 @@ EntityDeleteResponse Alibabacloud_BtripOpen20220520::Client::entityDeleteWithOpt
   return EntityDeleteResponse(callApi(params, req, runtime));
 }
 
-EntitySetResponse Alibabacloud_BtripOpen20220520::Client::entitySet(shared_ptr<EntitySetRequest> request) {
+EntityDeleteResponse Alibabacloud_BtripOpen20220520::Client::entityDelete(shared_ptr<EntityDeleteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<EntitySetHeaders> headers = make_shared<EntitySetHeaders>();
-  return entitySetWithOptions(request, headers, runtime);
+  shared_ptr<EntityDeleteHeaders> headers = make_shared<EntityDeleteHeaders>();
+  return entityDeleteWithOptions(request, headers, runtime);
 }
 
 EntitySetResponse Alibabacloud_BtripOpen20220520::Client::entitySetWithOptions(shared_ptr<EntitySetRequest> tmpReq, shared_ptr<EntitySetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1523,10 +1517,10 @@ EntitySetResponse Alibabacloud_BtripOpen20220520::Client::entitySetWithOptions(s
   return EntitySetResponse(callApi(params, req, runtime));
 }
 
-EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPriceQuery(shared_ptr<EstimatedPriceQueryRequest> request) {
+EntitySetResponse Alibabacloud_BtripOpen20220520::Client::entitySet(shared_ptr<EntitySetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<EstimatedPriceQueryHeaders> headers = make_shared<EstimatedPriceQueryHeaders>();
-  return estimatedPriceQueryWithOptions(request, headers, runtime);
+  shared_ptr<EntitySetHeaders> headers = make_shared<EntitySetHeaders>();
+  return entitySetWithOptions(request, headers, runtime);
 }
 
 EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPriceQueryWithOptions(shared_ptr<EstimatedPriceQueryRequest> request, shared_ptr<EstimatedPriceQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1578,10 +1572,10 @@ EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPri
   return EstimatedPriceQueryResponse(callApi(params, req, runtime));
 }
 
-ExceedApplySyncResponse Alibabacloud_BtripOpen20220520::Client::exceedApplySync(shared_ptr<ExceedApplySyncRequest> request) {
+EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPriceQuery(shared_ptr<EstimatedPriceQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ExceedApplySyncHeaders> headers = make_shared<ExceedApplySyncHeaders>();
-  return exceedApplySyncWithOptions(request, headers, runtime);
+  shared_ptr<EstimatedPriceQueryHeaders> headers = make_shared<EstimatedPriceQueryHeaders>();
+  return estimatedPriceQueryWithOptions(request, headers, runtime);
 }
 
 ExceedApplySyncResponse Alibabacloud_BtripOpen20220520::Client::exceedApplySyncWithOptions(shared_ptr<ExceedApplySyncRequest> request, shared_ptr<ExceedApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1630,10 +1624,10 @@ ExceedApplySyncResponse Alibabacloud_BtripOpen20220520::Client::exceedApplySyncW
   return ExceedApplySyncResponse(callApi(params, req, runtime));
 }
 
-FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flightBillSettlementQuery(shared_ptr<FlightBillSettlementQueryRequest> request) {
+ExceedApplySyncResponse Alibabacloud_BtripOpen20220520::Client::exceedApplySync(shared_ptr<ExceedApplySyncRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<FlightBillSettlementQueryHeaders> headers = make_shared<FlightBillSettlementQueryHeaders>();
-  return flightBillSettlementQueryWithOptions(request, headers, runtime);
+  shared_ptr<ExceedApplySyncHeaders> headers = make_shared<ExceedApplySyncHeaders>();
+  return exceedApplySyncWithOptions(request, headers, runtime);
 }
 
 FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flightBillSettlementQueryWithOptions(shared_ptr<FlightBillSettlementQueryRequest> request, shared_ptr<FlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1676,10 +1670,10 @@ FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flight
   return FlightBillSettlementQueryResponse(callApi(params, req, runtime));
 }
 
-FlightExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::flightExceedApplyQuery(shared_ptr<FlightExceedApplyQueryRequest> request) {
+FlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::flightBillSettlementQuery(shared_ptr<FlightBillSettlementQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<FlightExceedApplyQueryHeaders> headers = make_shared<FlightExceedApplyQueryHeaders>();
-  return flightExceedApplyQueryWithOptions(request, headers, runtime);
+  shared_ptr<FlightBillSettlementQueryHeaders> headers = make_shared<FlightBillSettlementQueryHeaders>();
+  return flightBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
 FlightExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::flightExceedApplyQueryWithOptions(shared_ptr<FlightExceedApplyQueryRequest> request, shared_ptr<FlightExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1713,10 +1707,10 @@ FlightExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::flightExc
   return FlightExceedApplyQueryResponse(callApi(params, req, runtime));
 }
 
-FlightOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderListQuery(shared_ptr<FlightOrderListQueryRequest> request) {
+FlightExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::flightExceedApplyQuery(shared_ptr<FlightExceedApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<FlightOrderListQueryHeaders> headers = make_shared<FlightOrderListQueryHeaders>();
-  return flightOrderListQueryWithOptions(request, headers, runtime);
+  shared_ptr<FlightExceedApplyQueryHeaders> headers = make_shared<FlightExceedApplyQueryHeaders>();
+  return flightExceedApplyQueryWithOptions(request, headers, runtime);
 }
 
 FlightOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderListQueryWithOptions(shared_ptr<FlightOrderListQueryRequest> request, shared_ptr<FlightOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1780,10 +1774,10 @@ FlightOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrder
   return FlightOrderListQueryResponse(callApi(params, req, runtime));
 }
 
-FlightOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderQuery(shared_ptr<FlightOrderQueryRequest> request) {
+FlightOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderListQuery(shared_ptr<FlightOrderListQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<FlightOrderQueryHeaders> headers = make_shared<FlightOrderQueryHeaders>();
-  return flightOrderQueryWithOptions(request, headers, runtime);
+  shared_ptr<FlightOrderListQueryHeaders> headers = make_shared<FlightOrderListQueryHeaders>();
+  return flightOrderListQueryWithOptions(request, headers, runtime);
 }
 
 FlightOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderQueryWithOptions(shared_ptr<FlightOrderQueryRequest> request, shared_ptr<FlightOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1820,10 +1814,10 @@ FlightOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderQuer
   return FlightOrderQueryResponse(callApi(params, req, runtime));
 }
 
-HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBillSettlementQuery(shared_ptr<HotelBillSettlementQueryRequest> request) {
+FlightOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::flightOrderQuery(shared_ptr<FlightOrderQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<HotelBillSettlementQueryHeaders> headers = make_shared<HotelBillSettlementQueryHeaders>();
-  return hotelBillSettlementQueryWithOptions(request, headers, runtime);
+  shared_ptr<FlightOrderQueryHeaders> headers = make_shared<FlightOrderQueryHeaders>();
+  return flightOrderQueryWithOptions(request, headers, runtime);
 }
 
 HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBillSettlementQueryWithOptions(shared_ptr<HotelBillSettlementQueryRequest> request, shared_ptr<HotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1866,10 +1860,10 @@ HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBi
   return HotelBillSettlementQueryResponse(callApi(params, req, runtime));
 }
 
-HotelExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelExceedApplyQuery(shared_ptr<HotelExceedApplyQueryRequest> request) {
+HotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelBillSettlementQuery(shared_ptr<HotelBillSettlementQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<HotelExceedApplyQueryHeaders> headers = make_shared<HotelExceedApplyQueryHeaders>();
-  return hotelExceedApplyQueryWithOptions(request, headers, runtime);
+  shared_ptr<HotelBillSettlementQueryHeaders> headers = make_shared<HotelBillSettlementQueryHeaders>();
+  return hotelBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
 HotelExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelExceedApplyQueryWithOptions(shared_ptr<HotelExceedApplyQueryRequest> request, shared_ptr<HotelExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1903,10 +1897,10 @@ HotelExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelExcee
   return HotelExceedApplyQueryResponse(callApi(params, req, runtime));
 }
 
-HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderListQuery(shared_ptr<HotelOrderListQueryRequest> request) {
+HotelExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelExceedApplyQuery(shared_ptr<HotelExceedApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<HotelOrderListQueryHeaders> headers = make_shared<HotelOrderListQueryHeaders>();
-  return hotelOrderListQueryWithOptions(request, headers, runtime);
+  shared_ptr<HotelExceedApplyQueryHeaders> headers = make_shared<HotelExceedApplyQueryHeaders>();
+  return hotelExceedApplyQueryWithOptions(request, headers, runtime);
 }
 
 HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderListQueryWithOptions(shared_ptr<HotelOrderListQueryRequest> request, shared_ptr<HotelOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1970,10 +1964,10 @@ HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderLi
   return HotelOrderListQueryResponse(callApi(params, req, runtime));
 }
 
-HotelOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderQuery(shared_ptr<HotelOrderQueryRequest> request) {
+HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderListQuery(shared_ptr<HotelOrderListQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<HotelOrderQueryHeaders> headers = make_shared<HotelOrderQueryHeaders>();
-  return hotelOrderQueryWithOptions(request, headers, runtime);
+  shared_ptr<HotelOrderListQueryHeaders> headers = make_shared<HotelOrderListQueryHeaders>();
+  return hotelOrderListQueryWithOptions(request, headers, runtime);
 }
 
 HotelOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderQueryWithOptions(shared_ptr<HotelOrderQueryRequest> request, shared_ptr<HotelOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2007,10 +2001,10 @@ HotelOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderQueryW
   return HotelOrderQueryResponse(callApi(params, req, runtime));
 }
 
-IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFlightBillSettlementQuery(shared_ptr<IeFlightBillSettlementQueryRequest> request) {
+HotelOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderQuery(shared_ptr<HotelOrderQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<IeFlightBillSettlementQueryHeaders> headers = make_shared<IeFlightBillSettlementQueryHeaders>();
-  return ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
+  shared_ptr<HotelOrderQueryHeaders> headers = make_shared<HotelOrderQueryHeaders>();
+  return hotelOrderQueryWithOptions(request, headers, runtime);
 }
 
 IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFlightBillSettlementQueryWithOptions(shared_ptr<IeFlightBillSettlementQueryRequest> request, shared_ptr<IeFlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2053,10 +2047,10 @@ IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFl
   return IeFlightBillSettlementQueryResponse(callApi(params, req, runtime));
 }
 
-InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAdd(shared_ptr<InvoiceAddRequest> request) {
+IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFlightBillSettlementQuery(shared_ptr<IeFlightBillSettlementQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvoiceAddHeaders> headers = make_shared<InvoiceAddHeaders>();
-  return invoiceAddWithOptions(request, headers, runtime);
+  shared_ptr<IeFlightBillSettlementQueryHeaders> headers = make_shared<IeFlightBillSettlementQueryHeaders>();
+  return ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
 InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAddWithOptions(shared_ptr<InvoiceAddRequest> request, shared_ptr<InvoiceAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2111,10 +2105,10 @@ InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAddWithOptions
   return InvoiceAddResponse(callApi(params, req, runtime));
 }
 
-InvoiceDeleteResponse Alibabacloud_BtripOpen20220520::Client::invoiceDelete(shared_ptr<InvoiceDeleteRequest> request) {
+InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAdd(shared_ptr<InvoiceAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvoiceDeleteHeaders> headers = make_shared<InvoiceDeleteHeaders>();
-  return invoiceDeleteWithOptions(request, headers, runtime);
+  shared_ptr<InvoiceAddHeaders> headers = make_shared<InvoiceAddHeaders>();
+  return invoiceAddWithOptions(request, headers, runtime);
 }
 
 InvoiceDeleteResponse Alibabacloud_BtripOpen20220520::Client::invoiceDeleteWithOptions(shared_ptr<InvoiceDeleteRequest> request, shared_ptr<InvoiceDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2148,10 +2142,10 @@ InvoiceDeleteResponse Alibabacloud_BtripOpen20220520::Client::invoiceDeleteWithO
   return InvoiceDeleteResponse(callApi(params, req, runtime));
 }
 
-InvoiceModifyResponse Alibabacloud_BtripOpen20220520::Client::invoiceModify(shared_ptr<InvoiceModifyRequest> request) {
+InvoiceDeleteResponse Alibabacloud_BtripOpen20220520::Client::invoiceDelete(shared_ptr<InvoiceDeleteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvoiceModifyHeaders> headers = make_shared<InvoiceModifyHeaders>();
-  return invoiceModifyWithOptions(request, headers, runtime);
+  shared_ptr<InvoiceDeleteHeaders> headers = make_shared<InvoiceDeleteHeaders>();
+  return invoiceDeleteWithOptions(request, headers, runtime);
 }
 
 InvoiceModifyResponse Alibabacloud_BtripOpen20220520::Client::invoiceModifyWithOptions(shared_ptr<InvoiceModifyRequest> request, shared_ptr<InvoiceModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2206,10 +2200,10 @@ InvoiceModifyResponse Alibabacloud_BtripOpen20220520::Client::invoiceModifyWithO
   return InvoiceModifyResponse(callApi(params, req, runtime));
 }
 
-InvoiceRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::invoiceRuleSave(shared_ptr<InvoiceRuleSaveRequest> request) {
+InvoiceModifyResponse Alibabacloud_BtripOpen20220520::Client::invoiceModify(shared_ptr<InvoiceModifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvoiceRuleSaveHeaders> headers = make_shared<InvoiceRuleSaveHeaders>();
-  return invoiceRuleSaveWithOptions(request, headers, runtime);
+  shared_ptr<InvoiceModifyHeaders> headers = make_shared<InvoiceModifyHeaders>();
+  return invoiceModifyWithOptions(request, headers, runtime);
 }
 
 InvoiceRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::invoiceRuleSaveWithOptions(shared_ptr<InvoiceRuleSaveRequest> tmpReq, shared_ptr<InvoiceRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2254,10 +2248,10 @@ InvoiceRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::invoiceRuleSaveW
   return InvoiceRuleSaveResponse(callApi(params, req, runtime));
 }
 
-InvoiceSearchResponse Alibabacloud_BtripOpen20220520::Client::invoiceSearch(shared_ptr<InvoiceSearchRequest> request) {
+InvoiceRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::invoiceRuleSave(shared_ptr<InvoiceRuleSaveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvoiceSearchHeaders> headers = make_shared<InvoiceSearchHeaders>();
-  return invoiceSearchWithOptions(request, headers, runtime);
+  shared_ptr<InvoiceRuleSaveHeaders> headers = make_shared<InvoiceRuleSaveHeaders>();
+  return invoiceRuleSaveWithOptions(request, headers, runtime);
 }
 
 InvoiceSearchResponse Alibabacloud_BtripOpen20220520::Client::invoiceSearchWithOptions(shared_ptr<InvoiceSearchRequest> request, shared_ptr<InvoiceSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2294,10 +2288,10 @@ InvoiceSearchResponse Alibabacloud_BtripOpen20220520::Client::invoiceSearchWithO
   return InvoiceSearchResponse(callApi(params, req, runtime));
 }
 
-IsvUserSaveResponse Alibabacloud_BtripOpen20220520::Client::isvUserSave(shared_ptr<IsvUserSaveRequest> request) {
+InvoiceSearchResponse Alibabacloud_BtripOpen20220520::Client::invoiceSearch(shared_ptr<InvoiceSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<IsvUserSaveHeaders> headers = make_shared<IsvUserSaveHeaders>();
-  return isvUserSaveWithOptions(request, headers, runtime);
+  shared_ptr<InvoiceSearchHeaders> headers = make_shared<InvoiceSearchHeaders>();
+  return invoiceSearchWithOptions(request, headers, runtime);
 }
 
 IsvUserSaveResponse Alibabacloud_BtripOpen20220520::Client::isvUserSaveWithOptions(shared_ptr<IsvUserSaveRequest> tmpReq, shared_ptr<IsvUserSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2336,10 +2330,10 @@ IsvUserSaveResponse Alibabacloud_BtripOpen20220520::Client::isvUserSaveWithOptio
   return IsvUserSaveResponse(callApi(params, req, runtime));
 }
 
-MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGet(shared_ptr<MonthBillGetRequest> request) {
+IsvUserSaveResponse Alibabacloud_BtripOpen20220520::Client::isvUserSave(shared_ptr<IsvUserSaveRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<MonthBillGetHeaders> headers = make_shared<MonthBillGetHeaders>();
-  return monthBillGetWithOptions(request, headers, runtime);
+  shared_ptr<IsvUserSaveHeaders> headers = make_shared<IsvUserSaveHeaders>();
+  return isvUserSaveWithOptions(request, headers, runtime);
 }
 
 MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGetWithOptions(shared_ptr<MonthBillGetRequest> request, shared_ptr<MonthBillGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2373,10 +2367,10 @@ MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGetWithOpt
   return MonthBillGetResponse(callApi(params, req, runtime));
 }
 
-ProjectAddResponse Alibabacloud_BtripOpen20220520::Client::projectAdd(shared_ptr<ProjectAddRequest> request) {
+MonthBillGetResponse Alibabacloud_BtripOpen20220520::Client::monthBillGet(shared_ptr<MonthBillGetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ProjectAddHeaders> headers = make_shared<ProjectAddHeaders>();
-  return projectAddWithOptions(request, headers, runtime);
+  shared_ptr<MonthBillGetHeaders> headers = make_shared<MonthBillGetHeaders>();
+  return monthBillGetWithOptions(request, headers, runtime);
 }
 
 ProjectAddResponse Alibabacloud_BtripOpen20220520::Client::projectAddWithOptions(shared_ptr<ProjectAddRequest> request, shared_ptr<ProjectAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2422,10 +2416,10 @@ ProjectAddResponse Alibabacloud_BtripOpen20220520::Client::projectAddWithOptions
   return ProjectAddResponse(callApi(params, req, runtime));
 }
 
-ProjectDeleteResponse Alibabacloud_BtripOpen20220520::Client::projectDelete(shared_ptr<ProjectDeleteRequest> request) {
+ProjectAddResponse Alibabacloud_BtripOpen20220520::Client::projectAdd(shared_ptr<ProjectAddRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ProjectDeleteHeaders> headers = make_shared<ProjectDeleteHeaders>();
-  return projectDeleteWithOptions(request, headers, runtime);
+  shared_ptr<ProjectAddHeaders> headers = make_shared<ProjectAddHeaders>();
+  return projectAddWithOptions(request, headers, runtime);
 }
 
 ProjectDeleteResponse Alibabacloud_BtripOpen20220520::Client::projectDeleteWithOptions(shared_ptr<ProjectDeleteRequest> request, shared_ptr<ProjectDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2459,10 +2453,10 @@ ProjectDeleteResponse Alibabacloud_BtripOpen20220520::Client::projectDeleteWithO
   return ProjectDeleteResponse(callApi(params, req, runtime));
 }
 
-ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModify(shared_ptr<ProjectModifyRequest> request) {
+ProjectDeleteResponse Alibabacloud_BtripOpen20220520::Client::projectDelete(shared_ptr<ProjectDeleteRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ProjectModifyHeaders> headers = make_shared<ProjectModifyHeaders>();
-  return projectModifyWithOptions(request, headers, runtime);
+  shared_ptr<ProjectDeleteHeaders> headers = make_shared<ProjectDeleteHeaders>();
+  return projectDeleteWithOptions(request, headers, runtime);
 }
 
 ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModifyWithOptions(shared_ptr<ProjectModifyRequest> request, shared_ptr<ProjectModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2508,10 +2502,10 @@ ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModifyWithO
   return ProjectModifyResponse(callApi(params, req, runtime));
 }
 
-SyncSingleUserResponse Alibabacloud_BtripOpen20220520::Client::syncSingleUser(shared_ptr<SyncSingleUserRequest> request) {
+ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModify(shared_ptr<ProjectModifyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<SyncSingleUserHeaders> headers = make_shared<SyncSingleUserHeaders>();
-  return syncSingleUserWithOptions(request, headers, runtime);
+  shared_ptr<ProjectModifyHeaders> headers = make_shared<ProjectModifyHeaders>();
+  return projectModifyWithOptions(request, headers, runtime);
 }
 
 SyncSingleUserResponse Alibabacloud_BtripOpen20220520::Client::syncSingleUserWithOptions(shared_ptr<SyncSingleUserRequest> tmpReq, shared_ptr<SyncSingleUserHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2580,10 +2574,10 @@ SyncSingleUserResponse Alibabacloud_BtripOpen20220520::Client::syncSingleUserWit
   return SyncSingleUserResponse(callApi(params, req, runtime));
 }
 
-TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBillSettlementQuery(shared_ptr<TrainBillSettlementQueryRequest> request) {
+SyncSingleUserResponse Alibabacloud_BtripOpen20220520::Client::syncSingleUser(shared_ptr<SyncSingleUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TrainBillSettlementQueryHeaders> headers = make_shared<TrainBillSettlementQueryHeaders>();
-  return trainBillSettlementQueryWithOptions(request, headers, runtime);
+  shared_ptr<SyncSingleUserHeaders> headers = make_shared<SyncSingleUserHeaders>();
+  return syncSingleUserWithOptions(request, headers, runtime);
 }
 
 TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBillSettlementQueryWithOptions(shared_ptr<TrainBillSettlementQueryRequest> request, shared_ptr<TrainBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2626,10 +2620,10 @@ TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBi
   return TrainBillSettlementQueryResponse(callApi(params, req, runtime));
 }
 
-TrainExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::trainExceedApplyQuery(shared_ptr<TrainExceedApplyQueryRequest> request) {
+TrainBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::trainBillSettlementQuery(shared_ptr<TrainBillSettlementQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TrainExceedApplyQueryHeaders> headers = make_shared<TrainExceedApplyQueryHeaders>();
-  return trainExceedApplyQueryWithOptions(request, headers, runtime);
+  shared_ptr<TrainBillSettlementQueryHeaders> headers = make_shared<TrainBillSettlementQueryHeaders>();
+  return trainBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
 TrainExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::trainExceedApplyQueryWithOptions(shared_ptr<TrainExceedApplyQueryRequest> request, shared_ptr<TrainExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2663,10 +2657,10 @@ TrainExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::trainExcee
   return TrainExceedApplyQueryResponse(callApi(params, req, runtime));
 }
 
-TrainOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderListQuery(shared_ptr<TrainOrderListQueryRequest> request) {
+TrainExceedApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::trainExceedApplyQuery(shared_ptr<TrainExceedApplyQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TrainOrderListQueryHeaders> headers = make_shared<TrainOrderListQueryHeaders>();
-  return trainOrderListQueryWithOptions(request, headers, runtime);
+  shared_ptr<TrainExceedApplyQueryHeaders> headers = make_shared<TrainExceedApplyQueryHeaders>();
+  return trainExceedApplyQueryWithOptions(request, headers, runtime);
 }
 
 TrainOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderListQueryWithOptions(shared_ptr<TrainOrderListQueryRequest> request, shared_ptr<TrainOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2730,10 +2724,10 @@ TrainOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderLi
   return TrainOrderListQueryResponse(callApi(params, req, runtime));
 }
 
-TrainOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderQuery(shared_ptr<TrainOrderQueryRequest> request) {
+TrainOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderListQuery(shared_ptr<TrainOrderListQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TrainOrderQueryHeaders> headers = make_shared<TrainOrderQueryHeaders>();
-  return trainOrderQueryWithOptions(request, headers, runtime);
+  shared_ptr<TrainOrderListQueryHeaders> headers = make_shared<TrainOrderListQueryHeaders>();
+  return trainOrderListQueryWithOptions(request, headers, runtime);
 }
 
 TrainOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderQueryWithOptions(shared_ptr<TrainOrderQueryRequest> request, shared_ptr<TrainOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2770,10 +2764,10 @@ TrainOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderQueryW
   return TrainOrderQueryResponse(callApi(params, req, runtime));
 }
 
-TrainStationSearchResponse Alibabacloud_BtripOpen20220520::Client::trainStationSearch(shared_ptr<TrainStationSearchRequest> request) {
+TrainOrderQueryResponse Alibabacloud_BtripOpen20220520::Client::trainOrderQuery(shared_ptr<TrainOrderQueryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TrainStationSearchHeaders> headers = make_shared<TrainStationSearchHeaders>();
-  return trainStationSearchWithOptions(request, headers, runtime);
+  shared_ptr<TrainOrderQueryHeaders> headers = make_shared<TrainOrderQueryHeaders>();
+  return trainOrderQueryWithOptions(request, headers, runtime);
 }
 
 TrainStationSearchResponse Alibabacloud_BtripOpen20220520::Client::trainStationSearchWithOptions(shared_ptr<TrainStationSearchRequest> request, shared_ptr<TrainStationSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2807,10 +2801,10 @@ TrainStationSearchResponse Alibabacloud_BtripOpen20220520::Client::trainStationS
   return TrainStationSearchResponse(callApi(params, req, runtime));
 }
 
-UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQuery(shared_ptr<UserQueryRequest> request) {
+TrainStationSearchResponse Alibabacloud_BtripOpen20220520::Client::trainStationSearch(shared_ptr<TrainStationSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UserQueryHeaders> headers = make_shared<UserQueryHeaders>();
-  return userQueryWithOptions(request, headers, runtime);
+  shared_ptr<TrainStationSearchHeaders> headers = make_shared<TrainStationSearchHeaders>();
+  return trainStationSearchWithOptions(request, headers, runtime);
 }
 
 UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQueryWithOptions(shared_ptr<UserQueryRequest> request, shared_ptr<UserQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2851,5 +2845,11 @@ UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQueryWithOptions(s
     {"bodyType", boost::any(string("json"))}
   }));
   return UserQueryResponse(callApi(params, req, runtime));
+}
+
+UserQueryResponse Alibabacloud_BtripOpen20220520::Client::userQuery(shared_ptr<UserQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UserQueryHeaders> headers = make_shared<UserQueryHeaders>();
+  return userQueryWithOptions(request, headers, runtime);
 }
 

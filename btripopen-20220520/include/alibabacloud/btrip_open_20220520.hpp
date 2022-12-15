@@ -1239,6 +1239,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyAddRequestExternalTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
 
@@ -1270,6 +1271,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -1305,6 +1309,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyAddRequestExternalTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -1686,6 +1693,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyAddRequestTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
   shared_ptr<string> userId{};
@@ -1718,6 +1726,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -1756,6 +1767,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyAddRequestTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -3732,6 +3746,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyModifyRequestExternalTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
 
@@ -3763,6 +3778,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -3798,6 +3816,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyModifyRequestExternalTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -4179,6 +4200,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyModifyRequestTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
   shared_ptr<string> userId{};
@@ -4211,6 +4233,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -4249,6 +4274,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyModifyRequestTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -5177,6 +5205,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
   shared_ptr<string> userName{};
@@ -5209,6 +5238,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -5247,6 +5279,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -5553,6 +5588,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyQueryResponseBodyModuleTravelerListHotelCitys>> hotelCitys{};
+  shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
   shared_ptr<string> userId{};
@@ -5586,6 +5622,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (premiumEconomyDiscount) {
+      res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
     }
     if (reserveType) {
       res["reserve_type"] = boost::any(*reserveType);
@@ -5627,6 +5666,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyQueryResponseBodyModuleTravelerListHotelCitys>>(expect1);
       }
+    }
+    if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
+      premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
     }
     if (m.find("reserve_type") != m.end() && !m["reserve_type"].empty()) {
       reserveType = make_shared<long>(boost::any_cast<long>(m["reserve_type"]));
@@ -27531,116 +27573,116 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  AccessTokenResponse accessToken(shared_ptr<AccessTokenRequest> request);
   AccessTokenResponse accessTokenWithOptions(shared_ptr<AccessTokenRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddressGetResponse addressGet(shared_ptr<AddressGetRequest> request);
+  AccessTokenResponse accessToken(shared_ptr<AccessTokenRequest> request);
   AddressGetResponse addressGetWithOptions(shared_ptr<AddressGetRequest> request, shared_ptr<AddressGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AirportSearchResponse airportSearch(shared_ptr<AirportSearchRequest> request);
+  AddressGetResponse addressGet(shared_ptr<AddressGetRequest> request);
   AirportSearchResponse airportSearchWithOptions(shared_ptr<AirportSearchRequest> request, shared_ptr<AirportSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AllBaseCityInfoQueryResponse allBaseCityInfoQuery();
+  AirportSearchResponse airportSearch(shared_ptr<AirportSearchRequest> request);
   AllBaseCityInfoQueryResponse allBaseCityInfoQueryWithOptions(shared_ptr<AllBaseCityInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ApplyAddResponse applyAdd(shared_ptr<ApplyAddRequest> request);
+  AllBaseCityInfoQueryResponse allBaseCityInfoQuery();
   ApplyAddResponse applyAddWithOptions(shared_ptr<ApplyAddRequest> tmpReq, shared_ptr<ApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ApplyApproveResponse applyApprove(shared_ptr<ApplyApproveRequest> request);
+  ApplyAddResponse applyAdd(shared_ptr<ApplyAddRequest> request);
   ApplyApproveResponse applyApproveWithOptions(shared_ptr<ApplyApproveRequest> request, shared_ptr<ApplyApproveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ApplyListQueryResponse applyListQuery(shared_ptr<ApplyListQueryRequest> request);
+  ApplyApproveResponse applyApprove(shared_ptr<ApplyApproveRequest> request);
   ApplyListQueryResponse applyListQueryWithOptions(shared_ptr<ApplyListQueryRequest> request, shared_ptr<ApplyListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ApplyModifyResponse applyModify(shared_ptr<ApplyModifyRequest> request);
+  ApplyListQueryResponse applyListQuery(shared_ptr<ApplyListQueryRequest> request);
   ApplyModifyResponse applyModifyWithOptions(shared_ptr<ApplyModifyRequest> tmpReq, shared_ptr<ApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ApplyQueryResponse applyQuery(shared_ptr<ApplyQueryRequest> request);
+  ApplyModifyResponse applyModify(shared_ptr<ApplyModifyRequest> request);
   ApplyQueryResponse applyQueryWithOptions(shared_ptr<ApplyQueryRequest> request, shared_ptr<ApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarApplyAddResponse carApplyAdd(shared_ptr<CarApplyAddRequest> request);
+  ApplyQueryResponse applyQuery(shared_ptr<ApplyQueryRequest> request);
   CarApplyAddResponse carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> request, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarApplyModifyResponse carApplyModify(shared_ptr<CarApplyModifyRequest> request);
+  CarApplyAddResponse carApplyAdd(shared_ptr<CarApplyAddRequest> request);
   CarApplyModifyResponse carApplyModifyWithOptions(shared_ptr<CarApplyModifyRequest> request, shared_ptr<CarApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarApplyQueryResponse carApplyQuery(shared_ptr<CarApplyQueryRequest> request);
+  CarApplyModifyResponse carApplyModify(shared_ptr<CarApplyModifyRequest> request);
   CarApplyQueryResponse carApplyQueryWithOptions(shared_ptr<CarApplyQueryRequest> request, shared_ptr<CarApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarBillSettlementQueryResponse carBillSettlementQuery(shared_ptr<CarBillSettlementQueryRequest> request);
+  CarApplyQueryResponse carApplyQuery(shared_ptr<CarApplyQueryRequest> request);
   CarBillSettlementQueryResponse carBillSettlementQueryWithOptions(shared_ptr<CarBillSettlementQueryRequest> request, shared_ptr<CarBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarOrderListQueryResponse carOrderListQuery(shared_ptr<CarOrderListQueryRequest> request);
+  CarBillSettlementQueryResponse carBillSettlementQuery(shared_ptr<CarBillSettlementQueryRequest> request);
   CarOrderListQueryResponse carOrderListQueryWithOptions(shared_ptr<CarOrderListQueryRequest> request, shared_ptr<CarOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CarOrderQueryResponse carOrderQuery(shared_ptr<CarOrderQueryRequest> request);
+  CarOrderListQueryResponse carOrderListQuery(shared_ptr<CarOrderListQueryRequest> request);
   CarOrderQueryResponse carOrderQueryWithOptions(shared_ptr<CarOrderQueryRequest> request, shared_ptr<CarOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CitySearchResponse citySearch(shared_ptr<CitySearchRequest> request);
+  CarOrderQueryResponse carOrderQuery(shared_ptr<CarOrderQueryRequest> request);
   CitySearchResponse citySearchWithOptions(shared_ptr<CitySearchRequest> request, shared_ptr<CitySearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CommonApplyQueryResponse commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request);
+  CitySearchResponse citySearch(shared_ptr<CitySearchRequest> request);
   CommonApplyQueryResponse commonApplyQueryWithOptions(shared_ptr<CommonApplyQueryRequest> request, shared_ptr<CommonApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CommonApplySyncResponse commonApplySync(shared_ptr<CommonApplySyncRequest> request);
+  CommonApplyQueryResponse commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request);
   CommonApplySyncResponse commonApplySyncWithOptions(shared_ptr<CommonApplySyncRequest> request, shared_ptr<CommonApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CorpTokenResponse corpToken(shared_ptr<CorpTokenRequest> request);
+  CommonApplySyncResponse commonApplySync(shared_ptr<CommonApplySyncRequest> request);
   CorpTokenResponse corpTokenWithOptions(shared_ptr<CorpTokenRequest> request, shared_ptr<CorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CostCenterDeleteResponse costCenterDelete(shared_ptr<CostCenterDeleteRequest> request);
+  CorpTokenResponse corpToken(shared_ptr<CorpTokenRequest> request);
   CostCenterDeleteResponse costCenterDeleteWithOptions(shared_ptr<CostCenterDeleteRequest> request, shared_ptr<CostCenterDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CostCenterModifyResponse costCenterModify(shared_ptr<CostCenterModifyRequest> request);
+  CostCenterDeleteResponse costCenterDelete(shared_ptr<CostCenterDeleteRequest> request);
   CostCenterModifyResponse costCenterModifyWithOptions(shared_ptr<CostCenterModifyRequest> request, shared_ptr<CostCenterModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CostCenterQueryResponse costCenterQuery(shared_ptr<CostCenterQueryRequest> request);
+  CostCenterModifyResponse costCenterModify(shared_ptr<CostCenterModifyRequest> request);
   CostCenterQueryResponse costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<CostCenterQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CostCenterSaveResponse costCenterSave(shared_ptr<CostCenterSaveRequest> request);
+  CostCenterQueryResponse costCenterQuery(shared_ptr<CostCenterQueryRequest> request);
   CostCenterSaveResponse costCenterSaveWithOptions(shared_ptr<CostCenterSaveRequest> request, shared_ptr<CostCenterSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DepartmentSaveResponse departmentSave(shared_ptr<DepartmentSaveRequest> request);
+  CostCenterSaveResponse costCenterSave(shared_ptr<CostCenterSaveRequest> request);
   DepartmentSaveResponse departmentSaveWithOptions(shared_ptr<DepartmentSaveRequest> tmpReq, shared_ptr<DepartmentSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EntityAddResponse entityAdd(shared_ptr<EntityAddRequest> request);
+  DepartmentSaveResponse departmentSave(shared_ptr<DepartmentSaveRequest> request);
   EntityAddResponse entityAddWithOptions(shared_ptr<EntityAddRequest> tmpReq, shared_ptr<EntityAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EntityDeleteResponse entityDelete(shared_ptr<EntityDeleteRequest> request);
+  EntityAddResponse entityAdd(shared_ptr<EntityAddRequest> request);
   EntityDeleteResponse entityDeleteWithOptions(shared_ptr<EntityDeleteRequest> tmpReq, shared_ptr<EntityDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EntitySetResponse entitySet(shared_ptr<EntitySetRequest> request);
+  EntityDeleteResponse entityDelete(shared_ptr<EntityDeleteRequest> request);
   EntitySetResponse entitySetWithOptions(shared_ptr<EntitySetRequest> tmpReq, shared_ptr<EntitySetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EstimatedPriceQueryResponse estimatedPriceQuery(shared_ptr<EstimatedPriceQueryRequest> request);
+  EntitySetResponse entitySet(shared_ptr<EntitySetRequest> request);
   EstimatedPriceQueryResponse estimatedPriceQueryWithOptions(shared_ptr<EstimatedPriceQueryRequest> request, shared_ptr<EstimatedPriceQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ExceedApplySyncResponse exceedApplySync(shared_ptr<ExceedApplySyncRequest> request);
+  EstimatedPriceQueryResponse estimatedPriceQuery(shared_ptr<EstimatedPriceQueryRequest> request);
   ExceedApplySyncResponse exceedApplySyncWithOptions(shared_ptr<ExceedApplySyncRequest> request, shared_ptr<ExceedApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  FlightBillSettlementQueryResponse flightBillSettlementQuery(shared_ptr<FlightBillSettlementQueryRequest> request);
+  ExceedApplySyncResponse exceedApplySync(shared_ptr<ExceedApplySyncRequest> request);
   FlightBillSettlementQueryResponse flightBillSettlementQueryWithOptions(shared_ptr<FlightBillSettlementQueryRequest> request, shared_ptr<FlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  FlightExceedApplyQueryResponse flightExceedApplyQuery(shared_ptr<FlightExceedApplyQueryRequest> request);
+  FlightBillSettlementQueryResponse flightBillSettlementQuery(shared_ptr<FlightBillSettlementQueryRequest> request);
   FlightExceedApplyQueryResponse flightExceedApplyQueryWithOptions(shared_ptr<FlightExceedApplyQueryRequest> request, shared_ptr<FlightExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  FlightOrderListQueryResponse flightOrderListQuery(shared_ptr<FlightOrderListQueryRequest> request);
+  FlightExceedApplyQueryResponse flightExceedApplyQuery(shared_ptr<FlightExceedApplyQueryRequest> request);
   FlightOrderListQueryResponse flightOrderListQueryWithOptions(shared_ptr<FlightOrderListQueryRequest> request, shared_ptr<FlightOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  FlightOrderQueryResponse flightOrderQuery(shared_ptr<FlightOrderQueryRequest> request);
+  FlightOrderListQueryResponse flightOrderListQuery(shared_ptr<FlightOrderListQueryRequest> request);
   FlightOrderQueryResponse flightOrderQueryWithOptions(shared_ptr<FlightOrderQueryRequest> request, shared_ptr<FlightOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  HotelBillSettlementQueryResponse hotelBillSettlementQuery(shared_ptr<HotelBillSettlementQueryRequest> request);
+  FlightOrderQueryResponse flightOrderQuery(shared_ptr<FlightOrderQueryRequest> request);
   HotelBillSettlementQueryResponse hotelBillSettlementQueryWithOptions(shared_ptr<HotelBillSettlementQueryRequest> request, shared_ptr<HotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  HotelExceedApplyQueryResponse hotelExceedApplyQuery(shared_ptr<HotelExceedApplyQueryRequest> request);
+  HotelBillSettlementQueryResponse hotelBillSettlementQuery(shared_ptr<HotelBillSettlementQueryRequest> request);
   HotelExceedApplyQueryResponse hotelExceedApplyQueryWithOptions(shared_ptr<HotelExceedApplyQueryRequest> request, shared_ptr<HotelExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  HotelOrderListQueryResponse hotelOrderListQuery(shared_ptr<HotelOrderListQueryRequest> request);
+  HotelExceedApplyQueryResponse hotelExceedApplyQuery(shared_ptr<HotelExceedApplyQueryRequest> request);
   HotelOrderListQueryResponse hotelOrderListQueryWithOptions(shared_ptr<HotelOrderListQueryRequest> request, shared_ptr<HotelOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  HotelOrderQueryResponse hotelOrderQuery(shared_ptr<HotelOrderQueryRequest> request);
+  HotelOrderListQueryResponse hotelOrderListQuery(shared_ptr<HotelOrderListQueryRequest> request);
   HotelOrderQueryResponse hotelOrderQueryWithOptions(shared_ptr<HotelOrderQueryRequest> request, shared_ptr<HotelOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  IeFlightBillSettlementQueryResponse ieFlightBillSettlementQuery(shared_ptr<IeFlightBillSettlementQueryRequest> request);
+  HotelOrderQueryResponse hotelOrderQuery(shared_ptr<HotelOrderQueryRequest> request);
   IeFlightBillSettlementQueryResponse ieFlightBillSettlementQueryWithOptions(shared_ptr<IeFlightBillSettlementQueryRequest> request, shared_ptr<IeFlightBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvoiceAddResponse invoiceAdd(shared_ptr<InvoiceAddRequest> request);
+  IeFlightBillSettlementQueryResponse ieFlightBillSettlementQuery(shared_ptr<IeFlightBillSettlementQueryRequest> request);
   InvoiceAddResponse invoiceAddWithOptions(shared_ptr<InvoiceAddRequest> request, shared_ptr<InvoiceAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvoiceDeleteResponse invoiceDelete(shared_ptr<InvoiceDeleteRequest> request);
+  InvoiceAddResponse invoiceAdd(shared_ptr<InvoiceAddRequest> request);
   InvoiceDeleteResponse invoiceDeleteWithOptions(shared_ptr<InvoiceDeleteRequest> request, shared_ptr<InvoiceDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvoiceModifyResponse invoiceModify(shared_ptr<InvoiceModifyRequest> request);
+  InvoiceDeleteResponse invoiceDelete(shared_ptr<InvoiceDeleteRequest> request);
   InvoiceModifyResponse invoiceModifyWithOptions(shared_ptr<InvoiceModifyRequest> request, shared_ptr<InvoiceModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvoiceRuleSaveResponse invoiceRuleSave(shared_ptr<InvoiceRuleSaveRequest> request);
+  InvoiceModifyResponse invoiceModify(shared_ptr<InvoiceModifyRequest> request);
   InvoiceRuleSaveResponse invoiceRuleSaveWithOptions(shared_ptr<InvoiceRuleSaveRequest> tmpReq, shared_ptr<InvoiceRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvoiceSearchResponse invoiceSearch(shared_ptr<InvoiceSearchRequest> request);
+  InvoiceRuleSaveResponse invoiceRuleSave(shared_ptr<InvoiceRuleSaveRequest> request);
   InvoiceSearchResponse invoiceSearchWithOptions(shared_ptr<InvoiceSearchRequest> request, shared_ptr<InvoiceSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  IsvUserSaveResponse isvUserSave(shared_ptr<IsvUserSaveRequest> request);
+  InvoiceSearchResponse invoiceSearch(shared_ptr<InvoiceSearchRequest> request);
   IsvUserSaveResponse isvUserSaveWithOptions(shared_ptr<IsvUserSaveRequest> tmpReq, shared_ptr<IsvUserSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  MonthBillGetResponse monthBillGet(shared_ptr<MonthBillGetRequest> request);
+  IsvUserSaveResponse isvUserSave(shared_ptr<IsvUserSaveRequest> request);
   MonthBillGetResponse monthBillGetWithOptions(shared_ptr<MonthBillGetRequest> request, shared_ptr<MonthBillGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ProjectAddResponse projectAdd(shared_ptr<ProjectAddRequest> request);
+  MonthBillGetResponse monthBillGet(shared_ptr<MonthBillGetRequest> request);
   ProjectAddResponse projectAddWithOptions(shared_ptr<ProjectAddRequest> request, shared_ptr<ProjectAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ProjectDeleteResponse projectDelete(shared_ptr<ProjectDeleteRequest> request);
+  ProjectAddResponse projectAdd(shared_ptr<ProjectAddRequest> request);
   ProjectDeleteResponse projectDeleteWithOptions(shared_ptr<ProjectDeleteRequest> request, shared_ptr<ProjectDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ProjectModifyResponse projectModify(shared_ptr<ProjectModifyRequest> request);
+  ProjectDeleteResponse projectDelete(shared_ptr<ProjectDeleteRequest> request);
   ProjectModifyResponse projectModifyWithOptions(shared_ptr<ProjectModifyRequest> request, shared_ptr<ProjectModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SyncSingleUserResponse syncSingleUser(shared_ptr<SyncSingleUserRequest> request);
+  ProjectModifyResponse projectModify(shared_ptr<ProjectModifyRequest> request);
   SyncSingleUserResponse syncSingleUserWithOptions(shared_ptr<SyncSingleUserRequest> tmpReq, shared_ptr<SyncSingleUserHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TrainBillSettlementQueryResponse trainBillSettlementQuery(shared_ptr<TrainBillSettlementQueryRequest> request);
+  SyncSingleUserResponse syncSingleUser(shared_ptr<SyncSingleUserRequest> request);
   TrainBillSettlementQueryResponse trainBillSettlementQueryWithOptions(shared_ptr<TrainBillSettlementQueryRequest> request, shared_ptr<TrainBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TrainExceedApplyQueryResponse trainExceedApplyQuery(shared_ptr<TrainExceedApplyQueryRequest> request);
+  TrainBillSettlementQueryResponse trainBillSettlementQuery(shared_ptr<TrainBillSettlementQueryRequest> request);
   TrainExceedApplyQueryResponse trainExceedApplyQueryWithOptions(shared_ptr<TrainExceedApplyQueryRequest> request, shared_ptr<TrainExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TrainOrderListQueryResponse trainOrderListQuery(shared_ptr<TrainOrderListQueryRequest> request);
+  TrainExceedApplyQueryResponse trainExceedApplyQuery(shared_ptr<TrainExceedApplyQueryRequest> request);
   TrainOrderListQueryResponse trainOrderListQueryWithOptions(shared_ptr<TrainOrderListQueryRequest> request, shared_ptr<TrainOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TrainOrderQueryResponse trainOrderQuery(shared_ptr<TrainOrderQueryRequest> request);
+  TrainOrderListQueryResponse trainOrderListQuery(shared_ptr<TrainOrderListQueryRequest> request);
   TrainOrderQueryResponse trainOrderQueryWithOptions(shared_ptr<TrainOrderQueryRequest> request, shared_ptr<TrainOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TrainStationSearchResponse trainStationSearch(shared_ptr<TrainStationSearchRequest> request);
+  TrainOrderQueryResponse trainOrderQuery(shared_ptr<TrainOrderQueryRequest> request);
   TrainStationSearchResponse trainStationSearchWithOptions(shared_ptr<TrainStationSearchRequest> request, shared_ptr<TrainStationSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UserQueryResponse userQuery(shared_ptr<UserQueryRequest> request);
+  TrainStationSearchResponse trainStationSearch(shared_ptr<TrainStationSearchRequest> request);
   UserQueryResponse userQueryWithOptions(shared_ptr<UserQueryRequest> request, shared_ptr<UserQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UserQueryResponse userQuery(shared_ptr<UserQueryRequest> request);
 
   virtual ~Client() = default;
 };
