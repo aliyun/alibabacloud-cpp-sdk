@@ -897,6 +897,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> fileCount{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> templateId{};
   shared_ptr<long> totalFileSize{};
   shared_ptr<string> updateTime{};
 
@@ -943,6 +944,9 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
     if (totalFileSize) {
       res["TotalFileSize"] = boost::any(*totalFileSize);
     }
@@ -985,6 +989,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("TotalFileSize") != m.end() && !m["TotalFileSize"].empty()) {
       totalFileSize = make_shared<long>(boost::any_cast<long>(m["TotalFileSize"]));
@@ -3280,6 +3287,7 @@ public:
   shared_ptr<string> projectName{};
   shared_ptr<long> projectQueriesPerSecond{};
   shared_ptr<string> serviceRole{};
+  shared_ptr<string> templateId{};
   shared_ptr<long> totalFileSize{};
   shared_ptr<string> updateTime{};
 
@@ -3335,6 +3343,9 @@ public:
     if (serviceRole) {
       res["ServiceRole"] = boost::any(*serviceRole);
     }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
     if (totalFileSize) {
       res["TotalFileSize"] = boost::any(*totalFileSize);
     }
@@ -3386,6 +3397,9 @@ public:
     }
     if (m.find("ServiceRole") != m.end() && !m["ServiceRole"].empty()) {
       serviceRole = make_shared<string>(boost::any_cast<string>(m["ServiceRole"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
     if (m.find("TotalFileSize") != m.end() && !m["TotalFileSize"].empty()) {
       totalFileSize = make_shared<long>(boost::any_cast<long>(m["TotalFileSize"]));
