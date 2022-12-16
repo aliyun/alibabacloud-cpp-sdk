@@ -3331,7 +3331,6 @@ public:
 };
 class MergeVideoFaceRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> postURL{};
   shared_ptr<string> referenceURL{};
   shared_ptr<string> videoURL{};
 
@@ -3345,9 +3344,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (postURL) {
-      res["PostURL"] = boost::any(*postURL);
-    }
     if (referenceURL) {
       res["ReferenceURL"] = boost::any(*referenceURL);
     }
@@ -3358,9 +3354,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("PostURL") != m.end() && !m["PostURL"].empty()) {
-      postURL = make_shared<string>(boost::any_cast<string>(m["PostURL"]));
-    }
     if (m.find("ReferenceURL") != m.end() && !m["ReferenceURL"].empty()) {
       referenceURL = make_shared<string>(boost::any_cast<string>(m["ReferenceURL"]));
     }
@@ -3374,7 +3367,6 @@ public:
 };
 class MergeVideoFaceAdvanceRequest : public Darabonba::Model {
 public:
-  shared_ptr<Darabonba::Stream> postURLObject{};
   shared_ptr<Darabonba::Stream> referenceURLObject{};
   shared_ptr<Darabonba::Stream> videoURLObject{};
 
@@ -3388,9 +3380,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (postURLObject) {
-      res["PostURL"] = boost::any(*postURLObject);
-    }
     if (referenceURLObject) {
       res["ReferenceURL"] = boost::any(*referenceURLObject);
     }
@@ -3401,9 +3390,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("PostURL") != m.end() && !m["PostURL"].empty()) {
-      postURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["PostURL"]));
-    }
     if (m.find("ReferenceURL") != m.end() && !m["ReferenceURL"].empty()) {
       referenceURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ReferenceURL"]));
     }
