@@ -4211,6 +4211,12 @@ ModifyLosslessRuleResponse Alibabacloud_Mse20190531::Client::modifyLosslessRuleW
   if (!Darabonba_Util::Client::isUnset<long>(request->funcType)) {
     query->insert(pair<string, long>("FuncType", *request->funcType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->lossLessDetail)) {
+    query->insert(pair<string, bool>("LossLessDetail", *request->lossLessDetail));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->notice)) {
+    query->insert(pair<string, bool>("Notice", *request->notice));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

@@ -33192,6 +33192,8 @@ public:
   shared_ptr<long> delayTime{};
   shared_ptr<bool> enable{};
   shared_ptr<long> funcType{};
+  shared_ptr<bool> lossLessDetail{};
+  shared_ptr<bool> notice{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> related{};
   shared_ptr<long> shutdownWaitSeconds{};
@@ -33228,6 +33230,12 @@ public:
     }
     if (funcType) {
       res["FuncType"] = boost::any(*funcType);
+    }
+    if (lossLessDetail) {
+      res["LossLessDetail"] = boost::any(*lossLessDetail);
+    }
+    if (notice) {
+      res["Notice"] = boost::any(*notice);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -33268,6 +33276,12 @@ public:
     }
     if (m.find("FuncType") != m.end() && !m["FuncType"].empty()) {
       funcType = make_shared<long>(boost::any_cast<long>(m["FuncType"]));
+    }
+    if (m.find("LossLessDetail") != m.end() && !m["LossLessDetail"].empty()) {
+      lossLessDetail = make_shared<bool>(boost::any_cast<bool>(m["LossLessDetail"]));
+    }
+    if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
+      notice = make_shared<bool>(boost::any_cast<bool>(m["Notice"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
