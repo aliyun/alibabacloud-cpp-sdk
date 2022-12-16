@@ -4171,6 +4171,9 @@ GetMetaTableOutputResponse Alibabacloud_Dataworks-public20200518::Client::getMet
   if (!Darabonba_Util::Client::isUnset<string>(request->tableGuid)) {
     query->insert(pair<string, string>("TableGuid", *request->tableGuid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
+    query->insert(pair<string, string>("TaskId", *request->taskId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4198,7 +4201,7 @@ GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::get
   shared_ptr<GetMetaTablePartitionShrinkRequest> request = make_shared<GetMetaTablePartitionShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<GetMetaTablePartitionRequestSortCriterion>(tmpReq->sortCriterion)) {
-    request->sortCriterionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->sortCriterion->toMap()), make_shared<string>("SortCriterion"), make_shared<string>("json")));
+    request->sortCriterionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sortCriterion, make_shared<string>("SortCriterion"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
@@ -6891,9 +6894,6 @@ ListResourceGroupsResponse Alibabacloud_Dataworks-public20200518::Client::listRe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     query->insert(pair<string, string>("Tags", *request->tagsShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->typeNames)) {
-    query->insert(pair<string, string>("TypeNames", *request->typeNames));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

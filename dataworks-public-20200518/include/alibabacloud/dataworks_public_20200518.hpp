@@ -15,6 +15,139 @@
 using namespace std;
 
 namespace Alibabacloud_Dataworks-public20200518 {
+class Collection : public Darabonba::Model {
+public:
+  shared_ptr<string> collectionType{};
+  shared_ptr<string> comment{};
+  shared_ptr<long> createTime{};
+  shared_ptr<long> level{};
+  shared_ptr<string> name{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> ownerName{};
+  shared_ptr<string> qualifiedName{};
+  shared_ptr<long> updateTime{};
+
+  Collection() {}
+
+  explicit Collection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (collectionType) {
+      res["CollectionType"] = boost::any(*collectionType);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (ownerName) {
+      res["OwnerName"] = boost::any(*ownerName);
+    }
+    if (qualifiedName) {
+      res["QualifiedName"] = boost::any(*qualifiedName);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CollectionType") != m.end() && !m["CollectionType"].empty()) {
+      collectionType = make_shared<string>(boost::any_cast<string>(m["CollectionType"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<long>(boost::any_cast<long>(m["Level"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("OwnerName") != m.end() && !m["OwnerName"].empty()) {
+      ownerName = make_shared<string>(boost::any_cast<string>(m["OwnerName"]));
+    }
+    if (m.find("QualifiedName") != m.end() && !m["QualifiedName"].empty()) {
+      qualifiedName = make_shared<string>(boost::any_cast<string>(m["QualifiedName"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~Collection() = default;
+};
+class Entity : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> entityContent{};
+  shared_ptr<string> qualifiedName{};
+  shared_ptr<long> tenantId{};
+
+  Entity() {}
+
+  explicit Entity(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityContent) {
+      res["EntityContent"] = boost::any(*entityContent);
+    }
+    if (qualifiedName) {
+      res["QualifiedName"] = boost::any(*qualifiedName);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EntityContent") != m.end() && !m["EntityContent"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["EntityContent"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      entityContent = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("QualifiedName") != m.end() && !m["QualifiedName"].empty()) {
+      qualifiedName = make_shared<string>(boost::any_cast<string>(m["QualifiedName"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
+    }
+  }
+
+
+  virtual ~Entity() = default;
+};
 class AbolishDataServiceApiRequest : public Darabonba::Model {
 public:
   shared_ptr<long> apiId{};
@@ -27241,6 +27374,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> startDate{};
   shared_ptr<string> tableGuid{};
+  shared_ptr<string> taskId{};
 
   GetMetaTableOutputRequest() {}
 
@@ -27267,6 +27401,9 @@ public:
     if (tableGuid) {
       res["TableGuid"] = boost::any(*tableGuid);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
@@ -27285,6 +27422,9 @@ public:
     }
     if (m.find("TableGuid") != m.end() && !m["TableGuid"].empty()) {
       tableGuid = make_shared<string>(boost::any_cast<string>(m["TableGuid"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
@@ -53814,7 +53954,6 @@ public:
   shared_ptr<long> resourceGroupType{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<vector<ListResourceGroupsRequestTags>> tags{};
-  shared_ptr<string> typeNames{};
 
   ListResourceGroupsRequest() {}
 
@@ -53845,9 +53984,6 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
-    if (typeNames) {
-      res["TypeNames"] = boost::any(*typeNames);
-    }
     return res;
   }
 
@@ -53877,9 +54013,6 @@ public:
         tags = make_shared<vector<ListResourceGroupsRequestTags>>(expect1);
       }
     }
-    if (m.find("TypeNames") != m.end() && !m["TypeNames"].empty()) {
-      typeNames = make_shared<string>(boost::any_cast<string>(m["TypeNames"]));
-    }
   }
 
 
@@ -53892,7 +54025,6 @@ public:
   shared_ptr<long> resourceGroupType{};
   shared_ptr<string> resourceManagerResourceGroupId{};
   shared_ptr<string> tagsShrink{};
-  shared_ptr<string> typeNames{};
 
   ListResourceGroupsShrinkRequest() {}
 
@@ -53919,9 +54051,6 @@ public:
     if (tagsShrink) {
       res["Tags"] = boost::any(*tagsShrink);
     }
-    if (typeNames) {
-      res["TypeNames"] = boost::any(*typeNames);
-    }
     return res;
   }
 
@@ -53940,9 +54069,6 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
-    }
-    if (m.find("TypeNames") != m.end() && !m["TypeNames"].empty()) {
-      typeNames = make_shared<string>(boost::any_cast<string>(m["TypeNames"]));
     }
   }
 
