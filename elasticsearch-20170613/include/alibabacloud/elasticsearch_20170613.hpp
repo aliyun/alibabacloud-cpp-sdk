@@ -3954,10 +3954,257 @@ public:
 
   virtual ~CreateDataStreamResponse() = default;
 };
+class CreateDataTasksRequestBodyMigrateConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> sourceFilterParams{};
+
+  CreateDataTasksRequestBodyMigrateConfig() {}
+
+  explicit CreateDataTasksRequestBodyMigrateConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sourceFilterParams) {
+      res["sourceFilterParams"] = boost::any(*sourceFilterParams);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("sourceFilterParams") != m.end() && !m["sourceFilterParams"].empty()) {
+      sourceFilterParams = make_shared<string>(boost::any_cast<string>(m["sourceFilterParams"]));
+    }
+  }
+
+
+  virtual ~CreateDataTasksRequestBodyMigrateConfig() = default;
+};
+class CreateDataTasksRequestBodySinkCluster : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> index{};
+  shared_ptr<string> mapping{};
+  shared_ptr<string> password{};
+  shared_ptr<string> routing{};
+  shared_ptr<string> settings{};
+  shared_ptr<string> type{};
+  shared_ptr<string> username{};
+
+  CreateDataTasksRequestBodySinkCluster() {}
+
+  explicit CreateDataTasksRequestBodySinkCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["dataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (mapping) {
+      res["mapping"] = boost::any(*mapping);
+    }
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (routing) {
+      res["routing"] = boost::any(*routing);
+    }
+    if (settings) {
+      res["settings"] = boost::any(*settings);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataSourceType") != m.end() && !m["dataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["dataSourceType"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
+    }
+    if (m.find("mapping") != m.end() && !m["mapping"].empty()) {
+      mapping = make_shared<string>(boost::any_cast<string>(m["mapping"]));
+    }
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("routing") != m.end() && !m["routing"].empty()) {
+      routing = make_shared<string>(boost::any_cast<string>(m["routing"]));
+    }
+    if (m.find("settings") != m.end() && !m["settings"].empty()) {
+      settings = make_shared<string>(boost::any_cast<string>(m["settings"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~CreateDataTasksRequestBodySinkCluster() = default;
+};
+class CreateDataTasksRequestBodySourceCluster : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> index{};
+  shared_ptr<string> password{};
+  shared_ptr<string> type{};
+  shared_ptr<string> username{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vpcInstanceId{};
+  shared_ptr<long> vpcInstancePort{};
+
+  CreateDataTasksRequestBodySourceCluster() {}
+
+  explicit CreateDataTasksRequestBodySourceCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["dataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (endpoint) {
+      res["endpoint"] = boost::any(*endpoint);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (vpcInstanceId) {
+      res["vpcInstanceId"] = boost::any(*vpcInstanceId);
+    }
+    if (vpcInstancePort) {
+      res["vpcInstancePort"] = boost::any(*vpcInstancePort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataSourceType") != m.end() && !m["dataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["dataSourceType"]));
+    }
+    if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
+    }
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("vpcInstanceId") != m.end() && !m["vpcInstanceId"].empty()) {
+      vpcInstanceId = make_shared<string>(boost::any_cast<string>(m["vpcInstanceId"]));
+    }
+    if (m.find("vpcInstancePort") != m.end() && !m["vpcInstancePort"].empty()) {
+      vpcInstancePort = make_shared<long>(boost::any_cast<long>(m["vpcInstancePort"]));
+    }
+  }
+
+
+  virtual ~CreateDataTasksRequestBodySourceCluster() = default;
+};
+class CreateDataTasksRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateDataTasksRequestBodyMigrateConfig> migrateConfig{};
+  shared_ptr<CreateDataTasksRequestBodySinkCluster> sinkCluster{};
+  shared_ptr<CreateDataTasksRequestBodySourceCluster> sourceCluster{};
+
+  CreateDataTasksRequestBody() {}
+
+  explicit CreateDataTasksRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (migrateConfig) {
+      res["migrateConfig"] = migrateConfig ? boost::any(migrateConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sinkCluster) {
+      res["sinkCluster"] = sinkCluster ? boost::any(sinkCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sourceCluster) {
+      res["sourceCluster"] = sourceCluster ? boost::any(sourceCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("migrateConfig") != m.end() && !m["migrateConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["migrateConfig"].type()) {
+        CreateDataTasksRequestBodyMigrateConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["migrateConfig"]));
+        migrateConfig = make_shared<CreateDataTasksRequestBodyMigrateConfig>(model1);
+      }
+    }
+    if (m.find("sinkCluster") != m.end() && !m["sinkCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sinkCluster"].type()) {
+        CreateDataTasksRequestBodySinkCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sinkCluster"]));
+        sinkCluster = make_shared<CreateDataTasksRequestBodySinkCluster>(model1);
+      }
+    }
+    if (m.find("sourceCluster") != m.end() && !m["sourceCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceCluster"].type()) {
+        CreateDataTasksRequestBodySourceCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceCluster"]));
+        sourceCluster = make_shared<CreateDataTasksRequestBodySourceCluster>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataTasksRequestBody() = default;
+};
 class CreateDataTasksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
-  shared_ptr<string> body{};
+  shared_ptr<vector<CreateDataTasksRequestBody>> body{};
 
   CreateDataTasksRequest() {}
 
@@ -3973,7 +4220,11 @@ public:
       res["ClientToken"] = boost::any(*clientToken);
     }
     if (body) {
-      res["body"] = boost::any(*body);
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
     }
     return res;
   }
@@ -3983,7 +4234,17 @@ public:
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
     if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<CreateDataTasksRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDataTasksRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<CreateDataTasksRequestBody>>(expect1);
+      }
     }
   }
 
@@ -24867,8 +25128,45 @@ public:
 
   virtual ~ListInstanceResponse() = default;
 };
+class ListInstanceHistoryEventsRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> desc{};
+  shared_ptr<string> sortField{};
+
+  ListInstanceHistoryEventsRequestBody() {}
+
+  explicit ListInstanceHistoryEventsRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (sortField) {
+      res["sortField"] = boost::any(*sortField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<bool>(boost::any_cast<bool>(m["desc"]));
+    }
+    if (m.find("sortField") != m.end() && !m["sortField"].empty()) {
+      sortField = make_shared<string>(boost::any_cast<string>(m["sortField"]));
+    }
+  }
+
+
+  virtual ~ListInstanceHistoryEventsRequestBody() = default;
+};
 class ListInstanceHistoryEventsRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListInstanceHistoryEventsRequestBody>> body{};
   shared_ptr<string> eventCreateEndTime{};
   shared_ptr<string> eventCreateStartTime{};
   shared_ptr<vector<string>> eventCycleStatus{};
@@ -24893,6 +25191,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (eventCreateEndTime) {
       res["eventCreateEndTime"] = boost::any(*eventCreateEndTime);
     }
@@ -24936,6 +25241,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<ListInstanceHistoryEventsRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstanceHistoryEventsRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<ListInstanceHistoryEventsRequestBody>>(expect1);
+      }
+    }
     if (m.find("eventCreateEndTime") != m.end() && !m["eventCreateEndTime"].empty()) {
       eventCreateEndTime = make_shared<string>(boost::any_cast<string>(m["eventCreateEndTime"]));
     }
@@ -25001,8 +25319,45 @@ public:
 
   virtual ~ListInstanceHistoryEventsRequest() = default;
 };
+class ListInstanceHistoryEventsShrinkRequestBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> desc{};
+  shared_ptr<string> sortField{};
+
+  ListInstanceHistoryEventsShrinkRequestBody() {}
+
+  explicit ListInstanceHistoryEventsShrinkRequestBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (sortField) {
+      res["sortField"] = boost::any(*sortField);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<bool>(boost::any_cast<bool>(m["desc"]));
+    }
+    if (m.find("sortField") != m.end() && !m["sortField"].empty()) {
+      sortField = make_shared<string>(boost::any_cast<string>(m["sortField"]));
+    }
+  }
+
+
+  virtual ~ListInstanceHistoryEventsShrinkRequestBody() = default;
+};
 class ListInstanceHistoryEventsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListInstanceHistoryEventsShrinkRequestBody>> body{};
   shared_ptr<string> eventCreateEndTime{};
   shared_ptr<string> eventCreateStartTime{};
   shared_ptr<string> eventCycleStatusShrink{};
@@ -25027,6 +25382,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      vector<boost::any> temp1;
+      for(auto item1:*body){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["body"] = boost::any(temp1);
+    }
     if (eventCreateEndTime) {
       res["eventCreateEndTime"] = boost::any(*eventCreateEndTime);
     }
@@ -25070,6 +25432,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<ListInstanceHistoryEventsShrinkRequestBody> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["body"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListInstanceHistoryEventsShrinkRequestBody model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        body = make_shared<vector<ListInstanceHistoryEventsShrinkRequestBody>>(expect1);
+      }
+    }
     if (m.find("eventCreateEndTime") != m.end() && !m["eventCreateEndTime"].empty()) {
       eventCreateEndTime = make_shared<string>(boost::any_cast<string>(m["eventCreateEndTime"]));
     }
@@ -25936,7 +26311,6 @@ class ListLogstashRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> ownerId{};
   shared_ptr<long> page{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<long> size{};
@@ -25958,9 +26332,6 @@ public:
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
-    }
-    if (ownerId) {
-      res["ownerId"] = boost::any(*ownerId);
     }
     if (page) {
       res["page"] = boost::any(*page);
@@ -25986,9 +26357,6 @@ public:
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
-    }
-    if (m.find("ownerId") != m.end() && !m["ownerId"].empty()) {
-      ownerId = make_shared<string>(boost::any_cast<string>(m["ownerId"]));
     }
     if (m.find("page") != m.end() && !m["page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["page"]));
@@ -43982,851 +44350,851 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  ActivateZonesResponse activateZones(shared_ptr<string> InstanceId, shared_ptr<ActivateZonesRequest> request);
   ActivateZonesResponse activateZonesWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<ActivateZonesRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddConnectableClusterResponse addConnectableCluster(shared_ptr<string> InstanceId, shared_ptr<AddConnectableClusterRequest> request);
+  ActivateZonesResponse activateZones(shared_ptr<string> InstanceId, shared_ptr<ActivateZonesRequest> request);
   AddConnectableClusterResponse addConnectableClusterWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<AddConnectableClusterRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AddSnapshotRepoResponse addSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<AddSnapshotRepoRequest> request);
+  AddConnectableClusterResponse addConnectableCluster(shared_ptr<string> InstanceId, shared_ptr<AddConnectableClusterRequest> request);
   AddSnapshotRepoResponse addSnapshotRepoWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<AddSnapshotRepoRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CancelDeletionResponse cancelDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelDeletionRequest> request);
+  AddSnapshotRepoResponse addSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<AddSnapshotRepoRequest> request);
   CancelDeletionResponse cancelDeletionWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<CancelDeletionRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CancelLogstashDeletionResponse cancelLogstashDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelLogstashDeletionRequest> request);
+  CancelDeletionResponse cancelDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelDeletionRequest> request);
   CancelLogstashDeletionResponse cancelLogstashDeletionWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<CancelLogstashDeletionRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CancelTaskResponse cancelTask(shared_ptr<string> InstanceId, shared_ptr<CancelTaskRequest> request);
+  CancelLogstashDeletionResponse cancelLogstashDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelLogstashDeletionRequest> request);
   CancelTaskResponse cancelTaskWithOptions(shared_ptr<string> InstanceId,
                                            shared_ptr<CancelTaskRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CapacityPlanResponse capacityPlan(shared_ptr<CapacityPlanRequest> request);
+  CancelTaskResponse cancelTask(shared_ptr<string> InstanceId, shared_ptr<CancelTaskRequest> request);
   CapacityPlanResponse capacityPlanWithOptions(shared_ptr<CapacityPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CloseDiagnosisResponse closeDiagnosis(shared_ptr<string> InstanceId, shared_ptr<CloseDiagnosisRequest> request);
+  CapacityPlanResponse capacityPlan(shared_ptr<CapacityPlanRequest> request);
   CloseDiagnosisResponse closeDiagnosisWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<CloseDiagnosisRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CloseHttpsResponse closeHttps(shared_ptr<string> InstanceId, shared_ptr<CloseHttpsRequest> request);
+  CloseDiagnosisResponse closeDiagnosis(shared_ptr<string> InstanceId, shared_ptr<CloseDiagnosisRequest> request);
   CloseHttpsResponse closeHttpsWithOptions(shared_ptr<string> InstanceId,
                                            shared_ptr<CloseHttpsRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CloseManagedIndexResponse closeManagedIndex(shared_ptr<string> InstanceId, shared_ptr<string> Index, shared_ptr<CloseManagedIndexRequest> request);
+  CloseHttpsResponse closeHttps(shared_ptr<string> InstanceId, shared_ptr<CloseHttpsRequest> request);
   CloseManagedIndexResponse closeManagedIndexWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<string> Index,
                                                          shared_ptr<CloseManagedIndexRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateCollectorResponse createCollector(shared_ptr<CreateCollectorRequest> request);
+  CloseManagedIndexResponse closeManagedIndex(shared_ptr<string> InstanceId, shared_ptr<string> Index, shared_ptr<CloseManagedIndexRequest> request);
   CreateCollectorResponse createCollectorWithOptions(shared_ptr<CreateCollectorRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateComponentIndexResponse createComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<CreateComponentIndexRequest> request);
+  CreateCollectorResponse createCollector(shared_ptr<CreateCollectorRequest> request);
   CreateComponentIndexResponse createComponentIndexWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<string> name,
                                                                shared_ptr<CreateComponentIndexRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateDataStreamResponse createDataStream(shared_ptr<string> InstanceId, shared_ptr<CreateDataStreamRequest> request);
+  CreateComponentIndexResponse createComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<CreateComponentIndexRequest> request);
   CreateDataStreamResponse createDataStreamWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<CreateDataStreamRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateDataTasksResponse createDataTasks(shared_ptr<string> InstanceId, shared_ptr<CreateDataTasksRequest> request);
+  CreateDataStreamResponse createDataStream(shared_ptr<string> InstanceId, shared_ptr<CreateDataStreamRequest> request);
   CreateDataTasksResponse createDataTasksWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<CreateDataTasksRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateILMPolicyResponse createILMPolicy(shared_ptr<string> InstanceId, shared_ptr<CreateILMPolicyRequest> request);
+  CreateDataTasksResponse createDataTasks(shared_ptr<string> InstanceId, shared_ptr<CreateDataTasksRequest> request);
   CreateILMPolicyResponse createILMPolicyWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<CreateILMPolicyRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateIndexTemplateResponse createIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<CreateIndexTemplateRequest> request);
+  CreateILMPolicyResponse createILMPolicy(shared_ptr<string> InstanceId, shared_ptr<CreateILMPolicyRequest> request);
   CreateIndexTemplateResponse createIndexTemplateWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<CreateIndexTemplateRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateLogstashResponse createLogstash(shared_ptr<CreateLogstashRequest> request);
+  CreateIndexTemplateResponse createIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<CreateIndexTemplateRequest> request);
   CreateLogstashResponse createLogstashWithOptions(shared_ptr<CreateLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreatePipelinesResponse createPipelines(shared_ptr<string> InstanceId, shared_ptr<CreatePipelinesRequest> request);
+  CreateLogstashResponse createLogstash(shared_ptr<CreateLogstashRequest> request);
   CreatePipelinesResponse createPipelinesWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<CreatePipelinesRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateSnapshotResponse createSnapshot(shared_ptr<string> InstanceId, shared_ptr<CreateSnapshotRequest> request);
+  CreatePipelinesResponse createPipelines(shared_ptr<string> InstanceId, shared_ptr<CreatePipelinesRequest> request);
   CreateSnapshotResponse createSnapshotWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<CreateSnapshotRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateVpcEndpointResponse createVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<CreateVpcEndpointRequest> request);
+  CreateSnapshotResponse createSnapshot(shared_ptr<string> InstanceId, shared_ptr<CreateSnapshotRequest> request);
   CreateVpcEndpointResponse createVpcEndpointWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<CreateVpcEndpointRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeactivateZonesResponse deactivateZones(shared_ptr<string> InstanceId, shared_ptr<DeactivateZonesRequest> request);
+  CreateVpcEndpointResponse createVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<CreateVpcEndpointRequest> request);
   DeactivateZonesResponse deactivateZonesWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<DeactivateZonesRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteCollectorResponse deleteCollector(shared_ptr<string> ResId, shared_ptr<DeleteCollectorRequest> request);
+  DeactivateZonesResponse deactivateZones(shared_ptr<string> InstanceId, shared_ptr<DeactivateZonesRequest> request);
   DeleteCollectorResponse deleteCollectorWithOptions(shared_ptr<string> ResId,
                                                      shared_ptr<DeleteCollectorRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteComponentIndexResponse deleteComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name);
+  DeleteCollectorResponse deleteCollector(shared_ptr<string> ResId, shared_ptr<DeleteCollectorRequest> request);
   DeleteComponentIndexResponse deleteComponentIndexWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<string> name,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteConnectedClusterResponse deleteConnectedCluster(shared_ptr<string> InstanceId, shared_ptr<DeleteConnectedClusterRequest> request);
+  DeleteComponentIndexResponse deleteComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name);
   DeleteConnectedClusterResponse deleteConnectedClusterWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<DeleteConnectedClusterRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteDataStreamResponse deleteDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<DeleteDataStreamRequest> request);
+  DeleteConnectedClusterResponse deleteConnectedCluster(shared_ptr<string> InstanceId, shared_ptr<DeleteConnectedClusterRequest> request);
   DeleteDataStreamResponse deleteDataStreamWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<string> DataStream,
                                                        shared_ptr<DeleteDataStreamRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteDataTaskResponse deleteDataTask(shared_ptr<string> InstanceId, shared_ptr<DeleteDataTaskRequest> request);
+  DeleteDataStreamResponse deleteDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<DeleteDataStreamRequest> request);
   DeleteDataTaskResponse deleteDataTaskWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<DeleteDataTaskRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteDeprecatedTemplateResponse deleteDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name);
+  DeleteDataTaskResponse deleteDataTask(shared_ptr<string> InstanceId, shared_ptr<DeleteDataTaskRequest> request);
   DeleteDeprecatedTemplateResponse deleteDeprecatedTemplateWithOptions(shared_ptr<string> InstanceId,
                                                                        shared_ptr<string> name,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteILMPolicyResponse deleteILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName);
+  DeleteDeprecatedTemplateResponse deleteDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name);
   DeleteILMPolicyResponse deleteILMPolicyWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<string> PolicyName,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteIndexTemplateResponse deleteIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate);
+  DeleteILMPolicyResponse deleteILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName);
   DeleteIndexTemplateResponse deleteIndexTemplateWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<string> IndexTemplate,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteInstanceResponse deleteInstance(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceRequest> request);
+  DeleteIndexTemplateResponse deleteIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate);
   DeleteInstanceResponse deleteInstanceWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<DeleteInstanceRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteLogstashResponse deleteLogstash(shared_ptr<string> InstanceId, shared_ptr<DeleteLogstashRequest> request);
+  DeleteInstanceResponse deleteInstance(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceRequest> request);
   DeleteLogstashResponse deleteLogstashWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<DeleteLogstashRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeletePipelinesResponse deletePipelines(shared_ptr<string> InstanceId, shared_ptr<DeletePipelinesRequest> request);
+  DeleteLogstashResponse deleteLogstash(shared_ptr<string> InstanceId, shared_ptr<DeleteLogstashRequest> request);
   DeletePipelinesResponse deletePipelinesWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<DeletePipelinesRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteSnapshotRepoResponse deleteSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<DeleteSnapshotRepoRequest> request);
+  DeletePipelinesResponse deletePipelines(shared_ptr<string> InstanceId, shared_ptr<DeletePipelinesRequest> request);
   DeleteSnapshotRepoResponse deleteSnapshotRepoWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<DeleteSnapshotRepoRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteVpcEndpointResponse deleteVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<string> EndpointId, shared_ptr<DeleteVpcEndpointRequest> request);
+  DeleteSnapshotRepoResponse deleteSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<DeleteSnapshotRepoRequest> request);
   DeleteVpcEndpointResponse deleteVpcEndpointWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<string> EndpointId,
                                                          shared_ptr<DeleteVpcEndpointRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeAckOperatorResponse describeAckOperator(shared_ptr<string> ClusterId);
+  DeleteVpcEndpointResponse deleteVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<string> EndpointId, shared_ptr<DeleteVpcEndpointRequest> request);
   DescribeAckOperatorResponse describeAckOperatorWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeApmResponse describeApm(shared_ptr<string> instanceId);
+  DescribeAckOperatorResponse describeAckOperator(shared_ptr<string> ClusterId);
   DescribeApmResponse describeApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeCollectorResponse describeCollector(shared_ptr<string> ResId);
+  DescribeApmResponse describeApm(shared_ptr<string> instanceId);
   DescribeCollectorResponse describeCollectorWithOptions(shared_ptr<string> ResId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeComponentIndexResponse describeComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name);
+  DescribeCollectorResponse describeCollector(shared_ptr<string> ResId);
   DescribeComponentIndexResponse describeComponentIndexWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<string> name,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeConnectableClustersResponse describeConnectableClusters(shared_ptr<string> InstanceId, shared_ptr<DescribeConnectableClustersRequest> request);
+  DescribeComponentIndexResponse describeComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name);
   DescribeConnectableClustersResponse describeConnectableClustersWithOptions(shared_ptr<string> InstanceId,
                                                                              shared_ptr<DescribeConnectableClustersRequest> request,
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeDeprecatedTemplateResponse describeDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name);
+  DescribeConnectableClustersResponse describeConnectableClusters(shared_ptr<string> InstanceId, shared_ptr<DescribeConnectableClustersRequest> request);
   DescribeDeprecatedTemplateResponse describeDeprecatedTemplateWithOptions(shared_ptr<string> InstanceId,
                                                                            shared_ptr<string> name,
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeDiagnoseReportResponse describeDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<string> ReportId, shared_ptr<DescribeDiagnoseReportRequest> request);
+  DescribeDeprecatedTemplateResponse describeDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name);
   DescribeDiagnoseReportResponse describeDiagnoseReportWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<string> ReportId,
                                                                    shared_ptr<DescribeDiagnoseReportRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeDiagnosisSettingsResponse describeDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<DescribeDiagnosisSettingsRequest> request);
+  DescribeDiagnoseReportResponse describeDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<string> ReportId, shared_ptr<DescribeDiagnoseReportRequest> request);
   DescribeDiagnosisSettingsResponse describeDiagnosisSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                          shared_ptr<DescribeDiagnosisSettingsRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeDynamicSettingsResponse describeDynamicSettings(shared_ptr<string> InstanceId);
+  DescribeDiagnosisSettingsResponse describeDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<DescribeDiagnosisSettingsRequest> request);
   DescribeDynamicSettingsResponse describeDynamicSettingsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeElasticsearchHealthResponse describeElasticsearchHealth(shared_ptr<string> InstanceId);
+  DescribeDynamicSettingsResponse describeDynamicSettings(shared_ptr<string> InstanceId);
   DescribeElasticsearchHealthResponse describeElasticsearchHealthWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeILMPolicyResponse describeILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName);
+  DescribeElasticsearchHealthResponse describeElasticsearchHealth(shared_ptr<string> InstanceId);
   DescribeILMPolicyResponse describeILMPolicyWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<string> PolicyName,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeIndexTemplateResponse describeIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate);
+  DescribeILMPolicyResponse describeILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName);
   DescribeIndexTemplateResponse describeIndexTemplateWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<string> IndexTemplate,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeInstanceResponse describeInstance(shared_ptr<string> InstanceId);
+  DescribeIndexTemplateResponse describeIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate);
   DescribeInstanceResponse describeInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeKibanaSettingsResponse describeKibanaSettings(shared_ptr<string> InstanceId);
+  DescribeInstanceResponse describeInstance(shared_ptr<string> InstanceId);
   DescribeKibanaSettingsResponse describeKibanaSettingsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeLogstashResponse describeLogstash(shared_ptr<string> InstanceId);
+  DescribeKibanaSettingsResponse describeKibanaSettings(shared_ptr<string> InstanceId);
   DescribeLogstashResponse describeLogstashWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribePipelineResponse describePipeline(shared_ptr<string> InstanceId, shared_ptr<string> PipelineId);
+  DescribeLogstashResponse describeLogstash(shared_ptr<string> InstanceId);
   DescribePipelineResponse describePipelineWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<string> PipelineId,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribePipelineManagementConfigResponse describePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<DescribePipelineManagementConfigRequest> request);
+  DescribePipelineResponse describePipeline(shared_ptr<string> InstanceId, shared_ptr<string> PipelineId);
   DescribePipelineManagementConfigResponse describePipelineManagementConfigWithOptions(shared_ptr<string> InstanceId,
                                                                                        shared_ptr<DescribePipelineManagementConfigRequest> request,
                                                                                        shared_ptr<map<string, string>> headers,
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeRegionsResponse describeRegions();
+  DescribePipelineManagementConfigResponse describePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<DescribePipelineManagementConfigRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeSnapshotSettingResponse describeSnapshotSetting(shared_ptr<string> InstanceId);
+  DescribeRegionsResponse describeRegions();
   DescribeSnapshotSettingResponse describeSnapshotSettingWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeTemplatesResponse describeTemplates(shared_ptr<string> InstanceId);
+  DescribeSnapshotSettingResponse describeSnapshotSetting(shared_ptr<string> InstanceId);
   DescribeTemplatesResponse describeTemplatesWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeXpackMonitorConfigResponse describeXpackMonitorConfig(shared_ptr<string> InstanceId);
+  DescribeTemplatesResponse describeTemplates(shared_ptr<string> InstanceId);
   DescribeXpackMonitorConfigResponse describeXpackMonitorConfigWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DiagnoseInstanceResponse diagnoseInstance(shared_ptr<string> InstanceId, shared_ptr<DiagnoseInstanceRequest> request);
+  DescribeXpackMonitorConfigResponse describeXpackMonitorConfig(shared_ptr<string> InstanceId);
   DiagnoseInstanceResponse diagnoseInstanceWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<DiagnoseInstanceRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedLogstashRestartTimeRequest> request);
+  DiagnoseInstanceResponse diagnoseInstance(shared_ptr<string> InstanceId, shared_ptr<DiagnoseInstanceRequest> request);
   EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTimeWithOptions(shared_ptr<string> InstanceId,
                                                                                shared_ptr<EstimatedLogstashRestartTimeRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EstimatedRestartTimeResponse estimatedRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedRestartTimeRequest> request);
+  EstimatedLogstashRestartTimeResponse estimatedLogstashRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedLogstashRestartTimeRequest> request);
   EstimatedRestartTimeResponse estimatedRestartTimeWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<EstimatedRestartTimeRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetClusterDataInformationResponse getClusterDataInformation(shared_ptr<GetClusterDataInformationRequest> request);
+  EstimatedRestartTimeResponse estimatedRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedRestartTimeRequest> request);
   GetClusterDataInformationResponse getClusterDataInformationWithOptions(shared_ptr<GetClusterDataInformationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetElastictaskResponse getElastictask(shared_ptr<string> InstanceId);
+  GetClusterDataInformationResponse getClusterDataInformation(shared_ptr<GetClusterDataInformationRequest> request);
   GetElastictaskResponse getElastictaskWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetEmonGrafanaAlertsResponse getEmonGrafanaAlerts(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaAlertsRequest> request);
+  GetElastictaskResponse getElastictask(shared_ptr<string> InstanceId);
   GetEmonGrafanaAlertsResponse getEmonGrafanaAlertsWithOptions(shared_ptr<string> ProjectId,
                                                                shared_ptr<GetEmonGrafanaAlertsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetEmonGrafanaDashboardsResponse getEmonGrafanaDashboards(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaDashboardsRequest> request);
+  GetEmonGrafanaAlertsResponse getEmonGrafanaAlerts(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaAlertsRequest> request);
   GetEmonGrafanaDashboardsResponse getEmonGrafanaDashboardsWithOptions(shared_ptr<string> ProjectId,
                                                                        shared_ptr<GetEmonGrafanaDashboardsRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetEmonMonitorDataResponse getEmonMonitorData(shared_ptr<string> ProjectId, shared_ptr<GetEmonMonitorDataRequest> request);
+  GetEmonGrafanaDashboardsResponse getEmonGrafanaDashboards(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaDashboardsRequest> request);
   GetEmonMonitorDataResponse getEmonMonitorDataWithOptions(shared_ptr<string> ProjectId,
                                                            shared_ptr<GetEmonMonitorDataRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetOpenStoreUsageResponse getOpenStoreUsage(shared_ptr<string> InstanceId);
+  GetEmonMonitorDataResponse getEmonMonitorData(shared_ptr<string> ProjectId, shared_ptr<GetEmonMonitorDataRequest> request);
   GetOpenStoreUsageResponse getOpenStoreUsageWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetRegionConfigurationResponse getRegionConfiguration(shared_ptr<GetRegionConfigurationRequest> request);
+  GetOpenStoreUsageResponse getOpenStoreUsage(shared_ptr<string> InstanceId);
   GetRegionConfigurationResponse getRegionConfigurationWithOptions(shared_ptr<GetRegionConfigurationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSuggestShrinkableNodesResponse getSuggestShrinkableNodes(shared_ptr<string> InstanceId, shared_ptr<GetSuggestShrinkableNodesRequest> request);
+  GetRegionConfigurationResponse getRegionConfiguration(shared_ptr<GetRegionConfigurationRequest> request);
   GetSuggestShrinkableNodesResponse getSuggestShrinkableNodesWithOptions(shared_ptr<string> InstanceId,
                                                                          shared_ptr<GetSuggestShrinkableNodesRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTransferableNodesResponse getTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<GetTransferableNodesRequest> request);
+  GetSuggestShrinkableNodesResponse getSuggestShrinkableNodes(shared_ptr<string> InstanceId, shared_ptr<GetSuggestShrinkableNodesRequest> request);
   GetTransferableNodesResponse getTransferableNodesWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<GetTransferableNodesRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InitializeOperationRoleResponse initializeOperationRole(shared_ptr<InitializeOperationRoleRequest> request);
+  GetTransferableNodesResponse getTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<GetTransferableNodesRequest> request);
   InitializeOperationRoleResponse initializeOperationRoleWithOptions(shared_ptr<InitializeOperationRoleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InstallAckOperatorResponse installAckOperator(shared_ptr<string> ClusterId, shared_ptr<InstallAckOperatorRequest> request);
+  InitializeOperationRoleResponse initializeOperationRole(shared_ptr<InitializeOperationRoleRequest> request);
   InstallAckOperatorResponse installAckOperatorWithOptions(shared_ptr<string> ClusterId,
                                                            shared_ptr<InstallAckOperatorRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InstallKibanaSystemPluginResponse installKibanaSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallKibanaSystemPluginRequest> request);
+  InstallAckOperatorResponse installAckOperator(shared_ptr<string> ClusterId, shared_ptr<InstallAckOperatorRequest> request);
   InstallKibanaSystemPluginResponse installKibanaSystemPluginWithOptions(shared_ptr<string> InstanceId,
                                                                          shared_ptr<InstallKibanaSystemPluginRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InstallLogstashSystemPluginResponse installLogstashSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallLogstashSystemPluginRequest> request);
+  InstallKibanaSystemPluginResponse installKibanaSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallKibanaSystemPluginRequest> request);
   InstallLogstashSystemPluginResponse installLogstashSystemPluginWithOptions(shared_ptr<string> InstanceId,
                                                                              shared_ptr<InstallLogstashSystemPluginRequest> request,
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InstallSystemPluginResponse installSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallSystemPluginRequest> request);
+  InstallLogstashSystemPluginResponse installLogstashSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallLogstashSystemPluginRequest> request);
   InstallSystemPluginResponse installSystemPluginWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<InstallSystemPluginRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InstallUserPluginsResponse installUserPlugins(shared_ptr<string> InstanceId, shared_ptr<InstallUserPluginsRequest> request);
+  InstallSystemPluginResponse installSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallSystemPluginRequest> request);
   InstallUserPluginsResponse installUserPluginsWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<InstallUserPluginsRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InterruptElasticsearchTaskResponse interruptElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<InterruptElasticsearchTaskRequest> request);
+  InstallUserPluginsResponse installUserPlugins(shared_ptr<string> InstanceId, shared_ptr<InstallUserPluginsRequest> request);
   InterruptElasticsearchTaskResponse interruptElasticsearchTaskWithOptions(shared_ptr<string> InstanceId,
                                                                            shared_ptr<InterruptElasticsearchTaskRequest> request,
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InterruptLogstashTaskResponse interruptLogstashTask(shared_ptr<string> InstanceId, shared_ptr<InterruptLogstashTaskRequest> request);
+  InterruptElasticsearchTaskResponse interruptElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<InterruptElasticsearchTaskRequest> request);
   InterruptLogstashTaskResponse interruptLogstashTaskWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<InterruptLogstashTaskRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAckClustersResponse listAckClusters(shared_ptr<ListAckClustersRequest> request);
+  InterruptLogstashTaskResponse interruptLogstashTask(shared_ptr<string> InstanceId, shared_ptr<InterruptLogstashTaskRequest> request);
   ListAckClustersResponse listAckClustersWithOptions(shared_ptr<ListAckClustersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAckNamespacesResponse listAckNamespaces(shared_ptr<string> ClusterId, shared_ptr<ListAckNamespacesRequest> request);
+  ListAckClustersResponse listAckClusters(shared_ptr<ListAckClustersRequest> request);
   ListAckNamespacesResponse listAckNamespacesWithOptions(shared_ptr<string> ClusterId,
                                                          shared_ptr<ListAckNamespacesRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListActionRecordsResponse listActionRecords(shared_ptr<string> InstanceId, shared_ptr<ListActionRecordsRequest> request);
+  ListAckNamespacesResponse listAckNamespaces(shared_ptr<string> ClusterId, shared_ptr<ListAckNamespacesRequest> request);
   ListActionRecordsResponse listActionRecordsWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<ListActionRecordsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAllNodeResponse listAllNode(shared_ptr<string> InstanceId, shared_ptr<ListAllNodeRequest> request);
+  ListActionRecordsResponse listActionRecords(shared_ptr<string> InstanceId, shared_ptr<ListActionRecordsRequest> request);
   ListAllNodeResponse listAllNodeWithOptions(shared_ptr<string> InstanceId,
                                              shared_ptr<ListAllNodeRequest> request,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAlternativeSnapshotReposResponse listAlternativeSnapshotRepos(shared_ptr<string> InstanceId, shared_ptr<ListAlternativeSnapshotReposRequest> request);
+  ListAllNodeResponse listAllNode(shared_ptr<string> InstanceId, shared_ptr<ListAllNodeRequest> request);
   ListAlternativeSnapshotReposResponse listAlternativeSnapshotReposWithOptions(shared_ptr<string> InstanceId,
                                                                                shared_ptr<ListAlternativeSnapshotReposRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListApmResponse listApm(shared_ptr<ListApmRequest> request);
+  ListAlternativeSnapshotReposResponse listAlternativeSnapshotRepos(shared_ptr<string> InstanceId, shared_ptr<ListAlternativeSnapshotReposRequest> request);
   ListApmResponse listApmWithOptions(shared_ptr<ListApmRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIds(shared_ptr<string> InstanceId);
+  ListApmResponse listApm(shared_ptr<ListApmRequest> request);
   ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIdsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListCollectorsResponse listCollectors(shared_ptr<ListCollectorsRequest> request);
+  ListAvailableEsInstanceIdsResponse listAvailableEsInstanceIds(shared_ptr<string> InstanceId);
   ListCollectorsResponse listCollectorsWithOptions(shared_ptr<ListCollectorsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListComponentIndicesResponse listComponentIndices(shared_ptr<string> InstanceId, shared_ptr<ListComponentIndicesRequest> request);
+  ListCollectorsResponse listCollectors(shared_ptr<ListCollectorsRequest> request);
   ListComponentIndicesResponse listComponentIndicesWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<ListComponentIndicesRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListConnectedClustersResponse listConnectedClusters(shared_ptr<string> InstanceId);
+  ListComponentIndicesResponse listComponentIndices(shared_ptr<string> InstanceId, shared_ptr<ListComponentIndicesRequest> request);
   ListConnectedClustersResponse listConnectedClustersWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDataStreamsResponse listDataStreams(shared_ptr<string> InstanceId, shared_ptr<ListDataStreamsRequest> request);
+  ListConnectedClustersResponse listConnectedClusters(shared_ptr<string> InstanceId);
   ListDataStreamsResponse listDataStreamsWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<ListDataStreamsRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDataTasksResponse listDataTasks(shared_ptr<string> InstanceId);
+  ListDataStreamsResponse listDataStreams(shared_ptr<string> InstanceId, shared_ptr<ListDataStreamsRequest> request);
   ListDataTasksResponse listDataTasksWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDefaultCollectorConfigurationsResponse listDefaultCollectorConfigurations(shared_ptr<ListDefaultCollectorConfigurationsRequest> request);
+  ListDataTasksResponse listDataTasks(shared_ptr<string> InstanceId);
   ListDefaultCollectorConfigurationsResponse listDefaultCollectorConfigurationsWithOptions(shared_ptr<ListDefaultCollectorConfigurationsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDeprecatedTemplatesResponse listDeprecatedTemplates(shared_ptr<string> InstanceId, shared_ptr<ListDeprecatedTemplatesRequest> request);
+  ListDefaultCollectorConfigurationsResponse listDefaultCollectorConfigurations(shared_ptr<ListDefaultCollectorConfigurationsRequest> request);
   ListDeprecatedTemplatesResponse listDeprecatedTemplatesWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<ListDeprecatedTemplatesRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDiagnoseIndicesResponse listDiagnoseIndices(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseIndicesRequest> request);
+  ListDeprecatedTemplatesResponse listDeprecatedTemplates(shared_ptr<string> InstanceId, shared_ptr<ListDeprecatedTemplatesRequest> request);
   ListDiagnoseIndicesResponse listDiagnoseIndicesWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ListDiagnoseIndicesRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDiagnoseReportResponse listDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportRequest> request);
+  ListDiagnoseIndicesResponse listDiagnoseIndices(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseIndicesRequest> request);
   ListDiagnoseReportResponse listDiagnoseReportWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<ListDiagnoseReportRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDiagnoseReportIdsResponse listDiagnoseReportIds(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportIdsRequest> request);
+  ListDiagnoseReportResponse listDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportRequest> request);
   ListDiagnoseReportIdsResponse listDiagnoseReportIdsWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<ListDiagnoseReportIdsRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDictInformationResponse listDictInformation(shared_ptr<string> InstanceId, shared_ptr<ListDictInformationRequest> request);
+  ListDiagnoseReportIdsResponse listDiagnoseReportIds(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportIdsRequest> request);
   ListDictInformationResponse listDictInformationWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ListDictInformationRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDictsResponse listDicts(shared_ptr<string> InstanceId, shared_ptr<ListDictsRequest> request);
+  ListDictInformationResponse listDictInformation(shared_ptr<string> InstanceId, shared_ptr<ListDictInformationRequest> request);
   ListDictsResponse listDictsWithOptions(shared_ptr<string> InstanceId,
                                          shared_ptr<ListDictsRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEcsInstancesResponse listEcsInstances(shared_ptr<ListEcsInstancesRequest> request);
+  ListDictsResponse listDicts(shared_ptr<string> InstanceId, shared_ptr<ListDictsRequest> request);
   ListEcsInstancesResponse listEcsInstancesWithOptions(shared_ptr<ListEcsInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListExtendfilesResponse listExtendfiles(shared_ptr<string> InstanceId);
+  ListEcsInstancesResponse listEcsInstances(shared_ptr<ListEcsInstancesRequest> request);
   ListExtendfilesResponse listExtendfilesWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListILMPoliciesResponse listILMPolicies(shared_ptr<string> InstanceId, shared_ptr<ListILMPoliciesRequest> request);
+  ListExtendfilesResponse listExtendfiles(shared_ptr<string> InstanceId);
   ListILMPoliciesResponse listILMPoliciesWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<ListILMPoliciesRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListIndexTemplatesResponse listIndexTemplates(shared_ptr<string> InstanceId, shared_ptr<ListIndexTemplatesRequest> request);
+  ListILMPoliciesResponse listILMPolicies(shared_ptr<string> InstanceId, shared_ptr<ListILMPoliciesRequest> request);
   ListIndexTemplatesResponse listIndexTemplatesWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<ListIndexTemplatesRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInstanceResponse listInstance(shared_ptr<ListInstanceRequest> request);
+  ListIndexTemplatesResponse listIndexTemplates(shared_ptr<string> InstanceId, shared_ptr<ListIndexTemplatesRequest> request);
   ListInstanceResponse listInstanceWithOptions(shared_ptr<ListInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInstanceHistoryEventsResponse listInstanceHistoryEvents(shared_ptr<ListInstanceHistoryEventsRequest> request);
+  ListInstanceResponse listInstance(shared_ptr<ListInstanceRequest> request);
   ListInstanceHistoryEventsResponse listInstanceHistoryEventsWithOptions(shared_ptr<ListInstanceHistoryEventsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInstanceIndicesResponse listInstanceIndices(shared_ptr<string> InstanceId, shared_ptr<ListInstanceIndicesRequest> request);
+  ListInstanceHistoryEventsResponse listInstanceHistoryEvents(shared_ptr<ListInstanceHistoryEventsRequest> request);
   ListInstanceIndicesResponse listInstanceIndicesWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ListInstanceIndicesRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListKibanaPluginsResponse listKibanaPlugins(shared_ptr<string> InstanceId, shared_ptr<ListKibanaPluginsRequest> request);
+  ListInstanceIndicesResponse listInstanceIndices(shared_ptr<string> InstanceId, shared_ptr<ListInstanceIndicesRequest> request);
   ListKibanaPluginsResponse listKibanaPluginsWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<ListKibanaPluginsRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListLogstashResponse listLogstash(shared_ptr<ListLogstashRequest> request);
+  ListKibanaPluginsResponse listKibanaPlugins(shared_ptr<string> InstanceId, shared_ptr<ListKibanaPluginsRequest> request);
   ListLogstashResponse listLogstashWithOptions(shared_ptr<ListLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListLogstashLogResponse listLogstashLog(shared_ptr<string> InstanceId, shared_ptr<ListLogstashLogRequest> request);
+  ListLogstashResponse listLogstash(shared_ptr<ListLogstashRequest> request);
   ListLogstashLogResponse listLogstashLogWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<ListLogstashLogRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListLogstashPluginsResponse listLogstashPlugins(shared_ptr<string> InstanceId, shared_ptr<ListLogstashPluginsRequest> request);
+  ListLogstashLogResponse listLogstashLog(shared_ptr<string> InstanceId, shared_ptr<ListLogstashLogRequest> request);
   ListLogstashPluginsResponse listLogstashPluginsWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ListLogstashPluginsRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListNodesResponse listNodes(shared_ptr<string> ResId, shared_ptr<ListNodesRequest> request);
+  ListLogstashPluginsResponse listLogstashPlugins(shared_ptr<string> InstanceId, shared_ptr<ListLogstashPluginsRequest> request);
   ListNodesResponse listNodesWithOptions(shared_ptr<string> ResId,
                                          shared_ptr<ListNodesRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListPipelineResponse listPipeline(shared_ptr<string> InstanceId, shared_ptr<ListPipelineRequest> request);
+  ListNodesResponse listNodes(shared_ptr<string> ResId, shared_ptr<ListNodesRequest> request);
   ListPipelineResponse listPipelineWithOptions(shared_ptr<string> InstanceId,
                                                shared_ptr<ListPipelineRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListPipelineIdsResponse listPipelineIds(shared_ptr<string> InstanceId, shared_ptr<ListPipelineIdsRequest> request);
+  ListPipelineResponse listPipeline(shared_ptr<string> InstanceId, shared_ptr<ListPipelineRequest> request);
   ListPipelineIdsResponse listPipelineIdsWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<ListPipelineIdsRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListPluginsResponse listPlugins(shared_ptr<string> InstanceId, shared_ptr<ListPluginsRequest> request);
+  ListPipelineIdsResponse listPipelineIds(shared_ptr<string> InstanceId, shared_ptr<ListPipelineIdsRequest> request);
   ListPluginsResponse listPluginsWithOptions(shared_ptr<string> InstanceId,
                                              shared_ptr<ListPluginsRequest> request,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSearchLogResponse listSearchLog(shared_ptr<string> InstanceId, shared_ptr<ListSearchLogRequest> request);
+  ListPluginsResponse listPlugins(shared_ptr<string> InstanceId, shared_ptr<ListPluginsRequest> request);
   ListSearchLogResponse listSearchLogWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<ListSearchLogRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListShardRecoveriesResponse listShardRecoveries(shared_ptr<string> InstanceId, shared_ptr<ListShardRecoveriesRequest> request);
+  ListSearchLogResponse listSearchLog(shared_ptr<string> InstanceId, shared_ptr<ListSearchLogRequest> request);
   ListShardRecoveriesResponse listShardRecoveriesWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ListShardRecoveriesRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceId(shared_ptr<string> InstanceId);
+  ListShardRecoveriesResponse listShardRecoveries(shared_ptr<string> InstanceId, shared_ptr<ListShardRecoveriesRequest> request);
   ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceIdWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  ListSnapshotReposByInstanceIdResponse listSnapshotReposByInstanceId(shared_ptr<string> InstanceId);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTagsResponse listTags(shared_ptr<ListTagsRequest> request);
+  ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListTagsResponse listTagsWithOptions(shared_ptr<ListTagsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListVpcEndpointsResponse listVpcEndpoints(shared_ptr<string> InstanceId, shared_ptr<ListVpcEndpointsRequest> request);
+  ListTagsResponse listTags(shared_ptr<ListTagsRequest> request);
   ListVpcEndpointsResponse listVpcEndpointsWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<ListVpcEndpointsRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  MigrateToOtherZoneResponse migrateToOtherZone(shared_ptr<string> InstanceId, shared_ptr<MigrateToOtherZoneRequest> request);
+  ListVpcEndpointsResponse listVpcEndpoints(shared_ptr<string> InstanceId, shared_ptr<ListVpcEndpointsRequest> request);
   MigrateToOtherZoneResponse migrateToOtherZoneWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<MigrateToOtherZoneRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyDeployMachineResponse modifyDeployMachine(shared_ptr<string> ResId, shared_ptr<ModifyDeployMachineRequest> request);
+  MigrateToOtherZoneResponse migrateToOtherZone(shared_ptr<string> InstanceId, shared_ptr<MigrateToOtherZoneRequest> request);
   ModifyDeployMachineResponse modifyDeployMachineWithOptions(shared_ptr<string> ResId,
                                                              shared_ptr<ModifyDeployMachineRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyElastictaskResponse modifyElastictask(shared_ptr<string> InstanceId, shared_ptr<ModifyElastictaskRequest> request);
+  ModifyDeployMachineResponse modifyDeployMachine(shared_ptr<string> ResId, shared_ptr<ModifyDeployMachineRequest> request);
   ModifyElastictaskResponse modifyElastictaskWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<ModifyElastictaskRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTime(shared_ptr<string> InstanceId, shared_ptr<ModifyInstanceMaintainTimeRequest> request);
+  ModifyElastictaskResponse modifyElastictask(shared_ptr<string> InstanceId, shared_ptr<ModifyElastictaskRequest> request);
   ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTimeWithOptions(shared_ptr<string> InstanceId,
                                                                            shared_ptr<ModifyInstanceMaintainTimeRequest> request,
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyWhiteIpsResponse modifyWhiteIps(shared_ptr<string> InstanceId, shared_ptr<ModifyWhiteIpsRequest> request);
+  ModifyInstanceMaintainTimeResponse modifyInstanceMaintainTime(shared_ptr<string> InstanceId, shared_ptr<ModifyInstanceMaintainTimeRequest> request);
   ModifyWhiteIpsResponse modifyWhiteIpsWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<ModifyWhiteIpsRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  MoveResourceGroupResponse moveResourceGroup(shared_ptr<string> InstanceId, shared_ptr<MoveResourceGroupRequest> request);
+  ModifyWhiteIpsResponse modifyWhiteIps(shared_ptr<string> InstanceId, shared_ptr<ModifyWhiteIpsRequest> request);
   MoveResourceGroupResponse moveResourceGroupWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<MoveResourceGroupRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  OpenDiagnosisResponse openDiagnosis(shared_ptr<string> InstanceId, shared_ptr<OpenDiagnosisRequest> request);
+  MoveResourceGroupResponse moveResourceGroup(shared_ptr<string> InstanceId, shared_ptr<MoveResourceGroupRequest> request);
   OpenDiagnosisResponse openDiagnosisWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<OpenDiagnosisRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  OpenHttpsResponse openHttps(shared_ptr<string> InstanceId, shared_ptr<OpenHttpsRequest> request);
+  OpenDiagnosisResponse openDiagnosis(shared_ptr<string> InstanceId, shared_ptr<OpenDiagnosisRequest> request);
   OpenHttpsResponse openHttpsWithOptions(shared_ptr<string> InstanceId,
                                          shared_ptr<OpenHttpsRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PostEmonTryAlarmRuleResponse postEmonTryAlarmRule(shared_ptr<string> ProjectId, shared_ptr<string> AlarmGroupId, shared_ptr<PostEmonTryAlarmRuleRequest> request);
+  OpenHttpsResponse openHttps(shared_ptr<string> InstanceId, shared_ptr<OpenHttpsRequest> request);
   PostEmonTryAlarmRuleResponse postEmonTryAlarmRuleWithOptions(shared_ptr<string> ProjectId,
                                                                shared_ptr<string> AlarmGroupId,
                                                                shared_ptr<PostEmonTryAlarmRuleRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecommendTemplatesResponse recommendTemplates(shared_ptr<string> InstanceId, shared_ptr<RecommendTemplatesRequest> request);
+  PostEmonTryAlarmRuleResponse postEmonTryAlarmRule(shared_ptr<string> ProjectId, shared_ptr<string> AlarmGroupId, shared_ptr<PostEmonTryAlarmRuleRequest> request);
   RecommendTemplatesResponse recommendTemplatesWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<RecommendTemplatesRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ReinstallCollectorResponse reinstallCollector(shared_ptr<string> ResId, shared_ptr<ReinstallCollectorRequest> request);
+  RecommendTemplatesResponse recommendTemplates(shared_ptr<string> InstanceId, shared_ptr<RecommendTemplatesRequest> request);
   ReinstallCollectorResponse reinstallCollectorWithOptions(shared_ptr<string> ResId,
                                                            shared_ptr<ReinstallCollectorRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RemoveApmResponse removeApm(shared_ptr<string> instanceId);
+  ReinstallCollectorResponse reinstallCollector(shared_ptr<string> ResId, shared_ptr<ReinstallCollectorRequest> request);
   RemoveApmResponse removeApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RenewInstanceResponse renewInstance(shared_ptr<string> InstanceId, shared_ptr<RenewInstanceRequest> request);
+  RemoveApmResponse removeApm(shared_ptr<string> instanceId);
   RenewInstanceResponse renewInstanceWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<RenewInstanceRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RenewLogstashResponse renewLogstash(shared_ptr<string> InstanceId, shared_ptr<RenewLogstashRequest> request);
+  RenewInstanceResponse renewInstance(shared_ptr<string> InstanceId, shared_ptr<RenewInstanceRequest> request);
   RenewLogstashResponse renewLogstashWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<RenewLogstashRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RestartCollectorResponse restartCollector(shared_ptr<string> ResId, shared_ptr<RestartCollectorRequest> request);
+  RenewLogstashResponse renewLogstash(shared_ptr<string> InstanceId, shared_ptr<RenewLogstashRequest> request);
   RestartCollectorResponse restartCollectorWithOptions(shared_ptr<string> ResId,
                                                        shared_ptr<RestartCollectorRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RestartInstanceResponse restartInstance(shared_ptr<string> InstanceId, shared_ptr<RestartInstanceRequest> request);
+  RestartCollectorResponse restartCollector(shared_ptr<string> ResId, shared_ptr<RestartCollectorRequest> request);
   RestartInstanceResponse restartInstanceWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<RestartInstanceRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RestartLogstashResponse restartLogstash(shared_ptr<string> InstanceId, shared_ptr<RestartLogstashRequest> request);
+  RestartInstanceResponse restartInstance(shared_ptr<string> InstanceId, shared_ptr<RestartInstanceRequest> request);
   RestartLogstashResponse restartLogstashWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<RestartLogstashRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ResumeElasticsearchTaskResponse resumeElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<ResumeElasticsearchTaskRequest> request);
+  RestartLogstashResponse restartLogstash(shared_ptr<string> InstanceId, shared_ptr<RestartLogstashRequest> request);
   ResumeElasticsearchTaskResponse resumeElasticsearchTaskWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<ResumeElasticsearchTaskRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ResumeLogstashTaskResponse resumeLogstashTask(shared_ptr<string> InstanceId, shared_ptr<ResumeLogstashTaskRequest> request);
+  ResumeElasticsearchTaskResponse resumeElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<ResumeElasticsearchTaskRequest> request);
   ResumeLogstashTaskResponse resumeLogstashTaskWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<ResumeLogstashTaskRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RolloverDataStreamResponse rolloverDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<RolloverDataStreamRequest> request);
+  ResumeLogstashTaskResponse resumeLogstashTask(shared_ptr<string> InstanceId, shared_ptr<ResumeLogstashTaskRequest> request);
   RolloverDataStreamResponse rolloverDataStreamWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<string> DataStream,
                                                            shared_ptr<RolloverDataStreamRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RunPipelinesResponse runPipelines(shared_ptr<string> InstanceId, shared_ptr<RunPipelinesRequest> request);
+  RolloverDataStreamResponse rolloverDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<RolloverDataStreamRequest> request);
   RunPipelinesResponse runPipelinesWithOptions(shared_ptr<string> InstanceId,
                                                shared_ptr<RunPipelinesRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ShrinkNodeResponse shrinkNode(shared_ptr<string> InstanceId, shared_ptr<ShrinkNodeRequest> request);
+  RunPipelinesResponse runPipelines(shared_ptr<string> InstanceId, shared_ptr<RunPipelinesRequest> request);
   ShrinkNodeResponse shrinkNodeWithOptions(shared_ptr<string> InstanceId,
                                            shared_ptr<ShrinkNodeRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartApmResponse startApm(shared_ptr<string> instanceId);
+  ShrinkNodeResponse shrinkNode(shared_ptr<string> InstanceId, shared_ptr<ShrinkNodeRequest> request);
   StartApmResponse startApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartCollectorResponse startCollector(shared_ptr<string> ResId, shared_ptr<StartCollectorRequest> request);
+  StartApmResponse startApm(shared_ptr<string> instanceId);
   StartCollectorResponse startCollectorWithOptions(shared_ptr<string> ResId,
                                                    shared_ptr<StartCollectorRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopApmResponse stopApm(shared_ptr<string> instanceId);
+  StartCollectorResponse startCollector(shared_ptr<string> ResId, shared_ptr<StartCollectorRequest> request);
   StopApmResponse stopApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopCollectorResponse stopCollector(shared_ptr<string> ResId, shared_ptr<StopCollectorRequest> request);
+  StopApmResponse stopApm(shared_ptr<string> instanceId);
   StopCollectorResponse stopCollectorWithOptions(shared_ptr<string> ResId,
                                                  shared_ptr<StopCollectorRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopPipelinesResponse stopPipelines(shared_ptr<string> InstanceId, shared_ptr<StopPipelinesRequest> request);
+  StopCollectorResponse stopCollector(shared_ptr<string> ResId, shared_ptr<StopCollectorRequest> request);
   StopPipelinesResponse stopPipelinesWithOptions(shared_ptr<string> InstanceId,
                                                  shared_ptr<StopPipelinesRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
+  StopPipelinesResponse stopPipelines(shared_ptr<string> InstanceId, shared_ptr<StopPipelinesRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TransferNodeResponse transferNode(shared_ptr<string> InstanceId, shared_ptr<TransferNodeRequest> request);
+  TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   TransferNodeResponse transferNodeWithOptions(shared_ptr<string> InstanceId,
                                                shared_ptr<TransferNodeRequest> request,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TriggerNetworkResponse triggerNetwork(shared_ptr<string> InstanceId, shared_ptr<TriggerNetworkRequest> request);
+  TransferNodeResponse transferNode(shared_ptr<string> InstanceId, shared_ptr<TransferNodeRequest> request);
   TriggerNetworkResponse triggerNetworkWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<TriggerNetworkRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UninstallKibanaPluginResponse uninstallKibanaPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallKibanaPluginRequest> request);
+  TriggerNetworkResponse triggerNetwork(shared_ptr<string> InstanceId, shared_ptr<TriggerNetworkRequest> request);
   UninstallKibanaPluginResponse uninstallKibanaPluginWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<UninstallKibanaPluginRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UninstallLogstashPluginResponse uninstallLogstashPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallLogstashPluginRequest> request);
+  UninstallKibanaPluginResponse uninstallKibanaPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallKibanaPluginRequest> request);
   UninstallLogstashPluginResponse uninstallLogstashPluginWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<UninstallLogstashPluginRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UninstallPluginResponse uninstallPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallPluginRequest> request);
+  UninstallLogstashPluginResponse uninstallLogstashPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallLogstashPluginRequest> request);
   UninstallPluginResponse uninstallPluginWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<UninstallPluginRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UninstallPluginResponse uninstallPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallPluginRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateAdminPasswordResponse updateAdminPassword(shared_ptr<string> InstanceId, shared_ptr<UpdateAdminPasswordRequest> request);
+  UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
   UpdateAdminPasswordResponse updateAdminPasswordWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<UpdateAdminPasswordRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateAdvancedSettingResponse updateAdvancedSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateAdvancedSettingRequest> request);
+  UpdateAdminPasswordResponse updateAdminPassword(shared_ptr<string> InstanceId, shared_ptr<UpdateAdminPasswordRequest> request);
   UpdateAdvancedSettingResponse updateAdvancedSettingWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<UpdateAdvancedSettingRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateAliwsDictResponse updateAliwsDict(shared_ptr<string> InstanceId, shared_ptr<UpdateAliwsDictRequest> request);
+  UpdateAdvancedSettingResponse updateAdvancedSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateAdvancedSettingRequest> request);
   UpdateAliwsDictResponse updateAliwsDictWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<UpdateAliwsDictRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateApmResponse updateApm(shared_ptr<string> instanceId, shared_ptr<UpdateApmRequest> request);
+  UpdateAliwsDictResponse updateAliwsDict(shared_ptr<string> InstanceId, shared_ptr<UpdateAliwsDictRequest> request);
   UpdateApmResponse updateApmWithOptions(shared_ptr<string> instanceId,
                                          shared_ptr<UpdateApmRequest> request,
                                          shared_ptr<map<string, string>> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateBlackIpsResponse updateBlackIps(shared_ptr<string> InstanceId, shared_ptr<UpdateBlackIpsRequest> request);
+  UpdateApmResponse updateApm(shared_ptr<string> instanceId, shared_ptr<UpdateApmRequest> request);
   UpdateBlackIpsResponse updateBlackIpsWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<UpdateBlackIpsRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateCollectorResponse updateCollector(shared_ptr<string> ResId, shared_ptr<UpdateCollectorRequest> request);
+  UpdateBlackIpsResponse updateBlackIps(shared_ptr<string> InstanceId, shared_ptr<UpdateBlackIpsRequest> request);
   UpdateCollectorResponse updateCollectorWithOptions(shared_ptr<string> ResId,
                                                      shared_ptr<UpdateCollectorRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateCollectorNameResponse updateCollectorName(shared_ptr<string> ResId, shared_ptr<UpdateCollectorNameRequest> request);
+  UpdateCollectorResponse updateCollector(shared_ptr<string> ResId, shared_ptr<UpdateCollectorRequest> request);
   UpdateCollectorNameResponse updateCollectorNameWithOptions(shared_ptr<string> ResId,
                                                              shared_ptr<UpdateCollectorNameRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateComponentIndexResponse updateComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<UpdateComponentIndexRequest> request);
+  UpdateCollectorNameResponse updateCollectorName(shared_ptr<string> ResId, shared_ptr<UpdateCollectorNameRequest> request);
   UpdateComponentIndexResponse updateComponentIndexWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<string> name,
                                                                shared_ptr<UpdateComponentIndexRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateDescriptionResponse updateDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateDescriptionRequest> request);
+  UpdateComponentIndexResponse updateComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<UpdateComponentIndexRequest> request);
   UpdateDescriptionResponse updateDescriptionWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<UpdateDescriptionRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateDiagnosisSettingsResponse updateDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDiagnosisSettingsRequest> request);
+  UpdateDescriptionResponse updateDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateDescriptionRequest> request);
   UpdateDiagnosisSettingsResponse updateDiagnosisSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                      shared_ptr<UpdateDiagnosisSettingsRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateDictResponse updateDict(shared_ptr<string> InstanceId, shared_ptr<UpdateDictRequest> request);
+  UpdateDiagnosisSettingsResponse updateDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDiagnosisSettingsRequest> request);
   UpdateDictResponse updateDictWithOptions(shared_ptr<string> InstanceId,
                                            shared_ptr<UpdateDictRequest> request,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateDynamicSettingsResponse updateDynamicSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDynamicSettingsRequest> request);
+  UpdateDictResponse updateDict(shared_ptr<string> InstanceId, shared_ptr<UpdateDictRequest> request);
   UpdateDynamicSettingsResponse updateDynamicSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<UpdateDynamicSettingsRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateExtendConfigResponse updateExtendConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendConfigRequest> request);
+  UpdateDynamicSettingsResponse updateDynamicSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDynamicSettingsRequest> request);
   UpdateExtendConfigResponse updateExtendConfigWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<UpdateExtendConfigRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateExtendfilesResponse updateExtendfiles(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendfilesRequest> request);
+  UpdateExtendConfigResponse updateExtendConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendConfigRequest> request);
   UpdateExtendfilesResponse updateExtendfilesWithOptions(shared_ptr<string> InstanceId,
                                                          shared_ptr<UpdateExtendfilesRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateHotIkDictsResponse updateHotIkDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateHotIkDictsRequest> request);
+  UpdateExtendfilesResponse updateExtendfiles(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendfilesRequest> request);
   UpdateHotIkDictsResponse updateHotIkDictsWithOptions(shared_ptr<string> InstanceId,
                                                        shared_ptr<UpdateHotIkDictsRequest> request,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateILMPolicyResponse updateILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName, shared_ptr<UpdateILMPolicyRequest> request);
+  UpdateHotIkDictsResponse updateHotIkDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateHotIkDictsRequest> request);
   UpdateILMPolicyResponse updateILMPolicyWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<string> PolicyName,
                                                      shared_ptr<UpdateILMPolicyRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateIndexTemplateResponse updateIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate, shared_ptr<UpdateIndexTemplateRequest> request);
+  UpdateILMPolicyResponse updateILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName, shared_ptr<UpdateILMPolicyRequest> request);
   UpdateIndexTemplateResponse updateIndexTemplateWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<string> IndexTemplate,
                                                              shared_ptr<UpdateIndexTemplateRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateInstanceResponse updateInstance(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceRequest> request);
+  UpdateIndexTemplateResponse updateIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate, shared_ptr<UpdateIndexTemplateRequest> request);
   UpdateInstanceResponse updateInstanceWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<UpdateInstanceRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateInstanceChargeTypeResponse updateInstanceChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceChargeTypeRequest> request);
+  UpdateInstanceResponse updateInstance(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceRequest> request);
   UpdateInstanceChargeTypeResponse updateInstanceChargeTypeWithOptions(shared_ptr<string> InstanceId,
                                                                        shared_ptr<UpdateInstanceChargeTypeRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateInstanceSettingsResponse updateInstanceSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceSettingsRequest> request);
+  UpdateInstanceChargeTypeResponse updateInstanceChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceChargeTypeRequest> request);
   UpdateInstanceSettingsResponse updateInstanceSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<UpdateInstanceSettingsRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateKibanaSettingsResponse updateKibanaSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaSettingsRequest> request);
+  UpdateInstanceSettingsResponse updateInstanceSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceSettingsRequest> request);
   UpdateKibanaSettingsResponse updateKibanaSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<UpdateKibanaSettingsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateKibanaWhiteIpsResponse updateKibanaWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaWhiteIpsRequest> request);
+  UpdateKibanaSettingsResponse updateKibanaSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaSettingsRequest> request);
   UpdateKibanaWhiteIpsResponse updateKibanaWhiteIpsWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<UpdateKibanaWhiteIpsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateLogstashResponse updateLogstash(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashRequest> request);
+  UpdateKibanaWhiteIpsResponse updateKibanaWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaWhiteIpsRequest> request);
   UpdateLogstashResponse updateLogstashWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<UpdateLogstashRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateLogstashChargeTypeResponse updateLogstashChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashChargeTypeRequest> request);
+  UpdateLogstashResponse updateLogstash(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashRequest> request);
   UpdateLogstashChargeTypeResponse updateLogstashChargeTypeWithOptions(shared_ptr<string> InstanceId,
                                                                        shared_ptr<UpdateLogstashChargeTypeRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateLogstashDescriptionResponse updateLogstashDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashDescriptionRequest> request);
+  UpdateLogstashChargeTypeResponse updateLogstashChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashChargeTypeRequest> request);
   UpdateLogstashDescriptionResponse updateLogstashDescriptionWithOptions(shared_ptr<string> InstanceId,
                                                                          shared_ptr<UpdateLogstashDescriptionRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateLogstashSettingsResponse updateLogstashSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashSettingsRequest> request);
+  UpdateLogstashDescriptionResponse updateLogstashDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashDescriptionRequest> request);
   UpdateLogstashSettingsResponse updateLogstashSettingsWithOptions(shared_ptr<string> InstanceId,
                                                                    shared_ptr<UpdateLogstashSettingsRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePipelineManagementConfigResponse updatePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelineManagementConfigRequest> request);
+  UpdateLogstashSettingsResponse updateLogstashSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashSettingsRequest> request);
   UpdatePipelineManagementConfigResponse updatePipelineManagementConfigWithOptions(shared_ptr<string> InstanceId,
                                                                                    shared_ptr<UpdatePipelineManagementConfigRequest> request,
                                                                                    shared_ptr<map<string, string>> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePipelinesResponse updatePipelines(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelinesRequest> request);
+  UpdatePipelineManagementConfigResponse updatePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelineManagementConfigRequest> request);
   UpdatePipelinesResponse updatePipelinesWithOptions(shared_ptr<string> InstanceId,
                                                      shared_ptr<UpdatePipelinesRequest> request,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePrivateNetworkWhiteIpsRequest> request);
+  UpdatePipelinesResponse updatePipelines(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelinesRequest> request);
   UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIpsWithOptions(shared_ptr<string> InstanceId,
                                                                                shared_ptr<UpdatePrivateNetworkWhiteIpsRequest> request,
                                                                                shared_ptr<map<string, string>> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePublicNetworkResponse updatePublicNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicNetworkRequest> request);
+  UpdatePrivateNetworkWhiteIpsResponse updatePrivateNetworkWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePrivateNetworkWhiteIpsRequest> request);
   UpdatePublicNetworkResponse updatePublicNetworkWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<UpdatePublicNetworkRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdatePublicWhiteIpsResponse updatePublicWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicWhiteIpsRequest> request);
+  UpdatePublicNetworkResponse updatePublicNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicNetworkRequest> request);
   UpdatePublicWhiteIpsResponse updatePublicWhiteIpsWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<UpdatePublicWhiteIpsRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateReadWritePolicyResponse updateReadWritePolicy(shared_ptr<string> InstanceId, shared_ptr<UpdateReadWritePolicyRequest> request);
+  UpdatePublicWhiteIpsResponse updatePublicWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicWhiteIpsRequest> request);
   UpdateReadWritePolicyResponse updateReadWritePolicyWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<UpdateReadWritePolicyRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateSnapshotSettingResponse updateSnapshotSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateSnapshotSettingRequest> request);
+  UpdateReadWritePolicyResponse updateReadWritePolicy(shared_ptr<string> InstanceId, shared_ptr<UpdateReadWritePolicyRequest> request);
   UpdateSnapshotSettingResponse updateSnapshotSettingWithOptions(shared_ptr<string> InstanceId,
                                                                  shared_ptr<UpdateSnapshotSettingRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateSynonymsDictsResponse updateSynonymsDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateSynonymsDictsRequest> request);
+  UpdateSnapshotSettingResponse updateSnapshotSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateSnapshotSettingRequest> request);
   UpdateSynonymsDictsResponse updateSynonymsDictsWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<UpdateSynonymsDictsRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTemplateResponse updateTemplate(shared_ptr<string> InstanceId, shared_ptr<string> TemplateName, shared_ptr<UpdateTemplateRequest> request);
+  UpdateSynonymsDictsResponse updateSynonymsDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateSynonymsDictsRequest> request);
   UpdateTemplateResponse updateTemplateWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<string> TemplateName,
                                                    shared_ptr<UpdateTemplateRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateWhiteIpsResponse updateWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateWhiteIpsRequest> request);
+  UpdateTemplateResponse updateTemplate(shared_ptr<string> InstanceId, shared_ptr<string> TemplateName, shared_ptr<UpdateTemplateRequest> request);
   UpdateWhiteIpsResponse updateWhiteIpsWithOptions(shared_ptr<string> InstanceId,
                                                    shared_ptr<UpdateWhiteIpsRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateXpackMonitorConfigResponse updateXpackMonitorConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateXpackMonitorConfigRequest> request);
+  UpdateWhiteIpsResponse updateWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateWhiteIpsRequest> request);
   UpdateXpackMonitorConfigResponse updateXpackMonitorConfigWithOptions(shared_ptr<string> InstanceId,
                                                                        shared_ptr<UpdateXpackMonitorConfigRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpgradeEngineVersionResponse upgradeEngineVersion(shared_ptr<string> InstanceId, shared_ptr<UpgradeEngineVersionRequest> request);
+  UpdateXpackMonitorConfigResponse updateXpackMonitorConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateXpackMonitorConfigRequest> request);
   UpgradeEngineVersionResponse upgradeEngineVersionWithOptions(shared_ptr<string> InstanceId,
                                                                shared_ptr<UpgradeEngineVersionRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ValidateConnectionResponse validateConnection(shared_ptr<string> InstanceId, shared_ptr<ValidateConnectionRequest> request);
+  UpgradeEngineVersionResponse upgradeEngineVersion(shared_ptr<string> InstanceId, shared_ptr<UpgradeEngineVersionRequest> request);
   ValidateConnectionResponse validateConnectionWithOptions(shared_ptr<string> InstanceId,
                                                            shared_ptr<ValidateConnectionRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ValidateShrinkNodesResponse validateShrinkNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateShrinkNodesRequest> request);
+  ValidateConnectionResponse validateConnection(shared_ptr<string> InstanceId, shared_ptr<ValidateConnectionRequest> request);
   ValidateShrinkNodesResponse validateShrinkNodesWithOptions(shared_ptr<string> InstanceId,
                                                              shared_ptr<ValidateShrinkNodesRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ValidateSlrPermissionResponse validateSlrPermission(shared_ptr<ValidateSlrPermissionRequest> request);
+  ValidateShrinkNodesResponse validateShrinkNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateShrinkNodesRequest> request);
   ValidateSlrPermissionResponse validateSlrPermissionWithOptions(shared_ptr<ValidateSlrPermissionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ValidateTransferableNodesResponse validateTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateTransferableNodesRequest> request);
+  ValidateSlrPermissionResponse validateSlrPermission(shared_ptr<ValidateSlrPermissionRequest> request);
   ValidateTransferableNodesResponse validateTransferableNodesWithOptions(shared_ptr<string> InstanceId,
                                                                          shared_ptr<ValidateTransferableNodesRequest> request,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
+  ValidateTransferableNodesResponse validateTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateTransferableNodesRequest> request);
   CreateInstanceResponse createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateInstanceResponse createInstance(shared_ptr<CreateInstanceRequest> request);
 
   virtual ~Client() = default;
 };

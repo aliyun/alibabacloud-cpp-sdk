@@ -39,12 +39,6 @@ string Alibabacloud_Elasticsearch20170613::Client::getEndpoint(shared_ptr<string
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-ActivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::activateZones(shared_ptr<string> InstanceId, shared_ptr<ActivateZonesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return activateZonesWithOptions(InstanceId, request, headers, runtime);
-}
-
 ActivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::activateZonesWithOptions(shared_ptr<string> InstanceId,
                                                                                            shared_ptr<ActivateZonesRequest> request,
                                                                                            shared_ptr<map<string, string>> headers,
@@ -73,10 +67,10 @@ ActivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::activateZonesW
   return ActivateZonesResponse(callApi(params, req, runtime));
 }
 
-AddConnectableClusterResponse Alibabacloud_Elasticsearch20170613::Client::addConnectableCluster(shared_ptr<string> InstanceId, shared_ptr<AddConnectableClusterRequest> request) {
+ActivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::activateZones(shared_ptr<string> InstanceId, shared_ptr<ActivateZonesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return addConnectableClusterWithOptions(InstanceId, request, headers, runtime);
+  return activateZonesWithOptions(InstanceId, request, headers, runtime);
 }
 
 AddConnectableClusterResponse Alibabacloud_Elasticsearch20170613::Client::addConnectableClusterWithOptions(shared_ptr<string> InstanceId,
@@ -107,10 +101,10 @@ AddConnectableClusterResponse Alibabacloud_Elasticsearch20170613::Client::addCon
   return AddConnectableClusterResponse(callApi(params, req, runtime));
 }
 
-AddSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::addSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<AddSnapshotRepoRequest> request) {
+AddConnectableClusterResponse Alibabacloud_Elasticsearch20170613::Client::addConnectableCluster(shared_ptr<string> InstanceId, shared_ptr<AddConnectableClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return addSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
+  return addConnectableClusterWithOptions(InstanceId, request, headers, runtime);
 }
 
 AddSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::addSnapshotRepoWithOptions(shared_ptr<string> InstanceId,
@@ -136,10 +130,10 @@ AddSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::addSnapshotR
   return AddSnapshotRepoResponse(callApi(params, req, runtime));
 }
 
-CancelDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelDeletionRequest> request) {
+AddSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::addSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<AddSnapshotRepoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelDeletionWithOptions(InstanceId, request, headers, runtime);
+  return addSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
 }
 
 CancelDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelDeletionWithOptions(shared_ptr<string> InstanceId,
@@ -169,10 +163,10 @@ CancelDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelDeletio
   return CancelDeletionResponse(callApi(params, req, runtime));
 }
 
-CancelLogstashDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelLogstashDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelLogstashDeletionRequest> request) {
+CancelDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelDeletionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelLogstashDeletionWithOptions(InstanceId, request, headers, runtime);
+  return cancelDeletionWithOptions(InstanceId, request, headers, runtime);
 }
 
 CancelLogstashDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelLogstashDeletionWithOptions(shared_ptr<string> InstanceId,
@@ -202,10 +196,10 @@ CancelLogstashDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cance
   return CancelLogstashDeletionResponse(callApi(params, req, runtime));
 }
 
-CancelTaskResponse Alibabacloud_Elasticsearch20170613::Client::cancelTask(shared_ptr<string> InstanceId, shared_ptr<CancelTaskRequest> request) {
+CancelLogstashDeletionResponse Alibabacloud_Elasticsearch20170613::Client::cancelLogstashDeletion(shared_ptr<string> InstanceId, shared_ptr<CancelLogstashDeletionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return cancelTaskWithOptions(InstanceId, request, headers, runtime);
+  return cancelLogstashDeletionWithOptions(InstanceId, request, headers, runtime);
 }
 
 CancelTaskResponse Alibabacloud_Elasticsearch20170613::Client::cancelTaskWithOptions(shared_ptr<string> InstanceId,
@@ -238,10 +232,10 @@ CancelTaskResponse Alibabacloud_Elasticsearch20170613::Client::cancelTaskWithOpt
   return CancelTaskResponse(callApi(params, req, runtime));
 }
 
-CapacityPlanResponse Alibabacloud_Elasticsearch20170613::Client::capacityPlan(shared_ptr<CapacityPlanRequest> request) {
+CancelTaskResponse Alibabacloud_Elasticsearch20170613::Client::cancelTask(shared_ptr<string> InstanceId, shared_ptr<CancelTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return capacityPlanWithOptions(request, headers, runtime);
+  return cancelTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 CapacityPlanResponse Alibabacloud_Elasticsearch20170613::Client::capacityPlanWithOptions(shared_ptr<CapacityPlanRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -277,10 +271,10 @@ CapacityPlanResponse Alibabacloud_Elasticsearch20170613::Client::capacityPlanWit
   return CapacityPlanResponse(callApi(params, req, runtime));
 }
 
-CloseDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::closeDiagnosis(shared_ptr<string> InstanceId, shared_ptr<CloseDiagnosisRequest> request) {
+CapacityPlanResponse Alibabacloud_Elasticsearch20170613::Client::capacityPlan(shared_ptr<CapacityPlanRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return closeDiagnosisWithOptions(InstanceId, request, headers, runtime);
+  return capacityPlanWithOptions(request, headers, runtime);
 }
 
 CloseDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::closeDiagnosisWithOptions(shared_ptr<string> InstanceId,
@@ -313,10 +307,10 @@ CloseDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::closeDiagnosi
   return CloseDiagnosisResponse(callApi(params, req, runtime));
 }
 
-CloseHttpsResponse Alibabacloud_Elasticsearch20170613::Client::closeHttps(shared_ptr<string> InstanceId, shared_ptr<CloseHttpsRequest> request) {
+CloseDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::closeDiagnosis(shared_ptr<string> InstanceId, shared_ptr<CloseDiagnosisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return closeHttpsWithOptions(InstanceId, request, headers, runtime);
+  return closeDiagnosisWithOptions(InstanceId, request, headers, runtime);
 }
 
 CloseHttpsResponse Alibabacloud_Elasticsearch20170613::Client::closeHttpsWithOptions(shared_ptr<string> InstanceId,
@@ -346,10 +340,10 @@ CloseHttpsResponse Alibabacloud_Elasticsearch20170613::Client::closeHttpsWithOpt
   return CloseHttpsResponse(callApi(params, req, runtime));
 }
 
-CloseManagedIndexResponse Alibabacloud_Elasticsearch20170613::Client::closeManagedIndex(shared_ptr<string> InstanceId, shared_ptr<string> Index, shared_ptr<CloseManagedIndexRequest> request) {
+CloseHttpsResponse Alibabacloud_Elasticsearch20170613::Client::closeHttps(shared_ptr<string> InstanceId, shared_ptr<CloseHttpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
+  return closeHttpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 CloseManagedIndexResponse Alibabacloud_Elasticsearch20170613::Client::closeManagedIndexWithOptions(shared_ptr<string> InstanceId,
@@ -380,10 +374,10 @@ CloseManagedIndexResponse Alibabacloud_Elasticsearch20170613::Client::closeManag
   return CloseManagedIndexResponse(callApi(params, req, runtime));
 }
 
-CreateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::createCollector(shared_ptr<CreateCollectorRequest> request) {
+CloseManagedIndexResponse Alibabacloud_Elasticsearch20170613::Client::closeManagedIndex(shared_ptr<string> InstanceId, shared_ptr<string> Index, shared_ptr<CloseManagedIndexRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createCollectorWithOptions(request, headers, runtime);
+  return closeManagedIndexWithOptions(InstanceId, Index, request, headers, runtime);
 }
 
 CreateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::createCollectorWithOptions(shared_ptr<CreateCollectorRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -411,10 +405,10 @@ CreateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::createCollec
   return CreateCollectorResponse(callApi(params, req, runtime));
 }
 
-CreateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::createComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<CreateComponentIndexRequest> request) {
+CreateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::createCollector(shared_ptr<CreateCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+  return createCollectorWithOptions(request, headers, runtime);
 }
 
 CreateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::createComponentIndexWithOptions(shared_ptr<string> InstanceId,
@@ -448,10 +442,10 @@ CreateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::createC
   return CreateComponentIndexResponse(callApi(params, req, runtime));
 }
 
-CreateDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::createDataStream(shared_ptr<string> InstanceId, shared_ptr<CreateDataStreamRequest> request) {
+CreateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::createComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<CreateComponentIndexRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createDataStreamWithOptions(InstanceId, request, headers, runtime);
+  return createComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
 }
 
 CreateDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::createDataStreamWithOptions(shared_ptr<string> InstanceId,
@@ -482,10 +476,10 @@ CreateDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::createDataS
   return CreateDataStreamResponse(callApi(params, req, runtime));
 }
 
-CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTasks(shared_ptr<string> InstanceId, shared_ptr<CreateDataTasksRequest> request) {
+CreateDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::createDataStream(shared_ptr<string> InstanceId, shared_ptr<CreateDataStreamRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createDataTasksWithOptions(InstanceId, request, headers, runtime);
+  return createDataStreamWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTasksWithOptions(shared_ptr<string> InstanceId,
@@ -500,7 +494,7 @@ CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTa
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Darabonba_Util::Client::toArray<vector<CreateDataTasksRequestBody>>(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateDataTasks"))},
@@ -516,10 +510,10 @@ CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTa
   return CreateDataTasksResponse(callApi(params, req, runtime));
 }
 
-CreateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::createILMPolicy(shared_ptr<string> InstanceId, shared_ptr<CreateILMPolicyRequest> request) {
+CreateDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::createDataTasks(shared_ptr<string> InstanceId, shared_ptr<CreateDataTasksRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createILMPolicyWithOptions(InstanceId, request, headers, runtime);
+  return createDataTasksWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::createILMPolicyWithOptions(shared_ptr<string> InstanceId,
@@ -550,10 +544,10 @@ CreateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::createILMPol
   return CreateILMPolicyResponse(callApi(params, req, runtime));
 }
 
-CreateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::createIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<CreateIndexTemplateRequest> request) {
+CreateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::createILMPolicy(shared_ptr<string> InstanceId, shared_ptr<CreateILMPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createIndexTemplateWithOptions(InstanceId, request, headers, runtime);
+  return createILMPolicyWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::createIndexTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -584,10 +578,10 @@ CreateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::createIn
   return CreateIndexTemplateResponse(callApi(params, req, runtime));
 }
 
-CreateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::createLogstash(shared_ptr<CreateLogstashRequest> request) {
+CreateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::createIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<CreateIndexTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createLogstashWithOptions(request, headers, runtime);
+  return createIndexTemplateWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::createLogstashWithOptions(shared_ptr<CreateLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -637,10 +631,10 @@ CreateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::createLogstas
   return CreateLogstashResponse(callApi(params, req, runtime));
 }
 
-CreatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::createPipelines(shared_ptr<string> InstanceId, shared_ptr<CreatePipelinesRequest> request) {
+CreateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::createLogstash(shared_ptr<CreateLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createPipelinesWithOptions(InstanceId, request, headers, runtime);
+  return createLogstashWithOptions(request, headers, runtime);
 }
 
 CreatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::createPipelinesWithOptions(shared_ptr<string> InstanceId,
@@ -674,10 +668,10 @@ CreatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::createPipeli
   return CreatePipelinesResponse(callApi(params, req, runtime));
 }
 
-CreateSnapshotResponse Alibabacloud_Elasticsearch20170613::Client::createSnapshot(shared_ptr<string> InstanceId, shared_ptr<CreateSnapshotRequest> request) {
+CreatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::createPipelines(shared_ptr<string> InstanceId, shared_ptr<CreatePipelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createSnapshotWithOptions(InstanceId, request, headers, runtime);
+  return createPipelinesWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateSnapshotResponse Alibabacloud_Elasticsearch20170613::Client::createSnapshotWithOptions(shared_ptr<string> InstanceId,
@@ -708,10 +702,10 @@ CreateSnapshotResponse Alibabacloud_Elasticsearch20170613::Client::createSnapsho
   return CreateSnapshotResponse(callApi(params, req, runtime));
 }
 
-CreateVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::createVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<CreateVpcEndpointRequest> request) {
+CreateSnapshotResponse Alibabacloud_Elasticsearch20170613::Client::createSnapshot(shared_ptr<string> InstanceId, shared_ptr<CreateSnapshotRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createVpcEndpointWithOptions(InstanceId, request, headers, runtime);
+  return createSnapshotWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::createVpcEndpointWithOptions(shared_ptr<string> InstanceId,
@@ -752,10 +746,10 @@ CreateVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::createVpcE
   return CreateVpcEndpointResponse(callApi(params, req, runtime));
 }
 
-DeactivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::deactivateZones(shared_ptr<string> InstanceId, shared_ptr<DeactivateZonesRequest> request) {
+CreateVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::createVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<CreateVpcEndpointRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deactivateZonesWithOptions(InstanceId, request, headers, runtime);
+  return createVpcEndpointWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeactivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::deactivateZonesWithOptions(shared_ptr<string> InstanceId,
@@ -786,10 +780,10 @@ DeactivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::deactivateZo
   return DeactivateZonesResponse(callApi(params, req, runtime));
 }
 
-DeleteCollectorResponse Alibabacloud_Elasticsearch20170613::Client::deleteCollector(shared_ptr<string> ResId, shared_ptr<DeleteCollectorRequest> request) {
+DeactivateZonesResponse Alibabacloud_Elasticsearch20170613::Client::deactivateZones(shared_ptr<string> InstanceId, shared_ptr<DeactivateZonesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteCollectorWithOptions(ResId, request, headers, runtime);
+  return deactivateZonesWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteCollectorResponse Alibabacloud_Elasticsearch20170613::Client::deleteCollectorWithOptions(shared_ptr<string> ResId,
@@ -819,10 +813,10 @@ DeleteCollectorResponse Alibabacloud_Elasticsearch20170613::Client::deleteCollec
   return DeleteCollectorResponse(callApi(params, req, runtime));
 }
 
-DeleteComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::deleteComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name) {
+DeleteCollectorResponse Alibabacloud_Elasticsearch20170613::Client::deleteCollector(shared_ptr<string> ResId, shared_ptr<DeleteCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
+  return deleteCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 DeleteComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::deleteComponentIndexWithOptions(shared_ptr<string> InstanceId,
@@ -846,10 +840,10 @@ DeleteComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::deleteC
   return DeleteComponentIndexResponse(callApi(params, req, runtime));
 }
 
-DeleteConnectedClusterResponse Alibabacloud_Elasticsearch20170613::Client::deleteConnectedCluster(shared_ptr<string> InstanceId, shared_ptr<DeleteConnectedClusterRequest> request) {
+DeleteComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::deleteComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteConnectedClusterWithOptions(InstanceId, request, headers, runtime);
+  return deleteComponentIndexWithOptions(InstanceId, name, headers, runtime);
 }
 
 DeleteConnectedClusterResponse Alibabacloud_Elasticsearch20170613::Client::deleteConnectedClusterWithOptions(shared_ptr<string> InstanceId,
@@ -882,10 +876,10 @@ DeleteConnectedClusterResponse Alibabacloud_Elasticsearch20170613::Client::delet
   return DeleteConnectedClusterResponse(callApi(params, req, runtime));
 }
 
-DeleteDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<DeleteDataStreamRequest> request) {
+DeleteConnectedClusterResponse Alibabacloud_Elasticsearch20170613::Client::deleteConnectedCluster(shared_ptr<string> InstanceId, shared_ptr<DeleteConnectedClusterRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
+  return deleteConnectedClusterWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataStreamWithOptions(shared_ptr<string> InstanceId,
@@ -916,10 +910,10 @@ DeleteDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataS
   return DeleteDataStreamResponse(callApi(params, req, runtime));
 }
 
-DeleteDataTaskResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataTask(shared_ptr<string> InstanceId, shared_ptr<DeleteDataTaskRequest> request) {
+DeleteDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<DeleteDataStreamRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteDataTaskWithOptions(InstanceId, request, headers, runtime);
+  return deleteDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
 }
 
 DeleteDataTaskResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataTaskWithOptions(shared_ptr<string> InstanceId,
@@ -952,10 +946,10 @@ DeleteDataTaskResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataTas
   return DeleteDataTaskResponse(callApi(params, req, runtime));
 }
 
-DeleteDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name) {
+DeleteDataTaskResponse Alibabacloud_Elasticsearch20170613::Client::deleteDataTask(shared_ptr<string> InstanceId, shared_ptr<DeleteDataTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
+  return deleteDataTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteDeprecatedTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -979,10 +973,10 @@ DeleteDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::del
   return DeleteDeprecatedTemplateResponse(callApi(params, req, runtime));
 }
 
-DeleteILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::deleteILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName) {
+DeleteDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
+  return deleteDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
 }
 
 DeleteILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::deleteILMPolicyWithOptions(shared_ptr<string> InstanceId,
@@ -1006,10 +1000,10 @@ DeleteILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::deleteILMPol
   return DeleteILMPolicyResponse(callApi(params, req, runtime));
 }
 
-DeleteIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate) {
+DeleteILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::deleteILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
+  return deleteILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
 }
 
 DeleteIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteIndexTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -1033,10 +1027,10 @@ DeleteIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteIn
   return DeleteIndexTemplateResponse(callApi(params, req, runtime));
 }
 
-DeleteInstanceResponse Alibabacloud_Elasticsearch20170613::Client::deleteInstance(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceRequest> request) {
+DeleteIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::deleteIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteInstanceWithOptions(InstanceId, request, headers, runtime);
+  return deleteIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
 }
 
 DeleteInstanceResponse Alibabacloud_Elasticsearch20170613::Client::deleteInstanceWithOptions(shared_ptr<string> InstanceId,
@@ -1069,10 +1063,10 @@ DeleteInstanceResponse Alibabacloud_Elasticsearch20170613::Client::deleteInstanc
   return DeleteInstanceResponse(callApi(params, req, runtime));
 }
 
-DeleteLogstashResponse Alibabacloud_Elasticsearch20170613::Client::deleteLogstash(shared_ptr<string> InstanceId, shared_ptr<DeleteLogstashRequest> request) {
+DeleteInstanceResponse Alibabacloud_Elasticsearch20170613::Client::deleteInstance(shared_ptr<string> InstanceId, shared_ptr<DeleteInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteLogstashWithOptions(InstanceId, request, headers, runtime);
+  return deleteInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteLogstashResponse Alibabacloud_Elasticsearch20170613::Client::deleteLogstashWithOptions(shared_ptr<string> InstanceId,
@@ -1105,10 +1099,10 @@ DeleteLogstashResponse Alibabacloud_Elasticsearch20170613::Client::deleteLogstas
   return DeleteLogstashResponse(callApi(params, req, runtime));
 }
 
-DeletePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::deletePipelines(shared_ptr<string> InstanceId, shared_ptr<DeletePipelinesRequest> request) {
+DeleteLogstashResponse Alibabacloud_Elasticsearch20170613::Client::deleteLogstash(shared_ptr<string> InstanceId, shared_ptr<DeleteLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deletePipelinesWithOptions(InstanceId, request, headers, runtime);
+  return deleteLogstashWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeletePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::deletePipelinesWithOptions(shared_ptr<string> InstanceId,
@@ -1141,10 +1135,10 @@ DeletePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::deletePipeli
   return DeletePipelinesResponse(callApi(params, req, runtime));
 }
 
-DeleteSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::deleteSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<DeleteSnapshotRepoRequest> request) {
+DeletePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::deletePipelines(shared_ptr<string> InstanceId, shared_ptr<DeletePipelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
+  return deletePipelinesWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::deleteSnapshotRepoWithOptions(shared_ptr<string> InstanceId,
@@ -1177,10 +1171,10 @@ DeleteSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::deleteSna
   return DeleteSnapshotRepoResponse(callApi(params, req, runtime));
 }
 
-DeleteVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::deleteVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<string> EndpointId, shared_ptr<DeleteVpcEndpointRequest> request) {
+DeleteSnapshotRepoResponse Alibabacloud_Elasticsearch20170613::Client::deleteSnapshotRepo(shared_ptr<string> InstanceId, shared_ptr<DeleteSnapshotRepoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteVpcEndpointWithOptions(InstanceId, EndpointId, request, headers, runtime);
+  return deleteSnapshotRepoWithOptions(InstanceId, request, headers, runtime);
 }
 
 DeleteVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::deleteVpcEndpointWithOptions(shared_ptr<string> InstanceId,
@@ -1211,10 +1205,10 @@ DeleteVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::deleteVpcE
   return DeleteVpcEndpointResponse(callApi(params, req, runtime));
 }
 
-DescribeAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::describeAckOperator(shared_ptr<string> ClusterId) {
+DeleteVpcEndpointResponse Alibabacloud_Elasticsearch20170613::Client::deleteVpcEndpoint(shared_ptr<string> InstanceId, shared_ptr<string> EndpointId, shared_ptr<DeleteVpcEndpointRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeAckOperatorWithOptions(ClusterId, headers, runtime);
+  return deleteVpcEndpointWithOptions(InstanceId, EndpointId, request, headers, runtime);
 }
 
 DescribeAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::describeAckOperatorWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1235,10 +1229,10 @@ DescribeAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::describe
   return DescribeAckOperatorResponse(callApi(params, req, runtime));
 }
 
-DescribeApmResponse Alibabacloud_Elasticsearch20170613::Client::describeApm(shared_ptr<string> instanceId) {
+DescribeAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::describeAckOperator(shared_ptr<string> ClusterId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeApmWithOptions(instanceId, headers, runtime);
+  return describeAckOperatorWithOptions(ClusterId, headers, runtime);
 }
 
 DescribeApmResponse Alibabacloud_Elasticsearch20170613::Client::describeApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1259,10 +1253,10 @@ DescribeApmResponse Alibabacloud_Elasticsearch20170613::Client::describeApmWithO
   return DescribeApmResponse(callApi(params, req, runtime));
 }
 
-DescribeCollectorResponse Alibabacloud_Elasticsearch20170613::Client::describeCollector(shared_ptr<string> ResId) {
+DescribeApmResponse Alibabacloud_Elasticsearch20170613::Client::describeApm(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeCollectorWithOptions(ResId, headers, runtime);
+  return describeApmWithOptions(instanceId, headers, runtime);
 }
 
 DescribeCollectorResponse Alibabacloud_Elasticsearch20170613::Client::describeCollectorWithOptions(shared_ptr<string> ResId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1283,10 +1277,10 @@ DescribeCollectorResponse Alibabacloud_Elasticsearch20170613::Client::describeCo
   return DescribeCollectorResponse(callApi(params, req, runtime));
 }
 
-DescribeComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::describeComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name) {
+DescribeCollectorResponse Alibabacloud_Elasticsearch20170613::Client::describeCollector(shared_ptr<string> ResId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
+  return describeCollectorWithOptions(ResId, headers, runtime);
 }
 
 DescribeComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::describeComponentIndexWithOptions(shared_ptr<string> InstanceId,
@@ -1310,10 +1304,10 @@ DescribeComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::descr
   return DescribeComponentIndexResponse(callApi(params, req, runtime));
 }
 
-DescribeConnectableClustersResponse Alibabacloud_Elasticsearch20170613::Client::describeConnectableClusters(shared_ptr<string> InstanceId, shared_ptr<DescribeConnectableClustersRequest> request) {
+DescribeComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::describeComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeConnectableClustersWithOptions(InstanceId, request, headers, runtime);
+  return describeComponentIndexWithOptions(InstanceId, name, headers, runtime);
 }
 
 DescribeConnectableClustersResponse Alibabacloud_Elasticsearch20170613::Client::describeConnectableClustersWithOptions(shared_ptr<string> InstanceId,
@@ -1343,10 +1337,10 @@ DescribeConnectableClustersResponse Alibabacloud_Elasticsearch20170613::Client::
   return DescribeConnectableClustersResponse(callApi(params, req, runtime));
 }
 
-DescribeDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name) {
+DescribeConnectableClustersResponse Alibabacloud_Elasticsearch20170613::Client::describeConnectableClusters(shared_ptr<string> InstanceId, shared_ptr<DescribeConnectableClustersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
+  return describeConnectableClustersWithOptions(InstanceId, request, headers, runtime);
 }
 
 DescribeDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeDeprecatedTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -1370,10 +1364,10 @@ DescribeDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::d
   return DescribeDeprecatedTemplateResponse(callApi(params, req, runtime));
 }
 
-DescribeDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<string> ReportId, shared_ptr<DescribeDiagnoseReportRequest> request) {
+DescribeDeprecatedTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeDeprecatedTemplate(shared_ptr<string> InstanceId, shared_ptr<string> name) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeDiagnoseReportWithOptions(InstanceId, ReportId, request, headers, runtime);
+  return describeDeprecatedTemplateWithOptions(InstanceId, name, headers, runtime);
 }
 
 DescribeDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnoseReportWithOptions(shared_ptr<string> InstanceId,
@@ -1404,10 +1398,10 @@ DescribeDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::descr
   return DescribeDiagnoseReportResponse(callApi(params, req, runtime));
 }
 
-DescribeDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<DescribeDiagnosisSettingsRequest> request) {
+DescribeDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<string> ReportId, shared_ptr<DescribeDiagnoseReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
+  return describeDiagnoseReportWithOptions(InstanceId, ReportId, request, headers, runtime);
 }
 
 DescribeDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnosisSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -1437,10 +1431,10 @@ DescribeDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::de
   return DescribeDiagnosisSettingsResponse(callApi(params, req, runtime));
 }
 
-DescribeDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDynamicSettings(shared_ptr<string> InstanceId) {
+DescribeDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<DescribeDiagnosisSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeDynamicSettingsWithOptions(InstanceId, headers, runtime);
+  return describeDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 DescribeDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDynamicSettingsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1461,10 +1455,10 @@ DescribeDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::desc
   return DescribeDynamicSettingsResponse(callApi(params, req, runtime));
 }
 
-DescribeElasticsearchHealthResponse Alibabacloud_Elasticsearch20170613::Client::describeElasticsearchHealth(shared_ptr<string> InstanceId) {
+DescribeDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeDynamicSettings(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
+  return describeDynamicSettingsWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeElasticsearchHealthResponse Alibabacloud_Elasticsearch20170613::Client::describeElasticsearchHealthWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1485,10 +1479,10 @@ DescribeElasticsearchHealthResponse Alibabacloud_Elasticsearch20170613::Client::
   return DescribeElasticsearchHealthResponse(callApi(params, req, runtime));
 }
 
-DescribeILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::describeILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName) {
+DescribeElasticsearchHealthResponse Alibabacloud_Elasticsearch20170613::Client::describeElasticsearchHealth(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
+  return describeElasticsearchHealthWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::describeILMPolicyWithOptions(shared_ptr<string> InstanceId,
@@ -1512,10 +1506,10 @@ DescribeILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::describeIL
   return DescribeILMPolicyResponse(callApi(params, req, runtime));
 }
 
-DescribeIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate) {
+DescribeILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::describeILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
+  return describeILMPolicyWithOptions(InstanceId, PolicyName, headers, runtime);
 }
 
 DescribeIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeIndexTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -1539,10 +1533,10 @@ DescribeIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::descri
   return DescribeIndexTemplateResponse(callApi(params, req, runtime));
 }
 
-DescribeInstanceResponse Alibabacloud_Elasticsearch20170613::Client::describeInstance(shared_ptr<string> InstanceId) {
+DescribeIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::describeIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeInstanceWithOptions(InstanceId, headers, runtime);
+  return describeIndexTemplateWithOptions(InstanceId, IndexTemplate, headers, runtime);
 }
 
 DescribeInstanceResponse Alibabacloud_Elasticsearch20170613::Client::describeInstanceWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1563,10 +1557,10 @@ DescribeInstanceResponse Alibabacloud_Elasticsearch20170613::Client::describeIns
   return DescribeInstanceResponse(callApi(params, req, runtime));
 }
 
-DescribeKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeKibanaSettings(shared_ptr<string> InstanceId) {
+DescribeInstanceResponse Alibabacloud_Elasticsearch20170613::Client::describeInstance(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
+  return describeInstanceWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeKibanaSettingsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1587,10 +1581,10 @@ DescribeKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::descr
   return DescribeKibanaSettingsResponse(callApi(params, req, runtime));
 }
 
-DescribeLogstashResponse Alibabacloud_Elasticsearch20170613::Client::describeLogstash(shared_ptr<string> InstanceId) {
+DescribeKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::describeKibanaSettings(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeLogstashWithOptions(InstanceId, headers, runtime);
+  return describeKibanaSettingsWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeLogstashResponse Alibabacloud_Elasticsearch20170613::Client::describeLogstashWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1611,10 +1605,10 @@ DescribeLogstashResponse Alibabacloud_Elasticsearch20170613::Client::describeLog
   return DescribeLogstashResponse(callApi(params, req, runtime));
 }
 
-DescribePipelineResponse Alibabacloud_Elasticsearch20170613::Client::describePipeline(shared_ptr<string> InstanceId, shared_ptr<string> PipelineId) {
+DescribeLogstashResponse Alibabacloud_Elasticsearch20170613::Client::describeLogstash(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
+  return describeLogstashWithOptions(InstanceId, headers, runtime);
 }
 
 DescribePipelineResponse Alibabacloud_Elasticsearch20170613::Client::describePipelineWithOptions(shared_ptr<string> InstanceId,
@@ -1638,10 +1632,10 @@ DescribePipelineResponse Alibabacloud_Elasticsearch20170613::Client::describePip
   return DescribePipelineResponse(callApi(params, req, runtime));
 }
 
-DescribePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::describePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<DescribePipelineManagementConfigRequest> request) {
+DescribePipelineResponse Alibabacloud_Elasticsearch20170613::Client::describePipeline(shared_ptr<string> InstanceId, shared_ptr<string> PipelineId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
+  return describePipelineWithOptions(InstanceId, PipelineId, headers, runtime);
 }
 
 DescribePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::describePipelineManagementConfigWithOptions(shared_ptr<string> InstanceId,
@@ -1671,10 +1665,10 @@ DescribePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Cli
   return DescribePipelineManagementConfigResponse(callApi(params, req, runtime));
 }
 
-DescribeRegionsResponse Alibabacloud_Elasticsearch20170613::Client::describeRegions() {
+DescribePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::describePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<DescribePipelineManagementConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeRegionsWithOptions(headers, runtime);
+  return describePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
 }
 
 DescribeRegionsResponse Alibabacloud_Elasticsearch20170613::Client::describeRegionsWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1695,10 +1689,10 @@ DescribeRegionsResponse Alibabacloud_Elasticsearch20170613::Client::describeRegi
   return DescribeRegionsResponse(callApi(params, req, runtime));
 }
 
-DescribeSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::describeSnapshotSetting(shared_ptr<string> InstanceId) {
+DescribeRegionsResponse Alibabacloud_Elasticsearch20170613::Client::describeRegions() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
+  return describeRegionsWithOptions(headers, runtime);
 }
 
 DescribeSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::describeSnapshotSettingWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1719,10 +1713,10 @@ DescribeSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::desc
   return DescribeSnapshotSettingResponse(callApi(params, req, runtime));
 }
 
-DescribeTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::describeTemplates(shared_ptr<string> InstanceId) {
+DescribeSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::describeSnapshotSetting(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeTemplatesWithOptions(InstanceId, headers, runtime);
+  return describeSnapshotSettingWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::describeTemplatesWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1743,10 +1737,10 @@ DescribeTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::describeTe
   return DescribeTemplatesResponse(callApi(params, req, runtime));
 }
 
-DescribeXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::describeXpackMonitorConfig(shared_ptr<string> InstanceId) {
+DescribeTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::describeTemplates(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
+  return describeTemplatesWithOptions(InstanceId, headers, runtime);
 }
 
 DescribeXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::describeXpackMonitorConfigWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1767,10 +1761,10 @@ DescribeXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::d
   return DescribeXpackMonitorConfigResponse(callApi(params, req, runtime));
 }
 
-DiagnoseInstanceResponse Alibabacloud_Elasticsearch20170613::Client::diagnoseInstance(shared_ptr<string> InstanceId, shared_ptr<DiagnoseInstanceRequest> request) {
+DescribeXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::describeXpackMonitorConfig(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
+  return describeXpackMonitorConfigWithOptions(InstanceId, headers, runtime);
 }
 
 DiagnoseInstanceResponse Alibabacloud_Elasticsearch20170613::Client::diagnoseInstanceWithOptions(shared_ptr<string> InstanceId,
@@ -1814,10 +1808,10 @@ DiagnoseInstanceResponse Alibabacloud_Elasticsearch20170613::Client::diagnoseIns
   return DiagnoseInstanceResponse(callApi(params, req, runtime));
 }
 
-EstimatedLogstashRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedLogstashRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedLogstashRestartTimeRequest> request) {
+DiagnoseInstanceResponse Alibabacloud_Elasticsearch20170613::Client::diagnoseInstance(shared_ptr<string> InstanceId, shared_ptr<DiagnoseInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return estimatedLogstashRestartTimeWithOptions(InstanceId, request, headers, runtime);
+  return diagnoseInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 EstimatedLogstashRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedLogstashRestartTimeWithOptions(shared_ptr<string> InstanceId,
@@ -1848,10 +1842,10 @@ EstimatedLogstashRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client:
   return EstimatedLogstashRestartTimeResponse(callApi(params, req, runtime));
 }
 
-EstimatedRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedRestartTimeRequest> request) {
+EstimatedLogstashRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedLogstashRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedLogstashRestartTimeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return estimatedRestartTimeWithOptions(InstanceId, request, headers, runtime);
+  return estimatedLogstashRestartTimeWithOptions(InstanceId, request, headers, runtime);
 }
 
 EstimatedRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedRestartTimeWithOptions(shared_ptr<string> InstanceId,
@@ -1882,10 +1876,10 @@ EstimatedRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimat
   return EstimatedRestartTimeResponse(callApi(params, req, runtime));
 }
 
-GetClusterDataInformationResponse Alibabacloud_Elasticsearch20170613::Client::getClusterDataInformation(shared_ptr<GetClusterDataInformationRequest> request) {
+EstimatedRestartTimeResponse Alibabacloud_Elasticsearch20170613::Client::estimatedRestartTime(shared_ptr<string> InstanceId, shared_ptr<EstimatedRestartTimeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getClusterDataInformationWithOptions(request, headers, runtime);
+  return estimatedRestartTimeWithOptions(InstanceId, request, headers, runtime);
 }
 
 GetClusterDataInformationResponse Alibabacloud_Elasticsearch20170613::Client::getClusterDataInformationWithOptions(shared_ptr<GetClusterDataInformationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1908,10 +1902,10 @@ GetClusterDataInformationResponse Alibabacloud_Elasticsearch20170613::Client::ge
   return GetClusterDataInformationResponse(callApi(params, req, runtime));
 }
 
-GetElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::getElastictask(shared_ptr<string> InstanceId) {
+GetClusterDataInformationResponse Alibabacloud_Elasticsearch20170613::Client::getClusterDataInformation(shared_ptr<GetClusterDataInformationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getElastictaskWithOptions(InstanceId, headers, runtime);
+  return getClusterDataInformationWithOptions(request, headers, runtime);
 }
 
 GetElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::getElastictaskWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1932,10 +1926,10 @@ GetElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::getElastictas
   return GetElastictaskResponse(callApi(params, req, runtime));
 }
 
-GetEmonGrafanaAlertsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaAlerts(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaAlertsRequest> request) {
+GetElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::getElastictask(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEmonGrafanaAlertsWithOptions(ProjectId, request, headers, runtime);
+  return getElastictaskWithOptions(InstanceId, headers, runtime);
 }
 
 GetEmonGrafanaAlertsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaAlertsWithOptions(shared_ptr<string> ProjectId,
@@ -1961,10 +1955,10 @@ GetEmonGrafanaAlertsResponse Alibabacloud_Elasticsearch20170613::Client::getEmon
   return GetEmonGrafanaAlertsResponse(callApi(params, req, runtime));
 }
 
-GetEmonGrafanaDashboardsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaDashboards(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaDashboardsRequest> request) {
+GetEmonGrafanaAlertsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaAlerts(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaAlertsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEmonGrafanaDashboardsWithOptions(ProjectId, request, headers, runtime);
+  return getEmonGrafanaAlertsWithOptions(ProjectId, request, headers, runtime);
 }
 
 GetEmonGrafanaDashboardsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaDashboardsWithOptions(shared_ptr<string> ProjectId,
@@ -1990,10 +1984,10 @@ GetEmonGrafanaDashboardsResponse Alibabacloud_Elasticsearch20170613::Client::get
   return GetEmonGrafanaDashboardsResponse(callApi(params, req, runtime));
 }
 
-GetEmonMonitorDataResponse Alibabacloud_Elasticsearch20170613::Client::getEmonMonitorData(shared_ptr<string> ProjectId, shared_ptr<GetEmonMonitorDataRequest> request) {
+GetEmonGrafanaDashboardsResponse Alibabacloud_Elasticsearch20170613::Client::getEmonGrafanaDashboards(shared_ptr<string> ProjectId, shared_ptr<GetEmonGrafanaDashboardsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getEmonMonitorDataWithOptions(ProjectId, request, headers, runtime);
+  return getEmonGrafanaDashboardsWithOptions(ProjectId, request, headers, runtime);
 }
 
 GetEmonMonitorDataResponse Alibabacloud_Elasticsearch20170613::Client::getEmonMonitorDataWithOptions(shared_ptr<string> ProjectId,
@@ -2019,10 +2013,10 @@ GetEmonMonitorDataResponse Alibabacloud_Elasticsearch20170613::Client::getEmonMo
   return GetEmonMonitorDataResponse(callApi(params, req, runtime));
 }
 
-GetOpenStoreUsageResponse Alibabacloud_Elasticsearch20170613::Client::getOpenStoreUsage(shared_ptr<string> InstanceId) {
+GetEmonMonitorDataResponse Alibabacloud_Elasticsearch20170613::Client::getEmonMonitorData(shared_ptr<string> ProjectId, shared_ptr<GetEmonMonitorDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
+  return getEmonMonitorDataWithOptions(ProjectId, request, headers, runtime);
 }
 
 GetOpenStoreUsageResponse Alibabacloud_Elasticsearch20170613::Client::getOpenStoreUsageWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2043,10 +2037,10 @@ GetOpenStoreUsageResponse Alibabacloud_Elasticsearch20170613::Client::getOpenSto
   return GetOpenStoreUsageResponse(callApi(params, req, runtime));
 }
 
-GetRegionConfigurationResponse Alibabacloud_Elasticsearch20170613::Client::getRegionConfiguration(shared_ptr<GetRegionConfigurationRequest> request) {
+GetOpenStoreUsageResponse Alibabacloud_Elasticsearch20170613::Client::getOpenStoreUsage(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getRegionConfigurationWithOptions(request, headers, runtime);
+  return getOpenStoreUsageWithOptions(InstanceId, headers, runtime);
 }
 
 GetRegionConfigurationResponse Alibabacloud_Elasticsearch20170613::Client::getRegionConfigurationWithOptions(shared_ptr<GetRegionConfigurationRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2073,10 +2067,10 @@ GetRegionConfigurationResponse Alibabacloud_Elasticsearch20170613::Client::getRe
   return GetRegionConfigurationResponse(callApi(params, req, runtime));
 }
 
-GetSuggestShrinkableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getSuggestShrinkableNodes(shared_ptr<string> InstanceId, shared_ptr<GetSuggestShrinkableNodesRequest> request) {
+GetRegionConfigurationResponse Alibabacloud_Elasticsearch20170613::Client::getRegionConfiguration(shared_ptr<GetRegionConfigurationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSuggestShrinkableNodesWithOptions(InstanceId, request, headers, runtime);
+  return getRegionConfigurationWithOptions(request, headers, runtime);
 }
 
 GetSuggestShrinkableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getSuggestShrinkableNodesWithOptions(shared_ptr<string> InstanceId,
@@ -2112,10 +2106,10 @@ GetSuggestShrinkableNodesResponse Alibabacloud_Elasticsearch20170613::Client::ge
   return GetSuggestShrinkableNodesResponse(callApi(params, req, runtime));
 }
 
-GetTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<GetTransferableNodesRequest> request) {
+GetSuggestShrinkableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getSuggestShrinkableNodes(shared_ptr<string> InstanceId, shared_ptr<GetSuggestShrinkableNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTransferableNodesWithOptions(InstanceId, request, headers, runtime);
+  return getSuggestShrinkableNodesWithOptions(InstanceId, request, headers, runtime);
 }
 
 GetTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getTransferableNodesWithOptions(shared_ptr<string> InstanceId,
@@ -2148,10 +2142,10 @@ GetTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getTran
   return GetTransferableNodesResponse(callApi(params, req, runtime));
 }
 
-InitializeOperationRoleResponse Alibabacloud_Elasticsearch20170613::Client::initializeOperationRole(shared_ptr<InitializeOperationRoleRequest> request) {
+GetTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::getTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<GetTransferableNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return initializeOperationRoleWithOptions(request, headers, runtime);
+  return getTransferableNodesWithOptions(InstanceId, request, headers, runtime);
 }
 
 InitializeOperationRoleResponse Alibabacloud_Elasticsearch20170613::Client::initializeOperationRoleWithOptions(shared_ptr<InitializeOperationRoleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2179,10 +2173,10 @@ InitializeOperationRoleResponse Alibabacloud_Elasticsearch20170613::Client::init
   return InitializeOperationRoleResponse(callApi(params, req, runtime));
 }
 
-InstallAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::installAckOperator(shared_ptr<string> ClusterId, shared_ptr<InstallAckOperatorRequest> request) {
+InitializeOperationRoleResponse Alibabacloud_Elasticsearch20170613::Client::initializeOperationRole(shared_ptr<InitializeOperationRoleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return installAckOperatorWithOptions(ClusterId, request, headers, runtime);
+  return initializeOperationRoleWithOptions(request, headers, runtime);
 }
 
 InstallAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::installAckOperatorWithOptions(shared_ptr<string> ClusterId,
@@ -2213,10 +2207,10 @@ InstallAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::installAc
   return InstallAckOperatorResponse(callApi(params, req, runtime));
 }
 
-InstallKibanaSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installKibanaSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallKibanaSystemPluginRequest> request) {
+InstallAckOperatorResponse Alibabacloud_Elasticsearch20170613::Client::installAckOperator(shared_ptr<string> ClusterId, shared_ptr<InstallAckOperatorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return installKibanaSystemPluginWithOptions(InstanceId, request, headers, runtime);
+  return installAckOperatorWithOptions(ClusterId, request, headers, runtime);
 }
 
 InstallKibanaSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installKibanaSystemPluginWithOptions(shared_ptr<string> InstanceId,
@@ -2247,10 +2241,10 @@ InstallKibanaSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::in
   return InstallKibanaSystemPluginResponse(callApi(params, req, runtime));
 }
 
-InstallLogstashSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installLogstashSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallLogstashSystemPluginRequest> request) {
+InstallKibanaSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installKibanaSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallKibanaSystemPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return installLogstashSystemPluginWithOptions(InstanceId, request, headers, runtime);
+  return installKibanaSystemPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 InstallLogstashSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installLogstashSystemPluginWithOptions(shared_ptr<string> InstanceId,
@@ -2281,10 +2275,10 @@ InstallLogstashSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::
   return InstallLogstashSystemPluginResponse(callApi(params, req, runtime));
 }
 
-InstallSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallSystemPluginRequest> request) {
+InstallLogstashSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installLogstashSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallLogstashSystemPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return installSystemPluginWithOptions(InstanceId, request, headers, runtime);
+  return installLogstashSystemPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 InstallSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installSystemPluginWithOptions(shared_ptr<string> InstanceId,
@@ -2315,10 +2309,10 @@ InstallSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installS
   return InstallSystemPluginResponse(callApi(params, req, runtime));
 }
 
-InstallUserPluginsResponse Alibabacloud_Elasticsearch20170613::Client::installUserPlugins(shared_ptr<string> InstanceId, shared_ptr<InstallUserPluginsRequest> request) {
+InstallSystemPluginResponse Alibabacloud_Elasticsearch20170613::Client::installSystemPlugin(shared_ptr<string> InstanceId, shared_ptr<InstallSystemPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return installUserPluginsWithOptions(InstanceId, request, headers, runtime);
+  return installSystemPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 InstallUserPluginsResponse Alibabacloud_Elasticsearch20170613::Client::installUserPluginsWithOptions(shared_ptr<string> InstanceId,
@@ -2344,10 +2338,10 @@ InstallUserPluginsResponse Alibabacloud_Elasticsearch20170613::Client::installUs
   return InstallUserPluginsResponse(callApi(params, req, runtime));
 }
 
-InterruptElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<InterruptElasticsearchTaskRequest> request) {
+InstallUserPluginsResponse Alibabacloud_Elasticsearch20170613::Client::installUserPlugins(shared_ptr<string> InstanceId, shared_ptr<InstallUserPluginsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return interruptElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
+  return installUserPluginsWithOptions(InstanceId, request, headers, runtime);
 }
 
 InterruptElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptElasticsearchTaskWithOptions(shared_ptr<string> InstanceId,
@@ -2377,10 +2371,10 @@ InterruptElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::i
   return InterruptElasticsearchTaskResponse(callApi(params, req, runtime));
 }
 
-InterruptLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptLogstashTask(shared_ptr<string> InstanceId, shared_ptr<InterruptLogstashTaskRequest> request) {
+InterruptElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<InterruptElasticsearchTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return interruptLogstashTaskWithOptions(InstanceId, request, headers, runtime);
+  return interruptElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 InterruptLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptLogstashTaskWithOptions(shared_ptr<string> InstanceId,
@@ -2410,10 +2404,10 @@ InterruptLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::interr
   return InterruptLogstashTaskResponse(callApi(params, req, runtime));
 }
 
-ListAckClustersResponse Alibabacloud_Elasticsearch20170613::Client::listAckClusters(shared_ptr<ListAckClustersRequest> request) {
+InterruptLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::interruptLogstashTask(shared_ptr<string> InstanceId, shared_ptr<InterruptLogstashTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAckClustersWithOptions(request, headers, runtime);
+  return interruptLogstashTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListAckClustersResponse Alibabacloud_Elasticsearch20170613::Client::listAckClustersWithOptions(shared_ptr<ListAckClustersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2446,10 +2440,10 @@ ListAckClustersResponse Alibabacloud_Elasticsearch20170613::Client::listAckClust
   return ListAckClustersResponse(callApi(params, req, runtime));
 }
 
-ListAckNamespacesResponse Alibabacloud_Elasticsearch20170613::Client::listAckNamespaces(shared_ptr<string> ClusterId, shared_ptr<ListAckNamespacesRequest> request) {
+ListAckClustersResponse Alibabacloud_Elasticsearch20170613::Client::listAckClusters(shared_ptr<ListAckClustersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAckNamespacesWithOptions(ClusterId, request, headers, runtime);
+  return listAckClustersWithOptions(request, headers, runtime);
 }
 
 ListAckNamespacesResponse Alibabacloud_Elasticsearch20170613::Client::listAckNamespacesWithOptions(shared_ptr<string> ClusterId,
@@ -2482,10 +2476,10 @@ ListAckNamespacesResponse Alibabacloud_Elasticsearch20170613::Client::listAckNam
   return ListAckNamespacesResponse(callApi(params, req, runtime));
 }
 
-ListActionRecordsResponse Alibabacloud_Elasticsearch20170613::Client::listActionRecords(shared_ptr<string> InstanceId, shared_ptr<ListActionRecordsRequest> request) {
+ListAckNamespacesResponse Alibabacloud_Elasticsearch20170613::Client::listAckNamespaces(shared_ptr<string> ClusterId, shared_ptr<ListAckNamespacesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listActionRecordsWithOptions(InstanceId, request, headers, runtime);
+  return listAckNamespacesWithOptions(ClusterId, request, headers, runtime);
 }
 
 ListActionRecordsResponse Alibabacloud_Elasticsearch20170613::Client::listActionRecordsWithOptions(shared_ptr<string> InstanceId,
@@ -2536,10 +2530,10 @@ ListActionRecordsResponse Alibabacloud_Elasticsearch20170613::Client::listAction
   return ListActionRecordsResponse(callApi(params, req, runtime));
 }
 
-ListAllNodeResponse Alibabacloud_Elasticsearch20170613::Client::listAllNode(shared_ptr<string> InstanceId, shared_ptr<ListAllNodeRequest> request) {
+ListActionRecordsResponse Alibabacloud_Elasticsearch20170613::Client::listActionRecords(shared_ptr<string> InstanceId, shared_ptr<ListActionRecordsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAllNodeWithOptions(InstanceId, request, headers, runtime);
+  return listActionRecordsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListAllNodeResponse Alibabacloud_Elasticsearch20170613::Client::listAllNodeWithOptions(shared_ptr<string> InstanceId,
@@ -2569,10 +2563,10 @@ ListAllNodeResponse Alibabacloud_Elasticsearch20170613::Client::listAllNodeWithO
   return ListAllNodeResponse(callApi(params, req, runtime));
 }
 
-ListAlternativeSnapshotReposResponse Alibabacloud_Elasticsearch20170613::Client::listAlternativeSnapshotRepos(shared_ptr<string> InstanceId, shared_ptr<ListAlternativeSnapshotReposRequest> request) {
+ListAllNodeResponse Alibabacloud_Elasticsearch20170613::Client::listAllNode(shared_ptr<string> InstanceId, shared_ptr<ListAllNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
+  return listAllNodeWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListAlternativeSnapshotReposResponse Alibabacloud_Elasticsearch20170613::Client::listAlternativeSnapshotReposWithOptions(shared_ptr<string> InstanceId,
@@ -2602,10 +2596,10 @@ ListAlternativeSnapshotReposResponse Alibabacloud_Elasticsearch20170613::Client:
   return ListAlternativeSnapshotReposResponse(callApi(params, req, runtime));
 }
 
-ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApm(shared_ptr<ListApmRequest> request) {
+ListAlternativeSnapshotReposResponse Alibabacloud_Elasticsearch20170613::Client::listAlternativeSnapshotRepos(shared_ptr<string> InstanceId, shared_ptr<ListAlternativeSnapshotReposRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listApmWithOptions(request, headers, runtime);
+  return listAlternativeSnapshotReposWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApmWithOptions(shared_ptr<ListApmRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2644,10 +2638,10 @@ ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApmWithOptions(s
   return ListApmResponse(callApi(params, req, runtime));
 }
 
-ListAvailableEsInstanceIdsResponse Alibabacloud_Elasticsearch20170613::Client::listAvailableEsInstanceIds(shared_ptr<string> InstanceId) {
+ListApmResponse Alibabacloud_Elasticsearch20170613::Client::listApm(shared_ptr<ListApmRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
+  return listApmWithOptions(request, headers, runtime);
 }
 
 ListAvailableEsInstanceIdsResponse Alibabacloud_Elasticsearch20170613::Client::listAvailableEsInstanceIdsWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2668,10 +2662,10 @@ ListAvailableEsInstanceIdsResponse Alibabacloud_Elasticsearch20170613::Client::l
   return ListAvailableEsInstanceIdsResponse(callApi(params, req, runtime));
 }
 
-ListCollectorsResponse Alibabacloud_Elasticsearch20170613::Client::listCollectors(shared_ptr<ListCollectorsRequest> request) {
+ListAvailableEsInstanceIdsResponse Alibabacloud_Elasticsearch20170613::Client::listAvailableEsInstanceIds(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listCollectorsWithOptions(request, headers, runtime);
+  return listAvailableEsInstanceIdsWithOptions(InstanceId, headers, runtime);
 }
 
 ListCollectorsResponse Alibabacloud_Elasticsearch20170613::Client::listCollectorsWithOptions(shared_ptr<ListCollectorsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2713,10 +2707,10 @@ ListCollectorsResponse Alibabacloud_Elasticsearch20170613::Client::listCollector
   return ListCollectorsResponse(callApi(params, req, runtime));
 }
 
-ListComponentIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listComponentIndices(shared_ptr<string> InstanceId, shared_ptr<ListComponentIndicesRequest> request) {
+ListCollectorsResponse Alibabacloud_Elasticsearch20170613::Client::listCollectors(shared_ptr<ListCollectorsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listComponentIndicesWithOptions(InstanceId, request, headers, runtime);
+  return listCollectorsWithOptions(request, headers, runtime);
 }
 
 ListComponentIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listComponentIndicesWithOptions(shared_ptr<string> InstanceId,
@@ -2752,10 +2746,10 @@ ListComponentIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listCom
   return ListComponentIndicesResponse(callApi(params, req, runtime));
 }
 
-ListConnectedClustersResponse Alibabacloud_Elasticsearch20170613::Client::listConnectedClusters(shared_ptr<string> InstanceId) {
+ListComponentIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listComponentIndices(shared_ptr<string> InstanceId, shared_ptr<ListComponentIndicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listConnectedClustersWithOptions(InstanceId, headers, runtime);
+  return listComponentIndicesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListConnectedClustersResponse Alibabacloud_Elasticsearch20170613::Client::listConnectedClustersWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2776,10 +2770,10 @@ ListConnectedClustersResponse Alibabacloud_Elasticsearch20170613::Client::listCo
   return ListConnectedClustersResponse(callApi(params, req, runtime));
 }
 
-ListDataStreamsResponse Alibabacloud_Elasticsearch20170613::Client::listDataStreams(shared_ptr<string> InstanceId, shared_ptr<ListDataStreamsRequest> request) {
+ListConnectedClustersResponse Alibabacloud_Elasticsearch20170613::Client::listConnectedClusters(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDataStreamsWithOptions(InstanceId, request, headers, runtime);
+  return listConnectedClustersWithOptions(InstanceId, headers, runtime);
 }
 
 ListDataStreamsResponse Alibabacloud_Elasticsearch20170613::Client::listDataStreamsWithOptions(shared_ptr<string> InstanceId,
@@ -2812,10 +2806,10 @@ ListDataStreamsResponse Alibabacloud_Elasticsearch20170613::Client::listDataStre
   return ListDataStreamsResponse(callApi(params, req, runtime));
 }
 
-ListDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::listDataTasks(shared_ptr<string> InstanceId) {
+ListDataStreamsResponse Alibabacloud_Elasticsearch20170613::Client::listDataStreams(shared_ptr<string> InstanceId, shared_ptr<ListDataStreamsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDataTasksWithOptions(InstanceId, headers, runtime);
+  return listDataStreamsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::listDataTasksWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2836,10 +2830,10 @@ ListDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::listDataTasksW
   return ListDataTasksResponse(callApi(params, req, runtime));
 }
 
-ListDefaultCollectorConfigurationsResponse Alibabacloud_Elasticsearch20170613::Client::listDefaultCollectorConfigurations(shared_ptr<ListDefaultCollectorConfigurationsRequest> request) {
+ListDataTasksResponse Alibabacloud_Elasticsearch20170613::Client::listDataTasks(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDefaultCollectorConfigurationsWithOptions(request, headers, runtime);
+  return listDataTasksWithOptions(InstanceId, headers, runtime);
 }
 
 ListDefaultCollectorConfigurationsResponse Alibabacloud_Elasticsearch20170613::Client::listDefaultCollectorConfigurationsWithOptions(shared_ptr<ListDefaultCollectorConfigurationsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2872,10 +2866,10 @@ ListDefaultCollectorConfigurationsResponse Alibabacloud_Elasticsearch20170613::C
   return ListDefaultCollectorConfigurationsResponse(callApi(params, req, runtime));
 }
 
-ListDeprecatedTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listDeprecatedTemplates(shared_ptr<string> InstanceId, shared_ptr<ListDeprecatedTemplatesRequest> request) {
+ListDefaultCollectorConfigurationsResponse Alibabacloud_Elasticsearch20170613::Client::listDefaultCollectorConfigurations(shared_ptr<ListDefaultCollectorConfigurationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDeprecatedTemplatesWithOptions(InstanceId, request, headers, runtime);
+  return listDefaultCollectorConfigurationsWithOptions(request, headers, runtime);
 }
 
 ListDeprecatedTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listDeprecatedTemplatesWithOptions(shared_ptr<string> InstanceId,
@@ -2911,10 +2905,10 @@ ListDeprecatedTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::list
   return ListDeprecatedTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListDiagnoseIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseIndices(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseIndicesRequest> request) {
+ListDeprecatedTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listDeprecatedTemplates(shared_ptr<string> InstanceId, shared_ptr<ListDeprecatedTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDiagnoseIndicesWithOptions(InstanceId, request, headers, runtime);
+  return listDeprecatedTemplatesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDiagnoseIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseIndicesWithOptions(shared_ptr<string> InstanceId,
@@ -2944,10 +2938,10 @@ ListDiagnoseIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listDiag
   return ListDiagnoseIndicesResponse(callApi(params, req, runtime));
 }
 
-ListDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportRequest> request) {
+ListDiagnoseIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseIndices(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseIndicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDiagnoseReportWithOptions(InstanceId, request, headers, runtime);
+  return listDiagnoseIndicesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReportWithOptions(shared_ptr<string> InstanceId,
@@ -2995,10 +2989,10 @@ ListDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::listDiagn
   return ListDiagnoseReportResponse(callApi(params, req, runtime));
 }
 
-ListDiagnoseReportIdsResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReportIds(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportIdsRequest> request) {
+ListDiagnoseReportResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReport(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
+  return listDiagnoseReportWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDiagnoseReportIdsResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReportIdsWithOptions(shared_ptr<string> InstanceId,
@@ -3043,10 +3037,10 @@ ListDiagnoseReportIdsResponse Alibabacloud_Elasticsearch20170613::Client::listDi
   return ListDiagnoseReportIdsResponse(callApi(params, req, runtime));
 }
 
-ListDictInformationResponse Alibabacloud_Elasticsearch20170613::Client::listDictInformation(shared_ptr<string> InstanceId, shared_ptr<ListDictInformationRequest> request) {
+ListDiagnoseReportIdsResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnoseReportIds(shared_ptr<string> InstanceId, shared_ptr<ListDiagnoseReportIdsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDictInformationWithOptions(InstanceId, request, headers, runtime);
+  return listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDictInformationResponse Alibabacloud_Elasticsearch20170613::Client::listDictInformationWithOptions(shared_ptr<string> InstanceId,
@@ -3082,10 +3076,10 @@ ListDictInformationResponse Alibabacloud_Elasticsearch20170613::Client::listDict
   return ListDictInformationResponse(callApi(params, req, runtime));
 }
 
-ListDictsResponse Alibabacloud_Elasticsearch20170613::Client::listDicts(shared_ptr<string> InstanceId, shared_ptr<ListDictsRequest> request) {
+ListDictInformationResponse Alibabacloud_Elasticsearch20170613::Client::listDictInformation(shared_ptr<string> InstanceId, shared_ptr<ListDictInformationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDictsWithOptions(InstanceId, request, headers, runtime);
+  return listDictInformationWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListDictsResponse Alibabacloud_Elasticsearch20170613::Client::listDictsWithOptions(shared_ptr<string> InstanceId,
@@ -3118,10 +3112,10 @@ ListDictsResponse Alibabacloud_Elasticsearch20170613::Client::listDictsWithOptio
   return ListDictsResponse(callApi(params, req, runtime));
 }
 
-ListEcsInstancesResponse Alibabacloud_Elasticsearch20170613::Client::listEcsInstances(shared_ptr<ListEcsInstancesRequest> request) {
+ListDictsResponse Alibabacloud_Elasticsearch20170613::Client::listDicts(shared_ptr<string> InstanceId, shared_ptr<ListDictsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listEcsInstancesWithOptions(request, headers, runtime);
+  return listDictsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListEcsInstancesResponse Alibabacloud_Elasticsearch20170613::Client::listEcsInstancesWithOptions(shared_ptr<ListEcsInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3163,10 +3157,10 @@ ListEcsInstancesResponse Alibabacloud_Elasticsearch20170613::Client::listEcsInst
   return ListEcsInstancesResponse(callApi(params, req, runtime));
 }
 
-ListExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::listExtendfiles(shared_ptr<string> InstanceId) {
+ListEcsInstancesResponse Alibabacloud_Elasticsearch20170613::Client::listEcsInstances(shared_ptr<ListEcsInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listExtendfilesWithOptions(InstanceId, headers, runtime);
+  return listEcsInstancesWithOptions(request, headers, runtime);
 }
 
 ListExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::listExtendfilesWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3187,10 +3181,10 @@ ListExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::listExtendfi
   return ListExtendfilesResponse(callApi(params, req, runtime));
 }
 
-ListILMPoliciesResponse Alibabacloud_Elasticsearch20170613::Client::listILMPolicies(shared_ptr<string> InstanceId, shared_ptr<ListILMPoliciesRequest> request) {
+ListExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::listExtendfiles(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listILMPoliciesWithOptions(InstanceId, request, headers, runtime);
+  return listExtendfilesWithOptions(InstanceId, headers, runtime);
 }
 
 ListILMPoliciesResponse Alibabacloud_Elasticsearch20170613::Client::listILMPoliciesWithOptions(shared_ptr<string> InstanceId,
@@ -3220,10 +3214,10 @@ ListILMPoliciesResponse Alibabacloud_Elasticsearch20170613::Client::listILMPolic
   return ListILMPoliciesResponse(callApi(params, req, runtime));
 }
 
-ListIndexTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listIndexTemplates(shared_ptr<string> InstanceId, shared_ptr<ListIndexTemplatesRequest> request) {
+ListILMPoliciesResponse Alibabacloud_Elasticsearch20170613::Client::listILMPolicies(shared_ptr<string> InstanceId, shared_ptr<ListILMPoliciesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listIndexTemplatesWithOptions(InstanceId, request, headers, runtime);
+  return listILMPoliciesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListIndexTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listIndexTemplatesWithOptions(shared_ptr<string> InstanceId,
@@ -3259,10 +3253,10 @@ ListIndexTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listIndex
   return ListIndexTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListInstanceResponse Alibabacloud_Elasticsearch20170613::Client::listInstance(shared_ptr<ListInstanceRequest> request) {
+ListIndexTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::listIndexTemplates(shared_ptr<string> InstanceId, shared_ptr<ListIndexTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listInstanceWithOptions(request, headers, runtime);
+  return listIndexTemplatesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListInstanceResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceWithOptions(shared_ptr<ListInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3319,10 +3313,10 @@ ListInstanceResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceWit
   return ListInstanceResponse(callApi(params, req, runtime));
 }
 
-ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceHistoryEvents(shared_ptr<ListInstanceHistoryEventsRequest> request) {
+ListInstanceResponse Alibabacloud_Elasticsearch20170613::Client::listInstance(shared_ptr<ListInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listInstanceHistoryEventsWithOptions(request, headers, runtime);
+  return listInstanceWithOptions(request, headers, runtime);
 }
 
 ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceHistoryEventsWithOptions(shared_ptr<ListInstanceHistoryEventsRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3380,7 +3374,8 @@ ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::li
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Darabonba_Util::Client::toArray<vector<ListInstanceHistoryEventsShrinkRequestBody>>(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ListInstanceHistoryEvents"))},
@@ -3396,10 +3391,10 @@ ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::li
   return ListInstanceHistoryEventsResponse(callApi(params, req, runtime));
 }
 
-ListInstanceIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceIndices(shared_ptr<string> InstanceId, shared_ptr<ListInstanceIndicesRequest> request) {
+ListInstanceHistoryEventsResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceHistoryEvents(shared_ptr<ListInstanceHistoryEventsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listInstanceIndicesWithOptions(InstanceId, request, headers, runtime);
+  return listInstanceHistoryEventsWithOptions(request, headers, runtime);
 }
 
 ListInstanceIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceIndicesWithOptions(shared_ptr<string> InstanceId,
@@ -3444,10 +3439,10 @@ ListInstanceIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listInst
   return ListInstanceIndicesResponse(callApi(params, req, runtime));
 }
 
-ListKibanaPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listKibanaPlugins(shared_ptr<string> InstanceId, shared_ptr<ListKibanaPluginsRequest> request) {
+ListInstanceIndicesResponse Alibabacloud_Elasticsearch20170613::Client::listInstanceIndices(shared_ptr<string> InstanceId, shared_ptr<ListInstanceIndicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
+  return listInstanceIndicesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListKibanaPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listKibanaPluginsWithOptions(shared_ptr<string> InstanceId,
@@ -3480,10 +3475,10 @@ ListKibanaPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listKibana
   return ListKibanaPluginsResponse(callApi(params, req, runtime));
 }
 
-ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstash(shared_ptr<ListLogstashRequest> request) {
+ListKibanaPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listKibanaPlugins(shared_ptr<string> InstanceId, shared_ptr<ListKibanaPluginsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listLogstashWithOptions(request, headers, runtime);
+  return listKibanaPluginsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashWithOptions(shared_ptr<ListLogstashRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3494,9 +3489,6 @@ ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("instanceId", *request->instanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
-    query->insert(pair<string, string>("ownerId", *request->ownerId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
     query->insert(pair<string, long>("page", *request->page));
@@ -3531,10 +3523,10 @@ ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashWit
   return ListLogstashResponse(callApi(params, req, runtime));
 }
 
-ListLogstashLogResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashLog(shared_ptr<string> InstanceId, shared_ptr<ListLogstashLogRequest> request) {
+ListLogstashResponse Alibabacloud_Elasticsearch20170613::Client::listLogstash(shared_ptr<ListLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listLogstashLogWithOptions(InstanceId, request, headers, runtime);
+  return listLogstashWithOptions(request, headers, runtime);
 }
 
 ListLogstashLogResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashLogWithOptions(shared_ptr<string> InstanceId,
@@ -3579,10 +3571,10 @@ ListLogstashLogResponse Alibabacloud_Elasticsearch20170613::Client::listLogstash
   return ListLogstashLogResponse(callApi(params, req, runtime));
 }
 
-ListLogstashPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashPlugins(shared_ptr<string> InstanceId, shared_ptr<ListLogstashPluginsRequest> request) {
+ListLogstashLogResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashLog(shared_ptr<string> InstanceId, shared_ptr<ListLogstashLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listLogstashPluginsWithOptions(InstanceId, request, headers, runtime);
+  return listLogstashLogWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListLogstashPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashPluginsWithOptions(shared_ptr<string> InstanceId,
@@ -3621,10 +3613,10 @@ ListLogstashPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listLogs
   return ListLogstashPluginsResponse(callApi(params, req, runtime));
 }
 
-ListNodesResponse Alibabacloud_Elasticsearch20170613::Client::listNodes(shared_ptr<string> ResId, shared_ptr<ListNodesRequest> request) {
+ListLogstashPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listLogstashPlugins(shared_ptr<string> InstanceId, shared_ptr<ListLogstashPluginsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listNodesWithOptions(ResId, request, headers, runtime);
+  return listLogstashPluginsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListNodesResponse Alibabacloud_Elasticsearch20170613::Client::listNodesWithOptions(shared_ptr<string> ResId,
@@ -3666,10 +3658,10 @@ ListNodesResponse Alibabacloud_Elasticsearch20170613::Client::listNodesWithOptio
   return ListNodesResponse(callApi(params, req, runtime));
 }
 
-ListPipelineResponse Alibabacloud_Elasticsearch20170613::Client::listPipeline(shared_ptr<string> InstanceId, shared_ptr<ListPipelineRequest> request) {
+ListNodesResponse Alibabacloud_Elasticsearch20170613::Client::listNodes(shared_ptr<string> ResId, shared_ptr<ListNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listPipelineWithOptions(InstanceId, request, headers, runtime);
+  return listNodesWithOptions(ResId, request, headers, runtime);
 }
 
 ListPipelineResponse Alibabacloud_Elasticsearch20170613::Client::listPipelineWithOptions(shared_ptr<string> InstanceId,
@@ -3705,10 +3697,10 @@ ListPipelineResponse Alibabacloud_Elasticsearch20170613::Client::listPipelineWit
   return ListPipelineResponse(callApi(params, req, runtime));
 }
 
-ListPipelineIdsResponse Alibabacloud_Elasticsearch20170613::Client::listPipelineIds(shared_ptr<string> InstanceId, shared_ptr<ListPipelineIdsRequest> request) {
+ListPipelineResponse Alibabacloud_Elasticsearch20170613::Client::listPipeline(shared_ptr<string> InstanceId, shared_ptr<ListPipelineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listPipelineIdsWithOptions(InstanceId, request, headers, runtime);
+  return listPipelineWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListPipelineIdsResponse Alibabacloud_Elasticsearch20170613::Client::listPipelineIdsWithOptions(shared_ptr<string> InstanceId,
@@ -3734,10 +3726,10 @@ ListPipelineIdsResponse Alibabacloud_Elasticsearch20170613::Client::listPipeline
   return ListPipelineIdsResponse(callApi(params, req, runtime));
 }
 
-ListPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listPlugins(shared_ptr<string> InstanceId, shared_ptr<ListPluginsRequest> request) {
+ListPipelineIdsResponse Alibabacloud_Elasticsearch20170613::Client::listPipelineIds(shared_ptr<string> InstanceId, shared_ptr<ListPipelineIdsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listPluginsWithOptions(InstanceId, request, headers, runtime);
+  return listPipelineIdsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listPluginsWithOptions(shared_ptr<string> InstanceId,
@@ -3776,10 +3768,10 @@ ListPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listPluginsWithO
   return ListPluginsResponse(callApi(params, req, runtime));
 }
 
-ListSearchLogResponse Alibabacloud_Elasticsearch20170613::Client::listSearchLog(shared_ptr<string> InstanceId, shared_ptr<ListSearchLogRequest> request) {
+ListPluginsResponse Alibabacloud_Elasticsearch20170613::Client::listPlugins(shared_ptr<string> InstanceId, shared_ptr<ListPluginsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSearchLogWithOptions(InstanceId, request, headers, runtime);
+  return listPluginsWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListSearchLogResponse Alibabacloud_Elasticsearch20170613::Client::listSearchLogWithOptions(shared_ptr<string> InstanceId,
@@ -3824,10 +3816,10 @@ ListSearchLogResponse Alibabacloud_Elasticsearch20170613::Client::listSearchLogW
   return ListSearchLogResponse(callApi(params, req, runtime));
 }
 
-ListShardRecoveriesResponse Alibabacloud_Elasticsearch20170613::Client::listShardRecoveries(shared_ptr<string> InstanceId, shared_ptr<ListShardRecoveriesRequest> request) {
+ListSearchLogResponse Alibabacloud_Elasticsearch20170613::Client::listSearchLog(shared_ptr<string> InstanceId, shared_ptr<ListSearchLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listShardRecoveriesWithOptions(InstanceId, request, headers, runtime);
+  return listSearchLogWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListShardRecoveriesResponse Alibabacloud_Elasticsearch20170613::Client::listShardRecoveriesWithOptions(shared_ptr<string> InstanceId,
@@ -3857,10 +3849,10 @@ ListShardRecoveriesResponse Alibabacloud_Elasticsearch20170613::Client::listShar
   return ListShardRecoveriesResponse(callApi(params, req, runtime));
 }
 
-ListSnapshotReposByInstanceIdResponse Alibabacloud_Elasticsearch20170613::Client::listSnapshotReposByInstanceId(shared_ptr<string> InstanceId) {
+ListShardRecoveriesResponse Alibabacloud_Elasticsearch20170613::Client::listShardRecoveries(shared_ptr<string> InstanceId, shared_ptr<ListShardRecoveriesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
+  return listShardRecoveriesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ListSnapshotReposByInstanceIdResponse Alibabacloud_Elasticsearch20170613::Client::listSnapshotReposByInstanceIdWithOptions(shared_ptr<string> InstanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3881,10 +3873,10 @@ ListSnapshotReposByInstanceIdResponse Alibabacloud_Elasticsearch20170613::Client
   return ListSnapshotReposByInstanceIdResponse(callApi(params, req, runtime));
 }
 
-ListTagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
+ListSnapshotReposByInstanceIdResponse Alibabacloud_Elasticsearch20170613::Client::listSnapshotReposByInstanceId(shared_ptr<string> InstanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTagResourcesWithOptions(request, headers, runtime);
+  return listSnapshotReposByInstanceIdWithOptions(InstanceId, headers, runtime);
 }
 
 ListTagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3926,10 +3918,10 @@ ListTagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::listTagReso
   return ListTagResourcesResponse(callApi(params, req, runtime));
 }
 
-ListTagsResponse Alibabacloud_Elasticsearch20170613::Client::listTags(shared_ptr<ListTagsRequest> request) {
+ListTagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTagsWithOptions(request, headers, runtime);
+  return listTagResourcesWithOptions(request, headers, runtime);
 }
 
 ListTagsResponse Alibabacloud_Elasticsearch20170613::Client::listTagsWithOptions(shared_ptr<ListTagsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3959,10 +3951,10 @@ ListTagsResponse Alibabacloud_Elasticsearch20170613::Client::listTagsWithOptions
   return ListTagsResponse(callApi(params, req, runtime));
 }
 
-ListVpcEndpointsResponse Alibabacloud_Elasticsearch20170613::Client::listVpcEndpoints(shared_ptr<string> InstanceId, shared_ptr<ListVpcEndpointsRequest> request) {
+ListTagsResponse Alibabacloud_Elasticsearch20170613::Client::listTags(shared_ptr<ListTagsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listVpcEndpointsWithOptions(InstanceId, request, headers, runtime);
+  return listTagsWithOptions(request, headers, runtime);
 }
 
 ListVpcEndpointsResponse Alibabacloud_Elasticsearch20170613::Client::listVpcEndpointsWithOptions(shared_ptr<string> InstanceId,
@@ -3995,10 +3987,10 @@ ListVpcEndpointsResponse Alibabacloud_Elasticsearch20170613::Client::listVpcEndp
   return ListVpcEndpointsResponse(callApi(params, req, runtime));
 }
 
-MigrateToOtherZoneResponse Alibabacloud_Elasticsearch20170613::Client::migrateToOtherZone(shared_ptr<string> InstanceId, shared_ptr<MigrateToOtherZoneRequest> request) {
+ListVpcEndpointsResponse Alibabacloud_Elasticsearch20170613::Client::listVpcEndpoints(shared_ptr<string> InstanceId, shared_ptr<ListVpcEndpointsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return migrateToOtherZoneWithOptions(InstanceId, request, headers, runtime);
+  return listVpcEndpointsWithOptions(InstanceId, request, headers, runtime);
 }
 
 MigrateToOtherZoneResponse Alibabacloud_Elasticsearch20170613::Client::migrateToOtherZoneWithOptions(shared_ptr<string> InstanceId,
@@ -4029,10 +4021,10 @@ MigrateToOtherZoneResponse Alibabacloud_Elasticsearch20170613::Client::migrateTo
   return MigrateToOtherZoneResponse(callApi(params, req, runtime));
 }
 
-ModifyDeployMachineResponse Alibabacloud_Elasticsearch20170613::Client::modifyDeployMachine(shared_ptr<string> ResId, shared_ptr<ModifyDeployMachineRequest> request) {
+MigrateToOtherZoneResponse Alibabacloud_Elasticsearch20170613::Client::migrateToOtherZone(shared_ptr<string> InstanceId, shared_ptr<MigrateToOtherZoneRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return modifyDeployMachineWithOptions(ResId, request, headers, runtime);
+  return migrateToOtherZoneWithOptions(InstanceId, request, headers, runtime);
 }
 
 ModifyDeployMachineResponse Alibabacloud_Elasticsearch20170613::Client::modifyDeployMachineWithOptions(shared_ptr<string> ResId,
@@ -4063,10 +4055,10 @@ ModifyDeployMachineResponse Alibabacloud_Elasticsearch20170613::Client::modifyDe
   return ModifyDeployMachineResponse(callApi(params, req, runtime));
 }
 
-ModifyElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::modifyElastictask(shared_ptr<string> InstanceId, shared_ptr<ModifyElastictaskRequest> request) {
+ModifyDeployMachineResponse Alibabacloud_Elasticsearch20170613::Client::modifyDeployMachine(shared_ptr<string> ResId, shared_ptr<ModifyDeployMachineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return modifyElastictaskWithOptions(InstanceId, request, headers, runtime);
+  return modifyDeployMachineWithOptions(ResId, request, headers, runtime);
 }
 
 ModifyElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::modifyElastictaskWithOptions(shared_ptr<string> InstanceId,
@@ -4092,10 +4084,10 @@ ModifyElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::modifyElas
   return ModifyElastictaskResponse(callApi(params, req, runtime));
 }
 
-ModifyInstanceMaintainTimeResponse Alibabacloud_Elasticsearch20170613::Client::modifyInstanceMaintainTime(shared_ptr<string> InstanceId, shared_ptr<ModifyInstanceMaintainTimeRequest> request) {
+ModifyElastictaskResponse Alibabacloud_Elasticsearch20170613::Client::modifyElastictask(shared_ptr<string> InstanceId, shared_ptr<ModifyElastictaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
+  return modifyElastictaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 ModifyInstanceMaintainTimeResponse Alibabacloud_Elasticsearch20170613::Client::modifyInstanceMaintainTimeWithOptions(shared_ptr<string> InstanceId,
@@ -4126,10 +4118,10 @@ ModifyInstanceMaintainTimeResponse Alibabacloud_Elasticsearch20170613::Client::m
   return ModifyInstanceMaintainTimeResponse(callApi(params, req, runtime));
 }
 
-ModifyWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::modifyWhiteIps(shared_ptr<string> InstanceId, shared_ptr<ModifyWhiteIpsRequest> request) {
+ModifyInstanceMaintainTimeResponse Alibabacloud_Elasticsearch20170613::Client::modifyInstanceMaintainTime(shared_ptr<string> InstanceId, shared_ptr<ModifyInstanceMaintainTimeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return modifyWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+  return modifyInstanceMaintainTimeWithOptions(InstanceId, request, headers, runtime);
 }
 
 ModifyWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::modifyWhiteIpsWithOptions(shared_ptr<string> InstanceId,
@@ -4176,10 +4168,10 @@ ModifyWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::modifyWhiteIp
   return ModifyWhiteIpsResponse(callApi(params, req, runtime));
 }
 
-MoveResourceGroupResponse Alibabacloud_Elasticsearch20170613::Client::moveResourceGroup(shared_ptr<string> InstanceId, shared_ptr<MoveResourceGroupRequest> request) {
+ModifyWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::modifyWhiteIps(shared_ptr<string> InstanceId, shared_ptr<ModifyWhiteIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return moveResourceGroupWithOptions(InstanceId, request, headers, runtime);
+  return modifyWhiteIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 MoveResourceGroupResponse Alibabacloud_Elasticsearch20170613::Client::moveResourceGroupWithOptions(shared_ptr<string> InstanceId,
@@ -4210,10 +4202,10 @@ MoveResourceGroupResponse Alibabacloud_Elasticsearch20170613::Client::moveResour
   return MoveResourceGroupResponse(callApi(params, req, runtime));
 }
 
-OpenDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::openDiagnosis(shared_ptr<string> InstanceId, shared_ptr<OpenDiagnosisRequest> request) {
+MoveResourceGroupResponse Alibabacloud_Elasticsearch20170613::Client::moveResourceGroup(shared_ptr<string> InstanceId, shared_ptr<MoveResourceGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return openDiagnosisWithOptions(InstanceId, request, headers, runtime);
+  return moveResourceGroupWithOptions(InstanceId, request, headers, runtime);
 }
 
 OpenDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::openDiagnosisWithOptions(shared_ptr<string> InstanceId,
@@ -4246,10 +4238,10 @@ OpenDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::openDiagnosisW
   return OpenDiagnosisResponse(callApi(params, req, runtime));
 }
 
-OpenHttpsResponse Alibabacloud_Elasticsearch20170613::Client::openHttps(shared_ptr<string> InstanceId, shared_ptr<OpenHttpsRequest> request) {
+OpenDiagnosisResponse Alibabacloud_Elasticsearch20170613::Client::openDiagnosis(shared_ptr<string> InstanceId, shared_ptr<OpenDiagnosisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return openHttpsWithOptions(InstanceId, request, headers, runtime);
+  return openDiagnosisWithOptions(InstanceId, request, headers, runtime);
 }
 
 OpenHttpsResponse Alibabacloud_Elasticsearch20170613::Client::openHttpsWithOptions(shared_ptr<string> InstanceId,
@@ -4279,10 +4271,10 @@ OpenHttpsResponse Alibabacloud_Elasticsearch20170613::Client::openHttpsWithOptio
   return OpenHttpsResponse(callApi(params, req, runtime));
 }
 
-PostEmonTryAlarmRuleResponse Alibabacloud_Elasticsearch20170613::Client::postEmonTryAlarmRule(shared_ptr<string> ProjectId, shared_ptr<string> AlarmGroupId, shared_ptr<PostEmonTryAlarmRuleRequest> request) {
+OpenHttpsResponse Alibabacloud_Elasticsearch20170613::Client::openHttps(shared_ptr<string> InstanceId, shared_ptr<OpenHttpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, request, headers, runtime);
+  return openHttpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 PostEmonTryAlarmRuleResponse Alibabacloud_Elasticsearch20170613::Client::postEmonTryAlarmRuleWithOptions(shared_ptr<string> ProjectId,
@@ -4309,10 +4301,10 @@ PostEmonTryAlarmRuleResponse Alibabacloud_Elasticsearch20170613::Client::postEmo
   return PostEmonTryAlarmRuleResponse(callApi(params, req, runtime));
 }
 
-RecommendTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::recommendTemplates(shared_ptr<string> InstanceId, shared_ptr<RecommendTemplatesRequest> request) {
+PostEmonTryAlarmRuleResponse Alibabacloud_Elasticsearch20170613::Client::postEmonTryAlarmRule(shared_ptr<string> ProjectId, shared_ptr<string> AlarmGroupId, shared_ptr<PostEmonTryAlarmRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return recommendTemplatesWithOptions(InstanceId, request, headers, runtime);
+  return postEmonTryAlarmRuleWithOptions(ProjectId, AlarmGroupId, request, headers, runtime);
 }
 
 RecommendTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::recommendTemplatesWithOptions(shared_ptr<string> InstanceId,
@@ -4342,10 +4334,10 @@ RecommendTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::recommend
   return RecommendTemplatesResponse(callApi(params, req, runtime));
 }
 
-ReinstallCollectorResponse Alibabacloud_Elasticsearch20170613::Client::reinstallCollector(shared_ptr<string> ResId, shared_ptr<ReinstallCollectorRequest> request) {
+RecommendTemplatesResponse Alibabacloud_Elasticsearch20170613::Client::recommendTemplates(shared_ptr<string> InstanceId, shared_ptr<RecommendTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return reinstallCollectorWithOptions(ResId, request, headers, runtime);
+  return recommendTemplatesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ReinstallCollectorResponse Alibabacloud_Elasticsearch20170613::Client::reinstallCollectorWithOptions(shared_ptr<string> ResId,
@@ -4376,10 +4368,10 @@ ReinstallCollectorResponse Alibabacloud_Elasticsearch20170613::Client::reinstall
   return ReinstallCollectorResponse(callApi(params, req, runtime));
 }
 
-RemoveApmResponse Alibabacloud_Elasticsearch20170613::Client::removeApm(shared_ptr<string> instanceId) {
+ReinstallCollectorResponse Alibabacloud_Elasticsearch20170613::Client::reinstallCollector(shared_ptr<string> ResId, shared_ptr<ReinstallCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeApmWithOptions(instanceId, headers, runtime);
+  return reinstallCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 RemoveApmResponse Alibabacloud_Elasticsearch20170613::Client::removeApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4400,10 +4392,10 @@ RemoveApmResponse Alibabacloud_Elasticsearch20170613::Client::removeApmWithOptio
   return RemoveApmResponse(callApi(params, req, runtime));
 }
 
-RenewInstanceResponse Alibabacloud_Elasticsearch20170613::Client::renewInstance(shared_ptr<string> InstanceId, shared_ptr<RenewInstanceRequest> request) {
+RemoveApmResponse Alibabacloud_Elasticsearch20170613::Client::removeApm(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return renewInstanceWithOptions(InstanceId, request, headers, runtime);
+  return removeApmWithOptions(instanceId, headers, runtime);
 }
 
 RenewInstanceResponse Alibabacloud_Elasticsearch20170613::Client::renewInstanceWithOptions(shared_ptr<string> InstanceId,
@@ -4434,10 +4426,10 @@ RenewInstanceResponse Alibabacloud_Elasticsearch20170613::Client::renewInstanceW
   return RenewInstanceResponse(callApi(params, req, runtime));
 }
 
-RenewLogstashResponse Alibabacloud_Elasticsearch20170613::Client::renewLogstash(shared_ptr<string> InstanceId, shared_ptr<RenewLogstashRequest> request) {
+RenewInstanceResponse Alibabacloud_Elasticsearch20170613::Client::renewInstance(shared_ptr<string> InstanceId, shared_ptr<RenewInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return renewLogstashWithOptions(InstanceId, request, headers, runtime);
+  return renewInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 RenewLogstashResponse Alibabacloud_Elasticsearch20170613::Client::renewLogstashWithOptions(shared_ptr<string> InstanceId,
@@ -4468,10 +4460,10 @@ RenewLogstashResponse Alibabacloud_Elasticsearch20170613::Client::renewLogstashW
   return RenewLogstashResponse(callApi(params, req, runtime));
 }
 
-RestartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::restartCollector(shared_ptr<string> ResId, shared_ptr<RestartCollectorRequest> request) {
+RenewLogstashResponse Alibabacloud_Elasticsearch20170613::Client::renewLogstash(shared_ptr<string> InstanceId, shared_ptr<RenewLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return restartCollectorWithOptions(ResId, request, headers, runtime);
+  return renewLogstashWithOptions(InstanceId, request, headers, runtime);
 }
 
 RestartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::restartCollectorWithOptions(shared_ptr<string> ResId,
@@ -4501,10 +4493,10 @@ RestartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::restartColl
   return RestartCollectorResponse(callApi(params, req, runtime));
 }
 
-RestartInstanceResponse Alibabacloud_Elasticsearch20170613::Client::restartInstance(shared_ptr<string> InstanceId, shared_ptr<RestartInstanceRequest> request) {
+RestartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::restartCollector(shared_ptr<string> ResId, shared_ptr<RestartCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return restartInstanceWithOptions(InstanceId, request, headers, runtime);
+  return restartCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 RestartInstanceResponse Alibabacloud_Elasticsearch20170613::Client::restartInstanceWithOptions(shared_ptr<string> InstanceId,
@@ -4538,10 +4530,10 @@ RestartInstanceResponse Alibabacloud_Elasticsearch20170613::Client::restartInsta
   return RestartInstanceResponse(callApi(params, req, runtime));
 }
 
-RestartLogstashResponse Alibabacloud_Elasticsearch20170613::Client::restartLogstash(shared_ptr<string> InstanceId, shared_ptr<RestartLogstashRequest> request) {
+RestartInstanceResponse Alibabacloud_Elasticsearch20170613::Client::restartInstance(shared_ptr<string> InstanceId, shared_ptr<RestartInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return restartLogstashWithOptions(InstanceId, request, headers, runtime);
+  return restartInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 RestartLogstashResponse Alibabacloud_Elasticsearch20170613::Client::restartLogstashWithOptions(shared_ptr<string> InstanceId,
@@ -4591,10 +4583,10 @@ RestartLogstashResponse Alibabacloud_Elasticsearch20170613::Client::restartLogst
   return RestartLogstashResponse(callApi(params, req, runtime));
 }
 
-ResumeElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<ResumeElasticsearchTaskRequest> request) {
+RestartLogstashResponse Alibabacloud_Elasticsearch20170613::Client::restartLogstash(shared_ptr<string> InstanceId, shared_ptr<RestartLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return resumeElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
+  return restartLogstashWithOptions(InstanceId, request, headers, runtime);
 }
 
 ResumeElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeElasticsearchTaskWithOptions(shared_ptr<string> InstanceId,
@@ -4624,10 +4616,10 @@ ResumeElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::resu
   return ResumeElasticsearchTaskResponse(callApi(params, req, runtime));
 }
 
-ResumeLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeLogstashTask(shared_ptr<string> InstanceId, shared_ptr<ResumeLogstashTaskRequest> request) {
+ResumeElasticsearchTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeElasticsearchTask(shared_ptr<string> InstanceId, shared_ptr<ResumeElasticsearchTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return resumeLogstashTaskWithOptions(InstanceId, request, headers, runtime);
+  return resumeElasticsearchTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 ResumeLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeLogstashTaskWithOptions(shared_ptr<string> InstanceId,
@@ -4657,10 +4649,10 @@ ResumeLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeLog
   return ResumeLogstashTaskResponse(callApi(params, req, runtime));
 }
 
-RolloverDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::rolloverDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<RolloverDataStreamRequest> request) {
+ResumeLogstashTaskResponse Alibabacloud_Elasticsearch20170613::Client::resumeLogstashTask(shared_ptr<string> InstanceId, shared_ptr<ResumeLogstashTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
+  return resumeLogstashTaskWithOptions(InstanceId, request, headers, runtime);
 }
 
 RolloverDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::rolloverDataStreamWithOptions(shared_ptr<string> InstanceId,
@@ -4691,10 +4683,10 @@ RolloverDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::rolloverD
   return RolloverDataStreamResponse(callApi(params, req, runtime));
 }
 
-RunPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::runPipelines(shared_ptr<string> InstanceId, shared_ptr<RunPipelinesRequest> request) {
+RolloverDataStreamResponse Alibabacloud_Elasticsearch20170613::Client::rolloverDataStream(shared_ptr<string> InstanceId, shared_ptr<string> DataStream, shared_ptr<RolloverDataStreamRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return runPipelinesWithOptions(InstanceId, request, headers, runtime);
+  return rolloverDataStreamWithOptions(InstanceId, DataStream, request, headers, runtime);
 }
 
 RunPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::runPipelinesWithOptions(shared_ptr<string> InstanceId,
@@ -4725,10 +4717,10 @@ RunPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::runPipelinesWit
   return RunPipelinesResponse(callApi(params, req, runtime));
 }
 
-ShrinkNodeResponse Alibabacloud_Elasticsearch20170613::Client::shrinkNode(shared_ptr<string> InstanceId, shared_ptr<ShrinkNodeRequest> request) {
+RunPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::runPipelines(shared_ptr<string> InstanceId, shared_ptr<RunPipelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return shrinkNodeWithOptions(InstanceId, request, headers, runtime);
+  return runPipelinesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ShrinkNodeResponse Alibabacloud_Elasticsearch20170613::Client::shrinkNodeWithOptions(shared_ptr<string> InstanceId,
@@ -4768,10 +4760,10 @@ ShrinkNodeResponse Alibabacloud_Elasticsearch20170613::Client::shrinkNodeWithOpt
   return ShrinkNodeResponse(callApi(params, req, runtime));
 }
 
-StartApmResponse Alibabacloud_Elasticsearch20170613::Client::startApm(shared_ptr<string> instanceId) {
+ShrinkNodeResponse Alibabacloud_Elasticsearch20170613::Client::shrinkNode(shared_ptr<string> InstanceId, shared_ptr<ShrinkNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startApmWithOptions(instanceId, headers, runtime);
+  return shrinkNodeWithOptions(InstanceId, request, headers, runtime);
 }
 
 StartApmResponse Alibabacloud_Elasticsearch20170613::Client::startApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4792,10 +4784,10 @@ StartApmResponse Alibabacloud_Elasticsearch20170613::Client::startApmWithOptions
   return StartApmResponse(callApi(params, req, runtime));
 }
 
-StartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::startCollector(shared_ptr<string> ResId, shared_ptr<StartCollectorRequest> request) {
+StartApmResponse Alibabacloud_Elasticsearch20170613::Client::startApm(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startCollectorWithOptions(ResId, request, headers, runtime);
+  return startApmWithOptions(instanceId, headers, runtime);
 }
 
 StartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::startCollectorWithOptions(shared_ptr<string> ResId,
@@ -4825,10 +4817,10 @@ StartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::startCollecto
   return StartCollectorResponse(callApi(params, req, runtime));
 }
 
-StopApmResponse Alibabacloud_Elasticsearch20170613::Client::stopApm(shared_ptr<string> instanceId) {
+StartCollectorResponse Alibabacloud_Elasticsearch20170613::Client::startCollector(shared_ptr<string> ResId, shared_ptr<StartCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopApmWithOptions(instanceId, headers, runtime);
+  return startCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 StopApmResponse Alibabacloud_Elasticsearch20170613::Client::stopApmWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4849,10 +4841,10 @@ StopApmResponse Alibabacloud_Elasticsearch20170613::Client::stopApmWithOptions(s
   return StopApmResponse(callApi(params, req, runtime));
 }
 
-StopCollectorResponse Alibabacloud_Elasticsearch20170613::Client::stopCollector(shared_ptr<string> ResId, shared_ptr<StopCollectorRequest> request) {
+StopApmResponse Alibabacloud_Elasticsearch20170613::Client::stopApm(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopCollectorWithOptions(ResId, request, headers, runtime);
+  return stopApmWithOptions(instanceId, headers, runtime);
 }
 
 StopCollectorResponse Alibabacloud_Elasticsearch20170613::Client::stopCollectorWithOptions(shared_ptr<string> ResId,
@@ -4882,10 +4874,10 @@ StopCollectorResponse Alibabacloud_Elasticsearch20170613::Client::stopCollectorW
   return StopCollectorResponse(callApi(params, req, runtime));
 }
 
-StopPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::stopPipelines(shared_ptr<string> InstanceId, shared_ptr<StopPipelinesRequest> request) {
+StopCollectorResponse Alibabacloud_Elasticsearch20170613::Client::stopCollector(shared_ptr<string> ResId, shared_ptr<StopCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopPipelinesWithOptions(InstanceId, request, headers, runtime);
+  return stopCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 StopPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::stopPipelinesWithOptions(shared_ptr<string> InstanceId,
@@ -4916,10 +4908,10 @@ StopPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::stopPipelinesW
   return StopPipelinesResponse(callApi(params, req, runtime));
 }
 
-TagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
+StopPipelinesResponse Alibabacloud_Elasticsearch20170613::Client::stopPipelines(shared_ptr<string> InstanceId, shared_ptr<StopPipelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return tagResourcesWithOptions(request, headers, runtime);
+  return stopPipelinesWithOptions(InstanceId, request, headers, runtime);
 }
 
 TagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4952,10 +4944,10 @@ TagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::tagResourcesWit
   return TagResourcesResponse(callApi(params, req, runtime));
 }
 
-TransferNodeResponse Alibabacloud_Elasticsearch20170613::Client::transferNode(shared_ptr<string> InstanceId, shared_ptr<TransferNodeRequest> request) {
+TagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return transferNodeWithOptions(InstanceId, request, headers, runtime);
+  return tagResourcesWithOptions(request, headers, runtime);
 }
 
 TransferNodeResponse Alibabacloud_Elasticsearch20170613::Client::transferNodeWithOptions(shared_ptr<string> InstanceId,
@@ -4989,10 +4981,10 @@ TransferNodeResponse Alibabacloud_Elasticsearch20170613::Client::transferNodeWit
   return TransferNodeResponse(callApi(params, req, runtime));
 }
 
-TriggerNetworkResponse Alibabacloud_Elasticsearch20170613::Client::triggerNetwork(shared_ptr<string> InstanceId, shared_ptr<TriggerNetworkRequest> request) {
+TransferNodeResponse Alibabacloud_Elasticsearch20170613::Client::transferNode(shared_ptr<string> InstanceId, shared_ptr<TransferNodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return triggerNetworkWithOptions(InstanceId, request, headers, runtime);
+  return transferNodeWithOptions(InstanceId, request, headers, runtime);
 }
 
 TriggerNetworkResponse Alibabacloud_Elasticsearch20170613::Client::triggerNetworkWithOptions(shared_ptr<string> InstanceId,
@@ -5033,10 +5025,10 @@ TriggerNetworkResponse Alibabacloud_Elasticsearch20170613::Client::triggerNetwor
   return TriggerNetworkResponse(callApi(params, req, runtime));
 }
 
-UninstallKibanaPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallKibanaPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallKibanaPluginRequest> request) {
+TriggerNetworkResponse Alibabacloud_Elasticsearch20170613::Client::triggerNetwork(shared_ptr<string> InstanceId, shared_ptr<TriggerNetworkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return uninstallKibanaPluginWithOptions(InstanceId, request, headers, runtime);
+  return triggerNetworkWithOptions(InstanceId, request, headers, runtime);
 }
 
 UninstallKibanaPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallKibanaPluginWithOptions(shared_ptr<string> InstanceId,
@@ -5067,10 +5059,10 @@ UninstallKibanaPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninst
   return UninstallKibanaPluginResponse(callApi(params, req, runtime));
 }
 
-UninstallLogstashPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallLogstashPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallLogstashPluginRequest> request) {
+UninstallKibanaPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallKibanaPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallKibanaPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return uninstallLogstashPluginWithOptions(InstanceId, request, headers, runtime);
+  return uninstallKibanaPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 UninstallLogstashPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallLogstashPluginWithOptions(shared_ptr<string> InstanceId,
@@ -5101,10 +5093,10 @@ UninstallLogstashPluginResponse Alibabacloud_Elasticsearch20170613::Client::unin
   return UninstallLogstashPluginResponse(callApi(params, req, runtime));
 }
 
-UninstallPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallPluginRequest> request) {
+UninstallLogstashPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallLogstashPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallLogstashPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return uninstallPluginWithOptions(InstanceId, request, headers, runtime);
+  return uninstallLogstashPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 UninstallPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallPluginWithOptions(shared_ptr<string> InstanceId,
@@ -5135,10 +5127,10 @@ UninstallPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallPlu
   return UninstallPluginResponse(callApi(params, req, runtime));
 }
 
-UntagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
+UninstallPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallPlugin(shared_ptr<string> InstanceId, shared_ptr<UninstallPluginRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return untagResourcesWithOptions(request, headers, runtime);
+  return uninstallPluginWithOptions(InstanceId, request, headers, runtime);
 }
 
 UntagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -5175,10 +5167,10 @@ UntagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::untagResource
   return UntagResourcesResponse(callApi(params, req, runtime));
 }
 
-UpdateAdminPasswordResponse Alibabacloud_Elasticsearch20170613::Client::updateAdminPassword(shared_ptr<string> InstanceId, shared_ptr<UpdateAdminPasswordRequest> request) {
+UntagResourcesResponse Alibabacloud_Elasticsearch20170613::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateAdminPasswordWithOptions(InstanceId, request, headers, runtime);
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
 UpdateAdminPasswordResponse Alibabacloud_Elasticsearch20170613::Client::updateAdminPasswordWithOptions(shared_ptr<string> InstanceId,
@@ -5213,10 +5205,10 @@ UpdateAdminPasswordResponse Alibabacloud_Elasticsearch20170613::Client::updateAd
   return UpdateAdminPasswordResponse(callApi(params, req, runtime));
 }
 
-UpdateAdvancedSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateAdvancedSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateAdvancedSettingRequest> request) {
+UpdateAdminPasswordResponse Alibabacloud_Elasticsearch20170613::Client::updateAdminPassword(shared_ptr<string> InstanceId, shared_ptr<UpdateAdminPasswordRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateAdvancedSettingWithOptions(InstanceId, request, headers, runtime);
+  return updateAdminPasswordWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateAdvancedSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateAdvancedSettingWithOptions(shared_ptr<string> InstanceId,
@@ -5247,10 +5239,10 @@ UpdateAdvancedSettingResponse Alibabacloud_Elasticsearch20170613::Client::update
   return UpdateAdvancedSettingResponse(callApi(params, req, runtime));
 }
 
-UpdateAliwsDictResponse Alibabacloud_Elasticsearch20170613::Client::updateAliwsDict(shared_ptr<string> InstanceId, shared_ptr<UpdateAliwsDictRequest> request) {
+UpdateAdvancedSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateAdvancedSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateAdvancedSettingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
+  return updateAdvancedSettingWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateAliwsDictResponse Alibabacloud_Elasticsearch20170613::Client::updateAliwsDictWithOptions(shared_ptr<string> InstanceId,
@@ -5281,10 +5273,10 @@ UpdateAliwsDictResponse Alibabacloud_Elasticsearch20170613::Client::updateAliwsD
   return UpdateAliwsDictResponse(callApi(params, req, runtime));
 }
 
-UpdateApmResponse Alibabacloud_Elasticsearch20170613::Client::updateApm(shared_ptr<string> instanceId, shared_ptr<UpdateApmRequest> request) {
+UpdateAliwsDictResponse Alibabacloud_Elasticsearch20170613::Client::updateAliwsDict(shared_ptr<string> InstanceId, shared_ptr<UpdateAliwsDictRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateApmWithOptions(instanceId, request, headers, runtime);
+  return updateAliwsDictWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateApmResponse Alibabacloud_Elasticsearch20170613::Client::updateApmWithOptions(shared_ptr<string> instanceId,
@@ -5326,10 +5318,10 @@ UpdateApmResponse Alibabacloud_Elasticsearch20170613::Client::updateApmWithOptio
   return UpdateApmResponse(callApi(params, req, runtime));
 }
 
-UpdateBlackIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateBlackIps(shared_ptr<string> InstanceId, shared_ptr<UpdateBlackIpsRequest> request) {
+UpdateApmResponse Alibabacloud_Elasticsearch20170613::Client::updateApm(shared_ptr<string> instanceId, shared_ptr<UpdateApmRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateBlackIpsWithOptions(InstanceId, request, headers, runtime);
+  return updateApmWithOptions(instanceId, request, headers, runtime);
 }
 
 UpdateBlackIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateBlackIpsWithOptions(shared_ptr<string> InstanceId,
@@ -5359,10 +5351,10 @@ UpdateBlackIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateBlackIp
   return UpdateBlackIpsResponse(callApi(params, req, runtime));
 }
 
-UpdateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::updateCollector(shared_ptr<string> ResId, shared_ptr<UpdateCollectorRequest> request) {
+UpdateBlackIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateBlackIps(shared_ptr<string> InstanceId, shared_ptr<UpdateBlackIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateCollectorWithOptions(ResId, request, headers, runtime);
+  return updateBlackIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::updateCollectorWithOptions(shared_ptr<string> ResId,
@@ -5393,10 +5385,10 @@ UpdateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::updateCollec
   return UpdateCollectorResponse(callApi(params, req, runtime));
 }
 
-UpdateCollectorNameResponse Alibabacloud_Elasticsearch20170613::Client::updateCollectorName(shared_ptr<string> ResId, shared_ptr<UpdateCollectorNameRequest> request) {
+UpdateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::updateCollector(shared_ptr<string> ResId, shared_ptr<UpdateCollectorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateCollectorNameWithOptions(ResId, request, headers, runtime);
+  return updateCollectorWithOptions(ResId, request, headers, runtime);
 }
 
 UpdateCollectorNameResponse Alibabacloud_Elasticsearch20170613::Client::updateCollectorNameWithOptions(shared_ptr<string> ResId,
@@ -5427,10 +5419,10 @@ UpdateCollectorNameResponse Alibabacloud_Elasticsearch20170613::Client::updateCo
   return UpdateCollectorNameResponse(callApi(params, req, runtime));
 }
 
-UpdateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::updateComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<UpdateComponentIndexRequest> request) {
+UpdateCollectorNameResponse Alibabacloud_Elasticsearch20170613::Client::updateCollectorName(shared_ptr<string> ResId, shared_ptr<UpdateCollectorNameRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
+  return updateCollectorNameWithOptions(ResId, request, headers, runtime);
 }
 
 UpdateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::updateComponentIndexWithOptions(shared_ptr<string> InstanceId,
@@ -5464,10 +5456,10 @@ UpdateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::updateC
   return UpdateComponentIndexResponse(callApi(params, req, runtime));
 }
 
-UpdateDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateDescriptionRequest> request) {
+UpdateComponentIndexResponse Alibabacloud_Elasticsearch20170613::Client::updateComponentIndex(shared_ptr<string> InstanceId, shared_ptr<string> name, shared_ptr<UpdateComponentIndexRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateDescriptionWithOptions(InstanceId, request, headers, runtime);
+  return updateComponentIndexWithOptions(InstanceId, name, request, headers, runtime);
 }
 
 UpdateDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateDescriptionWithOptions(shared_ptr<string> InstanceId,
@@ -5502,10 +5494,10 @@ UpdateDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateDesc
   return UpdateDescriptionResponse(callApi(params, req, runtime));
 }
 
-UpdateDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDiagnosisSettingsRequest> request) {
+UpdateDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateDescriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
+  return updateDescriptionWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDiagnosisSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -5539,10 +5531,10 @@ UpdateDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::upda
   return UpdateDiagnosisSettingsResponse(callApi(params, req, runtime));
 }
 
-UpdateDictResponse Alibabacloud_Elasticsearch20170613::Client::updateDict(shared_ptr<string> InstanceId, shared_ptr<UpdateDictRequest> request) {
+UpdateDiagnosisSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDiagnosisSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDiagnosisSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateDictWithOptions(InstanceId, request, headers, runtime);
+  return updateDiagnosisSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateDictResponse Alibabacloud_Elasticsearch20170613::Client::updateDictWithOptions(shared_ptr<string> InstanceId,
@@ -5573,10 +5565,10 @@ UpdateDictResponse Alibabacloud_Elasticsearch20170613::Client::updateDictWithOpt
   return UpdateDictResponse(callApi(params, req, runtime));
 }
 
-UpdateDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDynamicSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDynamicSettingsRequest> request) {
+UpdateDictResponse Alibabacloud_Elasticsearch20170613::Client::updateDict(shared_ptr<string> InstanceId, shared_ptr<UpdateDictRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
+  return updateDictWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDynamicSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -5613,10 +5605,10 @@ UpdateDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::update
   return UpdateDynamicSettingsResponse(callApi(params, req, runtime));
 }
 
-UpdateExtendConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendConfigRequest> request) {
+UpdateDynamicSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateDynamicSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateDynamicSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateExtendConfigWithOptions(InstanceId, request, headers, runtime);
+  return updateDynamicSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateExtendConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendConfigWithOptions(shared_ptr<string> InstanceId,
@@ -5647,10 +5639,10 @@ UpdateExtendConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateExt
   return UpdateExtendConfigResponse(callApi(params, req, runtime));
 }
 
-UpdateExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendfiles(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendfilesRequest> request) {
+UpdateExtendConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateExtendfilesWithOptions(InstanceId, request, headers, runtime);
+  return updateExtendConfigWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendfilesWithOptions(shared_ptr<string> InstanceId,
@@ -5681,10 +5673,10 @@ UpdateExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::updateExte
   return UpdateExtendfilesResponse(callApi(params, req, runtime));
 }
 
-UpdateHotIkDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateHotIkDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateHotIkDictsRequest> request) {
+UpdateExtendfilesResponse Alibabacloud_Elasticsearch20170613::Client::updateExtendfiles(shared_ptr<string> InstanceId, shared_ptr<UpdateExtendfilesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateHotIkDictsWithOptions(InstanceId, request, headers, runtime);
+  return updateExtendfilesWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateHotIkDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateHotIkDictsWithOptions(shared_ptr<string> InstanceId,
@@ -5715,10 +5707,10 @@ UpdateHotIkDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateHotIk
   return UpdateHotIkDictsResponse(callApi(params, req, runtime));
 }
 
-UpdateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName, shared_ptr<UpdateILMPolicyRequest> request) {
+UpdateHotIkDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateHotIkDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateHotIkDictsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
+  return updateHotIkDictsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateILMPolicyWithOptions(shared_ptr<string> InstanceId,
@@ -5750,10 +5742,10 @@ UpdateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateILMPol
   return UpdateILMPolicyResponse(callApi(params, req, runtime));
 }
 
-UpdateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate, shared_ptr<UpdateIndexTemplateRequest> request) {
+UpdateILMPolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateILMPolicy(shared_ptr<string> InstanceId, shared_ptr<string> PolicyName, shared_ptr<UpdateILMPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
+  return updateILMPolicyWithOptions(InstanceId, PolicyName, request, headers, runtime);
 }
 
 UpdateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateIndexTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -5785,10 +5777,10 @@ UpdateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateIn
   return UpdateIndexTemplateResponse(callApi(params, req, runtime));
 }
 
-UpdateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::updateInstance(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceRequest> request) {
+UpdateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateIndexTemplate(shared_ptr<string> InstanceId, shared_ptr<string> IndexTemplate, shared_ptr<UpdateIndexTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateInstanceWithOptions(InstanceId, request, headers, runtime);
+  return updateIndexTemplateWithOptions(InstanceId, IndexTemplate, request, headers, runtime);
 }
 
 UpdateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceWithOptions(shared_ptr<string> InstanceId,
@@ -5850,10 +5842,10 @@ UpdateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanc
   return UpdateInstanceResponse(callApi(params, req, runtime));
 }
 
-UpdateInstanceChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceChargeTypeRequest> request) {
+UpdateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::updateInstance(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateInstanceChargeTypeWithOptions(InstanceId, request, headers, runtime);
+  return updateInstanceWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateInstanceChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceChargeTypeWithOptions(shared_ptr<string> InstanceId,
@@ -5884,10 +5876,10 @@ UpdateInstanceChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::upd
   return UpdateInstanceChargeTypeResponse(callApi(params, req, runtime));
 }
 
-UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceSettingsRequest> request) {
+UpdateInstanceChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceChargeTypeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
+  return updateInstanceChargeTypeWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -5918,10 +5910,10 @@ UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updat
   return UpdateInstanceSettingsResponse(callApi(params, req, runtime));
 }
 
-UpdateKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaSettingsRequest> request) {
+UpdateInstanceSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateInstanceSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateInstanceSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
+  return updateInstanceSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -5952,10 +5944,10 @@ UpdateKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateK
   return UpdateKibanaSettingsResponse(callApi(params, req, runtime));
 }
 
-UpdateKibanaWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaWhiteIpsRequest> request) {
+UpdateKibanaSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateKibanaWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+  return updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateKibanaWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaWhiteIpsWithOptions(shared_ptr<string> InstanceId,
@@ -5996,10 +5988,10 @@ UpdateKibanaWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateK
   return UpdateKibanaWhiteIpsResponse(callApi(params, req, runtime));
 }
 
-UpdateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstash(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashRequest> request) {
+UpdateKibanaWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateKibanaWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateKibanaWhiteIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLogstashWithOptions(InstanceId, request, headers, runtime);
+  return updateKibanaWhiteIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashWithOptions(shared_ptr<string> InstanceId,
@@ -6037,10 +6029,10 @@ UpdateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstas
   return UpdateLogstashResponse(callApi(params, req, runtime));
 }
 
-UpdateLogstashChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashChargeTypeRequest> request) {
+UpdateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstash(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLogstashChargeTypeWithOptions(InstanceId, request, headers, runtime);
+  return updateLogstashWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateLogstashChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashChargeTypeWithOptions(shared_ptr<string> InstanceId,
@@ -6071,10 +6063,10 @@ UpdateLogstashChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::upd
   return UpdateLogstashChargeTypeResponse(callApi(params, req, runtime));
 }
 
-UpdateLogstashDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashDescriptionRequest> request) {
+UpdateLogstashChargeTypeResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashChargeType(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashChargeTypeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLogstashDescriptionWithOptions(InstanceId, request, headers, runtime);
+  return updateLogstashChargeTypeWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateLogstashDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashDescriptionWithOptions(shared_ptr<string> InstanceId,
@@ -6105,10 +6097,10 @@ UpdateLogstashDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::up
   return UpdateLogstashDescriptionResponse(callApi(params, req, runtime));
 }
 
-UpdateLogstashSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashSettingsRequest> request) {
+UpdateLogstashDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashDescription(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashDescriptionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLogstashSettingsWithOptions(InstanceId, request, headers, runtime);
+  return updateLogstashDescriptionWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateLogstashSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashSettingsWithOptions(shared_ptr<string> InstanceId,
@@ -6139,10 +6131,10 @@ UpdateLogstashSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updat
   return UpdateLogstashSettingsResponse(callApi(params, req, runtime));
 }
 
-UpdatePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelineManagementConfigRequest> request) {
+UpdateLogstashSettingsResponse Alibabacloud_Elasticsearch20170613::Client::updateLogstashSettings(shared_ptr<string> InstanceId, shared_ptr<UpdateLogstashSettingsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updatePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
+  return updateLogstashSettingsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdatePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelineManagementConfigWithOptions(shared_ptr<string> InstanceId,
@@ -6189,10 +6181,10 @@ UpdatePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Clien
   return UpdatePipelineManagementConfigResponse(callApi(params, req, runtime));
 }
 
-UpdatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelines(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelinesRequest> request) {
+UpdatePipelineManagementConfigResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelineManagementConfig(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelineManagementConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updatePipelinesWithOptions(InstanceId, request, headers, runtime);
+  return updatePipelineManagementConfigWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelinesWithOptions(shared_ptr<string> InstanceId,
@@ -6226,10 +6218,10 @@ UpdatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::updatePipeli
   return UpdatePipelinesResponse(callApi(params, req, runtime));
 }
 
-UpdatePrivateNetworkWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePrivateNetworkWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePrivateNetworkWhiteIpsRequest> request) {
+UpdatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::updatePipelines(shared_ptr<string> InstanceId, shared_ptr<UpdatePipelinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updatePrivateNetworkWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+  return updatePipelinesWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdatePrivateNetworkWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePrivateNetworkWhiteIpsWithOptions(shared_ptr<string> InstanceId,
@@ -6263,10 +6255,10 @@ UpdatePrivateNetworkWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client:
   return UpdatePrivateNetworkWhiteIpsResponse(callApi(params, req, runtime));
 }
 
-UpdatePublicNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicNetworkRequest> request) {
+UpdatePrivateNetworkWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePrivateNetworkWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePrivateNetworkWhiteIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updatePublicNetworkWithOptions(InstanceId, request, headers, runtime);
+  return updatePrivateNetworkWhiteIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdatePublicNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicNetworkWithOptions(shared_ptr<string> InstanceId,
@@ -6297,10 +6289,10 @@ UpdatePublicNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updatePu
   return UpdatePublicNetworkResponse(callApi(params, req, runtime));
 }
 
-UpdatePublicWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicWhiteIpsRequest> request) {
+UpdatePublicNetworkResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicNetwork(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicNetworkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updatePublicWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+  return updatePublicNetworkWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdatePublicWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicWhiteIpsWithOptions(shared_ptr<string> InstanceId,
@@ -6334,10 +6326,10 @@ UpdatePublicWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateP
   return UpdatePublicWhiteIpsResponse(callApi(params, req, runtime));
 }
 
-UpdateReadWritePolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateReadWritePolicy(shared_ptr<string> InstanceId, shared_ptr<UpdateReadWritePolicyRequest> request) {
+UpdatePublicWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updatePublicWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdatePublicWhiteIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateReadWritePolicyWithOptions(InstanceId, request, headers, runtime);
+  return updatePublicWhiteIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateReadWritePolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateReadWritePolicyWithOptions(shared_ptr<string> InstanceId,
@@ -6368,10 +6360,10 @@ UpdateReadWritePolicyResponse Alibabacloud_Elasticsearch20170613::Client::update
   return UpdateReadWritePolicyResponse(callApi(params, req, runtime));
 }
 
-UpdateSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateSnapshotSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateSnapshotSettingRequest> request) {
+UpdateReadWritePolicyResponse Alibabacloud_Elasticsearch20170613::Client::updateReadWritePolicy(shared_ptr<string> InstanceId, shared_ptr<UpdateReadWritePolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateSnapshotSettingWithOptions(InstanceId, request, headers, runtime);
+  return updateReadWritePolicyWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateSnapshotSettingWithOptions(shared_ptr<string> InstanceId,
@@ -6397,10 +6389,10 @@ UpdateSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::update
   return UpdateSnapshotSettingResponse(callApi(params, req, runtime));
 }
 
-UpdateSynonymsDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateSynonymsDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateSynonymsDictsRequest> request) {
+UpdateSnapshotSettingResponse Alibabacloud_Elasticsearch20170613::Client::updateSnapshotSetting(shared_ptr<string> InstanceId, shared_ptr<UpdateSnapshotSettingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateSynonymsDictsWithOptions(InstanceId, request, headers, runtime);
+  return updateSnapshotSettingWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateSynonymsDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateSynonymsDictsWithOptions(shared_ptr<string> InstanceId,
@@ -6431,10 +6423,10 @@ UpdateSynonymsDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateSy
   return UpdateSynonymsDictsResponse(callApi(params, req, runtime));
 }
 
-UpdateTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateTemplate(shared_ptr<string> InstanceId, shared_ptr<string> TemplateName, shared_ptr<UpdateTemplateRequest> request) {
+UpdateSynonymsDictsResponse Alibabacloud_Elasticsearch20170613::Client::updateSynonymsDicts(shared_ptr<string> InstanceId, shared_ptr<UpdateSynonymsDictsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTemplateWithOptions(InstanceId, TemplateName, request, headers, runtime);
+  return updateSynonymsDictsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateTemplateWithOptions(shared_ptr<string> InstanceId,
@@ -6466,10 +6458,10 @@ UpdateTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateTemplat
   return UpdateTemplateResponse(callApi(params, req, runtime));
 }
 
-UpdateWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateWhiteIpsRequest> request) {
+UpdateTemplateResponse Alibabacloud_Elasticsearch20170613::Client::updateTemplate(shared_ptr<string> InstanceId, shared_ptr<string> TemplateName, shared_ptr<UpdateTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateWhiteIpsWithOptions(InstanceId, request, headers, runtime);
+  return updateTemplateWithOptions(InstanceId, TemplateName, request, headers, runtime);
 }
 
 UpdateWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateWhiteIpsWithOptions(shared_ptr<string> InstanceId,
@@ -6510,10 +6502,10 @@ UpdateWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateWhiteIp
   return UpdateWhiteIpsResponse(callApi(params, req, runtime));
 }
 
-UpdateXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateXpackMonitorConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateXpackMonitorConfigRequest> request) {
+UpdateWhiteIpsResponse Alibabacloud_Elasticsearch20170613::Client::updateWhiteIps(shared_ptr<string> InstanceId, shared_ptr<UpdateWhiteIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateXpackMonitorConfigWithOptions(InstanceId, request, headers, runtime);
+  return updateWhiteIpsWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpdateXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateXpackMonitorConfigWithOptions(shared_ptr<string> InstanceId,
@@ -6557,10 +6549,10 @@ UpdateXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::upd
   return UpdateXpackMonitorConfigResponse(callApi(params, req, runtime));
 }
 
-UpgradeEngineVersionResponse Alibabacloud_Elasticsearch20170613::Client::upgradeEngineVersion(shared_ptr<string> InstanceId, shared_ptr<UpgradeEngineVersionRequest> request) {
+UpdateXpackMonitorConfigResponse Alibabacloud_Elasticsearch20170613::Client::updateXpackMonitorConfig(shared_ptr<string> InstanceId, shared_ptr<UpdateXpackMonitorConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
+  return updateXpackMonitorConfigWithOptions(InstanceId, request, headers, runtime);
 }
 
 UpgradeEngineVersionResponse Alibabacloud_Elasticsearch20170613::Client::upgradeEngineVersionWithOptions(shared_ptr<string> InstanceId,
@@ -6601,10 +6593,10 @@ UpgradeEngineVersionResponse Alibabacloud_Elasticsearch20170613::Client::upgrade
   return UpgradeEngineVersionResponse(callApi(params, req, runtime));
 }
 
-ValidateConnectionResponse Alibabacloud_Elasticsearch20170613::Client::validateConnection(shared_ptr<string> InstanceId, shared_ptr<ValidateConnectionRequest> request) {
+UpgradeEngineVersionResponse Alibabacloud_Elasticsearch20170613::Client::upgradeEngineVersion(shared_ptr<string> InstanceId, shared_ptr<UpgradeEngineVersionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return validateConnectionWithOptions(InstanceId, request, headers, runtime);
+  return upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
 }
 
 ValidateConnectionResponse Alibabacloud_Elasticsearch20170613::Client::validateConnectionWithOptions(shared_ptr<string> InstanceId,
@@ -6635,10 +6627,10 @@ ValidateConnectionResponse Alibabacloud_Elasticsearch20170613::Client::validateC
   return ValidateConnectionResponse(callApi(params, req, runtime));
 }
 
-ValidateShrinkNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateShrinkNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateShrinkNodesRequest> request) {
+ValidateConnectionResponse Alibabacloud_Elasticsearch20170613::Client::validateConnection(shared_ptr<string> InstanceId, shared_ptr<ValidateConnectionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return validateShrinkNodesWithOptions(InstanceId, request, headers, runtime);
+  return validateConnectionWithOptions(InstanceId, request, headers, runtime);
 }
 
 ValidateShrinkNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateShrinkNodesWithOptions(shared_ptr<string> InstanceId,
@@ -6675,10 +6667,10 @@ ValidateShrinkNodesResponse Alibabacloud_Elasticsearch20170613::Client::validate
   return ValidateShrinkNodesResponse(callApi(params, req, runtime));
 }
 
-ValidateSlrPermissionResponse Alibabacloud_Elasticsearch20170613::Client::validateSlrPermission(shared_ptr<ValidateSlrPermissionRequest> request) {
+ValidateShrinkNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateShrinkNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateShrinkNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return validateSlrPermissionWithOptions(request, headers, runtime);
+  return validateShrinkNodesWithOptions(InstanceId, request, headers, runtime);
 }
 
 ValidateSlrPermissionResponse Alibabacloud_Elasticsearch20170613::Client::validateSlrPermissionWithOptions(shared_ptr<ValidateSlrPermissionRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6708,10 +6700,10 @@ ValidateSlrPermissionResponse Alibabacloud_Elasticsearch20170613::Client::valida
   return ValidateSlrPermissionResponse(callApi(params, req, runtime));
 }
 
-ValidateTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateTransferableNodesRequest> request) {
+ValidateSlrPermissionResponse Alibabacloud_Elasticsearch20170613::Client::validateSlrPermission(shared_ptr<ValidateSlrPermissionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return validateTransferableNodesWithOptions(InstanceId, request, headers, runtime);
+  return validateSlrPermissionWithOptions(request, headers, runtime);
 }
 
 ValidateTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateTransferableNodesWithOptions(shared_ptr<string> InstanceId,
@@ -6742,10 +6734,10 @@ ValidateTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::va
   return ValidateTransferableNodesResponse(callApi(params, req, runtime));
 }
 
-CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
+ValidateTransferableNodesResponse Alibabacloud_Elasticsearch20170613::Client::validateTransferableNodes(shared_ptr<string> InstanceId, shared_ptr<ValidateTransferableNodesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createInstanceWithOptions(request, headers, runtime);
+  return validateTransferableNodesWithOptions(InstanceId, request, headers, runtime);
 }
 
 CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6814,5 +6806,11 @@ CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanc
     {"bodyType", boost::any(string("json"))}
   }));
   return CreateInstanceResponse(callApi(params, req, runtime));
+}
+
+CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createInstanceWithOptions(request, headers, runtime);
 }
 
