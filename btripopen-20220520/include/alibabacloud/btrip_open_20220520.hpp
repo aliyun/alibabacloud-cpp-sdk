@@ -27329,6 +27329,7 @@ public:
 class UserQueryResponseBodyModuleItems : public Darabonba::Model {
 public:
   shared_ptr<string> employeeNick{};
+  shared_ptr<long> leaveStatus{};
   shared_ptr<string> thirdPartEmployeeId{};
   shared_ptr<string> thirdPartJobNo{};
 
@@ -27345,6 +27346,9 @@ public:
     if (employeeNick) {
       res["employee_nick"] = boost::any(*employeeNick);
     }
+    if (leaveStatus) {
+      res["leave_status"] = boost::any(*leaveStatus);
+    }
     if (thirdPartEmployeeId) {
       res["third_part_employee_id"] = boost::any(*thirdPartEmployeeId);
     }
@@ -27357,6 +27361,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("employee_nick") != m.end() && !m["employee_nick"].empty()) {
       employeeNick = make_shared<string>(boost::any_cast<string>(m["employee_nick"]));
+    }
+    if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
+      leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
     }
     if (m.find("third_part_employee_id") != m.end() && !m["third_part_employee_id"].empty()) {
       thirdPartEmployeeId = make_shared<string>(boost::any_cast<string>(m["third_part_employee_id"]));
