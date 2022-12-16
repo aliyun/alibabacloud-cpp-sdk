@@ -38,12 +38,6 @@ string Alibabacloud_RocketMQ20220801::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<CreateConsumerGroupRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
-}
-
 CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsumerGroupWithOptions(shared_ptr<string> instanceId,
                                                                                                   shared_ptr<string> consumerGroupId,
                                                                                                   shared_ptr<CreateConsumerGroupRequest> request,
@@ -78,10 +72,81 @@ CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsume
   return CreateConsumerGroupResponse(callApi(params, req, runtime));
 }
 
-CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName, shared_ptr<CreateTopicRequest> request) {
+CreateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::createConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<CreateConsumerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTopicWithOptions(instanceId, topicName, request, headers, runtime);
+  return createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+}
+
+CreateInstanceResponse Alibabacloud_RocketMQ20220801::Client::createInstanceWithOptions(shared_ptr<CreateInstanceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRenew)) {
+    body->insert(pair<string, bool>("autoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
+    body->insert(pair<string, long>("autoRenewPeriod", *request->autoRenewPeriod));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    body->insert(pair<string, string>("instanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestNetworkInfo>(request->networkInfo)) {
+    body->insert(pair<string, CreateInstanceRequestNetworkInfo>("networkInfo", *request->networkInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    body->insert(pair<string, string>("paymentType", *request->paymentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodUnit)) {
+    body->insert(pair<string, string>("periodUnit", *request->periodUnit));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateInstanceRequestProductInfo>(request->productInfo)) {
+    body->insert(pair<string, CreateInstanceRequestProductInfo>("productInfo", *request->productInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    body->insert(pair<string, string>("remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->seriesCode)) {
+    body->insert(pair<string, string>("seriesCode", *request->seriesCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("serviceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subSeriesCode)) {
+    body->insert(pair<string, string>("subSeriesCode", *request->subSeriesCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateInstance"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/instances"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateInstanceResponse(callApi(params, req, runtime));
+}
+
+CreateInstanceResponse Alibabacloud_RocketMQ20220801::Client::createInstance(shared_ptr<CreateInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createInstanceWithOptions(request, headers, runtime);
 }
 
 CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopicWithOptions(shared_ptr<string> instanceId,
@@ -115,10 +180,10 @@ CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopicWithOption
   return CreateTopicResponse(callApi(params, req, runtime));
 }
 
-DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
+CreateTopicResponse Alibabacloud_RocketMQ20220801::Client::createTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName, shared_ptr<CreateTopicRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
+  return createTopicWithOptions(instanceId, topicName, request, headers, runtime);
 }
 
 DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsumerGroupWithOptions(shared_ptr<string> instanceId,
@@ -142,10 +207,10 @@ DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsume
   return DeleteConsumerGroupResponse(callApi(params, req, runtime));
 }
 
-DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstance(shared_ptr<string> instanceId) {
+DeleteConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::deleteConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteInstanceWithOptions(instanceId, headers, runtime);
+  return deleteConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
 }
 
 DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -166,10 +231,10 @@ DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstanceWith
   return DeleteInstanceResponse(callApi(params, req, runtime));
 }
 
-DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName) {
+DeleteInstanceResponse Alibabacloud_RocketMQ20220801::Client::deleteInstance(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTopicWithOptions(instanceId, topicName, headers, runtime);
+  return deleteInstanceWithOptions(instanceId, headers, runtime);
 }
 
 DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopicWithOptions(shared_ptr<string> instanceId,
@@ -193,10 +258,10 @@ DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopicWithOption
   return DeleteTopicResponse(callApi(params, req, runtime));
 }
 
-GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
+DeleteTopicResponse Alibabacloud_RocketMQ20220801::Client::deleteTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
+  return deleteTopicWithOptions(instanceId, topicName, headers, runtime);
 }
 
 GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroupWithOptions(shared_ptr<string> instanceId,
@@ -220,10 +285,10 @@ GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroup
   return GetConsumerGroupResponse(callApi(params, req, runtime));
 }
 
-GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstance(shared_ptr<string> instanceId) {
+GetConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::getConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getInstanceWithOptions(instanceId, headers, runtime);
+  return getConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
 }
 
 GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -244,10 +309,10 @@ GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstanceWithOption
   return GetInstanceResponse(callApi(params, req, runtime));
 }
 
-GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName) {
+GetInstanceResponse Alibabacloud_RocketMQ20220801::Client::getInstance(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTopicWithOptions(instanceId, topicName, headers, runtime);
+  return getInstanceWithOptions(instanceId, headers, runtime);
 }
 
 GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopicWithOptions(shared_ptr<string> instanceId,
@@ -271,10 +336,10 @@ GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopicWithOptions(shar
   return GetTopicResponse(callApi(params, req, runtime));
 }
 
-ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroups(shared_ptr<string> instanceId, shared_ptr<ListConsumerGroupsRequest> request) {
+GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
+  return getTopicWithOptions(instanceId, topicName, headers, runtime);
 }
 
 ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupsWithOptions(shared_ptr<string> instanceId,
@@ -310,10 +375,10 @@ ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGr
   return ListConsumerGroupsResponse(callApi(params, req, runtime));
 }
 
-ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
+ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroups(shared_ptr<string> instanceId, shared_ptr<ListConsumerGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listInstancesWithOptions(request, headers, runtime);
+  return listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
 }
 
 ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -346,10 +411,10 @@ ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOp
   return ListInstancesResponse(callApi(params, req, runtime));
 }
 
-ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopics(shared_ptr<string> instanceId, shared_ptr<ListTopicsRequest> request) {
+ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstances(shared_ptr<ListInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTopicsWithOptions(instanceId, request, headers, runtime);
+  return listInstancesWithOptions(request, headers, runtime);
 }
 
 ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopicsWithOptions(shared_ptr<string> instanceId,
@@ -385,10 +450,10 @@ ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopicsWithOptions(
   return ListTopicsResponse(callApi(params, req, runtime));
 }
 
-UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<UpdateConsumerGroupRequest> request) {
+ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopics(shared_ptr<string> instanceId, shared_ptr<ListTopicsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
+  return listTopicsWithOptions(instanceId, request, headers, runtime);
 }
 
 UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsumerGroupWithOptions(shared_ptr<string> instanceId,
@@ -425,10 +490,10 @@ UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsume
   return UpdateConsumerGroupResponse(callApi(params, req, runtime));
 }
 
-UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstance(shared_ptr<string> instanceId, shared_ptr<UpdateInstanceRequest> request) {
+UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsumerGroup(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId, shared_ptr<UpdateConsumerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateInstanceWithOptions(instanceId, request, headers, runtime);
+  return updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
 }
 
 UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWithOptions(shared_ptr<string> instanceId,
@@ -437,14 +502,14 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestExtConfig>(request->extConfig)) {
-    body->insert(pair<string, UpdateInstanceRequestExtConfig>("extConfig", *request->extConfig));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("instanceName", *request->instanceName));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestNetworkInfo>(request->networkInfo)) {
     body->insert(pair<string, UpdateInstanceRequestNetworkInfo>("networkInfo", *request->networkInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestProductInfo>(request->productInfo)) {
+    body->insert(pair<string, UpdateInstanceRequestProductInfo>("productInfo", *request->productInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
     body->insert(pair<string, string>("remark", *request->remark));
@@ -467,10 +532,10 @@ UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstanceWith
   return UpdateInstanceResponse(callApi(params, req, runtime));
 }
 
-UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName, shared_ptr<UpdateTopicRequest> request) {
+UpdateInstanceResponse Alibabacloud_RocketMQ20220801::Client::updateInstance(shared_ptr<string> instanceId, shared_ptr<UpdateInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
+  return updateInstanceWithOptions(instanceId, request, headers, runtime);
 }
 
 UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopicWithOptions(shared_ptr<string> instanceId,
@@ -499,5 +564,11 @@ UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopicWithOption
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateTopicResponse(callApi(params, req, runtime));
+}
+
+UpdateTopicResponse Alibabacloud_RocketMQ20220801::Client::updateTopic(shared_ptr<string> instanceId, shared_ptr<string> topicName, shared_ptr<UpdateTopicRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
 }
 
