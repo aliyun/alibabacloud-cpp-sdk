@@ -117,7 +117,7 @@ ScanImageResponse Alibabacloud_Imageaudit20191230::Client::scanImageAdvance(shar
   shared_ptr<ScanImageRequest> scanImageReq = make_shared<ScanImageRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, scanImageReq);
   if (!Darabonba_Util::Client::isUnset<vector<ScanImageAdvanceRequestTask>>(request->task)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->task) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.imageURLObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -144,7 +144,7 @@ ScanImageResponse Alibabacloud_Imageaudit20191230::Client::scanImageAdvance(shar
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<ScanImageRequestTask> tmp = make_shared<ScanImageRequestTask>((*scanImageReq->task)[[object Object]]);
         tmp->imageURL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
   }
