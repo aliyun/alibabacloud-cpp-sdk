@@ -1465,8 +1465,45 @@ public:
 
   virtual ~AddTaskFlowEdgesShrinkRequest() = default;
 };
+class AddTaskFlowEdgesResponseBodyEdgeIds : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> edgeId{};
+
+  AddTaskFlowEdgesResponseBodyEdgeIds() {}
+
+  explicit AddTaskFlowEdgesResponseBodyEdgeIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (edgeId) {
+      res["EdgeId"] = boost::any(*edgeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EdgeId") != m.end() && !m["EdgeId"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["EdgeId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["EdgeId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      edgeId = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddTaskFlowEdgesResponseBodyEdgeIds() = default;
+};
 class AddTaskFlowEdgesResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<AddTaskFlowEdgesResponseBodyEdgeIds> edgeIds{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
@@ -1482,6 +1519,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (edgeIds) {
+      res["EdgeIds"] = edgeIds ? boost::any(edgeIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
@@ -1498,6 +1538,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EdgeIds") != m.end() && !m["EdgeIds"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EdgeIds"].type()) {
+        AddTaskFlowEdgesResponseBodyEdgeIds model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EdgeIds"]));
+        edgeIds = make_shared<AddTaskFlowEdgesResponseBodyEdgeIds>(model1);
+      }
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
@@ -18940,6 +18987,257 @@ public:
 
   virtual ~GetProxyResponse() = default;
 };
+class GetProxyAccessRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> proxyAccessId{};
+  shared_ptr<long> tid{};
+
+  GetProxyAccessRequest() {}
+
+  explicit GetProxyAccessRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (proxyAccessId) {
+      res["ProxyAccessId"] = boost::any(*proxyAccessId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProxyAccessId") != m.end() && !m["ProxyAccessId"].empty()) {
+      proxyAccessId = make_shared<long>(boost::any_cast<long>(m["ProxyAccessId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetProxyAccessRequest() = default;
+};
+class GetProxyAccessResponseBodyProxyAccess : public Darabonba::Model {
+public:
+  shared_ptr<string> accessId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> indepAccount{};
+  shared_ptr<long> instanceId{};
+  shared_ptr<string> originInfo{};
+  shared_ptr<long> proxyAccessId{};
+  shared_ptr<long> proxyId{};
+  shared_ptr<long> userId{};
+  shared_ptr<string> userName{};
+  shared_ptr<string> userUid{};
+
+  GetProxyAccessResponseBodyProxyAccess() {}
+
+  explicit GetProxyAccessResponseBodyProxyAccess(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessId) {
+      res["AccessId"] = boost::any(*accessId);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (indepAccount) {
+      res["IndepAccount"] = boost::any(*indepAccount);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (originInfo) {
+      res["OriginInfo"] = boost::any(*originInfo);
+    }
+    if (proxyAccessId) {
+      res["ProxyAccessId"] = boost::any(*proxyAccessId);
+    }
+    if (proxyId) {
+      res["ProxyId"] = boost::any(*proxyId);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    if (userUid) {
+      res["UserUid"] = boost::any(*userUid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessId") != m.end() && !m["AccessId"].empty()) {
+      accessId = make_shared<string>(boost::any_cast<string>(m["AccessId"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("IndepAccount") != m.end() && !m["IndepAccount"].empty()) {
+      indepAccount = make_shared<string>(boost::any_cast<string>(m["IndepAccount"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
+    }
+    if (m.find("OriginInfo") != m.end() && !m["OriginInfo"].empty()) {
+      originInfo = make_shared<string>(boost::any_cast<string>(m["OriginInfo"]));
+    }
+    if (m.find("ProxyAccessId") != m.end() && !m["ProxyAccessId"].empty()) {
+      proxyAccessId = make_shared<long>(boost::any_cast<long>(m["ProxyAccessId"]));
+    }
+    if (m.find("ProxyId") != m.end() && !m["ProxyId"].empty()) {
+      proxyId = make_shared<long>(boost::any_cast<long>(m["ProxyId"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+    if (m.find("UserUid") != m.end() && !m["UserUid"].empty()) {
+      userUid = make_shared<string>(boost::any_cast<string>(m["UserUid"]));
+    }
+  }
+
+
+  virtual ~GetProxyAccessResponseBodyProxyAccess() = default;
+};
+class GetProxyAccessResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetProxyAccessResponseBodyProxyAccess> proxyAccess{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetProxyAccessResponseBody() {}
+
+  explicit GetProxyAccessResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (proxyAccess) {
+      res["ProxyAccess"] = proxyAccess ? boost::any(proxyAccess->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ProxyAccess") != m.end() && !m["ProxyAccess"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyAccess"].type()) {
+        GetProxyAccessResponseBodyProxyAccess model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyAccess"]));
+        proxyAccess = make_shared<GetProxyAccessResponseBodyProxyAccess>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetProxyAccessResponseBody() = default;
+};
+class GetProxyAccessResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetProxyAccessResponseBody> body{};
+
+  GetProxyAccessResponse() {}
+
+  explicit GetProxyAccessResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetProxyAccessResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetProxyAccessResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetProxyAccessResponse() = default;
+};
 class GetRuleNumLimitOfSLARequest : public Darabonba::Model {
 public:
   shared_ptr<long> dagId{};
@@ -36379,6 +36677,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> loginName{};
   shared_ptr<string> nickName{};
+  shared_ptr<string> userId{};
 
   ListTaskFlowCooperatorsResponseBodyCooperatorListCooperator() {}
 
@@ -36399,6 +36698,9 @@ public:
     if (nickName) {
       res["NickName"] = boost::any(*nickName);
     }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
     return res;
   }
 
@@ -36411,6 +36713,9 @@ public:
     }
     if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
       nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
   }
 
@@ -48391,6 +48696,8 @@ public:
   GetPhysicalDatabaseResponse getPhysicalDatabase(shared_ptr<GetPhysicalDatabaseRequest> request);
   GetProxyResponse getProxyWithOptions(shared_ptr<GetProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetProxyResponse getProxy(shared_ptr<GetProxyRequest> request);
+  GetProxyAccessResponse getProxyAccessWithOptions(shared_ptr<GetProxyAccessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetProxyAccessResponse getProxyAccess(shared_ptr<GetProxyAccessRequest> request);
   GetRuleNumLimitOfSLAResponse getRuleNumLimitOfSLAWithOptions(shared_ptr<GetRuleNumLimitOfSLARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRuleNumLimitOfSLAResponse getRuleNumLimitOfSLA(shared_ptr<GetRuleNumLimitOfSLARequest> request);
   GetSQLReviewCheckResultStatusResponse getSQLReviewCheckResultStatusWithOptions(shared_ptr<GetSQLReviewCheckResultStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
