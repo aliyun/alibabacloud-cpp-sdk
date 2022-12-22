@@ -103,6 +103,37 @@ AbolishDataServiceApiResponse Alibabacloud_Dataworks-public20200518::Client::abo
   return abolishDataServiceApiWithOptions(request, runtime);
 }
 
+AddMetaCollectionEntityResponse Alibabacloud_Dataworks-public20200518::Client::addMetaCollectionEntityWithOptions(shared_ptr<AddMetaCollectionEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->collectionQualifiedName)) {
+    query->insert(pair<string, string>("CollectionQualifiedName", *request->collectionQualifiedName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityQualifiedName)) {
+    query->insert(pair<string, string>("EntityQualifiedName", *request->entityQualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddMetaCollectionEntity"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddMetaCollectionEntityResponse(callApi(params, req, runtime));
+}
+
+AddMetaCollectionEntityResponse Alibabacloud_Dataworks-public20200518::Client::addMetaCollectionEntity(shared_ptr<AddMetaCollectionEntityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addMetaCollectionEntityWithOptions(request, runtime);
+}
+
 AddProjectMemberToRoleResponse Alibabacloud_Dataworks-public20200518::Client::addProjectMemberToRoleWithOptions(shared_ptr<AddProjectMemberToRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1269,6 +1300,43 @@ CreateMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::create
   return createMetaCategoryWithOptions(request, runtime);
 }
 
+CreateMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::createMetaCollectionWithOptions(shared_ptr<CreateMetaCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->collectionType)) {
+    query->insert(pair<string, string>("CollectionType", *request->collectionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
+    query->insert(pair<string, string>("Comment", *request->comment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentQualifiedName)) {
+    query->insert(pair<string, string>("ParentQualifiedName", *request->parentQualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMetaCollection"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMetaCollectionResponse(callApi(params, req, runtime));
+}
+
+CreateMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::createMetaCollection(shared_ptr<CreateMetaCollectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createMetaCollectionWithOptions(request, runtime);
+}
+
 CreatePermissionApplyOrderResponse Alibabacloud_Dataworks-public20200518::Client::createPermissionApplyOrderWithOptions(shared_ptr<CreatePermissionApplyOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2203,6 +2271,65 @@ DeleteMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::delete
 DeleteMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCategory(shared_ptr<DeleteMetaCategoryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteMetaCategoryWithOptions(request, runtime);
+}
+
+DeleteMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCollectionWithOptions(shared_ptr<DeleteMetaCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifiedName)) {
+    query->insert(pair<string, string>("QualifiedName", *request->qualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMetaCollection"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMetaCollectionResponse(callApi(params, req, runtime));
+}
+
+DeleteMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCollection(shared_ptr<DeleteMetaCollectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteMetaCollectionWithOptions(request, runtime);
+}
+
+DeleteMetaCollectionEntityResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCollectionEntityWithOptions(shared_ptr<DeleteMetaCollectionEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->collectionQualifiedName)) {
+    query->insert(pair<string, string>("CollectionQualifiedName", *request->collectionQualifiedName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityQualifiedName)) {
+    query->insert(pair<string, string>("EntityQualifiedName", *request->entityQualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMetaCollectionEntity"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMetaCollectionEntityResponse(callApi(params, req, runtime));
+}
+
+DeleteMetaCollectionEntityResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCollectionEntity(shared_ptr<DeleteMetaCollectionEntityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteMetaCollectionEntityWithOptions(request, runtime);
 }
 
 DeleteProjectMemberResponse Alibabacloud_Dataworks-public20200518::Client::deleteProjectMemberWithOptions(shared_ptr<DeleteProjectMemberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3807,6 +3934,34 @@ GetMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::getMetaCa
   return getMetaCategoryWithOptions(request, runtime);
 }
 
+GetMetaCollectionDetailResponse Alibabacloud_Dataworks-public20200518::Client::getMetaCollectionDetailWithOptions(shared_ptr<GetMetaCollectionDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifiedName)) {
+    query->insert(pair<string, string>("QualifiedName", *request->qualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMetaCollectionDetail"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMetaCollectionDetailResponse(callApi(params, req, runtime));
+}
+
+GetMetaCollectionDetailResponse Alibabacloud_Dataworks-public20200518::Client::getMetaCollectionDetail(shared_ptr<GetMetaCollectionDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMetaCollectionDetailWithOptions(request, runtime);
+}
+
 GetMetaColumnLineageResponse Alibabacloud_Dataworks-public20200518::Client::getMetaColumnLineageWithOptions(shared_ptr<GetMetaColumnLineageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4248,6 +4403,49 @@ GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::get
 GetMetaTablePartitionResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTablePartition(shared_ptr<GetMetaTablePartitionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getMetaTablePartitionWithOptions(request, runtime);
+}
+
+GetMetaTableProducingTasksResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTableProducingTasksWithOptions(shared_ptr<GetMetaTableProducingTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
+    query->insert(pair<string, string>("DataSourceType", *request->dataSourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
+    query->insert(pair<string, string>("SchemaName", *request->schemaName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableGuid)) {
+    query->insert(pair<string, string>("TableGuid", *request->tableGuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tableName)) {
+    query->insert(pair<string, string>("TableName", *request->tableName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMetaTableProducingTasks"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMetaTableProducingTasksResponse(callApi(params, req, runtime));
+}
+
+GetMetaTableProducingTasksResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTableProducingTasks(shared_ptr<GetMetaTableProducingTasksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMetaTableProducingTasksWithOptions(request, runtime);
 }
 
 GetMetaTableThemeLevelResponse Alibabacloud_Dataworks-public20200518::Client::getMetaTableThemeLevelWithOptions(shared_ptr<GetMetaTableThemeLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -6196,6 +6394,98 @@ ListManualDagInstancesResponse Alibabacloud_Dataworks-public20200518::Client::li
 ListManualDagInstancesResponse Alibabacloud_Dataworks-public20200518::Client::listManualDagInstances(shared_ptr<ListManualDagInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listManualDagInstancesWithOptions(request, runtime);
+}
+
+ListMetaCollectionEntitiesResponse Alibabacloud_Dataworks-public20200518::Client::listMetaCollectionEntitiesWithOptions(shared_ptr<ListMetaCollectionEntitiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->collectionQualifiedName)) {
+    query->insert(pair<string, string>("CollectionQualifiedName", *request->collectionQualifiedName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityType)) {
+    query->insert(pair<string, string>("EntityType", *request->entityType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMetaCollectionEntities"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMetaCollectionEntitiesResponse(callApi(params, req, runtime));
+}
+
+ListMetaCollectionEntitiesResponse Alibabacloud_Dataworks-public20200518::Client::listMetaCollectionEntities(shared_ptr<ListMetaCollectionEntitiesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMetaCollectionEntitiesWithOptions(request, runtime);
+}
+
+ListMetaCollectionsResponse Alibabacloud_Dataworks-public20200518::Client::listMetaCollectionsWithOptions(shared_ptr<ListMetaCollectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->administrator)) {
+    query->insert(pair<string, string>("Administrator", *request->administrator));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->collectionType)) {
+    query->insert(pair<string, string>("CollectionType", *request->collectionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->creator)) {
+    query->insert(pair<string, string>("Creator", *request->creator));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->follower)) {
+    query->insert(pair<string, string>("Follower", *request->follower));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentQualifiedName)) {
+    query->insert(pair<string, string>("ParentQualifiedName", *request->parentQualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMetaCollections"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMetaCollectionsResponse(callApi(params, req, runtime));
+}
+
+ListMetaCollectionsResponse Alibabacloud_Dataworks-public20200518::Client::listMetaCollections(shared_ptr<ListMetaCollectionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMetaCollectionsWithOptions(request, runtime);
 }
 
 ListMetaDBResponse Alibabacloud_Dataworks-public20200518::Client::listMetaDBWithOptions(shared_ptr<ListMetaDBRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -8732,6 +9022,40 @@ UpdateMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::update
 UpdateMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::updateMetaCategory(shared_ptr<UpdateMetaCategoryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateMetaCategoryWithOptions(request, runtime);
+}
+
+UpdateMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::updateMetaCollectionWithOptions(shared_ptr<UpdateMetaCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
+    query->insert(pair<string, string>("Comment", *request->comment));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->qualifiedName)) {
+    query->insert(pair<string, string>("QualifiedName", *request->qualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMetaCollection"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMetaCollectionResponse(callApi(params, req, runtime));
+}
+
+UpdateMetaCollectionResponse Alibabacloud_Dataworks-public20200518::Client::updateMetaCollection(shared_ptr<UpdateMetaCollectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateMetaCollectionWithOptions(request, runtime);
 }
 
 UpdateMetaTableResponse Alibabacloud_Dataworks-public20200518::Client::updateMetaTableWithOptions(shared_ptr<UpdateMetaTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
