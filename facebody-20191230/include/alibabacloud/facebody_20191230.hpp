@@ -731,6 +731,120 @@ public:
 
   virtual ~BatchAddFacesRequest() = default;
 };
+class BatchAddFacesAdvanceRequestFaces : public Darabonba::Model {
+public:
+  shared_ptr<string> extraData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  BatchAddFacesAdvanceRequestFaces() {}
+
+  explicit BatchAddFacesAdvanceRequestFaces(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extraData) {
+      res["ExtraData"] = boost::any(*extraData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtraData") != m.end() && !m["ExtraData"].empty()) {
+      extraData = make_shared<string>(boost::any_cast<string>(m["ExtraData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesAdvanceRequestFaces() = default;
+};
+class BatchAddFacesAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dbName{};
+  shared_ptr<string> entityId{};
+  shared_ptr<vector<BatchAddFacesAdvanceRequestFaces>> faces{};
+  shared_ptr<double> qualityScoreThreshold{};
+  shared_ptr<double> similarityScoreThresholdBetweenEntity{};
+  shared_ptr<double> similarityScoreThresholdInEntity{};
+
+  BatchAddFacesAdvanceRequest() {}
+
+  explicit BatchAddFacesAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbName) {
+      res["DbName"] = boost::any(*dbName);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (faces) {
+      vector<boost::any> temp1;
+      for(auto item1:*faces){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Faces"] = boost::any(temp1);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    if (similarityScoreThresholdBetweenEntity) {
+      res["SimilarityScoreThresholdBetweenEntity"] = boost::any(*similarityScoreThresholdBetweenEntity);
+    }
+    if (similarityScoreThresholdInEntity) {
+      res["SimilarityScoreThresholdInEntity"] = boost::any(*similarityScoreThresholdInEntity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbName") != m.end() && !m["DbName"].empty()) {
+      dbName = make_shared<string>(boost::any_cast<string>(m["DbName"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
+    }
+    if (m.find("Faces") != m.end() && !m["Faces"].empty()) {
+      if (typeid(vector<boost::any>) == m["Faces"].type()) {
+        vector<BatchAddFacesAdvanceRequestFaces> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Faces"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchAddFacesAdvanceRequestFaces model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faces = make_shared<vector<BatchAddFacesAdvanceRequestFaces>>(expect1);
+      }
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+    if (m.find("SimilarityScoreThresholdBetweenEntity") != m.end() && !m["SimilarityScoreThresholdBetweenEntity"].empty()) {
+      similarityScoreThresholdBetweenEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdBetweenEntity"]));
+    }
+    if (m.find("SimilarityScoreThresholdInEntity") != m.end() && !m["SimilarityScoreThresholdInEntity"].empty()) {
+      similarityScoreThresholdInEntity = make_shared<double>(boost::any_cast<double>(m["SimilarityScoreThresholdInEntity"]));
+    }
+  }
+
+
+  virtual ~BatchAddFacesAdvanceRequest() = default;
+};
 class BatchAddFacesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dbName{};
@@ -16589,6 +16703,7 @@ public:
   AddFaceImageTemplateResponse addFaceImageTemplateAdvance(shared_ptr<AddFaceImageTemplateAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchAddFacesResponse batchAddFacesWithOptions(shared_ptr<BatchAddFacesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchAddFacesResponse batchAddFaces(shared_ptr<BatchAddFacesRequest> request);
+  BatchAddFacesResponse batchAddFacesAdvance(shared_ptr<BatchAddFacesAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BeautifyBodyResponse beautifyBodyWithOptions(shared_ptr<BeautifyBodyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BeautifyBodyResponse beautifyBody(shared_ptr<BeautifyBodyRequest> request);
   BeautifyBodyResponse beautifyBodyAdvance(shared_ptr<BeautifyBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
