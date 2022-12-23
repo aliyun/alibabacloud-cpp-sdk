@@ -2996,6 +2996,10 @@ public:
 class CompareFaceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<double> confidence{};
+  shared_ptr<long> isMaskA{};
+  shared_ptr<long> isMaskB{};
+  shared_ptr<vector<long>> landmarksAList{};
+  shared_ptr<vector<long>> landmarksBList{};
   shared_ptr<string> messageTips{};
   shared_ptr<double> qualityScoreA{};
   shared_ptr<double> qualityScoreB{};
@@ -3015,6 +3019,18 @@ public:
     map<string, boost::any> res;
     if (confidence) {
       res["Confidence"] = boost::any(*confidence);
+    }
+    if (isMaskA) {
+      res["IsMaskA"] = boost::any(*isMaskA);
+    }
+    if (isMaskB) {
+      res["IsMaskB"] = boost::any(*isMaskB);
+    }
+    if (landmarksAList) {
+      res["LandmarksAList"] = boost::any(*landmarksAList);
+    }
+    if (landmarksBList) {
+      res["LandmarksBList"] = boost::any(*landmarksBList);
     }
     if (messageTips) {
       res["MessageTips"] = boost::any(*messageTips);
@@ -3040,6 +3056,32 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
       confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("IsMaskA") != m.end() && !m["IsMaskA"].empty()) {
+      isMaskA = make_shared<long>(boost::any_cast<long>(m["IsMaskA"]));
+    }
+    if (m.find("IsMaskB") != m.end() && !m["IsMaskB"].empty()) {
+      isMaskB = make_shared<long>(boost::any_cast<long>(m["IsMaskB"]));
+    }
+    if (m.find("LandmarksAList") != m.end() && !m["LandmarksAList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LandmarksAList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LandmarksAList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      landmarksAList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("LandmarksBList") != m.end() && !m["LandmarksBList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LandmarksBList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LandmarksBList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      landmarksBList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("MessageTips") != m.end() && !m["MessageTips"].empty()) {
       messageTips = make_shared<string>(boost::any_cast<string>(m["MessageTips"]));
