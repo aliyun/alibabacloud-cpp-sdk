@@ -8956,6 +8956,559 @@ public:
 
   virtual ~DescribeVodDomainLogResponse() = default;
 };
+class DescribeVodDomainSrcBpsDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> interval{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodDomainSrcBpsDataRequest() {}
+
+  explicit DescribeVodDomainSrcBpsDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcBpsDataRequest() = default;
+};
+class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule : public Darabonba::Model {
+public:
+  shared_ptr<string> httpsValue{};
+  shared_ptr<string> timeStamp{};
+  shared_ptr<string> value{};
+
+  DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule() {}
+
+  explicit DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpsValue) {
+      res["HttpsValue"] = boost::any(*httpsValue);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpsValue") != m.end() && !m["HttpsValue"].empty()) {
+      httpsValue = make_shared<string>(boost::any_cast<string>(m["HttpsValue"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<string>(boost::any_cast<string>(m["TimeStamp"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule() = default;
+};
+class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule>> dataModule{};
+
+  DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval() {}
+
+  explicit DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataModule) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataModule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataModule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataModule") != m.end() && !m["DataModule"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataModule"].type()) {
+        vector<DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataModule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataModule = make_shared<vector<DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval() = default;
+};
+class DescribeVodDomainSrcBpsDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dataInterval{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval> srcBpsDataPerInterval{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodDomainSrcBpsDataResponseBody() {}
+
+  explicit DescribeVodDomainSrcBpsDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataInterval) {
+      res["DataInterval"] = boost::any(*dataInterval);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (srcBpsDataPerInterval) {
+      res["SrcBpsDataPerInterval"] = srcBpsDataPerInterval ? boost::any(srcBpsDataPerInterval->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataInterval") != m.end() && !m["DataInterval"].empty()) {
+      dataInterval = make_shared<string>(boost::any_cast<string>(m["DataInterval"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SrcBpsDataPerInterval") != m.end() && !m["SrcBpsDataPerInterval"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SrcBpsDataPerInterval"].type()) {
+        DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SrcBpsDataPerInterval"]));
+        srcBpsDataPerInterval = make_shared<DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcBpsDataResponseBody() = default;
+};
+class DescribeVodDomainSrcBpsDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodDomainSrcBpsDataResponseBody> body{};
+
+  DescribeVodDomainSrcBpsDataResponse() {}
+
+  explicit DescribeVodDomainSrcBpsDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodDomainSrcBpsDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodDomainSrcBpsDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcBpsDataResponse() = default;
+};
+class DescribeVodDomainSrcTrafficDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> interval{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> startTime{};
+
+  DescribeVodDomainSrcTrafficDataRequest() {}
+
+  explicit DescribeVodDomainSrcTrafficDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcTrafficDataRequest() = default;
+};
+class DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule : public Darabonba::Model {
+public:
+  shared_ptr<string> httpsValue{};
+  shared_ptr<string> timeStamp{};
+  shared_ptr<string> value{};
+
+  DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule() {}
+
+  explicit DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (httpsValue) {
+      res["HttpsValue"] = boost::any(*httpsValue);
+    }
+    if (timeStamp) {
+      res["TimeStamp"] = boost::any(*timeStamp);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HttpsValue") != m.end() && !m["HttpsValue"].empty()) {
+      httpsValue = make_shared<string>(boost::any_cast<string>(m["HttpsValue"]));
+    }
+    if (m.find("TimeStamp") != m.end() && !m["TimeStamp"].empty()) {
+      timeStamp = make_shared<string>(boost::any_cast<string>(m["TimeStamp"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule() = default;
+};
+class DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule>> dataModule{};
+
+  DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval() {}
+
+  explicit DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataModule) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataModule){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataModule"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataModule") != m.end() && !m["DataModule"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataModule"].type()) {
+        vector<DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataModule"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataModule = make_shared<vector<DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerIntervalDataModule>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval() = default;
+};
+class DescribeVodDomainSrcTrafficDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dataInterval{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval> srcTrafficDataPerInterval{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> totalTraffic{};
+
+  DescribeVodDomainSrcTrafficDataResponseBody() {}
+
+  explicit DescribeVodDomainSrcTrafficDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataInterval) {
+      res["DataInterval"] = boost::any(*dataInterval);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (srcTrafficDataPerInterval) {
+      res["SrcTrafficDataPerInterval"] = srcTrafficDataPerInterval ? boost::any(srcTrafficDataPerInterval->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (totalTraffic) {
+      res["TotalTraffic"] = boost::any(*totalTraffic);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataInterval") != m.end() && !m["DataInterval"].empty()) {
+      dataInterval = make_shared<string>(boost::any_cast<string>(m["DataInterval"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SrcTrafficDataPerInterval") != m.end() && !m["SrcTrafficDataPerInterval"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SrcTrafficDataPerInterval"].type()) {
+        DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SrcTrafficDataPerInterval"]));
+        srcTrafficDataPerInterval = make_shared<DescribeVodDomainSrcTrafficDataResponseBodySrcTrafficDataPerInterval>(model1);
+      }
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TotalTraffic") != m.end() && !m["TotalTraffic"].empty()) {
+      totalTraffic = make_shared<string>(boost::any_cast<string>(m["TotalTraffic"]));
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcTrafficDataResponseBody() = default;
+};
+class DescribeVodDomainSrcTrafficDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVodDomainSrcTrafficDataResponseBody> body{};
+
+  DescribeVodDomainSrcTrafficDataResponse() {}
+
+  explicit DescribeVodDomainSrcTrafficDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVodDomainSrcTrafficDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVodDomainSrcTrafficDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVodDomainSrcTrafficDataResponse() = default;
+};
 class DescribeVodDomainTrafficDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -14253,6 +14806,7 @@ public:
 class GetAppInfosResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<GetAppInfosResponseBodyAppInfoList>> appInfoList{};
+  shared_ptr<string> code{};
   shared_ptr<vector<string>> nonExistAppIds{};
   shared_ptr<string> requestId{};
 
@@ -14272,6 +14826,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["AppInfoList"] = boost::any(temp1);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
     }
     if (nonExistAppIds) {
       res["NonExistAppIds"] = boost::any(*nonExistAppIds);
@@ -14295,6 +14852,9 @@ public:
         }
         appInfoList = make_shared<vector<GetAppInfosResponseBodyAppInfoList>>(expect1);
       }
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("NonExistAppIds") != m.end() && !m["NonExistAppIds"].empty()) {
       vector<string> toVec1;
@@ -36038,6 +36598,10 @@ public:
   DescribeVodDomainDetailResponse describeVodDomainDetail(shared_ptr<DescribeVodDomainDetailRequest> request);
   DescribeVodDomainLogResponse describeVodDomainLogWithOptions(shared_ptr<DescribeVodDomainLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainLogResponse describeVodDomainLog(shared_ptr<DescribeVodDomainLogRequest> request);
+  DescribeVodDomainSrcBpsDataResponse describeVodDomainSrcBpsDataWithOptions(shared_ptr<DescribeVodDomainSrcBpsDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodDomainSrcBpsDataResponse describeVodDomainSrcBpsData(shared_ptr<DescribeVodDomainSrcBpsDataRequest> request);
+  DescribeVodDomainSrcTrafficDataResponse describeVodDomainSrcTrafficDataWithOptions(shared_ptr<DescribeVodDomainSrcTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVodDomainSrcTrafficDataResponse describeVodDomainSrcTrafficData(shared_ptr<DescribeVodDomainSrcTrafficDataRequest> request);
   DescribeVodDomainTrafficDataResponse describeVodDomainTrafficDataWithOptions(shared_ptr<DescribeVodDomainTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVodDomainTrafficDataResponse describeVodDomainTrafficData(shared_ptr<DescribeVodDomainTrafficDataRequest> request);
   DescribeVodDomainUsageDataResponse describeVodDomainUsageDataWithOptions(shared_ptr<DescribeVodDomainUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
