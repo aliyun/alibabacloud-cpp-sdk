@@ -556,7 +556,7 @@ CreateIntentResponse Alibabacloud_Chatbot20220408::Client::createIntentWithOptio
   shared_ptr<CreateIntentShrinkRequest> request = make_shared<CreateIntentShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateIntentRequestIntentDefinition>(tmpReq->intentDefinition)) {
-    request->intentDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->intentDefinition->toMap()), make_shared<string>("IntentDefinition"), make_shared<string>("json")));
+    request->intentDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->intentDefinition, make_shared<string>("IntentDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
@@ -595,7 +595,7 @@ CreateLgfResponse Alibabacloud_Chatbot20220408::Client::createLgfWithOptions(sha
   shared_ptr<CreateLgfShrinkRequest> request = make_shared<CreateLgfShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateLgfRequestLgfDefinition>(tmpReq->lgfDefinition)) {
-    request->lgfDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->lgfDefinition->toMap()), make_shared<string>("LgfDefinition"), make_shared<string>("json")));
+    request->lgfDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lgfDefinition, make_shared<string>("LgfDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
@@ -783,7 +783,7 @@ CreateUserSayResponse Alibabacloud_Chatbot20220408::Client::createUserSayWithOpt
   shared_ptr<CreateUserSayShrinkRequest> request = make_shared<CreateUserSayShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateUserSayRequestUserSayDefinition>(tmpReq->userSayDefinition)) {
-    request->userSayDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->userSayDefinition->toMap()), make_shared<string>("UserSayDefinition"), make_shared<string>("json")));
+    request->userSayDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userSayDefinition, make_shared<string>("UserSayDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
@@ -1604,6 +1604,40 @@ GetPublishTaskStateResponse Alibabacloud_Chatbot20220408::Client::getPublishTask
 GetPublishTaskStateResponse Alibabacloud_Chatbot20220408::Client::getPublishTaskState(shared_ptr<GetPublishTaskStateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getPublishTaskStateWithOptions(request, runtime);
+}
+
+InitIMConnectResponse Alibabacloud_Chatbot20220408::Client::initIMConnectWithOptions(shared_ptr<InitIMConnectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
+    query->insert(pair<string, string>("From", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userAccessToken)) {
+    query->insert(pair<string, string>("UserAccessToken", *request->userAccessToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InitIMConnect"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InitIMConnectResponse(callApi(params, req, runtime));
+}
+
+InitIMConnectResponse Alibabacloud_Chatbot20220408::Client::initIMConnect(shared_ptr<InitIMConnectRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return initIMConnectWithOptions(request, runtime);
 }
 
 LinkInstanceCategoryResponse Alibabacloud_Chatbot20220408::Client::linkInstanceCategoryWithOptions(shared_ptr<LinkInstanceCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2456,7 +2490,7 @@ UpdateIntentResponse Alibabacloud_Chatbot20220408::Client::updateIntentWithOptio
   shared_ptr<UpdateIntentShrinkRequest> request = make_shared<UpdateIntentShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateIntentRequestIntentDefinition>(tmpReq->intentDefinition)) {
-    request->intentDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->intentDefinition->toMap()), make_shared<string>("IntentDefinition"), make_shared<string>("json")));
+    request->intentDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->intentDefinition, make_shared<string>("IntentDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
@@ -2498,7 +2532,7 @@ UpdateLgfResponse Alibabacloud_Chatbot20220408::Client::updateLgfWithOptions(sha
   shared_ptr<UpdateLgfShrinkRequest> request = make_shared<UpdateLgfShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateLgfRequestLgfDefinition>(tmpReq->lgfDefinition)) {
-    request->lgfDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->lgfDefinition->toMap()), make_shared<string>("LgfDefinition"), make_shared<string>("json")));
+    request->lgfDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lgfDefinition, make_shared<string>("LgfDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
@@ -2652,7 +2686,7 @@ UpdateUserSayResponse Alibabacloud_Chatbot20220408::Client::updateUserSayWithOpt
   shared_ptr<UpdateUserSayShrinkRequest> request = make_shared<UpdateUserSayShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateUserSayRequestUserSayDefinition>(tmpReq->userSayDefinition)) {
-    request->userSayDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->userSayDefinition->toMap()), make_shared<string>("UserSayDefinition"), make_shared<string>("json")));
+    request->userSayDefinitionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userSayDefinition, make_shared<string>("UserSayDefinition"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
