@@ -10499,6 +10499,269 @@ public:
 
   virtual ~CommonApplySyncResponse() = default;
 };
+class CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps : public Darabonba::Model {
+public:
+  shared_ptr<string> corpName{};
+  shared_ptr<string> openCorpId{};
+  shared_ptr<string> trueCorpId{};
+
+  CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps() {}
+
+  explicit CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (corpName) {
+      res["corp_name"] = boost::any(*corpName);
+    }
+    if (openCorpId) {
+      res["open_corp_id"] = boost::any(*openCorpId);
+    }
+    if (trueCorpId) {
+      res["true_corp_id"] = boost::any(*trueCorpId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
+      corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
+    }
+    if (m.find("open_corp_id") != m.end() && !m["open_corp_id"].empty()) {
+      openCorpId = make_shared<string>(boost::any_cast<string>(m["open_corp_id"]));
+    }
+    if (m.find("true_corp_id") != m.end() && !m["true_corp_id"].empty()) {
+      trueCorpId = make_shared<string>(boost::any_cast<string>(m["true_corp_id"]));
+    }
+  }
+
+
+  virtual ~CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps() = default;
+};
+class CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp : public Darabonba::Model {
+public:
+  shared_ptr<string> corpName{};
+  shared_ptr<string> openCorpId{};
+  shared_ptr<string> trueCorpId{};
+
+  CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp() {}
+
+  explicit CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (corpName) {
+      res["corp_name"] = boost::any(*corpName);
+    }
+    if (openCorpId) {
+      res["open_corp_id"] = boost::any(*openCorpId);
+    }
+    if (trueCorpId) {
+      res["true_corp_id"] = boost::any(*trueCorpId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
+      corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
+    }
+    if (m.find("open_corp_id") != m.end() && !m["open_corp_id"].empty()) {
+      openCorpId = make_shared<string>(boost::any_cast<string>(m["open_corp_id"]));
+    }
+    if (m.find("true_corp_id") != m.end() && !m["true_corp_id"].empty()) {
+      trueCorpId = make_shared<string>(boost::any_cast<string>(m["true_corp_id"]));
+    }
+  }
+
+
+  virtual ~CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp() = default;
+};
+class CorpAuthLinkInfoQueryResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<vector<CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps>> linkCorps{};
+  shared_ptr<CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp> orgCorp{};
+
+  CorpAuthLinkInfoQueryResponseBodyModule() {}
+
+  explicit CorpAuthLinkInfoQueryResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (linkCorps) {
+      vector<boost::any> temp1;
+      for(auto item1:*linkCorps){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["link_corps"] = boost::any(temp1);
+    }
+    if (orgCorp) {
+      res["org_corp"] = orgCorp ? boost::any(orgCorp->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("link_corps") != m.end() && !m["link_corps"].empty()) {
+      if (typeid(vector<boost::any>) == m["link_corps"].type()) {
+        vector<CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["link_corps"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        linkCorps = make_shared<vector<CorpAuthLinkInfoQueryResponseBodyModuleLinkCorps>>(expect1);
+      }
+    }
+    if (m.find("org_corp") != m.end() && !m["org_corp"].empty()) {
+      if (typeid(map<string, boost::any>) == m["org_corp"].type()) {
+        CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["org_corp"]));
+        orgCorp = make_shared<CorpAuthLinkInfoQueryResponseBodyModuleOrgCorp>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CorpAuthLinkInfoQueryResponseBodyModule() = default;
+};
+class CorpAuthLinkInfoQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<CorpAuthLinkInfoQueryResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> traceId{};
+
+  CorpAuthLinkInfoQueryResponseBody() {}
+
+  explicit CorpAuthLinkInfoQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        CorpAuthLinkInfoQueryResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<CorpAuthLinkInfoQueryResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~CorpAuthLinkInfoQueryResponseBody() = default;
+};
+class CorpAuthLinkInfoQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CorpAuthLinkInfoQueryResponseBody> body{};
+
+  CorpAuthLinkInfoQueryResponse() {}
+
+  explicit CorpAuthLinkInfoQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CorpAuthLinkInfoQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CorpAuthLinkInfoQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CorpAuthLinkInfoQueryResponse() = default;
+};
 class CorpTokenHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -27616,6 +27879,8 @@ public:
   CommonApplyQueryResponse commonApplyQuery(shared_ptr<CommonApplyQueryRequest> request);
   CommonApplySyncResponse commonApplySyncWithOptions(shared_ptr<CommonApplySyncRequest> request, shared_ptr<CommonApplySyncHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CommonApplySyncResponse commonApplySync(shared_ptr<CommonApplySyncRequest> request);
+  CorpAuthLinkInfoQueryResponse corpAuthLinkInfoQueryWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CorpAuthLinkInfoQueryResponse corpAuthLinkInfoQuery();
   CorpTokenResponse corpTokenWithOptions(shared_ptr<CorpTokenRequest> request, shared_ptr<CorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CorpTokenResponse corpToken(shared_ptr<CorpTokenRequest> request);
   CostCenterDeleteResponse costCenterDeleteWithOptions(shared_ptr<CostCenterDeleteRequest> request, shared_ptr<CostCenterDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
