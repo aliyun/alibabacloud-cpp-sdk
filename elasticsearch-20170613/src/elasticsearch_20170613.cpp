@@ -386,10 +386,35 @@ CreateCollectorResponse Alibabacloud_Elasticsearch20170613::Client::createCollec
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->collectorPaths)) {
+    body->insert(pair<string, vector<string>>("collectorPaths", *request->collectorPaths));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateCollectorRequestConfigs>>(request->configs)) {
+    body->insert(pair<string, vector<CreateCollectorRequestConfigs>>("configs", *request->configs));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    body->insert(pair<string, bool>("dryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<map<string, boost::any>>>(request->extendConfigs)) {
+    body->insert(pair<string, vector<map<string, boost::any>>>("extendConfigs", *request->extendConfigs));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resType)) {
+    body->insert(pair<string, string>("resType", *request->resType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resVersion)) {
+    body->insert(pair<string, string>("resVersion", *request->resVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    body->insert(pair<string, string>("vpcId", *request->vpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateCollector"))},
@@ -559,10 +584,29 @@ CreateIndexTemplateResponse Alibabacloud_Elasticsearch20170613::Client::createIn
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dataStream)) {
+    body->insert(pair<string, bool>("dataStream", *request->dataStream));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ilmPolicy)) {
+    body->insert(pair<string, string>("ilmPolicy", *request->ilmPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->indexPatterns)) {
+    body->insert(pair<string, vector<string>>("indexPatterns", *request->indexPatterns));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->indexTemplate)) {
+    body->insert(pair<string, string>("indexTemplate", *request->indexTemplate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    body->insert(pair<string, long>("priority", *request->priority));
+  }
+  if (!Darabonba_Util::Client::isUnset<CreateIndexTemplateRequestTemplate>(request->template_)) {
+    body->insert(pair<string, CreateIndexTemplateRequestTemplate>("template_", *request->template_));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateIndexTemplate"))},

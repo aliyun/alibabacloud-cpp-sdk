@@ -65,6 +65,283 @@ public:
 
   virtual ~ClientNodeConfiguration() = default;
 };
+class CollectorDeployMachineMachines : public Darabonba::Model {
+public:
+  shared_ptr<string> agentStatus{};
+  shared_ptr<string> instanceId{};
+
+  CollectorDeployMachineMachines() {}
+
+  explicit CollectorDeployMachineMachines(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentStatus) {
+      res["agentStatus"] = boost::any(*agentStatus);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("agentStatus") != m.end() && !m["agentStatus"].empty()) {
+      agentStatus = make_shared<string>(boost::any_cast<string>(m["agentStatus"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+  }
+
+
+  virtual ~CollectorDeployMachineMachines() = default;
+};
+class CollectorDeployMachine : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<CollectorDeployMachineMachines>> machines{};
+  shared_ptr<string> successPodsCount{};
+  shared_ptr<string> totalPodsCount{};
+  shared_ptr<string> type{};
+
+  CollectorDeployMachine() {}
+
+  explicit CollectorDeployMachine(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["configType"] = boost::any(*configType);
+    }
+    if (groupId) {
+      res["groupId"] = boost::any(*groupId);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (machines) {
+      vector<boost::any> temp1;
+      for(auto item1:*machines){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["machines"] = boost::any(temp1);
+    }
+    if (successPodsCount) {
+      res["successPodsCount"] = boost::any(*successPodsCount);
+    }
+    if (totalPodsCount) {
+      res["totalPodsCount"] = boost::any(*totalPodsCount);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configType") != m.end() && !m["configType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["configType"]));
+    }
+    if (m.find("groupId") != m.end() && !m["groupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["groupId"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("machines") != m.end() && !m["machines"].empty()) {
+      if (typeid(vector<boost::any>) == m["machines"].type()) {
+        vector<CollectorDeployMachineMachines> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["machines"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CollectorDeployMachineMachines model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        machines = make_shared<vector<CollectorDeployMachineMachines>>(expect1);
+      }
+    }
+    if (m.find("successPodsCount") != m.end() && !m["successPodsCount"].empty()) {
+      successPodsCount = make_shared<string>(boost::any_cast<string>(m["successPodsCount"]));
+    }
+    if (m.find("totalPodsCount") != m.end() && !m["totalPodsCount"].empty()) {
+      totalPodsCount = make_shared<string>(boost::any_cast<string>(m["totalPodsCount"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~CollectorDeployMachine() = default;
+};
+class CollectorKibanaInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<string> host{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> kibanaHost{};
+  shared_ptr<string> password{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> userName{};
+
+  CollectorKibanaInstance() {}
+
+  explicit CollectorKibanaInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["configType"] = boost::any(*configType);
+    }
+    if (host) {
+      res["host"] = boost::any(*host);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (kibanaHost) {
+      res["kibanaHost"] = boost::any(*kibanaHost);
+    }
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configType") != m.end() && !m["configType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["configType"]));
+    }
+    if (m.find("host") != m.end() && !m["host"].empty()) {
+      host = make_shared<string>(boost::any_cast<string>(m["host"]));
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("kibanaHost") != m.end() && !m["kibanaHost"].empty()) {
+      kibanaHost = make_shared<string>(boost::any_cast<string>(m["kibanaHost"]));
+    }
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+  }
+
+
+  virtual ~CollectorKibanaInstance() = default;
+};
+class CollectorTargetInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> configType{};
+  shared_ptr<bool> enableMonitoring{};
+  shared_ptr<vector<string>> hosts{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> password{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> userName{};
+
+  CollectorTargetInstance() {}
+
+  explicit CollectorTargetInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configType) {
+      res["configType"] = boost::any(*configType);
+    }
+    if (enableMonitoring) {
+      res["enableMonitoring"] = boost::any(*enableMonitoring);
+    }
+    if (hosts) {
+      res["hosts"] = boost::any(*hosts);
+    }
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (instanceType) {
+      res["instanceType"] = boost::any(*instanceType);
+    }
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    if (protocol) {
+      res["protocol"] = boost::any(*protocol);
+    }
+    if (userName) {
+      res["userName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("configType") != m.end() && !m["configType"].empty()) {
+      configType = make_shared<string>(boost::any_cast<string>(m["configType"]));
+    }
+    if (m.find("enableMonitoring") != m.end() && !m["enableMonitoring"].empty()) {
+      enableMonitoring = make_shared<bool>(boost::any_cast<bool>(m["enableMonitoring"]));
+    }
+    if (m.find("hosts") != m.end() && !m["hosts"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["hosts"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["hosts"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      hosts = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("instanceType") != m.end() && !m["instanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["instanceType"]));
+    }
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+    if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
+    }
+    if (m.find("userName") != m.end() && !m["userName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["userName"]));
+    }
+  }
+
+
+  virtual ~CollectorTargetInstance() = default;
+};
 class DictInfo : public Darabonba::Model {
 public:
   shared_ptr<long> fileSize{};
@@ -3419,9 +3696,52 @@ public:
 
   virtual ~CloseManagedIndexResponse() = default;
 };
+class CreateCollectorRequestConfigs : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> fileName{};
+
+  CreateCollectorRequestConfigs() {}
+
+  explicit CreateCollectorRequestConfigs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+  }
+
+
+  virtual ~CreateCollectorRequestConfigs() = default;
+};
 class CreateCollectorRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> body{};
+  shared_ptr<vector<string>> collectorPaths{};
+  shared_ptr<vector<CreateCollectorRequestConfigs>> configs{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<map<string, boost::any>>> extendConfigs{};
+  shared_ptr<string> name{};
+  shared_ptr<string> resType{};
+  shared_ptr<string> resVersion{};
+  shared_ptr<string> vpcId{};
   shared_ptr<string> clientToken{};
 
   CreateCollectorRequest() {}
@@ -3434,8 +3754,33 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (body) {
-      res["body"] = boost::any(*body);
+    if (collectorPaths) {
+      res["collectorPaths"] = boost::any(*collectorPaths);
+    }
+    if (configs) {
+      vector<boost::any> temp1;
+      for(auto item1:*configs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["configs"] = boost::any(temp1);
+    }
+    if (dryRun) {
+      res["dryRun"] = boost::any(*dryRun);
+    }
+    if (extendConfigs) {
+      res["extendConfigs"] = boost::any(*extendConfigs);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (resType) {
+      res["resType"] = boost::any(*resType);
+    }
+    if (resVersion) {
+      res["resVersion"] = boost::any(*resVersion);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
     }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
@@ -3444,8 +3789,58 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    if (m.find("collectorPaths") != m.end() && !m["collectorPaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["collectorPaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["collectorPaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      collectorPaths = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("configs") != m.end() && !m["configs"].empty()) {
+      if (typeid(vector<boost::any>) == m["configs"].type()) {
+        vector<CreateCollectorRequestConfigs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["configs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCollectorRequestConfigs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        configs = make_shared<vector<CreateCollectorRequestConfigs>>(expect1);
+      }
+    }
+    if (m.find("dryRun") != m.end() && !m["dryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["dryRun"]));
+    }
+    if (m.find("extendConfigs") != m.end() && !m["extendConfigs"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["extendConfigs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["extendConfigs"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      extendConfigs = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("resType") != m.end() && !m["resType"].empty()) {
+      resType = make_shared<string>(boost::any_cast<string>(m["resType"]));
+    }
+    if (m.find("resVersion") != m.end() && !m["resVersion"].empty()) {
+      resVersion = make_shared<string>(boost::any_cast<string>(m["resVersion"]));
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
@@ -4725,10 +5120,58 @@ public:
 
   virtual ~CreateILMPolicyResponse() = default;
 };
+class CreateIndexTemplateRequestTemplate : public Darabonba::Model {
+public:
+  shared_ptr<string> aliases{};
+  shared_ptr<string> mappings{};
+  shared_ptr<string> settings{};
+
+  CreateIndexTemplateRequestTemplate() {}
+
+  explicit CreateIndexTemplateRequestTemplate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliases) {
+      res["aliases"] = boost::any(*aliases);
+    }
+    if (mappings) {
+      res["mappings"] = boost::any(*mappings);
+    }
+    if (settings) {
+      res["settings"] = boost::any(*settings);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliases") != m.end() && !m["aliases"].empty()) {
+      aliases = make_shared<string>(boost::any_cast<string>(m["aliases"]));
+    }
+    if (m.find("mappings") != m.end() && !m["mappings"].empty()) {
+      mappings = make_shared<string>(boost::any_cast<string>(m["mappings"]));
+    }
+    if (m.find("settings") != m.end() && !m["settings"].empty()) {
+      settings = make_shared<string>(boost::any_cast<string>(m["settings"]));
+    }
+  }
+
+
+  virtual ~CreateIndexTemplateRequestTemplate() = default;
+};
 class CreateIndexTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
-  shared_ptr<string> body{};
+  shared_ptr<bool> dataStream{};
+  shared_ptr<string> ilmPolicy{};
+  shared_ptr<vector<string>> indexPatterns{};
+  shared_ptr<string> indexTemplate{};
+  shared_ptr<long> priority{};
+  shared_ptr<CreateIndexTemplateRequestTemplate> template_{};
 
   CreateIndexTemplateRequest() {}
 
@@ -4743,8 +5186,23 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
-    if (body) {
-      res["body"] = boost::any(*body);
+    if (dataStream) {
+      res["dataStream"] = boost::any(*dataStream);
+    }
+    if (ilmPolicy) {
+      res["ilmPolicy"] = boost::any(*ilmPolicy);
+    }
+    if (indexPatterns) {
+      res["indexPatterns"] = boost::any(*indexPatterns);
+    }
+    if (indexTemplate) {
+      res["indexTemplate"] = boost::any(*indexTemplate);
+    }
+    if (priority) {
+      res["priority"] = boost::any(*priority);
+    }
+    if (template_) {
+      res["template"] = template_ ? boost::any(template_->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -4753,8 +5211,34 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    if (m.find("dataStream") != m.end() && !m["dataStream"].empty()) {
+      dataStream = make_shared<bool>(boost::any_cast<bool>(m["dataStream"]));
+    }
+    if (m.find("ilmPolicy") != m.end() && !m["ilmPolicy"].empty()) {
+      ilmPolicy = make_shared<string>(boost::any_cast<string>(m["ilmPolicy"]));
+    }
+    if (m.find("indexPatterns") != m.end() && !m["indexPatterns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["indexPatterns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["indexPatterns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      indexPatterns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("indexTemplate") != m.end() && !m["indexTemplate"].empty()) {
+      indexTemplate = make_shared<string>(boost::any_cast<string>(m["indexTemplate"]));
+    }
+    if (m.find("priority") != m.end() && !m["priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["priority"]));
+    }
+    if (m.find("template") != m.end() && !m["template"].empty()) {
+      if (typeid(map<string, boost::any>) == m["template"].type()) {
+        CreateIndexTemplateRequestTemplate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["template"]));
+        template_ = make_shared<CreateIndexTemplateRequestTemplate>(model1);
+      }
     }
   }
 
