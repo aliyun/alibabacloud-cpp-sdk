@@ -1638,6 +1638,9 @@ DescribeDBInstancesResponse Alibabacloud_Dds20151201::Client::describeDBInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceType)) {
     query->insert(pair<string, string>("DBInstanceType", *request->DBInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeType)) {
+    query->insert(pair<string, string>("DBNodeType", *request->DBNodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
     query->insert(pair<string, string>("Engine", *request->engine));
   }
@@ -4650,6 +4653,67 @@ TagResourcesResponse Alibabacloud_Dds20151201::Client::tagResourcesWithOptions(s
 TagResourcesResponse Alibabacloud_Dds20151201::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return tagResourcesWithOptions(request, runtime);
+}
+
+TransformInstanceChargeTypeResponse Alibabacloud_Dds20151201::Client::transformInstanceChargeTypeWithOptions(shared_ptr<TransformInstanceChargeTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoRenew)) {
+    query->insert(pair<string, string>("AutoRenew", *request->autoRenew));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->businessInfo)) {
+    query->insert(pair<string, string>("BusinessInfo", *request->businessInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
+    query->insert(pair<string, string>("ChargeType", *request->chargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->couponNo)) {
+    query->insert(pair<string, string>("CouponNo", *request->couponNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TransformInstanceChargeType"))},
+    {"version", boost::any(string("2015-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TransformInstanceChargeTypeResponse(callApi(params, req, runtime));
+}
+
+TransformInstanceChargeTypeResponse Alibabacloud_Dds20151201::Client::transformInstanceChargeType(shared_ptr<TransformInstanceChargeTypeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return transformInstanceChargeTypeWithOptions(request, runtime);
 }
 
 TransformToPrePaidResponse Alibabacloud_Dds20151201::Client::transformToPrePaidWithOptions(shared_ptr<TransformToPrePaidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
