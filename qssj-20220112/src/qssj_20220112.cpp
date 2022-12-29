@@ -44,6 +44,12 @@ GetAgeDistributionResponse Alibabacloud_Qssj20220112::Client::getAgeDistribution
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     query->insert(pair<string, string>("CateIds", *request->cateIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    query->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -87,11 +93,54 @@ GetAllTrendCategoryResponse Alibabacloud_Qssj20220112::Client::getAllTrendCatego
   return getAllTrendCategoryWithOptions(runtime);
 }
 
+GetCrowdDataResponse Alibabacloud_Qssj20220112::Client::getCrowdDataWithOptions(shared_ptr<GetCrowdDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
+    body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCrowdData"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCrowdDataResponse(callApi(params, req, runtime));
+}
+
+GetCrowdDataResponse Alibabacloud_Qssj20220112::Client::getCrowdData(shared_ptr<GetCrowdDataRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCrowdDataWithOptions(request, runtime);
+}
+
 GetCrowdLabelResponse Alibabacloud_Qssj20220112::Client::getCrowdLabelWithOptions(shared_ptr<GetCrowdLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -120,6 +169,12 @@ GetCrowdReginResponse Alibabacloud_Qssj20220112::Client::getCrowdReginWithOption
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     query->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    query->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -177,8 +232,23 @@ GetOpportunityMarketResponse Alibabacloud_Qssj20220112::Client::getOpportunityMa
 GetPriceRangeResponse Alibabacloud_Qssj20220112::Client::getPriceRangeWithOptions(shared_ptr<GetPriceRangeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    body->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->section)) {
+    body->insert(pair<string, long>("Section", *request->section));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    body->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -208,6 +278,12 @@ GetSexRatioResponse Alibabacloud_Qssj20220112::Client::getSexRatioWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     query->insert(pair<string, string>("CateIds", *request->cateIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    query->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -233,8 +309,35 @@ GetSexRatioResponse Alibabacloud_Qssj20220112::Client::getSexRatio(shared_ptr<Ge
 GetStoreSalesVolumeTopResponse Alibabacloud_Qssj20220112::Client::getStoreSalesVolumeTopWithOptions(shared_ptr<GetStoreSalesVolumeTopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    body->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingPrice)) {
+    body->insert(pair<string, string>("EndingPrice", *request->endingPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingSalesVolume)) {
+    body->insert(pair<string, string>("EndingSalesVolume", *request->endingSalesVolume));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    body->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startPrice)) {
+    body->insert(pair<string, string>("StartPrice", *request->startPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startSalesVolume)) {
+    body->insert(pair<string, string>("StartSalesVolume", *request->startSalesVolume));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -261,8 +364,35 @@ GetStoreSalesVolumeTopResponse Alibabacloud_Qssj20220112::Client::getStoreSalesV
 GetStoreSearchTopResponse Alibabacloud_Qssj20220112::Client::getStoreSearchTopWithOptions(shared_ptr<GetStoreSearchTopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    body->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingPrice)) {
+    body->insert(pair<string, string>("EndingPrice", *request->endingPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingSalesVolume)) {
+    body->insert(pair<string, string>("EndingSalesVolume", *request->endingSalesVolume));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    body->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startPrice)) {
+    body->insert(pair<string, string>("StartPrice", *request->startPrice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startSalesVolume)) {
+    body->insert(pair<string, string>("StartSalesVolume", *request->startSalesVolume));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -286,17 +416,78 @@ GetStoreSearchTopResponse Alibabacloud_Qssj20220112::Client::getStoreSearchTop(s
   return getStoreSearchTopWithOptions(request, runtime);
 }
 
+GetStyleOnlineResponse Alibabacloud_Qssj20220112::Client::getStyleOnlineWithOptions(shared_ptr<GetStyleOnlineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    query->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
+    query->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    query->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    query->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    query->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    query->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetStyleOnline"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetStyleOnlineResponse(callApi(params, req, runtime));
+}
+
+GetStyleOnlineResponse Alibabacloud_Qssj20220112::Client::getStyleOnline(shared_ptr<GetStyleOnlineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getStyleOnlineWithOptions(request, runtime);
+}
+
 GetStyleTopResponse Alibabacloud_Qssj20220112::Client::getStyleTopWithOptions(shared_ptr<GetStyleTopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    body->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingPrice)) {
+    body->insert(pair<string, string>("EndingPrice", *request->endingPrice));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
     body->insert(pair<string, long>("PageIndex", *request->pageIndex));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    body->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->sortOrder)) {
     body->insert(pair<string, long>("SortOrder", *request->sortOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startPrice)) {
+    body->insert(pair<string, string>("StartPrice", *request->startPrice));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeDisplay)) {
     body->insert(pair<string, long>("TimeDisplay", *request->timeDisplay));
@@ -444,8 +635,20 @@ GetTrendSearchRecordResponse Alibabacloud_Qssj20220112::Client::getTrendSearchRe
 GetTrendStatisticResponse Alibabacloud_Qssj20220112::Client::getTrendStatisticWithOptions(shared_ptr<GetTrendStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->brandNames)) {
+    body->insert(pair<string, string>("BrandNames", *request->brandNames));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
     body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shopIds)) {
+    body->insert(pair<string, string>("ShopIds", *request->shopIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -467,5 +670,42 @@ GetTrendStatisticResponse Alibabacloud_Qssj20220112::Client::getTrendStatisticWi
 GetTrendStatisticResponse Alibabacloud_Qssj20220112::Client::getTrendStatistic(shared_ptr<GetTrendStatisticRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getTrendStatisticWithOptions(request, runtime);
+}
+
+GetTrendWordAndIndexResponse Alibabacloud_Qssj20220112::Client::getTrendWordAndIndexWithOptions(shared_ptr<GetTrendWordAndIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->cateIds)) {
+    body->insert(pair<string, string>("CateIds", *request->cateIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endingDate)) {
+    body->insert(pair<string, string>("EndingDate", *request->endingDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    body->insert(pair<string, long>("PageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
+    body->insert(pair<string, string>("StartDate", *request->startDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTrendWordAndIndex"))},
+    {"version", boost::any(string("2022-01-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTrendWordAndIndexResponse(callApi(params, req, runtime));
+}
+
+GetTrendWordAndIndexResponse Alibabacloud_Qssj20220112::Client::getTrendWordAndIndex(shared_ptr<GetTrendWordAndIndexRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTrendWordAndIndexWithOptions(request, runtime);
 }
 

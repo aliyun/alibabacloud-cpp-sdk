@@ -18,6 +18,8 @@ namespace Alibabacloud_Qssj20220112 {
 class GetAgeDistributionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> startDate{};
 
   GetAgeDistributionRequest() {}
 
@@ -32,12 +34,24 @@ public:
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
     }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -417,9 +431,307 @@ public:
 
   virtual ~GetAllTrendCategoryResponse() = default;
 };
+class GetCrowdDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<string> startDate{};
+
+  GetCrowdDataRequest() {}
+
+  explicit GetCrowdDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cateIds) {
+      res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
+      cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~GetCrowdDataRequest() = default;
+};
+class GetCrowdDataResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> age{};
+  shared_ptr<long> buyerId{};
+  shared_ptr<long> cateId{};
+  shared_ptr<string> cateName{};
+  shared_ptr<string> classification{};
+  shared_ptr<string> classificationNew{};
+  shared_ptr<string> gender{};
+  shared_ptr<string> onlineDate{};
+  shared_ptr<double> orderAmount{};
+  shared_ptr<long> orderQuantity{};
+  shared_ptr<string> province{};
+  shared_ptr<long> searchVolume{};
+  shared_ptr<string> trendLevel{};
+
+  GetCrowdDataResponseBodyData() {}
+
+  explicit GetCrowdDataResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (age) {
+      res["Age"] = boost::any(*age);
+    }
+    if (buyerId) {
+      res["BuyerId"] = boost::any(*buyerId);
+    }
+    if (cateId) {
+      res["CateId"] = boost::any(*cateId);
+    }
+    if (cateName) {
+      res["CateName"] = boost::any(*cateName);
+    }
+    if (classification) {
+      res["Classification"] = boost::any(*classification);
+    }
+    if (classificationNew) {
+      res["ClassificationNew"] = boost::any(*classificationNew);
+    }
+    if (gender) {
+      res["Gender"] = boost::any(*gender);
+    }
+    if (onlineDate) {
+      res["OnlineDate"] = boost::any(*onlineDate);
+    }
+    if (orderAmount) {
+      res["OrderAmount"] = boost::any(*orderAmount);
+    }
+    if (orderQuantity) {
+      res["OrderQuantity"] = boost::any(*orderQuantity);
+    }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
+    if (searchVolume) {
+      res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (trendLevel) {
+      res["TrendLevel"] = boost::any(*trendLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Age") != m.end() && !m["Age"].empty()) {
+      age = make_shared<long>(boost::any_cast<long>(m["Age"]));
+    }
+    if (m.find("BuyerId") != m.end() && !m["BuyerId"].empty()) {
+      buyerId = make_shared<long>(boost::any_cast<long>(m["BuyerId"]));
+    }
+    if (m.find("CateId") != m.end() && !m["CateId"].empty()) {
+      cateId = make_shared<long>(boost::any_cast<long>(m["CateId"]));
+    }
+    if (m.find("CateName") != m.end() && !m["CateName"].empty()) {
+      cateName = make_shared<string>(boost::any_cast<string>(m["CateName"]));
+    }
+    if (m.find("Classification") != m.end() && !m["Classification"].empty()) {
+      classification = make_shared<string>(boost::any_cast<string>(m["Classification"]));
+    }
+    if (m.find("ClassificationNew") != m.end() && !m["ClassificationNew"].empty()) {
+      classificationNew = make_shared<string>(boost::any_cast<string>(m["ClassificationNew"]));
+    }
+    if (m.find("Gender") != m.end() && !m["Gender"].empty()) {
+      gender = make_shared<string>(boost::any_cast<string>(m["Gender"]));
+    }
+    if (m.find("OnlineDate") != m.end() && !m["OnlineDate"].empty()) {
+      onlineDate = make_shared<string>(boost::any_cast<string>(m["OnlineDate"]));
+    }
+    if (m.find("OrderAmount") != m.end() && !m["OrderAmount"].empty()) {
+      orderAmount = make_shared<double>(boost::any_cast<double>(m["OrderAmount"]));
+    }
+    if (m.find("OrderQuantity") != m.end() && !m["OrderQuantity"].empty()) {
+      orderQuantity = make_shared<long>(boost::any_cast<long>(m["OrderQuantity"]));
+    }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
+      searchVolume = make_shared<long>(boost::any_cast<long>(m["SearchVolume"]));
+    }
+    if (m.find("TrendLevel") != m.end() && !m["TrendLevel"].empty()) {
+      trendLevel = make_shared<string>(boost::any_cast<string>(m["TrendLevel"]));
+    }
+  }
+
+
+  virtual ~GetCrowdDataResponseBodyData() = default;
+};
+class GetCrowdDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<GetCrowdDataResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> successResponse{};
+
+  GetCrowdDataResponseBody() {}
+
+  explicit GetCrowdDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successResponse) {
+      res["SuccessResponse"] = boost::any(*successResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetCrowdDataResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCrowdDataResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetCrowdDataResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessResponse") != m.end() && !m["SuccessResponse"].empty()) {
+      successResponse = make_shared<string>(boost::any_cast<string>(m["SuccessResponse"]));
+    }
+  }
+
+
+  virtual ~GetCrowdDataResponseBody() = default;
+};
+class GetCrowdDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCrowdDataResponseBody> body{};
+
+  GetCrowdDataResponse() {}
+
+  explicit GetCrowdDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCrowdDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCrowdDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCrowdDataResponse() = default;
+};
 class GetCrowdLabelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> startDate{};
 
   GetCrowdLabelRequest() {}
 
@@ -434,12 +746,24 @@ public:
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
     }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -639,6 +963,8 @@ public:
 class GetCrowdReginRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> startDate{};
 
   GetCrowdReginRequest() {}
 
@@ -653,12 +979,24 @@ public:
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
     }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -1152,7 +1490,12 @@ public:
 };
 class GetPriceRangeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> brandNames{};
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<long> section{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<string> startDate{};
 
   GetPriceRangeRequest() {}
 
@@ -1164,15 +1507,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (section) {
+      res["Section"] = boost::any(*section);
+    }
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("Section") != m.end() && !m["Section"].empty()) {
+      section = make_shared<long>(boost::any_cast<long>(m["Section"]));
+    }
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -1365,6 +1738,8 @@ public:
 class GetSexRatioRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> startDate{};
 
   GetSexRatioRequest() {}
 
@@ -1379,12 +1754,24 @@ public:
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
     }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -1652,7 +2039,16 @@ public:
 };
 class GetStoreSalesVolumeTopRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> brandNames{};
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> endingPrice{};
+  shared_ptr<string> endingSalesVolume{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startPrice{};
+  shared_ptr<string> startSalesVolume{};
 
   GetStoreSalesVolumeTopRequest() {}
 
@@ -1664,15 +2060,69 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (endingPrice) {
+      res["EndingPrice"] = boost::any(*endingPrice);
+    }
+    if (endingSalesVolume) {
+      res["EndingSalesVolume"] = boost::any(*endingSalesVolume);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startPrice) {
+      res["StartPrice"] = boost::any(*startPrice);
+    }
+    if (startSalesVolume) {
+      res["StartSalesVolume"] = boost::any(*startSalesVolume);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("EndingPrice") != m.end() && !m["EndingPrice"].empty()) {
+      endingPrice = make_shared<string>(boost::any_cast<string>(m["EndingPrice"]));
+    }
+    if (m.find("EndingSalesVolume") != m.end() && !m["EndingSalesVolume"].empty()) {
+      endingSalesVolume = make_shared<string>(boost::any_cast<string>(m["EndingSalesVolume"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartPrice") != m.end() && !m["StartPrice"].empty()) {
+      startPrice = make_shared<string>(boost::any_cast<string>(m["StartPrice"]));
+    }
+    if (m.find("StartSalesVolume") != m.end() && !m["StartSalesVolume"].empty()) {
+      startSalesVolume = make_shared<string>(boost::any_cast<string>(m["StartSalesVolume"]));
     }
   }
 
@@ -1681,7 +2131,12 @@ public:
 };
 class GetStoreSalesVolumeTopResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> commodityQuantity{};
+  shared_ptr<long> salesVolume{};
+  shared_ptr<long> searchVolume{};
+  shared_ptr<long> shopId{};
   shared_ptr<string> shopName{};
+  shared_ptr<double> totalSales{};
 
   GetStoreSalesVolumeTopResponseBodyData() {}
 
@@ -1693,15 +2148,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commodityQuantity) {
+      res["CommodityQuantity"] = boost::any(*commodityQuantity);
+    }
+    if (salesVolume) {
+      res["SalesVolume"] = boost::any(*salesVolume);
+    }
+    if (searchVolume) {
+      res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (shopId) {
+      res["ShopId"] = boost::any(*shopId);
+    }
     if (shopName) {
       res["ShopName"] = boost::any(*shopName);
+    }
+    if (totalSales) {
+      res["TotalSales"] = boost::any(*totalSales);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityQuantity") != m.end() && !m["CommodityQuantity"].empty()) {
+      commodityQuantity = make_shared<long>(boost::any_cast<long>(m["CommodityQuantity"]));
+    }
+    if (m.find("SalesVolume") != m.end() && !m["SalesVolume"].empty()) {
+      salesVolume = make_shared<long>(boost::any_cast<long>(m["SalesVolume"]));
+    }
+    if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
+      searchVolume = make_shared<long>(boost::any_cast<long>(m["SearchVolume"]));
+    }
+    if (m.find("ShopId") != m.end() && !m["ShopId"].empty()) {
+      shopId = make_shared<long>(boost::any_cast<long>(m["ShopId"]));
+    }
     if (m.find("ShopName") != m.end() && !m["ShopName"].empty()) {
       shopName = make_shared<string>(boost::any_cast<string>(m["ShopName"]));
+    }
+    if (m.find("TotalSales") != m.end() && !m["TotalSales"].empty()) {
+      totalSales = make_shared<double>(boost::any_cast<double>(m["TotalSales"]));
     }
   }
 
@@ -1843,7 +2328,16 @@ public:
 };
 class GetStoreSearchTopRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> brandNames{};
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> endingPrice{};
+  shared_ptr<string> endingSalesVolume{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startPrice{};
+  shared_ptr<string> startSalesVolume{};
 
   GetStoreSearchTopRequest() {}
 
@@ -1855,15 +2349,69 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (endingPrice) {
+      res["EndingPrice"] = boost::any(*endingPrice);
+    }
+    if (endingSalesVolume) {
+      res["EndingSalesVolume"] = boost::any(*endingSalesVolume);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startPrice) {
+      res["StartPrice"] = boost::any(*startPrice);
+    }
+    if (startSalesVolume) {
+      res["StartSalesVolume"] = boost::any(*startSalesVolume);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("EndingPrice") != m.end() && !m["EndingPrice"].empty()) {
+      endingPrice = make_shared<string>(boost::any_cast<string>(m["EndingPrice"]));
+    }
+    if (m.find("EndingSalesVolume") != m.end() && !m["EndingSalesVolume"].empty()) {
+      endingSalesVolume = make_shared<string>(boost::any_cast<string>(m["EndingSalesVolume"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartPrice") != m.end() && !m["StartPrice"].empty()) {
+      startPrice = make_shared<string>(boost::any_cast<string>(m["StartPrice"]));
+    }
+    if (m.find("StartSalesVolume") != m.end() && !m["StartSalesVolume"].empty()) {
+      startSalesVolume = make_shared<string>(boost::any_cast<string>(m["StartSalesVolume"]));
     }
   }
 
@@ -1872,7 +2420,12 @@ public:
 };
 class GetStoreSearchTopResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> commodityQuantity{};
+  shared_ptr<long> salesVolume{};
+  shared_ptr<long> searchVolume{};
+  shared_ptr<long> shopId{};
   shared_ptr<string> shopName{};
+  shared_ptr<double> totalSales{};
 
   GetStoreSearchTopResponseBodyData() {}
 
@@ -1884,15 +2437,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commodityQuantity) {
+      res["CommodityQuantity"] = boost::any(*commodityQuantity);
+    }
+    if (salesVolume) {
+      res["SalesVolume"] = boost::any(*salesVolume);
+    }
+    if (searchVolume) {
+      res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (shopId) {
+      res["ShopId"] = boost::any(*shopId);
+    }
     if (shopName) {
       res["ShopName"] = boost::any(*shopName);
+    }
+    if (totalSales) {
+      res["TotalSales"] = boost::any(*totalSales);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommodityQuantity") != m.end() && !m["CommodityQuantity"].empty()) {
+      commodityQuantity = make_shared<long>(boost::any_cast<long>(m["CommodityQuantity"]));
+    }
+    if (m.find("SalesVolume") != m.end() && !m["SalesVolume"].empty()) {
+      salesVolume = make_shared<long>(boost::any_cast<long>(m["SalesVolume"]));
+    }
+    if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
+      searchVolume = make_shared<long>(boost::any_cast<long>(m["SearchVolume"]));
+    }
+    if (m.find("ShopId") != m.end() && !m["ShopId"].empty()) {
+      shopId = make_shared<long>(boost::any_cast<long>(m["ShopId"]));
+    }
     if (m.find("ShopName") != m.end() && !m["ShopName"].empty()) {
       shopName = make_shared<string>(boost::any_cast<string>(m["ShopName"]));
+    }
+    if (m.find("TotalSales") != m.end() && !m["TotalSales"].empty()) {
+      totalSales = make_shared<double>(boost::any_cast<double>(m["TotalSales"]));
     }
   }
 
@@ -2032,16 +2615,18 @@ public:
 
   virtual ~GetStoreSearchTopResponse() = default;
 };
-class GetStyleTopRequest : public Darabonba::Model {
+class GetStyleOnlineRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> brandNames{};
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
   shared_ptr<long> pageIndex{};
-  shared_ptr<long> sortOrder{};
-  shared_ptr<long> timeDisplay{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<string> startDate{};
 
-  GetStyleTopRequest() {}
+  GetStyleOnlineRequest() {}
 
-  explicit GetStyleTopRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetStyleOnlineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2049,59 +2634,73 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
     }
     if (pageIndex) {
       res["PageIndex"] = boost::any(*pageIndex);
     }
-    if (sortOrder) {
-      res["SortOrder"] = boost::any(*sortOrder);
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
     }
-    if (timeDisplay) {
-      res["TimeDisplay"] = boost::any(*timeDisplay);
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
     }
     if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
       pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
     }
-    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
-      sortOrder = make_shared<long>(boost::any_cast<long>(m["SortOrder"]));
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
     }
-    if (m.find("TimeDisplay") != m.end() && !m["TimeDisplay"].empty()) {
-      timeDisplay = make_shared<long>(boost::any_cast<long>(m["TimeDisplay"]));
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
 
-  virtual ~GetStyleTopRequest() = default;
+  virtual ~GetStyleOnlineRequest() = default;
 };
-class GetStyleTopResponseBodyData : public Darabonba::Model {
+class GetStyleOnlineResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> attributeContent{};
   shared_ptr<string> brandName{};
   shared_ptr<string> buyerTags{};
   shared_ptr<string> cateName{};
   shared_ptr<string> color{};
+  shared_ptr<long> exposureValue{};
   shared_ptr<vector<string>> images{};
   shared_ptr<string> material{};
   shared_ptr<double> price{};
   shared_ptr<string> productLink{};
   shared_ptr<double> salesVolume{};
   shared_ptr<double> searchVolume{};
+  shared_ptr<long> shopId{};
   shared_ptr<string> shopName{};
   shared_ptr<string> style{};
   shared_ptr<string> title{};
 
-  GetStyleTopResponseBodyData() {}
+  GetStyleOnlineResponseBodyData() {}
 
-  explicit GetStyleTopResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit GetStyleOnlineResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -2124,6 +2723,9 @@ public:
     if (color) {
       res["Color"] = boost::any(*color);
     }
+    if (exposureValue) {
+      res["ExposureValue"] = boost::any(*exposureValue);
+    }
     if (images) {
       res["Images"] = boost::any(*images);
     }
@@ -2141,6 +2743,9 @@ public:
     }
     if (searchVolume) {
       res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (shopId) {
+      res["ShopId"] = boost::any(*shopId);
     }
     if (shopName) {
       res["ShopName"] = boost::any(*shopName);
@@ -2170,6 +2775,9 @@ public:
     if (m.find("Color") != m.end() && !m["Color"].empty()) {
       color = make_shared<string>(boost::any_cast<string>(m["Color"]));
     }
+    if (m.find("ExposureValue") != m.end() && !m["ExposureValue"].empty()) {
+      exposureValue = make_shared<long>(boost::any_cast<long>(m["ExposureValue"]));
+    }
     if (m.find("Images") != m.end() && !m["Images"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Images"].type()) {
@@ -2194,6 +2802,375 @@ public:
     }
     if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
       searchVolume = make_shared<double>(boost::any_cast<double>(m["SearchVolume"]));
+    }
+    if (m.find("ShopId") != m.end() && !m["ShopId"].empty()) {
+      shopId = make_shared<long>(boost::any_cast<long>(m["ShopId"]));
+    }
+    if (m.find("ShopName") != m.end() && !m["ShopName"].empty()) {
+      shopName = make_shared<string>(boost::any_cast<string>(m["ShopName"]));
+    }
+    if (m.find("Style") != m.end() && !m["Style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["Style"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~GetStyleOnlineResponseBodyData() = default;
+};
+class GetStyleOnlineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<GetStyleOnlineResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> successResponse{};
+
+  GetStyleOnlineResponseBody() {}
+
+  explicit GetStyleOnlineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successResponse) {
+      res["SuccessResponse"] = boost::any(*successResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetStyleOnlineResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetStyleOnlineResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetStyleOnlineResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessResponse") != m.end() && !m["SuccessResponse"].empty()) {
+      successResponse = make_shared<string>(boost::any_cast<string>(m["SuccessResponse"]));
+    }
+  }
+
+
+  virtual ~GetStyleOnlineResponseBody() = default;
+};
+class GetStyleOnlineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetStyleOnlineResponseBody> body{};
+
+  GetStyleOnlineResponse() {}
+
+  explicit GetStyleOnlineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetStyleOnlineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetStyleOnlineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetStyleOnlineResponse() = default;
+};
+class GetStyleTopRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> brandNames{};
+  shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> endingPrice{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<long> sortOrder{};
+  shared_ptr<string> startDate{};
+  shared_ptr<string> startPrice{};
+  shared_ptr<long> timeDisplay{};
+
+  GetStyleTopRequest() {}
+
+  explicit GetStyleTopRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
+    if (cateIds) {
+      res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (endingPrice) {
+      res["EndingPrice"] = boost::any(*endingPrice);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (startPrice) {
+      res["StartPrice"] = boost::any(*startPrice);
+    }
+    if (timeDisplay) {
+      res["TimeDisplay"] = boost::any(*timeDisplay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
+    if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
+      cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("EndingPrice") != m.end() && !m["EndingPrice"].empty()) {
+      endingPrice = make_shared<string>(boost::any_cast<string>(m["EndingPrice"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<long>(boost::any_cast<long>(m["SortOrder"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("StartPrice") != m.end() && !m["StartPrice"].empty()) {
+      startPrice = make_shared<string>(boost::any_cast<string>(m["StartPrice"]));
+    }
+    if (m.find("TimeDisplay") != m.end() && !m["TimeDisplay"].empty()) {
+      timeDisplay = make_shared<long>(boost::any_cast<long>(m["TimeDisplay"]));
+    }
+  }
+
+
+  virtual ~GetStyleTopRequest() = default;
+};
+class GetStyleTopResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> attributeContent{};
+  shared_ptr<string> brandName{};
+  shared_ptr<string> buyerTags{};
+  shared_ptr<string> cateName{};
+  shared_ptr<string> color{};
+  shared_ptr<long> exposureValue{};
+  shared_ptr<vector<string>> images{};
+  shared_ptr<string> material{};
+  shared_ptr<double> price{};
+  shared_ptr<string> productLink{};
+  shared_ptr<double> salesVolume{};
+  shared_ptr<double> searchVolume{};
+  shared_ptr<long> shopId{};
+  shared_ptr<string> shopName{};
+  shared_ptr<string> style{};
+  shared_ptr<string> title{};
+
+  GetStyleTopResponseBodyData() {}
+
+  explicit GetStyleTopResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributeContent) {
+      res["AttributeContent"] = boost::any(*attributeContent);
+    }
+    if (brandName) {
+      res["BrandName"] = boost::any(*brandName);
+    }
+    if (buyerTags) {
+      res["BuyerTags"] = boost::any(*buyerTags);
+    }
+    if (cateName) {
+      res["CateName"] = boost::any(*cateName);
+    }
+    if (color) {
+      res["Color"] = boost::any(*color);
+    }
+    if (exposureValue) {
+      res["ExposureValue"] = boost::any(*exposureValue);
+    }
+    if (images) {
+      res["Images"] = boost::any(*images);
+    }
+    if (material) {
+      res["Material"] = boost::any(*material);
+    }
+    if (price) {
+      res["Price"] = boost::any(*price);
+    }
+    if (productLink) {
+      res["ProductLink"] = boost::any(*productLink);
+    }
+    if (salesVolume) {
+      res["SalesVolume"] = boost::any(*salesVolume);
+    }
+    if (searchVolume) {
+      res["SearchVolume"] = boost::any(*searchVolume);
+    }
+    if (shopId) {
+      res["ShopId"] = boost::any(*shopId);
+    }
+    if (shopName) {
+      res["ShopName"] = boost::any(*shopName);
+    }
+    if (style) {
+      res["Style"] = boost::any(*style);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttributeContent") != m.end() && !m["AttributeContent"].empty()) {
+      attributeContent = make_shared<string>(boost::any_cast<string>(m["AttributeContent"]));
+    }
+    if (m.find("BrandName") != m.end() && !m["BrandName"].empty()) {
+      brandName = make_shared<string>(boost::any_cast<string>(m["BrandName"]));
+    }
+    if (m.find("BuyerTags") != m.end() && !m["BuyerTags"].empty()) {
+      buyerTags = make_shared<string>(boost::any_cast<string>(m["BuyerTags"]));
+    }
+    if (m.find("CateName") != m.end() && !m["CateName"].empty()) {
+      cateName = make_shared<string>(boost::any_cast<string>(m["CateName"]));
+    }
+    if (m.find("Color") != m.end() && !m["Color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["Color"]));
+    }
+    if (m.find("ExposureValue") != m.end() && !m["ExposureValue"].empty()) {
+      exposureValue = make_shared<long>(boost::any_cast<long>(m["ExposureValue"]));
+    }
+    if (m.find("Images") != m.end() && !m["Images"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Images"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Images"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      images = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Material") != m.end() && !m["Material"].empty()) {
+      material = make_shared<string>(boost::any_cast<string>(m["Material"]));
+    }
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      price = make_shared<double>(boost::any_cast<double>(m["Price"]));
+    }
+    if (m.find("ProductLink") != m.end() && !m["ProductLink"].empty()) {
+      productLink = make_shared<string>(boost::any_cast<string>(m["ProductLink"]));
+    }
+    if (m.find("SalesVolume") != m.end() && !m["SalesVolume"].empty()) {
+      salesVolume = make_shared<double>(boost::any_cast<double>(m["SalesVolume"]));
+    }
+    if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
+      searchVolume = make_shared<double>(boost::any_cast<double>(m["SearchVolume"]));
+    }
+    if (m.find("ShopId") != m.end() && !m["ShopId"].empty()) {
+      shopId = make_shared<long>(boost::any_cast<long>(m["ShopId"]));
     }
     if (m.find("ShopName") != m.end() && !m["ShopName"].empty()) {
       shopName = make_shared<string>(boost::any_cast<string>(m["ShopName"]));
@@ -3295,7 +4272,11 @@ public:
 };
 class GetTrendStatisticRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> brandNames{};
   shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<string> shopIds{};
+  shared_ptr<string> startDate{};
 
   GetTrendStatisticRequest() {}
 
@@ -3307,15 +4288,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandNames) {
+      res["BrandNames"] = boost::any(*brandNames);
+    }
     if (cateIds) {
       res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (shopIds) {
+      res["ShopIds"] = boost::any(*shopIds);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandNames") != m.end() && !m["BrandNames"].empty()) {
+      brandNames = make_shared<string>(boost::any_cast<string>(m["BrandNames"]));
+    }
     if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
       cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("ShopIds") != m.end() && !m["ShopIds"].empty()) {
+      shopIds = make_shared<string>(boost::any_cast<string>(m["ShopIds"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
     }
   }
 
@@ -3324,7 +4329,10 @@ public:
 };
 class GetTrendStatisticResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> brandCount{};
   shared_ptr<long> commodityCount{};
+  shared_ptr<long> exposureValue{};
+  shared_ptr<long> hits{};
   shared_ptr<double> sales{};
   shared_ptr<long> shopCount{};
 
@@ -3338,8 +4346,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandCount) {
+      res["BrandCount"] = boost::any(*brandCount);
+    }
     if (commodityCount) {
       res["CommodityCount"] = boost::any(*commodityCount);
+    }
+    if (exposureValue) {
+      res["ExposureValue"] = boost::any(*exposureValue);
+    }
+    if (hits) {
+      res["Hits"] = boost::any(*hits);
     }
     if (sales) {
       res["Sales"] = boost::any(*sales);
@@ -3351,8 +4368,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandCount") != m.end() && !m["BrandCount"].empty()) {
+      brandCount = make_shared<long>(boost::any_cast<long>(m["BrandCount"]));
+    }
     if (m.find("CommodityCount") != m.end() && !m["CommodityCount"].empty()) {
       commodityCount = make_shared<long>(boost::any_cast<long>(m["CommodityCount"]));
+    }
+    if (m.find("ExposureValue") != m.end() && !m["ExposureValue"].empty()) {
+      exposureValue = make_shared<long>(boost::any_cast<long>(m["ExposureValue"]));
+    }
+    if (m.find("Hits") != m.end() && !m["Hits"].empty()) {
+      hits = make_shared<long>(boost::any_cast<long>(m["Hits"]));
     }
     if (m.find("Sales") != m.end() && !m["Sales"].empty()) {
       sales = make_shared<double>(boost::any_cast<double>(m["Sales"]));
@@ -3488,6 +4514,281 @@ public:
 
   virtual ~GetTrendStatisticResponse() = default;
 };
+class GetTrendWordAndIndexRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cateIds{};
+  shared_ptr<string> endingDate{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<string> startDate{};
+
+  GetTrendWordAndIndexRequest() {}
+
+  explicit GetTrendWordAndIndexRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cateIds) {
+      res["CateIds"] = boost::any(*cateIds);
+    }
+    if (endingDate) {
+      res["EndingDate"] = boost::any(*endingDate);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CateIds") != m.end() && !m["CateIds"].empty()) {
+      cateIds = make_shared<string>(boost::any_cast<string>(m["CateIds"]));
+    }
+    if (m.find("EndingDate") != m.end() && !m["EndingDate"].empty()) {
+      endingDate = make_shared<string>(boost::any_cast<string>(m["EndingDate"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+  }
+
+
+  virtual ~GetTrendWordAndIndexRequest() = default;
+};
+class GetTrendWordAndIndexResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<double> brandIndex{};
+  shared_ptr<long> cateId{};
+  shared_ptr<string> cateName{};
+  shared_ptr<double> ecommerceIndex{};
+  shared_ptr<double> institutionalIndex{};
+  shared_ptr<double> mediaIndex{};
+  shared_ptr<double> socialIndex{};
+  shared_ptr<double> trendIndex{};
+  shared_ptr<string> trendWord{};
+  shared_ptr<string> yearMonth{};
+
+  GetTrendWordAndIndexResponseBodyData() {}
+
+  explicit GetTrendWordAndIndexResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (brandIndex) {
+      res["BrandIndex"] = boost::any(*brandIndex);
+    }
+    if (cateId) {
+      res["CateId"] = boost::any(*cateId);
+    }
+    if (cateName) {
+      res["CateName"] = boost::any(*cateName);
+    }
+    if (ecommerceIndex) {
+      res["EcommerceIndex"] = boost::any(*ecommerceIndex);
+    }
+    if (institutionalIndex) {
+      res["InstitutionalIndex"] = boost::any(*institutionalIndex);
+    }
+    if (mediaIndex) {
+      res["MediaIndex"] = boost::any(*mediaIndex);
+    }
+    if (socialIndex) {
+      res["SocialIndex"] = boost::any(*socialIndex);
+    }
+    if (trendIndex) {
+      res["TrendIndex"] = boost::any(*trendIndex);
+    }
+    if (trendWord) {
+      res["TrendWord"] = boost::any(*trendWord);
+    }
+    if (yearMonth) {
+      res["YearMonth"] = boost::any(*yearMonth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BrandIndex") != m.end() && !m["BrandIndex"].empty()) {
+      brandIndex = make_shared<double>(boost::any_cast<double>(m["BrandIndex"]));
+    }
+    if (m.find("CateId") != m.end() && !m["CateId"].empty()) {
+      cateId = make_shared<long>(boost::any_cast<long>(m["CateId"]));
+    }
+    if (m.find("CateName") != m.end() && !m["CateName"].empty()) {
+      cateName = make_shared<string>(boost::any_cast<string>(m["CateName"]));
+    }
+    if (m.find("EcommerceIndex") != m.end() && !m["EcommerceIndex"].empty()) {
+      ecommerceIndex = make_shared<double>(boost::any_cast<double>(m["EcommerceIndex"]));
+    }
+    if (m.find("InstitutionalIndex") != m.end() && !m["InstitutionalIndex"].empty()) {
+      institutionalIndex = make_shared<double>(boost::any_cast<double>(m["InstitutionalIndex"]));
+    }
+    if (m.find("MediaIndex") != m.end() && !m["MediaIndex"].empty()) {
+      mediaIndex = make_shared<double>(boost::any_cast<double>(m["MediaIndex"]));
+    }
+    if (m.find("SocialIndex") != m.end() && !m["SocialIndex"].empty()) {
+      socialIndex = make_shared<double>(boost::any_cast<double>(m["SocialIndex"]));
+    }
+    if (m.find("TrendIndex") != m.end() && !m["TrendIndex"].empty()) {
+      trendIndex = make_shared<double>(boost::any_cast<double>(m["TrendIndex"]));
+    }
+    if (m.find("TrendWord") != m.end() && !m["TrendWord"].empty()) {
+      trendWord = make_shared<string>(boost::any_cast<string>(m["TrendWord"]));
+    }
+    if (m.find("YearMonth") != m.end() && !m["YearMonth"].empty()) {
+      yearMonth = make_shared<string>(boost::any_cast<string>(m["YearMonth"]));
+    }
+  }
+
+
+  virtual ~GetTrendWordAndIndexResponseBodyData() = default;
+};
+class GetTrendWordAndIndexResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<GetTrendWordAndIndexResponseBodyData>> data{};
+  shared_ptr<string> massage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> successResponse{};
+
+  GetTrendWordAndIndexResponseBody() {}
+
+  explicit GetTrendWordAndIndexResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (massage) {
+      res["Massage"] = boost::any(*massage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successResponse) {
+      res["SuccessResponse"] = boost::any(*successResponse);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetTrendWordAndIndexResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTrendWordAndIndexResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetTrendWordAndIndexResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Massage") != m.end() && !m["Massage"].empty()) {
+      massage = make_shared<string>(boost::any_cast<string>(m["Massage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessResponse") != m.end() && !m["SuccessResponse"].empty()) {
+      successResponse = make_shared<string>(boost::any_cast<string>(m["SuccessResponse"]));
+    }
+  }
+
+
+  virtual ~GetTrendWordAndIndexResponseBody() = default;
+};
+class GetTrendWordAndIndexResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTrendWordAndIndexResponseBody> body{};
+
+  GetTrendWordAndIndexResponse() {}
+
+  explicit GetTrendWordAndIndexResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTrendWordAndIndexResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTrendWordAndIndexResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTrendWordAndIndexResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -3502,6 +4803,8 @@ public:
   GetAgeDistributionResponse getAgeDistribution(shared_ptr<GetAgeDistributionRequest> request);
   GetAllTrendCategoryResponse getAllTrendCategoryWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAllTrendCategoryResponse getAllTrendCategory();
+  GetCrowdDataResponse getCrowdDataWithOptions(shared_ptr<GetCrowdDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCrowdDataResponse getCrowdData(shared_ptr<GetCrowdDataRequest> request);
   GetCrowdLabelResponse getCrowdLabelWithOptions(shared_ptr<GetCrowdLabelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCrowdLabelResponse getCrowdLabel(shared_ptr<GetCrowdLabelRequest> request);
   GetCrowdReginResponse getCrowdReginWithOptions(shared_ptr<GetCrowdReginRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3516,6 +4819,8 @@ public:
   GetStoreSalesVolumeTopResponse getStoreSalesVolumeTop(shared_ptr<GetStoreSalesVolumeTopRequest> request);
   GetStoreSearchTopResponse getStoreSearchTopWithOptions(shared_ptr<GetStoreSearchTopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetStoreSearchTopResponse getStoreSearchTop(shared_ptr<GetStoreSearchTopRequest> request);
+  GetStyleOnlineResponse getStyleOnlineWithOptions(shared_ptr<GetStyleOnlineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetStyleOnlineResponse getStyleOnline(shared_ptr<GetStyleOnlineRequest> request);
   GetStyleTopResponse getStyleTopWithOptions(shared_ptr<GetStyleTopRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetStyleTopResponse getStyleTop(shared_ptr<GetStyleTopRequest> request);
   GetTrendImageDetailResponse getTrendImageDetailWithOptions(shared_ptr<GetTrendImageDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3528,6 +4833,8 @@ public:
   GetTrendSearchRecordResponse getTrendSearchRecord(shared_ptr<GetTrendSearchRecordRequest> request);
   GetTrendStatisticResponse getTrendStatisticWithOptions(shared_ptr<GetTrendStatisticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrendStatisticResponse getTrendStatistic(shared_ptr<GetTrendStatisticRequest> request);
+  GetTrendWordAndIndexResponse getTrendWordAndIndexWithOptions(shared_ptr<GetTrendWordAndIndexRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTrendWordAndIndexResponse getTrendWordAndIndex(shared_ptr<GetTrendWordAndIndexRequest> request);
 
   virtual ~Client() = default;
 };
