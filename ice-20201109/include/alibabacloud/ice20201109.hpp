@@ -12636,6 +12636,7 @@ public:
 class GetEditingProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> projectId{};
+  shared_ptr<string> requestSource{};
 
   GetEditingProjectRequest() {}
 
@@ -12650,12 +12651,18 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (requestSource) {
+      res["RequestSource"] = boost::any(*requestSource);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("RequestSource") != m.end() && !m["RequestSource"].empty()) {
+      requestSource = make_shared<string>(boost::any_cast<string>(m["RequestSource"]));
     }
   }
 
@@ -12680,6 +12687,8 @@ public:
   shared_ptr<string> templateId{};
   shared_ptr<string> templateType{};
   shared_ptr<string> timeline{};
+  shared_ptr<string> timelineConvertErrorMessage{};
+  shared_ptr<string> timelineConvertStatus{};
   shared_ptr<string> title{};
 
   GetEditingProjectResponseBodyProject() {}
@@ -12740,6 +12749,12 @@ public:
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
     }
+    if (timelineConvertErrorMessage) {
+      res["TimelineConvertErrorMessage"] = boost::any(*timelineConvertErrorMessage);
+    }
+    if (timelineConvertStatus) {
+      res["TimelineConvertStatus"] = boost::any(*timelineConvertStatus);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -12794,6 +12809,12 @@ public:
     }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));
+    }
+    if (m.find("TimelineConvertErrorMessage") != m.end() && !m["TimelineConvertErrorMessage"].empty()) {
+      timelineConvertErrorMessage = make_shared<string>(boost::any_cast<string>(m["TimelineConvertErrorMessage"]));
+    }
+    if (m.find("TimelineConvertStatus") != m.end() && !m["TimelineConvertStatus"].empty()) {
+      timelineConvertStatus = make_shared<string>(boost::any_cast<string>(m["TimelineConvertStatus"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -15985,6 +16006,8 @@ public:
 };
 class GetMediaInfoResponseBodyMediaInfoAiRoughData : public Darabonba::Model {
 public:
+  shared_ptr<string> aiCategory{};
+  shared_ptr<string> aiJobId{};
   shared_ptr<string> result{};
   shared_ptr<string> saveType{};
   shared_ptr<string> status{};
@@ -15999,6 +16022,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aiCategory) {
+      res["AiCategory"] = boost::any(*aiCategory);
+    }
+    if (aiJobId) {
+      res["AiJobId"] = boost::any(*aiJobId);
+    }
     if (result) {
       res["Result"] = boost::any(*result);
     }
@@ -16012,6 +16041,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiCategory") != m.end() && !m["AiCategory"].empty()) {
+      aiCategory = make_shared<string>(boost::any_cast<string>(m["AiCategory"]));
+    }
+    if (m.find("AiJobId") != m.end() && !m["AiJobId"].empty()) {
+      aiJobId = make_shared<string>(boost::any_cast<string>(m["AiJobId"]));
+    }
     if (m.find("Result") != m.end() && !m["Result"].empty()) {
       result = make_shared<string>(boost::any_cast<string>(m["Result"]));
     }
@@ -18794,6 +18829,7 @@ public:
   shared_ptr<string> fps{};
   shared_ptr<string> HDRType{};
   shared_ptr<long> height{};
+  shared_ptr<string> jobId{};
   shared_ptr<string> modificationTime{};
   shared_ptr<string> narrowBandType{};
   shared_ptr<string> playURL{};
@@ -18850,6 +18886,9 @@ public:
     }
     if (height) {
       res["Height"] = boost::any(*height);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
@@ -18920,6 +18959,9 @@ public:
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
@@ -39182,7 +39224,7 @@ public:
 };
 class SearchMediaResponseBodyMediaInfoListAiRoughData : public Darabonba::Model {
 public:
-  shared_ptr<string> aiCategoryLevel1{};
+  shared_ptr<string> aiCategory{};
   shared_ptr<string> aiJobId{};
   shared_ptr<string> result{};
   shared_ptr<string> saveType{};
@@ -39198,8 +39240,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (aiCategoryLevel1) {
-      res["AiCategoryLevel1"] = boost::any(*aiCategoryLevel1);
+    if (aiCategory) {
+      res["AiCategory"] = boost::any(*aiCategory);
     }
     if (aiJobId) {
       res["AiJobId"] = boost::any(*aiJobId);
@@ -39217,8 +39259,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AiCategoryLevel1") != m.end() && !m["AiCategoryLevel1"].empty()) {
-      aiCategoryLevel1 = make_shared<string>(boost::any_cast<string>(m["AiCategoryLevel1"]));
+    if (m.find("AiCategory") != m.end() && !m["AiCategory"].empty()) {
+      aiCategory = make_shared<string>(boost::any_cast<string>(m["AiCategory"]));
     }
     if (m.find("AiJobId") != m.end() && !m["AiJobId"].empty()) {
       aiJobId = make_shared<string>(boost::any_cast<string>(m["AiJobId"]));

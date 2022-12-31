@@ -497,7 +497,7 @@ CreateLiveTranscodeTemplateResponse Alibabacloud_ICE20201109::Client::createLive
   shared_ptr<CreateLiveTranscodeTemplateShrinkRequest> request = make_shared<CreateLiveTranscodeTemplateShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateLiveTranscodeTemplateRequestTemplateConfig>(tmpReq->templateConfig)) {
-    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->templateConfig->toMap()), make_shared<string>("TemplateConfig"), make_shared<string>("json")));
+    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateConfig, make_shared<string>("TemplateConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
@@ -2149,6 +2149,9 @@ GetEditingProjectResponse Alibabacloud_ICE20201109::Client::getEditingProjectWit
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
     query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestSource)) {
+    query->insert(pair<string, string>("RequestSource", *request->requestSource));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4430,16 +4433,16 @@ SubmitDynamicImageJobResponse Alibabacloud_ICE20201109::Client::submitDynamicIma
   shared_ptr<SubmitDynamicImageJobShrinkRequest> request = make_shared<SubmitDynamicImageJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitDynamicImageJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitDynamicImageJobRequestOutput>(tmpReq->output)) {
-    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->output->toMap()), make_shared<string>("Output"), make_shared<string>("json")));
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitDynamicImageJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitDynamicImageJobRequestTemplateConfig>(tmpReq->templateConfig)) {
-    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->templateConfig->toMap()), make_shared<string>("TemplateConfig"), make_shared<string>("json")));
+    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateConfig, make_shared<string>("TemplateConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
@@ -4487,13 +4490,13 @@ SubmitIProductionJobResponse Alibabacloud_ICE20201109::Client::submitIProduction
   shared_ptr<SubmitIProductionJobShrinkRequest> request = make_shared<SubmitIProductionJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitIProductionJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitIProductionJobRequestOutput>(tmpReq->output)) {
-    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->output->toMap()), make_shared<string>("Output"), make_shared<string>("json")));
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitIProductionJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
@@ -4593,10 +4596,10 @@ SubmitLiveRecordJobResponse Alibabacloud_ICE20201109::Client::submitLiveRecordJo
   shared_ptr<SubmitLiveRecordJobShrinkRequest> request = make_shared<SubmitLiveRecordJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitLiveRecordJobRequestRecordOutput>(tmpReq->recordOutput)) {
-    request->recordOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->recordOutput->toMap()), make_shared<string>("RecordOutput"), make_shared<string>("json")));
+    request->recordOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->recordOutput, make_shared<string>("RecordOutput"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitLiveRecordJobRequestStreamInput>(tmpReq->streamInput)) {
-    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->streamInput->toMap()), make_shared<string>("StreamInput"), make_shared<string>("json")));
+    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->streamInput, make_shared<string>("StreamInput"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
@@ -4641,10 +4644,10 @@ SubmitLiveSnapshotJobResponse Alibabacloud_ICE20201109::Client::submitLiveSnapsh
   shared_ptr<SubmitLiveSnapshotJobShrinkRequest> request = make_shared<SubmitLiveSnapshotJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitLiveSnapshotJobRequestSnapshotOutput>(tmpReq->snapshotOutput)) {
-    request->snapshotOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->snapshotOutput->toMap()), make_shared<string>("SnapshotOutput"), make_shared<string>("json")));
+    request->snapshotOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->snapshotOutput, make_shared<string>("SnapshotOutput"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitLiveSnapshotJobRequestStreamInput>(tmpReq->streamInput)) {
-    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->streamInput->toMap()), make_shared<string>("StreamInput"), make_shared<string>("json")));
+    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->streamInput, make_shared<string>("StreamInput"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->callbackUrl)) {
@@ -4689,13 +4692,13 @@ SubmitLiveTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitLiveTrans
   shared_ptr<SubmitLiveTranscodeJobShrinkRequest> request = make_shared<SubmitLiveTranscodeJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitLiveTranscodeJobRequestStreamInput>(tmpReq->streamInput)) {
-    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->streamInput->toMap()), make_shared<string>("StreamInput"), make_shared<string>("json")));
+    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->streamInput, make_shared<string>("StreamInput"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitLiveTranscodeJobRequestTimedConfig>(tmpReq->timedConfig)) {
-    request->timedConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->timedConfig->toMap()), make_shared<string>("TimedConfig"), make_shared<string>("json")));
+    request->timedConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->timedConfig, make_shared<string>("TimedConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitLiveTranscodeJobRequestTranscodeOutput>(tmpReq->transcodeOutput)) {
-    request->transcodeOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->transcodeOutput->toMap()), make_shared<string>("TranscodeOutput"), make_shared<string>("json")));
+    request->transcodeOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transcodeOutput, make_shared<string>("TranscodeOutput"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
@@ -4743,10 +4746,10 @@ SubmitMediaCensorJobResponse Alibabacloud_ICE20201109::Client::submitMediaCensor
   shared_ptr<SubmitMediaCensorJobShrinkRequest> request = make_shared<SubmitMediaCensorJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitMediaCensorJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitMediaCensorJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->barrages)) {
@@ -4806,10 +4809,10 @@ SubmitMediaInfoJobResponse Alibabacloud_ICE20201109::Client::submitMediaInfoJobW
   shared_ptr<SubmitMediaInfoJobShrinkRequest> request = make_shared<SubmitMediaInfoJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitMediaInfoJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitMediaInfoJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
@@ -4912,10 +4915,10 @@ SubmitPackageJobResponse Alibabacloud_ICE20201109::Client::submitPackageJobWithO
     request->inputsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->inputs, make_shared<string>("Inputs"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitPackageJobRequestOutput>(tmpReq->output)) {
-    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->output->toMap()), make_shared<string>("Output"), make_shared<string>("json")));
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitPackageJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputsShrink)) {
@@ -4960,10 +4963,10 @@ SubmitSmarttagJobResponse Alibabacloud_ICE20201109::Client::submitSmarttagJobWit
   shared_ptr<SubmitSmarttagJobShrinkRequest> request = make_shared<SubmitSmarttagJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitSmarttagJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitSmarttagJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
@@ -5023,16 +5026,16 @@ SubmitSnapshotJobResponse Alibabacloud_ICE20201109::Client::submitSnapshotJobWit
   shared_ptr<SubmitSnapshotJobShrinkRequest> request = make_shared<SubmitSnapshotJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitSnapshotJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitSnapshotJobRequestOutput>(tmpReq->output)) {
-    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->output->toMap()), make_shared<string>("Output"), make_shared<string>("json")));
+    request->outputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->output, make_shared<string>("Output"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitSnapshotJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitSnapshotJobRequestTemplateConfig>(tmpReq->templateConfig)) {
-    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->templateConfig->toMap()), make_shared<string>("TemplateConfig"), make_shared<string>("json")));
+    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateConfig, make_shared<string>("TemplateConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
@@ -5129,10 +5132,10 @@ SubmitSyncMediaInfoJobResponse Alibabacloud_ICE20201109::Client::submitSyncMedia
   shared_ptr<SubmitSyncMediaInfoJobShrinkRequest> request = make_shared<SubmitSyncMediaInfoJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SubmitSyncMediaInfoJobRequestInput>(tmpReq->input)) {
-    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->input->toMap()), make_shared<string>("Input"), make_shared<string>("json")));
+    request->inputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->input, make_shared<string>("Input"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitSyncMediaInfoJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputShrink)) {
@@ -5180,7 +5183,7 @@ SubmitTranscodeJobResponse Alibabacloud_ICE20201109::Client::submitTranscodeJobW
     request->outputGroupShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->outputGroup, make_shared<string>("OutputGroup"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<SubmitTranscodeJobRequestScheduleConfig>(tmpReq->scheduleConfig)) {
-    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scheduleConfig->toMap()), make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
+    request->scheduleConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scheduleConfig, make_shared<string>("ScheduleConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->inputGroupShrink)) {
@@ -5418,13 +5421,13 @@ UpdateLiveTranscodeJobResponse Alibabacloud_ICE20201109::Client::updateLiveTrans
   shared_ptr<UpdateLiveTranscodeJobShrinkRequest> request = make_shared<UpdateLiveTranscodeJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateLiveTranscodeJobRequestStreamInput>(tmpReq->streamInput)) {
-    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->streamInput->toMap()), make_shared<string>("StreamInput"), make_shared<string>("json")));
+    request->streamInputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->streamInput, make_shared<string>("StreamInput"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateLiveTranscodeJobRequestTimedConfig>(tmpReq->timedConfig)) {
-    request->timedConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->timedConfig->toMap()), make_shared<string>("TimedConfig"), make_shared<string>("json")));
+    request->timedConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->timedConfig, make_shared<string>("TimedConfig"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateLiveTranscodeJobRequestTranscodeOutput>(tmpReq->transcodeOutput)) {
-    request->transcodeOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->transcodeOutput->toMap()), make_shared<string>("TranscodeOutput"), make_shared<string>("json")));
+    request->transcodeOutputShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transcodeOutput, make_shared<string>("TranscodeOutput"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
@@ -5469,7 +5472,7 @@ UpdateLiveTranscodeTemplateResponse Alibabacloud_ICE20201109::Client::updateLive
   shared_ptr<UpdateLiveTranscodeTemplateShrinkRequest> request = make_shared<UpdateLiveTranscodeTemplateShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateLiveTranscodeTemplateRequestTemplateConfig>(tmpReq->templateConfig)) {
-    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->templateConfig->toMap()), make_shared<string>("TemplateConfig"), make_shared<string>("json")));
+    request->templateConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateConfig, make_shared<string>("TemplateConfig"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
