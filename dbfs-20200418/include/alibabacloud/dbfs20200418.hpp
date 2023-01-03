@@ -156,6 +156,190 @@ public:
 
   virtual ~AddTagsBatchResponse() = default;
 };
+class ApplyAutoSnapshotPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> dbfsIds{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  ApplyAutoSnapshotPolicyRequest() {}
+
+  explicit ApplyAutoSnapshotPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbfsIds) {
+      res["DbfsIds"] = boost::any(*dbfsIds);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbfsIds") != m.end() && !m["DbfsIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DbfsIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DbfsIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dbfsIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ApplyAutoSnapshotPolicyRequest() = default;
+};
+class ApplyAutoSnapshotPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dbfsIdsShrink{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  ApplyAutoSnapshotPolicyShrinkRequest() {}
+
+  explicit ApplyAutoSnapshotPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbfsIdsShrink) {
+      res["DbfsIds"] = boost::any(*dbfsIdsShrink);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbfsIds") != m.end() && !m["DbfsIds"].empty()) {
+      dbfsIdsShrink = make_shared<string>(boost::any_cast<string>(m["DbfsIds"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ApplyAutoSnapshotPolicyShrinkRequest() = default;
+};
+class ApplyAutoSnapshotPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ApplyAutoSnapshotPolicyResponseBody() {}
+
+  explicit ApplyAutoSnapshotPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ApplyAutoSnapshotPolicyResponseBody() = default;
+};
+class ApplyAutoSnapshotPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ApplyAutoSnapshotPolicyResponseBody> body{};
+
+  ApplyAutoSnapshotPolicyResponse() {}
+
+  explicit ApplyAutoSnapshotPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ApplyAutoSnapshotPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ApplyAutoSnapshotPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ApplyAutoSnapshotPolicyResponse() = default;
+};
 class AttachDbfsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> attachMode{};
@@ -1242,6 +1426,133 @@ public:
 
   virtual ~CreateSnapshotResponse() = default;
 };
+class DeleteAutoSnapshotPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  DeleteAutoSnapshotPolicyRequest() {}
+
+  explicit DeleteAutoSnapshotPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteAutoSnapshotPolicyRequest() = default;
+};
+class DeleteAutoSnapshotPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteAutoSnapshotPolicyResponseBody() {}
+
+  explicit DeleteAutoSnapshotPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAutoSnapshotPolicyResponseBody() = default;
+};
+class DeleteAutoSnapshotPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAutoSnapshotPolicyResponseBody> body{};
+
+  DeleteAutoSnapshotPolicyResponse() {}
+
+  explicit DeleteAutoSnapshotPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAutoSnapshotPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAutoSnapshotPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAutoSnapshotPolicyResponse() = default;
+};
 class DeleteDbfsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fsId{};
@@ -2122,6 +2433,264 @@ public:
 
   virtual ~DetachDbfsResponse() = default;
 };
+class GetAutoSnapshotPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  GetAutoSnapshotPolicyRequest() {}
+
+  explicit GetAutoSnapshotPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetAutoSnapshotPolicyRequest() = default;
+};
+class GetAutoSnapshotPolicyResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<long> appliedDbfsNumber{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> lastModified{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> repeatWeekdays{};
+  shared_ptr<long> retentionDays{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusDetail{};
+  shared_ptr<vector<string>> timePoints{};
+
+  GetAutoSnapshotPolicyResponseBodyData() {}
+
+  explicit GetAutoSnapshotPolicyResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (appliedDbfsNumber) {
+      res["AppliedDbfsNumber"] = boost::any(*appliedDbfsNumber);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (lastModified) {
+      res["LastModified"] = boost::any(*lastModified);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatWeekdays) {
+      res["RepeatWeekdays"] = boost::any(*repeatWeekdays);
+    }
+    if (retentionDays) {
+      res["RetentionDays"] = boost::any(*retentionDays);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusDetail) {
+      res["StatusDetail"] = boost::any(*statusDetail);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("AppliedDbfsNumber") != m.end() && !m["AppliedDbfsNumber"].empty()) {
+      appliedDbfsNumber = make_shared<long>(boost::any_cast<long>(m["AppliedDbfsNumber"]));
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("LastModified") != m.end() && !m["LastModified"].empty()) {
+      lastModified = make_shared<string>(boost::any_cast<string>(m["LastModified"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatWeekdays") != m.end() && !m["RepeatWeekdays"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatWeekdays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatWeekdays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      repeatWeekdays = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RetentionDays") != m.end() && !m["RetentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["RetentionDays"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusDetail") != m.end() && !m["StatusDetail"].empty()) {
+      statusDetail = make_shared<string>(boost::any_cast<string>(m["StatusDetail"]));
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timePoints = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetAutoSnapshotPolicyResponseBodyData() = default;
+};
+class GetAutoSnapshotPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAutoSnapshotPolicyResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetAutoSnapshotPolicyResponseBody() {}
+
+  explicit GetAutoSnapshotPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAutoSnapshotPolicyResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAutoSnapshotPolicyResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAutoSnapshotPolicyResponseBody() = default;
+};
+class GetAutoSnapshotPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAutoSnapshotPolicyResponseBody> body{};
+
+  GetAutoSnapshotPolicyResponse() {}
+
+  explicit GetAutoSnapshotPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAutoSnapshotPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAutoSnapshotPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAutoSnapshotPolicyResponse() = default;
+};
 class GetDbfsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fsId{};
@@ -2223,6 +2792,56 @@ public:
 
   virtual ~GetDbfsResponseBodyDBFSInfoEcsList() = default;
 };
+class GetDbfsResponseBodyDBFSInfoSnapshotInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> linkId{};
+  shared_ptr<string> policyId{};
+  shared_ptr<long> snapshotCount{};
+  shared_ptr<long> totalSize{};
+
+  GetDbfsResponseBodyDBFSInfoSnapshotInfo() {}
+
+  explicit GetDbfsResponseBodyDBFSInfoSnapshotInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (linkId) {
+      res["LinkId"] = boost::any(*linkId);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (totalSize) {
+      res["totalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LinkId") != m.end() && !m["LinkId"].empty()) {
+      linkId = make_shared<string>(boost::any_cast<string>(m["LinkId"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
+    }
+    if (m.find("totalSize") != m.end() && !m["totalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["totalSize"]));
+    }
+  }
+
+
+  virtual ~GetDbfsResponseBodyDBFSInfoSnapshotInfo() = default;
+};
 class GetDbfsResponseBodyDBFSInfoTags : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -2289,6 +2908,7 @@ public:
   shared_ptr<long> raidStrip{};
   shared_ptr<string> regionId{};
   shared_ptr<long> sizeG{};
+  shared_ptr<GetDbfsResponseBodyDBFSInfoSnapshotInfo> snapshotInfo{};
   shared_ptr<string> status{};
   shared_ptr<vector<GetDbfsResponseBodyDBFSInfoTags>> tags{};
   shared_ptr<string> usedScene{};
@@ -2374,6 +2994,9 @@ public:
     }
     if (sizeG) {
       res["SizeG"] = boost::any(*sizeG);
+    }
+    if (snapshotInfo) {
+      res["SnapshotInfo"] = snapshotInfo ? boost::any(snapshotInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -2477,6 +3100,13 @@ public:
     }
     if (m.find("SizeG") != m.end() && !m["SizeG"].empty()) {
       sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
+    }
+    if (m.find("SnapshotInfo") != m.end() && !m["SnapshotInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SnapshotInfo"].type()) {
+        GetDbfsResponseBodyDBFSInfoSnapshotInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SnapshotInfo"]));
+        snapshotInfo = make_shared<GetDbfsResponseBodyDBFSInfoSnapshotInfo>(model1);
+      }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -2748,6 +3378,845 @@ public:
 
   virtual ~GetServiceLinkedRoleResponse() = default;
 };
+class ListAutoSnapshotPoliciesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListAutoSnapshotPoliciesRequest() {}
+
+  explicit ListAutoSnapshotPoliciesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPoliciesRequest() = default;
+};
+class ListAutoSnapshotPoliciesResponseBodySnapshotPolicies : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<long> appliedDbfsNumber{};
+  shared_ptr<string> createdTime{};
+  shared_ptr<string> lastModified{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> repeatWeekdays{};
+  shared_ptr<long> retentionDays{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusDetail{};
+  shared_ptr<vector<string>> timePoints{};
+
+  ListAutoSnapshotPoliciesResponseBodySnapshotPolicies() {}
+
+  explicit ListAutoSnapshotPoliciesResponseBodySnapshotPolicies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (appliedDbfsNumber) {
+      res["AppliedDbfsNumber"] = boost::any(*appliedDbfsNumber);
+    }
+    if (createdTime) {
+      res["CreatedTime"] = boost::any(*createdTime);
+    }
+    if (lastModified) {
+      res["LastModified"] = boost::any(*lastModified);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatWeekdays) {
+      res["RepeatWeekdays"] = boost::any(*repeatWeekdays);
+    }
+    if (retentionDays) {
+      res["RetentionDays"] = boost::any(*retentionDays);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusDetail) {
+      res["StatusDetail"] = boost::any(*statusDetail);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("AppliedDbfsNumber") != m.end() && !m["AppliedDbfsNumber"].empty()) {
+      appliedDbfsNumber = make_shared<long>(boost::any_cast<long>(m["AppliedDbfsNumber"]));
+    }
+    if (m.find("CreatedTime") != m.end() && !m["CreatedTime"].empty()) {
+      createdTime = make_shared<string>(boost::any_cast<string>(m["CreatedTime"]));
+    }
+    if (m.find("LastModified") != m.end() && !m["LastModified"].empty()) {
+      lastModified = make_shared<string>(boost::any_cast<string>(m["LastModified"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatWeekdays") != m.end() && !m["RepeatWeekdays"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatWeekdays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatWeekdays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      repeatWeekdays = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RetentionDays") != m.end() && !m["RetentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["RetentionDays"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusDetail") != m.end() && !m["StatusDetail"].empty()) {
+      statusDetail = make_shared<string>(boost::any_cast<string>(m["StatusDetail"]));
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timePoints = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPoliciesResponseBodySnapshotPolicies() = default;
+};
+class ListAutoSnapshotPoliciesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListAutoSnapshotPoliciesResponseBodySnapshotPolicies>> snapshotPolicies{};
+  shared_ptr<long> totalCount{};
+
+  ListAutoSnapshotPoliciesResponseBody() {}
+
+  explicit ListAutoSnapshotPoliciesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (snapshotPolicies) {
+      vector<boost::any> temp1;
+      for(auto item1:*snapshotPolicies){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SnapshotPolicies"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SnapshotPolicies") != m.end() && !m["SnapshotPolicies"].empty()) {
+      if (typeid(vector<boost::any>) == m["SnapshotPolicies"].type()) {
+        vector<ListAutoSnapshotPoliciesResponseBodySnapshotPolicies> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SnapshotPolicies"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAutoSnapshotPoliciesResponseBodySnapshotPolicies model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        snapshotPolicies = make_shared<vector<ListAutoSnapshotPoliciesResponseBodySnapshotPolicies>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPoliciesResponseBody() = default;
+};
+class ListAutoSnapshotPoliciesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAutoSnapshotPoliciesResponseBody> body{};
+
+  ListAutoSnapshotPoliciesResponse() {}
+
+  explicit ListAutoSnapshotPoliciesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAutoSnapshotPoliciesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAutoSnapshotPoliciesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPoliciesResponse() = default;
+};
+class ListAutoSnapshotPolicyAppliedDbfsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> policyId{};
+  shared_ptr<string> regionId{};
+
+  ListAutoSnapshotPolicyAppliedDbfsRequest() {}
+
+  explicit ListAutoSnapshotPolicyAppliedDbfsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyAppliedDbfsRequest() = default;
+};
+class ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList : public Darabonba::Model {
+public:
+  shared_ptr<string> fsId{};
+  shared_ptr<string> fsName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> sizeG{};
+  shared_ptr<string> snapshotCount{};
+  shared_ptr<string> status{};
+  shared_ptr<string> totalSize{};
+
+  ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList() {}
+
+  explicit ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fsId) {
+      res["FsId"] = boost::any(*fsId);
+    }
+    if (fsName) {
+      res["FsName"] = boost::any(*fsName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sizeG) {
+      res["SizeG"] = boost::any(*sizeG);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FsId") != m.end() && !m["FsId"].empty()) {
+      fsId = make_shared<string>(boost::any_cast<string>(m["FsId"]));
+    }
+    if (m.find("FsName") != m.end() && !m["FsName"].empty()) {
+      fsName = make_shared<string>(boost::any_cast<string>(m["FsName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SizeG") != m.end() && !m["SizeG"].empty()) {
+      sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<string>(boost::any_cast<string>(m["SnapshotCount"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<string>(boost::any_cast<string>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList() = default;
+};
+class ListAutoSnapshotPolicyAppliedDbfsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList>> dbfsList{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListAutoSnapshotPolicyAppliedDbfsResponseBody() {}
+
+  explicit ListAutoSnapshotPolicyAppliedDbfsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbfsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dbfsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DbfsList"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbfsList") != m.end() && !m["DbfsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DbfsList"].type()) {
+        vector<ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DbfsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dbfsList = make_shared<vector<ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyAppliedDbfsResponseBody() = default;
+};
+class ListAutoSnapshotPolicyAppliedDbfsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAutoSnapshotPolicyAppliedDbfsResponseBody> body{};
+
+  ListAutoSnapshotPolicyAppliedDbfsResponse() {}
+
+  explicit ListAutoSnapshotPolicyAppliedDbfsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAutoSnapshotPolicyAppliedDbfsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAutoSnapshotPolicyAppliedDbfsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyAppliedDbfsResponse() = default;
+};
+class ListAutoSnapshotPolicyUnappliedDbfsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListAutoSnapshotPolicyUnappliedDbfsRequest() {}
+
+  explicit ListAutoSnapshotPolicyUnappliedDbfsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyUnappliedDbfsRequest() = default;
+};
+class ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList : public Darabonba::Model {
+public:
+  shared_ptr<string> fsId{};
+  shared_ptr<string> fsName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> sizeG{};
+  shared_ptr<string> snapshotCount{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalSize{};
+
+  ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList() {}
+
+  explicit ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fsId) {
+      res["FsId"] = boost::any(*fsId);
+    }
+    if (fsName) {
+      res["FsName"] = boost::any(*fsName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sizeG) {
+      res["SizeG"] = boost::any(*sizeG);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FsId") != m.end() && !m["FsId"].empty()) {
+      fsId = make_shared<string>(boost::any_cast<string>(m["FsId"]));
+    }
+    if (m.find("FsName") != m.end() && !m["FsName"].empty()) {
+      fsName = make_shared<string>(boost::any_cast<string>(m["FsName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SizeG") != m.end() && !m["SizeG"].empty()) {
+      sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<string>(boost::any_cast<string>(m["SnapshotCount"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList() = default;
+};
+class ListAutoSnapshotPolicyUnappliedDbfsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList>> dbfsList{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  ListAutoSnapshotPolicyUnappliedDbfsResponseBody() {}
+
+  explicit ListAutoSnapshotPolicyUnappliedDbfsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dbfsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dbfsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DbfsList"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DbfsList") != m.end() && !m["DbfsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DbfsList"].type()) {
+        vector<ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DbfsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dbfsList = make_shared<vector<ListAutoSnapshotPolicyUnappliedDbfsResponseBodyDbfsList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyUnappliedDbfsResponseBody() = default;
+};
+class ListAutoSnapshotPolicyUnappliedDbfsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListAutoSnapshotPolicyUnappliedDbfsResponseBody> body{};
+
+  ListAutoSnapshotPolicyUnappliedDbfsResponse() {}
+
+  explicit ListAutoSnapshotPolicyUnappliedDbfsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListAutoSnapshotPolicyUnappliedDbfsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListAutoSnapshotPolicyUnappliedDbfsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListAutoSnapshotPolicyUnappliedDbfsResponse() = default;
+};
 class ListDbfsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterKey{};
@@ -2891,6 +4360,56 @@ public:
 
   virtual ~ListDbfsResponseBodyDBFSInfoEcsList() = default;
 };
+class ListDbfsResponseBodyDBFSInfoSnapshotInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> linkId{};
+  shared_ptr<string> policyId{};
+  shared_ptr<long> snapshotCount{};
+  shared_ptr<long> totalSize{};
+
+  ListDbfsResponseBodyDBFSInfoSnapshotInfo() {}
+
+  explicit ListDbfsResponseBodyDBFSInfoSnapshotInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (linkId) {
+      res["LinkId"] = boost::any(*linkId);
+    }
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LinkId") != m.end() && !m["LinkId"].empty()) {
+      linkId = make_shared<string>(boost::any_cast<string>(m["LinkId"]));
+    }
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListDbfsResponseBodyDBFSInfoSnapshotInfo() = default;
+};
 class ListDbfsResponseBodyDBFSInfoTags : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -2956,6 +4475,7 @@ public:
   shared_ptr<long> raidStrip{};
   shared_ptr<string> regionId{};
   shared_ptr<long> sizeG{};
+  shared_ptr<ListDbfsResponseBodyDBFSInfoSnapshotInfo> snapshotInfo{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListDbfsResponseBodyDBFSInfoTags>> tags{};
   shared_ptr<string> usedScene{};
@@ -3038,6 +4558,9 @@ public:
     }
     if (sizeG) {
       res["SizeG"] = boost::any(*sizeG);
+    }
+    if (snapshotInfo) {
+      res["SnapshotInfo"] = snapshotInfo ? boost::any(snapshotInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -3138,6 +4661,13 @@ public:
     }
     if (m.find("SizeG") != m.end() && !m["SizeG"].empty()) {
       sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
+    }
+    if (m.find("SnapshotInfo") != m.end() && !m["SnapshotInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SnapshotInfo"].type()) {
+        ListDbfsResponseBodyDBFSInfoSnapshotInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SnapshotInfo"]));
+        snapshotInfo = make_shared<ListDbfsResponseBodyDBFSInfoSnapshotInfo>(model1);
+      }
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -4385,6 +5915,380 @@ public:
 
   virtual ~ListTagValuesResponse() = default;
 };
+class ModifyAutoSnapshotPolicyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> repeatWeekdays{};
+  shared_ptr<long> retentionDays{};
+  shared_ptr<vector<string>> timePoints{};
+
+  ModifyAutoSnapshotPolicyRequest() {}
+
+  explicit ModifyAutoSnapshotPolicyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatWeekdays) {
+      res["RepeatWeekdays"] = boost::any(*repeatWeekdays);
+    }
+    if (retentionDays) {
+      res["RetentionDays"] = boost::any(*retentionDays);
+    }
+    if (timePoints) {
+      res["TimePoints"] = boost::any(*timePoints);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatWeekdays") != m.end() && !m["RepeatWeekdays"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatWeekdays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatWeekdays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      repeatWeekdays = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RetentionDays") != m.end() && !m["RetentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["RetentionDays"]));
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TimePoints"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TimePoints"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      timePoints = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyRequest() = default;
+};
+class ModifyAutoSnapshotPolicyShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> policyId{};
+  shared_ptr<string> policyName{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> repeatWeekdaysShrink{};
+  shared_ptr<long> retentionDays{};
+  shared_ptr<string> timePointsShrink{};
+
+  ModifyAutoSnapshotPolicyShrinkRequest() {}
+
+  explicit ModifyAutoSnapshotPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyId) {
+      res["PolicyId"] = boost::any(*policyId);
+    }
+    if (policyName) {
+      res["PolicyName"] = boost::any(*policyName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (repeatWeekdaysShrink) {
+      res["RepeatWeekdays"] = boost::any(*repeatWeekdaysShrink);
+    }
+    if (retentionDays) {
+      res["RetentionDays"] = boost::any(*retentionDays);
+    }
+    if (timePointsShrink) {
+      res["TimePoints"] = boost::any(*timePointsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
+      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("PolicyName") != m.end() && !m["PolicyName"].empty()) {
+      policyName = make_shared<string>(boost::any_cast<string>(m["PolicyName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RepeatWeekdays") != m.end() && !m["RepeatWeekdays"].empty()) {
+      repeatWeekdaysShrink = make_shared<string>(boost::any_cast<string>(m["RepeatWeekdays"]));
+    }
+    if (m.find("RetentionDays") != m.end() && !m["RetentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["RetentionDays"]));
+    }
+    if (m.find("TimePoints") != m.end() && !m["TimePoints"].empty()) {
+      timePointsShrink = make_shared<string>(boost::any_cast<string>(m["TimePoints"]));
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyShrinkRequest() = default;
+};
+class ModifyAutoSnapshotPolicyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyAutoSnapshotPolicyResponseBody() {}
+
+  explicit ModifyAutoSnapshotPolicyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyResponseBody() = default;
+};
+class ModifyAutoSnapshotPolicyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyAutoSnapshotPolicyResponseBody> body{};
+
+  ModifyAutoSnapshotPolicyResponse() {}
+
+  explicit ModifyAutoSnapshotPolicyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyAutoSnapshotPolicyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyAutoSnapshotPolicyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAutoSnapshotPolicyResponse() = default;
+};
+class ModifySnapshotAttributeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> snapshotId{};
+  shared_ptr<string> snapshotName{};
+
+  ModifySnapshotAttributeRequest() {}
+
+  explicit ModifySnapshotAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (snapshotId) {
+      res["SnapshotId"] = boost::any(*snapshotId);
+    }
+    if (snapshotName) {
+      res["SnapshotName"] = boost::any(*snapshotName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
+    }
+    if (m.find("SnapshotName") != m.end() && !m["SnapshotName"].empty()) {
+      snapshotName = make_shared<string>(boost::any_cast<string>(m["SnapshotName"]));
+    }
+  }
+
+
+  virtual ~ModifySnapshotAttributeRequest() = default;
+};
+class ModifySnapshotAttributeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifySnapshotAttributeResponseBody() {}
+
+  explicit ModifySnapshotAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifySnapshotAttributeResponseBody() = default;
+};
+class ModifySnapshotAttributeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifySnapshotAttributeResponseBody> body{};
+
+  ModifySnapshotAttributeResponse() {}
+
+  explicit ModifySnapshotAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifySnapshotAttributeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifySnapshotAttributeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifySnapshotAttributeResponse() = default;
+};
 class RenameDbfsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fsId{};
@@ -4947,6 +6851,8 @@ public:
                      shared_ptr<string> endpoint);
   AddTagsBatchResponse addTagsBatchWithOptions(shared_ptr<AddTagsBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddTagsBatchResponse addTagsBatch(shared_ptr<AddTagsBatchRequest> request);
+  ApplyAutoSnapshotPolicyResponse applyAutoSnapshotPolicyWithOptions(shared_ptr<ApplyAutoSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ApplyAutoSnapshotPolicyResponse applyAutoSnapshotPolicy(shared_ptr<ApplyAutoSnapshotPolicyRequest> request);
   AttachDbfsResponse attachDbfsWithOptions(shared_ptr<AttachDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachDbfsResponse attachDbfs(shared_ptr<AttachDbfsRequest> request);
   CancelAutoSnapshotPolicyResponse cancelAutoSnapshotPolicyWithOptions(shared_ptr<CancelAutoSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4959,6 +6865,8 @@ public:
   CreateServiceLinkedRoleResponse createServiceLinkedRole(shared_ptr<CreateServiceLinkedRoleRequest> request);
   CreateSnapshotResponse createSnapshotWithOptions(shared_ptr<CreateSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSnapshotResponse createSnapshot(shared_ptr<CreateSnapshotRequest> request);
+  DeleteAutoSnapshotPolicyResponse deleteAutoSnapshotPolicyWithOptions(shared_ptr<DeleteAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAutoSnapshotPolicyResponse deleteAutoSnapshotPolicy(shared_ptr<DeleteAutoSnapshotPolicyRequest> request);
   DeleteDbfsResponse deleteDbfsWithOptions(shared_ptr<DeleteDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDbfsResponse deleteDbfs(shared_ptr<DeleteDbfsRequest> request);
   DeleteSnapshotResponse deleteSnapshotWithOptions(shared_ptr<DeleteSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4971,10 +6879,18 @@ public:
   DescribeInstanceTypesResponse describeInstanceTypes(shared_ptr<DescribeInstanceTypesRequest> request);
   DetachDbfsResponse detachDbfsWithOptions(shared_ptr<DetachDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachDbfsResponse detachDbfs(shared_ptr<DetachDbfsRequest> request);
+  GetAutoSnapshotPolicyResponse getAutoSnapshotPolicyWithOptions(shared_ptr<GetAutoSnapshotPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAutoSnapshotPolicyResponse getAutoSnapshotPolicy(shared_ptr<GetAutoSnapshotPolicyRequest> request);
   GetDbfsResponse getDbfsWithOptions(shared_ptr<GetDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDbfsResponse getDbfs(shared_ptr<GetDbfsRequest> request);
   GetServiceLinkedRoleResponse getServiceLinkedRoleWithOptions(shared_ptr<GetServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetServiceLinkedRoleResponse getServiceLinkedRole(shared_ptr<GetServiceLinkedRoleRequest> request);
+  ListAutoSnapshotPoliciesResponse listAutoSnapshotPoliciesWithOptions(shared_ptr<ListAutoSnapshotPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAutoSnapshotPoliciesResponse listAutoSnapshotPolicies(shared_ptr<ListAutoSnapshotPoliciesRequest> request);
+  ListAutoSnapshotPolicyAppliedDbfsResponse listAutoSnapshotPolicyAppliedDbfsWithOptions(shared_ptr<ListAutoSnapshotPolicyAppliedDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAutoSnapshotPolicyAppliedDbfsResponse listAutoSnapshotPolicyAppliedDbfs(shared_ptr<ListAutoSnapshotPolicyAppliedDbfsRequest> request);
+  ListAutoSnapshotPolicyUnappliedDbfsResponse listAutoSnapshotPolicyUnappliedDbfsWithOptions(shared_ptr<ListAutoSnapshotPolicyUnappliedDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListAutoSnapshotPolicyUnappliedDbfsResponse listAutoSnapshotPolicyUnappliedDbfs(shared_ptr<ListAutoSnapshotPolicyUnappliedDbfsRequest> request);
   ListDbfsResponse listDbfsWithOptions(shared_ptr<ListDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDbfsResponse listDbfs(shared_ptr<ListDbfsRequest> request);
   ListDbfsAttachableEcsInstancesResponse listDbfsAttachableEcsInstancesWithOptions(shared_ptr<ListDbfsAttachableEcsInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4987,6 +6903,10 @@ public:
   ListTagKeysResponse listTagKeys(shared_ptr<ListTagKeysRequest> request);
   ListTagValuesResponse listTagValuesWithOptions(shared_ptr<ListTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagValuesResponse listTagValues(shared_ptr<ListTagValuesRequest> request);
+  ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicyWithOptions(shared_ptr<ModifyAutoSnapshotPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyAutoSnapshotPolicyResponse modifyAutoSnapshotPolicy(shared_ptr<ModifyAutoSnapshotPolicyRequest> request);
+  ModifySnapshotAttributeResponse modifySnapshotAttributeWithOptions(shared_ptr<ModifySnapshotAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifySnapshotAttributeResponse modifySnapshotAttribute(shared_ptr<ModifySnapshotAttributeRequest> request);
   RenameDbfsResponse renameDbfsWithOptions(shared_ptr<RenameDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RenameDbfsResponse renameDbfs(shared_ptr<RenameDbfsRequest> request);
   ResizeDbfsResponse resizeDbfsWithOptions(shared_ptr<ResizeDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
