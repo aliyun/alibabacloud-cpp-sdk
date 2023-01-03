@@ -3310,6 +3310,10 @@ public:
 };
 class QueryChatappPhoneNumbersResponseBodyPhoneNumbers : public Darabonba::Model {
 public:
+  shared_ptr<string> codeVerificationStatus{};
+  shared_ptr<string> messagingLimitTier{};
+  shared_ptr<string> nameStatus{};
+  shared_ptr<string> newNameStatus{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> qualityRating{};
   shared_ptr<string> status{};
@@ -3329,6 +3333,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (codeVerificationStatus) {
+      res["CodeVerificationStatus"] = boost::any(*codeVerificationStatus);
+    }
+    if (messagingLimitTier) {
+      res["MessagingLimitTier"] = boost::any(*messagingLimitTier);
+    }
+    if (nameStatus) {
+      res["NameStatus"] = boost::any(*nameStatus);
+    }
+    if (newNameStatus) {
+      res["NewNameStatus"] = boost::any(*newNameStatus);
+    }
     if (phoneNumber) {
       res["PhoneNumber"] = boost::any(*phoneNumber);
     }
@@ -3357,6 +3373,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CodeVerificationStatus") != m.end() && !m["CodeVerificationStatus"].empty()) {
+      codeVerificationStatus = make_shared<string>(boost::any_cast<string>(m["CodeVerificationStatus"]));
+    }
+    if (m.find("MessagingLimitTier") != m.end() && !m["MessagingLimitTier"].empty()) {
+      messagingLimitTier = make_shared<string>(boost::any_cast<string>(m["MessagingLimitTier"]));
+    }
+    if (m.find("NameStatus") != m.end() && !m["NameStatus"].empty()) {
+      nameStatus = make_shared<string>(boost::any_cast<string>(m["NameStatus"]));
+    }
+    if (m.find("NewNameStatus") != m.end() && !m["NewNameStatus"].empty()) {
+      newNameStatus = make_shared<string>(boost::any_cast<string>(m["NewNameStatus"]));
+    }
     if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
       phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
     }
@@ -3895,18 +3923,23 @@ class SendChatappMessageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> channelType{};
   shared_ptr<string> content{};
+  shared_ptr<string> contextMessageId{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
+  shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
   shared_ptr<vector<string>> payload{};
+  shared_ptr<string> tag{};
   shared_ptr<string> templateCode{};
   shared_ptr<map<string, string>> templateParams{};
   shared_ptr<string> to{};
+  shared_ptr<string> trackingData{};
+  shared_ptr<long> ttl{};
   shared_ptr<string> type{};
 
   SendChatappMessageRequest() {}
@@ -3925,6 +3958,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (contextMessageId) {
+      res["ContextMessageId"] = boost::any(*contextMessageId);
+    }
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
@@ -3943,6 +3979,9 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
@@ -3952,6 +3991,9 @@ public:
     if (payload) {
       res["Payload"] = boost::any(*payload);
     }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
     }
@@ -3960,6 +4002,12 @@ public:
     }
     if (to) {
       res["To"] = boost::any(*to);
+    }
+    if (trackingData) {
+      res["TrackingData"] = boost::any(*trackingData);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -3973,6 +4021,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ContextMessageId") != m.end() && !m["ContextMessageId"].empty()) {
+      contextMessageId = make_shared<string>(boost::any_cast<string>(m["ContextMessageId"]));
     }
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
@@ -3992,6 +4043,9 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
@@ -4008,6 +4062,9 @@ public:
       }
       payload = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
@@ -4022,6 +4079,12 @@ public:
     if (m.find("To") != m.end() && !m["To"].empty()) {
       to = make_shared<string>(boost::any_cast<string>(m["To"]));
     }
+    if (m.find("TrackingData") != m.end() && !m["TrackingData"].empty()) {
+      trackingData = make_shared<string>(boost::any_cast<string>(m["TrackingData"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -4034,18 +4097,23 @@ class SendChatappMessageShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> channelType{};
   shared_ptr<string> content{};
+  shared_ptr<string> contextMessageId{};
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
+  shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
   shared_ptr<string> payloadShrink{};
+  shared_ptr<string> tag{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateParamsShrink{};
   shared_ptr<string> to{};
+  shared_ptr<string> trackingData{};
+  shared_ptr<long> ttl{};
   shared_ptr<string> type{};
 
   SendChatappMessageShrinkRequest() {}
@@ -4064,6 +4132,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (contextMessageId) {
+      res["ContextMessageId"] = boost::any(*contextMessageId);
+    }
     if (custSpaceId) {
       res["CustSpaceId"] = boost::any(*custSpaceId);
     }
@@ -4082,6 +4153,9 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
@@ -4091,6 +4165,9 @@ public:
     if (payloadShrink) {
       res["Payload"] = boost::any(*payloadShrink);
     }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
     }
@@ -4099,6 +4176,12 @@ public:
     }
     if (to) {
       res["To"] = boost::any(*to);
+    }
+    if (trackingData) {
+      res["TrackingData"] = boost::any(*trackingData);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -4112,6 +4195,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ContextMessageId") != m.end() && !m["ContextMessageId"].empty()) {
+      contextMessageId = make_shared<string>(boost::any_cast<string>(m["ContextMessageId"]));
     }
     if (m.find("CustSpaceId") != m.end() && !m["CustSpaceId"].empty()) {
       custSpaceId = make_shared<string>(boost::any_cast<string>(m["CustSpaceId"]));
@@ -4131,6 +4217,9 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
@@ -4140,6 +4229,9 @@ public:
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payloadShrink = make_shared<string>(boost::any_cast<string>(m["Payload"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
@@ -4148,6 +4240,12 @@ public:
     }
     if (m.find("To") != m.end() && !m["To"].empty()) {
       to = make_shared<string>(boost::any_cast<string>(m["To"]));
+    }
+    if (m.find("TrackingData") != m.end() && !m["TrackingData"].empty()) {
+      trackingData = make_shared<string>(boost::any_cast<string>(m["TrackingData"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));

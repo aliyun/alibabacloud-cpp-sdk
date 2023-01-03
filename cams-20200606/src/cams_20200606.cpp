@@ -299,7 +299,7 @@ ListChatappTemplateResponse Alibabacloud_Cams20200606::Client::listChatappTempla
   shared_ptr<ListChatappTemplateShrinkRequest> request = make_shared<ListChatappTemplateShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<ListChatappTemplateRequestPage>(tmpReq->page)) {
-    request->pageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->page->toMap()), make_shared<string>("Page"), make_shared<string>("json")));
+    request->pageShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->page, make_shared<string>("Page"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->auditStatus)) {
@@ -545,6 +545,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   if (!Darabonba_Util::Client::isUnset<string>(request->channelType)) {
     body->insert(pair<string, string>("ChannelType", *request->channelType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contextMessageId)) {
+    body->insert(pair<string, string>("ContextMessageId", *request->contextMessageId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
     body->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
   }
@@ -563,11 +566,17 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     body->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->label)) {
+    body->insert(pair<string, string>("Label", *request->label));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
     body->insert(pair<string, string>("MessageType", *request->messageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    body->insert(pair<string, string>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
@@ -577,6 +586,12 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
     body->insert(pair<string, string>("To", *request->to));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trackingData)) {
+    body->insert(pair<string, string>("TrackingData", *request->trackingData));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
+    body->insert(pair<string, long>("Ttl", *request->ttl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
