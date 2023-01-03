@@ -37899,6 +37899,7 @@ public:
   shared_ptr<long> configContentLimit{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<bool> configSecretSupported{};
+  shared_ptr<bool> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
   shared_ptr<string> juteMaxbuffer{};
   shared_ptr<string> jvmFlagsCustom{};
@@ -37952,6 +37953,9 @@ public:
     }
     if (configSecretSupported) {
       res["ConfigSecretSupported"] = boost::any(*configSecretSupported);
+    }
+    if (extendedTypesEnable) {
+      res["ExtendedTypesEnable"] = boost::any(*extendedTypesEnable);
     }
     if (initLimit) {
       res["InitLimit"] = boost::any(*initLimit);
@@ -38037,6 +38041,9 @@ public:
     }
     if (m.find("ConfigSecretSupported") != m.end() && !m["ConfigSecretSupported"].empty()) {
       configSecretSupported = make_shared<bool>(boost::any_cast<bool>(m["ConfigSecretSupported"]));
+    }
+    if (m.find("ExtendedTypesEnable") != m.end() && !m["ExtendedTypesEnable"].empty()) {
+      extendedTypesEnable = make_shared<bool>(boost::any_cast<bool>(m["ExtendedTypesEnable"]));
     }
     if (m.find("InitLimit") != m.end() && !m["InitLimit"].empty()) {
       initLimit = make_shared<string>(boost::any_cast<string>(m["InitLimit"]));
@@ -41767,6 +41774,7 @@ public:
   shared_ptr<bool> configAuthEnabled{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<string> configType{};
+  shared_ptr<string> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> juteMaxbuffer{};
@@ -41813,6 +41821,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (extendedTypesEnable) {
+      res["ExtendedTypesEnable"] = boost::any(*extendedTypesEnable);
     }
     if (initLimit) {
       res["InitLimit"] = boost::any(*initLimit);
@@ -41883,6 +41894,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("ExtendedTypesEnable") != m.end() && !m["ExtendedTypesEnable"].empty()) {
+      extendedTypesEnable = make_shared<string>(boost::any_cast<string>(m["ExtendedTypesEnable"]));
     }
     if (m.find("InitLimit") != m.end() && !m["InitLimit"].empty()) {
       initLimit = make_shared<string>(boost::any_cast<string>(m["InitLimit"]));

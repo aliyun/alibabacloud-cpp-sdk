@@ -5377,6 +5377,9 @@ UpdateConfigResponse Alibabacloud_Mse20190531::Client::updateConfigWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->configType)) {
     query->insert(pair<string, string>("ConfigType", *request->configType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendedTypesEnable)) {
+    query->insert(pair<string, string>("ExtendedTypesEnable", *request->extendedTypesEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->initLimit)) {
     query->insert(pair<string, string>("InitLimit", *request->initLimit));
   }
