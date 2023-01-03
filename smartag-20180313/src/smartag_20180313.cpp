@@ -9097,9 +9097,6 @@ UpdateEnterpriseCodeResponse Alibabacloud_Smartag20180313::Client::updateEnterpr
 UpdateProbeTaskResponse Alibabacloud_Smartag20180313::Client::updateProbeTaskWithOptions(shared_ptr<UpdateProbeTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
-    query->insert(pair<string, string>("AddressType", *request->addressType));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
   }

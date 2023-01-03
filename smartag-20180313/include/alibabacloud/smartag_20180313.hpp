@@ -41862,7 +41862,6 @@ public:
 };
 class UpdateProbeTaskRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> addressType{};
   shared_ptr<string> domain{};
   shared_ptr<bool> enable{};
   shared_ptr<long> packetNumber{};
@@ -41885,9 +41884,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (addressType) {
-      res["AddressType"] = boost::any(*addressType);
-    }
     if (domain) {
       res["Domain"] = boost::any(*domain);
     }
@@ -41925,9 +41921,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
-      addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
-    }
     if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
       domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
     }
