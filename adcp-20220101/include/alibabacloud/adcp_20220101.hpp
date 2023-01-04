@@ -2770,6 +2770,99 @@ public:
 
   virtual ~DetachClusterFromHubResponse() = default;
 };
+class UpdateHubClusterFeatureRequestUnitsVSwitches : public Darabonba::Model {
+public:
+  shared_ptr<string> vswitchId{};
+  shared_ptr<string> zoneId{};
+
+  UpdateHubClusterFeatureRequestUnitsVSwitches() {}
+
+  explicit UpdateHubClusterFeatureRequestUnitsVSwitches(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vswitchId) {
+      res["VswitchId"] = boost::any(*vswitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VswitchId") != m.end() && !m["VswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["VswitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureRequestUnitsVSwitches() = default;
+};
+class UpdateHubClusterFeatureRequestUnits : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<UpdateHubClusterFeatureRequestUnitsVSwitches>> vSwitches{};
+  shared_ptr<string> vpcId{};
+
+  UpdateHubClusterFeatureRequestUnits() {}
+
+  explicit UpdateHubClusterFeatureRequestUnits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (vSwitches) {
+      vector<boost::any> temp1;
+      for(auto item1:*vSwitches){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VSwitches"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VSwitches") != m.end() && !m["VSwitches"].empty()) {
+      if (typeid(vector<boost::any>) == m["VSwitches"].type()) {
+        vector<UpdateHubClusterFeatureRequestUnitsVSwitches> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VSwitches"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateHubClusterFeatureRequestUnitsVSwitches model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vSwitches = make_shared<vector<UpdateHubClusterFeatureRequestUnitsVSwitches>>(expect1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureRequestUnits() = default;
+};
 class UpdateHubClusterFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiServerEipId{};
@@ -2778,8 +2871,13 @@ public:
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableArgoCD{};
   shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> enabled{};
   shared_ptr<string> name{};
+  shared_ptr<string> priceLimit{};
   shared_ptr<bool> publicApiServerEnabled{};
+  shared_ptr<string> scheduleMode{};
+  shared_ptr<bool> serverEnabled{};
+  shared_ptr<vector<UpdateHubClusterFeatureRequestUnits>> units{};
 
   UpdateHubClusterFeatureRequest() {}
 
@@ -2809,11 +2907,30 @@ public:
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
     }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (priceLimit) {
+      res["PriceLimit"] = boost::any(*priceLimit);
+    }
     if (publicApiServerEnabled) {
       res["PublicApiServerEnabled"] = boost::any(*publicApiServerEnabled);
+    }
+    if (scheduleMode) {
+      res["ScheduleMode"] = boost::any(*scheduleMode);
+    }
+    if (serverEnabled) {
+      res["ServerEnabled"] = boost::any(*serverEnabled);
+    }
+    if (units) {
+      vector<boost::any> temp1;
+      for(auto item1:*units){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Units"] = boost::any(temp1);
     }
     return res;
   }
@@ -2837,16 +2954,154 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("PriceLimit") != m.end() && !m["PriceLimit"].empty()) {
+      priceLimit = make_shared<string>(boost::any_cast<string>(m["PriceLimit"]));
+    }
     if (m.find("PublicApiServerEnabled") != m.end() && !m["PublicApiServerEnabled"].empty()) {
       publicApiServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicApiServerEnabled"]));
+    }
+    if (m.find("ScheduleMode") != m.end() && !m["ScheduleMode"].empty()) {
+      scheduleMode = make_shared<string>(boost::any_cast<string>(m["ScheduleMode"]));
+    }
+    if (m.find("ServerEnabled") != m.end() && !m["ServerEnabled"].empty()) {
+      serverEnabled = make_shared<bool>(boost::any_cast<bool>(m["ServerEnabled"]));
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      if (typeid(vector<boost::any>) == m["Units"].type()) {
+        vector<UpdateHubClusterFeatureRequestUnits> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Units"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateHubClusterFeatureRequestUnits model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        units = make_shared<vector<UpdateHubClusterFeatureRequestUnits>>(expect1);
+      }
     }
   }
 
 
   virtual ~UpdateHubClusterFeatureRequest() = default;
+};
+class UpdateHubClusterFeatureShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiServerEipId{};
+  shared_ptr<bool> auditLogEnabled{};
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> deletionProtection{};
+  shared_ptr<bool> enableArgoCD{};
+  shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> name{};
+  shared_ptr<string> priceLimit{};
+  shared_ptr<bool> publicApiServerEnabled{};
+  shared_ptr<string> scheduleMode{};
+  shared_ptr<bool> serverEnabled{};
+  shared_ptr<string> unitsShrink{};
+
+  UpdateHubClusterFeatureShrinkRequest() {}
+
+  explicit UpdateHubClusterFeatureShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiServerEipId) {
+      res["ApiServerEipId"] = boost::any(*apiServerEipId);
+    }
+    if (auditLogEnabled) {
+      res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
+    }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
+    }
+    if (enableArgoCD) {
+      res["EnableArgoCD"] = boost::any(*enableArgoCD);
+    }
+    if (enableMesh) {
+      res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (priceLimit) {
+      res["PriceLimit"] = boost::any(*priceLimit);
+    }
+    if (publicApiServerEnabled) {
+      res["PublicApiServerEnabled"] = boost::any(*publicApiServerEnabled);
+    }
+    if (scheduleMode) {
+      res["ScheduleMode"] = boost::any(*scheduleMode);
+    }
+    if (serverEnabled) {
+      res["ServerEnabled"] = boost::any(*serverEnabled);
+    }
+    if (unitsShrink) {
+      res["Units"] = boost::any(*unitsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
+      apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
+    }
+    if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
+      auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
+    }
+    if (m.find("EnableArgoCD") != m.end() && !m["EnableArgoCD"].empty()) {
+      enableArgoCD = make_shared<bool>(boost::any_cast<bool>(m["EnableArgoCD"]));
+    }
+    if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
+      enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PriceLimit") != m.end() && !m["PriceLimit"].empty()) {
+      priceLimit = make_shared<string>(boost::any_cast<string>(m["PriceLimit"]));
+    }
+    if (m.find("PublicApiServerEnabled") != m.end() && !m["PublicApiServerEnabled"].empty()) {
+      publicApiServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicApiServerEnabled"]));
+    }
+    if (m.find("ScheduleMode") != m.end() && !m["ScheduleMode"].empty()) {
+      scheduleMode = make_shared<string>(boost::any_cast<string>(m["ScheduleMode"]));
+    }
+    if (m.find("ServerEnabled") != m.end() && !m["ServerEnabled"].empty()) {
+      serverEnabled = make_shared<bool>(boost::any_cast<bool>(m["ServerEnabled"]));
+    }
+    if (m.find("Units") != m.end() && !m["Units"].empty()) {
+      unitsShrink = make_shared<string>(boost::any_cast<string>(m["Units"]));
+    }
+  }
+
+
+  virtual ~UpdateHubClusterFeatureShrinkRequest() = default;
 };
 class UpdateHubClusterFeatureResponseBody : public Darabonba::Model {
 public:
@@ -2969,7 +3224,7 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DetachClusterFromHubResponse detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachClusterFromHubResponse detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request);
-  UpdateHubClusterFeatureResponse updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateHubClusterFeatureResponse updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateHubClusterFeatureResponse updateHubClusterFeature(shared_ptr<UpdateHubClusterFeatureRequest> request);
 
   virtual ~Client() = default;
