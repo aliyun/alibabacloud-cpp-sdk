@@ -3057,7 +3057,8 @@ public:
   shared_ptr<string> material{};
   shared_ptr<double> price{};
   shared_ptr<string> productLink{};
-  shared_ptr<double> salesVolume{};
+  shared_ptr<double> sales{};
+  shared_ptr<long> salesVolume{};
   shared_ptr<double> searchVolume{};
   shared_ptr<long> shopId{};
   shared_ptr<string> shopName{};
@@ -3103,6 +3104,9 @@ public:
     }
     if (productLink) {
       res["ProductLink"] = boost::any(*productLink);
+    }
+    if (sales) {
+      res["Sales"] = boost::any(*sales);
     }
     if (salesVolume) {
       res["SalesVolume"] = boost::any(*salesVolume);
@@ -3163,8 +3167,11 @@ public:
     if (m.find("ProductLink") != m.end() && !m["ProductLink"].empty()) {
       productLink = make_shared<string>(boost::any_cast<string>(m["ProductLink"]));
     }
+    if (m.find("Sales") != m.end() && !m["Sales"].empty()) {
+      sales = make_shared<double>(boost::any_cast<double>(m["Sales"]));
+    }
     if (m.find("SalesVolume") != m.end() && !m["SalesVolume"].empty()) {
-      salesVolume = make_shared<double>(boost::any_cast<double>(m["SalesVolume"]));
+      salesVolume = make_shared<long>(boost::any_cast<long>(m["SalesVolume"]));
     }
     if (m.find("SearchVolume") != m.end() && !m["SearchVolume"].empty()) {
       searchVolume = make_shared<double>(boost::any_cast<double>(m["SearchVolume"]));
