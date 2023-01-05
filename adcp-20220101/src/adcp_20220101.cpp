@@ -150,14 +150,22 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubCluster(sha
   return createHubClusterWithOptions(request, runtime);
 }
 
-DeleteHubClusterResponse Alibabacloud_Adcp20220101::Client::deleteHubClusterWithOptions(shared_ptr<DeleteHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DeleteHubClusterResponse Alibabacloud_Adcp20220101::Client::deleteHubClusterWithOptions(shared_ptr<DeleteHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteHubClusterShrinkRequest> request = make_shared<DeleteHubClusterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->retainResources)) {
+    request->retainResourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retainResources, make_shared<string>("RetainResources"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
     query->insert(pair<string, bool>("Force", *request->force));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->retainResourcesShrink)) {
+    query->insert(pair<string, string>("RetainResources", *request->retainResourcesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

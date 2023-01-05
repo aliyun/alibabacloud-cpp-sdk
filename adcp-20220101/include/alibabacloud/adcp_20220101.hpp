@@ -363,6 +363,7 @@ class DeleteHubClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> force{};
+  shared_ptr<vector<string>> retainResources{};
 
   DeleteHubClusterRequest() {}
 
@@ -380,6 +381,9 @@ public:
     if (force) {
       res["Force"] = boost::any(*force);
     }
+    if (retainResources) {
+      res["RetainResources"] = boost::any(*retainResources);
+    }
     return res;
   }
 
@@ -390,10 +394,63 @@ public:
     if (m.find("Force") != m.end() && !m["Force"].empty()) {
       force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
     }
+    if (m.find("RetainResources") != m.end() && !m["RetainResources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RetainResources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RetainResources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      retainResources = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~DeleteHubClusterRequest() = default;
+};
+class DeleteHubClusterShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> force{};
+  shared_ptr<string> retainResourcesShrink{};
+
+  DeleteHubClusterShrinkRequest() {}
+
+  explicit DeleteHubClusterShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    if (retainResourcesShrink) {
+      res["RetainResources"] = boost::any(*retainResourcesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+    if (m.find("RetainResources") != m.end() && !m["RetainResources"].empty()) {
+      retainResourcesShrink = make_shared<string>(boost::any_cast<string>(m["RetainResources"]));
+    }
+  }
+
+
+  virtual ~DeleteHubClusterShrinkRequest() = default;
 };
 class DeleteHubClusterResponseBody : public Darabonba::Model {
 public:
@@ -3208,7 +3265,7 @@ public:
   AttachClusterToHubResponse attachClusterToHub(shared_ptr<AttachClusterToHubRequest> request);
   CreateHubClusterResponse createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateHubClusterResponse createHubCluster(shared_ptr<CreateHubClusterRequest> request);
-  DeleteHubClusterResponse deleteHubClusterWithOptions(shared_ptr<DeleteHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteHubClusterResponse deleteHubClusterWithOptions(shared_ptr<DeleteHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteHubClusterResponse deleteHubCluster(shared_ptr<DeleteHubClusterRequest> request);
   DescribeHubClusterDetailsResponse describeHubClusterDetailsWithOptions(shared_ptr<DescribeHubClusterDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHubClusterDetailsResponse describeHubClusterDetails(shared_ptr<DescribeHubClusterDetailsRequest> request);
