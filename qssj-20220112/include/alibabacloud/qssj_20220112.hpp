@@ -4334,6 +4334,7 @@ public:
   shared_ptr<long> exposureValue{};
   shared_ptr<long> hits{};
   shared_ptr<double> sales{};
+  shared_ptr<long> salesVolume{};
   shared_ptr<long> shopCount{};
 
   GetTrendStatisticResponseBodyData() {}
@@ -4361,6 +4362,9 @@ public:
     if (sales) {
       res["Sales"] = boost::any(*sales);
     }
+    if (salesVolume) {
+      res["SalesVolume"] = boost::any(*salesVolume);
+    }
     if (shopCount) {
       res["ShopCount"] = boost::any(*shopCount);
     }
@@ -4382,6 +4386,9 @@ public:
     }
     if (m.find("Sales") != m.end() && !m["Sales"].empty()) {
       sales = make_shared<double>(boost::any_cast<double>(m["Sales"]));
+    }
+    if (m.find("SalesVolume") != m.end() && !m["SalesVolume"].empty()) {
+      salesVolume = make_shared<long>(boost::any_cast<long>(m["SalesVolume"]));
     }
     if (m.find("ShopCount") != m.end() && !m["ShopCount"].empty()) {
       shopCount = make_shared<long>(boost::any_cast<long>(m["ShopCount"]));
