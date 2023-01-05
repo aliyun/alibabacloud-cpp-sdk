@@ -1598,11 +1598,11 @@ public:
   shared_ptr<long> alertMarginThreshold{};
   shared_ptr<string> baselineName{};
   shared_ptr<string> baselineType{};
+  shared_ptr<string> nodeIds{};
   shared_ptr<vector<CreateBaselineRequestOvertimeSettings>> overtimeSettings{};
   shared_ptr<string> owner{};
   shared_ptr<long> priority{};
   shared_ptr<long> projectId{};
-  shared_ptr<string> taskIds{};
 
   CreateBaselineRequest() {}
 
@@ -1623,6 +1623,9 @@ public:
     if (baselineType) {
       res["BaselineType"] = boost::any(*baselineType);
     }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
+    }
     if (overtimeSettings) {
       vector<boost::any> temp1;
       for(auto item1:*overtimeSettings){
@@ -1639,9 +1642,6 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
-    if (taskIds) {
-      res["TaskIds"] = boost::any(*taskIds);
-    }
     return res;
   }
 
@@ -1654,6 +1654,9 @@ public:
     }
     if (m.find("BaselineType") != m.end() && !m["BaselineType"].empty()) {
       baselineType = make_shared<string>(boost::any_cast<string>(m["BaselineType"]));
+    }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      nodeIds = make_shared<string>(boost::any_cast<string>(m["NodeIds"]));
     }
     if (m.find("OvertimeSettings") != m.end() && !m["OvertimeSettings"].empty()) {
       if (typeid(vector<boost::any>) == m["OvertimeSettings"].type()) {
@@ -1676,9 +1679,6 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
-    }
-    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
-      taskIds = make_shared<string>(boost::any_cast<string>(m["TaskIds"]));
     }
   }
 
@@ -57775,6 +57775,168 @@ public:
 
   virtual ~ListTopicsResponse() = default;
 };
+class MountDirectoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+
+  MountDirectoryRequest() {}
+
+  explicit MountDirectoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~MountDirectoryRequest() = default;
+};
+class MountDirectoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  MountDirectoryResponseBody() {}
+
+  explicit MountDirectoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~MountDirectoryResponseBody() = default;
+};
+class MountDirectoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<MountDirectoryResponseBody> body{};
+
+  MountDirectoryResponse() {}
+
+  explicit MountDirectoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MountDirectoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MountDirectoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MountDirectoryResponse() = default;
+};
 class OfflineNodeRequest : public Darabonba::Model {
 public:
   shared_ptr<long> nodeId{};
@@ -63315,6 +63477,168 @@ public:
 
   virtual ~TopTenErrorTimesInstanceResponse() = default;
 };
+class UmountDirectoryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetType{};
+
+  UmountDirectoryRequest() {}
+
+  explicit UmountDirectoryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~UmountDirectoryRequest() = default;
+};
+class UmountDirectoryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UmountDirectoryResponseBody() {}
+
+  explicit UmountDirectoryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UmountDirectoryResponseBody() = default;
+};
+class UmountDirectoryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UmountDirectoryResponseBody> body{};
+
+  UmountDirectoryResponse() {}
+
+  explicit UmountDirectoryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UmountDirectoryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UmountDirectoryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UmountDirectoryResponse() = default;
+};
 class UpdateBaselineRequestAlertSettingsDingRobots : public Darabonba::Model {
 public:
   shared_ptr<bool> atAll{};
@@ -63537,12 +63861,12 @@ public:
   shared_ptr<string> baselineName{};
   shared_ptr<string> baselineType{};
   shared_ptr<bool> enabled{};
+  shared_ptr<string> nodeIds{};
   shared_ptr<vector<UpdateBaselineRequestOvertimeSettings>> overtimeSettings{};
   shared_ptr<string> owner{};
   shared_ptr<long> priority{};
   shared_ptr<long> projectId{};
-  shared_ptr<string> removeTaskIds{};
-  shared_ptr<string> taskIds{};
+  shared_ptr<string> removeNodeIds{};
 
   UpdateBaselineRequest() {}
 
@@ -63579,6 +63903,9 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
+    }
     if (overtimeSettings) {
       vector<boost::any> temp1;
       for(auto item1:*overtimeSettings){
@@ -63595,11 +63922,8 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
-    if (removeTaskIds) {
-      res["RemoveTaskIds"] = boost::any(*removeTaskIds);
-    }
-    if (taskIds) {
-      res["TaskIds"] = boost::any(*taskIds);
+    if (removeNodeIds) {
+      res["RemoveNodeIds"] = boost::any(*removeNodeIds);
     }
     return res;
   }
@@ -63636,6 +63960,9 @@ public:
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      nodeIds = make_shared<string>(boost::any_cast<string>(m["NodeIds"]));
+    }
     if (m.find("OvertimeSettings") != m.end() && !m["OvertimeSettings"].empty()) {
       if (typeid(vector<boost::any>) == m["OvertimeSettings"].type()) {
         vector<UpdateBaselineRequestOvertimeSettings> expect1;
@@ -63658,11 +63985,8 @@ public:
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
-    if (m.find("RemoveTaskIds") != m.end() && !m["RemoveTaskIds"].empty()) {
-      removeTaskIds = make_shared<string>(boost::any_cast<string>(m["RemoveTaskIds"]));
-    }
-    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
-      taskIds = make_shared<string>(boost::any_cast<string>(m["TaskIds"]));
+    if (m.find("RemoveNodeIds") != m.end() && !m["RemoveNodeIds"].empty()) {
+      removeNodeIds = make_shared<string>(boost::any_cast<string>(m["RemoveNodeIds"]));
     }
   }
 
@@ -63678,12 +64002,12 @@ public:
   shared_ptr<string> baselineName{};
   shared_ptr<string> baselineType{};
   shared_ptr<bool> enabled{};
+  shared_ptr<string> nodeIds{};
   shared_ptr<string> overtimeSettingsShrink{};
   shared_ptr<string> owner{};
   shared_ptr<long> priority{};
   shared_ptr<long> projectId{};
-  shared_ptr<string> removeTaskIds{};
-  shared_ptr<string> taskIds{};
+  shared_ptr<string> removeNodeIds{};
 
   UpdateBaselineShrinkRequest() {}
 
@@ -63716,6 +64040,9 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
+    }
     if (overtimeSettingsShrink) {
       res["OvertimeSettings"] = boost::any(*overtimeSettingsShrink);
     }
@@ -63728,11 +64055,8 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
-    if (removeTaskIds) {
-      res["RemoveTaskIds"] = boost::any(*removeTaskIds);
-    }
-    if (taskIds) {
-      res["TaskIds"] = boost::any(*taskIds);
+    if (removeNodeIds) {
+      res["RemoveNodeIds"] = boost::any(*removeNodeIds);
     }
     return res;
   }
@@ -63759,6 +64083,9 @@ public:
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      nodeIds = make_shared<string>(boost::any_cast<string>(m["NodeIds"]));
+    }
     if (m.find("OvertimeSettings") != m.end() && !m["OvertimeSettings"].empty()) {
       overtimeSettingsShrink = make_shared<string>(boost::any_cast<string>(m["OvertimeSettings"]));
     }
@@ -63771,11 +64098,8 @@ public:
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
-    if (m.find("RemoveTaskIds") != m.end() && !m["RemoveTaskIds"].empty()) {
-      removeTaskIds = make_shared<string>(boost::any_cast<string>(m["RemoveTaskIds"]));
-    }
-    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
-      taskIds = make_shared<string>(boost::any_cast<string>(m["TaskIds"]));
+    if (m.find("RemoveNodeIds") != m.end() && !m["RemoveNodeIds"].empty()) {
+      removeNodeIds = make_shared<string>(boost::any_cast<string>(m["RemoveNodeIds"]));
     }
   }
 
@@ -69395,6 +69719,8 @@ public:
   ListTableThemeResponse listTableTheme(shared_ptr<ListTableThemeRequest> request);
   ListTopicsResponse listTopicsWithOptions(shared_ptr<ListTopicsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTopicsResponse listTopics(shared_ptr<ListTopicsRequest> request);
+  MountDirectoryResponse mountDirectoryWithOptions(shared_ptr<MountDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MountDirectoryResponse mountDirectory(shared_ptr<MountDirectoryRequest> request);
   OfflineNodeResponse offlineNodeWithOptions(shared_ptr<OfflineNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OfflineNodeResponse offlineNode(shared_ptr<OfflineNodeRequest> request);
   PublishDataServiceApiResponse publishDataServiceApiWithOptions(shared_ptr<PublishDataServiceApiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -69453,6 +69779,8 @@ public:
   TopTenElapsedTimeInstanceResponse topTenElapsedTimeInstance(shared_ptr<TopTenElapsedTimeInstanceRequest> request);
   TopTenErrorTimesInstanceResponse topTenErrorTimesInstanceWithOptions(shared_ptr<TopTenErrorTimesInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TopTenErrorTimesInstanceResponse topTenErrorTimesInstance(shared_ptr<TopTenErrorTimesInstanceRequest> request);
+  UmountDirectoryResponse umountDirectoryWithOptions(shared_ptr<UmountDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UmountDirectoryResponse umountDirectory(shared_ptr<UmountDirectoryRequest> request);
   UpdateBaselineResponse updateBaselineWithOptions(shared_ptr<UpdateBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateBaselineResponse updateBaseline(shared_ptr<UpdateBaselineRequest> request);
   UpdateBusinessResponse updateBusinessWithOptions(shared_ptr<UpdateBusinessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

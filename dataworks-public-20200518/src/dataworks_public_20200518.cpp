@@ -399,6 +399,9 @@ CreateBaselineResponse Alibabacloud_Dataworks-public20200518::Client::createBase
   if (!Darabonba_Util::Client::isUnset<string>(request->baselineType)) {
     body->insert(pair<string, string>("BaselineType", *request->baselineType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeIds)) {
+    body->insert(pair<string, string>("NodeIds", *request->nodeIds));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateBaselineRequestOvertimeSettings>>(request->overtimeSettings)) {
     body->insert(pair<string, vector<CreateBaselineRequestOvertimeSettings>>("OvertimeSettings", *request->overtimeSettings));
   }
@@ -410,9 +413,6 @@ CreateBaselineResponse Alibabacloud_Dataworks-public20200518::Client::createBase
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskIds)) {
-    body->insert(pair<string, string>("TaskIds", *request->taskIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -7414,6 +7414,37 @@ ListTopicsResponse Alibabacloud_Dataworks-public20200518::Client::listTopics(sha
   return listTopicsWithOptions(request, runtime);
 }
 
+MountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::mountDirectoryWithOptions(shared_ptr<MountDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetId)) {
+    body->insert(pair<string, string>("TargetId", *request->targetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    body->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("MountDirectory"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return MountDirectoryResponse(callApi(params, req, runtime));
+}
+
+MountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::mountDirectory(shared_ptr<MountDirectoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return mountDirectoryWithOptions(request, runtime);
+}
+
 OfflineNodeResponse Alibabacloud_Dataworks-public20200518::Client::offlineNodeWithOptions(shared_ptr<OfflineNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8468,6 +8499,37 @@ TopTenErrorTimesInstanceResponse Alibabacloud_Dataworks-public20200518::Client::
   return topTenErrorTimesInstanceWithOptions(request, runtime);
 }
 
+UmountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::umountDirectoryWithOptions(shared_ptr<UmountDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetId)) {
+    body->insert(pair<string, string>("TargetId", *request->targetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    body->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UmountDirectory"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UmountDirectoryResponse(callApi(params, req, runtime));
+}
+
+UmountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::umountDirectory(shared_ptr<UmountDirectoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return umountDirectoryWithOptions(request, runtime);
+}
+
 UpdateBaselineResponse Alibabacloud_Dataworks-public20200518::Client::updateBaselineWithOptions(shared_ptr<UpdateBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateBaselineShrinkRequest> request = make_shared<UpdateBaselineShrinkRequest>();
@@ -8500,6 +8562,9 @@ UpdateBaselineResponse Alibabacloud_Dataworks-public20200518::Client::updateBase
   if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
     body->insert(pair<string, bool>("Enabled", *request->enabled));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeIds)) {
+    body->insert(pair<string, string>("NodeIds", *request->nodeIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->overtimeSettingsShrink)) {
     body->insert(pair<string, string>("OvertimeSettings", *request->overtimeSettingsShrink));
   }
@@ -8512,11 +8577,8 @@ UpdateBaselineResponse Alibabacloud_Dataworks-public20200518::Client::updateBase
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->removeTaskIds)) {
-    body->insert(pair<string, string>("RemoveTaskIds", *request->removeTaskIds));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->taskIds)) {
-    body->insert(pair<string, string>("TaskIds", *request->taskIds));
+  if (!Darabonba_Util::Client::isUnset<string>(request->removeNodeIds)) {
+    body->insert(pair<string, string>("RemoveNodeIds", *request->removeNodeIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
