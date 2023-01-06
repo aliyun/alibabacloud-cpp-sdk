@@ -101,8 +101,17 @@ AttachClusterToHubResponse Alibabacloud_Adcp20220101::Client::attachClusterToHub
   return attachClusterToHubWithOptions(request, runtime);
 }
 
-CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateHubClusterShrinkRequest> request = make_shared<CreateHubClusterShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateHubClusterRequestClusterConfiguration>(tmpReq->clusterConfiguration)) {
+    request->clusterConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->clusterConfiguration, make_shared<string>("ClusterConfiguration"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterConfigurationShrink)) {
+    query->insert(pair<string, string>("ClusterConfiguration", *request->clusterConfigurationShrink));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->apiServerPublicEip)) {
     body->insert(pair<string, bool>("ApiServerPublicEip", *request->apiServerPublicEip));
@@ -129,6 +138,7 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWith
     body->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

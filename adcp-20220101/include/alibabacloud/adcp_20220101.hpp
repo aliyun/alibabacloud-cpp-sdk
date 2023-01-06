@@ -176,10 +176,175 @@ public:
 
   virtual ~AttachClusterToHubResponse() = default;
 };
+class CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches : public Darabonba::Model {
+public:
+  shared_ptr<string> vswitchId{};
+  shared_ptr<string> zoneId{};
+
+  CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches() {}
+
+  explicit CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vswitchId) {
+      res["VswitchId"] = boost::any(*vswitchId);
+    }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VswitchId") != m.end() && !m["VswitchId"].empty()) {
+      vswitchId = make_shared<string>(boost::any_cast<string>(m["VswitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+  }
+
+
+  virtual ~CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches() = default;
+};
+class CreateHubClusterRequestClusterConfigurationWorkflowUnits : public Darabonba::Model {
+public:
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches>> vSwitches{};
+  shared_ptr<string> vpcId{};
+
+  CreateHubClusterRequestClusterConfigurationWorkflowUnits() {}
+
+  explicit CreateHubClusterRequestClusterConfigurationWorkflowUnits(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (vSwitches) {
+      vector<boost::any> temp1;
+      for(auto item1:*vSwitches){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VSwitches"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VSwitches") != m.end() && !m["VSwitches"].empty()) {
+      if (typeid(vector<boost::any>) == m["VSwitches"].type()) {
+        vector<CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VSwitches"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vSwitches = make_shared<vector<CreateHubClusterRequestClusterConfigurationWorkflowUnitsVSwitches>>(expect1);
+      }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateHubClusterRequestClusterConfigurationWorkflowUnits() = default;
+};
+class CreateHubClusterRequestClusterConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> argoServerEnabled{};
+  shared_ptr<string> priceLimit{};
+  shared_ptr<bool> worflowEnabled{};
+  shared_ptr<string> workflowScheduleMode{};
+  shared_ptr<vector<CreateHubClusterRequestClusterConfigurationWorkflowUnits>> workflowUnits{};
+
+  CreateHubClusterRequestClusterConfiguration() {}
+
+  explicit CreateHubClusterRequestClusterConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (argoServerEnabled) {
+      res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
+    }
+    if (priceLimit) {
+      res["PriceLimit"] = boost::any(*priceLimit);
+    }
+    if (worflowEnabled) {
+      res["WorflowEnabled"] = boost::any(*worflowEnabled);
+    }
+    if (workflowScheduleMode) {
+      res["WorkflowScheduleMode"] = boost::any(*workflowScheduleMode);
+    }
+    if (workflowUnits) {
+      vector<boost::any> temp1;
+      for(auto item1:*workflowUnits){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WorkflowUnits"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
+      argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
+    }
+    if (m.find("PriceLimit") != m.end() && !m["PriceLimit"].empty()) {
+      priceLimit = make_shared<string>(boost::any_cast<string>(m["PriceLimit"]));
+    }
+    if (m.find("WorflowEnabled") != m.end() && !m["WorflowEnabled"].empty()) {
+      worflowEnabled = make_shared<bool>(boost::any_cast<bool>(m["WorflowEnabled"]));
+    }
+    if (m.find("WorkflowScheduleMode") != m.end() && !m["WorkflowScheduleMode"].empty()) {
+      workflowScheduleMode = make_shared<string>(boost::any_cast<string>(m["WorkflowScheduleMode"]));
+    }
+    if (m.find("WorkflowUnits") != m.end() && !m["WorkflowUnits"].empty()) {
+      if (typeid(vector<boost::any>) == m["WorkflowUnits"].type()) {
+        vector<CreateHubClusterRequestClusterConfigurationWorkflowUnits> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WorkflowUnits"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHubClusterRequestClusterConfigurationWorkflowUnits model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workflowUnits = make_shared<vector<CreateHubClusterRequestClusterConfigurationWorkflowUnits>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHubClusterRequestClusterConfiguration() = default;
+};
 class CreateHubClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> apiServerPublicEip{};
   shared_ptr<bool> auditLogEnabled{};
+  shared_ptr<CreateHubClusterRequestClusterConfiguration> clusterConfiguration{};
   shared_ptr<bool> isEnterpriseSecurityGroup{};
   shared_ptr<string> name{};
   shared_ptr<string> profile{};
@@ -202,6 +367,9 @@ public:
     }
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
+    }
+    if (clusterConfiguration) {
+      res["ClusterConfiguration"] = clusterConfiguration ? boost::any(clusterConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (isEnterpriseSecurityGroup) {
       res["IsEnterpriseSecurityGroup"] = boost::any(*isEnterpriseSecurityGroup);
@@ -231,6 +399,13 @@ public:
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
     }
+    if (m.find("ClusterConfiguration") != m.end() && !m["ClusterConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ClusterConfiguration"].type()) {
+        CreateHubClusterRequestClusterConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ClusterConfiguration"]));
+        clusterConfiguration = make_shared<CreateHubClusterRequestClusterConfiguration>(model1);
+      }
+    }
     if (m.find("IsEnterpriseSecurityGroup") != m.end() && !m["IsEnterpriseSecurityGroup"].empty()) {
       isEnterpriseSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["IsEnterpriseSecurityGroup"]));
     }
@@ -253,6 +428,91 @@ public:
 
 
   virtual ~CreateHubClusterRequest() = default;
+};
+class CreateHubClusterShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> apiServerPublicEip{};
+  shared_ptr<bool> auditLogEnabled{};
+  shared_ptr<string> clusterConfigurationShrink{};
+  shared_ptr<bool> isEnterpriseSecurityGroup{};
+  shared_ptr<string> name{};
+  shared_ptr<string> profile{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> vSwitches{};
+  shared_ptr<string> vpcId{};
+
+  CreateHubClusterShrinkRequest() {}
+
+  explicit CreateHubClusterShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiServerPublicEip) {
+      res["ApiServerPublicEip"] = boost::any(*apiServerPublicEip);
+    }
+    if (auditLogEnabled) {
+      res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
+    }
+    if (clusterConfigurationShrink) {
+      res["ClusterConfiguration"] = boost::any(*clusterConfigurationShrink);
+    }
+    if (isEnterpriseSecurityGroup) {
+      res["IsEnterpriseSecurityGroup"] = boost::any(*isEnterpriseSecurityGroup);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (profile) {
+      res["Profile"] = boost::any(*profile);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (vSwitches) {
+      res["VSwitches"] = boost::any(*vSwitches);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiServerPublicEip") != m.end() && !m["ApiServerPublicEip"].empty()) {
+      apiServerPublicEip = make_shared<bool>(boost::any_cast<bool>(m["ApiServerPublicEip"]));
+    }
+    if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
+      auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
+    }
+    if (m.find("ClusterConfiguration") != m.end() && !m["ClusterConfiguration"].empty()) {
+      clusterConfigurationShrink = make_shared<string>(boost::any_cast<string>(m["ClusterConfiguration"]));
+    }
+    if (m.find("IsEnterpriseSecurityGroup") != m.end() && !m["IsEnterpriseSecurityGroup"].empty()) {
+      isEnterpriseSecurityGroup = make_shared<bool>(boost::any_cast<bool>(m["IsEnterpriseSecurityGroup"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Profile") != m.end() && !m["Profile"].empty()) {
+      profile = make_shared<string>(boost::any_cast<string>(m["Profile"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("VSwitches") != m.end() && !m["VSwitches"].empty()) {
+      vSwitches = make_shared<string>(boost::any_cast<string>(m["VSwitches"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+  }
+
+
+  virtual ~CreateHubClusterShrinkRequest() = default;
 };
 class CreateHubClusterResponseBody : public Darabonba::Model {
 public:
@@ -3263,7 +3523,7 @@ public:
                      shared_ptr<string> endpoint);
   AttachClusterToHubResponse attachClusterToHubWithOptions(shared_ptr<AttachClusterToHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachClusterToHubResponse attachClusterToHub(shared_ptr<AttachClusterToHubRequest> request);
-  CreateHubClusterResponse createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateHubClusterResponse createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateHubClusterResponse createHubCluster(shared_ptr<CreateHubClusterRequest> request);
   DeleteHubClusterResponse deleteHubClusterWithOptions(shared_ptr<DeleteHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteHubClusterResponse deleteHubCluster(shared_ptr<DeleteHubClusterRequest> request);
