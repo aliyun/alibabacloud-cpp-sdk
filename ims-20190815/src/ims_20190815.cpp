@@ -470,6 +470,9 @@ CreateUserResponse Alibabacloud_Ims20190815::Client::createUserWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->mobilePhone)) {
     query->insert(pair<string, string>("MobilePhone", *request->mobilePhone));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateUserRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateUserRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userPrincipalName)) {
     query->insert(pair<string, string>("UserPrincipalName", *request->userPrincipalName));
   }
@@ -1500,6 +1503,9 @@ ListUserBasicInfosResponse Alibabacloud_Ims20190815::Client::listUserBasicInfosW
   if (!Darabonba_Util::Client::isUnset<long>(request->maxItems)) {
     query->insert(pair<string, long>("MaxItems", *request->maxItems));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListUserBasicInfosRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListUserBasicInfosRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1530,6 +1536,9 @@ ListUsersResponse Alibabacloud_Ims20190815::Client::listUsersWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxItems)) {
     query->insert(pair<string, long>("MaxItems", *request->maxItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListUsersRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListUsersRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
