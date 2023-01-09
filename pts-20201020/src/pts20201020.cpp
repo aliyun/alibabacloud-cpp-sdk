@@ -981,7 +981,7 @@ SaveEnvResponse Alibabacloud_PTS20201020::Client::saveEnvWithOptions(shared_ptr<
   shared_ptr<SaveEnvShrinkRequest> request = make_shared<SaveEnvShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SaveEnvRequestEnv>(tmpReq->env)) {
-    request->envShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->env->toMap()), make_shared<string>("Env"), make_shared<string>("json")));
+    request->envShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->env, make_shared<string>("Env"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->envShrink)) {
@@ -1014,7 +1014,7 @@ SaveOpenJMeterSceneResponse Alibabacloud_PTS20201020::Client::saveOpenJMeterScen
   shared_ptr<SaveOpenJMeterSceneShrinkRequest> request = make_shared<SaveOpenJMeterSceneShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SaveOpenJMeterSceneRequestOpenJMeterScene>(tmpReq->openJMeterScene)) {
-    request->openJMeterSceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->openJMeterScene->toMap()), make_shared<string>("OpenJMeterScene"), make_shared<string>("json")));
+    request->openJMeterSceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->openJMeterScene, make_shared<string>("OpenJMeterScene"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->openJMeterSceneShrink)) {
@@ -1047,7 +1047,7 @@ SavePtsSceneResponse Alibabacloud_PTS20201020::Client::savePtsSceneWithOptions(s
   shared_ptr<SavePtsSceneShrinkRequest> request = make_shared<SavePtsSceneShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<SavePtsSceneRequestScene>(tmpReq->scene)) {
-    request->sceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->scene->toMap()), make_shared<string>("Scene"), make_shared<string>("json")));
+    request->sceneShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->scene, make_shared<string>("Scene"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->sceneShrink)) {

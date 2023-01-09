@@ -6302,6 +6302,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<bool> success{};
   shared_ptr<long> totalAgents{};
+  shared_ptr<long> totalRealQps{};
   shared_ptr<long> totalRequestCount{};
   shared_ptr<long> tpsLimit{};
   shared_ptr<long> vum{};
@@ -6383,6 +6384,9 @@ public:
     }
     if (totalAgents) {
       res["TotalAgents"] = boost::any(*totalAgents);
+    }
+    if (totalRealQps) {
+      res["TotalRealQps"] = boost::any(*totalRealQps);
     }
     if (totalRequestCount) {
       res["TotalRequestCount"] = boost::any(*totalRequestCount);
@@ -6476,6 +6480,9 @@ public:
     }
     if (m.find("TotalAgents") != m.end() && !m["TotalAgents"].empty()) {
       totalAgents = make_shared<long>(boost::any_cast<long>(m["TotalAgents"]));
+    }
+    if (m.find("TotalRealQps") != m.end() && !m["TotalRealQps"].empty()) {
+      totalRealQps = make_shared<long>(boost::any_cast<long>(m["TotalRealQps"]));
     }
     if (m.find("TotalRequestCount") != m.end() && !m["TotalRequestCount"].empty()) {
       totalRequestCount = make_shared<long>(boost::any_cast<long>(m["TotalRequestCount"]));
