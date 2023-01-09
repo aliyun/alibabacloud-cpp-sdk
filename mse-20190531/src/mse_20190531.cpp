@@ -1345,6 +1345,9 @@ CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
@@ -2199,6 +2202,9 @@ GetApplicationListResponse Alibabacloud_Mse20190531::Client::getApplicationListW
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -2250,6 +2256,9 @@ GetApplicationListWithMetircsResponse Alibabacloud_Mse20190531::Client::getAppli
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -4392,6 +4401,9 @@ ModifyLosslessRuleResponse Alibabacloud_Mse20190531::Client::modifyLosslessRuleW
   if (!Darabonba_Util::Client::isUnset<bool>(request->lossLessDetail)) {
     query->insert(pair<string, bool>("LossLessDetail", *request->lossLessDetail));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->notice)) {
     query->insert(pair<string, bool>("Notice", *request->notice));
   }
@@ -4466,6 +4478,52 @@ OfflineGatewayRouteResponse Alibabacloud_Mse20190531::Client::offlineGatewayRout
   return offlineGatewayRouteWithOptions(request, runtime);
 }
 
+OrderClusterHealthCheckRiskNoticeResponse Alibabacloud_Mse20190531::Client::orderClusterHealthCheckRiskNoticeWithOptions(shared_ptr<OrderClusterHealthCheckRiskNoticeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->mute)) {
+    query->insert(pair<string, bool>("Mute", *request->mute));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->noticeType)) {
+    query->insert(pair<string, string>("NoticeType", *request->noticeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
+    query->insert(pair<string, string>("RequestPars", *request->requestPars));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskCode)) {
+    query->insert(pair<string, string>("RiskCode", *request->riskCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("OrderClusterHealthCheckRiskNotice"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return OrderClusterHealthCheckRiskNoticeResponse(callApi(params, req, runtime));
+}
+
+OrderClusterHealthCheckRiskNoticeResponse Alibabacloud_Mse20190531::Client::orderClusterHealthCheckRiskNotice(shared_ptr<OrderClusterHealthCheckRiskNoticeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return orderClusterHealthCheckRiskNoticeWithOptions(request, runtime);
+}
+
 PullServicesResponse Alibabacloud_Mse20190531::Client::pullServicesWithOptions(shared_ptr<PullServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4501,6 +4559,37 @@ PullServicesResponse Alibabacloud_Mse20190531::Client::pullServicesWithOptions(s
 PullServicesResponse Alibabacloud_Mse20190531::Client::pullServices(shared_ptr<PullServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return pullServicesWithOptions(request, runtime);
+}
+
+PutClusterHealthCheckTaskResponse Alibabacloud_Mse20190531::Client::putClusterHealthCheckTaskWithOptions(shared_ptr<PutClusterHealthCheckTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutClusterHealthCheckTask"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PutClusterHealthCheckTaskResponse(callApi(params, req, runtime));
+}
+
+PutClusterHealthCheckTaskResponse Alibabacloud_Mse20190531::Client::putClusterHealthCheckTask(shared_ptr<PutClusterHealthCheckTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return putClusterHealthCheckTaskWithOptions(request, runtime);
 }
 
 QueryAllSwimmingLaneResponse Alibabacloud_Mse20190531::Client::queryAllSwimmingLaneWithOptions(shared_ptr<QueryAllSwimmingLaneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4539,6 +4628,9 @@ QueryAllSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::queryAllSwim
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

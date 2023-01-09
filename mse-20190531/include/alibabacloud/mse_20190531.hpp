@@ -7781,6 +7781,7 @@ public:
   shared_ptr<string> messageQueueFilterSide{};
   shared_ptr<bool> messageQueueGrayEnable{};
   shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
@@ -7831,6 +7832,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -7883,6 +7887,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -12753,6 +12760,7 @@ public:
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
   shared_ptr<string> language{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
@@ -12781,6 +12789,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -12816,6 +12827,9 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -12847,6 +12861,7 @@ public:
   shared_ptr<long> instancesNumber{};
   shared_ptr<string> language{};
   shared_ptr<string> licenseKey{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
@@ -12879,6 +12894,9 @@ public:
     }
     if (licenseKey) {
       res["LicenseKey"] = boost::any(*licenseKey);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -12913,6 +12931,9 @@ public:
     }
     if (m.find("LicenseKey") != m.end() && !m["LicenseKey"].empty()) {
       licenseKey = make_shared<string>(boost::any_cast<string>(m["LicenseKey"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -13130,6 +13151,7 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> namespace_{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> region{};
@@ -13153,6 +13175,9 @@ public:
     }
     if (appName) {
       res["AppName"] = boost::any(*appName);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -13178,6 +13203,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -13348,6 +13376,7 @@ public:
   shared_ptr<long> instancesNumber{};
   shared_ptr<string> language{};
   shared_ptr<string> licenseKey{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
@@ -13391,6 +13420,9 @@ public:
     }
     if (licenseKey) {
       res["LicenseKey"] = boost::any(*licenseKey);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -13448,6 +13480,9 @@ public:
     }
     if (m.find("LicenseKey") != m.end() && !m["LicenseKey"].empty()) {
       licenseKey = make_shared<string>(boost::any_cast<string>(m["LicenseKey"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -34902,6 +34937,7 @@ public:
   shared_ptr<bool> enable{};
   shared_ptr<long> funcType{};
   shared_ptr<bool> lossLessDetail{};
+  shared_ptr<string> namespace_{};
   shared_ptr<bool> notice{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> related{};
@@ -34942,6 +34978,9 @@ public:
     }
     if (lossLessDetail) {
       res["LossLessDetail"] = boost::any(*lossLessDetail);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
@@ -34988,6 +35027,9 @@ public:
     }
     if (m.find("LossLessDetail") != m.end() && !m["LossLessDetail"].empty()) {
       lossLessDetail = make_shared<bool>(boost::any_cast<bool>(m["LossLessDetail"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<bool>(boost::any_cast<bool>(m["Notice"]));
@@ -35300,6 +35342,224 @@ public:
 
   virtual ~OfflineGatewayRouteResponse() = default;
 };
+class OrderClusterHealthCheckRiskNoticeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<bool> mute{};
+  shared_ptr<string> noticeType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestPars{};
+  shared_ptr<string> riskCode{};
+
+  OrderClusterHealthCheckRiskNoticeRequest() {}
+
+  explicit OrderClusterHealthCheckRiskNoticeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mute) {
+      res["Mute"] = boost::any(*mute);
+    }
+    if (noticeType) {
+      res["NoticeType"] = boost::any(*noticeType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestPars) {
+      res["RequestPars"] = boost::any(*requestPars);
+    }
+    if (riskCode) {
+      res["RiskCode"] = boost::any(*riskCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Mute") != m.end() && !m["Mute"].empty()) {
+      mute = make_shared<bool>(boost::any_cast<bool>(m["Mute"]));
+    }
+    if (m.find("NoticeType") != m.end() && !m["NoticeType"].empty()) {
+      noticeType = make_shared<string>(boost::any_cast<string>(m["NoticeType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
+      requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
+    }
+    if (m.find("RiskCode") != m.end() && !m["RiskCode"].empty()) {
+      riskCode = make_shared<string>(boost::any_cast<string>(m["RiskCode"]));
+    }
+  }
+
+
+  virtual ~OrderClusterHealthCheckRiskNoticeRequest() = default;
+};
+class OrderClusterHealthCheckRiskNoticeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  OrderClusterHealthCheckRiskNoticeResponseBody() {}
+
+  explicit OrderClusterHealthCheckRiskNoticeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~OrderClusterHealthCheckRiskNoticeResponseBody() = default;
+};
+class OrderClusterHealthCheckRiskNoticeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<OrderClusterHealthCheckRiskNoticeResponseBody> body{};
+
+  OrderClusterHealthCheckRiskNoticeResponse() {}
+
+  explicit OrderClusterHealthCheckRiskNoticeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        OrderClusterHealthCheckRiskNoticeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<OrderClusterHealthCheckRiskNoticeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OrderClusterHealthCheckRiskNoticeResponse() = default;
+};
 class PullServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -35611,6 +35871,189 @@ public:
 
   virtual ~PullServicesResponse() = default;
 };
+class PutClusterHealthCheckTaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> instanceId{};
+
+  PutClusterHealthCheckTaskRequest() {}
+
+  explicit PutClusterHealthCheckTaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~PutClusterHealthCheckTaskRequest() = default;
+};
+class PutClusterHealthCheckTaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<bool> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  PutClusterHealthCheckTaskResponseBody() {}
+
+  explicit PutClusterHealthCheckTaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~PutClusterHealthCheckTaskResponseBody() = default;
+};
+class PutClusterHealthCheckTaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PutClusterHealthCheckTaskResponseBody> body{};
+
+  PutClusterHealthCheckTaskResponse() {}
+
+  explicit PutClusterHealthCheckTaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PutClusterHealthCheckTaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PutClusterHealthCheckTaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PutClusterHealthCheckTaskResponse() = default;
+};
 class QueryAllSwimmingLaneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -35790,6 +36233,7 @@ public:
 class QueryAllSwimmingLaneGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> namespace_{};
 
   QueryAllSwimmingLaneGroupRequest() {}
 
@@ -35804,12 +36248,18 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
   }
 
@@ -50055,8 +50505,12 @@ public:
   ModifyLosslessRuleResponse modifyLosslessRule(shared_ptr<ModifyLosslessRuleRequest> request);
   OfflineGatewayRouteResponse offlineGatewayRouteWithOptions(shared_ptr<OfflineGatewayRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OfflineGatewayRouteResponse offlineGatewayRoute(shared_ptr<OfflineGatewayRouteRequest> request);
+  OrderClusterHealthCheckRiskNoticeResponse orderClusterHealthCheckRiskNoticeWithOptions(shared_ptr<OrderClusterHealthCheckRiskNoticeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  OrderClusterHealthCheckRiskNoticeResponse orderClusterHealthCheckRiskNotice(shared_ptr<OrderClusterHealthCheckRiskNoticeRequest> request);
   PullServicesResponse pullServicesWithOptions(shared_ptr<PullServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PullServicesResponse pullServices(shared_ptr<PullServicesRequest> request);
+  PutClusterHealthCheckTaskResponse putClusterHealthCheckTaskWithOptions(shared_ptr<PutClusterHealthCheckTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutClusterHealthCheckTaskResponse putClusterHealthCheckTask(shared_ptr<PutClusterHealthCheckTaskRequest> request);
   QueryAllSwimmingLaneResponse queryAllSwimmingLaneWithOptions(shared_ptr<QueryAllSwimmingLaneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryAllSwimmingLaneResponse queryAllSwimmingLane(shared_ptr<QueryAllSwimmingLaneRequest> request);
   QueryAllSwimmingLaneGroupResponse queryAllSwimmingLaneGroupWithOptions(shared_ptr<QueryAllSwimmingLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
