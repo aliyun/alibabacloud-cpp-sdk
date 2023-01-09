@@ -24771,7 +24771,6 @@ public:
 };
 class UpdateFigureClusterResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<FigureCluster> figureCluster{};
   shared_ptr<string> requestId{};
 
   UpdateFigureClusterResponseBody() {}
@@ -24784,9 +24783,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (figureCluster) {
-      res["FigureCluster"] = figureCluster ? boost::any(figureCluster->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -24794,13 +24790,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("FigureCluster") != m.end() && !m["FigureCluster"].empty()) {
-      if (typeid(map<string, boost::any>) == m["FigureCluster"].type()) {
-        FigureCluster model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FigureCluster"]));
-        figureCluster = make_shared<FigureCluster>(model1);
-      }
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
