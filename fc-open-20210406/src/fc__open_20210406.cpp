@@ -62,12 +62,6 @@ string Alibabacloud_FC-Open20210406::Client::getEndpoint(shared_ptr<string> prod
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ClaimGPUInstanceHeaders> headers = make_shared<ClaimGPUInstanceHeaders>();
-  return claimGPUInstanceWithOptions(request, headers, runtime);
-}
-
 ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstanceWithOptions(shared_ptr<ClaimGPUInstanceRequest> request, shared_ptr<ClaimGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -89,6 +83,12 @@ ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstanceW
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     body->insert(pair<string, string>("password", *request->password));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
+    body->insert(pair<string, string>("role", *request->role));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sgId)) {
+    body->insert(pair<string, string>("sgId", *request->sgId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceCidrIp)) {
     body->insert(pair<string, string>("sourceCidrIp", *request->sourceCidrIp));
   }
@@ -97,6 +97,12 @@ ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstanceW
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->udpPortRange)) {
     body->insert(pair<string, vector<string>>("udpPortRange", *request->udpPortRange));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    body->insert(pair<string, string>("vpcId", *request->vpcId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vswId)) {
+    body->insert(pair<string, string>("vswId", *request->vswId));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -129,10 +135,10 @@ ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstanceW
   return ClaimGPUInstanceResponse(callApi(params, req, runtime));
 }
 
-CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request) {
+ClaimGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateAliasHeaders> headers = make_shared<CreateAliasHeaders>();
-  return createAliasWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<ClaimGPUInstanceHeaders> headers = make_shared<ClaimGPUInstanceHeaders>();
+  return claimGPUInstanceWithOptions(request, headers, runtime);
 }
 
 CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAliasWithOptions(shared_ptr<string> serviceName,
@@ -190,10 +196,10 @@ CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAliasWithOptions
   return CreateAliasResponse(callApi(params, req, runtime));
 }
 
-CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomain(shared_ptr<CreateCustomDomainRequest> request) {
+CreateAliasResponse Alibabacloud_FC-Open20210406::Client::createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateCustomDomainHeaders> headers = make_shared<CreateCustomDomainHeaders>();
-  return createCustomDomainWithOptions(request, headers, runtime);
+  shared_ptr<CreateAliasHeaders> headers = make_shared<CreateAliasHeaders>();
+  return createAliasWithOptions(serviceName, request, headers, runtime);
 }
 
 CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomainWithOptions(shared_ptr<CreateCustomDomainRequest> request, shared_ptr<CreateCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -245,10 +251,10 @@ CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDom
   return CreateCustomDomainResponse(callApi(params, req, runtime));
 }
 
-CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request) {
+CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDomain(shared_ptr<CreateCustomDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateFunctionHeaders> headers = make_shared<CreateFunctionHeaders>();
-  return createFunctionWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<CreateCustomDomainHeaders> headers = make_shared<CreateCustomDomainHeaders>();
+  return createCustomDomainWithOptions(request, headers, runtime);
 }
 
 CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithOptions(shared_ptr<string> serviceName,
@@ -357,10 +363,10 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
   return CreateFunctionResponse(callApi(params, req, runtime));
 }
 
-CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request) {
+CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateLayerVersionHeaders> headers = make_shared<CreateLayerVersionHeaders>();
-  return createLayerVersionWithOptions(layerName, request, headers, runtime);
+  shared_ptr<CreateFunctionHeaders> headers = make_shared<CreateFunctionHeaders>();
+  return createFunctionWithOptions(serviceName, request, headers, runtime);
 }
 
 CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersionWithOptions(shared_ptr<string> layerName,
@@ -409,10 +415,10 @@ CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVers
   return CreateLayerVersionResponse(callApi(params, req, runtime));
 }
 
-CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createService(shared_ptr<CreateServiceRequest> request) {
+CreateLayerVersionResponse Alibabacloud_FC-Open20210406::Client::createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateServiceHeaders> headers = make_shared<CreateServiceHeaders>();
-  return createServiceWithOptions(request, headers, runtime);
+  shared_ptr<CreateLayerVersionHeaders> headers = make_shared<CreateLayerVersionHeaders>();
+  return createLayerVersionWithOptions(layerName, request, headers, runtime);
 }
 
 CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<CreateServiceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -476,10 +482,10 @@ CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createServiceWithOpt
   return CreateServiceResponse(callApi(params, req, runtime));
 }
 
-CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request) {
+CreateServiceResponse Alibabacloud_FC-Open20210406::Client::createService(shared_ptr<CreateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateTriggerHeaders> headers = make_shared<CreateTriggerHeaders>();
-  return createTriggerWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<CreateServiceHeaders> headers = make_shared<CreateServiceHeaders>();
+  return createServiceWithOptions(request, headers, runtime);
 }
 
 CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOptions(shared_ptr<string> serviceName,
@@ -541,10 +547,10 @@ CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTriggerWithOpt
   return CreateTriggerResponse(callApi(params, req, runtime));
 }
 
-CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request) {
+CreateTriggerResponse Alibabacloud_FC-Open20210406::Client::createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateVpcBindingHeaders> headers = make_shared<CreateVpcBindingHeaders>();
-  return createVpcBindingWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<CreateTriggerHeaders> headers = make_shared<CreateTriggerHeaders>();
+  return createTriggerWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBindingWithOptions(shared_ptr<string> serviceName,
@@ -587,10 +593,10 @@ CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBindingW
   return CreateVpcBindingResponse(callApi(params, req, runtime));
 }
 
-DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
+CreateVpcBindingResponse Alibabacloud_FC-Open20210406::Client::createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteAliasHeaders> headers = make_shared<DeleteAliasHeaders>();
-  return deleteAliasWithOptions(serviceName, aliasName, headers, runtime);
+  shared_ptr<CreateVpcBindingHeaders> headers = make_shared<CreateVpcBindingHeaders>();
+  return createVpcBindingWithOptions(serviceName, request, headers, runtime);
 }
 
 DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAliasWithOptions(shared_ptr<string> serviceName,
@@ -630,10 +636,10 @@ DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAliasWithOptions
   return DeleteAliasResponse(callApi(params, req, runtime));
 }
 
-DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomain(shared_ptr<string> domainName) {
+DeleteAliasResponse Alibabacloud_FC-Open20210406::Client::deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteCustomDomainHeaders> headers = make_shared<DeleteCustomDomainHeaders>();
-  return deleteCustomDomainWithOptions(domainName, headers, runtime);
+  shared_ptr<DeleteAliasHeaders> headers = make_shared<DeleteAliasHeaders>();
+  return deleteAliasWithOptions(serviceName, aliasName, headers, runtime);
 }
 
 DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<DeleteCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -667,10 +673,10 @@ DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDom
   return DeleteCustomDomainResponse(callApi(params, req, runtime));
 }
 
-DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName) {
+DeleteCustomDomainResponse Alibabacloud_FC-Open20210406::Client::deleteCustomDomain(shared_ptr<string> domainName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteFunctionHeaders> headers = make_shared<DeleteFunctionHeaders>();
-  return deleteFunctionWithOptions(serviceName, functionName, headers, runtime);
+  shared_ptr<DeleteCustomDomainHeaders> headers = make_shared<DeleteCustomDomainHeaders>();
+  return deleteCustomDomainWithOptions(domainName, headers, runtime);
 }
 
 DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionWithOptions(shared_ptr<string> serviceName,
@@ -710,10 +716,10 @@ DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionWithO
   return DeleteFunctionResponse(callApi(params, req, runtime));
 }
 
-DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request) {
+DeleteFunctionResponse Alibabacloud_FC-Open20210406::Client::deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteFunctionAsyncInvokeConfigHeaders> headers = make_shared<DeleteFunctionAsyncInvokeConfigHeaders>();
-  return deleteFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<DeleteFunctionHeaders> headers = make_shared<DeleteFunctionHeaders>();
+  return deleteFunctionWithOptions(serviceName, functionName, headers, runtime);
 }
 
 DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
@@ -757,10 +763,10 @@ DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::de
   return DeleteFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
-DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request) {
+DeleteFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteFunctionOnDemandConfigHeaders> headers = make_shared<DeleteFunctionOnDemandConfigHeaders>();
-  return deleteFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<DeleteFunctionAsyncInvokeConfigHeaders> headers = make_shared<DeleteFunctionAsyncInvokeConfigHeaders>();
+  return deleteFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
@@ -807,10 +813,10 @@ DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::delet
   return DeleteFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
-DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
+DeleteFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteLayerVersionHeaders> headers = make_shared<DeleteLayerVersionHeaders>();
-  return deleteLayerVersionWithOptions(layerName, version, headers, runtime);
+  shared_ptr<DeleteFunctionOnDemandConfigHeaders> headers = make_shared<DeleteFunctionOnDemandConfigHeaders>();
+  return deleteFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersionWithOptions(shared_ptr<string> layerName,
@@ -847,10 +853,10 @@ DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVers
   return DeleteLayerVersionResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteService(shared_ptr<string> serviceName) {
+DeleteLayerVersionResponse Alibabacloud_FC-Open20210406::Client::deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteServiceHeaders> headers = make_shared<DeleteServiceHeaders>();
-  return deleteServiceWithOptions(serviceName, headers, runtime);
+  shared_ptr<DeleteLayerVersionHeaders> headers = make_shared<DeleteLayerVersionHeaders>();
+  return deleteLayerVersionWithOptions(layerName, version, headers, runtime);
 }
 
 DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteServiceWithOptions(shared_ptr<string> serviceName, shared_ptr<DeleteServiceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -887,10 +893,10 @@ DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteServiceWithOpt
   return DeleteServiceResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId) {
+DeleteServiceResponse Alibabacloud_FC-Open20210406::Client::deleteService(shared_ptr<string> serviceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteServiceVersionHeaders> headers = make_shared<DeleteServiceVersionHeaders>();
-  return deleteServiceVersionWithOptions(serviceName, versionId, headers, runtime);
+  shared_ptr<DeleteServiceHeaders> headers = make_shared<DeleteServiceHeaders>();
+  return deleteServiceWithOptions(serviceName, headers, runtime);
 }
 
 DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersionWithOptions(shared_ptr<string> serviceName,
@@ -927,10 +933,10 @@ DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteService
   return DeleteServiceVersionResponse(callApi(params, req, runtime));
 }
 
-DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
+DeleteServiceVersionResponse Alibabacloud_FC-Open20210406::Client::deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteTriggerHeaders> headers = make_shared<DeleteTriggerHeaders>();
-  return deleteTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
+  shared_ptr<DeleteServiceVersionHeaders> headers = make_shared<DeleteServiceVersionHeaders>();
+  return deleteServiceVersionWithOptions(serviceName, versionId, headers, runtime);
 }
 
 DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTriggerWithOptions(shared_ptr<string> serviceName,
@@ -971,10 +977,10 @@ DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTriggerWithOpt
   return DeleteTriggerResponse(callApi(params, req, runtime));
 }
 
-DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId) {
+DeleteTriggerResponse Alibabacloud_FC-Open20210406::Client::deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteVpcBindingHeaders> headers = make_shared<DeleteVpcBindingHeaders>();
-  return deleteVpcBindingWithOptions(serviceName, vpcId, headers, runtime);
+  shared_ptr<DeleteTriggerHeaders> headers = make_shared<DeleteTriggerHeaders>();
+  return deleteTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
 }
 
 DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBindingWithOptions(shared_ptr<string> serviceName,
@@ -1011,13 +1017,10 @@ DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBindingW
   return DeleteVpcBindingResponse(callApi(params, req, runtime));
 }
 
-DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEventSource(shared_ptr<string> serviceName,
-                                                                                          shared_ptr<string> functionName,
-                                                                                          shared_ptr<string> sourceArn,
-                                                                                          shared_ptr<DeregisterEventSourceRequest> request) {
+DeleteVpcBindingResponse Alibabacloud_FC-Open20210406::Client::deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeregisterEventSourceHeaders> headers = make_shared<DeregisterEventSourceHeaders>();
-  return deregisterEventSourceWithOptions(serviceName, functionName, sourceArn, request, headers, runtime);
+  shared_ptr<DeleteVpcBindingHeaders> headers = make_shared<DeleteVpcBindingHeaders>();
+  return deleteVpcBindingWithOptions(serviceName, vpcId, headers, runtime);
 }
 
 DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEventSourceWithOptions(shared_ptr<string> serviceName,
@@ -1062,10 +1065,13 @@ DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEv
   return DeregisterEventSourceResponse(callApi(params, req, runtime));
 }
 
-GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettings() {
+DeregisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::deregisterEventSource(shared_ptr<string> serviceName,
+                                                                                          shared_ptr<string> functionName,
+                                                                                          shared_ptr<string> sourceArn,
+                                                                                          shared_ptr<DeregisterEventSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetAccountSettingsHeaders> headers = make_shared<GetAccountSettingsHeaders>();
-  return getAccountSettingsWithOptions(headers, runtime);
+  shared_ptr<DeregisterEventSourceHeaders> headers = make_shared<DeregisterEventSourceHeaders>();
+  return deregisterEventSourceWithOptions(serviceName, functionName, sourceArn, request, headers, runtime);
 }
 
 GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettingsWithOptions(shared_ptr<GetAccountSettingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1099,10 +1105,10 @@ GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSetti
   return GetAccountSettingsResponse(callApi(params, req, runtime));
 }
 
-GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
+GetAccountSettingsResponse Alibabacloud_FC-Open20210406::Client::getAccountSettings() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetAliasHeaders> headers = make_shared<GetAliasHeaders>();
-  return getAliasWithOptions(serviceName, aliasName, headers, runtime);
+  shared_ptr<GetAccountSettingsHeaders> headers = make_shared<GetAccountSettingsHeaders>();
+  return getAccountSettingsWithOptions(headers, runtime);
 }
 
 GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAliasWithOptions(shared_ptr<string> serviceName,
@@ -1139,10 +1145,10 @@ GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAliasWithOptions(share
   return GetAliasResponse(callApi(params, req, runtime));
 }
 
-GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomain(shared_ptr<string> domainName) {
+GetAliasResponse Alibabacloud_FC-Open20210406::Client::getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetCustomDomainHeaders> headers = make_shared<GetCustomDomainHeaders>();
-  return getCustomDomainWithOptions(domainName, headers, runtime);
+  shared_ptr<GetAliasHeaders> headers = make_shared<GetAliasHeaders>();
+  return getAliasWithOptions(serviceName, aliasName, headers, runtime);
 }
 
 GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<GetCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1176,10 +1182,10 @@ GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomainWit
   return GetCustomDomainResponse(callApi(params, req, runtime));
 }
 
-GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request) {
+GetCustomDomainResponse Alibabacloud_FC-Open20210406::Client::getCustomDomain(shared_ptr<string> domainName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetFunctionHeaders> headers = make_shared<GetFunctionHeaders>();
-  return getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetCustomDomainHeaders> headers = make_shared<GetCustomDomainHeaders>();
+  return getCustomDomainWithOptions(domainName, headers, runtime);
 }
 
 GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunctionWithOptions(shared_ptr<string> serviceName,
@@ -1223,10 +1229,10 @@ GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunctionWithOptions
   return GetFunctionResponse(callApi(params, req, runtime));
 }
 
-GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request) {
+GetFunctionResponse Alibabacloud_FC-Open20210406::Client::getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetFunctionAsyncInvokeConfigHeaders> headers = make_shared<GetFunctionAsyncInvokeConfigHeaders>();
-  return getFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetFunctionHeaders> headers = make_shared<GetFunctionHeaders>();
+  return getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
@@ -1270,10 +1276,10 @@ GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFu
   return GetFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
-GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request) {
+GetFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetFunctionCodeHeaders> headers = make_shared<GetFunctionCodeHeaders>();
-  return getFunctionCodeWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetFunctionAsyncInvokeConfigHeaders> headers = make_shared<GetFunctionAsyncInvokeConfigHeaders>();
+  return getFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCodeWithOptions(shared_ptr<string> serviceName,
@@ -1317,10 +1323,10 @@ GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCodeWit
   return GetFunctionCodeResponse(callApi(params, req, runtime));
 }
 
-GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request) {
+GetFunctionCodeResponse Alibabacloud_FC-Open20210406::Client::getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetFunctionOnDemandConfigHeaders> headers = make_shared<GetFunctionOnDemandConfigHeaders>();
-  return getFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetFunctionCodeHeaders> headers = make_shared<GetFunctionCodeHeaders>();
+  return getFunctionCodeWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
@@ -1364,10 +1370,10 @@ GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunct
   return GetFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
-GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
+GetFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetLayerVersionHeaders> headers = make_shared<GetLayerVersionHeaders>();
-  return getLayerVersionWithOptions(layerName, version, headers, runtime);
+  shared_ptr<GetFunctionOnDemandConfigHeaders> headers = make_shared<GetFunctionOnDemandConfigHeaders>();
+  return getFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionWithOptions(shared_ptr<string> layerName,
@@ -1404,10 +1410,10 @@ GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersionWit
   return GetLayerVersionResponse(callApi(params, req, runtime));
 }
 
-GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request) {
+GetLayerVersionResponse Alibabacloud_FC-Open20210406::Client::getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetProvisionConfigHeaders> headers = make_shared<GetProvisionConfigHeaders>();
-  return getProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetLayerVersionHeaders> headers = make_shared<GetLayerVersionHeaders>();
+  return getLayerVersionWithOptions(layerName, version, headers, runtime);
 }
 
 GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfigWithOptions(shared_ptr<string> serviceName,
@@ -1451,10 +1457,10 @@ GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionCon
   return GetProvisionConfigResponse(callApi(params, req, runtime));
 }
 
-GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTags(shared_ptr<GetResourceTagsRequest> request) {
+GetProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetResourceTagsHeaders> headers = make_shared<GetResourceTagsHeaders>();
-  return getResourceTagsWithOptions(request, headers, runtime);
+  shared_ptr<GetProvisionConfigHeaders> headers = make_shared<GetProvisionConfigHeaders>();
+  return getProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTagsWithOptions(shared_ptr<GetResourceTagsRequest> request, shared_ptr<GetResourceTagsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1494,10 +1500,10 @@ GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTagsWit
   return GetResourceTagsResponse(callApi(params, req, runtime));
 }
 
-GetServiceResponse Alibabacloud_FC-Open20210406::Client::getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request) {
+GetResourceTagsResponse Alibabacloud_FC-Open20210406::Client::getResourceTags(shared_ptr<GetResourceTagsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetServiceHeaders> headers = make_shared<GetServiceHeaders>();
-  return getServiceWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<GetResourceTagsHeaders> headers = make_shared<GetResourceTagsHeaders>();
+  return getResourceTagsWithOptions(request, headers, runtime);
 }
 
 GetServiceResponse Alibabacloud_FC-Open20210406::Client::getServiceWithOptions(shared_ptr<string> serviceName,
@@ -1540,13 +1546,10 @@ GetServiceResponse Alibabacloud_FC-Open20210406::Client::getServiceWithOptions(s
   return GetServiceResponse(callApi(params, req, runtime));
 }
 
-GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStatefulAsyncInvocation(shared_ptr<string> serviceName,
-                                                                                                    shared_ptr<string> functionName,
-                                                                                                    shared_ptr<string> invocationId,
-                                                                                                    shared_ptr<GetStatefulAsyncInvocationRequest> request) {
+GetServiceResponse Alibabacloud_FC-Open20210406::Client::getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetStatefulAsyncInvocationHeaders> headers = make_shared<GetStatefulAsyncInvocationHeaders>();
-  return getStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
+  shared_ptr<GetServiceHeaders> headers = make_shared<GetServiceHeaders>();
+  return getServiceWithOptions(serviceName, request, headers, runtime);
 }
 
 GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStatefulAsyncInvocationWithOptions(shared_ptr<string> serviceName,
@@ -1600,10 +1603,13 @@ GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStat
   return GetStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
-GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
+GetStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::getStatefulAsyncInvocation(shared_ptr<string> serviceName,
+                                                                                                    shared_ptr<string> functionName,
+                                                                                                    shared_ptr<string> invocationId,
+                                                                                                    shared_ptr<GetStatefulAsyncInvocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetTriggerHeaders> headers = make_shared<GetTriggerHeaders>();
-  return getTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
+  shared_ptr<GetStatefulAsyncInvocationHeaders> headers = make_shared<GetStatefulAsyncInvocationHeaders>();
+  return getStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
 }
 
 GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTriggerWithOptions(shared_ptr<string> serviceName,
@@ -1641,10 +1647,10 @@ GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTriggerWithOptions(s
   return GetTriggerResponse(callApi(params, req, runtime));
 }
 
-InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request) {
+GetTriggerResponse Alibabacloud_FC-Open20210406::Client::getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<InvokeFunctionHeaders> headers = make_shared<InvokeFunctionHeaders>();
-  return invokeFunctionWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<GetTriggerHeaders> headers = make_shared<GetTriggerHeaders>();
+  return getTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
 }
 
 InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithOptions(shared_ptr<string> serviceName,
@@ -1702,10 +1708,10 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
   return InvokeFunctionResponse(callApi(params, req, runtime));
 }
 
-ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request) {
+InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListAliasesHeaders> headers = make_shared<ListAliasesHeaders>();
-  return listAliasesWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<InvokeFunctionHeaders> headers = make_shared<InvokeFunctionHeaders>();
+  return invokeFunctionWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliasesWithOptions(shared_ptr<string> serviceName,
@@ -1757,10 +1763,10 @@ ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliasesWithOptions
   return ListAliasesResponse(callApi(params, req, runtime));
 }
 
-ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomains(shared_ptr<ListCustomDomainsRequest> request) {
+ListAliasesResponse Alibabacloud_FC-Open20210406::Client::listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListCustomDomainsHeaders> headers = make_shared<ListCustomDomainsHeaders>();
-  return listCustomDomainsWithOptions(request, headers, runtime);
+  shared_ptr<ListAliasesHeaders> headers = make_shared<ListAliasesHeaders>();
+  return listAliasesWithOptions(serviceName, request, headers, runtime);
 }
 
 ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomainsWithOptions(shared_ptr<ListCustomDomainsRequest> request, shared_ptr<ListCustomDomainsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1809,10 +1815,10 @@ ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomain
   return ListCustomDomainsResponse(callApi(params, req, runtime));
 }
 
-ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request) {
+ListCustomDomainsResponse Alibabacloud_FC-Open20210406::Client::listCustomDomains(shared_ptr<ListCustomDomainsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListEventSourcesHeaders> headers = make_shared<ListEventSourcesHeaders>();
-  return listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<ListCustomDomainsHeaders> headers = make_shared<ListCustomDomainsHeaders>();
+  return listCustomDomainsWithOptions(request, headers, runtime);
 }
 
 ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSourcesWithOptions(shared_ptr<string> serviceName,
@@ -1856,10 +1862,10 @@ ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSourcesW
   return ListEventSourcesResponse(callApi(params, req, runtime));
 }
 
-ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request) {
+ListEventSourcesResponse Alibabacloud_FC-Open20210406::Client::listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListFunctionAsyncInvokeConfigsHeaders> headers = make_shared<ListFunctionAsyncInvokeConfigsHeaders>();
-  return listFunctionAsyncInvokeConfigsWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<ListEventSourcesHeaders> headers = make_shared<ListEventSourcesHeaders>();
+  return listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigsWithOptions(shared_ptr<string> serviceName,
@@ -1915,10 +1921,10 @@ ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::lis
   return ListFunctionAsyncInvokeConfigsResponse(callApi(params, req, runtime));
 }
 
-ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request) {
+ListFunctionAsyncInvokeConfigsResponse Alibabacloud_FC-Open20210406::Client::listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListFunctionsHeaders> headers = make_shared<ListFunctionsHeaders>();
-  return listFunctionsWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<ListFunctionAsyncInvokeConfigsHeaders> headers = make_shared<ListFunctionAsyncInvokeConfigsHeaders>();
+  return listFunctionAsyncInvokeConfigsWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOptions(shared_ptr<string> serviceName,
@@ -1973,10 +1979,10 @@ ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctionsWithOpt
   return ListFunctionsResponse(callApi(params, req, runtime));
 }
 
-ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request) {
+ListFunctionsResponse Alibabacloud_FC-Open20210406::Client::listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListInstancesHeaders> headers = make_shared<ListInstancesHeaders>();
-  return listInstancesWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<ListFunctionsHeaders> headers = make_shared<ListFunctionsHeaders>();
+  return listFunctionsWithOptions(serviceName, request, headers, runtime);
 }
 
 ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOptions(shared_ptr<string> serviceName,
@@ -2020,10 +2026,10 @@ ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstancesWithOpt
   return ListInstancesResponse(callApi(params, req, runtime));
 }
 
-ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request) {
+ListInstancesResponse Alibabacloud_FC-Open20210406::Client::listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListLayerVersionsHeaders> headers = make_shared<ListLayerVersionsHeaders>();
-  return listLayerVersionsWithOptions(layerName, request, headers, runtime);
+  shared_ptr<ListInstancesHeaders> headers = make_shared<ListInstancesHeaders>();
+  return listInstancesWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersionsWithOptions(shared_ptr<string> layerName,
@@ -2069,10 +2075,10 @@ ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersion
   return ListLayerVersionsResponse(callApi(params, req, runtime));
 }
 
-ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayers(shared_ptr<ListLayersRequest> request) {
+ListLayerVersionsResponse Alibabacloud_FC-Open20210406::Client::listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListLayersHeaders> headers = make_shared<ListLayersHeaders>();
-  return listLayersWithOptions(request, headers, runtime);
+  shared_ptr<ListLayerVersionsHeaders> headers = make_shared<ListLayerVersionsHeaders>();
+  return listLayerVersionsWithOptions(layerName, request, headers, runtime);
 }
 
 ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(shared_ptr<ListLayersRequest> request, shared_ptr<ListLayersHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2127,10 +2133,10 @@ ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayersWithOptions(s
   return ListLayersResponse(callApi(params, req, runtime));
 }
 
-ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request) {
+ListLayersResponse Alibabacloud_FC-Open20210406::Client::listLayers(shared_ptr<ListLayersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListOnDemandConfigsHeaders> headers = make_shared<ListOnDemandConfigsHeaders>();
-  return listOnDemandConfigsWithOptions(request, headers, runtime);
+  shared_ptr<ListLayersHeaders> headers = make_shared<ListLayersHeaders>();
+  return listLayersWithOptions(request, headers, runtime);
 }
 
 ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigsWithOptions(shared_ptr<ListOnDemandConfigsRequest> request, shared_ptr<ListOnDemandConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2179,10 +2185,10 @@ ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandCo
   return ListOnDemandConfigsResponse(callApi(params, req, runtime));
 }
 
-ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request) {
+ListOnDemandConfigsResponse Alibabacloud_FC-Open20210406::Client::listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListProvisionConfigsHeaders> headers = make_shared<ListProvisionConfigsHeaders>();
-  return listProvisionConfigsWithOptions(request, headers, runtime);
+  shared_ptr<ListOnDemandConfigsHeaders> headers = make_shared<ListOnDemandConfigsHeaders>();
+  return listOnDemandConfigsWithOptions(request, headers, runtime);
 }
 
 ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigsWithOptions(shared_ptr<ListProvisionConfigsRequest> request, shared_ptr<ListProvisionConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2231,10 +2237,10 @@ ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvision
   return ListProvisionConfigsResponse(callApi(params, req, runtime));
 }
 
-ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request) {
+ListProvisionConfigsResponse Alibabacloud_FC-Open20210406::Client::listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListReservedCapacitiesHeaders> headers = make_shared<ListReservedCapacitiesHeaders>();
-  return listReservedCapacitiesWithOptions(request, headers, runtime);
+  shared_ptr<ListProvisionConfigsHeaders> headers = make_shared<ListProvisionConfigsHeaders>();
+  return listProvisionConfigsWithOptions(request, headers, runtime);
 }
 
 ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacitiesWithOptions(shared_ptr<ListReservedCapacitiesRequest> request, shared_ptr<ListReservedCapacitiesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2277,10 +2283,10 @@ ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReserve
   return ListReservedCapacitiesResponse(callApi(params, req, runtime));
 }
 
-ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request) {
+ListReservedCapacitiesResponse Alibabacloud_FC-Open20210406::Client::listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListServiceVersionsHeaders> headers = make_shared<ListServiceVersionsHeaders>();
-  return listServiceVersionsWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<ListReservedCapacitiesHeaders> headers = make_shared<ListReservedCapacitiesHeaders>();
+  return listReservedCapacitiesWithOptions(request, headers, runtime);
 }
 
 ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersionsWithOptions(shared_ptr<string> serviceName,
@@ -2332,10 +2338,10 @@ ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVer
   return ListServiceVersionsResponse(callApi(params, req, runtime));
 }
 
-ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServices(shared_ptr<ListServicesRequest> request) {
+ListServiceVersionsResponse Alibabacloud_FC-Open20210406::Client::listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListServicesHeaders> headers = make_shared<ListServicesHeaders>();
-  return listServicesWithOptions(request, headers, runtime);
+  shared_ptr<ListServiceVersionsHeaders> headers = make_shared<ListServiceVersionsHeaders>();
+  return listServiceVersionsWithOptions(serviceName, request, headers, runtime);
 }
 
 ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<ListServicesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2384,10 +2390,10 @@ ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServicesWithOptio
   return ListServicesResponse(callApi(params, req, runtime));
 }
 
-ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request) {
+ListServicesResponse Alibabacloud_FC-Open20210406::Client::listServices(shared_ptr<ListServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListStatefulAsyncInvocationFunctionsHeaders> headers = make_shared<ListStatefulAsyncInvocationFunctionsHeaders>();
-  return listStatefulAsyncInvocationFunctionsWithOptions(request, headers, runtime);
+  shared_ptr<ListServicesHeaders> headers = make_shared<ListServicesHeaders>();
+  return listServicesWithOptions(request, headers, runtime);
 }
 
 ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationFunctionsWithOptions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request, shared_ptr<ListStatefulAsyncInvocationFunctionsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2430,10 +2436,10 @@ ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Clien
   return ListStatefulAsyncInvocationFunctionsResponse(callApi(params, req, runtime));
 }
 
-ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request) {
+ListStatefulAsyncInvocationFunctionsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListStatefulAsyncInvocationsHeaders> headers = make_shared<ListStatefulAsyncInvocationsHeaders>();
-  return listStatefulAsyncInvocationsWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<ListStatefulAsyncInvocationFunctionsHeaders> headers = make_shared<ListStatefulAsyncInvocationFunctionsHeaders>();
+  return listStatefulAsyncInvocationFunctionsWithOptions(request, headers, runtime);
 }
 
 ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocationsWithOptions(shared_ptr<string> serviceName,
@@ -2510,10 +2516,10 @@ ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listS
   return ListStatefulAsyncInvocationsResponse(callApi(params, req, runtime));
 }
 
-ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request) {
+ListStatefulAsyncInvocationsResponse Alibabacloud_FC-Open20210406::Client::listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListTaggedResourcesHeaders> headers = make_shared<ListTaggedResourcesHeaders>();
-  return listTaggedResourcesWithOptions(request, headers, runtime);
+  shared_ptr<ListStatefulAsyncInvocationsHeaders> headers = make_shared<ListStatefulAsyncInvocationsHeaders>();
+  return listStatefulAsyncInvocationsWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResourcesWithOptions(shared_ptr<ListTaggedResourcesRequest> request, shared_ptr<ListTaggedResourcesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2556,10 +2562,10 @@ ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedReso
   return ListTaggedResourcesResponse(callApi(params, req, runtime));
 }
 
-ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request) {
+ListTaggedResourcesResponse Alibabacloud_FC-Open20210406::Client::listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListTriggersHeaders> headers = make_shared<ListTriggersHeaders>();
-  return listTriggersWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<ListTaggedResourcesHeaders> headers = make_shared<ListTaggedResourcesHeaders>();
+  return listTaggedResourcesWithOptions(request, headers, runtime);
 }
 
 ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptions(shared_ptr<string> serviceName,
@@ -2612,10 +2618,10 @@ ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggersWithOptio
   return ListTriggersResponse(callApi(params, req, runtime));
 }
 
-ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindings(shared_ptr<string> serviceName) {
+ListTriggersResponse Alibabacloud_FC-Open20210406::Client::listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListVpcBindingsHeaders> headers = make_shared<ListVpcBindingsHeaders>();
-  return listVpcBindingsWithOptions(serviceName, headers, runtime);
+  shared_ptr<ListTriggersHeaders> headers = make_shared<ListTriggersHeaders>();
+  return listTriggersWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindingsWithOptions(shared_ptr<string> serviceName, shared_ptr<ListVpcBindingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2649,10 +2655,10 @@ ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindingsWit
   return ListVpcBindingsResponse(callApi(params, req, runtime));
 }
 
-PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request) {
+ListVpcBindingsResponse Alibabacloud_FC-Open20210406::Client::listVpcBindings(shared_ptr<string> serviceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PublishServiceVersionHeaders> headers = make_shared<PublishServiceVersionHeaders>();
-  return publishServiceVersionWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<ListVpcBindingsHeaders> headers = make_shared<ListVpcBindingsHeaders>();
+  return listVpcBindingsWithOptions(serviceName, headers, runtime);
 }
 
 PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServiceVersionWithOptions(shared_ptr<string> serviceName,
@@ -2698,10 +2704,10 @@ PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServi
   return PublishServiceVersionResponse(callApi(params, req, runtime));
 }
 
-PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request) {
+PublishServiceVersionResponse Alibabacloud_FC-Open20210406::Client::publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PutFunctionAsyncInvokeConfigHeaders> headers = make_shared<PutFunctionAsyncInvokeConfigHeaders>();
-  return putFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<PublishServiceVersionHeaders> headers = make_shared<PublishServiceVersionHeaders>();
+  return publishServiceVersionWithOptions(serviceName, request, headers, runtime);
 }
 
 PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
@@ -2759,10 +2765,10 @@ PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFu
   return PutFunctionAsyncInvokeConfigResponse(callApi(params, req, runtime));
 }
 
-PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request) {
+PutFunctionAsyncInvokeConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PutFunctionOnDemandConfigHeaders> headers = make_shared<PutFunctionOnDemandConfigHeaders>();
-  return putFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<PutFunctionAsyncInvokeConfigHeaders> headers = make_shared<PutFunctionAsyncInvokeConfigHeaders>();
+  return putFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
@@ -2814,10 +2820,10 @@ PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunct
   return PutFunctionOnDemandConfigResponse(callApi(params, req, runtime));
 }
 
-PutLayerACLResponse Alibabacloud_FC-Open20210406::Client::putLayerACL(shared_ptr<string> layerName, shared_ptr<PutLayerACLRequest> request) {
+PutFunctionOnDemandConfigResponse Alibabacloud_FC-Open20210406::Client::putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PutLayerACLHeaders> headers = make_shared<PutLayerACLHeaders>();
-  return putLayerACLWithOptions(layerName, request, headers, runtime);
+  shared_ptr<PutFunctionOnDemandConfigHeaders> headers = make_shared<PutFunctionOnDemandConfigHeaders>();
+  return putFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 PutLayerACLResponse Alibabacloud_FC-Open20210406::Client::putLayerACLWithOptions(shared_ptr<string> layerName,
@@ -2860,10 +2866,10 @@ PutLayerACLResponse Alibabacloud_FC-Open20210406::Client::putLayerACLWithOptions
   return PutLayerACLResponse(callApi(params, req, runtime));
 }
 
-PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request) {
+PutLayerACLResponse Alibabacloud_FC-Open20210406::Client::putLayerACL(shared_ptr<string> layerName, shared_ptr<PutLayerACLRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PutProvisionConfigHeaders> headers = make_shared<PutProvisionConfigHeaders>();
-  return putProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<PutLayerACLHeaders> headers = make_shared<PutLayerACLHeaders>();
+  return putLayerACLWithOptions(layerName, request, headers, runtime);
 }
 
 PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfigWithOptions(shared_ptr<string> serviceName,
@@ -2921,10 +2927,10 @@ PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionCon
   return PutProvisionConfigResponse(callApi(params, req, runtime));
 }
 
-RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request) {
+PutProvisionConfigResponse Alibabacloud_FC-Open20210406::Client::putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<RegisterEventSourceHeaders> headers = make_shared<RegisterEventSourceHeaders>();
-  return registerEventSourceWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<PutProvisionConfigHeaders> headers = make_shared<PutProvisionConfigHeaders>();
+  return putProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSourceWithOptions(shared_ptr<string> serviceName,
@@ -2973,10 +2979,10 @@ RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventS
   return RegisterEventSourceResponse(callApi(params, req, runtime));
 }
 
-ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInstance(shared_ptr<string> instanceId) {
+RegisterEventSourceResponse Alibabacloud_FC-Open20210406::Client::registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ReleaseGPUInstanceHeaders> headers = make_shared<ReleaseGPUInstanceHeaders>();
-  return releaseGPUInstanceWithOptions(instanceId, headers, runtime);
+  shared_ptr<RegisterEventSourceHeaders> headers = make_shared<RegisterEventSourceHeaders>();
+  return registerEventSourceWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<ReleaseGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3010,13 +3016,10 @@ ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInsta
   return ReleaseGPUInstanceResponse(callApi(params, req, runtime));
 }
 
-StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
-                                                                                                      shared_ptr<string> functionName,
-                                                                                                      shared_ptr<string> invocationId,
-                                                                                                      shared_ptr<StopStatefulAsyncInvocationRequest> request) {
+ReleaseGPUInstanceResponse Alibabacloud_FC-Open20210406::Client::releaseGPUInstance(shared_ptr<string> instanceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<StopStatefulAsyncInvocationHeaders> headers = make_shared<StopStatefulAsyncInvocationHeaders>();
-  return stopStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
+  shared_ptr<ReleaseGPUInstanceHeaders> headers = make_shared<ReleaseGPUInstanceHeaders>();
+  return releaseGPUInstanceWithOptions(instanceId, headers, runtime);
 }
 
 StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocationWithOptions(shared_ptr<string> serviceName,
@@ -3061,10 +3064,13 @@ StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopSt
   return StopStatefulAsyncInvocationResponse(callApi(params, req, runtime));
 }
 
-TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResource(shared_ptr<TagResourceRequest> request) {
+StopStatefulAsyncInvocationResponse Alibabacloud_FC-Open20210406::Client::stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
+                                                                                                      shared_ptr<string> functionName,
+                                                                                                      shared_ptr<string> invocationId,
+                                                                                                      shared_ptr<StopStatefulAsyncInvocationRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<TagResourceHeaders> headers = make_shared<TagResourceHeaders>();
-  return tagResourceWithOptions(request, headers, runtime);
+  shared_ptr<StopStatefulAsyncInvocationHeaders> headers = make_shared<StopStatefulAsyncInvocationHeaders>();
+  return stopStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
 }
 
 TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<TagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3107,10 +3113,10 @@ TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResourceWithOptions
   return TagResourceResponse(callApi(params, req, runtime));
 }
 
-UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResource(shared_ptr<UntagResourceRequest> request) {
+TagResourceResponse Alibabacloud_FC-Open20210406::Client::tagResource(shared_ptr<TagResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UntagResourceHeaders> headers = make_shared<UntagResourceHeaders>();
-  return untagResourceWithOptions(request, headers, runtime);
+  shared_ptr<TagResourceHeaders> headers = make_shared<TagResourceHeaders>();
+  return tagResourceWithOptions(request, headers, runtime);
 }
 
 UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOptions(shared_ptr<UntagResourceRequest> request, shared_ptr<UntagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3156,10 +3162,10 @@ UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResourceWithOpt
   return UntagResourceResponse(callApi(params, req, runtime));
 }
 
-UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request) {
+UntagResourceResponse Alibabacloud_FC-Open20210406::Client::untagResource(shared_ptr<UntagResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateAliasHeaders> headers = make_shared<UpdateAliasHeaders>();
-  return updateAliasWithOptions(serviceName, aliasName, request, headers, runtime);
+  shared_ptr<UntagResourceHeaders> headers = make_shared<UntagResourceHeaders>();
+  return untagResourceWithOptions(request, headers, runtime);
 }
 
 UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAliasWithOptions(shared_ptr<string> serviceName,
@@ -3218,10 +3224,10 @@ UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAliasWithOptions
   return UpdateAliasResponse(callApi(params, req, runtime));
 }
 
-UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request) {
+UpdateAliasResponse Alibabacloud_FC-Open20210406::Client::updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateCustomDomainHeaders> headers = make_shared<UpdateCustomDomainHeaders>();
-  return updateCustomDomainWithOptions(domainName, request, headers, runtime);
+  shared_ptr<UpdateAliasHeaders> headers = make_shared<UpdateAliasHeaders>();
+  return updateAliasWithOptions(serviceName, aliasName, request, headers, runtime);
 }
 
 UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomainWithOptions(shared_ptr<string> domainName,
@@ -3273,10 +3279,10 @@ UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDom
   return UpdateCustomDomainResponse(callApi(params, req, runtime));
 }
 
-UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request) {
+UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateFunctionHeaders> headers = make_shared<UpdateFunctionHeaders>();
-  return updateFunctionWithOptions(serviceName, functionName, request, headers, runtime);
+  shared_ptr<UpdateCustomDomainHeaders> headers = make_shared<UpdateCustomDomainHeaders>();
+  return updateCustomDomainWithOptions(domainName, request, headers, runtime);
 }
 
 UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithOptions(shared_ptr<string> serviceName,
@@ -3386,10 +3392,10 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
   return UpdateFunctionResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request) {
+UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateServiceHeaders> headers = make_shared<UpdateServiceHeaders>();
-  return updateServiceWithOptions(serviceName, request, headers, runtime);
+  shared_ptr<UpdateFunctionHeaders> headers = make_shared<UpdateFunctionHeaders>();
+  return updateFunctionWithOptions(serviceName, functionName, request, headers, runtime);
 }
 
 UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateServiceWithOptions(shared_ptr<string> serviceName,
@@ -3456,13 +3462,10 @@ UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateServiceWithOpt
   return UpdateServiceResponse(callApi(params, req, runtime));
 }
 
-UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTrigger(shared_ptr<string> serviceName,
-                                                                          shared_ptr<string> functionName,
-                                                                          shared_ptr<string> triggerName,
-                                                                          shared_ptr<UpdateTriggerRequest> request) {
+UpdateServiceResponse Alibabacloud_FC-Open20210406::Client::updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateTriggerHeaders> headers = make_shared<UpdateTriggerHeaders>();
-  return updateTriggerWithOptions(serviceName, functionName, triggerName, request, headers, runtime);
+  shared_ptr<UpdateServiceHeaders> headers = make_shared<UpdateServiceHeaders>();
+  return updateServiceWithOptions(serviceName, request, headers, runtime);
 }
 
 UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTriggerWithOptions(shared_ptr<string> serviceName,
@@ -3517,5 +3520,14 @@ UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTriggerWithOpt
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateTriggerResponse(callApi(params, req, runtime));
+}
+
+UpdateTriggerResponse Alibabacloud_FC-Open20210406::Client::updateTrigger(shared_ptr<string> serviceName,
+                                                                          shared_ptr<string> functionName,
+                                                                          shared_ptr<string> triggerName,
+                                                                          shared_ptr<UpdateTriggerRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateTriggerHeaders> headers = make_shared<UpdateTriggerHeaders>();
+  return updateTriggerWithOptions(serviceName, functionName, triggerName, request, headers, runtime);
 }
 

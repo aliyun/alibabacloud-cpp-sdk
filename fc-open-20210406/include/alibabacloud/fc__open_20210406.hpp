@@ -1811,6 +1811,7 @@ public:
 class OSSMountConfigMountPoints : public Darabonba::Model {
 public:
   shared_ptr<string> bucketName{};
+  shared_ptr<string> bucketPath{};
   shared_ptr<string> endpoint{};
   shared_ptr<string> mountDir{};
   shared_ptr<bool> readOnly{};
@@ -1828,6 +1829,9 @@ public:
     if (bucketName) {
       res["bucketName"] = boost::any(*bucketName);
     }
+    if (bucketPath) {
+      res["bucketPath"] = boost::any(*bucketPath);
+    }
     if (endpoint) {
       res["endpoint"] = boost::any(*endpoint);
     }
@@ -1843,6 +1847,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("bucketName") != m.end() && !m["bucketName"].empty()) {
       bucketName = make_shared<string>(boost::any_cast<string>(m["bucketName"]));
+    }
+    if (m.find("bucketPath") != m.end() && !m["bucketPath"].empty()) {
+      bucketPath = make_shared<string>(boost::any_cast<string>(m["bucketPath"]));
     }
     if (m.find("endpoint") != m.end() && !m["endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["endpoint"]));
@@ -3239,9 +3246,13 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> internetBandwidthOut{};
   shared_ptr<string> password{};
+  shared_ptr<string> role{};
+  shared_ptr<string> sgId{};
   shared_ptr<string> sourceCidrIp{};
   shared_ptr<vector<string>> tcpPortRange{};
   shared_ptr<vector<string>> udpPortRange{};
+  shared_ptr<string> vpcId{};
+  shared_ptr<string> vswId{};
 
   ClaimGPUInstanceRequest() {}
 
@@ -3271,6 +3282,12 @@ public:
     if (password) {
       res["password"] = boost::any(*password);
     }
+    if (role) {
+      res["role"] = boost::any(*role);
+    }
+    if (sgId) {
+      res["sgId"] = boost::any(*sgId);
+    }
     if (sourceCidrIp) {
       res["sourceCidrIp"] = boost::any(*sourceCidrIp);
     }
@@ -3279,6 +3296,12 @@ public:
     }
     if (udpPortRange) {
       res["udpPortRange"] = boost::any(*udpPortRange);
+    }
+    if (vpcId) {
+      res["vpcId"] = boost::any(*vpcId);
+    }
+    if (vswId) {
+      res["vswId"] = boost::any(*vswId);
     }
     return res;
   }
@@ -3302,6 +3325,12 @@ public:
     if (m.find("password") != m.end() && !m["password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["password"]));
     }
+    if (m.find("role") != m.end() && !m["role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["role"]));
+    }
+    if (m.find("sgId") != m.end() && !m["sgId"].empty()) {
+      sgId = make_shared<string>(boost::any_cast<string>(m["sgId"]));
+    }
     if (m.find("sourceCidrIp") != m.end() && !m["sourceCidrIp"].empty()) {
       sourceCidrIp = make_shared<string>(boost::any_cast<string>(m["sourceCidrIp"]));
     }
@@ -3324,6 +3353,12 @@ public:
         }
       }
       udpPortRange = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("vpcId") != m.end() && !m["vpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["vpcId"]));
+    }
+    if (m.find("vswId") != m.end() && !m["vswId"].empty()) {
+      vswId = make_shared<string>(boost::any_cast<string>(m["vswId"]));
     }
   }
 
@@ -17236,6 +17271,7 @@ public:
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
+  shared_ptr<long> instanceConcurrency{};
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
   shared_ptr<long> instanceSoftConcurrency{};
   shared_ptr<string> instanceType{};
@@ -17305,6 +17341,9 @@ public:
     }
     if (initializer) {
       res["initializer"] = boost::any(*initializer);
+    }
+    if (instanceConcurrency) {
+      res["instanceConcurrency"] = boost::any(*instanceConcurrency);
     }
     if (instanceLifecycleConfig) {
       res["instanceLifecycleConfig"] = instanceLifecycleConfig ? boost::any(instanceLifecycleConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -17405,6 +17444,9 @@ public:
     }
     if (m.find("initializer") != m.end() && !m["initializer"].empty()) {
       initializer = make_shared<string>(boost::any_cast<string>(m["initializer"]));
+    }
+    if (m.find("instanceConcurrency") != m.end() && !m["instanceConcurrency"].empty()) {
+      instanceConcurrency = make_shared<long>(boost::any_cast<long>(m["instanceConcurrency"]));
     }
     if (m.find("instanceLifecycleConfig") != m.end() && !m["instanceLifecycleConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["instanceLifecycleConfig"].type()) {
@@ -18153,318 +18195,318 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  ClaimGPUInstanceResponse claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request);
   ClaimGPUInstanceResponse claimGPUInstanceWithOptions(shared_ptr<ClaimGPUInstanceRequest> request, shared_ptr<ClaimGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateAliasResponse createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request);
+  ClaimGPUInstanceResponse claimGPUInstance(shared_ptr<ClaimGPUInstanceRequest> request);
   CreateAliasResponse createAliasWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<CreateAliasRequest> request,
                                              shared_ptr<CreateAliasHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateCustomDomainResponse createCustomDomain(shared_ptr<CreateCustomDomainRequest> request);
+  CreateAliasResponse createAlias(shared_ptr<string> serviceName, shared_ptr<CreateAliasRequest> request);
   CreateCustomDomainResponse createCustomDomainWithOptions(shared_ptr<CreateCustomDomainRequest> request, shared_ptr<CreateCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateFunctionResponse createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request);
+  CreateCustomDomainResponse createCustomDomain(shared_ptr<CreateCustomDomainRequest> request);
   CreateFunctionResponse createFunctionWithOptions(shared_ptr<string> serviceName,
                                                    shared_ptr<CreateFunctionRequest> request,
                                                    shared_ptr<CreateFunctionHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateLayerVersionResponse createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request);
+  CreateFunctionResponse createFunction(shared_ptr<string> serviceName, shared_ptr<CreateFunctionRequest> request);
   CreateLayerVersionResponse createLayerVersionWithOptions(shared_ptr<string> layerName,
                                                            shared_ptr<CreateLayerVersionRequest> request,
                                                            shared_ptr<CreateLayerVersionHeaders> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateServiceResponse createService(shared_ptr<CreateServiceRequest> request);
+  CreateLayerVersionResponse createLayerVersion(shared_ptr<string> layerName, shared_ptr<CreateLayerVersionRequest> request);
   CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<CreateServiceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTriggerResponse createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request);
+  CreateServiceResponse createService(shared_ptr<CreateServiceRequest> request);
   CreateTriggerResponse createTriggerWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<string> functionName,
                                                  shared_ptr<CreateTriggerRequest> request,
                                                  shared_ptr<CreateTriggerHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateVpcBindingResponse createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request);
+  CreateTriggerResponse createTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<CreateTriggerRequest> request);
   CreateVpcBindingResponse createVpcBindingWithOptions(shared_ptr<string> serviceName,
                                                        shared_ptr<CreateVpcBindingRequest> request,
                                                        shared_ptr<CreateVpcBindingHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteAliasResponse deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName);
+  CreateVpcBindingResponse createVpcBinding(shared_ptr<string> serviceName, shared_ptr<CreateVpcBindingRequest> request);
   DeleteAliasResponse deleteAliasWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<string> aliasName,
                                              shared_ptr<DeleteAliasHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteCustomDomainResponse deleteCustomDomain(shared_ptr<string> domainName);
+  DeleteAliasResponse deleteAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName);
   DeleteCustomDomainResponse deleteCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<DeleteCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteFunctionResponse deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName);
+  DeleteCustomDomainResponse deleteCustomDomain(shared_ptr<string> domainName);
   DeleteFunctionResponse deleteFunctionWithOptions(shared_ptr<string> serviceName,
                                                    shared_ptr<string> functionName,
                                                    shared_ptr<DeleteFunctionHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteFunctionAsyncInvokeConfigResponse deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request);
+  DeleteFunctionResponse deleteFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName);
   DeleteFunctionAsyncInvokeConfigResponse deleteFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                      shared_ptr<string> functionName,
                                                                                      shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request,
                                                                                      shared_ptr<DeleteFunctionAsyncInvokeConfigHeaders> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteFunctionOnDemandConfigResponse deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request);
+  DeleteFunctionAsyncInvokeConfigResponse deleteFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionAsyncInvokeConfigRequest> request);
   DeleteFunctionOnDemandConfigResponse deleteFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
                                                                                shared_ptr<DeleteFunctionOnDemandConfigRequest> request,
                                                                                shared_ptr<DeleteFunctionOnDemandConfigHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteLayerVersionResponse deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version);
+  DeleteFunctionOnDemandConfigResponse deleteFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<DeleteFunctionOnDemandConfigRequest> request);
   DeleteLayerVersionResponse deleteLayerVersionWithOptions(shared_ptr<string> layerName,
                                                            shared_ptr<string> version,
                                                            shared_ptr<DeleteLayerVersionHeaders> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceResponse deleteService(shared_ptr<string> serviceName);
+  DeleteLayerVersionResponse deleteLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version);
   DeleteServiceResponse deleteServiceWithOptions(shared_ptr<string> serviceName, shared_ptr<DeleteServiceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceVersionResponse deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId);
+  DeleteServiceResponse deleteService(shared_ptr<string> serviceName);
   DeleteServiceVersionResponse deleteServiceVersionWithOptions(shared_ptr<string> serviceName,
                                                                shared_ptr<string> versionId,
                                                                shared_ptr<DeleteServiceVersionHeaders> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTriggerResponse deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName);
+  DeleteServiceVersionResponse deleteServiceVersion(shared_ptr<string> serviceName, shared_ptr<string> versionId);
   DeleteTriggerResponse deleteTriggerWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<string> functionName,
                                                  shared_ptr<string> triggerName,
                                                  shared_ptr<DeleteTriggerHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteVpcBindingResponse deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId);
+  DeleteTriggerResponse deleteTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName);
   DeleteVpcBindingResponse deleteVpcBindingWithOptions(shared_ptr<string> serviceName,
                                                        shared_ptr<string> vpcId,
                                                        shared_ptr<DeleteVpcBindingHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeregisterEventSourceResponse deregisterEventSource(shared_ptr<string> serviceName,
-                                                      shared_ptr<string> functionName,
-                                                      shared_ptr<string> sourceArn,
-                                                      shared_ptr<DeregisterEventSourceRequest> request);
+  DeleteVpcBindingResponse deleteVpcBinding(shared_ptr<string> serviceName, shared_ptr<string> vpcId);
   DeregisterEventSourceResponse deregisterEventSourceWithOptions(shared_ptr<string> serviceName,
                                                                  shared_ptr<string> functionName,
                                                                  shared_ptr<string> sourceArn,
                                                                  shared_ptr<DeregisterEventSourceRequest> request,
                                                                  shared_ptr<DeregisterEventSourceHeaders> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetAccountSettingsResponse getAccountSettings();
+  DeregisterEventSourceResponse deregisterEventSource(shared_ptr<string> serviceName,
+                                                      shared_ptr<string> functionName,
+                                                      shared_ptr<string> sourceArn,
+                                                      shared_ptr<DeregisterEventSourceRequest> request);
   GetAccountSettingsResponse getAccountSettingsWithOptions(shared_ptr<GetAccountSettingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetAliasResponse getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName);
+  GetAccountSettingsResponse getAccountSettings();
   GetAliasResponse getAliasWithOptions(shared_ptr<string> serviceName,
                                        shared_ptr<string> aliasName,
                                        shared_ptr<GetAliasHeaders> headers,
                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetCustomDomainResponse getCustomDomain(shared_ptr<string> domainName);
+  GetAliasResponse getAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName);
   GetCustomDomainResponse getCustomDomainWithOptions(shared_ptr<string> domainName, shared_ptr<GetCustomDomainHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetFunctionResponse getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request);
+  GetCustomDomainResponse getCustomDomain(shared_ptr<string> domainName);
   GetFunctionResponse getFunctionWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<string> functionName,
                                              shared_ptr<GetFunctionRequest> request,
                                              shared_ptr<GetFunctionHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetFunctionAsyncInvokeConfigResponse getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request);
+  GetFunctionResponse getFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionRequest> request);
   GetFunctionAsyncInvokeConfigResponse getFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
                                                                                shared_ptr<GetFunctionAsyncInvokeConfigRequest> request,
                                                                                shared_ptr<GetFunctionAsyncInvokeConfigHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetFunctionCodeResponse getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request);
+  GetFunctionAsyncInvokeConfigResponse getFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionAsyncInvokeConfigRequest> request);
   GetFunctionCodeResponse getFunctionCodeWithOptions(shared_ptr<string> serviceName,
                                                      shared_ptr<string> functionName,
                                                      shared_ptr<GetFunctionCodeRequest> request,
                                                      shared_ptr<GetFunctionCodeHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetFunctionOnDemandConfigResponse getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request);
+  GetFunctionCodeResponse getFunctionCode(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionCodeRequest> request);
   GetFunctionOnDemandConfigResponse getFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
                                                                          shared_ptr<string> functionName,
                                                                          shared_ptr<GetFunctionOnDemandConfigRequest> request,
                                                                          shared_ptr<GetFunctionOnDemandConfigHeaders> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetLayerVersionResponse getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version);
+  GetFunctionOnDemandConfigResponse getFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetFunctionOnDemandConfigRequest> request);
   GetLayerVersionResponse getLayerVersionWithOptions(shared_ptr<string> layerName,
                                                      shared_ptr<string> version,
                                                      shared_ptr<GetLayerVersionHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProvisionConfigResponse getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request);
+  GetLayerVersionResponse getLayerVersion(shared_ptr<string> layerName, shared_ptr<string> version);
   GetProvisionConfigResponse getProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                            shared_ptr<string> functionName,
                                                            shared_ptr<GetProvisionConfigRequest> request,
                                                            shared_ptr<GetProvisionConfigHeaders> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetResourceTagsResponse getResourceTags(shared_ptr<GetResourceTagsRequest> request);
+  GetProvisionConfigResponse getProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<GetProvisionConfigRequest> request);
   GetResourceTagsResponse getResourceTagsWithOptions(shared_ptr<GetResourceTagsRequest> request, shared_ptr<GetResourceTagsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetServiceResponse getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request);
+  GetResourceTagsResponse getResourceTags(shared_ptr<GetResourceTagsRequest> request);
   GetServiceResponse getServiceWithOptions(shared_ptr<string> serviceName,
                                            shared_ptr<GetServiceRequest> request,
                                            shared_ptr<GetServiceHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetStatefulAsyncInvocationResponse getStatefulAsyncInvocation(shared_ptr<string> serviceName,
-                                                                shared_ptr<string> functionName,
-                                                                shared_ptr<string> invocationId,
-                                                                shared_ptr<GetStatefulAsyncInvocationRequest> request);
+  GetServiceResponse getService(shared_ptr<string> serviceName, shared_ptr<GetServiceRequest> request);
   GetStatefulAsyncInvocationResponse getStatefulAsyncInvocationWithOptions(shared_ptr<string> serviceName,
                                                                            shared_ptr<string> functionName,
                                                                            shared_ptr<string> invocationId,
                                                                            shared_ptr<GetStatefulAsyncInvocationRequest> request,
                                                                            shared_ptr<GetStatefulAsyncInvocationHeaders> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTriggerResponse getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName);
+  GetStatefulAsyncInvocationResponse getStatefulAsyncInvocation(shared_ptr<string> serviceName,
+                                                                shared_ptr<string> functionName,
+                                                                shared_ptr<string> invocationId,
+                                                                shared_ptr<GetStatefulAsyncInvocationRequest> request);
   GetTriggerResponse getTriggerWithOptions(shared_ptr<string> serviceName,
                                            shared_ptr<string> functionName,
                                            shared_ptr<string> triggerName,
                                            shared_ptr<GetTriggerHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  InvokeFunctionResponse invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request);
+  GetTriggerResponse getTrigger(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<string> triggerName);
   InvokeFunctionResponse invokeFunctionWithOptions(shared_ptr<string> serviceName,
                                                    shared_ptr<string> functionName,
                                                    shared_ptr<InvokeFunctionRequest> request,
                                                    shared_ptr<InvokeFunctionHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAliasesResponse listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request);
+  InvokeFunctionResponse invokeFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<InvokeFunctionRequest> request);
   ListAliasesResponse listAliasesWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<ListAliasesRequest> request,
                                              shared_ptr<ListAliasesHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListCustomDomainsResponse listCustomDomains(shared_ptr<ListCustomDomainsRequest> request);
+  ListAliasesResponse listAliases(shared_ptr<string> serviceName, shared_ptr<ListAliasesRequest> request);
   ListCustomDomainsResponse listCustomDomainsWithOptions(shared_ptr<ListCustomDomainsRequest> request, shared_ptr<ListCustomDomainsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEventSourcesResponse listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request);
+  ListCustomDomainsResponse listCustomDomains(shared_ptr<ListCustomDomainsRequest> request);
   ListEventSourcesResponse listEventSourcesWithOptions(shared_ptr<string> serviceName,
                                                        shared_ptr<string> functionName,
                                                        shared_ptr<ListEventSourcesRequest> request,
                                                        shared_ptr<ListEventSourcesHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListFunctionAsyncInvokeConfigsResponse listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request);
+  ListEventSourcesResponse listEventSources(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListEventSourcesRequest> request);
   ListFunctionAsyncInvokeConfigsResponse listFunctionAsyncInvokeConfigsWithOptions(shared_ptr<string> serviceName,
                                                                                    shared_ptr<string> functionName,
                                                                                    shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request,
                                                                                    shared_ptr<ListFunctionAsyncInvokeConfigsHeaders> headers,
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListFunctionsResponse listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request);
+  ListFunctionAsyncInvokeConfigsResponse listFunctionAsyncInvokeConfigs(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListFunctionAsyncInvokeConfigsRequest> request);
   ListFunctionsResponse listFunctionsWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<ListFunctionsRequest> request,
                                                  shared_ptr<ListFunctionsHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInstancesResponse listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request);
+  ListFunctionsResponse listFunctions(shared_ptr<string> serviceName, shared_ptr<ListFunctionsRequest> request);
   ListInstancesResponse listInstancesWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<string> functionName,
                                                  shared_ptr<ListInstancesRequest> request,
                                                  shared_ptr<ListInstancesHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListLayerVersionsResponse listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request);
+  ListInstancesResponse listInstances(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListInstancesRequest> request);
   ListLayerVersionsResponse listLayerVersionsWithOptions(shared_ptr<string> layerName,
                                                          shared_ptr<ListLayerVersionsRequest> request,
                                                          shared_ptr<ListLayerVersionsHeaders> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListLayersResponse listLayers(shared_ptr<ListLayersRequest> request);
+  ListLayerVersionsResponse listLayerVersions(shared_ptr<string> layerName, shared_ptr<ListLayerVersionsRequest> request);
   ListLayersResponse listLayersWithOptions(shared_ptr<ListLayersRequest> request, shared_ptr<ListLayersHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListOnDemandConfigsResponse listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request);
+  ListLayersResponse listLayers(shared_ptr<ListLayersRequest> request);
   ListOnDemandConfigsResponse listOnDemandConfigsWithOptions(shared_ptr<ListOnDemandConfigsRequest> request, shared_ptr<ListOnDemandConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListProvisionConfigsResponse listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request);
+  ListOnDemandConfigsResponse listOnDemandConfigs(shared_ptr<ListOnDemandConfigsRequest> request);
   ListProvisionConfigsResponse listProvisionConfigsWithOptions(shared_ptr<ListProvisionConfigsRequest> request, shared_ptr<ListProvisionConfigsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListReservedCapacitiesResponse listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request);
+  ListProvisionConfigsResponse listProvisionConfigs(shared_ptr<ListProvisionConfigsRequest> request);
   ListReservedCapacitiesResponse listReservedCapacitiesWithOptions(shared_ptr<ListReservedCapacitiesRequest> request, shared_ptr<ListReservedCapacitiesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListServiceVersionsResponse listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request);
+  ListReservedCapacitiesResponse listReservedCapacities(shared_ptr<ListReservedCapacitiesRequest> request);
   ListServiceVersionsResponse listServiceVersionsWithOptions(shared_ptr<string> serviceName,
                                                              shared_ptr<ListServiceVersionsRequest> request,
                                                              shared_ptr<ListServiceVersionsHeaders> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
+  ListServiceVersionsResponse listServiceVersions(shared_ptr<string> serviceName, shared_ptr<ListServiceVersionsRequest> request);
   ListServicesResponse listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<ListServicesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListStatefulAsyncInvocationFunctionsResponse listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request);
+  ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
   ListStatefulAsyncInvocationFunctionsResponse listStatefulAsyncInvocationFunctionsWithOptions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request, shared_ptr<ListStatefulAsyncInvocationFunctionsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListStatefulAsyncInvocationsResponse listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request);
+  ListStatefulAsyncInvocationFunctionsResponse listStatefulAsyncInvocationFunctions(shared_ptr<ListStatefulAsyncInvocationFunctionsRequest> request);
   ListStatefulAsyncInvocationsResponse listStatefulAsyncInvocationsWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
                                                                                shared_ptr<ListStatefulAsyncInvocationsRequest> request,
                                                                                shared_ptr<ListStatefulAsyncInvocationsHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTaggedResourcesResponse listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request);
+  ListStatefulAsyncInvocationsResponse listStatefulAsyncInvocations(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListStatefulAsyncInvocationsRequest> request);
   ListTaggedResourcesResponse listTaggedResourcesWithOptions(shared_ptr<ListTaggedResourcesRequest> request, shared_ptr<ListTaggedResourcesHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTriggersResponse listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request);
+  ListTaggedResourcesResponse listTaggedResources(shared_ptr<ListTaggedResourcesRequest> request);
   ListTriggersResponse listTriggersWithOptions(shared_ptr<string> serviceName,
                                                shared_ptr<string> functionName,
                                                shared_ptr<ListTriggersRequest> request,
                                                shared_ptr<ListTriggersHeaders> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListVpcBindingsResponse listVpcBindings(shared_ptr<string> serviceName);
+  ListTriggersResponse listTriggers(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<ListTriggersRequest> request);
   ListVpcBindingsResponse listVpcBindingsWithOptions(shared_ptr<string> serviceName, shared_ptr<ListVpcBindingsHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PublishServiceVersionResponse publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request);
+  ListVpcBindingsResponse listVpcBindings(shared_ptr<string> serviceName);
   PublishServiceVersionResponse publishServiceVersionWithOptions(shared_ptr<string> serviceName,
                                                                  shared_ptr<PublishServiceVersionRequest> request,
                                                                  shared_ptr<PublishServiceVersionHeaders> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PutFunctionAsyncInvokeConfigResponse putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request);
+  PublishServiceVersionResponse publishServiceVersion(shared_ptr<string> serviceName, shared_ptr<PublishServiceVersionRequest> request);
   PutFunctionAsyncInvokeConfigResponse putFunctionAsyncInvokeConfigWithOptions(shared_ptr<string> serviceName,
                                                                                shared_ptr<string> functionName,
                                                                                shared_ptr<PutFunctionAsyncInvokeConfigRequest> request,
                                                                                shared_ptr<PutFunctionAsyncInvokeConfigHeaders> headers,
                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PutFunctionOnDemandConfigResponse putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request);
+  PutFunctionAsyncInvokeConfigResponse putFunctionAsyncInvokeConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionAsyncInvokeConfigRequest> request);
   PutFunctionOnDemandConfigResponse putFunctionOnDemandConfigWithOptions(shared_ptr<string> serviceName,
                                                                          shared_ptr<string> functionName,
                                                                          shared_ptr<PutFunctionOnDemandConfigRequest> request,
                                                                          shared_ptr<PutFunctionOnDemandConfigHeaders> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PutLayerACLResponse putLayerACL(shared_ptr<string> layerName, shared_ptr<PutLayerACLRequest> request);
+  PutFunctionOnDemandConfigResponse putFunctionOnDemandConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutFunctionOnDemandConfigRequest> request);
   PutLayerACLResponse putLayerACLWithOptions(shared_ptr<string> layerName,
                                              shared_ptr<PutLayerACLRequest> request,
                                              shared_ptr<PutLayerACLHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PutProvisionConfigResponse putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request);
+  PutLayerACLResponse putLayerACL(shared_ptr<string> layerName, shared_ptr<PutLayerACLRequest> request);
   PutProvisionConfigResponse putProvisionConfigWithOptions(shared_ptr<string> serviceName,
                                                            shared_ptr<string> functionName,
                                                            shared_ptr<PutProvisionConfigRequest> request,
                                                            shared_ptr<PutProvisionConfigHeaders> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RegisterEventSourceResponse registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request);
+  PutProvisionConfigResponse putProvisionConfig(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<PutProvisionConfigRequest> request);
   RegisterEventSourceResponse registerEventSourceWithOptions(shared_ptr<string> serviceName,
                                                              shared_ptr<string> functionName,
                                                              shared_ptr<RegisterEventSourceRequest> request,
                                                              shared_ptr<RegisterEventSourceHeaders> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ReleaseGPUInstanceResponse releaseGPUInstance(shared_ptr<string> instanceId);
+  RegisterEventSourceResponse registerEventSource(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<RegisterEventSourceRequest> request);
   ReleaseGPUInstanceResponse releaseGPUInstanceWithOptions(shared_ptr<string> instanceId, shared_ptr<ReleaseGPUInstanceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopStatefulAsyncInvocationResponse stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
-                                                                  shared_ptr<string> functionName,
-                                                                  shared_ptr<string> invocationId,
-                                                                  shared_ptr<StopStatefulAsyncInvocationRequest> request);
+  ReleaseGPUInstanceResponse releaseGPUInstance(shared_ptr<string> instanceId);
   StopStatefulAsyncInvocationResponse stopStatefulAsyncInvocationWithOptions(shared_ptr<string> serviceName,
                                                                              shared_ptr<string> functionName,
                                                                              shared_ptr<string> invocationId,
                                                                              shared_ptr<StopStatefulAsyncInvocationRequest> request,
                                                                              shared_ptr<StopStatefulAsyncInvocationHeaders> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  TagResourceResponse tagResource(shared_ptr<TagResourceRequest> request);
+  StopStatefulAsyncInvocationResponse stopStatefulAsyncInvocation(shared_ptr<string> serviceName,
+                                                                  shared_ptr<string> functionName,
+                                                                  shared_ptr<string> invocationId,
+                                                                  shared_ptr<StopStatefulAsyncInvocationRequest> request);
   TagResourceResponse tagResourceWithOptions(shared_ptr<TagResourceRequest> request, shared_ptr<TagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UntagResourceResponse untagResource(shared_ptr<UntagResourceRequest> request);
+  TagResourceResponse tagResource(shared_ptr<TagResourceRequest> request);
   UntagResourceResponse untagResourceWithOptions(shared_ptr<UntagResourceRequest> request, shared_ptr<UntagResourceHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateAliasResponse updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request);
+  UntagResourceResponse untagResource(shared_ptr<UntagResourceRequest> request);
   UpdateAliasResponse updateAliasWithOptions(shared_ptr<string> serviceName,
                                              shared_ptr<string> aliasName,
                                              shared_ptr<UpdateAliasRequest> request,
                                              shared_ptr<UpdateAliasHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateCustomDomainResponse updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request);
+  UpdateAliasResponse updateAlias(shared_ptr<string> serviceName, shared_ptr<string> aliasName, shared_ptr<UpdateAliasRequest> request);
   UpdateCustomDomainResponse updateCustomDomainWithOptions(shared_ptr<string> domainName,
                                                            shared_ptr<UpdateCustomDomainRequest> request,
                                                            shared_ptr<UpdateCustomDomainHeaders> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateFunctionResponse updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request);
+  UpdateCustomDomainResponse updateCustomDomain(shared_ptr<string> domainName, shared_ptr<UpdateCustomDomainRequest> request);
   UpdateFunctionResponse updateFunctionWithOptions(shared_ptr<string> serviceName,
                                                    shared_ptr<string> functionName,
                                                    shared_ptr<UpdateFunctionRequest> request,
                                                    shared_ptr<UpdateFunctionHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceResponse updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request);
+  UpdateFunctionResponse updateFunction(shared_ptr<string> serviceName, shared_ptr<string> functionName, shared_ptr<UpdateFunctionRequest> request);
   UpdateServiceResponse updateServiceWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<UpdateServiceRequest> request,
                                                  shared_ptr<UpdateServiceHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateTriggerResponse updateTrigger(shared_ptr<string> serviceName,
-                                      shared_ptr<string> functionName,
-                                      shared_ptr<string> triggerName,
-                                      shared_ptr<UpdateTriggerRequest> request);
+  UpdateServiceResponse updateService(shared_ptr<string> serviceName, shared_ptr<UpdateServiceRequest> request);
   UpdateTriggerResponse updateTriggerWithOptions(shared_ptr<string> serviceName,
                                                  shared_ptr<string> functionName,
                                                  shared_ptr<string> triggerName,
                                                  shared_ptr<UpdateTriggerRequest> request,
                                                  shared_ptr<UpdateTriggerHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateTriggerResponse updateTrigger(shared_ptr<string> serviceName,
+                                      shared_ptr<string> functionName,
+                                      shared_ptr<string> triggerName,
+                                      shared_ptr<UpdateTriggerRequest> request);
 
   virtual ~Client() = default;
 };
