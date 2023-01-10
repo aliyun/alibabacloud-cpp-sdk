@@ -2116,6 +2116,54 @@ GetCodeupOrganizationResponse Alibabacloud_Devops20210625::Client::getCodeupOrga
   return getCodeupOrganizationWithOptions(identity, request, headers, runtime);
 }
 
+GetCompareDetailResponse Alibabacloud_Devops20210625::Client::getCompareDetailWithOptions(shared_ptr<string> repositoryId,
+                                                                                          shared_ptr<GetCompareDetailRequest> request,
+                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
+    query->insert(pair<string, string>("from", *request->from));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxDiffByte)) {
+    query->insert(pair<string, long>("maxDiffByte", *request->maxDiffByte));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxDiffFile)) {
+    query->insert(pair<string, long>("maxDiffFile", *request->maxDiffFile));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->mergeBase)) {
+    query->insert(pair<string, bool>("mergeBase", *request->mergeBase));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
+    query->insert(pair<string, string>("to", *request->to));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCompareDetail"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/repository/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/commits/compare/detail"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCompareDetailResponse(callApi(params, req, runtime));
+}
+
+GetCompareDetailResponse Alibabacloud_Devops20210625::Client::getCompareDetail(shared_ptr<string> repositoryId, shared_ptr<GetCompareDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getCompareDetailWithOptions(repositoryId, request, headers, runtime);
+}
+
 GetCustomFieldOptionResponse Alibabacloud_Devops20210625::Client::getCustomFieldOptionWithOptions(shared_ptr<string> organizationId,
                                                                                                   shared_ptr<string> fieldId,
                                                                                                   shared_ptr<GetCustomFieldOptionRequest> request,
@@ -2736,6 +2784,45 @@ GetRepositoryTagResponse Alibabacloud_Devops20210625::Client::getRepositoryTag(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getRepositoryTagWithOptions(repositoryId, request, headers, runtime);
+}
+
+GetSearchCodePreviewResponse Alibabacloud_Devops20210625::Client::getSearchCodePreviewWithOptions(shared_ptr<GetSearchCodePreviewRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->docId)) {
+    query->insert(pair<string, string>("docId", *request->docId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDsl)) {
+    query->insert(pair<string, bool>("isDsl", *request->isDsl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSearchCodePreview"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/search/code_preview"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSearchCodePreviewResponse(callApi(params, req, runtime));
+}
+
+GetSearchCodePreviewResponse Alibabacloud_Devops20210625::Client::getSearchCodePreview(shared_ptr<GetSearchCodePreviewRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getSearchCodePreviewWithOptions(request, headers, runtime);
 }
 
 GetSprintInfoResponse Alibabacloud_Devops20210625::Client::getSprintInfoWithOptions(shared_ptr<string> organizationId,
@@ -4286,6 +4373,180 @@ ListResourceMembersResponse Alibabacloud_Devops20210625::Client::listResourceMem
   return listResourceMembersWithOptions(organizationId, resourceType, resourceId, headers, runtime);
 }
 
+ListSearchCommitResponse Alibabacloud_Devops20210625::Client::listSearchCommitWithOptions(shared_ptr<ListSearchCommitRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    body->insert(pair<string, long>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<ListSearchCommitRequestRepoPath>(request->repoPath)) {
+    body->insert(pair<string, ListSearchCommitRequestRepoPath>("repoPath", *request->repoPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    body->insert(pair<string, string>("sort", *request->sort));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSearchCommit"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/search/commit"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSearchCommitResponse(callApi(params, req, runtime));
+}
+
+ListSearchCommitResponse Alibabacloud_Devops20210625::Client::listSearchCommit(shared_ptr<ListSearchCommitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSearchCommitWithOptions(request, headers, runtime);
+}
+
+ListSearchRepositoryResponse Alibabacloud_Devops20210625::Client::listSearchRepositoryWithOptions(shared_ptr<ListSearchRepositoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunPk)) {
+    body->insert(pair<string, string>("aliyunPk", *request->aliyunPk));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    body->insert(pair<string, long>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<ListSearchRepositoryRequestRepoPath>(request->repoPath)) {
+    body->insert(pair<string, ListSearchRepositoryRequestRepoPath>("repoPath", *request->repoPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    body->insert(pair<string, string>("sort", *request->sort));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->visibilityLevel)) {
+    body->insert(pair<string, long>("visibilityLevel", *request->visibilityLevel));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSearchRepository"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/search/repo"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSearchRepositoryResponse(callApi(params, req, runtime));
+}
+
+ListSearchRepositoryResponse Alibabacloud_Devops20210625::Client::listSearchRepository(shared_ptr<ListSearchRepositoryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSearchRepositoryWithOptions(request, headers, runtime);
+}
+
+ListSearchSourceCodeResponse Alibabacloud_Devops20210625::Client::listSearchSourceCodeWithOptions(shared_ptr<ListSearchSourceCodeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<ListSearchSourceCodeRequestFilePath>(request->filePath)) {
+    body->insert(pair<string, ListSearchSourceCodeRequestFilePath>("filePath", *request->filePath));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isCodeBlock)) {
+    body->insert(pair<string, bool>("isCodeBlock", *request->isCodeBlock));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    body->insert(pair<string, string>("keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
+    body->insert(pair<string, string>("language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    body->insert(pair<string, string>("order", *request->order));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
+    body->insert(pair<string, long>("page", *request->page));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    body->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<ListSearchSourceCodeRequestRepoPath>(request->repoPath)) {
+    body->insert(pair<string, ListSearchSourceCodeRequestRepoPath>("repoPath", *request->repoPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    body->insert(pair<string, string>("scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    body->insert(pair<string, string>("sort", *request->sort));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSearchSourceCode"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/search/code"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSearchSourceCodeResponse(callApi(params, req, runtime));
+}
+
+ListSearchSourceCodeResponse Alibabacloud_Devops20210625::Client::listSearchSourceCode(shared_ptr<ListSearchSourceCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSearchSourceCodeWithOptions(request, headers, runtime);
+}
+
 ListServiceConnectionsResponse Alibabacloud_Devops20210625::Client::listServiceConnectionsWithOptions(shared_ptr<string> organizationId,
                                                                                                       shared_ptr<ListServiceConnectionsRequest> request,
                                                                                                       shared_ptr<map<string, string>> headers,
@@ -5533,6 +5794,42 @@ UpdateProtectedBranchesResponse Alibabacloud_Devops20210625::Client::updateProte
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateProtectedBranchesWithOptions(repositoryId, id, request, headers, runtime);
+}
+
+UpdatePushReviewOnOffResponse Alibabacloud_Devops20210625::Client::updatePushReviewOnOffWithOptions(shared_ptr<string> repositoryId,
+                                                                                                    shared_ptr<UpdatePushReviewOnOffRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->trunkMode)) {
+    query->insert(pair<string, bool>("trunkMode", *request->trunkMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePushReviewOnOff"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/repository/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/settings/trunk_mode"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePushReviewOnOffResponse(callApi(params, req, runtime));
+}
+
+UpdatePushReviewOnOffResponse Alibabacloud_Devops20210625::Client::updatePushReviewOnOff(shared_ptr<string> repositoryId, shared_ptr<UpdatePushReviewOnOffRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updatePushReviewOnOffWithOptions(repositoryId, request, headers, runtime);
 }
 
 UpdateRepositoryResponse Alibabacloud_Devops20210625::Client::updateRepositoryWithOptions(shared_ptr<string> repositoryId,
