@@ -838,7 +838,7 @@ RecognizeLogoResponse Alibabacloud_Imagerecog20190930::Client::recognizeLogoAdva
   shared_ptr<RecognizeLogoRequest> recognizeLogoReq = make_shared<RecognizeLogoRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, recognizeLogoReq);
   if (!Darabonba_Util::Client::isUnset<vector<RecognizeLogoAdvanceRequestTasks>>(request->tasks)) {
-    shared_ptr<int> i = make_shared<int>(0);
+    shared_ptr<int> i0 = make_shared<int>(0);
     for(auto item0 : *request->tasks) {
       if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(item0.imageURLObject)) {
         authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
@@ -865,7 +865,7 @@ RecognizeLogoResponse Alibabacloud_Imagerecog20190930::Client::recognizeLogoAdva
         ossClient->postObject(uploadRequest, ossRuntime);
         shared_ptr<RecognizeLogoRequestTasks> tmp = make_shared<RecognizeLogoRequestTasks>((*recognizeLogoReq->tasks)[[object Object]]);
         tmp->imageURL = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-        i = make_shared<int>(std::ltoi(std::itol(*i) + std::itol(1)));
+        i0 = make_shared<int>(std::ltoi(std::itol(*i0) + std::itol(1)));
       }
     }
   }
