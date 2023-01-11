@@ -843,11 +843,11 @@ CreateApplicationResponse Alibabacloud_Mse20190531::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extraInfo)) {
-    query->insert(pair<string, string>("ExtraInfo", *request->extraInfo));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -6221,11 +6221,17 @@ UpdateMessageQueueRouteResponse Alibabacloud_Mse20190531::Client::updateMessageQ
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enable)) {
     query->insert(pair<string, bool>("Enable", *request->enable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filterSide)) {
     query->insert(pair<string, string>("FilterSide", *request->filterSide));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));

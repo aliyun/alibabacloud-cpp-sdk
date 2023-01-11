@@ -5407,8 +5407,8 @@ class CreateApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appName{};
-  shared_ptr<string> extraInfo{};
   shared_ptr<string> language{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
   shared_ptr<string> sentinelEnable{};
   shared_ptr<string> source{};
@@ -5430,11 +5430,11 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
-    if (extraInfo) {
-      res["ExtraInfo"] = boost::any(*extraInfo);
-    }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -5458,11 +5458,11 @@ public:
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
     }
-    if (m.find("ExtraInfo") != m.end() && !m["ExtraInfo"].empty()) {
-      extraInfo = make_shared<string>(boost::any_cast<string>(m["ExtraInfo"]));
-    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -5489,11 +5489,13 @@ public:
   shared_ptr<string> extraInfo{};
   shared_ptr<string> language{};
   shared_ptr<string> licenseKey{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
   shared_ptr<long> updateTime{};
   shared_ptr<string> userId{};
+  shared_ptr<string> version{};
 
   CreateApplicationResponseBodyData() {}
 
@@ -5523,6 +5525,9 @@ public:
     if (licenseKey) {
       res["LicenseKey"] = boost::any(*licenseKey);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -5537,6 +5542,9 @@ public:
     }
     if (userId) {
       res["UserId"] = boost::any(*userId);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
     }
     return res;
   }
@@ -5560,6 +5568,9 @@ public:
     if (m.find("LicenseKey") != m.end() && !m["LicenseKey"].empty()) {
       licenseKey = make_shared<string>(boost::any_cast<string>(m["LicenseKey"]));
     }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -5574,6 +5585,9 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
     }
   }
 
@@ -47696,8 +47710,10 @@ class UpdateMessageQueueRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
   shared_ptr<string> filterSide{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
   shared_ptr<vector<string>> tags{};
 
@@ -47717,11 +47733,17 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
     if (filterSide) {
       res["FilterSide"] = boost::any(*filterSide);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -47739,11 +47761,17 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
     if (m.find("FilterSide") != m.end() && !m["FilterSide"].empty()) {
       filterSide = make_shared<string>(boost::any_cast<string>(m["FilterSide"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -47767,8 +47795,10 @@ class UpdateMessageQueueRouteShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> appId{};
+  shared_ptr<string> appName{};
   shared_ptr<bool> enable{};
   shared_ptr<string> filterSide{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> region{};
   shared_ptr<string> tagsShrink{};
 
@@ -47788,11 +47818,17 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
     if (enable) {
       res["Enable"] = boost::any(*enable);
     }
     if (filterSide) {
       res["FilterSide"] = boost::any(*filterSide);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -47810,11 +47846,17 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
     if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
     }
     if (m.find("FilterSide") != m.end() && !m["FilterSide"].empty()) {
       filterSide = make_shared<string>(boost::any_cast<string>(m["FilterSide"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
