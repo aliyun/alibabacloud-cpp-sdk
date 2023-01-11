@@ -16,6 +16,7 @@ using namespace std;
 namespace Alibabacloud_RocketMQ20220801 {
 class CreateConsumerGroupRequestConsumeRetryPolicy : public Darabonba::Model {
 public:
+  shared_ptr<string> deadLetterTargetTopic{};
   shared_ptr<long> maxRetryTimes{};
   shared_ptr<string> retryPolicy{};
 
@@ -29,6 +30,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deadLetterTargetTopic) {
+      res["deadLetterTargetTopic"] = boost::any(*deadLetterTargetTopic);
+    }
     if (maxRetryTimes) {
       res["maxRetryTimes"] = boost::any(*maxRetryTimes);
     }
@@ -39,6 +43,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("deadLetterTargetTopic") != m.end() && !m["deadLetterTargetTopic"].empty()) {
+      deadLetterTargetTopic = make_shared<string>(boost::any_cast<string>(m["deadLetterTargetTopic"]));
+    }
     if (m.find("maxRetryTimes") != m.end() && !m["maxRetryTimes"].empty()) {
       maxRetryTimes = make_shared<long>(boost::any_cast<long>(m["maxRetryTimes"]));
     }
@@ -1290,6 +1297,7 @@ public:
 };
 class GetConsumerGroupResponseBodyDataConsumeRetryPolicy : public Darabonba::Model {
 public:
+  shared_ptr<string> deadLetterTargetTopic{};
   shared_ptr<long> maxRetryTimes{};
   shared_ptr<string> retryPolicy{};
 
@@ -1303,6 +1311,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deadLetterTargetTopic) {
+      res["deadLetterTargetTopic"] = boost::any(*deadLetterTargetTopic);
+    }
     if (maxRetryTimes) {
       res["maxRetryTimes"] = boost::any(*maxRetryTimes);
     }
@@ -1313,6 +1324,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("deadLetterTargetTopic") != m.end() && !m["deadLetterTargetTopic"].empty()) {
+      deadLetterTargetTopic = make_shared<string>(boost::any_cast<string>(m["deadLetterTargetTopic"]));
+    }
     if (m.find("maxRetryTimes") != m.end() && !m["maxRetryTimes"].empty()) {
       maxRetryTimes = make_shared<long>(boost::any_cast<long>(m["maxRetryTimes"]));
     }
@@ -3322,6 +3336,7 @@ public:
 class ListTopicsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
+  shared_ptr<vector<string>> messageTypes{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -3338,6 +3353,9 @@ public:
     if (filter) {
       res["filter"] = boost::any(*filter);
     }
+    if (messageTypes) {
+      res["messageTypes"] = boost::any(*messageTypes);
+    }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
     }
@@ -3351,6 +3369,16 @@ public:
     if (m.find("filter") != m.end() && !m["filter"].empty()) {
       filter = make_shared<string>(boost::any_cast<string>(m["filter"]));
     }
+    if (m.find("messageTypes") != m.end() && !m["messageTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["messageTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["messageTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      messageTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
     }
@@ -3361,6 +3389,56 @@ public:
 
 
   virtual ~ListTopicsRequest() = default;
+};
+class ListTopicsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filter{};
+  shared_ptr<string> messageTypesShrink{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  ListTopicsShrinkRequest() {}
+
+  explicit ListTopicsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["filter"] = boost::any(*filter);
+    }
+    if (messageTypesShrink) {
+      res["messageTypes"] = boost::any(*messageTypesShrink);
+    }
+    if (pageNumber) {
+      res["pageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("filter") != m.end() && !m["filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["filter"]));
+    }
+    if (m.find("messageTypes") != m.end() && !m["messageTypes"].empty()) {
+      messageTypesShrink = make_shared<string>(boost::any_cast<string>(m["messageTypes"]));
+    }
+    if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+  }
+
+
+  virtual ~ListTopicsShrinkRequest() = default;
 };
 class ListTopicsResponseBodyDataList : public Darabonba::Model {
 public:
@@ -4406,7 +4484,7 @@ public:
   ListInstancesResponse listInstancesWithOptions(shared_ptr<ListInstancesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListInstancesResponse listInstances(shared_ptr<ListInstancesRequest> request);
   ListTopicsResponse listTopicsWithOptions(shared_ptr<string> instanceId,
-                                           shared_ptr<ListTopicsRequest> request,
+                                           shared_ptr<ListTopicsRequest> tmpReq,
                                            shared_ptr<map<string, string>> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTopicsResponse listTopics(shared_ptr<string> instanceId, shared_ptr<ListTopicsRequest> request);
