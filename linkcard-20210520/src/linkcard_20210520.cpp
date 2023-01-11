@@ -415,6 +415,55 @@ GetCardFlowInfoResponse Alibabacloud_Linkcard20210520::Client::getCardFlowInfo(s
   return getCardFlowInfoWithOptions(request, runtime);
 }
 
+GetCardLatestFlowResponse Alibabacloud_Linkcard20210520::Client::getCardLatestFlowWithOptions(shared_ptr<GetCardLatestFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iccid)) {
+    query->insert(pair<string, string>("Iccid", *request->iccid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCardLatestFlow"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCardLatestFlowResponse(callApi(params, req, runtime));
+}
+
+GetCardLatestFlowResponse Alibabacloud_Linkcard20210520::Client::getCardLatestFlow(shared_ptr<GetCardLatestFlowRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCardLatestFlowWithOptions(request, runtime);
+}
+
+GetCardStatusStatisticsResponse Alibabacloud_Linkcard20210520::Client::getCardStatusStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetCardStatusStatistics"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetCardStatusStatisticsResponse(callApi(params, req, runtime));
+}
+
+GetCardStatusStatisticsResponse Alibabacloud_Linkcard20210520::Client::getCardStatusStatistics() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getCardStatusStatisticsWithOptions(runtime);
+}
+
 GetCredentialPoolStatisticsResponse Alibabacloud_Linkcard20210520::Client::getCredentialPoolStatisticsWithOptions(shared_ptr<GetCredentialPoolStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -444,6 +493,107 @@ GetCredentialPoolStatisticsResponse Alibabacloud_Linkcard20210520::Client::getCr
 GetCredentialPoolStatisticsResponse Alibabacloud_Linkcard20210520::Client::getCredentialPoolStatistics(shared_ptr<GetCredentialPoolStatisticsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getCredentialPoolStatisticsWithOptions(request, runtime);
+}
+
+GetOperateResultResponse Alibabacloud_Linkcard20210520::Client::getOperateResultWithOptions(shared_ptr<GetOperateResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiProduct)) {
+    query->insert(pair<string, string>("ApiProduct", *request->apiProduct));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resId)) {
+    query->insert(pair<string, string>("ResId", *request->resId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNo)) {
+    query->insert(pair<string, string>("SerialNo", *request->serialNo));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetOperateResult"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetOperateResultResponse(callApi(params, req, runtime));
+}
+
+GetOperateResultResponse Alibabacloud_Linkcard20210520::Client::getOperateResult(shared_ptr<GetOperateResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getOperateResultWithOptions(request, runtime);
+}
+
+GetRealNameStatusResponse Alibabacloud_Linkcard20210520::Client::getRealNameStatusWithOptions(shared_ptr<GetRealNameStatusRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GetRealNameStatusShrinkRequest> request = make_shared<GetRealNameStatusShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->listMsisdns)) {
+    request->listMsisdnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->listMsisdns, make_shared<string>("ListMsisdns"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->iccid)) {
+    query->insert(pair<string, string>("Iccid", *request->iccid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->listMsisdnsShrink)) {
+    query->insert(pair<string, string>("ListMsisdns", *request->listMsisdnsShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetRealNameStatus"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetRealNameStatusResponse(callApi(params, req, runtime));
+}
+
+GetRealNameStatusResponse Alibabacloud_Linkcard20210520::Client::getRealNameStatus(shared_ptr<GetRealNameStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getRealNameStatusWithOptions(request, runtime);
+}
+
+GetSimCardStateDistributionResponse Alibabacloud_Linkcard20210520::Client::getSimCardStateDistributionWithOptions(shared_ptr<GetSimCardStateDistributionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialNO)) {
+    query->insert(pair<string, string>("CredentialNO", *request->credentialNO));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
+    query->insert(pair<string, string>("Date", *request->date));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSimCardStateDistribution"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSimCardStateDistributionResponse(callApi(params, req, runtime));
+}
+
+GetSimCardStateDistributionResponse Alibabacloud_Linkcard20210520::Client::getSimCardStateDistribution(shared_ptr<GetSimCardStateDistributionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSimCardStateDistributionWithOptions(request, runtime);
 }
 
 ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfoWithOptions(shared_ptr<ListCardInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
