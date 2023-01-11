@@ -15,6 +15,154 @@
 using namespace std;
 
 namespace Alibabacloud_ROS20190910 {
+class CancelStackOperationRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> allowedStackOperations{};
+  shared_ptr<string> cancelType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
+
+  CancelStackOperationRequest() {}
+
+  explicit CancelStackOperationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowedStackOperations) {
+      res["AllowedStackOperations"] = boost::any(*allowedStackOperations);
+    }
+    if (cancelType) {
+      res["CancelType"] = boost::any(*cancelType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowedStackOperations") != m.end() && !m["AllowedStackOperations"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowedStackOperations"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowedStackOperations"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowedStackOperations = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CancelType") != m.end() && !m["CancelType"].empty()) {
+      cancelType = make_shared<string>(boost::any_cast<string>(m["CancelType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
+    }
+  }
+
+
+  virtual ~CancelStackOperationRequest() = default;
+};
+class CancelStackOperationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelStackOperationResponseBody() {}
+
+  explicit CancelStackOperationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelStackOperationResponseBody() = default;
+};
+class CancelStackOperationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelStackOperationResponseBody> body{};
+
+  CancelStackOperationResponse() {}
+
+  explicit CancelStackOperationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelStackOperationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelStackOperationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelStackOperationResponse() = default;
+};
 class CancelUpdateStackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cancelType{};
@@ -11085,6 +11233,42 @@ public:
 
   virtual ~GetTemplateParameterConstraintsShrinkRequest() = default;
 };
+class GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources : public Darabonba::Model {
+public:
+  shared_ptr<string> propertyName{};
+  shared_ptr<string> resourceType{};
+
+  GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources() {}
+
+  explicit GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propertyName) {
+      res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
+      propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources() = default;
+};
 class GetTemplateParameterConstraintsResponseBodyParameterConstraints : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedValues{};
@@ -11093,6 +11277,7 @@ public:
   shared_ptr<string> behaviorReason{};
   shared_ptr<vector<boost::any>> illegalValueByParameterConstraints{};
   shared_ptr<vector<boost::any>> illegalValueByRules{};
+  shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources>> notSupportResources{};
   shared_ptr<string> parameterKey{};
   shared_ptr<string> type{};
 
@@ -11123,6 +11308,13 @@ public:
     }
     if (illegalValueByRules) {
       res["IllegalValueByRules"] = boost::any(*illegalValueByRules);
+    }
+    if (notSupportResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*notSupportResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NotSupportResources"] = boost::any(temp1);
     }
     if (parameterKey) {
       res["ParameterKey"] = boost::any(*parameterKey);
@@ -11179,6 +11371,19 @@ public:
         }
       }
       illegalValueByRules = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("NotSupportResources") != m.end() && !m["NotSupportResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["NotSupportResources"].type()) {
+        vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NotSupportResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        notSupportResources = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources>>(expect1);
+      }
     }
     if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
       parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
@@ -22023,6 +22228,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CancelStackOperationResponse cancelStackOperationWithOptions(shared_ptr<CancelStackOperationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelStackOperationResponse cancelStackOperation(shared_ptr<CancelStackOperationRequest> request);
   CancelUpdateStackResponse cancelUpdateStackWithOptions(shared_ptr<CancelUpdateStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelUpdateStackResponse cancelUpdateStack(shared_ptr<CancelUpdateStackRequest> request);
   ContinueCreateStackResponse continueCreateStackWithOptions(shared_ptr<ContinueCreateStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
