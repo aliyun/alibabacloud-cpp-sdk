@@ -1233,8 +1233,13 @@ CreateNacosServiceResponse Alibabacloud_Mse20190531::Client::createNacosService(
   return createNacosServiceWithOptions(request, runtime);
 }
 
-CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpdateSwimmingLaneWithOptions(shared_ptr<CreateOrUpdateSwimmingLaneRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateOrUpdateSwimmingLaneShrinkRequest> request = make_shared<CreateOrUpdateSwimmingLaneShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson>(tmpReq->gatewaySwimmingLaneRouteJson)) {
+    request->gatewaySwimmingLaneRouteJsonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->gatewaySwimmingLaneRouteJson, make_shared<string>("GatewaySwimmingLaneRouteJson"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -1248,8 +1253,11 @@ CreateOrUpdateSwimmingLaneResponse Alibabacloud_Mse20190531::Client::createOrUpd
   if (!Darabonba_Util::Client::isUnset<string>(request->entryRule)) {
     query->insert(pair<string, string>("EntryRule", *request->entryRule));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateOrUpdateSwimmingLaneRequestEntryRules>>(request->entryRules)) {
-    query->insert(pair<string, vector<CreateOrUpdateSwimmingLaneRequestEntryRules>>("EntryRules", *request->entryRules));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateOrUpdateSwimmingLaneShrinkRequestEntryRules>>(request->entryRules)) {
+    query->insert(pair<string, vector<CreateOrUpdateSwimmingLaneShrinkRequestEntryRules>>("EntryRules", *request->entryRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewaySwimmingLaneRouteJsonShrink)) {
+    query->insert(pair<string, string>("GatewaySwimmingLaneRouteJson", *request->gatewaySwimmingLaneRouteJsonShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gmtCreate)) {
     query->insert(pair<string, string>("GmtCreate", *request->gmtCreate));
