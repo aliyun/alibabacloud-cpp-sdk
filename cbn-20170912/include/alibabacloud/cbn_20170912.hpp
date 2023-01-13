@@ -3979,6 +3979,196 @@ public:
 
   virtual ~CreateTrafficMarkingPolicyResponse() = default;
 };
+class CreateTransitRouteTableAggregationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+  shared_ptr<string> transitRouteTableAggregationDescription{};
+  shared_ptr<string> transitRouteTableAggregationName{};
+  shared_ptr<string> transitRouteTableAggregationScop{};
+  shared_ptr<string> transitRouteTableId{};
+
+  CreateTransitRouteTableAggregationRequest() {}
+
+  explicit CreateTransitRouteTableAggregationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    if (transitRouteTableAggregationDescription) {
+      res["TransitRouteTableAggregationDescription"] = boost::any(*transitRouteTableAggregationDescription);
+    }
+    if (transitRouteTableAggregationName) {
+      res["TransitRouteTableAggregationName"] = boost::any(*transitRouteTableAggregationName);
+    }
+    if (transitRouteTableAggregationScop) {
+      res["TransitRouteTableAggregationScop"] = boost::any(*transitRouteTableAggregationScop);
+    }
+    if (transitRouteTableId) {
+      res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+    if (m.find("TransitRouteTableAggregationDescription") != m.end() && !m["TransitRouteTableAggregationDescription"].empty()) {
+      transitRouteTableAggregationDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationDescription"]));
+    }
+    if (m.find("TransitRouteTableAggregationName") != m.end() && !m["TransitRouteTableAggregationName"].empty()) {
+      transitRouteTableAggregationName = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationName"]));
+    }
+    if (m.find("TransitRouteTableAggregationScop") != m.end() && !m["TransitRouteTableAggregationScop"].empty()) {
+      transitRouteTableAggregationScop = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationScop"]));
+    }
+    if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
+      transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouteTableAggregationRequest() = default;
+};
+class CreateTransitRouteTableAggregationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateTransitRouteTableAggregationResponseBody() {}
+
+  explicit CreateTransitRouteTableAggregationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouteTableAggregationResponseBody() = default;
+};
+class CreateTransitRouteTableAggregationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateTransitRouteTableAggregationResponseBody> body{};
+
+  CreateTransitRouteTableAggregationResponse() {}
+
+  explicit CreateTransitRouteTableAggregationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateTransitRouteTableAggregationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTransitRouteTableAggregationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateTransitRouteTableAggregationResponse() = default;
+};
 class CreateTransitRouterRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5629,6 +5819,35 @@ public:
 
   virtual ~CreateTransitRouterRouteEntryResponse() = default;
 };
+class CreateTransitRouterRouteTableRequestRouteTableOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> multiRegionECMP{};
+
+  CreateTransitRouterRouteTableRequestRouteTableOptions() {}
+
+  explicit CreateTransitRouterRouteTableRequestRouteTableOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (multiRegionECMP) {
+      res["MultiRegionECMP"] = boost::any(*multiRegionECMP);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultiRegionECMP") != m.end() && !m["MultiRegionECMP"].empty()) {
+      multiRegionECMP = make_shared<string>(boost::any_cast<string>(m["MultiRegionECMP"]));
+    }
+  }
+
+
+  virtual ~CreateTransitRouterRouteTableRequestRouteTableOptions() = default;
+};
 class CreateTransitRouterRouteTableRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5673,6 +5892,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<CreateTransitRouterRouteTableRequestRouteTableOptions> routeTableOptions{};
   shared_ptr<vector<CreateTransitRouterRouteTableRequestTag>> tag{};
   shared_ptr<string> transitRouterId{};
   shared_ptr<string> transitRouterRouteTableDescription{};
@@ -5705,6 +5925,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeTableOptions) {
+      res["RouteTableOptions"] = routeTableOptions ? boost::any(routeTableOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -5743,6 +5966,13 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteTableOptions") != m.end() && !m["RouteTableOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteTableOptions"].type()) {
+        CreateTransitRouterRouteTableRequestRouteTableOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTableOptions"]));
+        routeTableOptions = make_shared<CreateTransitRouterRouteTableRequestRouteTableOptions>(model1);
+      }
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -8652,6 +8882,175 @@ public:
 
 
   virtual ~DeleteTrafficMarkingPolicyResponse() = default;
+};
+class DeleteTransitRouteTableAggregationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+  shared_ptr<string> transitRouteTableId{};
+
+  DeleteTransitRouteTableAggregationRequest() {}
+
+  explicit DeleteTransitRouteTableAggregationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    if (transitRouteTableId) {
+      res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+    if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
+      transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
+    }
+  }
+
+
+  virtual ~DeleteTransitRouteTableAggregationRequest() = default;
+};
+class DeleteTransitRouteTableAggregationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteTransitRouteTableAggregationResponseBody() {}
+
+  explicit DeleteTransitRouteTableAggregationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteTransitRouteTableAggregationResponseBody() = default;
+};
+class DeleteTransitRouteTableAggregationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteTransitRouteTableAggregationResponseBody> body{};
+
+  DeleteTransitRouteTableAggregationResponse() {}
+
+  explicit DeleteTransitRouteTableAggregationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteTransitRouteTableAggregationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteTransitRouteTableAggregationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteTransitRouteTableAggregationResponse() = default;
 };
 class DeleteTransitRouterRequest : public Darabonba::Model {
 public:
@@ -16666,11 +17065,13 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> flowLogId{};
   shared_ptr<string> flowLogName{};
+  shared_ptr<long> interval{};
   shared_ptr<string> logStoreName{};
   shared_ptr<string> projectName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
   shared_ptr<DescribeFlowlogsResponseBodyFlowLogsFlowLogTags> tags{};
+  shared_ptr<string> transitRouterAttachmentId{};
 
   DescribeFlowlogsResponseBodyFlowLogsFlowLog() {}
 
@@ -16697,6 +17098,9 @@ public:
     if (flowLogName) {
       res["FlowLogName"] = boost::any(*flowLogName);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (logStoreName) {
       res["LogStoreName"] = boost::any(*logStoreName);
     }
@@ -16711,6 +17115,9 @@ public:
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
     }
     return res;
   }
@@ -16731,6 +17138,9 @@ public:
     if (m.find("FlowLogName") != m.end() && !m["FlowLogName"].empty()) {
       flowLogName = make_shared<string>(boost::any_cast<string>(m["FlowLogName"]));
     }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
     if (m.find("LogStoreName") != m.end() && !m["LogStoreName"].empty()) {
       logStoreName = make_shared<string>(boost::any_cast<string>(m["LogStoreName"]));
     }
@@ -16749,6 +17159,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<DescribeFlowlogsResponseBodyFlowLogsFlowLogTags>(model1);
       }
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
     }
   }
 
@@ -18922,6 +19335,535 @@ public:
 
   virtual ~DescribeRouteServicesInCenResponse() = default;
 };
+class DescribeTransitRouteTableAggregationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+  shared_ptr<string> transitRouteTableId{};
+
+  DescribeTransitRouteTableAggregationRequest() {}
+
+  explicit DescribeTransitRouteTableAggregationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    if (transitRouteTableId) {
+      res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+    if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
+      transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationRequest() = default;
+};
+class DescribeTransitRouteTableAggregationResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> routeType{};
+  shared_ptr<string> scop{};
+  shared_ptr<string> status{};
+  shared_ptr<string> trRouteTableId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+
+  DescribeTransitRouteTableAggregationResponseBodyData() {}
+
+  explicit DescribeTransitRouteTableAggregationResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
+    }
+    if (scop) {
+      res["Scop"] = boost::any(*scop);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (trRouteTableId) {
+      res["TrRouteTableId"] = boost::any(*trRouteTableId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
+    }
+    if (m.find("Scop") != m.end() && !m["Scop"].empty()) {
+      scop = make_shared<string>(boost::any_cast<string>(m["Scop"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TrRouteTableId") != m.end() && !m["TrRouteTableId"].empty()) {
+      trRouteTableId = make_shared<string>(boost::any_cast<string>(m["TrRouteTableId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationResponseBodyData() = default;
+};
+class DescribeTransitRouteTableAggregationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<vector<DescribeTransitRouteTableAggregationResponseBodyData>> data{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  DescribeTransitRouteTableAggregationResponseBody() {}
+
+  explicit DescribeTransitRouteTableAggregationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeTransitRouteTableAggregationResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeTransitRouteTableAggregationResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeTransitRouteTableAggregationResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationResponseBody() = default;
+};
+class DescribeTransitRouteTableAggregationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeTransitRouteTableAggregationResponseBody> body{};
+
+  DescribeTransitRouteTableAggregationResponse() {}
+
+  explicit DescribeTransitRouteTableAggregationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeTransitRouteTableAggregationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeTransitRouteTableAggregationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationResponse() = default;
+};
+class DescribeTransitRouteTableAggregationDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+  shared_ptr<string> transitRouteTableId{};
+
+  DescribeTransitRouteTableAggregationDetailRequest() {}
+
+  explicit DescribeTransitRouteTableAggregationDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    if (transitRouteTableId) {
+      res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+    if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
+      transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationDetailRequest() = default;
+};
+class DescribeTransitRouteTableAggregationDetailResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> status{};
+
+  DescribeTransitRouteTableAggregationDetailResponseBodyData() {}
+
+  explicit DescribeTransitRouteTableAggregationDetailResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationDetailResponseBodyData() = default;
+};
+class DescribeTransitRouteTableAggregationDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<vector<DescribeTransitRouteTableAggregationDetailResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
+
+  DescribeTransitRouteTableAggregationDetailResponseBody() {}
+
+  explicit DescribeTransitRouteTableAggregationDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<DescribeTransitRouteTableAggregationDetailResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeTransitRouteTableAggregationDetailResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<DescribeTransitRouteTableAggregationDetailResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationDetailResponseBody() = default;
+};
+class DescribeTransitRouteTableAggregationDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeTransitRouteTableAggregationDetailResponseBody> body{};
+
+  DescribeTransitRouteTableAggregationDetailResponse() {}
+
+  explicit DescribeTransitRouteTableAggregationDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeTransitRouteTableAggregationDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeTransitRouteTableAggregationDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeTransitRouteTableAggregationDetailResponse() = default;
+};
 class DetachCenChildInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
@@ -20731,6 +21673,323 @@ public:
 
 
   virtual ~ListCenInterRegionTrafficQosPoliciesResponse() = default;
+};
+class ListCenInterRegionTrafficQosQueuesRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> trafficQosPolicyId{};
+  shared_ptr<string> trafficQosQueueDescription{};
+  shared_ptr<string> trafficQosQueueId{};
+  shared_ptr<string> trafficQosQueueName{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterId{};
+
+  ListCenInterRegionTrafficQosQueuesRequest() {}
+
+  explicit ListCenInterRegionTrafficQosQueuesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (trafficQosPolicyId) {
+      res["TrafficQosPolicyId"] = boost::any(*trafficQosPolicyId);
+    }
+    if (trafficQosQueueDescription) {
+      res["TrafficQosQueueDescription"] = boost::any(*trafficQosQueueDescription);
+    }
+    if (trafficQosQueueId) {
+      res["TrafficQosQueueId"] = boost::any(*trafficQosQueueId);
+    }
+    if (trafficQosQueueName) {
+      res["TrafficQosQueueName"] = boost::any(*trafficQosQueueName);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TrafficQosPolicyId") != m.end() && !m["TrafficQosPolicyId"].empty()) {
+      trafficQosPolicyId = make_shared<string>(boost::any_cast<string>(m["TrafficQosPolicyId"]));
+    }
+    if (m.find("TrafficQosQueueDescription") != m.end() && !m["TrafficQosQueueDescription"].empty()) {
+      trafficQosQueueDescription = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueDescription"]));
+    }
+    if (m.find("TrafficQosQueueId") != m.end() && !m["TrafficQosQueueId"].empty()) {
+      trafficQosQueueId = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueId"]));
+    }
+    if (m.find("TrafficQosQueueName") != m.end() && !m["TrafficQosQueueName"].empty()) {
+      trafficQosQueueName = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueName"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+  }
+
+
+  virtual ~ListCenInterRegionTrafficQosQueuesRequest() = default;
+};
+class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> dscps{};
+  shared_ptr<long> remainBandwidthPercent{};
+  shared_ptr<string> status{};
+  shared_ptr<string> trafficQosPolicyId{};
+  shared_ptr<string> trafficQosQueueDescription{};
+  shared_ptr<string> trafficQosQueueId{};
+  shared_ptr<string> trafficQosQueueName{};
+  shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterId{};
+
+  ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues() {}
+
+  explicit ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dscps) {
+      res["Dscps"] = boost::any(*dscps);
+    }
+    if (remainBandwidthPercent) {
+      res["RemainBandwidthPercent"] = boost::any(*remainBandwidthPercent);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (trafficQosPolicyId) {
+      res["TrafficQosPolicyId"] = boost::any(*trafficQosPolicyId);
+    }
+    if (trafficQosQueueDescription) {
+      res["TrafficQosQueueDescription"] = boost::any(*trafficQosQueueDescription);
+    }
+    if (trafficQosQueueId) {
+      res["TrafficQosQueueId"] = boost::any(*trafficQosQueueId);
+    }
+    if (trafficQosQueueName) {
+      res["TrafficQosQueueName"] = boost::any(*trafficQosQueueName);
+    }
+    if (transitRouterAttachmentId) {
+      res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterId) {
+      res["TransitRouterId"] = boost::any(*transitRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Dscps") != m.end() && !m["Dscps"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Dscps"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Dscps"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      dscps = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RemainBandwidthPercent") != m.end() && !m["RemainBandwidthPercent"].empty()) {
+      remainBandwidthPercent = make_shared<long>(boost::any_cast<long>(m["RemainBandwidthPercent"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TrafficQosPolicyId") != m.end() && !m["TrafficQosPolicyId"].empty()) {
+      trafficQosPolicyId = make_shared<string>(boost::any_cast<string>(m["TrafficQosPolicyId"]));
+    }
+    if (m.find("TrafficQosQueueDescription") != m.end() && !m["TrafficQosQueueDescription"].empty()) {
+      trafficQosQueueDescription = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueDescription"]));
+    }
+    if (m.find("TrafficQosQueueId") != m.end() && !m["TrafficQosQueueId"].empty()) {
+      trafficQosQueueId = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueId"]));
+    }
+    if (m.find("TrafficQosQueueName") != m.end() && !m["TrafficQosQueueName"].empty()) {
+      trafficQosQueueName = make_shared<string>(boost::any_cast<string>(m["TrafficQosQueueName"]));
+    }
+    if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
+      transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
+      transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+  }
+
+
+  virtual ~ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues() = default;
+};
+class ListCenInterRegionTrafficQosQueuesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues>> trafficQosQueues{};
+
+  ListCenInterRegionTrafficQosQueuesResponseBody() {}
+
+  explicit ListCenInterRegionTrafficQosQueuesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficQosQueues) {
+      vector<boost::any> temp1;
+      for(auto item1:*trafficQosQueues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrafficQosQueues"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficQosQueues") != m.end() && !m["TrafficQosQueues"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrafficQosQueues"].type()) {
+        vector<ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrafficQosQueues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trafficQosQueues = make_shared<vector<ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListCenInterRegionTrafficQosQueuesResponseBody() = default;
+};
+class ListCenInterRegionTrafficQosQueuesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCenInterRegionTrafficQosQueuesResponseBody> body{};
+
+  ListCenInterRegionTrafficQosQueuesResponse() {}
+
+  explicit ListCenInterRegionTrafficQosQueuesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCenInterRegionTrafficQosQueuesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCenInterRegionTrafficQosQueuesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCenInterRegionTrafficQosQueuesResponse() = default;
 };
 class ListGrantVSwitchEnisRequest : public Darabonba::Model {
 public:
@@ -25313,7 +26572,10 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> status{};
   shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterAttachmentResourceId{};
+  shared_ptr<string> transitRouterAttachmentResourceType{};
   shared_ptr<string> transitRouterRouteTableId{};
 
   ListTransitRouterRouteTableAssociationsRequest() {}
@@ -25344,8 +26606,17 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (transitRouterAttachmentId) {
       res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterAttachmentResourceId) {
+      res["TransitRouterAttachmentResourceId"] = boost::any(*transitRouterAttachmentResourceId);
+    }
+    if (transitRouterAttachmentResourceType) {
+      res["TransitRouterAttachmentResourceType"] = boost::any(*transitRouterAttachmentResourceType);
     }
     if (transitRouterRouteTableId) {
       res["TransitRouterRouteTableId"] = boost::any(*transitRouterRouteTableId);
@@ -25372,8 +26643,17 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
     if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
       transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterAttachmentResourceId") != m.end() && !m["TransitRouterAttachmentResourceId"].empty()) {
+      transitRouterAttachmentResourceId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentResourceId"]));
+    }
+    if (m.find("TransitRouterAttachmentResourceType") != m.end() && !m["TransitRouterAttachmentResourceType"].empty()) {
+      transitRouterAttachmentResourceType = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentResourceType"]));
     }
     if (m.find("TransitRouterRouteTableId") != m.end() && !m["TransitRouterRouteTableId"].empty()) {
       transitRouterRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouterRouteTableId"]));
@@ -25581,7 +26861,10 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> status{};
   shared_ptr<string> transitRouterAttachmentId{};
+  shared_ptr<string> transitRouterAttachmentResourceId{};
+  shared_ptr<string> transitRouterAttachmentResourceType{};
   shared_ptr<string> transitRouterRouteTableId{};
 
   ListTransitRouterRouteTablePropagationsRequest() {}
@@ -25612,8 +26895,17 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (transitRouterAttachmentId) {
       res["TransitRouterAttachmentId"] = boost::any(*transitRouterAttachmentId);
+    }
+    if (transitRouterAttachmentResourceId) {
+      res["TransitRouterAttachmentResourceId"] = boost::any(*transitRouterAttachmentResourceId);
+    }
+    if (transitRouterAttachmentResourceType) {
+      res["TransitRouterAttachmentResourceType"] = boost::any(*transitRouterAttachmentResourceType);
     }
     if (transitRouterRouteTableId) {
       res["TransitRouterRouteTableId"] = boost::any(*transitRouterRouteTableId);
@@ -25640,8 +26932,17 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
     if (m.find("TransitRouterAttachmentId") != m.end() && !m["TransitRouterAttachmentId"].empty()) {
       transitRouterAttachmentId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentId"]));
+    }
+    if (m.find("TransitRouterAttachmentResourceId") != m.end() && !m["TransitRouterAttachmentResourceId"].empty()) {
+      transitRouterAttachmentResourceId = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentResourceId"]));
+    }
+    if (m.find("TransitRouterAttachmentResourceType") != m.end() && !m["TransitRouterAttachmentResourceType"].empty()) {
+      transitRouterAttachmentResourceType = make_shared<string>(boost::any_cast<string>(m["TransitRouterAttachmentResourceType"]));
     }
     if (m.find("TransitRouterRouteTableId") != m.end() && !m["TransitRouterRouteTableId"].empty()) {
       transitRouterRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouterRouteTableId"]));
@@ -25841,6 +27142,35 @@ public:
 
   virtual ~ListTransitRouterRouteTablePropagationsResponse() = default;
 };
+class ListTransitRouterRouteTablesRequestRouteTableOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> multiRegionECMP{};
+
+  ListTransitRouterRouteTablesRequestRouteTableOptions() {}
+
+  explicit ListTransitRouterRouteTablesRequestRouteTableOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (multiRegionECMP) {
+      res["MultiRegionECMP"] = boost::any(*multiRegionECMP);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultiRegionECMP") != m.end() && !m["MultiRegionECMP"].empty()) {
+      multiRegionECMP = make_shared<string>(boost::any_cast<string>(m["MultiRegionECMP"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterRouteTablesRequestRouteTableOptions() = default;
+};
 class ListTransitRouterRouteTablesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -25885,6 +27215,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<ListTransitRouterRouteTablesRequestRouteTableOptions> routeTableOptions{};
   shared_ptr<vector<ListTransitRouterRouteTablesRequestTag>> tag{};
   shared_ptr<string> transitRouterId{};
   shared_ptr<vector<string>> transitRouterRouteTableIds{};
@@ -25919,6 +27250,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeTableOptions) {
+      res["RouteTableOptions"] = routeTableOptions ? boost::any(routeTableOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -25963,6 +27297,13 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteTableOptions") != m.end() && !m["RouteTableOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteTableOptions"].type()) {
+        ListTransitRouterRouteTablesRequestRouteTableOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTableOptions"]));
+        routeTableOptions = make_shared<ListTransitRouterRouteTablesRequestRouteTableOptions>(model1);
+      }
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -26011,6 +27352,35 @@ public:
 
   virtual ~ListTransitRouterRouteTablesRequest() = default;
 };
+class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> multiRegionECMP{};
+
+  ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions() {}
+
+  explicit ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (multiRegionECMP) {
+      res["MultiRegionECMP"] = boost::any(*multiRegionECMP);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultiRegionECMP") != m.end() && !m["MultiRegionECMP"].empty()) {
+      multiRegionECMP = make_shared<string>(boost::any_cast<string>(m["MultiRegionECMP"]));
+    }
+  }
+
+
+  virtual ~ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions() = default;
+};
 class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -26050,6 +27420,8 @@ public:
 class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> regionId{};
+  shared_ptr<ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions> routeTableOptions{};
   shared_ptr<vector<ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesTags>> tags{};
   shared_ptr<string> transitRouterRouteTableDescription{};
   shared_ptr<string> transitRouterRouteTableId{};
@@ -26069,6 +27441,12 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (routeTableOptions) {
+      res["RouteTableOptions"] = routeTableOptions ? boost::any(routeTableOptions->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -26098,6 +27476,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RouteTableOptions") != m.end() && !m["RouteTableOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteTableOptions"].type()) {
+        ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTableOptions"]));
+        routeTableOptions = make_shared<ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions>(model1);
+      }
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
@@ -26744,11 +28132,13 @@ public:
   shared_ptr<string> cenId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> orderType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterVpcAttachmentsRequestTag>> tag{};
   shared_ptr<string> transitRouterAttachmentId{};
   shared_ptr<string> transitRouterId{};
@@ -26773,6 +28163,9 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -26787,6 +28180,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -26817,6 +28213,9 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -26831,6 +28230,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -26942,6 +28344,7 @@ class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments : publ
 public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> orderType{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsTags>> tags{};
@@ -26969,6 +28372,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (orderType) {
+      res["OrderType"] = boost::any(*orderType);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -27020,6 +28426,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
+      orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -27707,6 +29116,49 @@ public:
 
   virtual ~ListTransitRouterVpnAttachmentsResponse() = default;
 };
+class ListTransitRoutersRequestFeatureFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> value{};
+
+  ListTransitRoutersRequestFeatureFilter() {}
+
+  explicit ListTransitRoutersRequestFeatureFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Value"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Value"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      value = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListTransitRoutersRequestFeatureFilter() = default;
+};
 class ListTransitRoutersRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -27746,6 +29198,7 @@ public:
 class ListTransitRoutersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<vector<ListTransitRoutersRequestFeatureFilter>> featureFilter{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -27753,8 +29206,11 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> status{};
   shared_ptr<vector<ListTransitRoutersRequestTag>> tag{};
   shared_ptr<string> transitRouterId{};
+  shared_ptr<string> transitRouterName{};
+  shared_ptr<string> type{};
 
   ListTransitRoutersRequest() {}
 
@@ -27768,6 +29224,13 @@ public:
     map<string, boost::any> res;
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (featureFilter) {
+      vector<boost::any> temp1;
+      for(auto item1:*featureFilter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FeatureFilter"] = boost::any(temp1);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -27790,6 +29253,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -27800,12 +29266,31 @@ public:
     if (transitRouterId) {
       res["TransitRouterId"] = boost::any(*transitRouterId);
     }
+    if (transitRouterName) {
+      res["TransitRouterName"] = boost::any(*transitRouterName);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("FeatureFilter") != m.end() && !m["FeatureFilter"].empty()) {
+      if (typeid(vector<boost::any>) == m["FeatureFilter"].type()) {
+        vector<ListTransitRoutersRequestFeatureFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FeatureFilter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTransitRoutersRequestFeatureFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        featureFilter = make_shared<vector<ListTransitRoutersRequestFeatureFilter>>(expect1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -27828,6 +29313,9 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
         vector<ListTransitRoutersRequestTag> expect1;
@@ -27843,6 +29331,12 @@ public:
     }
     if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
       transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
+    }
+    if (m.find("TransitRouterName") != m.end() && !m["TransitRouterName"].empty()) {
+      transitRouterName = make_shared<string>(boost::any_cast<string>(m["TransitRouterName"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
   }
 
@@ -30192,6 +31686,168 @@ public:
 
 
   virtual ~PublishRouteEntriesResponse() = default;
+};
+class RefreshTransitRouteTableAggregationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> transitRouteTableAggregationCidr{};
+  shared_ptr<string> transitRouteTableId{};
+
+  RefreshTransitRouteTableAggregationRequest() {}
+
+  explicit RefreshTransitRouteTableAggregationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (transitRouteTableAggregationCidr) {
+      res["TransitRouteTableAggregationCidr"] = boost::any(*transitRouteTableAggregationCidr);
+    }
+    if (transitRouteTableId) {
+      res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TransitRouteTableAggregationCidr") != m.end() && !m["TransitRouteTableAggregationCidr"].empty()) {
+      transitRouteTableAggregationCidr = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationCidr"]));
+    }
+    if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
+      transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
+    }
+  }
+
+
+  virtual ~RefreshTransitRouteTableAggregationRequest() = default;
+};
+class RefreshTransitRouteTableAggregationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RefreshTransitRouteTableAggregationResponseBody() {}
+
+  explicit RefreshTransitRouteTableAggregationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RefreshTransitRouteTableAggregationResponseBody() = default;
+};
+class RefreshTransitRouteTableAggregationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RefreshTransitRouteTableAggregationResponseBody> body{};
+
+  RefreshTransitRouteTableAggregationResponse() {}
+
+  explicit RefreshTransitRouteTableAggregationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RefreshTransitRouteTableAggregationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RefreshTransitRouteTableAggregationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RefreshTransitRouteTableAggregationResponse() = default;
 };
 class RegisterTransitRouterMulticastGroupMembersRequest : public Darabonba::Model {
 public:
@@ -33080,9 +34736,195 @@ public:
 
   virtual ~UpdateCenInterRegionTrafficQosQueueAttributeResponse() = default;
 };
+class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules : public Darabonba::Model {
+public:
+  shared_ptr<string> dstCidr{};
+  shared_ptr<vector<long>> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<vector<long>> srcPortRange{};
+  shared_ptr<string> trafficMatchRuleDescription{};
+  shared_ptr<string> trafficMatchRuleName{};
+
+  UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules() {}
+
+  explicit UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    if (trafficMatchRuleDescription) {
+      res["TrafficMatchRuleDescription"] = boost::any(*trafficMatchRuleDescription);
+    }
+    if (trafficMatchRuleName) {
+      res["TrafficMatchRuleName"] = boost::any(*trafficMatchRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["DstPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DstPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      dstPortRange = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SrcPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SrcPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      srcPortRange = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TrafficMatchRuleDescription") != m.end() && !m["TrafficMatchRuleDescription"].empty()) {
+      trafficMatchRuleDescription = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleDescription"]));
+    }
+    if (m.find("TrafficMatchRuleName") != m.end() && !m["TrafficMatchRuleName"].empty()) {
+      trafficMatchRuleName = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules() = default;
+};
+class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules : public Darabonba::Model {
+public:
+  shared_ptr<string> dstCidr{};
+  shared_ptr<vector<long>> dstPortRange{};
+  shared_ptr<long> matchDscp{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> srcCidr{};
+  shared_ptr<vector<long>> srcPortRange{};
+  shared_ptr<string> trafficMatchRuleDescription{};
+  shared_ptr<string> trafficMatchRuleName{};
+
+  UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules() {}
+
+  explicit UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dstCidr) {
+      res["DstCidr"] = boost::any(*dstCidr);
+    }
+    if (dstPortRange) {
+      res["DstPortRange"] = boost::any(*dstPortRange);
+    }
+    if (matchDscp) {
+      res["MatchDscp"] = boost::any(*matchDscp);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (srcCidr) {
+      res["SrcCidr"] = boost::any(*srcCidr);
+    }
+    if (srcPortRange) {
+      res["SrcPortRange"] = boost::any(*srcPortRange);
+    }
+    if (trafficMatchRuleDescription) {
+      res["TrafficMatchRuleDescription"] = boost::any(*trafficMatchRuleDescription);
+    }
+    if (trafficMatchRuleName) {
+      res["TrafficMatchRuleName"] = boost::any(*trafficMatchRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DstCidr") != m.end() && !m["DstCidr"].empty()) {
+      dstCidr = make_shared<string>(boost::any_cast<string>(m["DstCidr"]));
+    }
+    if (m.find("DstPortRange") != m.end() && !m["DstPortRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["DstPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DstPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      dstPortRange = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MatchDscp") != m.end() && !m["MatchDscp"].empty()) {
+      matchDscp = make_shared<long>(boost::any_cast<long>(m["MatchDscp"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("SrcCidr") != m.end() && !m["SrcCidr"].empty()) {
+      srcCidr = make_shared<string>(boost::any_cast<string>(m["SrcCidr"]));
+    }
+    if (m.find("SrcPortRange") != m.end() && !m["SrcPortRange"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SrcPortRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SrcPortRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      srcPortRange = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TrafficMatchRuleDescription") != m.end() && !m["TrafficMatchRuleDescription"].empty()) {
+      trafficMatchRuleDescription = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleDescription"]));
+    }
+    if (m.find("TrafficMatchRuleName") != m.end() && !m["TrafficMatchRuleName"].empty()) {
+      trafficMatchRuleName = make_shared<string>(boost::any_cast<string>(m["TrafficMatchRuleName"]));
+    }
+  }
+
+
+  virtual ~UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules() = default;
+};
 class UpdateTrafficMarkingPolicyAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules>> addTrafficMatchRules{};
   shared_ptr<string> clientToken{};
+  shared_ptr<vector<UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules>> deleteTrafficMatchRules{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -33102,8 +34944,22 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addTrafficMatchRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*addTrafficMatchRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AddTrafficMatchRules"] = boost::any(temp1);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deleteTrafficMatchRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*deleteTrafficMatchRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DeleteTrafficMatchRules"] = boost::any(temp1);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -33133,8 +34989,34 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddTrafficMatchRules") != m.end() && !m["AddTrafficMatchRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["AddTrafficMatchRules"].type()) {
+        vector<UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AddTrafficMatchRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        addTrafficMatchRules = make_shared<vector<UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules>>(expect1);
+      }
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeleteTrafficMatchRules") != m.end() && !m["DeleteTrafficMatchRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DeleteTrafficMatchRules"].type()) {
+        vector<UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DeleteTrafficMatchRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        deleteTrafficMatchRules = make_shared<vector<UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules>>(expect1);
+      }
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -33819,6 +35701,35 @@ public:
 
   virtual ~UpdateTransitRouterRouteEntryResponse() = default;
 };
+class UpdateTransitRouterRouteTableRequestRouteTableOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> multiRegionECMP{};
+
+  UpdateTransitRouterRouteTableRequestRouteTableOptions() {}
+
+  explicit UpdateTransitRouterRouteTableRequestRouteTableOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (multiRegionECMP) {
+      res["MultiRegionECMP"] = boost::any(*multiRegionECMP);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MultiRegionECMP") != m.end() && !m["MultiRegionECMP"].empty()) {
+      multiRegionECMP = make_shared<string>(boost::any_cast<string>(m["MultiRegionECMP"]));
+    }
+  }
+
+
+  virtual ~UpdateTransitRouterRouteTableRequestRouteTableOptions() = default;
+};
 class UpdateTransitRouterRouteTableRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -33827,6 +35738,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<UpdateTransitRouterRouteTableRequestRouteTableOptions> routeTableOptions{};
   shared_ptr<string> transitRouterRouteTableDescription{};
   shared_ptr<string> transitRouterRouteTableId{};
   shared_ptr<string> transitRouterRouteTableName{};
@@ -33859,6 +35771,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (routeTableOptions) {
+      res["RouteTableOptions"] = routeTableOptions ? boost::any(routeTableOptions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (transitRouterRouteTableDescription) {
       res["TransitRouterRouteTableDescription"] = boost::any(*transitRouterRouteTableDescription);
     }
@@ -33889,6 +35804,13 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteTableOptions") != m.end() && !m["RouteTableOptions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RouteTableOptions"].type()) {
+        UpdateTransitRouterRouteTableRequestRouteTableOptions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTableOptions"]));
+        routeTableOptions = make_shared<UpdateTransitRouterRouteTableRequestRouteTableOptions>(model1);
+      }
     }
     if (m.find("TransitRouterRouteTableDescription") != m.end() && !m["TransitRouterRouteTableDescription"].empty()) {
       transitRouterRouteTableDescription = make_shared<string>(boost::any_cast<string>(m["TransitRouterRouteTableDescription"]));
@@ -35026,6 +36948,8 @@ public:
   CreateFlowlogResponse createFlowlog(shared_ptr<CreateFlowlogRequest> request);
   CreateTrafficMarkingPolicyResponse createTrafficMarkingPolicyWithOptions(shared_ptr<CreateTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTrafficMarkingPolicyResponse createTrafficMarkingPolicy(shared_ptr<CreateTrafficMarkingPolicyRequest> request);
+  CreateTransitRouteTableAggregationResponse createTransitRouteTableAggregationWithOptions(shared_ptr<CreateTransitRouteTableAggregationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateTransitRouteTableAggregationResponse createTransitRouteTableAggregation(shared_ptr<CreateTransitRouteTableAggregationRequest> request);
   CreateTransitRouterResponse createTransitRouterWithOptions(shared_ptr<CreateTransitRouterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTransitRouterResponse createTransitRouter(shared_ptr<CreateTransitRouterRequest> request);
   CreateTransitRouterCidrResponse createTransitRouterCidrWithOptions(shared_ptr<CreateTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35068,6 +36992,8 @@ public:
   DeleteRouteServiceInCenResponse deleteRouteServiceInCen(shared_ptr<DeleteRouteServiceInCenRequest> request);
   DeleteTrafficMarkingPolicyResponse deleteTrafficMarkingPolicyWithOptions(shared_ptr<DeleteTrafficMarkingPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTrafficMarkingPolicyResponse deleteTrafficMarkingPolicy(shared_ptr<DeleteTrafficMarkingPolicyRequest> request);
+  DeleteTransitRouteTableAggregationResponse deleteTransitRouteTableAggregationWithOptions(shared_ptr<DeleteTransitRouteTableAggregationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTransitRouteTableAggregationResponse deleteTransitRouteTableAggregation(shared_ptr<DeleteTransitRouteTableAggregationRequest> request);
   DeleteTransitRouterResponse deleteTransitRouterWithOptions(shared_ptr<DeleteTransitRouterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTransitRouterResponse deleteTransitRouter(shared_ptr<DeleteTransitRouterRequest> request);
   DeleteTransitRouterCidrResponse deleteTransitRouterCidrWithOptions(shared_ptr<DeleteTransitRouterCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35132,6 +37058,10 @@ public:
   DescribeRouteConflictResponse describeRouteConflict(shared_ptr<DescribeRouteConflictRequest> request);
   DescribeRouteServicesInCenResponse describeRouteServicesInCenWithOptions(shared_ptr<DescribeRouteServicesInCenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRouteServicesInCenResponse describeRouteServicesInCen(shared_ptr<DescribeRouteServicesInCenRequest> request);
+  DescribeTransitRouteTableAggregationResponse describeTransitRouteTableAggregationWithOptions(shared_ptr<DescribeTransitRouteTableAggregationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeTransitRouteTableAggregationResponse describeTransitRouteTableAggregation(shared_ptr<DescribeTransitRouteTableAggregationRequest> request);
+  DescribeTransitRouteTableAggregationDetailResponse describeTransitRouteTableAggregationDetailWithOptions(shared_ptr<DescribeTransitRouteTableAggregationDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeTransitRouteTableAggregationDetailResponse describeTransitRouteTableAggregationDetail(shared_ptr<DescribeTransitRouteTableAggregationDetailRequest> request);
   DetachCenChildInstanceResponse detachCenChildInstanceWithOptions(shared_ptr<DetachCenChildInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachCenChildInstanceResponse detachCenChildInstance(shared_ptr<DetachCenChildInstanceRequest> request);
   DisableCenVbrHealthCheckResponse disableCenVbrHealthCheckWithOptions(shared_ptr<DisableCenVbrHealthCheckRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35150,6 +37080,8 @@ public:
   GrantInstanceToTransitRouterResponse grantInstanceToTransitRouter(shared_ptr<GrantInstanceToTransitRouterRequest> request);
   ListCenInterRegionTrafficQosPoliciesResponse listCenInterRegionTrafficQosPoliciesWithOptions(shared_ptr<ListCenInterRegionTrafficQosPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCenInterRegionTrafficQosPoliciesResponse listCenInterRegionTrafficQosPolicies(shared_ptr<ListCenInterRegionTrafficQosPoliciesRequest> request);
+  ListCenInterRegionTrafficQosQueuesResponse listCenInterRegionTrafficQosQueuesWithOptions(shared_ptr<ListCenInterRegionTrafficQosQueuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCenInterRegionTrafficQosQueuesResponse listCenInterRegionTrafficQosQueues(shared_ptr<ListCenInterRegionTrafficQosQueuesRequest> request);
   ListGrantVSwitchEnisResponse listGrantVSwitchEnisWithOptions(shared_ptr<ListGrantVSwitchEnisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListGrantVSwitchEnisResponse listGrantVSwitchEnis(shared_ptr<ListGrantVSwitchEnisRequest> request);
   ListGrantVSwitchesToCenResponse listGrantVSwitchesToCenWithOptions(shared_ptr<ListGrantVSwitchesToCenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35212,6 +37144,8 @@ public:
   OpenTransitRouterServiceResponse openTransitRouterService(shared_ptr<OpenTransitRouterServiceRequest> request);
   PublishRouteEntriesResponse publishRouteEntriesWithOptions(shared_ptr<PublishRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishRouteEntriesResponse publishRouteEntries(shared_ptr<PublishRouteEntriesRequest> request);
+  RefreshTransitRouteTableAggregationResponse refreshTransitRouteTableAggregationWithOptions(shared_ptr<RefreshTransitRouteTableAggregationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RefreshTransitRouteTableAggregationResponse refreshTransitRouteTableAggregation(shared_ptr<RefreshTransitRouteTableAggregationRequest> request);
   RegisterTransitRouterMulticastGroupMembersResponse registerTransitRouterMulticastGroupMembersWithOptions(shared_ptr<RegisterTransitRouterMulticastGroupMembersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RegisterTransitRouterMulticastGroupMembersResponse registerTransitRouterMulticastGroupMembers(shared_ptr<RegisterTransitRouterMulticastGroupMembersRequest> request);
   RegisterTransitRouterMulticastGroupSourcesResponse registerTransitRouterMulticastGroupSourcesWithOptions(shared_ptr<RegisterTransitRouterMulticastGroupSourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
