@@ -33724,10 +33724,12 @@ public:
 class GetQualityFollowerResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> alarmMode{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> entityId{};
   shared_ptr<string> follower{};
   shared_ptr<string> followerAccountName{};
   shared_ptr<long> id{};
+  shared_ptr<long> modifyTime{};
   shared_ptr<string> projectName{};
   shared_ptr<string> tableName{};
 
@@ -33744,6 +33746,9 @@ public:
     if (alarmMode) {
       res["AlarmMode"] = boost::any(*alarmMode);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
@@ -33755,6 +33760,9 @@ public:
     }
     if (id) {
       res["Id"] = boost::any(*id);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
@@ -33769,6 +33777,9 @@ public:
     if (m.find("AlarmMode") != m.end() && !m["AlarmMode"].empty()) {
       alarmMode = make_shared<long>(boost::any_cast<long>(m["AlarmMode"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<string>(boost::any_cast<string>(m["EntityId"]));
     }
@@ -33780,6 +33791,9 @@ public:
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -33983,6 +33997,7 @@ public:
   shared_ptr<string> methodName{};
   shared_ptr<string> onDuty{};
   shared_ptr<string> onDutyAccountName{};
+  shared_ptr<bool> openSwitch{};
   shared_ptr<string> operator_{};
   shared_ptr<long> predictType{};
   shared_ptr<string> property{};
@@ -34042,6 +34057,9 @@ public:
     }
     if (onDutyAccountName) {
       res["OnDutyAccountName"] = boost::any(*onDutyAccountName);
+    }
+    if (openSwitch) {
+      res["OpenSwitch"] = boost::any(*openSwitch);
     }
     if (operator_) {
       res["Operator"] = boost::any(*operator_);
@@ -34115,6 +34133,9 @@ public:
     }
     if (m.find("OnDutyAccountName") != m.end() && !m["OnDutyAccountName"].empty()) {
       onDutyAccountName = make_shared<string>(boost::any_cast<string>(m["OnDutyAccountName"]));
+    }
+    if (m.find("OpenSwitch") != m.end() && !m["OpenSwitch"].empty()) {
+      openSwitch = make_shared<bool>(boost::any_cast<bool>(m["OpenSwitch"]));
     }
     if (m.find("Operator") != m.end() && !m["Operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["Operator"]));
@@ -53808,6 +53829,7 @@ public:
   shared_ptr<string> matchExpression{};
   shared_ptr<string> methodName{};
   shared_ptr<string> op{};
+  shared_ptr<bool> open{};
   shared_ptr<string> projectName{};
   shared_ptr<string> property{};
   shared_ptr<vector<ListQualityResultsByRuleResponseBodyDataRuleChecksReferenceValue>> referenceValue{};
@@ -53909,6 +53931,9 @@ public:
     }
     if (op) {
       res["Op"] = boost::any(*op);
+    }
+    if (open) {
+      res["Open"] = boost::any(*open);
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
@@ -54044,6 +54069,9 @@ public:
     }
     if (m.find("Op") != m.end() && !m["Op"].empty()) {
       op = make_shared<string>(boost::any_cast<string>(m["Op"]));
+    }
+    if (m.find("Open") != m.end() && !m["Open"].empty()) {
+      open = make_shared<bool>(boost::any_cast<bool>(m["Open"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
