@@ -220,6 +220,9 @@ CreateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::createCustomDom
   if (!Darabonba_Util::Client::isUnset<TLSConfig>(request->tlsConfig)) {
     body->insert(pair<string, TLSConfig>("tlsConfig", *request->tlsConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<WAFConfig>(request->wafConfig)) {
+    body->insert(pair<string, WAFConfig>("wafConfig", *request->wafConfig));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
@@ -3247,6 +3250,9 @@ UpdateCustomDomainResponse Alibabacloud_FC-Open20210406::Client::updateCustomDom
   }
   if (!Darabonba_Util::Client::isUnset<TLSConfig>(request->tlsConfig)) {
     body->insert(pair<string, TLSConfig>("tlsConfig", *request->tlsConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<WAFConfig>(request->wafConfig)) {
+    body->insert(pair<string, WAFConfig>("wafConfig", *request->wafConfig));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {

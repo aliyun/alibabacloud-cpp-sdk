@@ -3183,6 +3183,35 @@ public:
 
   virtual ~VendorConfig() = default;
 };
+class WAFConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableWAF{};
+
+  WAFConfig() {}
+
+  explicit WAFConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableWAF) {
+      res["enableWAF"] = boost::any(*enableWAF);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableWAF") != m.end() && !m["enableWAF"].empty()) {
+      enableWAF = make_shared<bool>(boost::any_cast<bool>(m["enableWAF"]));
+    }
+  }
+
+
+  virtual ~WAFConfig() = default;
+};
 class ClaimGPUInstanceHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -3791,6 +3820,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   CreateCustomDomainRequest() {}
 
@@ -3816,6 +3846,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -3848,6 +3881,13 @@ public:
         tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
+      }
+    }
   }
 
 
@@ -3864,6 +3904,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   CreateCustomDomainResponseBody() {}
 
@@ -3901,6 +3942,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -3943,6 +3987,13 @@ public:
         TLSConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
         tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
       }
     }
   }
@@ -7324,6 +7375,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   GetCustomDomainResponseBody() {}
 
@@ -7361,6 +7413,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -7403,6 +7458,13 @@ public:
         TLSConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
         tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
       }
     }
   }
@@ -10275,6 +10337,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   ListCustomDomainsResponseBodyCustomDomains() {}
 
@@ -10312,6 +10375,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -10354,6 +10420,13 @@ public:
         TLSConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
         tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
       }
     }
   }
@@ -16763,6 +16836,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   UpdateCustomDomainRequest() {}
 
@@ -16785,6 +16859,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -16814,6 +16891,13 @@ public:
         tlsConfig = make_shared<TLSConfig>(model1);
       }
     }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
+      }
+    }
   }
 
 
@@ -16830,6 +16914,7 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<RouteConfig> routeConfig{};
   shared_ptr<TLSConfig> tlsConfig{};
+  shared_ptr<WAFConfig> wafConfig{};
 
   UpdateCustomDomainResponseBody() {}
 
@@ -16867,6 +16952,9 @@ public:
     }
     if (tlsConfig) {
       res["tlsConfig"] = tlsConfig ? boost::any(tlsConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (wafConfig) {
+      res["wafConfig"] = wafConfig ? boost::any(wafConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -16909,6 +16997,13 @@ public:
         TLSConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tlsConfig"]));
         tlsConfig = make_shared<TLSConfig>(model1);
+      }
+    }
+    if (m.find("wafConfig") != m.end() && !m["wafConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["wafConfig"].type()) {
+        WAFConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["wafConfig"]));
+        wafConfig = make_shared<WAFConfig>(model1);
       }
     }
   }
