@@ -22398,10 +22398,8 @@ public:
   shared_ptr<long> datasetMaxRelationCount{};
   shared_ptr<long> datasetMaxTotalFileSize{};
   shared_ptr<string> description{};
-  shared_ptr<long> engineConcurrency{};
   shared_ptr<long> projectMaxDatasetCount{};
   shared_ptr<string> projectName{};
-  shared_ptr<long> projectQueriesPerSecond{};
   shared_ptr<string> serviceRole{};
   shared_ptr<string> templateId{};
 
@@ -22433,17 +22431,11 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
-    if (engineConcurrency) {
-      res["EngineConcurrency"] = boost::any(*engineConcurrency);
-    }
     if (projectMaxDatasetCount) {
       res["ProjectMaxDatasetCount"] = boost::any(*projectMaxDatasetCount);
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
-    }
-    if (projectQueriesPerSecond) {
-      res["ProjectQueriesPerSecond"] = boost::any(*projectQueriesPerSecond);
     }
     if (serviceRole) {
       res["ServiceRole"] = boost::any(*serviceRole);
@@ -22473,17 +22465,11 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
-    if (m.find("EngineConcurrency") != m.end() && !m["EngineConcurrency"].empty()) {
-      engineConcurrency = make_shared<long>(boost::any_cast<long>(m["EngineConcurrency"]));
-    }
     if (m.find("ProjectMaxDatasetCount") != m.end() && !m["ProjectMaxDatasetCount"].empty()) {
       projectMaxDatasetCount = make_shared<long>(boost::any_cast<long>(m["ProjectMaxDatasetCount"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
-    }
-    if (m.find("ProjectQueriesPerSecond") != m.end() && !m["ProjectQueriesPerSecond"].empty()) {
-      projectQueriesPerSecond = make_shared<long>(boost::any_cast<long>(m["ProjectQueriesPerSecond"]));
     }
     if (m.find("ServiceRole") != m.end() && !m["ServiceRole"].empty()) {
       serviceRole = make_shared<string>(boost::any_cast<string>(m["ServiceRole"]));

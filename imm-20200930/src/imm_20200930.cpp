@@ -3497,17 +3497,11 @@ UpdateProjectResponse Alibabacloud_Imm20200930::Client::updateProjectWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->engineConcurrency)) {
-    query->insert(pair<string, long>("EngineConcurrency", *request->engineConcurrency));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->projectMaxDatasetCount)) {
     query->insert(pair<string, long>("ProjectMaxDatasetCount", *request->projectMaxDatasetCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->projectQueriesPerSecond)) {
-    query->insert(pair<string, long>("ProjectQueriesPerSecond", *request->projectQueriesPerSecond));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceRole)) {
     query->insert(pair<string, string>("ServiceRole", *request->serviceRole));
