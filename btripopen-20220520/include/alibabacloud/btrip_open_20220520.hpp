@@ -26424,6 +26424,7 @@ public:
   shared_ptr<FlightSearchListResponseBodyModuleFlightListAirlineInfo> airlineInfo{};
   shared_ptr<FlightSearchListResponseBodyModuleFlightListArrAirportInfo> arrAirportInfo{};
   shared_ptr<string> arrDate{};
+  shared_ptr<long> basicCabinPrice{};
   shared_ptr<long> buildPrice{};
   shared_ptr<string> cabin{};
   shared_ptr<string> cabinClass{};
@@ -26482,6 +26483,9 @@ public:
     }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
+    }
+    if (basicCabinPrice) {
+      res["basic_cabin_price"] = boost::any(*basicCabinPrice);
     }
     if (buildPrice) {
       res["build_price"] = boost::any(*buildPrice);
@@ -26628,6 +26632,9 @@ public:
     }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
+    }
+    if (m.find("basic_cabin_price") != m.end() && !m["basic_cabin_price"].empty()) {
+      basicCabinPrice = make_shared<long>(boost::any_cast<long>(m["basic_cabin_price"]));
     }
     if (m.find("build_price") != m.end() && !m["build_price"].empty()) {
       buildPrice = make_shared<long>(boost::any_cast<long>(m["build_price"]));
