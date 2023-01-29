@@ -465,6 +465,9 @@ DeleteAutoSnapshotPolicyResponse Alibabacloud_DBFS20200418::Client::deleteAutoSn
 DeleteDbfsResponse Alibabacloud_DBFS20200418::Client::deleteDbfsWithOptions(shared_ptr<DeleteDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("Force", *request->force));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fsId)) {
     query->insert(pair<string, string>("FsId", *request->fsId));
   }
@@ -745,6 +748,31 @@ GetServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::getServiceLinked
 GetServiceLinkedRoleResponse Alibabacloud_DBFS20200418::Client::getServiceLinkedRole(shared_ptr<GetServiceLinkedRoleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getServiceLinkedRoleWithOptions(request, runtime);
+}
+
+GetSnapshotLinkResponse Alibabacloud_DBFS20200418::Client::getSnapshotLinkWithOptions(shared_ptr<GetSnapshotLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSnapshotLink"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSnapshotLinkResponse(callApi(params, req, runtime));
+}
+
+GetSnapshotLinkResponse Alibabacloud_DBFS20200418::Client::getSnapshotLink(shared_ptr<GetSnapshotLinkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getSnapshotLinkWithOptions(request, runtime);
 }
 
 ListAutoSnapshotPoliciesResponse Alibabacloud_DBFS20200418::Client::listAutoSnapshotPoliciesWithOptions(shared_ptr<ListAutoSnapshotPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1049,6 +1077,46 @@ ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshotWithOptions(
 ListSnapshotResponse Alibabacloud_DBFS20200418::Client::listSnapshot(shared_ptr<ListSnapshotRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listSnapshotWithOptions(request, runtime);
+}
+
+ListSnapshotLinksResponse Alibabacloud_DBFS20200418::Client::listSnapshotLinksWithOptions(shared_ptr<ListSnapshotLinksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterKey)) {
+    query->insert(pair<string, string>("FilterKey", *request->filterKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filterValue)) {
+    query->insert(pair<string, string>("FilterValue", *request->filterValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSnapshotLinks"))},
+    {"version", boost::any(string("2020-04-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSnapshotLinksResponse(callApi(params, req, runtime));
+}
+
+ListSnapshotLinksResponse Alibabacloud_DBFS20200418::Client::listSnapshotLinks(shared_ptr<ListSnapshotLinksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSnapshotLinksWithOptions(request, runtime);
 }
 
 ListTagKeysResponse Alibabacloud_DBFS20200418::Client::listTagKeysWithOptions(shared_ptr<ListTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

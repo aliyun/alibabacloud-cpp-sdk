@@ -1555,6 +1555,7 @@ public:
 };
 class DeleteDbfsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> force{};
   shared_ptr<string> fsId{};
   shared_ptr<string> regionId{};
 
@@ -1568,6 +1569,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (fsId) {
       res["FsId"] = boost::any(*fsId);
     }
@@ -1578,6 +1582,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
     if (m.find("FsId") != m.end() && !m["FsId"].empty()) {
       fsId = make_shared<string>(boost::any_cast<string>(m["FsId"]));
     }
@@ -2819,7 +2826,7 @@ public:
       res["SnapshotCount"] = boost::any(*snapshotCount);
     }
     if (totalSize) {
-      res["totalSize"] = boost::any(*totalSize);
+      res["TotalSize"] = boost::any(*totalSize);
     }
     return res;
   }
@@ -2834,8 +2841,8 @@ public:
     if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
       snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
     }
-    if (m.find("totalSize") != m.end() && !m["totalSize"].empty()) {
-      totalSize = make_shared<long>(boost::any_cast<long>(m["totalSize"]));
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
     }
   }
 
@@ -3378,6 +3385,272 @@ public:
 
   virtual ~GetServiceLinkedRoleResponse() = default;
 };
+class GetSnapshotLinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> linkId{};
+  shared_ptr<string> regionId{};
+
+  GetSnapshotLinkRequest() {}
+
+  explicit GetSnapshotLinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (linkId) {
+      res["LinkId"] = boost::any(*linkId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LinkId") != m.end() && !m["LinkId"].empty()) {
+      linkId = make_shared<string>(boost::any_cast<string>(m["LinkId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetSnapshotLinkRequest() = default;
+};
+class GetSnapshotLinkResponseBodyDataEcsList : public Darabonba::Model {
+public:
+  shared_ptr<string> ecsId{};
+
+  GetSnapshotLinkResponseBodyDataEcsList() {}
+
+  explicit GetSnapshotLinkResponseBodyDataEcsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsId) {
+      res["EcsId"] = boost::any(*ecsId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsId") != m.end() && !m["EcsId"].empty()) {
+      ecsId = make_shared<string>(boost::any_cast<string>(m["EcsId"]));
+    }
+  }
+
+
+  virtual ~GetSnapshotLinkResponseBodyDataEcsList() = default;
+};
+class GetSnapshotLinkResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<vector<GetSnapshotLinkResponseBodyDataEcsList>> ecsList{};
+  shared_ptr<string> fsId{};
+  shared_ptr<string> fsName{};
+  shared_ptr<string> linkId{};
+  shared_ptr<long> snapshotCount{};
+  shared_ptr<long> sourceSize{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalSize{};
+
+  GetSnapshotLinkResponseBodyData() {}
+
+  explicit GetSnapshotLinkResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (ecsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ecsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EcsList"] = boost::any(temp1);
+    }
+    if (fsId) {
+      res["FsId"] = boost::any(*fsId);
+    }
+    if (fsName) {
+      res["FsName"] = boost::any(*fsName);
+    }
+    if (linkId) {
+      res["LinkId"] = boost::any(*linkId);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (sourceSize) {
+      res["SourceSize"] = boost::any(*sourceSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("EcsList") != m.end() && !m["EcsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["EcsList"].type()) {
+        vector<GetSnapshotLinkResponseBodyDataEcsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EcsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetSnapshotLinkResponseBodyDataEcsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ecsList = make_shared<vector<GetSnapshotLinkResponseBodyDataEcsList>>(expect1);
+      }
+    }
+    if (m.find("FsId") != m.end() && !m["FsId"].empty()) {
+      fsId = make_shared<string>(boost::any_cast<string>(m["FsId"]));
+    }
+    if (m.find("FsName") != m.end() && !m["FsName"].empty()) {
+      fsName = make_shared<string>(boost::any_cast<string>(m["FsName"]));
+    }
+    if (m.find("LinkId") != m.end() && !m["LinkId"].empty()) {
+      linkId = make_shared<string>(boost::any_cast<string>(m["LinkId"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
+    }
+    if (m.find("SourceSize") != m.end() && !m["SourceSize"].empty()) {
+      sourceSize = make_shared<long>(boost::any_cast<long>(m["SourceSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~GetSnapshotLinkResponseBodyData() = default;
+};
+class GetSnapshotLinkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetSnapshotLinkResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  GetSnapshotLinkResponseBody() {}
+
+  explicit GetSnapshotLinkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetSnapshotLinkResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetSnapshotLinkResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetSnapshotLinkResponseBody() = default;
+};
+class GetSnapshotLinkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetSnapshotLinkResponseBody> body{};
+
+  GetSnapshotLinkResponse() {}
+
+  explicit GetSnapshotLinkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetSnapshotLinkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetSnapshotLinkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetSnapshotLinkResponse() = default;
+};
 class ListAutoSnapshotPoliciesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterKey{};
@@ -3758,9 +4031,9 @@ public:
   shared_ptr<string> fsName{};
   shared_ptr<string> regionId{};
   shared_ptr<long> sizeG{};
-  shared_ptr<string> snapshotCount{};
+  shared_ptr<long> snapshotCount{};
   shared_ptr<string> status{};
-  shared_ptr<string> totalSize{};
+  shared_ptr<long> totalSize{};
 
   ListAutoSnapshotPolicyAppliedDbfsResponseBodyDbfsList() {}
 
@@ -3810,13 +4083,13 @@ public:
       sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
     }
     if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
-      snapshotCount = make_shared<string>(boost::any_cast<string>(m["SnapshotCount"]));
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
-      totalSize = make_shared<string>(boost::any_cast<string>(m["TotalSize"]));
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
     }
   }
 
@@ -4019,7 +4292,7 @@ public:
   shared_ptr<string> fsName{};
   shared_ptr<string> regionId{};
   shared_ptr<long> sizeG{};
-  shared_ptr<string> snapshotCount{};
+  shared_ptr<long> snapshotCount{};
   shared_ptr<string> status{};
   shared_ptr<long> totalSize{};
 
@@ -4071,7 +4344,7 @@ public:
       sizeG = make_shared<long>(boost::any_cast<long>(m["SizeG"]));
     }
     if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
-      snapshotCount = make_shared<string>(boost::any_cast<string>(m["SnapshotCount"]));
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -5640,6 +5913,317 @@ public:
 
   virtual ~ListSnapshotResponse() = default;
 };
+class ListSnapshotLinksRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterKey{};
+  shared_ptr<string> filterValue{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+
+  ListSnapshotLinksRequest() {}
+
+  explicit ListSnapshotLinksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterKey) {
+      res["FilterKey"] = boost::any(*filterKey);
+    }
+    if (filterValue) {
+      res["FilterValue"] = boost::any(*filterValue);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterKey") != m.end() && !m["FilterKey"].empty()) {
+      filterKey = make_shared<string>(boost::any_cast<string>(m["FilterKey"]));
+    }
+    if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
+      filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListSnapshotLinksRequest() = default;
+};
+class ListSnapshotLinksResponseBodySnapshotLinksEcsList : public Darabonba::Model {
+public:
+  shared_ptr<string> ecsId{};
+
+  ListSnapshotLinksResponseBodySnapshotLinksEcsList() {}
+
+  explicit ListSnapshotLinksResponseBodySnapshotLinksEcsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsId) {
+      res["EcsId"] = boost::any(*ecsId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsId") != m.end() && !m["EcsId"].empty()) {
+      ecsId = make_shared<string>(boost::any_cast<string>(m["EcsId"]));
+    }
+  }
+
+
+  virtual ~ListSnapshotLinksResponseBodySnapshotLinksEcsList() = default;
+};
+class ListSnapshotLinksResponseBodySnapshotLinks : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSnapshotLinksResponseBodySnapshotLinksEcsList>> ecsList{};
+  shared_ptr<string> fsId{};
+  shared_ptr<string> fsName{};
+  shared_ptr<string> linkId{};
+  shared_ptr<long> snapshotCount{};
+  shared_ptr<long> sourceSize{};
+  shared_ptr<string> status{};
+  shared_ptr<long> totalSize{};
+
+  ListSnapshotLinksResponseBodySnapshotLinks() {}
+
+  explicit ListSnapshotLinksResponseBodySnapshotLinks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ecsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*ecsList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EcsList"] = boost::any(temp1);
+    }
+    if (fsId) {
+      res["FsId"] = boost::any(*fsId);
+    }
+    if (fsName) {
+      res["FsName"] = boost::any(*fsName);
+    }
+    if (linkId) {
+      res["LinkId"] = boost::any(*linkId);
+    }
+    if (snapshotCount) {
+      res["SnapshotCount"] = boost::any(*snapshotCount);
+    }
+    if (sourceSize) {
+      res["SourceSize"] = boost::any(*sourceSize);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (totalSize) {
+      res["TotalSize"] = boost::any(*totalSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EcsList") != m.end() && !m["EcsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["EcsList"].type()) {
+        vector<ListSnapshotLinksResponseBodySnapshotLinksEcsList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EcsList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSnapshotLinksResponseBodySnapshotLinksEcsList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ecsList = make_shared<vector<ListSnapshotLinksResponseBodySnapshotLinksEcsList>>(expect1);
+      }
+    }
+    if (m.find("FsId") != m.end() && !m["FsId"].empty()) {
+      fsId = make_shared<string>(boost::any_cast<string>(m["FsId"]));
+    }
+    if (m.find("FsName") != m.end() && !m["FsName"].empty()) {
+      fsName = make_shared<string>(boost::any_cast<string>(m["FsName"]));
+    }
+    if (m.find("LinkId") != m.end() && !m["LinkId"].empty()) {
+      linkId = make_shared<string>(boost::any_cast<string>(m["LinkId"]));
+    }
+    if (m.find("SnapshotCount") != m.end() && !m["SnapshotCount"].empty()) {
+      snapshotCount = make_shared<long>(boost::any_cast<long>(m["SnapshotCount"]));
+    }
+    if (m.find("SourceSize") != m.end() && !m["SourceSize"].empty()) {
+      sourceSize = make_shared<long>(boost::any_cast<long>(m["SourceSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TotalSize") != m.end() && !m["TotalSize"].empty()) {
+      totalSize = make_shared<long>(boost::any_cast<long>(m["TotalSize"]));
+    }
+  }
+
+
+  virtual ~ListSnapshotLinksResponseBodySnapshotLinks() = default;
+};
+class ListSnapshotLinksResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListSnapshotLinksResponseBodySnapshotLinks>> snapshotLinks{};
+  shared_ptr<long> totalCount{};
+
+  ListSnapshotLinksResponseBody() {}
+
+  explicit ListSnapshotLinksResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (snapshotLinks) {
+      vector<boost::any> temp1;
+      for(auto item1:*snapshotLinks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SnapshotLinks"] = boost::any(temp1);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SnapshotLinks") != m.end() && !m["SnapshotLinks"].empty()) {
+      if (typeid(vector<boost::any>) == m["SnapshotLinks"].type()) {
+        vector<ListSnapshotLinksResponseBodySnapshotLinks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SnapshotLinks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSnapshotLinksResponseBodySnapshotLinks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        snapshotLinks = make_shared<vector<ListSnapshotLinksResponseBodySnapshotLinks>>(expect1);
+      }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListSnapshotLinksResponseBody() = default;
+};
+class ListSnapshotLinksResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSnapshotLinksResponseBody> body{};
+
+  ListSnapshotLinksResponse() {}
+
+  explicit ListSnapshotLinksResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSnapshotLinksResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSnapshotLinksResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSnapshotLinksResponse() = default;
+};
 class ListTagKeysRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -6885,6 +7469,8 @@ public:
   GetDbfsResponse getDbfs(shared_ptr<GetDbfsRequest> request);
   GetServiceLinkedRoleResponse getServiceLinkedRoleWithOptions(shared_ptr<GetServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetServiceLinkedRoleResponse getServiceLinkedRole(shared_ptr<GetServiceLinkedRoleRequest> request);
+  GetSnapshotLinkResponse getSnapshotLinkWithOptions(shared_ptr<GetSnapshotLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetSnapshotLinkResponse getSnapshotLink(shared_ptr<GetSnapshotLinkRequest> request);
   ListAutoSnapshotPoliciesResponse listAutoSnapshotPoliciesWithOptions(shared_ptr<ListAutoSnapshotPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAutoSnapshotPoliciesResponse listAutoSnapshotPolicies(shared_ptr<ListAutoSnapshotPoliciesRequest> request);
   ListAutoSnapshotPolicyAppliedDbfsResponse listAutoSnapshotPolicyAppliedDbfsWithOptions(shared_ptr<ListAutoSnapshotPolicyAppliedDbfsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -6899,6 +7485,8 @@ public:
   ListDbfsAttachedEcsInstancesResponse listDbfsAttachedEcsInstances(shared_ptr<ListDbfsAttachedEcsInstancesRequest> request);
   ListSnapshotResponse listSnapshotWithOptions(shared_ptr<ListSnapshotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSnapshotResponse listSnapshot(shared_ptr<ListSnapshotRequest> request);
+  ListSnapshotLinksResponse listSnapshotLinksWithOptions(shared_ptr<ListSnapshotLinksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSnapshotLinksResponse listSnapshotLinks(shared_ptr<ListSnapshotLinksRequest> request);
   ListTagKeysResponse listTagKeysWithOptions(shared_ptr<ListTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagKeysResponse listTagKeys(shared_ptr<ListTagKeysRequest> request);
   ListTagValuesResponse listTagValuesWithOptions(shared_ptr<ListTagValuesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
