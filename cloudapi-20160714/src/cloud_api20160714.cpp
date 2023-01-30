@@ -783,6 +783,9 @@ CreateInstanceResponse Alibabacloud_CloudAPI20160714::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
     query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateInstanceRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
     query->insert(pair<string, string>("Token", *request->token));
   }
@@ -2556,6 +2559,9 @@ DescribeApisResponse Alibabacloud_CloudAPI20160714::Client::describeApisWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
+    query->insert(pair<string, string>("StageName", *request->stageName));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeApisRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeApisRequestTag>>("Tag", *request->tag));
   }
@@ -3459,6 +3465,37 @@ DescribeHistoryApisResponse Alibabacloud_CloudAPI20160714::Client::describeHisto
 DescribeHistoryApisResponse Alibabacloud_CloudAPI20160714::Client::describeHistoryApis(shared_ptr<DescribeHistoryApisRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeHistoryApisWithOptions(request, runtime);
+}
+
+DescribeImportOASTaskResponse Alibabacloud_CloudAPI20160714::Client::describeImportOASTaskWithOptions(shared_ptr<DescribeImportOASTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->operationId)) {
+    query->insert(pair<string, string>("OperationId", *request->operationId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeImportOASTask"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeImportOASTaskResponse(callApi(params, req, runtime));
+}
+
+DescribeImportOASTaskResponse Alibabacloud_CloudAPI20160714::Client::describeImportOASTask(shared_ptr<DescribeImportOASTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeImportOASTaskWithOptions(request, runtime);
 }
 
 DescribeInstancesResponse Alibabacloud_CloudAPI20160714::Client::describeInstancesWithOptions(shared_ptr<DescribeInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
