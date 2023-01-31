@@ -13860,6 +13860,9 @@ ModifyBgpGroupAttributeResponse Alibabacloud_Vpc20160428::Client::modifyBgpGroup
   if (!Darabonba_Util::Client::isUnset<bool>(request->isFakeAsn)) {
     query->insert(pair<string, bool>("IsFakeAsn", *request->isFakeAsn));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->localAsn)) {
+    query->insert(pair<string, long>("LocalAsn", *request->localAsn));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -13880,6 +13883,9 @@ ModifyBgpGroupAttributeResponse Alibabacloud_Vpc20160428::Client::modifyBgpGroup
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->routeQuota)) {
+    query->insert(pair<string, long>("RouteQuota", *request->routeQuota));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

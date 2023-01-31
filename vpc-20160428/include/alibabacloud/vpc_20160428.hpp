@@ -69549,6 +69549,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> isFakeAsn{};
+  shared_ptr<long> localAsn{};
   shared_ptr<string> name{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -69556,6 +69557,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> routeQuota{};
 
   ModifyBgpGroupAttributeRequest() {}
 
@@ -69585,6 +69587,9 @@ public:
     if (isFakeAsn) {
       res["IsFakeAsn"] = boost::any(*isFakeAsn);
     }
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -69605,6 +69610,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (routeQuota) {
+      res["RouteQuota"] = boost::any(*routeQuota);
     }
     return res;
   }
@@ -69628,6 +69636,9 @@ public:
     if (m.find("IsFakeAsn") != m.end() && !m["IsFakeAsn"].empty()) {
       isFakeAsn = make_shared<bool>(boost::any_cast<bool>(m["IsFakeAsn"]));
     }
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<long>(boost::any_cast<long>(m["LocalAsn"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -69648,6 +69659,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteQuota") != m.end() && !m["RouteQuota"].empty()) {
+      routeQuota = make_shared<long>(boost::any_cast<long>(m["RouteQuota"]));
     }
   }
 
