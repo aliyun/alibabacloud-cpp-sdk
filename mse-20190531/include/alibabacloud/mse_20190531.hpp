@@ -26380,6 +26380,7 @@ public:
   shared_ptr<string> namespaceShowName{};
   shared_ptr<long> quota{};
   shared_ptr<string> serviceCount{};
+  shared_ptr<string> sourceType{};
   shared_ptr<long> type{};
 
   ListEngineNamespacesResponseBodyData() {}
@@ -26410,6 +26411,9 @@ public:
     if (serviceCount) {
       res["ServiceCount"] = boost::any(*serviceCount);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -26434,6 +26438,9 @@ public:
     }
     if (m.find("ServiceCount") != m.end() && !m["ServiceCount"].empty()) {
       serviceCount = make_shared<string>(boost::any_cast<string>(m["ServiceCount"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["Type"]));
@@ -42524,6 +42531,7 @@ public:
   shared_ptr<string> clusterSpecification{};
   shared_ptr<long> instanceCount{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mseVersion{};
 
   UpdateClusterSpecRequest() {}
 
@@ -42550,6 +42558,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mseVersion) {
+      res["MseVersion"] = boost::any(*mseVersion);
+    }
     return res;
   }
 
@@ -42569,6 +42580,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
+      mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
+    }
   }
 
 
@@ -42578,6 +42592,7 @@ class UpdateClusterSpecResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
   shared_ptr<string> data{};
+  shared_ptr<string> errorCode{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -42598,6 +42613,9 @@ public:
     }
     if (data) {
       res["Data"] = boost::any(*data);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
     }
     if (httpStatusCode) {
       res["HttpStatusCode"] = boost::any(*httpStatusCode);
@@ -42620,6 +42638,9 @@ public:
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
     if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
       httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
