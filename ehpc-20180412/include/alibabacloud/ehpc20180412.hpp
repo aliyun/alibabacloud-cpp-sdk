@@ -660,6 +660,8 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clusterId{};
   shared_ptr<bool> computeEnableHt{};
+  shared_ptr<long> computeSpotDuration{};
+  shared_ptr<string> computeSpotInterruptionBehavior{};
   shared_ptr<string> computeSpotPriceLimit{};
   shared_ptr<string> computeSpotStrategy{};
   shared_ptr<long> count{};
@@ -712,6 +714,12 @@ public:
     }
     if (computeEnableHt) {
       res["ComputeEnableHt"] = boost::any(*computeEnableHt);
+    }
+    if (computeSpotDuration) {
+      res["ComputeSpotDuration"] = boost::any(*computeSpotDuration);
+    }
+    if (computeSpotInterruptionBehavior) {
+      res["ComputeSpotInterruptionBehavior"] = boost::any(*computeSpotInterruptionBehavior);
     }
     if (computeSpotPriceLimit) {
       res["ComputeSpotPriceLimit"] = boost::any(*computeSpotPriceLimit);
@@ -810,6 +818,12 @@ public:
     }
     if (m.find("ComputeEnableHt") != m.end() && !m["ComputeEnableHt"].empty()) {
       computeEnableHt = make_shared<bool>(boost::any_cast<bool>(m["ComputeEnableHt"]));
+    }
+    if (m.find("ComputeSpotDuration") != m.end() && !m["ComputeSpotDuration"].empty()) {
+      computeSpotDuration = make_shared<long>(boost::any_cast<long>(m["ComputeSpotDuration"]));
+    }
+    if (m.find("ComputeSpotInterruptionBehavior") != m.end() && !m["ComputeSpotInterruptionBehavior"].empty()) {
+      computeSpotInterruptionBehavior = make_shared<string>(boost::any_cast<string>(m["ComputeSpotInterruptionBehavior"]));
     }
     if (m.find("ComputeSpotPriceLimit") != m.end() && !m["ComputeSpotPriceLimit"].empty()) {
       computeSpotPriceLimit = make_shared<string>(boost::any_cast<string>(m["ComputeSpotPriceLimit"]));
@@ -1349,6 +1363,7 @@ public:
 };
 class AddUsersRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<vector<AddUsersRequestUser>> user{};
 
@@ -1362,6 +1377,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -1376,6 +1394,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -6252,6 +6273,7 @@ public:
 };
 class DeleteUsersRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<vector<DeleteUsersRequestUser>> user{};
 
@@ -6265,6 +6287,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -6279,6 +6304,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -7128,6 +7156,8 @@ public:
   shared_ptr<DescribeClusterResponseBodyClusterInfoOnPremiseInfo> onPremiseInfo{};
   shared_ptr<string> osTag{};
   shared_ptr<DescribeClusterResponseBodyClusterInfoPostInstallScripts> postInstallScripts{};
+  shared_ptr<string> ramNodeTypes{};
+  shared_ptr<string> ramRoleName{};
   shared_ptr<string> regionId{};
   shared_ptr<string> remoteDirectory{};
   shared_ptr<string> sccClusterId{};
@@ -7210,6 +7240,12 @@ public:
     }
     if (postInstallScripts) {
       res["PostInstallScripts"] = postInstallScripts ? boost::any(postInstallScripts->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ramNodeTypes) {
+      res["RamNodeTypes"] = boost::any(*ramNodeTypes);
+    }
+    if (ramRoleName) {
+      res["RamRoleName"] = boost::any(*ramRoleName);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -7326,6 +7362,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PostInstallScripts"]));
         postInstallScripts = make_shared<DescribeClusterResponseBodyClusterInfoPostInstallScripts>(model1);
       }
+    }
+    if (m.find("RamNodeTypes") != m.end() && !m["RamNodeTypes"].empty()) {
+      ramNodeTypes = make_shared<string>(boost::any_cast<string>(m["RamNodeTypes"]));
+    }
+    if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
+      ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -9758,6 +9800,7 @@ public:
 };
 class DescribeJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> jobId{};
 
@@ -9771,6 +9814,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -9781,6 +9827,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -11205,6 +11254,8 @@ class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypesInstanceTypeInfo
 public:
   shared_ptr<string> hostNamePrefix{};
   shared_ptr<string> instanceType{};
+  shared_ptr<long> spotDuration{};
+  shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<double> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> vSwitchId{};
@@ -11225,6 +11276,12 @@ public:
     }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (spotDuration) {
+      res["SpotDuration"] = boost::any(*spotDuration);
+    }
+    if (spotInterruptionBehavior) {
+      res["SpotInterruptionBehavior"] = boost::any(*spotInterruptionBehavior);
     }
     if (spotPriceLimit) {
       res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
@@ -11247,6 +11304,12 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
+      spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
+    }
+    if (m.find("SpotInterruptionBehavior") != m.end() && !m["SpotInterruptionBehavior"].empty()) {
+      spotInterruptionBehavior = make_shared<string>(boost::any_cast<string>(m["SpotInterruptionBehavior"]));
     }
     if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
       spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
@@ -26346,6 +26409,8 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> imageOwnerAlias{};
   shared_ptr<string> name{};
+  shared_ptr<vector<string>> ramNodeTypes{};
+  shared_ptr<string> ramRoleName{};
 
   ModifyClusterAttributesRequest() {}
 
@@ -26372,6 +26437,12 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (ramNodeTypes) {
+      res["RamNodeTypes"] = boost::any(*ramNodeTypes);
+    }
+    if (ramRoleName) {
+      res["RamRoleName"] = boost::any(*ramRoleName);
+    }
     return res;
   }
 
@@ -26390,6 +26461,19 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RamNodeTypes") != m.end() && !m["RamNodeTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RamNodeTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RamNodeTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ramNodeTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
+      ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
     }
   }
 
@@ -26885,6 +26969,7 @@ public:
 };
 class ModifyUserGroupsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<vector<ModifyUserGroupsRequestUser>> user{};
 
@@ -26898,6 +26983,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -26912,6 +27000,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -27062,6 +27153,7 @@ public:
 };
 class ModifyUserPasswordsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> async{};
   shared_ptr<string> clusterId{};
   shared_ptr<vector<ModifyUserPasswordsRequestUser>> user{};
 
@@ -27075,6 +27167,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (async) {
+      res["Async"] = boost::any(*async);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -27089,6 +27184,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Async") != m.end() && !m["Async"].empty()) {
+      async = make_shared<bool>(boost::any_cast<bool>(m["Async"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -28591,6 +28689,8 @@ public:
 class SetAutoScaleConfigRequestQueuesInstanceTypes : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
+  shared_ptr<long> spotDuration{};
+  shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<double> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> vSwitchId{};
@@ -28608,6 +28708,12 @@ public:
     map<string, boost::any> res;
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (spotDuration) {
+      res["SpotDuration"] = boost::any(*spotDuration);
+    }
+    if (spotInterruptionBehavior) {
+      res["SpotInterruptionBehavior"] = boost::any(*spotInterruptionBehavior);
     }
     if (spotPriceLimit) {
       res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
@@ -28627,6 +28733,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("SpotDuration") != m.end() && !m["SpotDuration"].empty()) {
+      spotDuration = make_shared<long>(boost::any_cast<long>(m["SpotDuration"]));
+    }
+    if (m.find("SpotInterruptionBehavior") != m.end() && !m["SpotInterruptionBehavior"].empty()) {
+      spotInterruptionBehavior = make_shared<string>(boost::any_cast<string>(m["SpotInterruptionBehavior"]));
     }
     if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
       spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
