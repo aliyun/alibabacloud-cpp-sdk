@@ -2863,6 +2863,9 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<bool>(request->disableRollback)) {
     query->insert(pair<string, bool>("DisableRollback", *request->disableRollback));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->parallelism)) {
     query->insert(pair<string, long>("Parallelism", *request->parallelism));
   }

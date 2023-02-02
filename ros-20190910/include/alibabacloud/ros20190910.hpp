@@ -6235,6 +6235,92 @@ public:
 
   virtual ~GetFeatureDetailsResponseBodyResourceCleaner() = default;
 };
+class GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> properties{};
+  shared_ptr<string> resourceType{};
+
+  GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes() {}
+
+  explicit GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (properties) {
+      res["Properties"] = boost::any(*properties);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Properties"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Properties"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      properties = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes() = default;
+};
+class GetFeatureDetailsResponseBodyTemplateParameterConstraints : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes>> supportedResourceTypes{};
+
+  GetFeatureDetailsResponseBodyTemplateParameterConstraints() {}
+
+  explicit GetFeatureDetailsResponseBodyTemplateParameterConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supportedResourceTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedResourceTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedResourceTypes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SupportedResourceTypes") != m.end() && !m["SupportedResourceTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedResourceTypes"].type()) {
+        vector<GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedResourceTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedResourceTypes = make_shared<vector<GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyTemplateParameterConstraints() = default;
+};
 class GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes : public Darabonba::Model {
 public:
   shared_ptr<string> resourceType{};
@@ -6632,6 +6718,7 @@ class GetFeatureDetailsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<GetFeatureDetailsResponseBodyResourceCleaner> resourceCleaner{};
+  shared_ptr<GetFeatureDetailsResponseBodyTemplateParameterConstraints> templateParameterConstraints{};
   shared_ptr<GetFeatureDetailsResponseBodyTemplateScratch> templateScratch{};
   shared_ptr<GetFeatureDetailsResponseBodyTerraform> terraform{};
 
@@ -6651,6 +6738,9 @@ public:
     if (resourceCleaner) {
       res["ResourceCleaner"] = resourceCleaner ? boost::any(resourceCleaner->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (templateParameterConstraints) {
+      res["TemplateParameterConstraints"] = templateParameterConstraints ? boost::any(templateParameterConstraints->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (templateScratch) {
       res["TemplateScratch"] = templateScratch ? boost::any(templateScratch->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -6669,6 +6759,13 @@ public:
         GetFeatureDetailsResponseBodyResourceCleaner model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceCleaner"]));
         resourceCleaner = make_shared<GetFeatureDetailsResponseBodyResourceCleaner>(model1);
+      }
+    }
+    if (m.find("TemplateParameterConstraints") != m.end() && !m["TemplateParameterConstraints"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TemplateParameterConstraints"].type()) {
+        GetFeatureDetailsResponseBodyTemplateParameterConstraints model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TemplateParameterConstraints"]));
+        templateParameterConstraints = make_shared<GetFeatureDetailsResponseBodyTemplateParameterConstraints>(model1);
       }
     }
     if (m.find("TemplateScratch") != m.end() && !m["TemplateScratch"].empty()) {
@@ -11269,6 +11366,49 @@ public:
 
   virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources() = default;
 };
+class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+
+  GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors() {}
+
+  explicit GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors() = default;
+};
 class GetTemplateParameterConstraintsResponseBodyParameterConstraints : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> allowedValues{};
@@ -11279,6 +11419,7 @@ public:
   shared_ptr<vector<boost::any>> illegalValueByRules{};
   shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources>> notSupportResources{};
   shared_ptr<string> parameterKey{};
+  shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors>> queryErrors{};
   shared_ptr<string> type{};
 
   GetTemplateParameterConstraintsResponseBodyParameterConstraints() {}
@@ -11318,6 +11459,13 @@ public:
     }
     if (parameterKey) {
       res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (queryErrors) {
+      vector<boost::any> temp1;
+      for(auto item1:*queryErrors){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QueryErrors"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -11387,6 +11535,19 @@ public:
     }
     if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
       parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("QueryErrors") != m.end() && !m["QueryErrors"].empty()) {
+      if (typeid(vector<boost::any>) == m["QueryErrors"].type()) {
+        vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QueryErrors"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        queryErrors = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -19697,6 +19858,7 @@ class UpdateStackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> disableRollback{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<long> parallelism{};
   shared_ptr<vector<UpdateStackRequestParameters>> parameters{};
   shared_ptr<string> ramRoleName{};
@@ -19731,6 +19893,9 @@ public:
     }
     if (disableRollback) {
       res["DisableRollback"] = boost::any(*disableRollback);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
     }
     if (parallelism) {
       res["Parallelism"] = boost::any(*parallelism);
@@ -19803,6 +19968,9 @@ public:
     }
     if (m.find("DisableRollback") != m.end() && !m["DisableRollback"].empty()) {
       disableRollback = make_shared<bool>(boost::any_cast<bool>(m["DisableRollback"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
       parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
@@ -19883,8 +20051,129 @@ public:
 
   virtual ~UpdateStackRequest() = default;
 };
+class UpdateStackResponseBodyDryRunResult : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> parametersAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersConditionallyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersNotAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersUncertainlyAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersUncertainlyCauseInterruptionIfModified{};
+
+  UpdateStackResponseBodyDryRunResult() {}
+
+  explicit UpdateStackResponseBodyDryRunResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parametersAllowedToBeModified) {
+      res["ParametersAllowedToBeModified"] = boost::any(*parametersAllowedToBeModified);
+    }
+    if (parametersCauseInterruptionIfModified) {
+      res["ParametersCauseInterruptionIfModified"] = boost::any(*parametersCauseInterruptionIfModified);
+    }
+    if (parametersConditionallyAllowedToBeModified) {
+      res["ParametersConditionallyAllowedToBeModified"] = boost::any(*parametersConditionallyAllowedToBeModified);
+    }
+    if (parametersConditionallyCauseInterruptionIfModified) {
+      res["ParametersConditionallyCauseInterruptionIfModified"] = boost::any(*parametersConditionallyCauseInterruptionIfModified);
+    }
+    if (parametersNotAllowedToBeModified) {
+      res["ParametersNotAllowedToBeModified"] = boost::any(*parametersNotAllowedToBeModified);
+    }
+    if (parametersUncertainlyAllowedToBeModified) {
+      res["ParametersUncertainlyAllowedToBeModified"] = boost::any(*parametersUncertainlyAllowedToBeModified);
+    }
+    if (parametersUncertainlyCauseInterruptionIfModified) {
+      res["ParametersUncertainlyCauseInterruptionIfModified"] = boost::any(*parametersUncertainlyCauseInterruptionIfModified);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParametersAllowedToBeModified") != m.end() && !m["ParametersAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersCauseInterruptionIfModified") != m.end() && !m["ParametersCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyAllowedToBeModified") != m.end() && !m["ParametersConditionallyAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyCauseInterruptionIfModified") != m.end() && !m["ParametersConditionallyCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersNotAllowedToBeModified") != m.end() && !m["ParametersNotAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersNotAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersNotAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersNotAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyAllowedToBeModified") != m.end() && !m["ParametersUncertainlyAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyCauseInterruptionIfModified") != m.end() && !m["ParametersUncertainlyCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateStackResponseBodyDryRunResult() = default;
+};
 class UpdateStackResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<UpdateStackResponseBodyDryRunResult> dryRunResult{};
   shared_ptr<string> requestId{};
   shared_ptr<string> stackId{};
 
@@ -19898,6 +20187,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dryRunResult) {
+      res["DryRunResult"] = dryRunResult ? boost::any(dryRunResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -19908,6 +20200,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRunResult") != m.end() && !m["DryRunResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DryRunResult"].type()) {
+        UpdateStackResponseBodyDryRunResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DryRunResult"]));
+        dryRunResult = make_shared<UpdateStackResponseBodyDryRunResult>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -22048,6 +22347,126 @@ public:
 
   virtual ~ValidateTemplateResponseBodyResources() = default;
 };
+class ValidateTemplateResponseBodyUpdateInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> parametersAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersConditionallyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersNotAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersUncertainlyAllowedToBeModified{};
+  shared_ptr<vector<string>> parametersUncertainlyCauseInterruptionIfModified{};
+
+  ValidateTemplateResponseBodyUpdateInfo() {}
+
+  explicit ValidateTemplateResponseBodyUpdateInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parametersAllowedToBeModified) {
+      res["ParametersAllowedToBeModified"] = boost::any(*parametersAllowedToBeModified);
+    }
+    if (parametersCauseInterruptionIfModified) {
+      res["ParametersCauseInterruptionIfModified"] = boost::any(*parametersCauseInterruptionIfModified);
+    }
+    if (parametersConditionallyAllowedToBeModified) {
+      res["ParametersConditionallyAllowedToBeModified"] = boost::any(*parametersConditionallyAllowedToBeModified);
+    }
+    if (parametersConditionallyCauseInterruptionIfModified) {
+      res["ParametersConditionallyCauseInterruptionIfModified"] = boost::any(*parametersConditionallyCauseInterruptionIfModified);
+    }
+    if (parametersNotAllowedToBeModified) {
+      res["ParametersNotAllowedToBeModified"] = boost::any(*parametersNotAllowedToBeModified);
+    }
+    if (parametersUncertainlyAllowedToBeModified) {
+      res["ParametersUncertainlyAllowedToBeModified"] = boost::any(*parametersUncertainlyAllowedToBeModified);
+    }
+    if (parametersUncertainlyCauseInterruptionIfModified) {
+      res["ParametersUncertainlyCauseInterruptionIfModified"] = boost::any(*parametersUncertainlyCauseInterruptionIfModified);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParametersAllowedToBeModified") != m.end() && !m["ParametersAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersCauseInterruptionIfModified") != m.end() && !m["ParametersCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyAllowedToBeModified") != m.end() && !m["ParametersConditionallyAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyCauseInterruptionIfModified") != m.end() && !m["ParametersConditionallyCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersNotAllowedToBeModified") != m.end() && !m["ParametersNotAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersNotAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersNotAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersNotAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyAllowedToBeModified") != m.end() && !m["ParametersUncertainlyAllowedToBeModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyAllowedToBeModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyAllowedToBeModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyAllowedToBeModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyCauseInterruptionIfModified") != m.end() && !m["ParametersUncertainlyCauseInterruptionIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyCauseInterruptionIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyCauseInterruptionIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ValidateTemplateResponseBodyUpdateInfo() = default;
+};
 class ValidateTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -22056,6 +22475,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<ValidateTemplateResponseBodyResourceTypes> resourceTypes{};
   shared_ptr<vector<ValidateTemplateResponseBodyResources>> resources{};
+  shared_ptr<ValidateTemplateResponseBodyUpdateInfo> updateInfo{};
 
   ValidateTemplateResponseBody() {}
 
@@ -22092,6 +22512,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Resources"] = boost::any(temp1);
+    }
+    if (updateInfo) {
+      res["UpdateInfo"] = updateInfo ? boost::any(updateInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -22149,6 +22572,13 @@ public:
           }
         }
         resources = make_shared<vector<ValidateTemplateResponseBodyResources>>(expect1);
+      }
+    }
+    if (m.find("UpdateInfo") != m.end() && !m["UpdateInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["UpdateInfo"].type()) {
+        ValidateTemplateResponseBodyUpdateInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UpdateInfo"]));
+        updateInfo = make_shared<ValidateTemplateResponseBodyUpdateInfo>(model1);
       }
     }
   }
