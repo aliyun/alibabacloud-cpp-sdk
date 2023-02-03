@@ -3229,6 +3229,328 @@ public:
 
   virtual ~CompareFaceResponse() = default;
 };
+class CompareFaceWithMaskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURLA{};
+  shared_ptr<string> imageURLB{};
+  shared_ptr<double> qualityScoreThreshold{};
+
+  CompareFaceWithMaskRequest() {}
+
+  explicit CompareFaceWithMaskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLA) {
+      res["ImageURLA"] = boost::any(*imageURLA);
+    }
+    if (imageURLB) {
+      res["ImageURLB"] = boost::any(*imageURLB);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
+      imageURLA = make_shared<string>(boost::any_cast<string>(m["ImageURLA"]));
+    }
+    if (m.find("ImageURLB") != m.end() && !m["ImageURLB"].empty()) {
+      imageURLB = make_shared<string>(boost::any_cast<string>(m["ImageURLB"]));
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+  }
+
+
+  virtual ~CompareFaceWithMaskRequest() = default;
+};
+class CompareFaceWithMaskAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLAObject{};
+  shared_ptr<Darabonba::Stream> imageURLBObject{};
+  shared_ptr<double> qualityScoreThreshold{};
+
+  CompareFaceWithMaskAdvanceRequest() {}
+
+  explicit CompareFaceWithMaskAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLAObject) {
+      res["ImageURLA"] = boost::any(*imageURLAObject);
+    }
+    if (imageURLBObject) {
+      res["ImageURLB"] = boost::any(*imageURLBObject);
+    }
+    if (qualityScoreThreshold) {
+      res["QualityScoreThreshold"] = boost::any(*qualityScoreThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURLA") != m.end() && !m["ImageURLA"].empty()) {
+      imageURLAObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLA"]));
+    }
+    if (m.find("ImageURLB") != m.end() && !m["ImageURLB"].empty()) {
+      imageURLBObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURLB"]));
+    }
+    if (m.find("QualityScoreThreshold") != m.end() && !m["QualityScoreThreshold"].empty()) {
+      qualityScoreThreshold = make_shared<double>(boost::any_cast<double>(m["QualityScoreThreshold"]));
+    }
+  }
+
+
+  virtual ~CompareFaceWithMaskAdvanceRequest() = default;
+};
+class CompareFaceWithMaskResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<long> isMaskA{};
+  shared_ptr<long> isMaskB{};
+  shared_ptr<vector<long>> landmarksAList{};
+  shared_ptr<vector<long>> landmarksBList{};
+  shared_ptr<string> messageTips{};
+  shared_ptr<double> qualityScoreA{};
+  shared_ptr<double> qualityScoreB{};
+  shared_ptr<vector<long>> rectAList{};
+  shared_ptr<vector<long>> rectBList{};
+  shared_ptr<vector<long>> thresholds{};
+
+  CompareFaceWithMaskResponseBodyData() {}
+
+  explicit CompareFaceWithMaskResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (isMaskA) {
+      res["IsMaskA"] = boost::any(*isMaskA);
+    }
+    if (isMaskB) {
+      res["IsMaskB"] = boost::any(*isMaskB);
+    }
+    if (landmarksAList) {
+      res["LandmarksAList"] = boost::any(*landmarksAList);
+    }
+    if (landmarksBList) {
+      res["LandmarksBList"] = boost::any(*landmarksBList);
+    }
+    if (messageTips) {
+      res["MessageTips"] = boost::any(*messageTips);
+    }
+    if (qualityScoreA) {
+      res["QualityScoreA"] = boost::any(*qualityScoreA);
+    }
+    if (qualityScoreB) {
+      res["QualityScoreB"] = boost::any(*qualityScoreB);
+    }
+    if (rectAList) {
+      res["RectAList"] = boost::any(*rectAList);
+    }
+    if (rectBList) {
+      res["RectBList"] = boost::any(*rectBList);
+    }
+    if (thresholds) {
+      res["Thresholds"] = boost::any(*thresholds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("IsMaskA") != m.end() && !m["IsMaskA"].empty()) {
+      isMaskA = make_shared<long>(boost::any_cast<long>(m["IsMaskA"]));
+    }
+    if (m.find("IsMaskB") != m.end() && !m["IsMaskB"].empty()) {
+      isMaskB = make_shared<long>(boost::any_cast<long>(m["IsMaskB"]));
+    }
+    if (m.find("LandmarksAList") != m.end() && !m["LandmarksAList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LandmarksAList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LandmarksAList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      landmarksAList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("LandmarksBList") != m.end() && !m["LandmarksBList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["LandmarksBList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LandmarksBList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      landmarksBList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("MessageTips") != m.end() && !m["MessageTips"].empty()) {
+      messageTips = make_shared<string>(boost::any_cast<string>(m["MessageTips"]));
+    }
+    if (m.find("QualityScoreA") != m.end() && !m["QualityScoreA"].empty()) {
+      qualityScoreA = make_shared<double>(boost::any_cast<double>(m["QualityScoreA"]));
+    }
+    if (m.find("QualityScoreB") != m.end() && !m["QualityScoreB"].empty()) {
+      qualityScoreB = make_shared<double>(boost::any_cast<double>(m["QualityScoreB"]));
+    }
+    if (m.find("RectAList") != m.end() && !m["RectAList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RectAList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RectAList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rectAList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RectBList") != m.end() && !m["RectBList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RectBList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RectBList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      rectBList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Thresholds") != m.end() && !m["Thresholds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Thresholds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Thresholds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      thresholds = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~CompareFaceWithMaskResponseBodyData() = default;
+};
+class CompareFaceWithMaskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CompareFaceWithMaskResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  CompareFaceWithMaskResponseBody() {}
+
+  explicit CompareFaceWithMaskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CompareFaceWithMaskResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CompareFaceWithMaskResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CompareFaceWithMaskResponseBody() = default;
+};
+class CompareFaceWithMaskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CompareFaceWithMaskResponseBody> body{};
+
+  CompareFaceWithMaskResponse() {}
+
+  explicit CompareFaceWithMaskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CompareFaceWithMaskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CompareFaceWithMaskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CompareFaceWithMaskResponse() = default;
+};
 class CountCrowdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -5552,6 +5874,463 @@ public:
 
 
   virtual ~DetectIPCPedestrianResponse() = default;
+};
+class DetectInfraredLivingFaceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+
+  DetectInfraredLivingFaceRequestTasks() {}
+
+  explicit DetectInfraredLivingFaceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceRequestTasks() = default;
+};
+class DetectInfraredLivingFaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DetectInfraredLivingFaceRequestTasks>> tasks{};
+
+  DetectInfraredLivingFaceRequest() {}
+
+  explicit DetectInfraredLivingFaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<DetectInfraredLivingFaceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectInfraredLivingFaceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<DetectInfraredLivingFaceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceRequest() = default;
+};
+class DetectInfraredLivingFaceAdvanceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  DetectInfraredLivingFaceAdvanceRequestTasks() {}
+
+  explicit DetectInfraredLivingFaceAdvanceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceAdvanceRequestTasks() = default;
+};
+class DetectInfraredLivingFaceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DetectInfraredLivingFaceAdvanceRequestTasks>> tasks{};
+
+  DetectInfraredLivingFaceAdvanceRequest() {}
+
+  explicit DetectInfraredLivingFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<DetectInfraredLivingFaceAdvanceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectInfraredLivingFaceAdvanceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<DetectInfraredLivingFaceAdvanceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceAdvanceRequest() = default;
+};
+class DetectInfraredLivingFaceResponseBodyDataElementsResultsRect : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<long> left{};
+  shared_ptr<long> top{};
+  shared_ptr<long> width{};
+
+  DetectInfraredLivingFaceResponseBodyDataElementsResultsRect() {}
+
+  explicit DetectInfraredLivingFaceResponseBodyDataElementsResultsRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (left) {
+      res["Left"] = boost::any(*left);
+    }
+    if (top) {
+      res["Top"] = boost::any(*top);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Left") != m.end() && !m["Left"].empty()) {
+      left = make_shared<long>(boost::any_cast<long>(m["Left"]));
+    }
+    if (m.find("Top") != m.end() && !m["Top"].empty()) {
+      top = make_shared<long>(boost::any_cast<long>(m["Top"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponseBodyDataElementsResultsRect() = default;
+};
+class DetectInfraredLivingFaceResponseBodyDataElementsResults : public Darabonba::Model {
+public:
+  shared_ptr<string> label{};
+  shared_ptr<string> messageTips{};
+  shared_ptr<double> rate{};
+  shared_ptr<DetectInfraredLivingFaceResponseBodyDataElementsResultsRect> rect{};
+  shared_ptr<string> suggestion{};
+
+  DetectInfraredLivingFaceResponseBodyDataElementsResults() {}
+
+  explicit DetectInfraredLivingFaceResponseBodyDataElementsResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (messageTips) {
+      res["MessageTips"] = boost::any(*messageTips);
+    }
+    if (rate) {
+      res["Rate"] = boost::any(*rate);
+    }
+    if (rect) {
+      res["Rect"] = rect ? boost::any(rect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (suggestion) {
+      res["Suggestion"] = boost::any(*suggestion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("MessageTips") != m.end() && !m["MessageTips"].empty()) {
+      messageTips = make_shared<string>(boost::any_cast<string>(m["MessageTips"]));
+    }
+    if (m.find("Rate") != m.end() && !m["Rate"].empty()) {
+      rate = make_shared<double>(boost::any_cast<double>(m["Rate"]));
+    }
+    if (m.find("Rect") != m.end() && !m["Rect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rect"].type()) {
+        DetectInfraredLivingFaceResponseBodyDataElementsResultsRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rect"]));
+        rect = make_shared<DetectInfraredLivingFaceResponseBodyDataElementsResultsRect>(model1);
+      }
+    }
+    if (m.find("Suggestion") != m.end() && !m["Suggestion"].empty()) {
+      suggestion = make_shared<string>(boost::any_cast<string>(m["Suggestion"]));
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponseBodyDataElementsResults() = default;
+};
+class DetectInfraredLivingFaceResponseBodyDataElements : public Darabonba::Model {
+public:
+  shared_ptr<long> faceNumber{};
+  shared_ptr<string> imageURL{};
+  shared_ptr<vector<DetectInfraredLivingFaceResponseBodyDataElementsResults>> results{};
+
+  DetectInfraredLivingFaceResponseBodyDataElements() {}
+
+  explicit DetectInfraredLivingFaceResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceNumber) {
+      res["FaceNumber"] = boost::any(*faceNumber);
+    }
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceNumber") != m.end() && !m["FaceNumber"].empty()) {
+      faceNumber = make_shared<long>(boost::any_cast<long>(m["FaceNumber"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<DetectInfraredLivingFaceResponseBodyDataElementsResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectInfraredLivingFaceResponseBodyDataElementsResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<DetectInfraredLivingFaceResponseBodyDataElementsResults>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponseBodyDataElements() = default;
+};
+class DetectInfraredLivingFaceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DetectInfraredLivingFaceResponseBodyDataElements>> elements{};
+
+  DetectInfraredLivingFaceResponseBodyData() {}
+
+  explicit DetectInfraredLivingFaceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<DetectInfraredLivingFaceResponseBodyDataElements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DetectInfraredLivingFaceResponseBodyDataElements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<DetectInfraredLivingFaceResponseBodyDataElements>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponseBodyData() = default;
+};
+class DetectInfraredLivingFaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DetectInfraredLivingFaceResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DetectInfraredLivingFaceResponseBody() {}
+
+  explicit DetectInfraredLivingFaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DetectInfraredLivingFaceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DetectInfraredLivingFaceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponseBody() = default;
+};
+class DetectInfraredLivingFaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetectInfraredLivingFaceResponseBody> body{};
+
+  DetectInfraredLivingFaceResponse() {}
+
+  explicit DetectInfraredLivingFaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetectInfraredLivingFaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetectInfraredLivingFaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetectInfraredLivingFaceResponse() = default;
 };
 class DetectLivingFaceRequestTasks : public Darabonba::Model {
 public:
@@ -16758,6 +17537,9 @@ public:
   CompareFaceResponse compareFaceWithOptions(shared_ptr<CompareFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CompareFaceResponse compareFace(shared_ptr<CompareFaceRequest> request);
   CompareFaceResponse compareFaceAdvance(shared_ptr<CompareFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CompareFaceWithMaskResponse compareFaceWithMaskWithOptions(shared_ptr<CompareFaceWithMaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CompareFaceWithMaskResponse compareFaceWithMask(shared_ptr<CompareFaceWithMaskRequest> request);
+  CompareFaceWithMaskResponse compareFaceWithMaskAdvance(shared_ptr<CompareFaceWithMaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CountCrowdResponse countCrowdWithOptions(shared_ptr<CountCrowdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CountCrowdResponse countCrowd(shared_ptr<CountCrowdRequest> request);
   CountCrowdResponse countCrowdAdvance(shared_ptr<CountCrowdAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -16786,6 +17568,9 @@ public:
   DetectIPCPedestrianResponse detectIPCPedestrianWithOptions(shared_ptr<DetectIPCPedestrianRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectIPCPedestrianResponse detectIPCPedestrian(shared_ptr<DetectIPCPedestrianRequest> request);
   DetectIPCPedestrianResponse detectIPCPedestrianAdvance(shared_ptr<DetectIPCPedestrianAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetectInfraredLivingFaceResponse detectInfraredLivingFaceWithOptions(shared_ptr<DetectInfraredLivingFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetectInfraredLivingFaceResponse detectInfraredLivingFace(shared_ptr<DetectInfraredLivingFaceRequest> request);
+  DetectInfraredLivingFaceResponse detectInfraredLivingFaceAdvance(shared_ptr<DetectInfraredLivingFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLivingFaceResponse detectLivingFaceWithOptions(shared_ptr<DetectLivingFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectLivingFaceResponse detectLivingFace(shared_ptr<DetectLivingFaceRequest> request);
   DetectLivingFaceResponse detectLivingFaceAdvance(shared_ptr<DetectLivingFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
