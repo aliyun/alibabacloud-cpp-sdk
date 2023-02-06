@@ -3,6 +3,7 @@
 #include <alibabacloud/compute_nest_supplier_20210521.hpp>
 #include <alibabacloud/endpoint_util.hpp>
 #include <alibabacloud/open_api.hpp>
+#include <alibabacloud/open_api_util.hpp>
 #include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
@@ -37,25 +38,174 @@ string Alibabacloud_ComputeNestSupplier20210521::Client::getEndpoint(shared_ptr<
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-InvokeServiceInstanceOperationAPIResponse Alibabacloud_ComputeNestSupplier20210521::Client::invokeServiceInstanceOperationAPIWithOptions(shared_ptr<InvokeServiceInstanceOperationAPIRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createArtifactWithOptions(shared_ptr<CreateArtifactRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateArtifactShrinkRequest> request = make_shared<CreateArtifactShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateArtifactRequestArtifactProperty>(tmpReq->artifactProperty)) {
+    request->artifactPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactProperty, make_shared<string>("ArtifactProperty"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactPropertyShrink)) {
+    query->insert(pair<string, string>("ArtifactProperty", *request->artifactPropertyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactType)) {
+    query->insert(pair<string, string>("ArtifactType", *request->artifactType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->supportRegionIds)) {
+    query->insert(pair<string, vector<string>>("SupportRegionIds", *request->supportRegionIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionName)) {
+    query->insert(pair<string, string>("VersionName", *request->versionName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return InvokeServiceInstanceOperationAPIResponse(doRPCRequest(make_shared<string>("InvokeServiceInstanceOperationAPI"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateArtifact"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateArtifactResponse(callApi(params, req, runtime));
 }
 
-InvokeServiceInstanceOperationAPIResponse Alibabacloud_ComputeNestSupplier20210521::Client::invokeServiceInstanceOperationAPI(shared_ptr<InvokeServiceInstanceOperationAPIRequest> request) {
+CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createArtifact(shared_ptr<CreateArtifactRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return invokeServiceInstanceOperationAPIWithOptions(request, runtime);
+  return createArtifactWithOptions(request, runtime);
+}
+
+DeleteArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteArtifactWithOptions(shared_ptr<DeleteArtifactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactVersion)) {
+    query->insert(pair<string, string>("ArtifactVersion", *request->artifactVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteArtifact"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteArtifactResponse(callApi(params, req, runtime));
+}
+
+DeleteArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteArtifact(shared_ptr<DeleteArtifactRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteArtifactWithOptions(request, runtime);
+}
+
+GetArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifactWithOptions(shared_ptr<GetArtifactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactVersion)) {
+    query->insert(pair<string, string>("ArtifactVersion", *request->artifactVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetArtifact"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetArtifactResponse(callApi(params, req, runtime));
+}
+
+GetArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifact(shared_ptr<GetArtifactRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getArtifactWithOptions(request, runtime);
+}
+
+GetArtifactRepositoryCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifactRepositoryCredentialsWithOptions(shared_ptr<GetArtifactRepositoryCredentialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactType)) {
+    query->insert(pair<string, string>("ArtifactType", *request->artifactType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deployRegionId)) {
+    query->insert(pair<string, string>("DeployRegionId", *request->deployRegionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetArtifactRepositoryCredentials"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetArtifactRepositoryCredentialsResponse(callApi(params, req, runtime));
+}
+
+GetArtifactRepositoryCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifactRepositoryCredentials(shared_ptr<GetArtifactRepositoryCredentialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getArtifactRepositoryCredentialsWithOptions(request, runtime);
 }
 
 GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceInstanceWithOptions(shared_ptr<GetServiceInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceInstanceId)) {
+    query->insert(pair<string, string>("ServiceInstanceId", *request->serviceInstanceId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return GetServiceInstanceResponse(doRPCRequest(make_shared<string>("GetServiceInstance"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetServiceInstance"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetServiceInstanceResponse(callApi(params, req, runtime));
 }
 
 GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceInstance(shared_ptr<GetServiceInstanceRequest> request) {
@@ -63,77 +213,107 @@ GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::get
   return getServiceInstanceWithOptions(request, runtime);
 }
 
-DeleteServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteServiceWithOptions(shared_ptr<DeleteServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersionsWithOptions(shared_ptr<ListArtifactVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxResult)) {
+    query->insert(pair<string, string>("MaxResult", *request->maxResult));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return DeleteServiceResponse(doRPCRequest(make_shared<string>("DeleteService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListArtifactVersions"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListArtifactVersionsResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::deleteService(shared_ptr<DeleteServiceRequest> request) {
+ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersions(shared_ptr<ListArtifactVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return deleteServiceWithOptions(request, runtime);
+  return listArtifactVersionsWithOptions(request, runtime);
 }
 
-ListServicesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactsWithOptions(shared_ptr<ListArtifactsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListArtifactsRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListArtifactsRequestFilter>>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxResults)) {
+    query->insert(pair<string, string>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListServicesResponse(doRPCRequest(make_shared<string>("ListServices"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListServicesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServices(shared_ptr<ListServicesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listServicesWithOptions(request, runtime);
-}
-
-CancelServiceRegistrationResponse Alibabacloud_ComputeNestSupplier20210521::Client::cancelServiceRegistrationWithOptions(shared_ptr<CancelServiceRegistrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListArtifacts"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  return CancelServiceRegistrationResponse(doRPCRequest(make_shared<string>("CancelServiceRegistration"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return ListArtifactsResponse(callApi(params, req, runtime));
 }
 
-CancelServiceRegistrationResponse Alibabacloud_ComputeNestSupplier20210521::Client::cancelServiceRegistration(shared_ptr<CancelServiceRegistrationRequest> request) {
+ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifacts(shared_ptr<ListArtifactsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return cancelServiceRegistrationWithOptions(request, runtime);
-}
-
-ListServiceRegistrationsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceRegistrationsWithOptions(shared_ptr<ListServiceRegistrationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return ListServiceRegistrationsResponse(doRPCRequest(make_shared<string>("ListServiceRegistrations"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListServiceRegistrationsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceRegistrations(shared_ptr<ListServiceRegistrationsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listServiceRegistrationsWithOptions(request, runtime);
-}
-
-GetSupplierInformationResponse Alibabacloud_ComputeNestSupplier20210521::Client::getSupplierInformationWithOptions(shared_ptr<GetSupplierInformationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetSupplierInformationResponse(doRPCRequest(make_shared<string>("GetSupplierInformation"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetSupplierInformationResponse Alibabacloud_ComputeNestSupplier20210521::Client::getSupplierInformation(shared_ptr<GetSupplierInformationRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getSupplierInformationWithOptions(request, runtime);
+  return listArtifactsWithOptions(request, runtime);
 }
 
 ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstancesWithOptions(shared_ptr<ListServiceInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstancesRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListServiceInstancesRequestFilter>>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxResults)) {
+    query->insert(pair<string, string>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceInstancesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListServiceInstancesRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListServiceInstancesResponse(doRPCRequest(make_shared<string>("ListServiceInstances"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceInstances"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServiceInstancesResponse(callApi(params, req, runtime));
 }
 
 ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceInstances(shared_ptr<ListServiceInstancesRequest> request) {
@@ -141,107 +321,110 @@ ListServiceInstancesResponse Alibabacloud_ComputeNestSupplier20210521::Client::l
   return listServiceInstancesWithOptions(request, runtime);
 }
 
-RegisterServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::registerServiceWithOptions(shared_ptr<RegisterServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceUsagesWithOptions(shared_ptr<ListServiceUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<ListServiceUsagesRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListServiceUsagesRequestFilter>>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return RegisterServiceResponse(doRPCRequest(make_shared<string>("RegisterService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceUsages"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServiceUsagesResponse(callApi(params, req, runtime));
 }
 
-RegisterServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::registerService(shared_ptr<RegisterServiceRequest> request) {
+ListServiceUsagesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listServiceUsages(shared_ptr<ListServiceUsagesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return registerServiceWithOptions(request, runtime);
+  return listServiceUsagesWithOptions(request, runtime);
 }
 
-CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ReleaseArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::releaseArtifactWithOptions(shared_ptr<ReleaseArtifactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return CreateServiceResponse(doRPCRequest(make_shared<string>("CreateService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ReleaseArtifact"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ReleaseArtifactResponse(callApi(params, req, runtime));
 }
 
-CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createService(shared_ptr<CreateServiceRequest> request) {
+ReleaseArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::releaseArtifact(shared_ptr<ReleaseArtifactRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return createServiceWithOptions(request, runtime);
+  return releaseArtifactWithOptions(request, runtime);
 }
 
-ListPoliciesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listPoliciesWithOptions(shared_ptr<ListPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateArtifactWithOptions(shared_ptr<UpdateArtifactRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateArtifactShrinkRequest> request = make_shared<UpdateArtifactShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateArtifactRequestArtifactProperty>(tmpReq->artifactProperty)) {
+    request->artifactPropertyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->artifactProperty, make_shared<string>("ArtifactProperty"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
+    query->insert(pair<string, string>("ArtifactId", *request->artifactId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactPropertyShrink)) {
+    query->insert(pair<string, string>("ArtifactProperty", *request->artifactPropertyShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->supportRegionIds)) {
+    query->insert(pair<string, vector<string>>("SupportRegionIds", *request->supportRegionIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->versionName)) {
+    query->insert(pair<string, string>("VersionName", *request->versionName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
-  return ListPoliciesResponse(doRPCRequest(make_shared<string>("ListPolicies"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-ListPoliciesResponse Alibabacloud_ComputeNestSupplier20210521::Client::listPolicies(shared_ptr<ListPoliciesRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return listPoliciesWithOptions(request, runtime);
-}
-
-UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateServiceWithOptions(shared_ptr<UpdateServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateArtifact"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateServiceResponse(doRPCRequest(make_shared<string>("UpdateService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
+  return UpdateArtifactResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateService(shared_ptr<UpdateServiceRequest> request) {
+UpdateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateArtifact(shared_ptr<UpdateArtifactRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateServiceWithOptions(request, runtime);
-}
-
-LaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::launchServiceWithOptions(shared_ptr<LaunchServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return LaunchServiceResponse(doRPCRequest(make_shared<string>("LaunchService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-LaunchServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::launchService(shared_ptr<LaunchServiceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return launchServiceWithOptions(request, runtime);
-}
-
-WithdrawServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::withdrawServiceWithOptions(shared_ptr<WithdrawServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return WithdrawServiceResponse(doRPCRequest(make_shared<string>("WithdrawService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-WithdrawServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::withdrawService(shared_ptr<WithdrawServiceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return withdrawServiceWithOptions(request, runtime);
-}
-
-UpdateSupplierInformationResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSupplierInformationWithOptions(shared_ptr<UpdateSupplierInformationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return UpdateSupplierInformationResponse(doRPCRequest(make_shared<string>("UpdateSupplierInformation"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-UpdateSupplierInformationResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSupplierInformation(shared_ptr<UpdateSupplierInformationRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateSupplierInformationWithOptions(request, runtime);
-}
-
-GetServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceWithOptions(shared_ptr<GetServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Darabonba_Util::Client::toMap(request))}
-  }));
-  return GetServiceResponse(doRPCRequest(make_shared<string>("GetService"), make_shared<string>("2021-05-21"), make_shared<string>("HTTPS"), make_shared<string>("POST"), make_shared<string>("AK"), make_shared<string>("json"), req, runtime));
-}
-
-GetServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getService(shared_ptr<GetServiceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getServiceWithOptions(request, runtime);
+  return updateArtifactWithOptions(request, runtime);
 }
 
