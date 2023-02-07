@@ -101,20 +101,14 @@ AttachClusterToHubResponse Alibabacloud_Adcp20220101::Client::attachClusterToHub
   return attachClusterToHubWithOptions(request, runtime);
 }
 
-CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreateHubClusterShrinkRequest> request = make_shared<CreateHubClusterShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<CreateHubClusterRequestClusterConfiguration>(tmpReq->clusterConfiguration)) {
-    request->clusterConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->clusterConfiguration, make_shared<string>("ClusterConfiguration"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clusterConfigurationShrink)) {
-    query->insert(pair<string, string>("ClusterConfiguration", *request->clusterConfigurationShrink));
-  }
+CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWithOptions(shared_ptr<CreateHubClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->apiServerPublicEip)) {
     body->insert(pair<string, bool>("ApiServerPublicEip", *request->apiServerPublicEip));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->argoServerEnabled)) {
+    body->insert(pair<string, bool>("ArgoServerEnabled", *request->argoServerEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
     body->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
@@ -124,6 +118,9 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->priceLimit)) {
+    body->insert(pair<string, string>("PriceLimit", *request->priceLimit));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
     body->insert(pair<string, string>("Profile", *request->profile));
@@ -137,8 +134,10 @@ CreateHubClusterResponse Alibabacloud_Adcp20220101::Client::createHubClusterWith
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     body->insert(pair<string, string>("VpcId", *request->vpcId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowScheduleMode)) {
+    body->insert(pair<string, string>("WorkflowScheduleMode", *request->workflowScheduleMode));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -407,12 +406,18 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateHubClusterFeatureShrinkRequest> request = make_shared<UpdateHubClusterFeatureShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<UpdateHubClusterFeatureRequestUnits>>(tmpReq->units)) {
-    request->unitsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->units, make_shared<string>("Units"), make_shared<string>("json")));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitches)) {
+    request->vSwitchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitches, make_shared<string>("VSwitches"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->apiServerEipId)) {
     query->insert(pair<string, string>("ApiServerEipId", *request->apiServerEipId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->argoCDEnabled)) {
+    query->insert(pair<string, bool>("ArgoCDEnabled", *request->argoCDEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->argoServerEnabled)) {
+    query->insert(pair<string, bool>("ArgoServerEnabled", *request->argoServerEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
     query->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
@@ -423,14 +428,8 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
     query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enableArgoCD)) {
-    query->insert(pair<string, bool>("EnableArgoCD", *request->enableArgoCD));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMesh)) {
     query->insert(pair<string, bool>("EnableMesh", *request->enableMesh));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
-    query->insert(pair<string, bool>("Enabled", *request->enabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
@@ -441,14 +440,11 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->publicApiServerEnabled)) {
     query->insert(pair<string, bool>("PublicApiServerEnabled", *request->publicApiServerEnabled));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->scheduleMode)) {
-    query->insert(pair<string, string>("ScheduleMode", *request->scheduleMode));
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchesShrink)) {
+    query->insert(pair<string, string>("VSwitches", *request->vSwitchesShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->serverEnabled)) {
-    query->insert(pair<string, bool>("ServerEnabled", *request->serverEnabled));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->unitsShrink)) {
-    query->insert(pair<string, string>("Units", *request->unitsShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->workflowScheduleMode)) {
+    query->insert(pair<string, string>("WorkflowScheduleMode", *request->workflowScheduleMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
