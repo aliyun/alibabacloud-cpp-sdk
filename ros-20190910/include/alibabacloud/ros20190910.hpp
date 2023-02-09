@@ -11089,6 +11089,7 @@ public:
   shared_ptr<vector<string>> parametersKeyFilter{};
   shared_ptr<vector<string>> parametersOrder{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateURL{};
@@ -11122,6 +11123,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -11177,6 +11181,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -11238,6 +11245,7 @@ public:
   shared_ptr<string> parametersKeyFilterShrink{};
   shared_ptr<string> parametersOrderShrink{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateURL{};
@@ -11271,6 +11279,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -11312,6 +11323,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
@@ -18383,6 +18397,7 @@ public:
   shared_ptr<string> action{};
   shared_ptr<string> description{};
   shared_ptr<string> logicalResourceId{};
+  shared_ptr<string> physicalResourceId{};
   shared_ptr<map<string, boost::any>> properties{};
   shared_ptr<string> replacement{};
   shared_ptr<vector<string>> requiredBy{};
@@ -18410,6 +18425,9 @@ public:
     }
     if (logicalResourceId) {
       res["LogicalResourceId"] = boost::any(*logicalResourceId);
+    }
+    if (physicalResourceId) {
+      res["PhysicalResourceId"] = boost::any(*physicalResourceId);
     }
     if (properties) {
       res["Properties"] = boost::any(*properties);
@@ -18441,6 +18459,9 @@ public:
     }
     if (m.find("LogicalResourceId") != m.end() && !m["LogicalResourceId"].empty()) {
       logicalResourceId = make_shared<string>(boost::any_cast<string>(m["LogicalResourceId"]));
+    }
+    if (m.find("PhysicalResourceId") != m.end() && !m["PhysicalResourceId"].empty()) {
+      physicalResourceId = make_shared<string>(boost::any_cast<string>(m["PhysicalResourceId"]));
     }
     if (m.find("Properties") != m.end() && !m["Properties"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Properties"]);
