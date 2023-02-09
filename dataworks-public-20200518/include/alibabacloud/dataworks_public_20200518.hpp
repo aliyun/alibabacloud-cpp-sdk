@@ -32087,6 +32087,7 @@ class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentPro
 public:
   shared_ptr<string> columnComment{};
   shared_ptr<string> columnName{};
+  shared_ptr<string> securityLevel{};
 
   GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContentProjectMetaObjectMetaListColumnMetaList() {}
 
@@ -32104,6 +32105,9 @@ public:
     if (columnName) {
       res["ColumnName"] = boost::any(*columnName);
     }
+    if (securityLevel) {
+      res["SecurityLevel"] = boost::any(*securityLevel);
+    }
     return res;
   }
 
@@ -32113,6 +32117,9 @@ public:
     }
     if (m.find("ColumnName") != m.end() && !m["ColumnName"].empty()) {
       columnName = make_shared<string>(boost::any_cast<string>(m["ColumnName"]));
+    }
+    if (m.find("SecurityLevel") != m.end() && !m["SecurityLevel"].empty()) {
+      securityLevel = make_shared<string>(boost::any_cast<string>(m["SecurityLevel"]));
     }
   }
 
