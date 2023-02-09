@@ -299,6 +299,9 @@ CreateFunctionResponse Alibabacloud_FC-Open20210406::Client::createFunctionWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->functionName)) {
     body->insert(pair<string, string>("functionName", *request->functionName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gpuMemorySize)) {
+    body->insert(pair<string, long>("gpuMemorySize", *request->gpuMemorySize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->handler)) {
     body->insert(pair<string, string>("handler", *request->handler));
   }
@@ -3330,6 +3333,9 @@ UpdateFunctionResponse Alibabacloud_FC-Open20210406::Client::updateFunctionWithO
   }
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->environmentVariables)) {
     body->insert(pair<string, map<string, string>>("environmentVariables", *request->environmentVariables));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->gpuMemorySize)) {
+    body->insert(pair<string, long>("gpuMemorySize", *request->gpuMemorySize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->handler)) {
     body->insert(pair<string, string>("handler", *request->handler));

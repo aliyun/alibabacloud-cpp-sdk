@@ -2160,12 +2160,206 @@ public:
 
   virtual ~OutputCodeLocation() = default;
 };
+class RewriteConfigEqualRules : public Darabonba::Model {
+public:
+  shared_ptr<string> match{};
+  shared_ptr<string> replacement{};
+
+  RewriteConfigEqualRules() {}
+
+  explicit RewriteConfigEqualRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (match) {
+      res["match"] = boost::any(*match);
+    }
+    if (replacement) {
+      res["replacement"] = boost::any(*replacement);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("match") != m.end() && !m["match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["match"]));
+    }
+    if (m.find("replacement") != m.end() && !m["replacement"].empty()) {
+      replacement = make_shared<string>(boost::any_cast<string>(m["replacement"]));
+    }
+  }
+
+
+  virtual ~RewriteConfigEqualRules() = default;
+};
+class RewriteConfigRegexRules : public Darabonba::Model {
+public:
+  shared_ptr<string> match{};
+  shared_ptr<string> replacement{};
+
+  RewriteConfigRegexRules() {}
+
+  explicit RewriteConfigRegexRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (match) {
+      res["match"] = boost::any(*match);
+    }
+    if (replacement) {
+      res["replacement"] = boost::any(*replacement);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("match") != m.end() && !m["match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["match"]));
+    }
+    if (m.find("replacement") != m.end() && !m["replacement"].empty()) {
+      replacement = make_shared<string>(boost::any_cast<string>(m["replacement"]));
+    }
+  }
+
+
+  virtual ~RewriteConfigRegexRules() = default;
+};
+class RewriteConfigWildcardRules : public Darabonba::Model {
+public:
+  shared_ptr<string> match{};
+  shared_ptr<string> replacement{};
+
+  RewriteConfigWildcardRules() {}
+
+  explicit RewriteConfigWildcardRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (match) {
+      res["match"] = boost::any(*match);
+    }
+    if (replacement) {
+      res["replacement"] = boost::any(*replacement);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("match") != m.end() && !m["match"].empty()) {
+      match = make_shared<string>(boost::any_cast<string>(m["match"]));
+    }
+    if (m.find("replacement") != m.end() && !m["replacement"].empty()) {
+      replacement = make_shared<string>(boost::any_cast<string>(m["replacement"]));
+    }
+  }
+
+
+  virtual ~RewriteConfigWildcardRules() = default;
+};
+class RewriteConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<RewriteConfigEqualRules>> equalRules{};
+  shared_ptr<vector<RewriteConfigRegexRules>> regexRules{};
+  shared_ptr<vector<RewriteConfigWildcardRules>> wildcardRules{};
+
+  RewriteConfig() {}
+
+  explicit RewriteConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (equalRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*equalRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["equalRules"] = boost::any(temp1);
+    }
+    if (regexRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*regexRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["regexRules"] = boost::any(temp1);
+    }
+    if (wildcardRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*wildcardRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["wildcardRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("equalRules") != m.end() && !m["equalRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["equalRules"].type()) {
+        vector<RewriteConfigEqualRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["equalRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RewriteConfigEqualRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        equalRules = make_shared<vector<RewriteConfigEqualRules>>(expect1);
+      }
+    }
+    if (m.find("regexRules") != m.end() && !m["regexRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["regexRules"].type()) {
+        vector<RewriteConfigRegexRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["regexRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RewriteConfigRegexRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        regexRules = make_shared<vector<RewriteConfigRegexRules>>(expect1);
+      }
+    }
+    if (m.find("wildcardRules") != m.end() && !m["wildcardRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["wildcardRules"].type()) {
+        vector<RewriteConfigWildcardRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["wildcardRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RewriteConfigWildcardRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        wildcardRules = make_shared<vector<RewriteConfigWildcardRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RewriteConfig() = default;
+};
 class PathConfig : public Darabonba::Model {
 public:
   shared_ptr<string> functionName{};
   shared_ptr<vector<string>> methods{};
   shared_ptr<string> path{};
   shared_ptr<string> qualifier{};
+  shared_ptr<RewriteConfig> rewriteConfig{};
   shared_ptr<string> serviceName{};
 
   PathConfig() {}
@@ -2189,6 +2383,9 @@ public:
     }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
+    }
+    if (rewriteConfig) {
+      res["rewriteConfig"] = rewriteConfig ? boost::any(rewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (serviceName) {
       res["serviceName"] = boost::any(*serviceName);
@@ -2215,6 +2412,13 @@ public:
     }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
+    }
+    if (m.find("rewriteConfig") != m.end() && !m["rewriteConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["rewriteConfig"].type()) {
+        RewriteConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["rewriteConfig"]));
+        rewriteConfig = make_shared<RewriteConfig>(model1);
+      }
     }
     if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
@@ -4138,6 +4342,7 @@ public:
   shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionName{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -4192,6 +4397,9 @@ public:
     }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -4288,6 +4496,9 @@ public:
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
     }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
+    }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
     }
@@ -4353,6 +4564,7 @@ public:
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -4417,6 +4629,9 @@ public:
     }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -4520,6 +4735,9 @@ public:
     }
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
     }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
@@ -7634,6 +7852,7 @@ public:
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -7699,6 +7918,9 @@ public:
     }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -7805,6 +8027,9 @@ public:
     }
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
     }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
@@ -11210,6 +11435,7 @@ public:
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -11268,6 +11494,9 @@ public:
     }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -11357,6 +11586,9 @@ public:
     }
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
     }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
@@ -17155,6 +17387,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> diskSize{};
   shared_ptr<map<string, string>> environmentVariables{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -17208,6 +17441,9 @@ public:
     }
     if (environmentVariables) {
       res["environmentVariables"] = boost::any(*environmentVariables);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -17301,6 +17537,9 @@ public:
       }
       environmentVariables = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
+    }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
     }
@@ -17363,6 +17602,7 @@ public:
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> functionId{};
   shared_ptr<string> functionName{};
+  shared_ptr<long> gpuMemorySize{};
   shared_ptr<string> handler{};
   shared_ptr<long> initializationTimeout{};
   shared_ptr<string> initializer{};
@@ -17427,6 +17667,9 @@ public:
     }
     if (functionName) {
       res["functionName"] = boost::any(*functionName);
+    }
+    if (gpuMemorySize) {
+      res["gpuMemorySize"] = boost::any(*gpuMemorySize);
     }
     if (handler) {
       res["handler"] = boost::any(*handler);
@@ -17530,6 +17773,9 @@ public:
     }
     if (m.find("functionName") != m.end() && !m["functionName"].empty()) {
       functionName = make_shared<string>(boost::any_cast<string>(m["functionName"]));
+    }
+    if (m.find("gpuMemorySize") != m.end() && !m["gpuMemorySize"].empty()) {
+      gpuMemorySize = make_shared<long>(boost::any_cast<long>(m["gpuMemorySize"]));
     }
     if (m.find("handler") != m.end() && !m["handler"].empty()) {
       handler = make_shared<string>(boost::any_cast<string>(m["handler"]));
