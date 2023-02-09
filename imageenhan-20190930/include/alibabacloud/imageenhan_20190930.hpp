@@ -1678,6 +1678,230 @@ public:
 
   virtual ~ExtendImageStyleResponse() = default;
 };
+class GenerateCartoonizedImageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageType{};
+  shared_ptr<string> imageUrl{};
+  shared_ptr<string> index{};
+
+  GenerateCartoonizedImageRequest() {}
+
+  explicit GenerateCartoonizedImageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
+    if (imageUrl) {
+      res["ImageUrl"] = boost::any(*imageUrl);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["Index"]));
+    }
+  }
+
+
+  virtual ~GenerateCartoonizedImageRequest() = default;
+};
+class GenerateCartoonizedImageAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> imageType{};
+  shared_ptr<Darabonba::Stream> imageUrlObject{};
+  shared_ptr<string> index{};
+
+  GenerateCartoonizedImageAdvanceRequest() {}
+
+  explicit GenerateCartoonizedImageAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageType) {
+      res["ImageType"] = boost::any(*imageType);
+    }
+    if (imageUrlObject) {
+      res["ImageUrl"] = boost::any(*imageUrlObject);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageType") != m.end() && !m["ImageType"].empty()) {
+      imageType = make_shared<string>(boost::any_cast<string>(m["ImageType"]));
+    }
+    if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
+      imageUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageUrl"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["Index"]));
+    }
+  }
+
+
+  virtual ~GenerateCartoonizedImageAdvanceRequest() = default;
+};
+class GenerateCartoonizedImageResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> resultUrl{};
+
+  GenerateCartoonizedImageResponseBodyData() {}
+
+  explicit GenerateCartoonizedImageResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resultUrl) {
+      res["ResultUrl"] = boost::any(*resultUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResultUrl") != m.end() && !m["ResultUrl"].empty()) {
+      resultUrl = make_shared<string>(boost::any_cast<string>(m["ResultUrl"]));
+    }
+  }
+
+
+  virtual ~GenerateCartoonizedImageResponseBodyData() = default;
+};
+class GenerateCartoonizedImageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GenerateCartoonizedImageResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GenerateCartoonizedImageResponseBody() {}
+
+  explicit GenerateCartoonizedImageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GenerateCartoonizedImageResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GenerateCartoonizedImageResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateCartoonizedImageResponseBody() = default;
+};
+class GenerateCartoonizedImageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateCartoonizedImageResponseBody> body{};
+
+  GenerateCartoonizedImageResponse() {}
+
+  explicit GenerateCartoonizedImageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateCartoonizedImageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateCartoonizedImageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateCartoonizedImageResponse() = default;
+};
 class GenerateDynamicImageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> operation{};
@@ -4949,6 +5173,9 @@ public:
   ExtendImageStyleResponse extendImageStyleWithOptions(shared_ptr<ExtendImageStyleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExtendImageStyleResponse extendImageStyle(shared_ptr<ExtendImageStyleRequest> request);
   ExtendImageStyleResponse extendImageStyleAdvance(shared_ptr<ExtendImageStyleAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateCartoonizedImageResponse generateCartoonizedImageWithOptions(shared_ptr<GenerateCartoonizedImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateCartoonizedImageResponse generateCartoonizedImage(shared_ptr<GenerateCartoonizedImageRequest> request);
+  GenerateCartoonizedImageResponse generateCartoonizedImageAdvance(shared_ptr<GenerateCartoonizedImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateDynamicImageResponse generateDynamicImageWithOptions(shared_ptr<GenerateDynamicImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateDynamicImageResponse generateDynamicImage(shared_ptr<GenerateDynamicImageRequest> request);
   GenerateDynamicImageResponse generateDynamicImageAdvance(shared_ptr<GenerateDynamicImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
