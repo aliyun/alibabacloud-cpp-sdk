@@ -987,17 +987,26 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   if (!Darabonba_Util::Client::isUnset<string>(request->isvCode)) {
     body->insert(pair<string, string>("IsvCode", *request->isvCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->label)) {
+    body->insert(pair<string, string>("Label", *request->label));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->senderListShrink)) {
     body->insert(pair<string, string>("SenderList", *request->senderListShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
+    body->insert(pair<string, string>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     body->insert(pair<string, string>("TaskId", *request->taskId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ttl)) {
+    body->insert(pair<string, long>("Ttl", *request->ttl));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

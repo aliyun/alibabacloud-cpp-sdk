@@ -6471,10 +6471,13 @@ public:
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
+  shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<vector<SendChatappMassMessageRequestSenderList>> senderList{};
+  shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
+  shared_ptr<long> ttl{};
 
   SendChatappMassMessageRequest() {}
 
@@ -6507,6 +6510,9 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
@@ -6517,11 +6523,17 @@ public:
       }
       res["SenderList"] = boost::any(temp1);
     }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
     }
     return res;
   }
@@ -6548,6 +6560,9 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
@@ -6564,11 +6579,17 @@ public:
         senderList = make_shared<vector<SendChatappMassMessageRequestSenderList>>(expect1);
       }
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
     }
   }
 
@@ -6584,10 +6605,13 @@ public:
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
+  shared_ptr<string> label{};
   shared_ptr<string> language{};
   shared_ptr<string> senderListShrink{};
+  shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
+  shared_ptr<long> ttl{};
 
   SendChatappMassMessageShrinkRequest() {}
 
@@ -6620,17 +6644,26 @@ public:
     if (isvCode) {
       res["IsvCode"] = boost::any(*isvCode);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (language) {
       res["Language"] = boost::any(*language);
     }
     if (senderListShrink) {
       res["SenderList"] = boost::any(*senderListShrink);
     }
+    if (tag) {
+      res["Tag"] = boost::any(*tag);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
+    }
+    if (ttl) {
+      res["Ttl"] = boost::any(*ttl);
     }
     return res;
   }
@@ -6657,17 +6690,26 @@ public:
     if (m.find("IsvCode") != m.end() && !m["IsvCode"].empty()) {
       isvCode = make_shared<string>(boost::any_cast<string>(m["IsvCode"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
     if (m.find("SenderList") != m.end() && !m["SenderList"].empty()) {
       senderListShrink = make_shared<string>(boost::any_cast<string>(m["SenderList"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
+    }
+    if (m.find("Ttl") != m.end() && !m["Ttl"].empty()) {
+      ttl = make_shared<long>(boost::any_cast<long>(m["Ttl"]));
     }
   }
 
