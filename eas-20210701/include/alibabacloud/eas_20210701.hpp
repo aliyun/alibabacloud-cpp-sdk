@@ -104,9 +104,13 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<long> readyProcesses{};
   shared_ptr<string> reason{};
+  shared_ptr<string> resourceType{};
   shared_ptr<long> restartCount{};
+  shared_ptr<string> role{};
   shared_ptr<string> startAt{};
   shared_ptr<string> status{};
+  shared_ptr<string> tenantHostIP{};
+  shared_ptr<string> tenantInstanceIP{};
   shared_ptr<long> totalProcesses{};
 
   Instance() {}
@@ -146,14 +150,26 @@ public:
     if (reason) {
       res["Reason"] = boost::any(*reason);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (restartCount) {
       res["RestartCount"] = boost::any(*restartCount);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
     }
     if (startAt) {
       res["StartAt"] = boost::any(*startAt);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tenantHostIP) {
+      res["TenantHostIP"] = boost::any(*tenantHostIP);
+    }
+    if (tenantInstanceIP) {
+      res["TenantInstanceIP"] = boost::any(*tenantInstanceIP);
     }
     if (totalProcesses) {
       res["TotalProcesses"] = boost::any(*totalProcesses);
@@ -201,14 +217,26 @@ public:
     if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
     }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("RestartCount") != m.end() && !m["RestartCount"].empty()) {
       restartCount = make_shared<long>(boost::any_cast<long>(m["RestartCount"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
     }
     if (m.find("StartAt") != m.end() && !m["StartAt"].empty()) {
       startAt = make_shared<string>(boost::any_cast<string>(m["StartAt"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TenantHostIP") != m.end() && !m["TenantHostIP"].empty()) {
+      tenantHostIP = make_shared<string>(boost::any_cast<string>(m["TenantHostIP"]));
+    }
+    if (m.find("TenantInstanceIP") != m.end() && !m["TenantInstanceIP"].empty()) {
+      tenantInstanceIP = make_shared<string>(boost::any_cast<string>(m["TenantInstanceIP"]));
     }
     if (m.find("TotalProcesses") != m.end() && !m["TotalProcesses"].empty()) {
       totalProcesses = make_shared<long>(boost::any_cast<long>(m["TotalProcesses"]));
@@ -351,9 +379,11 @@ public:
   shared_ptr<string> instanceMemory{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceStatus{};
+  shared_ptr<string> instanceTenantIp{};
   shared_ptr<string> instanceType{};
   shared_ptr<double> instanceUsedCpu{};
-  shared_ptr<long> instanceUsedGpu{};
+  shared_ptr<double> instanceUsedGpu{};
+  shared_ptr<string> instanceUsedGpuMemory{};
   shared_ptr<string> instanceUsedMemory{};
   shared_ptr<string> region{};
   shared_ptr<string> zone{};
@@ -407,6 +437,9 @@ public:
     if (instanceStatus) {
       res["InstanceStatus"] = boost::any(*instanceStatus);
     }
+    if (instanceTenantIp) {
+      res["InstanceTenantIp"] = boost::any(*instanceTenantIp);
+    }
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
@@ -415,6 +448,9 @@ public:
     }
     if (instanceUsedGpu) {
       res["InstanceUsedGpu"] = boost::any(*instanceUsedGpu);
+    }
+    if (instanceUsedGpuMemory) {
+      res["InstanceUsedGpuMemory"] = boost::any(*instanceUsedGpuMemory);
     }
     if (instanceUsedMemory) {
       res["InstanceUsedMemory"] = boost::any(*instanceUsedMemory);
@@ -468,6 +504,9 @@ public:
     if (m.find("InstanceStatus") != m.end() && !m["InstanceStatus"].empty()) {
       instanceStatus = make_shared<string>(boost::any_cast<string>(m["InstanceStatus"]));
     }
+    if (m.find("InstanceTenantIp") != m.end() && !m["InstanceTenantIp"].empty()) {
+      instanceTenantIp = make_shared<string>(boost::any_cast<string>(m["InstanceTenantIp"]));
+    }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
     }
@@ -475,7 +514,10 @@ public:
       instanceUsedCpu = make_shared<double>(boost::any_cast<double>(m["InstanceUsedCpu"]));
     }
     if (m.find("InstanceUsedGpu") != m.end() && !m["InstanceUsedGpu"].empty()) {
-      instanceUsedGpu = make_shared<long>(boost::any_cast<long>(m["InstanceUsedGpu"]));
+      instanceUsedGpu = make_shared<double>(boost::any_cast<double>(m["InstanceUsedGpu"]));
+    }
+    if (m.find("InstanceUsedGpuMemory") != m.end() && !m["InstanceUsedGpuMemory"].empty()) {
+      instanceUsedGpuMemory = make_shared<string>(boost::any_cast<string>(m["InstanceUsedGpuMemory"]));
     }
     if (m.find("InstanceUsedMemory") != m.end() && !m["InstanceUsedMemory"].empty()) {
       instanceUsedMemory = make_shared<string>(boost::any_cast<string>(m["InstanceUsedMemory"]));
@@ -597,6 +639,42 @@ public:
 
   virtual ~ResourceInstanceWorker() = default;
 };
+class ServiceLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> labelKey{};
+  shared_ptr<string> labelValue{};
+
+  ServiceLabels() {}
+
+  explicit ServiceLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelKey) {
+      res["LabelKey"] = boost::any(*labelKey);
+    }
+    if (labelValue) {
+      res["LabelValue"] = boost::any(*labelValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LabelKey") != m.end() && !m["LabelKey"].empty()) {
+      labelKey = make_shared<string>(boost::any_cast<string>(m["LabelKey"]));
+    }
+    if (m.find("LabelValue") != m.end() && !m["LabelValue"].empty()) {
+      labelValue = make_shared<string>(boost::any_cast<string>(m["LabelValue"]));
+    }
+  }
+
+
+  virtual ~ServiceLabels() = default;
+};
 class Service : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -609,6 +687,7 @@ public:
   shared_ptr<string> image{};
   shared_ptr<string> internetEndpoint{};
   shared_ptr<string> intranetEndpoint{};
+  shared_ptr<vector<ServiceLabels>> labels{};
   shared_ptr<long> latestVersion{};
   shared_ptr<long> memory{};
   shared_ptr<string> message{};
@@ -674,6 +753,13 @@ public:
     }
     if (intranetEndpoint) {
       res["IntranetEndpoint"] = boost::any(*intranetEndpoint);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
     }
     if (latestVersion) {
       res["LatestVersion"] = boost::any(*latestVersion);
@@ -784,6 +870,19 @@ public:
     if (m.find("IntranetEndpoint") != m.end() && !m["IntranetEndpoint"].empty()) {
       intranetEndpoint = make_shared<string>(boost::any_cast<string>(m["IntranetEndpoint"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<ServiceLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ServiceLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<ServiceLabels>>(expect1);
+      }
+    }
     if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
       latestVersion = make_shared<long>(boost::any_cast<long>(m["LatestVersion"]));
     }
@@ -863,6 +962,104 @@ public:
 
 
   virtual ~Service() = default;
+};
+class CommitServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CommitServiceResponseBody() {}
+
+  explicit CommitServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CommitServiceResponseBody() = default;
+};
+class CommitServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CommitServiceResponseBody> body{};
+
+  CommitServiceResponse() {}
+
+  explicit CommitServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CommitServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CommitServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CommitServiceResponse() = default;
 };
 class CreateBenchmarkTaskRequest : public Darabonba::Model {
 public:
@@ -1465,6 +1662,8 @@ public:
 };
 class CreateServiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> develop{};
+  shared_ptr<map<string, string>> labels{};
   shared_ptr<string> body{};
 
   CreateServiceRequest() {}
@@ -1477,6 +1676,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (develop) {
+      res["Develop"] = boost::any(*develop);
+    }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (body) {
       res["body"] = boost::any(*body);
     }
@@ -1484,6 +1689,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Develop") != m.end() && !m["Develop"].empty()) {
+      develop = make_shared<string>(boost::any_cast<string>(m["Develop"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("body") != m.end() && !m["body"].empty()) {
       body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
@@ -1491,6 +1707,49 @@ public:
 
 
   virtual ~CreateServiceRequest() = default;
+};
+class CreateServiceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> develop{};
+  shared_ptr<string> labelsShrink{};
+  shared_ptr<string> body{};
+
+  CreateServiceShrinkRequest() {}
+
+  explicit CreateServiceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (develop) {
+      res["Develop"] = boost::any(*develop);
+    }
+    if (labelsShrink) {
+      res["Labels"] = boost::any(*labelsShrink);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Develop") != m.end() && !m["Develop"].empty()) {
+      develop = make_shared<string>(boost::any_cast<string>(m["Develop"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labelsShrink = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+  }
+
+
+  virtual ~CreateServiceShrinkRequest() = default;
 };
 class CreateServiceResponseBody : public Darabonba::Model {
 public:
@@ -3108,6 +3367,169 @@ public:
 
 
   virtual ~DeleteServiceInstancesResponse() = default;
+};
+class DeleteServiceLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> keys{};
+
+  DeleteServiceLabelRequest() {}
+
+  explicit DeleteServiceLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keys) {
+      res["Keys"] = boost::any(*keys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Keys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Keys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      keys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DeleteServiceLabelRequest() = default;
+};
+class DeleteServiceLabelShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> keysShrink{};
+
+  DeleteServiceLabelShrinkRequest() {}
+
+  explicit DeleteServiceLabelShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keysShrink) {
+      res["Keys"] = boost::any(*keysShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Keys") != m.end() && !m["Keys"].empty()) {
+      keysShrink = make_shared<string>(boost::any_cast<string>(m["Keys"]));
+    }
+  }
+
+
+  virtual ~DeleteServiceLabelShrinkRequest() = default;
+};
+class DeleteServiceLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteServiceLabelResponseBody() {}
+
+  explicit DeleteServiceLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteServiceLabelResponseBody() = default;
+};
+class DeleteServiceLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteServiceLabelResponseBody> body{};
+
+  DeleteServiceLabelResponse() {}
+
+  explicit DeleteServiceLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteServiceLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteServiceLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteServiceLabelResponse() = default;
 };
 class DeleteServiceMirrorResponseBody : public Darabonba::Model {
 public:
@@ -5072,6 +5494,133 @@ public:
 
   virtual ~DescribeServiceMirrorResponse() = default;
 };
+class DevelopServiceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> exit{};
+
+  DevelopServiceRequest() {}
+
+  explicit DevelopServiceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (exit) {
+      res["Exit"] = boost::any(*exit);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Exit") != m.end() && !m["Exit"].empty()) {
+      exit = make_shared<string>(boost::any_cast<string>(m["Exit"]));
+    }
+  }
+
+
+  virtual ~DevelopServiceRequest() = default;
+};
+class DevelopServiceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DevelopServiceResponseBody() {}
+
+  explicit DevelopServiceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DevelopServiceResponseBody() = default;
+};
+class DevelopServiceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DevelopServiceResponseBody> body{};
+
+  DevelopServiceResponse() {}
+
+  explicit DevelopServiceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DevelopServiceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DevelopServiceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DevelopServiceResponse() = default;
+};
 class ListBenchmarkTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
@@ -6626,9 +7175,12 @@ class ListServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filter{};
   shared_ptr<string> groupName{};
+  shared_ptr<map<string, string>> label{};
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> parentServiceUid{};
+  shared_ptr<string> serviceType{};
   shared_ptr<string> sort{};
 
   ListServicesRequest() {}
@@ -6647,6 +7199,9 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
     if (order) {
       res["Order"] = boost::any(*order);
     }
@@ -6655,6 +7210,12 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (parentServiceUid) {
+      res["ParentServiceUid"] = boost::any(*parentServiceUid);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
     }
     if (sort) {
       res["Sort"] = boost::any(*sort);
@@ -6669,6 +7230,14 @@ public:
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Label"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      label = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
@@ -6678,6 +7247,12 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("ParentServiceUid") != m.end() && !m["ParentServiceUid"].empty()) {
+      parentServiceUid = make_shared<string>(boost::any_cast<string>(m["ParentServiceUid"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
@@ -6685,6 +7260,91 @@ public:
 
 
   virtual ~ListServicesRequest() = default;
+};
+class ListServicesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filter{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> labelShrink{};
+  shared_ptr<string> order{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> parentServiceUid{};
+  shared_ptr<string> serviceType{};
+  shared_ptr<string> sort{};
+
+  ListServicesShrinkRequest() {}
+
+  explicit ListServicesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filter) {
+      res["Filter"] = boost::any(*filter);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (labelShrink) {
+      res["Label"] = boost::any(*labelShrink);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (parentServiceUid) {
+      res["ParentServiceUid"] = boost::any(*parentServiceUid);
+    }
+    if (serviceType) {
+      res["ServiceType"] = boost::any(*serviceType);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      filter = make_shared<string>(boost::any_cast<string>(m["Filter"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      labelShrink = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ParentServiceUid") != m.end() && !m["ParentServiceUid"].empty()) {
+      parentServiceUid = make_shared<string>(boost::any_cast<string>(m["ParentServiceUid"]));
+    }
+    if (m.find("ServiceType") != m.end() && !m["ServiceType"].empty()) {
+      serviceType = make_shared<string>(boost::any_cast<string>(m["ServiceType"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+  }
+
+
+  virtual ~ListServicesShrinkRequest() = default;
 };
 class ListServicesResponseBody : public Darabonba::Model {
 public:
@@ -8418,6 +9078,138 @@ public:
 
   virtual ~UpdateServiceCronScalerResponse() = default;
 };
+class UpdateServiceLabelRequest : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> labels{};
+
+  UpdateServiceLabelRequest() {}
+
+  explicit UpdateServiceLabelRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Labels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labels = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~UpdateServiceLabelRequest() = default;
+};
+class UpdateServiceLabelResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  UpdateServiceLabelResponseBody() {}
+
+  explicit UpdateServiceLabelResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceLabelResponseBody() = default;
+};
+class UpdateServiceLabelResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateServiceLabelResponseBody> body{};
+
+  UpdateServiceLabelResponse() {}
+
+  explicit UpdateServiceLabelResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateServiceLabelResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateServiceLabelResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateServiceLabelResponse() = default;
+};
 class UpdateServiceMirrorRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ratio{};
@@ -8823,289 +9615,312 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateBenchmarkTaskResponse createBenchmarkTask(shared_ptr<CreateBenchmarkTaskRequest> request);
+  CommitServiceResponse commitServiceWithOptions(shared_ptr<string> ClusterId,
+                                                 shared_ptr<string> ServiceName,
+                                                 shared_ptr<map<string, string>> headers,
+                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CommitServiceResponse commitService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   CreateBenchmarkTaskResponse createBenchmarkTaskWithOptions(shared_ptr<CreateBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateResourceResponse createResource(shared_ptr<CreateResourceRequest> request);
+  CreateBenchmarkTaskResponse createBenchmarkTask(shared_ptr<CreateBenchmarkTaskRequest> request);
   CreateResourceResponse createResourceWithOptions(shared_ptr<CreateResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateResourceInstancesResponse createResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceInstancesRequest> request);
+  CreateResourceResponse createResource(shared_ptr<CreateResourceRequest> request);
   CreateResourceInstancesResponse createResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ResourceId,
                                                                      shared_ptr<CreateResourceInstancesRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateResourceLogResponse createResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceLogRequest> request);
+  CreateResourceInstancesResponse createResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceInstancesRequest> request);
   CreateResourceLogResponse createResourceLogWithOptions(shared_ptr<string> ClusterId,
                                                          shared_ptr<string> ResourceId,
                                                          shared_ptr<CreateResourceLogRequest> request,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateResourceLogResponse createResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceLogRequest> request);
+  CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateServiceResponse createService(shared_ptr<CreateServiceRequest> request);
-  CreateServiceResponse createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateServiceAutoScalerResponse createServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceAutoScalerRequest> request);
   CreateServiceAutoScalerResponse createServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<CreateServiceAutoScalerRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateServiceCronScalerResponse createServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceCronScalerRequest> request);
+  CreateServiceAutoScalerResponse createServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceAutoScalerRequest> request);
   CreateServiceCronScalerResponse createServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<CreateServiceCronScalerRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateServiceMirrorResponse createServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceMirrorRequest> request);
+  CreateServiceCronScalerResponse createServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceCronScalerRequest> request);
   CreateServiceMirrorResponse createServiceMirrorWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ServiceName,
                                                              shared_ptr<CreateServiceMirrorRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteBenchmarkTaskResponse deleteBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
+  CreateServiceMirrorResponse createServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceMirrorRequest> request);
   DeleteBenchmarkTaskResponse deleteBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> TaskName,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteResourceResponse deleteResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DeleteBenchmarkTaskResponse deleteBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
   DeleteResourceResponse deleteResourceWithOptions(shared_ptr<string> ClusterId,
                                                    shared_ptr<string> ResourceId,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteResourceDLinkResponse deleteResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DeleteResourceResponse deleteResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DeleteResourceDLinkResponse deleteResourceDLinkWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ResourceId,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteResourceInstancesResponse deleteResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstancesRequest> request);
+  DeleteResourceDLinkResponse deleteResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DeleteResourceInstancesResponse deleteResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ResourceId,
                                                                      shared_ptr<DeleteResourceInstancesRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteResourceLogResponse deleteResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DeleteResourceInstancesResponse deleteResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstancesRequest> request);
   DeleteResourceLogResponse deleteResourceLogWithOptions(shared_ptr<string> ClusterId,
                                                          shared_ptr<string> ResourceId,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceResponse deleteService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DeleteResourceLogResponse deleteResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DeleteServiceResponse deleteServiceWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<string> ServiceName,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceAutoScalerResponse deleteServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DeleteServiceResponse deleteService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DeleteServiceAutoScalerResponse deleteServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceCronScalerResponse deleteServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DeleteServiceAutoScalerResponse deleteServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DeleteServiceCronScalerResponse deleteServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceInstancesResponse deleteServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceInstancesRequest> request);
+  DeleteServiceCronScalerResponse deleteServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DeleteServiceInstancesResponse deleteServiceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                    shared_ptr<string> ServiceName,
                                                                    shared_ptr<DeleteServiceInstancesRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteServiceMirrorResponse deleteServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DeleteServiceInstancesResponse deleteServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceInstancesRequest> request);
+  DeleteServiceLabelResponse deleteServiceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                           shared_ptr<string> ServiceName,
+                                                           shared_ptr<DeleteServiceLabelRequest> tmpReq,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteServiceLabelResponse deleteServiceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceLabelRequest> request);
   DeleteServiceMirrorResponse deleteServiceMirrorWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ServiceName,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeBenchmarkTaskResponse describeBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
+  DeleteServiceMirrorResponse deleteServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DescribeBenchmarkTaskResponse describeBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> TaskName,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeBenchmarkTaskReportResponse describeBenchmarkTaskReport(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<DescribeBenchmarkTaskReportRequest> request);
+  DescribeBenchmarkTaskResponse describeBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
   DescribeBenchmarkTaskReportResponse describeBenchmarkTaskReportWithOptions(shared_ptr<string> ClusterId,
                                                                              shared_ptr<string> TaskName,
                                                                              shared_ptr<DescribeBenchmarkTaskReportRequest> request,
                                                                              shared_ptr<map<string, string>> headers,
                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeGroupResponse describeGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName);
+  DescribeBenchmarkTaskReportResponse describeBenchmarkTaskReport(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<DescribeBenchmarkTaskReportRequest> request);
   DescribeGroupResponse describeGroupWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<string> GroupName,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeResourceResponse describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DescribeGroupResponse describeGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName);
   DescribeResourceResponse describeResourceWithOptions(shared_ptr<string> ClusterId,
                                                        shared_ptr<string> ResourceId,
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeResourceDLinkResponse describeResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DescribeResourceResponse describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DescribeResourceDLinkResponse describeResourceDLinkWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> ResourceId,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeResourceLogResponse describeResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
+  DescribeResourceDLinkResponse describeResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DescribeResourceLogResponse describeResourceLogWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ResourceId,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceResponse describeService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeResourceLogResponse describeResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId);
   DescribeServiceResponse describeServiceWithOptions(shared_ptr<string> ClusterId,
                                                      shared_ptr<string> ServiceName,
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceAutoScalerResponse describeServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeServiceResponse describeService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DescribeServiceAutoScalerResponse describeServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
                                                                          shared_ptr<string> ServiceName,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceCronScalerResponse describeServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeServiceAutoScalerResponse describeServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DescribeServiceCronScalerResponse describeServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
                                                                          shared_ptr<string> ServiceName,
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceEventResponse describeServiceEvent(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceEventRequest> request);
+  DescribeServiceCronScalerResponse describeServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   DescribeServiceEventResponse describeServiceEventWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<string> ServiceName,
                                                                shared_ptr<DescribeServiceEventRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceLogResponse describeServiceLog(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceLogRequest> request);
+  DescribeServiceEventResponse describeServiceEvent(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceEventRequest> request);
   DescribeServiceLogResponse describeServiceLogWithOptions(shared_ptr<string> ClusterId,
                                                            shared_ptr<string> ServiceName,
                                                            shared_ptr<DescribeServiceLogRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeServiceMirrorResponse describeServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DescribeServiceLogResponse describeServiceLog(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceLogRequest> request);
   DescribeServiceMirrorResponse describeServiceMirrorWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> ServiceName,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListBenchmarkTaskResponse listBenchmarkTask(shared_ptr<ListBenchmarkTaskRequest> request);
+  DescribeServiceMirrorResponse describeServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  DevelopServiceResponse developServiceWithOptions(shared_ptr<string> ClusterId,
+                                                   shared_ptr<string> ServiceName,
+                                                   shared_ptr<DevelopServiceRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DevelopServiceResponse developService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DevelopServiceRequest> request);
   ListBenchmarkTaskResponse listBenchmarkTaskWithOptions(shared_ptr<ListBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
+  ListBenchmarkTaskResponse listBenchmarkTask(shared_ptr<ListBenchmarkTaskRequest> request);
   ListGroupsResponse listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListResourceInstanceWorkerResponse listResourceInstanceWorker(shared_ptr<string> ClusterId,
-                                                                shared_ptr<string> ResourceId,
-                                                                shared_ptr<string> InstanceName,
-                                                                shared_ptr<ListResourceInstanceWorkerRequest> request);
+  ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
   ListResourceInstanceWorkerResponse listResourceInstanceWorkerWithOptions(shared_ptr<string> ClusterId,
                                                                            shared_ptr<string> ResourceId,
                                                                            shared_ptr<string> InstanceName,
                                                                            shared_ptr<ListResourceInstanceWorkerRequest> request,
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListResourceInstancesResponse listResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceInstancesRequest> request);
+  ListResourceInstanceWorkerResponse listResourceInstanceWorker(shared_ptr<string> ClusterId,
+                                                                shared_ptr<string> ResourceId,
+                                                                shared_ptr<string> InstanceName,
+                                                                shared_ptr<ListResourceInstanceWorkerRequest> request);
   ListResourceInstancesResponse listResourceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                  shared_ptr<string> ResourceId,
                                                                  shared_ptr<ListResourceInstancesRequest> request,
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListResourceServicesResponse listResourceServices(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceServicesRequest> request);
+  ListResourceInstancesResponse listResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceInstancesRequest> request);
   ListResourceServicesResponse listResourceServicesWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<string> ResourceId,
                                                                shared_ptr<ListResourceServicesRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListResourcesResponse listResources(shared_ptr<ListResourcesRequest> request);
+  ListResourceServicesResponse listResourceServices(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceServicesRequest> request);
   ListResourcesResponse listResourcesWithOptions(shared_ptr<ListResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListServiceInstancesResponse listServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceInstancesRequest> request);
+  ListResourcesResponse listResources(shared_ptr<ListResourcesRequest> request);
   ListServiceInstancesResponse listServiceInstancesWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<string> ServiceName,
                                                                shared_ptr<ListServiceInstancesRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListServiceVersionsResponse listServiceVersions(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceVersionsRequest> request);
+  ListServiceInstancesResponse listServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceInstancesRequest> request);
   ListServiceVersionsResponse listServiceVersionsWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ServiceName,
                                                              shared_ptr<ListServiceVersionsRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListServiceVersionsResponse listServiceVersions(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceVersionsRequest> request);
+  ListServicesResponse listServicesWithOptions(shared_ptr<ListServicesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListServicesResponse listServices(shared_ptr<ListServicesRequest> request);
-  ListServicesResponse listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ReleaseServiceResponse releaseService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ReleaseServiceRequest> request);
   ReleaseServiceResponse releaseServiceWithOptions(shared_ptr<string> ClusterId,
                                                    shared_ptr<string> ServiceName,
                                                    shared_ptr<ReleaseServiceRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartBenchmarkTaskResponse startBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
+  ReleaseServiceResponse releaseService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ReleaseServiceRequest> request);
   StartBenchmarkTaskResponse startBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                            shared_ptr<string> TaskName,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartServiceResponse startService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  StartBenchmarkTaskResponse startBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
   StartServiceResponse startServiceWithOptions(shared_ptr<string> ClusterId,
                                                shared_ptr<string> ServiceName,
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopBenchmarkTaskResponse stopBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
+  StartServiceResponse startService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   StopBenchmarkTaskResponse stopBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                          shared_ptr<string> TaskName,
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopServiceResponse stopService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
+  StopBenchmarkTaskResponse stopBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName);
   StopServiceResponse stopServiceWithOptions(shared_ptr<string> ClusterId,
                                              shared_ptr<string> ServiceName,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateBenchmarkTaskResponse updateBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<UpdateBenchmarkTaskRequest> request);
+  StopServiceResponse stopService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName);
   UpdateBenchmarkTaskResponse updateBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> TaskName,
                                                              shared_ptr<UpdateBenchmarkTaskRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateResourceResponse updateResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceRequest> request);
+  UpdateBenchmarkTaskResponse updateBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<UpdateBenchmarkTaskRequest> request);
   UpdateResourceResponse updateResourceWithOptions(shared_ptr<string> ClusterId,
                                                    shared_ptr<string> ResourceId,
                                                    shared_ptr<UpdateResourceRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateResourceDLinkResponse updateResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceDLinkRequest> request);
+  UpdateResourceResponse updateResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceRequest> request);
   UpdateResourceDLinkResponse updateResourceDLinkWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ResourceId,
                                                              shared_ptr<UpdateResourceDLinkRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateResourceInstanceResponse updateResourceInstance(shared_ptr<string> ClusterId,
-                                                        shared_ptr<string> ResourceId,
-                                                        shared_ptr<string> InstanceId,
-                                                        shared_ptr<UpdateResourceInstanceRequest> request);
+  UpdateResourceDLinkResponse updateResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceDLinkRequest> request);
   UpdateResourceInstanceResponse updateResourceInstanceWithOptions(shared_ptr<string> ClusterId,
                                                                    shared_ptr<string> ResourceId,
                                                                    shared_ptr<string> InstanceId,
                                                                    shared_ptr<UpdateResourceInstanceRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceResponse updateService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceRequest> request);
+  UpdateResourceInstanceResponse updateResourceInstance(shared_ptr<string> ClusterId,
+                                                        shared_ptr<string> ResourceId,
+                                                        shared_ptr<string> InstanceId,
+                                                        shared_ptr<UpdateResourceInstanceRequest> request);
   UpdateServiceResponse updateServiceWithOptions(shared_ptr<string> ClusterId,
                                                  shared_ptr<string> ServiceName,
                                                  shared_ptr<UpdateServiceRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceAutoScalerResponse updateServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceAutoScalerRequest> request);
+  UpdateServiceResponse updateService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceRequest> request);
   UpdateServiceAutoScalerResponse updateServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<UpdateServiceAutoScalerRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceCronScalerResponse updateServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceCronScalerRequest> request);
+  UpdateServiceAutoScalerResponse updateServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceAutoScalerRequest> request);
   UpdateServiceCronScalerResponse updateServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<UpdateServiceCronScalerRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceMirrorResponse updateServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceMirrorRequest> request);
+  UpdateServiceCronScalerResponse updateServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceCronScalerRequest> request);
+  UpdateServiceLabelResponse updateServiceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                           shared_ptr<string> ServiceName,
+                                                           shared_ptr<UpdateServiceLabelRequest> request,
+                                                           shared_ptr<map<string, string>> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateServiceLabelResponse updateServiceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceLabelRequest> request);
   UpdateServiceMirrorResponse updateServiceMirrorWithOptions(shared_ptr<string> ClusterId,
                                                              shared_ptr<string> ServiceName,
                                                              shared_ptr<UpdateServiceMirrorRequest> request,
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceSafetyLockResponse updateServiceSafetyLock(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceSafetyLockRequest> request);
+  UpdateServiceMirrorResponse updateServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceMirrorRequest> request);
   UpdateServiceSafetyLockResponse updateServiceSafetyLockWithOptions(shared_ptr<string> ClusterId,
                                                                      shared_ptr<string> ServiceName,
                                                                      shared_ptr<UpdateServiceSafetyLockRequest> request,
                                                                      shared_ptr<map<string, string>> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateServiceVersionResponse updateServiceVersion(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceVersionRequest> request);
+  UpdateServiceSafetyLockResponse updateServiceSafetyLock(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceSafetyLockRequest> request);
   UpdateServiceVersionResponse updateServiceVersionWithOptions(shared_ptr<string> ClusterId,
                                                                shared_ptr<string> ServiceName,
                                                                shared_ptr<UpdateServiceVersionRequest> request,
                                                                shared_ptr<map<string, string>> headers,
                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateServiceVersionResponse updateServiceVersion(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceVersionRequest> request);
 
   virtual ~Client() = default;
 };

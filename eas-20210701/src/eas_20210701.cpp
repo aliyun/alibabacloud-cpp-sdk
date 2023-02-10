@@ -56,10 +56,31 @@ string Alibabacloud_Eas20210701::Client::getEndpoint(shared_ptr<string> productI
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::createBenchmarkTask(shared_ptr<CreateBenchmarkTaskRequest> request) {
+CommitServiceResponse Alibabacloud_Eas20210701::Client::commitServiceWithOptions(shared_ptr<string> ClusterId,
+                                                                                 shared_ptr<string> ServiceName,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CommitService"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/commit"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CommitServiceResponse(callApi(params, req, runtime));
+}
+
+CommitServiceResponse Alibabacloud_Eas20210701::Client::commitService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createBenchmarkTaskWithOptions(request, headers, runtime);
+  return commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 CreateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::createBenchmarkTaskWithOptions(shared_ptr<CreateBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -82,10 +103,10 @@ CreateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::createBenchmarkTas
   return CreateBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-CreateResourceResponse Alibabacloud_Eas20210701::Client::createResource(shared_ptr<CreateResourceRequest> request) {
+CreateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::createBenchmarkTask(shared_ptr<CreateBenchmarkTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createResourceWithOptions(request, headers, runtime);
+  return createBenchmarkTaskWithOptions(request, headers, runtime);
 }
 
 CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptions(shared_ptr<CreateResourceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -121,10 +142,10 @@ CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptio
   return CreateResourceResponse(callApi(params, req, runtime));
 }
 
-CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceInstancesRequest> request) {
+CreateResourceResponse Alibabacloud_Eas20210701::Client::createResource(shared_ptr<CreateResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return createResourceWithOptions(request, headers, runtime);
 }
 
 CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResourceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -167,10 +188,10 @@ CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResource
   return CreateResourceInstancesResponse(callApi(params, req, runtime));
 }
 
-CreateResourceLogResponse Alibabacloud_Eas20210701::Client::createResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceLogRequest> request) {
+CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return createResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 CreateResourceLogResponse Alibabacloud_Eas20210701::Client::createResourceLogWithOptions(shared_ptr<string> ClusterId,
@@ -204,16 +225,29 @@ CreateResourceLogResponse Alibabacloud_Eas20210701::Client::createResourceLogWit
   return CreateResourceLogResponse(callApi(params, req, runtime));
 }
 
-CreateServiceResponse Alibabacloud_Eas20210701::Client::createService(shared_ptr<CreateServiceRequest> request) {
+CreateResourceLogResponse Alibabacloud_Eas20210701::Client::createResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<CreateResourceLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceWithOptions(request, headers, runtime);
+  return createResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
-CreateServiceResponse Alibabacloud_Eas20210701::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateServiceResponse Alibabacloud_Eas20210701::Client::createServiceWithOptions(shared_ptr<CreateServiceRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateServiceShrinkRequest> request = make_shared<CreateServiceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->labels)) {
+    request->labelsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->labels, make_shared<string>("Labels"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->develop)) {
+    query->insert(pair<string, string>("Develop", *request->develop));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelsShrink)) {
+    query->insert(pair<string, string>("Labels", *request->labelsShrink));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", !request->body ? boost::any() : boost::any(*request->body)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -230,10 +264,10 @@ CreateServiceResponse Alibabacloud_Eas20210701::Client::createServiceWithOptions
   return CreateServiceResponse(callApi(params, req, runtime));
 }
 
-CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceAutoScalerRequest> request) {
+CreateServiceResponse Alibabacloud_Eas20210701::Client::createService(shared_ptr<CreateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return createServiceWithOptions(request, headers, runtime);
 }
 
 CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
@@ -270,10 +304,10 @@ CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceA
   return CreateServiceAutoScalerResponse(callApi(params, req, runtime));
 }
 
-CreateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::createServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceCronScalerRequest> request) {
+CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceAutoScalerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return createServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 CreateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::createServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
@@ -307,10 +341,10 @@ CreateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::createServiceC
   return CreateServiceCronScalerResponse(callApi(params, req, runtime));
 }
 
-CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceMirrorRequest> request) {
+CreateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::createServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceCronScalerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return createServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirrorWithOptions(shared_ptr<string> ClusterId,
@@ -344,10 +378,10 @@ CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirro
   return CreateServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
+CreateServiceMirrorResponse Alibabacloud_Eas20210701::Client::createServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<CreateServiceMirrorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return createServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -371,10 +405,10 @@ DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTas
   return DeleteBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-DeleteResourceResponse Alibabacloud_Eas20210701::Client::deleteResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DeleteBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::deleteBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
 }
 
 DeleteResourceResponse Alibabacloud_Eas20210701::Client::deleteResourceWithOptions(shared_ptr<string> ClusterId,
@@ -398,10 +432,10 @@ DeleteResourceResponse Alibabacloud_Eas20210701::Client::deleteResourceWithOptio
   return DeleteResourceResponse(callApi(params, req, runtime));
 }
 
-DeleteResourceDLinkResponse Alibabacloud_Eas20210701::Client::deleteResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DeleteResourceResponse Alibabacloud_Eas20210701::Client::deleteResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DeleteResourceDLinkResponse Alibabacloud_Eas20210701::Client::deleteResourceDLinkWithOptions(shared_ptr<string> ClusterId,
@@ -425,10 +459,10 @@ DeleteResourceDLinkResponse Alibabacloud_Eas20210701::Client::deleteResourceDLin
   return DeleteResourceDLinkResponse(callApi(params, req, runtime));
 }
 
-DeleteResourceInstancesResponse Alibabacloud_Eas20210701::Client::deleteResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstancesRequest> request) {
+DeleteResourceDLinkResponse Alibabacloud_Eas20210701::Client::deleteResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DeleteResourceInstancesResponse Alibabacloud_Eas20210701::Client::deleteResourceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -462,10 +496,10 @@ DeleteResourceInstancesResponse Alibabacloud_Eas20210701::Client::deleteResource
   return DeleteResourceInstancesResponse(callApi(params, req, runtime));
 }
 
-DeleteResourceLogResponse Alibabacloud_Eas20210701::Client::deleteResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DeleteResourceInstancesResponse Alibabacloud_Eas20210701::Client::deleteResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<DeleteResourceInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+  return deleteResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 DeleteResourceLogResponse Alibabacloud_Eas20210701::Client::deleteResourceLogWithOptions(shared_ptr<string> ClusterId,
@@ -489,10 +523,10 @@ DeleteResourceLogResponse Alibabacloud_Eas20210701::Client::deleteResourceLogWit
   return DeleteResourceLogResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceResponse Alibabacloud_Eas20210701::Client::deleteService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DeleteResourceLogResponse Alibabacloud_Eas20210701::Client::deleteResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DeleteServiceResponse Alibabacloud_Eas20210701::Client::deleteServiceWithOptions(shared_ptr<string> ClusterId,
@@ -516,10 +550,10 @@ DeleteServiceResponse Alibabacloud_Eas20210701::Client::deleteServiceWithOptions
   return DeleteServiceResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DeleteServiceResponse Alibabacloud_Eas20210701::Client::deleteService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DeleteServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
@@ -543,10 +577,10 @@ DeleteServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceA
   return DeleteServiceAutoScalerResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceCronScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DeleteServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DeleteServiceCronScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
@@ -570,10 +604,10 @@ DeleteServiceCronScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceC
   return DeleteServiceCronScalerResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceInstancesResponse Alibabacloud_Eas20210701::Client::deleteServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceInstancesRequest> request) {
+DeleteServiceCronScalerResponse Alibabacloud_Eas20210701::Client::deleteServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DeleteServiceInstancesResponse Alibabacloud_Eas20210701::Client::deleteServiceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -604,10 +638,49 @@ DeleteServiceInstancesResponse Alibabacloud_Eas20210701::Client::deleteServiceIn
   return DeleteServiceInstancesResponse(callApi(params, req, runtime));
 }
 
-DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DeleteServiceInstancesResponse Alibabacloud_Eas20210701::Client::deleteServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  return deleteServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
+}
+
+DeleteServiceLabelResponse Alibabacloud_Eas20210701::Client::deleteServiceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                                           shared_ptr<string> ServiceName,
+                                                                                           shared_ptr<DeleteServiceLabelRequest> tmpReq,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteServiceLabelShrinkRequest> request = make_shared<DeleteServiceLabelShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->keys)) {
+    request->keysShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->keys, make_shared<string>("Keys"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->keysShrink)) {
+    query->insert(pair<string, string>("Keys", *request->keysShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteServiceLabel"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/label"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteServiceLabelResponse(callApi(params, req, runtime));
+}
+
+DeleteServiceLabelResponse Alibabacloud_Eas20210701::Client::deleteServiceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DeleteServiceLabelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirrorWithOptions(shared_ptr<string> ClusterId,
@@ -631,10 +704,10 @@ DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirro
   return DeleteServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-DescribeBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
+DeleteServiceMirrorResponse Alibabacloud_Eas20210701::Client::deleteServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DescribeBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -658,10 +731,10 @@ DescribeBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::describeBenchmar
   return DescribeBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-DescribeBenchmarkTaskReportResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTaskReport(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<DescribeBenchmarkTaskReportRequest> request) {
+DescribeBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
+  return describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
 }
 
 DescribeBenchmarkTaskReportResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTaskReportWithOptions(shared_ptr<string> ClusterId,
@@ -692,10 +765,10 @@ DescribeBenchmarkTaskReportResponse Alibabacloud_Eas20210701::Client::describeBe
   return DescribeBenchmarkTaskReportResponse(callApi(params, req, runtime));
 }
 
-DescribeGroupResponse Alibabacloud_Eas20210701::Client::describeGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName) {
+DescribeBenchmarkTaskReportResponse Alibabacloud_Eas20210701::Client::describeBenchmarkTaskReport(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<DescribeBenchmarkTaskReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
+  return describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 DescribeGroupResponse Alibabacloud_Eas20210701::Client::describeGroupWithOptions(shared_ptr<string> ClusterId,
@@ -719,10 +792,10 @@ DescribeGroupResponse Alibabacloud_Eas20210701::Client::describeGroupWithOptions
   return DescribeGroupResponse(callApi(params, req, runtime));
 }
 
-DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DescribeGroupResponse Alibabacloud_Eas20210701::Client::describeGroup(shared_ptr<string> ClusterId, shared_ptr<string> GroupName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
 }
 
 DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResourceWithOptions(shared_ptr<string> ClusterId,
@@ -746,10 +819,10 @@ DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResourceWithO
   return DescribeResourceResponse(callApi(params, req, runtime));
 }
 
-DescribeResourceDLinkResponse Alibabacloud_Eas20210701::Client::describeResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DescribeResourceResponse Alibabacloud_Eas20210701::Client::describeResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DescribeResourceDLinkResponse Alibabacloud_Eas20210701::Client::describeResourceDLinkWithOptions(shared_ptr<string> ClusterId,
@@ -773,10 +846,10 @@ DescribeResourceDLinkResponse Alibabacloud_Eas20210701::Client::describeResource
   return DescribeResourceDLinkResponse(callApi(params, req, runtime));
 }
 
-DescribeResourceLogResponse Alibabacloud_Eas20210701::Client::describeResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
+DescribeResourceDLinkResponse Alibabacloud_Eas20210701::Client::describeResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+  return describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DescribeResourceLogResponse Alibabacloud_Eas20210701::Client::describeResourceLogWithOptions(shared_ptr<string> ClusterId,
@@ -800,10 +873,10 @@ DescribeResourceLogResponse Alibabacloud_Eas20210701::Client::describeResourceLo
   return DescribeResourceLogResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceResponse Alibabacloud_Eas20210701::Client::describeService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DescribeResourceLogResponse Alibabacloud_Eas20210701::Client::describeResourceLog(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
 }
 
 DescribeServiceResponse Alibabacloud_Eas20210701::Client::describeServiceWithOptions(shared_ptr<string> ClusterId,
@@ -827,10 +900,10 @@ DescribeServiceResponse Alibabacloud_Eas20210701::Client::describeServiceWithOpt
   return DescribeServiceResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::describeServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DescribeServiceResponse Alibabacloud_Eas20210701::Client::describeService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DescribeServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::describeServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
@@ -854,10 +927,10 @@ DescribeServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::describeServ
   return DescribeServiceAutoScalerResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceCronScalerResponse Alibabacloud_Eas20210701::Client::describeServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DescribeServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::describeServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DescribeServiceCronScalerResponse Alibabacloud_Eas20210701::Client::describeServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
@@ -881,10 +954,10 @@ DescribeServiceCronScalerResponse Alibabacloud_Eas20210701::Client::describeServ
   return DescribeServiceCronScalerResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEvent(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceEventRequest> request) {
+DescribeServiceCronScalerResponse Alibabacloud_Eas20210701::Client::describeServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEventWithOptions(shared_ptr<string> ClusterId,
@@ -924,10 +997,10 @@ DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEv
   return DescribeServiceEventResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLog(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceLogRequest> request) {
+DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEvent(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceEventRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceLogWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLogWithOptions(shared_ptr<string> ClusterId,
@@ -973,10 +1046,10 @@ DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLogW
   return DescribeServiceLogResponse(callApi(params, req, runtime));
 }
 
-DescribeServiceMirrorResponse Alibabacloud_Eas20210701::Client::describeServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLog(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DescribeServiceLogRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  return describeServiceLogWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 DescribeServiceMirrorResponse Alibabacloud_Eas20210701::Client::describeServiceMirrorWithOptions(shared_ptr<string> ClusterId,
@@ -1000,10 +1073,44 @@ DescribeServiceMirrorResponse Alibabacloud_Eas20210701::Client::describeServiceM
   return DescribeServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTask(shared_ptr<ListBenchmarkTaskRequest> request) {
+DescribeServiceMirrorResponse Alibabacloud_Eas20210701::Client::describeServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listBenchmarkTaskWithOptions(request, headers, runtime);
+  return describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+}
+
+DevelopServiceResponse Alibabacloud_Eas20210701::Client::developServiceWithOptions(shared_ptr<string> ClusterId,
+                                                                                   shared_ptr<string> ServiceName,
+                                                                                   shared_ptr<DevelopServiceRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exit)) {
+    query->insert(pair<string, string>("Exit", *request->exit));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DevelopService"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/develop"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DevelopServiceResponse(callApi(params, req, runtime));
+}
+
+DevelopServiceResponse Alibabacloud_Eas20210701::Client::developService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<DevelopServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return developServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTaskWithOptions(shared_ptr<ListBenchmarkTaskRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1039,10 +1146,10 @@ ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTaskWit
   return ListBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-ListGroupsResponse Alibabacloud_Eas20210701::Client::listGroups(shared_ptr<ListGroupsRequest> request) {
+ListBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::listBenchmarkTask(shared_ptr<ListBenchmarkTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listGroupsWithOptions(request, headers, runtime);
+  return listBenchmarkTaskWithOptions(request, headers, runtime);
 }
 
 ListGroupsResponse Alibabacloud_Eas20210701::Client::listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1075,13 +1182,10 @@ ListGroupsResponse Alibabacloud_Eas20210701::Client::listGroupsWithOptions(share
   return ListGroupsResponse(callApi(params, req, runtime));
 }
 
-ListResourceInstanceWorkerResponse Alibabacloud_Eas20210701::Client::listResourceInstanceWorker(shared_ptr<string> ClusterId,
-                                                                                                shared_ptr<string> ResourceId,
-                                                                                                shared_ptr<string> InstanceName,
-                                                                                                shared_ptr<ListResourceInstanceWorkerRequest> request) {
+ListGroupsResponse Alibabacloud_Eas20210701::Client::listGroups(shared_ptr<ListGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listResourceInstanceWorkerWithOptions(ClusterId, ResourceId, InstanceName, request, headers, runtime);
+  return listGroupsWithOptions(request, headers, runtime);
 }
 
 ListResourceInstanceWorkerResponse Alibabacloud_Eas20210701::Client::listResourceInstanceWorkerWithOptions(shared_ptr<string> ClusterId,
@@ -1116,10 +1220,13 @@ ListResourceInstanceWorkerResponse Alibabacloud_Eas20210701::Client::listResourc
   return ListResourceInstanceWorkerResponse(callApi(params, req, runtime));
 }
 
-ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceInstancesRequest> request) {
+ListResourceInstanceWorkerResponse Alibabacloud_Eas20210701::Client::listResourceInstanceWorker(shared_ptr<string> ClusterId,
+                                                                                                shared_ptr<string> ResourceId,
+                                                                                                shared_ptr<string> InstanceName,
+                                                                                                shared_ptr<ListResourceInstanceWorkerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return listResourceInstanceWorkerWithOptions(ClusterId, ResourceId, InstanceName, request, headers, runtime);
 }
 
 ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -1162,10 +1269,10 @@ ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInst
   return ListResourceInstancesResponse(callApi(params, req, runtime));
 }
 
-ListResourceServicesResponse Alibabacloud_Eas20210701::Client::listResourceServices(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceServicesRequest> request) {
+ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listResourceServicesWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return listResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 ListResourceServicesResponse Alibabacloud_Eas20210701::Client::listResourceServicesWithOptions(shared_ptr<string> ClusterId,
@@ -1199,10 +1306,10 @@ ListResourceServicesResponse Alibabacloud_Eas20210701::Client::listResourceServi
   return ListResourceServicesResponse(callApi(params, req, runtime));
 }
 
-ListResourcesResponse Alibabacloud_Eas20210701::Client::listResources(shared_ptr<ListResourcesRequest> request) {
+ListResourceServicesResponse Alibabacloud_Eas20210701::Client::listResourceServices(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<ListResourceServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listResourcesWithOptions(request, headers, runtime);
+  return listResourceServicesWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 ListResourcesResponse Alibabacloud_Eas20210701::Client::listResourcesWithOptions(shared_ptr<ListResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1238,10 +1345,10 @@ ListResourcesResponse Alibabacloud_Eas20210701::Client::listResourcesWithOptions
   return ListResourcesResponse(callApi(params, req, runtime));
 }
 
-ListServiceInstancesResponse Alibabacloud_Eas20210701::Client::listServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceInstancesRequest> request) {
+ListResourcesResponse Alibabacloud_Eas20210701::Client::listResources(shared_ptr<ListResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return listResourcesWithOptions(request, headers, runtime);
 }
 
 ListServiceInstancesResponse Alibabacloud_Eas20210701::Client::listServiceInstancesWithOptions(shared_ptr<string> ClusterId,
@@ -1275,10 +1382,10 @@ ListServiceInstancesResponse Alibabacloud_Eas20210701::Client::listServiceInstan
   return ListServiceInstancesResponse(callApi(params, req, runtime));
 }
 
-ListServiceVersionsResponse Alibabacloud_Eas20210701::Client::listServiceVersions(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceVersionsRequest> request) {
+ListServiceInstancesResponse Alibabacloud_Eas20210701::Client::listServiceInstances(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServiceVersionsWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return listServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 ListServiceVersionsResponse Alibabacloud_Eas20210701::Client::listServiceVersionsWithOptions(shared_ptr<string> ClusterId,
@@ -1312,20 +1419,28 @@ ListServiceVersionsResponse Alibabacloud_Eas20210701::Client::listServiceVersion
   return ListServiceVersionsResponse(callApi(params, req, runtime));
 }
 
-ListServicesResponse Alibabacloud_Eas20210701::Client::listServices(shared_ptr<ListServicesRequest> request) {
+ListServiceVersionsResponse Alibabacloud_Eas20210701::Client::listServiceVersions(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ListServiceVersionsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listServicesWithOptions(request, headers, runtime);
+  return listServiceVersionsWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
-ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(shared_ptr<ListServicesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListServicesShrinkRequest> request = make_shared<ListServicesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->label)) {
+    request->labelShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->label, make_shared<string>("Label"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
     query->insert(pair<string, string>("Filter", *request->filter));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labelShrink)) {
+    query->insert(pair<string, string>("Label", *request->labelShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
@@ -1335,6 +1450,12 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentServiceUid)) {
+    query->insert(pair<string, string>("ParentServiceUid", *request->parentServiceUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
+    query->insert(pair<string, string>("ServiceType", *request->serviceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
@@ -1357,10 +1478,10 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   return ListServicesResponse(callApi(params, req, runtime));
 }
 
-ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ReleaseServiceRequest> request) {
+ListServicesResponse Alibabacloud_Eas20210701::Client::listServices(shared_ptr<ListServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return releaseServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return listServicesWithOptions(request, headers, runtime);
 }
 
 ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseServiceWithOptions(shared_ptr<string> ClusterId,
@@ -1394,10 +1515,10 @@ ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseServiceWithOptio
   return ReleaseServiceResponse(callApi(params, req, runtime));
 }
 
-StartBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::startBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
+ReleaseServiceResponse Alibabacloud_Eas20210701::Client::releaseService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<ReleaseServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return releaseServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 StartBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::startBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -1421,10 +1542,10 @@ StartBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::startBenchmarkTaskW
   return StartBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-StartServiceResponse Alibabacloud_Eas20210701::Client::startService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+StartBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::startBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
 }
 
 StartServiceResponse Alibabacloud_Eas20210701::Client::startServiceWithOptions(shared_ptr<string> ClusterId,
@@ -1448,10 +1569,10 @@ StartServiceResponse Alibabacloud_Eas20210701::Client::startServiceWithOptions(s
   return StartServiceResponse(callApi(params, req, runtime));
 }
 
-StopBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::stopBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
+StartServiceResponse Alibabacloud_Eas20210701::Client::startService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+  return startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 StopBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::stopBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -1475,10 +1596,10 @@ StopBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::stopBenchmarkTaskWit
   return StopBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-StopServiceResponse Alibabacloud_Eas20210701::Client::stopService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
+StopBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::stopBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+  return stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
 }
 
 StopServiceResponse Alibabacloud_Eas20210701::Client::stopServiceWithOptions(shared_ptr<string> ClusterId,
@@ -1502,10 +1623,10 @@ StopServiceResponse Alibabacloud_Eas20210701::Client::stopServiceWithOptions(sha
   return StopServiceResponse(callApi(params, req, runtime));
 }
 
-UpdateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::updateBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<UpdateBenchmarkTaskRequest> request) {
+StopServiceResponse Alibabacloud_Eas20210701::Client::stopService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
+  return stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
 }
 
 UpdateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::updateBenchmarkTaskWithOptions(shared_ptr<string> ClusterId,
@@ -1532,10 +1653,10 @@ UpdateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::updateBenchmarkTas
   return UpdateBenchmarkTaskResponse(callApi(params, req, runtime));
 }
 
-UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceRequest> request) {
+UpdateBenchmarkTaskResponse Alibabacloud_Eas20210701::Client::updateBenchmarkTask(shared_ptr<string> ClusterId, shared_ptr<string> TaskName, shared_ptr<UpdateBenchmarkTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
 }
 
 UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResourceWithOptions(shared_ptr<string> ClusterId,
@@ -1566,10 +1687,10 @@ UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResourceWithOptio
   return UpdateResourceResponse(callApi(params, req, runtime));
 }
 
-UpdateResourceDLinkResponse Alibabacloud_Eas20210701::Client::updateResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceDLinkRequest> request) {
+UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResource(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
+  return updateResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 UpdateResourceDLinkResponse Alibabacloud_Eas20210701::Client::updateResourceDLinkWithOptions(shared_ptr<string> ClusterId,
@@ -1609,13 +1730,10 @@ UpdateResourceDLinkResponse Alibabacloud_Eas20210701::Client::updateResourceDLin
   return UpdateResourceDLinkResponse(callApi(params, req, runtime));
 }
 
-UpdateResourceInstanceResponse Alibabacloud_Eas20210701::Client::updateResourceInstance(shared_ptr<string> ClusterId,
-                                                                                        shared_ptr<string> ResourceId,
-                                                                                        shared_ptr<string> InstanceId,
-                                                                                        shared_ptr<UpdateResourceInstanceRequest> request) {
+UpdateResourceDLinkResponse Alibabacloud_Eas20210701::Client::updateResourceDLink(shared_ptr<string> ClusterId, shared_ptr<string> ResourceId, shared_ptr<UpdateResourceDLinkRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
+  return updateResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
 }
 
 UpdateResourceInstanceResponse Alibabacloud_Eas20210701::Client::updateResourceInstanceWithOptions(shared_ptr<string> ClusterId,
@@ -1647,10 +1765,13 @@ UpdateResourceInstanceResponse Alibabacloud_Eas20210701::Client::updateResourceI
   return UpdateResourceInstanceResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceRequest> request) {
+UpdateResourceInstanceResponse Alibabacloud_Eas20210701::Client::updateResourceInstance(shared_ptr<string> ClusterId,
+                                                                                        shared_ptr<string> ResourceId,
+                                                                                        shared_ptr<string> InstanceId,
+                                                                                        shared_ptr<UpdateResourceInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
 }
 
 UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateServiceWithOptions(shared_ptr<string> ClusterId,
@@ -1677,10 +1798,10 @@ UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateServiceWithOptions
   return UpdateServiceResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceAutoScalerRequest> request) {
+UpdateServiceResponse Alibabacloud_Eas20210701::Client::updateService(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceAutoScalerWithOptions(shared_ptr<string> ClusterId,
@@ -1717,10 +1838,10 @@ UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceA
   return UpdateServiceAutoScalerResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::updateServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceCronScalerRequest> request) {
+UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceAutoScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceAutoScalerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 UpdateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::updateServiceCronScalerWithOptions(shared_ptr<string> ClusterId,
@@ -1754,10 +1875,44 @@ UpdateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::updateServiceC
   return UpdateServiceCronScalerResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceMirrorResponse Alibabacloud_Eas20210701::Client::updateServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceMirrorRequest> request) {
+UpdateServiceCronScalerResponse Alibabacloud_Eas20210701::Client::updateServiceCronScaler(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceCronScalerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
+}
+
+UpdateServiceLabelResponse Alibabacloud_Eas20210701::Client::updateServiceLabelWithOptions(shared_ptr<string> ClusterId,
+                                                                                           shared_ptr<string> ServiceName,
+                                                                                           shared_ptr<UpdateServiceLabelRequest> request,
+                                                                                           shared_ptr<map<string, string>> headers,
+                                                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->labels)) {
+    body->insert(pair<string, map<string, string>>("Labels", *request->labels));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateServiceLabel"))},
+    {"version", boost::any(string("2021-07-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/services/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ClusterId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ServiceName)) + string("/label"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateServiceLabelResponse(callApi(params, req, runtime));
+}
+
+UpdateServiceLabelResponse Alibabacloud_Eas20210701::Client::updateServiceLabel(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceLabelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 UpdateServiceMirrorResponse Alibabacloud_Eas20210701::Client::updateServiceMirrorWithOptions(shared_ptr<string> ClusterId,
@@ -1791,10 +1946,10 @@ UpdateServiceMirrorResponse Alibabacloud_Eas20210701::Client::updateServiceMirro
   return UpdateServiceMirrorResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceSafetyLockResponse Alibabacloud_Eas20210701::Client::updateServiceSafetyLock(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceSafetyLockRequest> request) {
+UpdateServiceMirrorResponse Alibabacloud_Eas20210701::Client::updateServiceMirror(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceMirrorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceSafetyLockWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 UpdateServiceSafetyLockResponse Alibabacloud_Eas20210701::Client::updateServiceSafetyLockWithOptions(shared_ptr<string> ClusterId,
@@ -1825,10 +1980,10 @@ UpdateServiceSafetyLockResponse Alibabacloud_Eas20210701::Client::updateServiceS
   return UpdateServiceSafetyLockResponse(callApi(params, req, runtime));
 }
 
-UpdateServiceVersionResponse Alibabacloud_Eas20210701::Client::updateServiceVersion(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceVersionRequest> request) {
+UpdateServiceSafetyLockResponse Alibabacloud_Eas20210701::Client::updateServiceSafetyLock(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceSafetyLockRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateServiceVersionWithOptions(ClusterId, ServiceName, request, headers, runtime);
+  return updateServiceSafetyLockWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
 UpdateServiceVersionResponse Alibabacloud_Eas20210701::Client::updateServiceVersionWithOptions(shared_ptr<string> ClusterId,
@@ -1857,5 +2012,11 @@ UpdateServiceVersionResponse Alibabacloud_Eas20210701::Client::updateServiceVers
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateServiceVersionResponse(callApi(params, req, runtime));
+}
+
+UpdateServiceVersionResponse Alibabacloud_Eas20210701::Client::updateServiceVersion(shared_ptr<string> ClusterId, shared_ptr<string> ServiceName, shared_ptr<UpdateServiceVersionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateServiceVersionWithOptions(ClusterId, ServiceName, request, headers, runtime);
 }
 
