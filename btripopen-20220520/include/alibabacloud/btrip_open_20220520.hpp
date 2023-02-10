@@ -22981,6 +22981,7 @@ public:
 class FlightSearchListResponseBodyModuleFlightListCabinInfoList : public Darabonba::Model {
 public:
   shared_ptr<long> agentId{};
+  shared_ptr<long> basicCabinPrice{};
   shared_ptr<long> buildPrice{};
   shared_ptr<string> cabin{};
   shared_ptr<string> cabinClass{};
@@ -23017,6 +23018,9 @@ public:
     map<string, boost::any> res;
     if (agentId) {
       res["agent_id"] = boost::any(*agentId);
+    }
+    if (basicCabinPrice) {
+      res["basic_cabin_price"] = boost::any(*basicCabinPrice);
     }
     if (buildPrice) {
       res["build_price"] = boost::any(*buildPrice);
@@ -23097,6 +23101,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("agent_id") != m.end() && !m["agent_id"].empty()) {
       agentId = make_shared<long>(boost::any_cast<long>(m["agent_id"]));
+    }
+    if (m.find("basic_cabin_price") != m.end() && !m["basic_cabin_price"].empty()) {
+      basicCabinPrice = make_shared<long>(boost::any_cast<long>(m["basic_cabin_price"]));
     }
     if (m.find("build_price") != m.end() && !m["build_price"].empty()) {
       buildPrice = make_shared<long>(boost::any_cast<long>(m["build_price"]));
@@ -35112,6 +35119,1047 @@ public:
 
   virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListArrAirportInfo() = default;
 };
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription : public Darabonba::Model {
+public:
+  shared_ptr<string> desc{};
+  shared_ptr<string> icon{};
+  shared_ptr<string> image{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
+    if (icon) {
+      res["icon"] = boost::any(*icon);
+    }
+    if (image) {
+      res["image"] = boost::any(*image);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
+    }
+    if (m.find("icon") != m.end() && !m["icon"].empty()) {
+      icon = make_shared<string>(boost::any_cast<string>(m["icon"]));
+    }
+    if (m.find("image") != m.end() && !m["image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["image"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO : public Darabonba::Model {
+public:
+  shared_ptr<string> image{};
+  shared_ptr<string> largest{};
+  shared_ptr<string> middle{};
+  shared_ptr<string> smallest{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (image) {
+      res["image"] = boost::any(*image);
+    }
+    if (largest) {
+      res["largest"] = boost::any(*largest);
+    }
+    if (middle) {
+      res["middle"] = boost::any(*middle);
+    }
+    if (smallest) {
+      res["smallest"] = boost::any(*smallest);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("image") != m.end() && !m["image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["image"]));
+    }
+    if (m.find("largest") != m.end() && !m["largest"].empty()) {
+      largest = make_shared<string>(boost::any_cast<string>(m["largest"]));
+    }
+    if (m.find("middle") != m.end() && !m["middle"].empty()) {
+      middle = make_shared<string>(boost::any_cast<string>(m["middle"]));
+    }
+    if (m.find("smallest") != m.end() && !m["smallest"].empty()) {
+      smallest = make_shared<string>(boost::any_cast<string>(m["smallest"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> baggageDesc{};
+  shared_ptr<long> baggageSubContentType{};
+  shared_ptr<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription> description{};
+  shared_ptr<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO> imageDO{};
+  shared_ptr<bool> isHighlight{};
+  shared_ptr<string> subTitle{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baggageDesc) {
+      res["baggage_desc"] = boost::any(*baggageDesc);
+    }
+    if (baggageSubContentType) {
+      res["baggage_sub_content_type"] = boost::any(*baggageSubContentType);
+    }
+    if (description) {
+      res["description"] = description ? boost::any(description->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (imageDO) {
+      res["imageDO"] = imageDO ? boost::any(imageDO->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (isHighlight) {
+      res["is_highlight"] = boost::any(*isHighlight);
+    }
+    if (subTitle) {
+      res["subTitle"] = boost::any(*subTitle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("baggage_desc") != m.end() && !m["baggage_desc"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["baggage_desc"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["baggage_desc"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      baggageDesc = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("baggage_sub_content_type") != m.end() && !m["baggage_sub_content_type"].empty()) {
+      baggageSubContentType = make_shared<long>(boost::any_cast<long>(m["baggage_sub_content_type"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      if (typeid(map<string, boost::any>) == m["description"].type()) {
+        TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["description"]));
+        description = make_shared<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesDescription>(model1);
+      }
+    }
+    if (m.find("imageDO") != m.end() && !m["imageDO"].empty()) {
+      if (typeid(map<string, boost::any>) == m["imageDO"].type()) {
+        TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["imageDO"]));
+        imageDO = make_shared<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizesImageDO>(model1);
+      }
+    }
+    if (m.find("is_highlight") != m.end() && !m["is_highlight"].empty()) {
+      isHighlight = make_shared<bool>(boost::any_cast<bool>(m["is_highlight"]));
+    }
+    if (m.find("subTitle") != m.end() && !m["subTitle"].empty()) {
+      subTitle = make_shared<string>(boost::any_cast<string>(m["subTitle"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents : public Darabonba::Model {
+public:
+  shared_ptr<string> baggageDesc{};
+  shared_ptr<string> icon{};
+  shared_ptr<long> style{};
+  shared_ptr<string> subTitle{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baggageDesc) {
+      res["baggage_desc"] = boost::any(*baggageDesc);
+    }
+    if (icon) {
+      res["icon"] = boost::any(*icon);
+    }
+    if (style) {
+      res["style"] = boost::any(*style);
+    }
+    if (subTitle) {
+      res["sub_title"] = boost::any(*subTitle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("baggage_desc") != m.end() && !m["baggage_desc"].empty()) {
+      baggageDesc = make_shared<string>(boost::any_cast<string>(m["baggage_desc"]));
+    }
+    if (m.find("icon") != m.end() && !m["icon"].empty()) {
+      icon = make_shared<string>(boost::any_cast<string>(m["icon"]));
+    }
+    if (m.find("style") != m.end() && !m["style"].empty()) {
+      style = make_shared<long>(boost::any_cast<long>(m["style"]));
+    }
+    if (m.find("sub_title") != m.end() && !m["sub_title"].empty()) {
+      subTitle = make_shared<string>(boost::any_cast<string>(m["sub_title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> attributes{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes>> baggageSubContentVisualizes{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents>> baggageSubContents{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> isStruct{};
+  shared_ptr<string> ptc{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attributes) {
+      res["attributes"] = boost::any(*attributes);
+    }
+    if (baggageSubContentVisualizes) {
+      vector<boost::any> temp1;
+      for(auto item1:*baggageSubContentVisualizes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["baggage_sub_content_visualizes"] = boost::any(temp1);
+    }
+    if (baggageSubContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*baggageSubContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["baggage_sub_contents"] = boost::any(temp1);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isStruct) {
+      res["is_struct"] = boost::any(*isStruct);
+    }
+    if (ptc) {
+      res["ptc"] = boost::any(*ptc);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("attributes") != m.end() && !m["attributes"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["attributes"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      attributes = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("baggage_sub_content_visualizes") != m.end() && !m["baggage_sub_content_visualizes"].empty()) {
+      if (typeid(vector<boost::any>) == m["baggage_sub_content_visualizes"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["baggage_sub_content_visualizes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baggageSubContentVisualizes = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContentVisualizes>>(expect1);
+      }
+    }
+    if (m.find("baggage_sub_contents") != m.end() && !m["baggage_sub_contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["baggage_sub_contents"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["baggage_sub_contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baggageSubContents = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItemsBaggageSubContents>>(expect1);
+      }
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("is_struct") != m.end() && !m["is_struct"].empty()) {
+      isStruct = make_shared<bool>(boost::any_cast<bool>(m["is_struct"]));
+    }
+    if (m.find("ptc") != m.end() && !m["ptc"].empty()) {
+      ptc = make_shared<string>(boost::any_cast<string>(m["ptc"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips : public Darabonba::Model {
+public:
+  shared_ptr<string> logo{};
+  shared_ptr<string> tipsDesc{};
+  shared_ptr<string> tipsImage{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (logo) {
+      res["logo"] = boost::any(*logo);
+    }
+    if (tipsDesc) {
+      res["tips_desc"] = boost::any(*tipsDesc);
+    }
+    if (tipsImage) {
+      res["tips_image"] = boost::any(*tipsImage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("logo") != m.end() && !m["logo"].empty()) {
+      logo = make_shared<string>(boost::any_cast<string>(m["logo"]));
+    }
+    if (m.find("tips_desc") != m.end() && !m["tips_desc"].empty()) {
+      tipsDesc = make_shared<string>(boost::any_cast<string>(m["tips_desc"]));
+    }
+    if (m.find("tips_image") != m.end() && !m["tips_image"].empty()) {
+      tipsImage = make_shared<string>(boost::any_cast<string>(m["tips_image"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems>> baggageSubItems{};
+  shared_ptr<long> index{};
+  shared_ptr<string> tableHead{};
+  shared_ptr<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips> tips{};
+  shared_ptr<string> title{};
+  shared_ptr<long> type{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baggageSubItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*baggageSubItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["baggage_sub_items"] = boost::any(temp1);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (tableHead) {
+      res["table_head"] = boost::any(*tableHead);
+    }
+    if (tips) {
+      res["tips"] = tips ? boost::any(tips->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("baggage_sub_items") != m.end() && !m["baggage_sub_items"].empty()) {
+      if (typeid(vector<boost::any>) == m["baggage_sub_items"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["baggage_sub_items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baggageSubItems = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsBaggageSubItems>>(expect1);
+      }
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["index"]));
+    }
+    if (m.find("table_head") != m.end() && !m["table_head"].empty()) {
+      tableHead = make_shared<string>(boost::any_cast<string>(m["table_head"]));
+    }
+    if (m.find("tips") != m.end() && !m["tips"].empty()) {
+      if (typeid(map<string, boost::any>) == m["tips"].type()) {
+        TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["tips"]));
+        tips = make_shared<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetailsTips>(model1);
+      }
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> icon{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (icon) {
+      res["icon"] = boost::any(*icon);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("icon") != m.end() && !m["icon"].empty()) {
+      icon = make_shared<string>(boost::any_cast<string>(m["icon"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents : public Darabonba::Model {
+public:
+  shared_ptr<string> feeDesc{};
+  shared_ptr<string> feeRange{};
+  shared_ptr<string> style{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (feeDesc) {
+      res["fee_desc"] = boost::any(*feeDesc);
+    }
+    if (feeRange) {
+      res["fee_range"] = boost::any(*feeRange);
+    }
+    if (style) {
+      res["style"] = boost::any(*style);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fee_desc") != m.end() && !m["fee_desc"].empty()) {
+      feeDesc = make_shared<string>(boost::any_cast<string>(m["fee_desc"]));
+    }
+    if (m.find("fee_range") != m.end() && !m["fee_range"].empty()) {
+      feeRange = make_shared<string>(boost::any_cast<string>(m["fee_range"]));
+    }
+    if (m.find("style") != m.end() && !m["style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["style"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isStruct{};
+  shared_ptr<string> ptc{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents>> refundSubContents{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isStruct) {
+      res["is_struct"] = boost::any(*isStruct);
+    }
+    if (ptc) {
+      res["ptc"] = boost::any(*ptc);
+    }
+    if (refundSubContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*refundSubContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["refund_sub_contents"] = boost::any(temp1);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("is_struct") != m.end() && !m["is_struct"].empty()) {
+      isStruct = make_shared<bool>(boost::any_cast<bool>(m["is_struct"]));
+    }
+    if (m.find("ptc") != m.end() && !m["ptc"].empty()) {
+      ptc = make_shared<string>(boost::any_cast<string>(m["ptc"]));
+    }
+    if (m.find("refund_sub_contents") != m.end() && !m["refund_sub_contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["refund_sub_contents"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["refund_sub_contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        refundSubContents = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItemsRefundSubContents>>(expect1);
+      }
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents>> extraContents{};
+  shared_ptr<long> index{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems>> refundSubItems{};
+  shared_ptr<string> tableHead{};
+  shared_ptr<string> title{};
+  shared_ptr<long> type{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extraContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*extraContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["extra_contents"] = boost::any(temp1);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (refundSubItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*refundSubItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["refund_sub_items"] = boost::any(temp1);
+    }
+    if (tableHead) {
+      res["table_head"] = boost::any(*tableHead);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("extra_contents") != m.end() && !m["extra_contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["extra_contents"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["extra_contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extraContents = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsExtraContents>>(expect1);
+      }
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["index"]));
+    }
+    if (m.find("refund_sub_items") != m.end() && !m["refund_sub_items"].empty()) {
+      if (typeid(vector<boost::any>) == m["refund_sub_items"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["refund_sub_items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        refundSubItems = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetailsRefundSubItems>>(expect1);
+      }
+    }
+    if (m.find("table_head") != m.end() && !m["table_head"].empty()) {
+      tableHead = make_shared<string>(boost::any_cast<string>(m["table_head"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> icon{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (icon) {
+      res["icon"] = boost::any(*icon);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("icon") != m.end() && !m["icon"].empty()) {
+      icon = make_shared<string>(boost::any_cast<string>(m["icon"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents : public Darabonba::Model {
+public:
+  shared_ptr<string> feeDesc{};
+  shared_ptr<string> feeRange{};
+  shared_ptr<string> style{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (feeDesc) {
+      res["fee_desc"] = boost::any(*feeDesc);
+    }
+    if (feeRange) {
+      res["fee_range"] = boost::any(*feeRange);
+    }
+    if (style) {
+      res["style"] = boost::any(*style);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fee_desc") != m.end() && !m["fee_desc"].empty()) {
+      feeDesc = make_shared<string>(boost::any_cast<string>(m["fee_desc"]));
+    }
+    if (m.find("fee_range") != m.end() && !m["fee_range"].empty()) {
+      feeRange = make_shared<string>(boost::any_cast<string>(m["fee_range"]));
+    }
+    if (m.find("style") != m.end() && !m["style"].empty()) {
+      style = make_shared<string>(boost::any_cast<string>(m["style"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<bool> isStruct{};
+  shared_ptr<string> ptc{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents>> refundSubContents{};
+  shared_ptr<string> title{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (isStruct) {
+      res["is_struct"] = boost::any(*isStruct);
+    }
+    if (ptc) {
+      res["ptc"] = boost::any(*ptc);
+    }
+    if (refundSubContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*refundSubContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["refund_sub_contents"] = boost::any(temp1);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("is_struct") != m.end() && !m["is_struct"].empty()) {
+      isStruct = make_shared<bool>(boost::any_cast<bool>(m["is_struct"]));
+    }
+    if (m.find("ptc") != m.end() && !m["ptc"].empty()) {
+      ptc = make_shared<string>(boost::any_cast<string>(m["ptc"]));
+    }
+    if (m.find("refund_sub_contents") != m.end() && !m["refund_sub_contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["refund_sub_contents"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["refund_sub_contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        refundSubContents = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItemsRefundSubContents>>(expect1);
+      }
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents>> extraContents{};
+  shared_ptr<long> index{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems>> refundSubItems{};
+  shared_ptr<string> tableHead{};
+  shared_ptr<string> title{};
+  shared_ptr<long> type{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extraContents) {
+      vector<boost::any> temp1;
+      for(auto item1:*extraContents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["extra_contents"] = boost::any(temp1);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (refundSubItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*refundSubItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["refund_sub_items"] = boost::any(temp1);
+    }
+    if (tableHead) {
+      res["table_head"] = boost::any(*tableHead);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("extra_contents") != m.end() && !m["extra_contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["extra_contents"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["extra_contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        extraContents = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsExtraContents>>(expect1);
+      }
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["index"]));
+    }
+    if (m.find("refund_sub_items") != m.end() && !m["refund_sub_items"].empty()) {
+      if (typeid(vector<boost::any>) == m["refund_sub_items"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["refund_sub_items"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        refundSubItems = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetailsRefundSubItems>>(expect1);
+      }
+    }
+    if (m.find("table_head") != m.end() && !m["table_head"].empty()) {
+      tableHead = make_shared<string>(boost::any_cast<string>(m["table_head"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails() = default;
+};
+class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq : public Darabonba::Model {
+public:
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails>> baggageDetails{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails>> changeDetails{};
+  shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails>> refundDetails{};
+
+  TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq() {}
+
+  explicit TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (baggageDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*baggageDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["baggage_details"] = boost::any(temp1);
+    }
+    if (changeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*changeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["change_details"] = boost::any(temp1);
+    }
+    if (refundDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*refundDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["refund_details"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("baggage_details") != m.end() && !m["baggage_details"].empty()) {
+      if (typeid(vector<boost::any>) == m["baggage_details"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["baggage_details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        baggageDetails = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqBaggageDetails>>(expect1);
+      }
+    }
+    if (m.find("change_details") != m.end() && !m["change_details"].empty()) {
+      if (typeid(vector<boost::any>) == m["change_details"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["change_details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        changeDetails = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqChangeDetails>>(expect1);
+      }
+    }
+    if (m.find("refund_details") != m.end() && !m["refund_details"].empty()) {
+      if (typeid(vector<boost::any>) == m["refund_details"].type()) {
+        vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["refund_details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        refundDetails = make_shared<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRqRefundDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq() = default;
+};
 class TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList : public Darabonba::Model {
 public:
   shared_ptr<long> passengerType{};
@@ -35168,6 +36216,7 @@ public:
   shared_ptr<string> cabinClass{};
   shared_ptr<string> cabinDesc{};
   shared_ptr<long> cabinDiscount{};
+  shared_ptr<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq> changeOtaItemRuleRq{};
   shared_ptr<string> childCabin{};
   shared_ptr<string> leftNum{};
   shared_ptr<vector<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListModifyPriceList>> modifyPriceList{};
@@ -35194,6 +36243,9 @@ public:
     }
     if (cabinDiscount) {
       res["cabin_discount"] = boost::any(*cabinDiscount);
+    }
+    if (changeOtaItemRuleRq) {
+      res["change_ota_item_rule_rq"] = changeOtaItemRuleRq ? boost::any(changeOtaItemRuleRq->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (childCabin) {
       res["child_cabin"] = boost::any(*childCabin);
@@ -35226,6 +36278,13 @@ public:
     }
     if (m.find("cabin_discount") != m.end() && !m["cabin_discount"].empty()) {
       cabinDiscount = make_shared<long>(boost::any_cast<long>(m["cabin_discount"]));
+    }
+    if (m.find("change_ota_item_rule_rq") != m.end() && !m["change_ota_item_rule_rq"].empty()) {
+      if (typeid(map<string, boost::any>) == m["change_ota_item_rule_rq"].type()) {
+        TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["change_ota_item_rule_rq"]));
+        changeOtaItemRuleRq = make_shared<TicketChangingEnquiryResponseBodyModuleFlightInfoListCabinListChangeOtaItemRuleRq>(model1);
+      }
     }
     if (m.find("child_cabin") != m.end() && !m["child_cabin"].empty()) {
       childCabin = make_shared<string>(boost::any_cast<string>(m["child_cabin"]));
