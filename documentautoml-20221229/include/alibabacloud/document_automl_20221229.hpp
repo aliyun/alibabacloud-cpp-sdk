@@ -16,7 +16,7 @@ namespace Alibabacloud_DocumentAutoml20221229 {
 class PredictClassifierModelRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPrediction{};
-  shared_ptr<string> classifierId{};
+  shared_ptr<long> classifierId{};
   shared_ptr<string> content{};
 
   PredictClassifierModelRequest() {}
@@ -46,7 +46,7 @@ public:
       autoPrediction = make_shared<bool>(boost::any_cast<bool>(m["AutoPrediction"]));
     }
     if (m.find("ClassifierId") != m.end() && !m["ClassifierId"].empty()) {
-      classifierId = make_shared<string>(boost::any_cast<string>(m["ClassifierId"]));
+      classifierId = make_shared<long>(boost::any_cast<long>(m["ClassifierId"]));
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
@@ -333,7 +333,7 @@ public:
 class PredictTemplateModelRequest : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
-  shared_ptr<long> projectId{};
+  shared_ptr<long> taskId{};
 
   PredictTemplateModelRequest() {}
 
@@ -348,8 +348,8 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
-    if (projectId) {
-      res["ProjectId"] = boost::any(*projectId);
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     return res;
   }
@@ -358,8 +358,8 @@ public:
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }
-    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
-      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
     }
   }
 

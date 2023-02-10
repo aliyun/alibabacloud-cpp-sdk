@@ -43,8 +43,8 @@ PredictClassifierModelResponse Alibabacloud_DocumentAutoml20221229::Client::pred
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPrediction)) {
     query->insert(pair<string, bool>("AutoPrediction", *request->autoPrediction));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->classifierId)) {
-    query->insert(pair<string, string>("ClassifierId", *request->classifierId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->classifierId)) {
+    query->insert(pair<string, long>("ClassifierId", *request->classifierId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
@@ -114,8 +114,8 @@ PredictTemplateModelResponse Alibabacloud_DocumentAutoml20221229::Client::predic
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
-    query->insert(pair<string, long>("ProjectId", *request->projectId));
+  if (!Darabonba_Util::Client::isUnset<long>(request->taskId)) {
+    query->insert(pair<string, long>("TaskId", *request->taskId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
