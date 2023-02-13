@@ -4003,6 +4003,9 @@ SubscribeBillToOSSResponse Alibabacloud_BssOpenApi20171214::Client::subscribeBil
   if (!Darabonba_Util::Client::isUnset<string>(request->multAccountRelSubscribe)) {
     query->insert(pair<string, string>("MultAccountRelSubscribe", *request->multAccountRelSubscribe));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->rowLimitPerFile)) {
+    query->insert(pair<string, long>("RowLimitPerFile", *request->rowLimitPerFile));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->subscribeBucket)) {
     query->insert(pair<string, string>("SubscribeBucket", *request->subscribeBucket));
   }

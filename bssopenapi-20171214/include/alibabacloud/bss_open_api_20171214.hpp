@@ -18696,6 +18696,7 @@ class QueryBillToOSSSubscriptionResponseBodyDataItemsItem : public Darabonba::Mo
 public:
   shared_ptr<long> bucketOwnerId{};
   shared_ptr<string> bucketPath{};
+  shared_ptr<long> rowLimitPerFile{};
   shared_ptr<string> subscribeBucket{};
   shared_ptr<string> subscribeLanguage{};
   shared_ptr<string> subscribeTime{};
@@ -18716,6 +18717,9 @@ public:
     }
     if (bucketPath) {
       res["BucketPath"] = boost::any(*bucketPath);
+    }
+    if (rowLimitPerFile) {
+      res["RowLimitPerFile"] = boost::any(*rowLimitPerFile);
     }
     if (subscribeBucket) {
       res["SubscribeBucket"] = boost::any(*subscribeBucket);
@@ -18738,6 +18742,9 @@ public:
     }
     if (m.find("BucketPath") != m.end() && !m["BucketPath"].empty()) {
       bucketPath = make_shared<string>(boost::any_cast<string>(m["BucketPath"]));
+    }
+    if (m.find("RowLimitPerFile") != m.end() && !m["RowLimitPerFile"].empty()) {
+      rowLimitPerFile = make_shared<long>(boost::any_cast<long>(m["RowLimitPerFile"]));
     }
     if (m.find("SubscribeBucket") != m.end() && !m["SubscribeBucket"].empty()) {
       subscribeBucket = make_shared<string>(boost::any_cast<string>(m["SubscribeBucket"]));
@@ -32960,6 +32967,7 @@ public:
   shared_ptr<long> bucketOwnerId{};
   shared_ptr<string> bucketPath{};
   shared_ptr<string> multAccountRelSubscribe{};
+  shared_ptr<long> rowLimitPerFile{};
   shared_ptr<string> subscribeBucket{};
   shared_ptr<string> subscribeType{};
 
@@ -32985,6 +32993,9 @@ public:
     if (multAccountRelSubscribe) {
       res["MultAccountRelSubscribe"] = boost::any(*multAccountRelSubscribe);
     }
+    if (rowLimitPerFile) {
+      res["RowLimitPerFile"] = boost::any(*rowLimitPerFile);
+    }
     if (subscribeBucket) {
       res["SubscribeBucket"] = boost::any(*subscribeBucket);
     }
@@ -33006,6 +33017,9 @@ public:
     }
     if (m.find("MultAccountRelSubscribe") != m.end() && !m["MultAccountRelSubscribe"].empty()) {
       multAccountRelSubscribe = make_shared<string>(boost::any_cast<string>(m["MultAccountRelSubscribe"]));
+    }
+    if (m.find("RowLimitPerFile") != m.end() && !m["RowLimitPerFile"].empty()) {
+      rowLimitPerFile = make_shared<long>(boost::any_cast<long>(m["RowLimitPerFile"]));
     }
     if (m.find("SubscribeBucket") != m.end() && !m["SubscribeBucket"].empty()) {
       subscribeBucket = make_shared<string>(boost::any_cast<string>(m["SubscribeBucket"]));
