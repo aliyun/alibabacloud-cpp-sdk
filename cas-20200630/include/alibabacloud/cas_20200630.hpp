@@ -159,9 +159,8 @@ class CreateClientCertificateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> certificateChain{};
   shared_ptr<string> identifier{};
-  shared_ptr<string> parentX509Certificate{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> rootX509Certificate{};
+  shared_ptr<string> serialNumber{};
   shared_ptr<string> x509Certificate{};
 
   CreateClientCertificateResponseBody() {}
@@ -180,14 +179,11 @@ public:
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
     }
-    if (parentX509Certificate) {
-      res["ParentX509Certificate"] = boost::any(*parentX509Certificate);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (rootX509Certificate) {
-      res["RootX509Certificate"] = boost::any(*rootX509Certificate);
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
     }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
@@ -202,14 +198,11 @@ public:
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
-    if (m.find("ParentX509Certificate") != m.end() && !m["ParentX509Certificate"].empty()) {
-      parentX509Certificate = make_shared<string>(boost::any_cast<string>(m["ParentX509Certificate"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("RootX509Certificate") != m.end() && !m["RootX509Certificate"].empty()) {
-      rootX509Certificate = make_shared<string>(boost::any_cast<string>(m["RootX509Certificate"]));
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
@@ -433,9 +426,8 @@ class CreateClientCertificateWithCsrResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> certificateChain{};
   shared_ptr<string> identifier{};
-  shared_ptr<string> parentX509Certificate{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> rootX509Certificate{};
+  shared_ptr<string> serialNumber{};
   shared_ptr<string> x509Certificate{};
 
   CreateClientCertificateWithCsrResponseBody() {}
@@ -454,14 +446,11 @@ public:
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
     }
-    if (parentX509Certificate) {
-      res["ParentX509Certificate"] = boost::any(*parentX509Certificate);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (rootX509Certificate) {
-      res["RootX509Certificate"] = boost::any(*rootX509Certificate);
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
     }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
@@ -476,14 +465,11 @@ public:
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
-    if (m.find("ParentX509Certificate") != m.end() && !m["ParentX509Certificate"].empty()) {
-      parentX509Certificate = make_shared<string>(boost::any_cast<string>(m["ParentX509Certificate"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("RootX509Certificate") != m.end() && !m["RootX509Certificate"].empty()) {
-      rootX509Certificate = make_shared<string>(boost::any_cast<string>(m["RootX509Certificate"]));
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
@@ -1003,9 +989,8 @@ class CreateServerCertificateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> certificateChain{};
   shared_ptr<string> identifier{};
-  shared_ptr<string> parentX509Certificate{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> rootX509Certificate{};
+  shared_ptr<string> serialNumber{};
   shared_ptr<string> x509Certificate{};
 
   CreateServerCertificateResponseBody() {}
@@ -1024,14 +1009,11 @@ public:
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
     }
-    if (parentX509Certificate) {
-      res["ParentX509Certificate"] = boost::any(*parentX509Certificate);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (rootX509Certificate) {
-      res["RootX509Certificate"] = boost::any(*rootX509Certificate);
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
     }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
@@ -1046,14 +1028,11 @@ public:
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
-    if (m.find("ParentX509Certificate") != m.end() && !m["ParentX509Certificate"].empty()) {
-      parentX509Certificate = make_shared<string>(boost::any_cast<string>(m["ParentX509Certificate"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("RootX509Certificate") != m.end() && !m["RootX509Certificate"].empty()) {
-      rootX509Certificate = make_shared<string>(boost::any_cast<string>(m["RootX509Certificate"]));
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
@@ -1270,9 +1249,8 @@ class CreateServerCertificateWithCsrResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> certificateChain{};
   shared_ptr<string> identifier{};
-  shared_ptr<string> parentX509Certificate{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> rootX509Certificate{};
+  shared_ptr<string> serialNumber{};
   shared_ptr<string> x509Certificate{};
 
   CreateServerCertificateWithCsrResponseBody() {}
@@ -1291,14 +1269,11 @@ public:
     if (identifier) {
       res["Identifier"] = boost::any(*identifier);
     }
-    if (parentX509Certificate) {
-      res["ParentX509Certificate"] = boost::any(*parentX509Certificate);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
-    if (rootX509Certificate) {
-      res["RootX509Certificate"] = boost::any(*rootX509Certificate);
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
     }
     if (x509Certificate) {
       res["X509Certificate"] = boost::any(*x509Certificate);
@@ -1313,14 +1288,11 @@ public:
     if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
       identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
     }
-    if (m.find("ParentX509Certificate") != m.end() && !m["ParentX509Certificate"].empty()) {
-      parentX509Certificate = make_shared<string>(boost::any_cast<string>(m["ParentX509Certificate"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("RootX509Certificate") != m.end() && !m["RootX509Certificate"].empty()) {
-      rootX509Certificate = make_shared<string>(boost::any_cast<string>(m["RootX509Certificate"]));
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
     if (m.find("X509Certificate") != m.end() && !m["X509Certificate"].empty()) {
       x509Certificate = make_shared<string>(boost::any_cast<string>(m["X509Certificate"]));
