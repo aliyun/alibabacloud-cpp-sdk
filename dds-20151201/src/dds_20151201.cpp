@@ -1338,6 +1338,9 @@ DescribeDBInstanceAttributeResponse Alibabacloud_Dds20151201::Client::describeDB
   if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
     query->insert(pair<string, string>("Engine", *request->engine));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDelete)) {
+    query->insert(pair<string, bool>("IsDelete", *request->isDelete));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }

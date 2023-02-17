@@ -5812,6 +5812,7 @@ class DescribeDBInstanceAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> engine{};
+  shared_ptr<bool> isDelete{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
@@ -5834,6 +5835,9 @@ public:
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
+    }
+    if (isDelete) {
+      res["IsDelete"] = boost::any(*isDelete);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -5862,6 +5866,9 @@ public:
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("IsDelete") != m.end() && !m["IsDelete"].empty()) {
+      isDelete = make_shared<bool>(boost::any_cast<bool>(m["IsDelete"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -6494,6 +6501,7 @@ public:
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBInstanceOrderStatus{};
   shared_ptr<bool> DBInstanceReleaseProtection{};
   shared_ptr<string> DBInstanceStatus{};
   shared_ptr<long> DBInstanceStorage{};
@@ -6564,6 +6572,9 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBInstanceOrderStatus) {
+      res["DBInstanceOrderStatus"] = boost::any(*DBInstanceOrderStatus);
     }
     if (DBInstanceReleaseProtection) {
       res["DBInstanceReleaseProtection"] = boost::any(*DBInstanceReleaseProtection);
@@ -6704,6 +6715,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBInstanceOrderStatus") != m.end() && !m["DBInstanceOrderStatus"].empty()) {
+      DBInstanceOrderStatus = make_shared<string>(boost::any_cast<string>(m["DBInstanceOrderStatus"]));
     }
     if (m.find("DBInstanceReleaseProtection") != m.end() && !m["DBInstanceReleaseProtection"].empty()) {
       DBInstanceReleaseProtection = make_shared<bool>(boost::any_cast<bool>(m["DBInstanceReleaseProtection"]));
