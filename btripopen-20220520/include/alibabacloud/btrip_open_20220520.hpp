@@ -14293,6 +14293,7 @@ public:
 class EstimatedPriceQueryResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<vector<EstimatedPriceQueryResponseBodyModuleHotelFeeDetail>> hotelFeeDetail{};
+  shared_ptr<long> totalHotelFee{};
   shared_ptr<EstimatedPriceQueryResponseBodyModuleTrafficFee> trafficFee{};
 
   EstimatedPriceQueryResponseBodyModule() {}
@@ -14311,6 +14312,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_fee_detail"] = boost::any(temp1);
+    }
+    if (totalHotelFee) {
+      res["total_hotel_fee"] = boost::any(*totalHotelFee);
     }
     if (trafficFee) {
       res["traffic_fee"] = trafficFee ? boost::any(trafficFee->toMap()) : boost::any(map<string,boost::any>({}));
@@ -14331,6 +14335,9 @@ public:
         }
         hotelFeeDetail = make_shared<vector<EstimatedPriceQueryResponseBodyModuleHotelFeeDetail>>(expect1);
       }
+    }
+    if (m.find("total_hotel_fee") != m.end() && !m["total_hotel_fee"].empty()) {
+      totalHotelFee = make_shared<long>(boost::any_cast<long>(m["total_hotel_fee"]));
     }
     if (m.find("traffic_fee") != m.end() && !m["traffic_fee"].empty()) {
       if (typeid(map<string, boost::any>) == m["traffic_fee"].type()) {
