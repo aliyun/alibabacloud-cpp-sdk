@@ -32982,9 +32982,95 @@ public:
 
   virtual ~MonthBillGetRequest() = default;
 };
+class MonthBillGetResponseBodyModuleMonthAccountBillDetail : public Darabonba::Model {
+public:
+  shared_ptr<double> carAmount{};
+  shared_ptr<double> damageAmount{};
+  shared_ptr<double> flightAmount{};
+  shared_ptr<double> fuPoint{};
+  shared_ptr<double> hotelAmount{};
+  shared_ptr<double> ieFlightAmount{};
+  shared_ptr<long> mailBillDate{};
+  shared_ptr<double> serviceAmount{};
+  shared_ptr<double> trainAmount{};
+
+  MonthBillGetResponseBodyModuleMonthAccountBillDetail() {}
+
+  explicit MonthBillGetResponseBodyModuleMonthAccountBillDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (carAmount) {
+      res["carAmount"] = boost::any(*carAmount);
+    }
+    if (damageAmount) {
+      res["damageAmount"] = boost::any(*damageAmount);
+    }
+    if (flightAmount) {
+      res["flightAmount"] = boost::any(*flightAmount);
+    }
+    if (fuPoint) {
+      res["fuPoint"] = boost::any(*fuPoint);
+    }
+    if (hotelAmount) {
+      res["hotelAmount"] = boost::any(*hotelAmount);
+    }
+    if (ieFlightAmount) {
+      res["ieFlightAmount"] = boost::any(*ieFlightAmount);
+    }
+    if (mailBillDate) {
+      res["mailBillDate"] = boost::any(*mailBillDate);
+    }
+    if (serviceAmount) {
+      res["serviceAmount"] = boost::any(*serviceAmount);
+    }
+    if (trainAmount) {
+      res["trainAmount"] = boost::any(*trainAmount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("carAmount") != m.end() && !m["carAmount"].empty()) {
+      carAmount = make_shared<double>(boost::any_cast<double>(m["carAmount"]));
+    }
+    if (m.find("damageAmount") != m.end() && !m["damageAmount"].empty()) {
+      damageAmount = make_shared<double>(boost::any_cast<double>(m["damageAmount"]));
+    }
+    if (m.find("flightAmount") != m.end() && !m["flightAmount"].empty()) {
+      flightAmount = make_shared<double>(boost::any_cast<double>(m["flightAmount"]));
+    }
+    if (m.find("fuPoint") != m.end() && !m["fuPoint"].empty()) {
+      fuPoint = make_shared<double>(boost::any_cast<double>(m["fuPoint"]));
+    }
+    if (m.find("hotelAmount") != m.end() && !m["hotelAmount"].empty()) {
+      hotelAmount = make_shared<double>(boost::any_cast<double>(m["hotelAmount"]));
+    }
+    if (m.find("ieFlightAmount") != m.end() && !m["ieFlightAmount"].empty()) {
+      ieFlightAmount = make_shared<double>(boost::any_cast<double>(m["ieFlightAmount"]));
+    }
+    if (m.find("mailBillDate") != m.end() && !m["mailBillDate"].empty()) {
+      mailBillDate = make_shared<long>(boost::any_cast<long>(m["mailBillDate"]));
+    }
+    if (m.find("serviceAmount") != m.end() && !m["serviceAmount"].empty()) {
+      serviceAmount = make_shared<double>(boost::any_cast<double>(m["serviceAmount"]));
+    }
+    if (m.find("trainAmount") != m.end() && !m["trainAmount"].empty()) {
+      trainAmount = make_shared<double>(boost::any_cast<double>(m["trainAmount"]));
+    }
+  }
+
+
+  virtual ~MonthBillGetResponseBodyModuleMonthAccountBillDetail() = default;
+};
 class MonthBillGetResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<string> endDate{};
+  shared_ptr<MonthBillGetResponseBodyModuleMonthAccountBillDetail> monthAccountBillDetail{};
   shared_ptr<string> startDate{};
   shared_ptr<string> url{};
 
@@ -33001,6 +33087,9 @@ public:
     if (endDate) {
       res["end_date"] = boost::any(*endDate);
     }
+    if (monthAccountBillDetail) {
+      res["monthAccountBillDetail"] = monthAccountBillDetail ? boost::any(monthAccountBillDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (startDate) {
       res["start_date"] = boost::any(*startDate);
     }
@@ -33013,6 +33102,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("end_date") != m.end() && !m["end_date"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["end_date"]));
+    }
+    if (m.find("monthAccountBillDetail") != m.end() && !m["monthAccountBillDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["monthAccountBillDetail"].type()) {
+        MonthBillGetResponseBodyModuleMonthAccountBillDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["monthAccountBillDetail"]));
+        monthAccountBillDetail = make_shared<MonthBillGetResponseBodyModuleMonthAccountBillDetail>(model1);
+      }
     }
     if (m.find("start_date") != m.end() && !m["start_date"].empty()) {
       startDate = make_shared<string>(boost::any_cast<string>(m["start_date"]));
