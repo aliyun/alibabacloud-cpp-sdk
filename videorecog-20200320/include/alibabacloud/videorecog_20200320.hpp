@@ -698,7 +698,6 @@ public:
 class RecognizeVideoCastCrewListRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<RecognizeVideoCastCrewListRequestParams>> params{};
-  shared_ptr<string> registerUrl{};
   shared_ptr<string> videoUrl{};
 
   RecognizeVideoCastCrewListRequest() {}
@@ -717,9 +716,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Params"] = boost::any(temp1);
-    }
-    if (registerUrl) {
-      res["RegisterUrl"] = boost::any(*registerUrl);
     }
     if (videoUrl) {
       res["VideoUrl"] = boost::any(*videoUrl);
@@ -740,9 +736,6 @@ public:
         }
         params = make_shared<vector<RecognizeVideoCastCrewListRequestParams>>(expect1);
       }
-    }
-    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
-      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
@@ -784,7 +777,6 @@ public:
 class RecognizeVideoCastCrewListAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<RecognizeVideoCastCrewListAdvanceRequestParams>> params{};
-  shared_ptr<Darabonba::Stream> registerUrlObject{};
   shared_ptr<Darabonba::Stream> videoUrlObject{};
 
   RecognizeVideoCastCrewListAdvanceRequest() {}
@@ -803,9 +795,6 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Params"] = boost::any(temp1);
-    }
-    if (registerUrlObject) {
-      res["RegisterUrl"] = boost::any(*registerUrlObject);
     }
     if (videoUrlObject) {
       res["VideoUrl"] = boost::any(*videoUrlObject);
@@ -827,9 +816,6 @@ public:
         params = make_shared<vector<RecognizeVideoCastCrewListAdvanceRequestParams>>(expect1);
       }
     }
-    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
-      registerUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["RegisterUrl"]));
-    }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
@@ -841,7 +827,6 @@ public:
 class RecognizeVideoCastCrewListShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> paramsShrink{};
-  shared_ptr<string> registerUrl{};
   shared_ptr<string> videoUrl{};
 
   RecognizeVideoCastCrewListShrinkRequest() {}
@@ -857,9 +842,6 @@ public:
     if (paramsShrink) {
       res["Params"] = boost::any(*paramsShrink);
     }
-    if (registerUrl) {
-      res["RegisterUrl"] = boost::any(*registerUrl);
-    }
     if (videoUrl) {
       res["VideoUrl"] = boost::any(*videoUrl);
     }
@@ -869,9 +851,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Params") != m.end() && !m["Params"].empty()) {
       paramsShrink = make_shared<string>(boost::any_cast<string>(m["Params"]));
-    }
-    if (m.find("RegisterUrl") != m.end() && !m["RegisterUrl"].empty()) {
-      registerUrl = make_shared<string>(boost::any_cast<string>(m["RegisterUrl"]));
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
@@ -1623,6 +1602,7 @@ public:
 };
 class SplitVideoPartsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> template_{};
   shared_ptr<string> videoUrl{};
 
   SplitVideoPartsRequest() {}
@@ -1635,6 +1615,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
     if (videoUrl) {
       res["VideoUrl"] = boost::any(*videoUrl);
     }
@@ -1642,6 +1625,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
     }
@@ -1652,6 +1638,7 @@ public:
 };
 class SplitVideoPartsAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> template_{};
   shared_ptr<Darabonba::Stream> videoUrlObject{};
 
   SplitVideoPartsAdvanceRequest() {}
@@ -1664,6 +1651,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (template_) {
+      res["Template"] = boost::any(*template_);
+    }
     if (videoUrlObject) {
       res["VideoUrl"] = boost::any(*videoUrlObject);
     }
@@ -1671,6 +1661,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      template_ = make_shared<string>(boost::any_cast<string>(m["Template"]));
+    }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
     }
@@ -1722,9 +1715,67 @@ public:
 
   virtual ~SplitVideoPartsResponseBodyDataElements() = default;
 };
+class SplitVideoPartsResponseBodyDataSplitVideoPartResults : public Darabonba::Model {
+public:
+  shared_ptr<double> beginTime{};
+  shared_ptr<string> by{};
+  shared_ptr<double> endTime{};
+  shared_ptr<string> theme{};
+  shared_ptr<string> type{};
+
+  SplitVideoPartsResponseBodyDataSplitVideoPartResults() {}
+
+  explicit SplitVideoPartsResponseBodyDataSplitVideoPartResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (by) {
+      res["By"] = boost::any(*by);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (theme) {
+      res["Theme"] = boost::any(*theme);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<double>(boost::any_cast<double>(m["BeginTime"]));
+    }
+    if (m.find("By") != m.end() && !m["By"].empty()) {
+      by = make_shared<string>(boost::any_cast<string>(m["By"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<double>(boost::any_cast<double>(m["EndTime"]));
+    }
+    if (m.find("Theme") != m.end() && !m["Theme"].empty()) {
+      theme = make_shared<string>(boost::any_cast<string>(m["Theme"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~SplitVideoPartsResponseBodyDataSplitVideoPartResults() = default;
+};
 class SplitVideoPartsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<vector<SplitVideoPartsResponseBodyDataElements>> elements{};
+  shared_ptr<vector<SplitVideoPartsResponseBodyDataSplitVideoPartResults>> splitVideoPartResults{};
 
   SplitVideoPartsResponseBodyData() {}
 
@@ -1743,6 +1794,13 @@ public:
       }
       res["Elements"] = boost::any(temp1);
     }
+    if (splitVideoPartResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*splitVideoPartResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SplitVideoPartResults"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -1758,6 +1816,19 @@ public:
           }
         }
         elements = make_shared<vector<SplitVideoPartsResponseBodyDataElements>>(expect1);
+      }
+    }
+    if (m.find("SplitVideoPartResults") != m.end() && !m["SplitVideoPartResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["SplitVideoPartResults"].type()) {
+        vector<SplitVideoPartsResponseBodyDataSplitVideoPartResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SplitVideoPartResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SplitVideoPartsResponseBodyDataSplitVideoPartResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        splitVideoPartResults = make_shared<vector<SplitVideoPartsResponseBodyDataSplitVideoPartResults>>(expect1);
       }
     }
   }

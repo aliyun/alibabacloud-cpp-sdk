@@ -282,9 +282,6 @@ RecognizeVideoCastCrewListResponse Alibabacloud_Videorecog20200320::Client::reco
   if (!Darabonba_Util::Client::isUnset<string>(request->paramsShrink)) {
     body->insert(pair<string, string>("Params", *request->paramsShrink));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->registerUrl)) {
-    body->insert(pair<string, string>("RegisterUrl", *request->registerUrl));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoUrl)) {
     body->insert(pair<string, string>("VideoUrl", *request->videoUrl));
   }
@@ -352,31 +349,6 @@ RecognizeVideoCastCrewListResponse Alibabacloud_Videorecog20200320::Client::reco
   Alibabacloud_OpenApiUtil::Client::convert(runtime, ossRuntime);
   shared_ptr<RecognizeVideoCastCrewListRequest> recognizeVideoCastCrewListReq = make_shared<RecognizeVideoCastCrewListRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(request, recognizeVideoCastCrewListReq);
-  if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->registerUrlObject)) {
-    authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
-    ossConfig->accessKeyId = authResponse->body->accessKeyId;
-    ossConfig->endpoint = make_shared<string>(Alibabacloud_OpenApiUtil::Client::getEndpoint(authResponse->body->endpoint, authResponse->body->useAccelerate, _endpointType));
-    ossClient = make_shared<Alibabacloud_OSS::Client>(ossConfig);
-    fileObj = make_shared<Darabonba_FileForm::FileField>(map<string, boost::any>({
-      {"filename", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
-      {"content", !request->registerUrlObject ? boost::any() : boost::any(*request->registerUrlObject)},
-      {"contentType", boost::any(string(""))}
-    }));
-    ossHeader = make_shared<Alibabacloud_OSS::PostObjectRequestHeader>(map<string, boost::any>({
-      {"accessKeyId", !authResponse->body->accessKeyId ? boost::any() : boost::any(*authResponse->body->accessKeyId)},
-      {"policy", !authResponse->body->encodedPolicy ? boost::any() : boost::any(*authResponse->body->encodedPolicy)},
-      {"signature", !authResponse->body->signature ? boost::any() : boost::any(*authResponse->body->signature)},
-      {"key", !authResponse->body->objectKey ? boost::any() : boost::any(*authResponse->body->objectKey)},
-      {"file", !fileObj ? boost::any() : boost::any(*fileObj)},
-      {"successActionStatus", boost::any(string("201"))}
-    }));
-    uploadRequest = make_shared<Alibabacloud_OSS::PostObjectRequest>(map<string, boost::any>({
-      {"bucketName", !authResponse->body->bucket ? boost::any() : boost::any(*authResponse->body->bucket)},
-      {"header", !ossHeader ? boost::any() : boost::any(*ossHeader)}
-    }));
-    ossClient->postObject(uploadRequest, ossRuntime);
-    recognizeVideoCastCrewListReq->registerUrl = make_shared<string>(string("http://") + string(*authResponse->body->bucket) + string(".") + string(*authResponse->body->endpoint) + string("/") + string(*authResponse->body->objectKey));
-  }
   if (!Darabonba_Util::Client::isUnset<Darabonba::Stream>(request->videoUrlObject)) {
     authResponse = make_shared<Alibabacloud_OpenPlatform20191219::AuthorizeFileUploadResponse>(authClient->authorizeFileUploadWithOptions(authRequest, runtime));
     ossConfig->accessKeyId = authResponse->body->accessKeyId;
@@ -409,6 +381,9 @@ RecognizeVideoCastCrewListResponse Alibabacloud_Videorecog20200320::Client::reco
 SplitVideoPartsResponse Alibabacloud_Videorecog20200320::Client::splitVideoPartsWithOptions(shared_ptr<SplitVideoPartsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->template_)) {
+    body->insert(pair<string, string>("Template_", *request->template_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoUrl)) {
     body->insert(pair<string, string>("VideoUrl", *request->videoUrl));
   }
