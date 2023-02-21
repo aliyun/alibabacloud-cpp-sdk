@@ -4495,6 +4495,7 @@ public:
 class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed : public Darabonba::Model {
 public:
   shared_ptr<string> lastUsedDate{};
+  shared_ptr<string> serviceName{};
 
   GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed() {}
 
@@ -4509,12 +4510,18 @@ public:
     if (lastUsedDate) {
       res["LastUsedDate"] = boost::any(*lastUsedDate);
     }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LastUsedDate") != m.end() && !m["LastUsedDate"].empty()) {
       lastUsedDate = make_shared<string>(boost::any_cast<string>(m["LastUsedDate"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
   }
 
