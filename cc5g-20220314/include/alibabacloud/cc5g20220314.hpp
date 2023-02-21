@@ -3544,10 +3544,54 @@ public:
 
   virtual ~GetDiagnoseResultForSingleCardRequest() = default;
 };
+class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems : public Darabonba::Model {
+public:
+  shared_ptr<string> subItem{};
+  shared_ptr<string> subItemInfo{};
+  shared_ptr<string> subItemStatus{};
+
+  GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems() {}
+
+  explicit GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subItem) {
+      res["SubItem"] = boost::any(*subItem);
+    }
+    if (subItemInfo) {
+      res["SubItemInfo"] = boost::any(*subItemInfo);
+    }
+    if (subItemStatus) {
+      res["SubItemStatus"] = boost::any(*subItemStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SubItem") != m.end() && !m["SubItem"].empty()) {
+      subItem = make_shared<string>(boost::any_cast<string>(m["SubItem"]));
+    }
+    if (m.find("SubItemInfo") != m.end() && !m["SubItemInfo"].empty()) {
+      subItemInfo = make_shared<string>(boost::any_cast<string>(m["SubItemInfo"]));
+    }
+    if (m.find("SubItemStatus") != m.end() && !m["SubItemStatus"].empty()) {
+      subItemStatus = make_shared<string>(boost::any_cast<string>(m["SubItemStatus"]));
+    }
+  }
+
+
+  virtual ~GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems() = default;
+};
 class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem : public Darabonba::Model {
 public:
   shared_ptr<string> part{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems>> subItems{};
 
   GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem() {}
 
@@ -3565,6 +3609,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (subItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*subItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubItems"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -3575,6 +3626,19 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("SubItems") != m.end() && !m["SubItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubItems"].type()) {
+        vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subItems = make_shared<vector<GetDiagnoseResultForSingleCardResponseBodyDiagnoseItemSubItems>>(expect1);
+      }
+    }
   }
 
 
@@ -3583,6 +3647,7 @@ public:
 class GetDiagnoseResultForSingleCardResponseBodyErrorResult : public Darabonba::Model {
 public:
   shared_ptr<string> errorDesc{};
+  shared_ptr<string> errorItem{};
   shared_ptr<string> errorLevel{};
   shared_ptr<string> errorPart{};
   shared_ptr<string> errorSuggestion{};
@@ -3600,6 +3665,9 @@ public:
     if (errorDesc) {
       res["ErrorDesc"] = boost::any(*errorDesc);
     }
+    if (errorItem) {
+      res["ErrorItem"] = boost::any(*errorItem);
+    }
     if (errorLevel) {
       res["ErrorLevel"] = boost::any(*errorLevel);
     }
@@ -3615,6 +3683,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ErrorDesc") != m.end() && !m["ErrorDesc"].empty()) {
       errorDesc = make_shared<string>(boost::any_cast<string>(m["ErrorDesc"]));
+    }
+    if (m.find("ErrorItem") != m.end() && !m["ErrorItem"].empty()) {
+      errorItem = make_shared<string>(boost::any_cast<string>(m["ErrorItem"]));
     }
     if (m.find("ErrorLevel") != m.end() && !m["ErrorLevel"].empty()) {
       errorLevel = make_shared<string>(boost::any_cast<string>(m["ErrorLevel"]));
@@ -5326,6 +5397,204 @@ public:
 
 
   virtual ~ListBatchOperateCardsTasksResponse() = default;
+};
+class ListCardUsagesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> iccids{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  ListCardUsagesRequest() {}
+
+  explicit ListCardUsagesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccids) {
+      res["Iccids"] = boost::any(*iccids);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccids") != m.end() && !m["Iccids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Iccids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Iccids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iccids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~ListCardUsagesRequest() = default;
+};
+class ListCardUsagesResponseBodyCards : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<long> usageDataMonth{};
+
+  ListCardUsagesResponseBodyCards() {}
+
+  explicit ListCardUsagesResponseBodyCards(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (usageDataMonth) {
+      res["UsageDataMonth"] = boost::any(*usageDataMonth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("UsageDataMonth") != m.end() && !m["UsageDataMonth"].empty()) {
+      usageDataMonth = make_shared<long>(boost::any_cast<long>(m["UsageDataMonth"]));
+    }
+  }
+
+
+  virtual ~ListCardUsagesResponseBodyCards() = default;
+};
+class ListCardUsagesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCardUsagesResponseBodyCards>> cards{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
+
+  ListCardUsagesResponseBody() {}
+
+  explicit ListCardUsagesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cards) {
+      vector<boost::any> temp1;
+      for(auto item1:*cards){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Cards"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cards") != m.end() && !m["Cards"].empty()) {
+      if (typeid(vector<boost::any>) == m["Cards"].type()) {
+        vector<ListCardUsagesResponseBodyCards> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Cards"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCardUsagesResponseBodyCards model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cards = make_shared<vector<ListCardUsagesResponseBodyCards>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~ListCardUsagesResponseBody() = default;
+};
+class ListCardUsagesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCardUsagesResponseBody> body{};
+
+  ListCardUsagesResponse() {}
+
+  explicit ListCardUsagesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCardUsagesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCardUsagesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCardUsagesResponse() = default;
 };
 class ListCardsRequest : public Darabonba::Model {
 public:
@@ -7324,7 +7593,6 @@ public:
 class ListRegionsResponseBodyRegions : public Darabonba::Model {
 public:
   shared_ptr<string> localName{};
-  shared_ptr<string> regionEndpoint{};
   shared_ptr<string> regionId{};
 
   ListRegionsResponseBodyRegions() {}
@@ -7340,9 +7608,6 @@ public:
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
-    if (regionEndpoint) {
-      res["RegionEndpoint"] = boost::any(*regionEndpoint);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -7352,9 +7617,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
-    }
-    if (m.find("RegionEndpoint") != m.end() && !m["RegionEndpoint"].empty()) {
-      regionEndpoint = make_shared<string>(boost::any_cast<string>(m["RegionEndpoint"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -11317,6 +11579,8 @@ public:
   ListAuthorizationRulesResponse listAuthorizationRules(shared_ptr<ListAuthorizationRulesRequest> request);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasksWithOptions(shared_ptr<ListBatchOperateCardsTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasks(shared_ptr<ListBatchOperateCardsTasksRequest> request);
+  ListCardUsagesResponse listCardUsagesWithOptions(shared_ptr<ListCardUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCardUsagesResponse listCardUsages(shared_ptr<ListCardUsagesRequest> request);
   ListCardsResponse listCardsWithOptions(shared_ptr<ListCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCardsResponse listCards(shared_ptr<ListCardsRequest> request);
   ListDataPackagesResponse listDataPackagesWithOptions(shared_ptr<ListDataPackagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
