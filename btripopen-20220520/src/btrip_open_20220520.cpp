@@ -3107,6 +3107,46 @@ ProjectModifyResponse Alibabacloud_BtripOpen20220520::Client::projectModify(shar
   return projectModifyWithOptions(request, headers, runtime);
 }
 
+QueryReimbursementOrderResponse Alibabacloud_BtripOpen20220520::Client::queryReimbursementOrderWithOptions(shared_ptr<QueryReimbursementOrderRequest> request, shared_ptr<QueryReimbursementOrderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->reimbOrderNo)) {
+    query->insert(pair<string, string>("reimb_order_no", *request->reimbOrderNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryReimbursementOrder"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/reimbursement/v1/order"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryReimbursementOrderResponse(callApi(params, req, runtime));
+}
+
+QueryReimbursementOrderResponse Alibabacloud_BtripOpen20220520::Client::queryReimbursementOrder(shared_ptr<QueryReimbursementOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<QueryReimbursementOrderHeaders> headers = make_shared<QueryReimbursementOrderHeaders>();
+  return queryReimbursementOrderWithOptions(request, headers, runtime);
+}
+
 SyncSingleUserResponse Alibabacloud_BtripOpen20220520::Client::syncSingleUserWithOptions(shared_ptr<SyncSingleUserRequest> tmpReq, shared_ptr<SyncSingleUserHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SyncSingleUserShrinkRequest> request = make_shared<SyncSingleUserShrinkRequest>();
