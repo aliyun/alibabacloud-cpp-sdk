@@ -23,12 +23,6 @@ Alibabacloud_Sls20201230::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _endpointRule = make_shared<string>("central");
 };
 
-ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigToMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
-}
-
 ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigToMachineGroupWithOptions(shared_ptr<string> project,
                                                                                                          shared_ptr<string> machineGroup,
                                                                                                          shared_ptr<string> configName,
@@ -54,10 +48,46 @@ ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigT
   return ApplyConfigToMachineGroupResponse(execute(params, req, runtime));
 }
 
-CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateConsumerGroupRequest> request) {
+ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigToMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
+  return applyConfigToMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+}
+
+ChangeResourceGroupResponse Alibabacloud_Sls20201230::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
+    body->insert(pair<string, string>("resourceId", *request->resourceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    body->insert(pair<string, string>("resourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeResourceGroup"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/resourcegroup"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return ChangeResourceGroupResponse(execute(params, req, runtime));
+}
+
+ChangeResourceGroupResponse Alibabacloud_Sls20201230::Client::changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return changeResourceGroupWithOptions(request, headers, runtime);
 }
 
 CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGroupWithOptions(shared_ptr<string> project,
@@ -97,10 +127,10 @@ CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGrou
   return CreateConsumerGroupResponse(execute(params, req, runtime));
 }
 
-CreateDomainResponse Alibabacloud_Sls20201230::Client::createDomain(shared_ptr<string> project, shared_ptr<CreateDomainRequest> request) {
+CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateConsumerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createDomainWithOptions(project, request, headers, runtime);
+  return createConsumerGroupWithOptions(project, logstore, request, headers, runtime);
 }
 
 CreateDomainResponse Alibabacloud_Sls20201230::Client::createDomainWithOptions(shared_ptr<string> project,
@@ -133,10 +163,10 @@ CreateDomainResponse Alibabacloud_Sls20201230::Client::createDomainWithOptions(s
   return CreateDomainResponse(execute(params, req, runtime));
 }
 
-CreateIndexResponse Alibabacloud_Sls20201230::Client::createIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateIndexRequest> request) {
+CreateDomainResponse Alibabacloud_Sls20201230::Client::createDomain(shared_ptr<string> project, shared_ptr<CreateDomainRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createIndexWithOptions(project, logstore, request, headers, runtime);
+  return createDomainWithOptions(project, request, headers, runtime);
 }
 
 CreateIndexResponse Alibabacloud_Sls20201230::Client::createIndexWithOptions(shared_ptr<string> project,
@@ -188,10 +218,10 @@ CreateIndexResponse Alibabacloud_Sls20201230::Client::createIndexWithOptions(sha
   return CreateIndexResponse(execute(params, req, runtime));
 }
 
-CreateLogStoreResponse Alibabacloud_Sls20201230::Client::createLogStore(shared_ptr<string> project, shared_ptr<CreateLogStoreRequest> request) {
+CreateIndexResponse Alibabacloud_Sls20201230::Client::createIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateIndexRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createLogStoreWithOptions(project, request, headers, runtime);
+  return createIndexWithOptions(project, logstore, request, headers, runtime);
 }
 
 CreateLogStoreResponse Alibabacloud_Sls20201230::Client::createLogStoreWithOptions(shared_ptr<string> project,
@@ -254,10 +284,10 @@ CreateLogStoreResponse Alibabacloud_Sls20201230::Client::createLogStoreWithOptio
   return CreateLogStoreResponse(execute(params, req, runtime));
 }
 
-CreateLoggingResponse Alibabacloud_Sls20201230::Client::createLogging(shared_ptr<string> project, shared_ptr<CreateLoggingRequest> request) {
+CreateLogStoreResponse Alibabacloud_Sls20201230::Client::createLogStore(shared_ptr<string> project, shared_ptr<CreateLogStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createLoggingWithOptions(project, request, headers, runtime);
+  return createLogStoreWithOptions(project, request, headers, runtime);
 }
 
 CreateLoggingResponse Alibabacloud_Sls20201230::Client::createLoggingWithOptions(shared_ptr<string> project,
@@ -293,10 +323,10 @@ CreateLoggingResponse Alibabacloud_Sls20201230::Client::createLoggingWithOptions
   return CreateLoggingResponse(execute(params, req, runtime));
 }
 
-CreateMachineGroupResponse Alibabacloud_Sls20201230::Client::createMachineGroup(shared_ptr<string> project, shared_ptr<CreateMachineGroupRequest> request) {
+CreateLoggingResponse Alibabacloud_Sls20201230::Client::createLogging(shared_ptr<string> project, shared_ptr<CreateLoggingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createMachineGroupWithOptions(project, request, headers, runtime);
+  return createLoggingWithOptions(project, request, headers, runtime);
 }
 
 CreateMachineGroupResponse Alibabacloud_Sls20201230::Client::createMachineGroupWithOptions(shared_ptr<string> project,
@@ -341,10 +371,10 @@ CreateMachineGroupResponse Alibabacloud_Sls20201230::Client::createMachineGroupW
   return CreateMachineGroupResponse(execute(params, req, runtime));
 }
 
-CreateOdpsShipperResponse Alibabacloud_Sls20201230::Client::createOdpsShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOdpsShipperRequest> request) {
+CreateMachineGroupResponse Alibabacloud_Sls20201230::Client::createMachineGroup(shared_ptr<string> project, shared_ptr<CreateMachineGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
+  return createMachineGroupWithOptions(project, request, headers, runtime);
 }
 
 CreateOdpsShipperResponse Alibabacloud_Sls20201230::Client::createOdpsShipperWithOptions(shared_ptr<string> project,
@@ -384,10 +414,10 @@ CreateOdpsShipperResponse Alibabacloud_Sls20201230::Client::createOdpsShipperWit
   return CreateOdpsShipperResponse(execute(params, req, runtime));
 }
 
-CreateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::createOssExternalStore(shared_ptr<string> project, shared_ptr<CreateOssExternalStoreRequest> request) {
+CreateOdpsShipperResponse Alibabacloud_Sls20201230::Client::createOdpsShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOdpsShipperRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createOssExternalStoreWithOptions(project, request, headers, runtime);
+  return createOdpsShipperWithOptions(project, logstore, request, headers, runtime);
 }
 
 CreateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::createOssExternalStoreWithOptions(shared_ptr<string> project,
@@ -426,10 +456,10 @@ CreateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::createOssExtern
   return CreateOssExternalStoreResponse(execute(params, req, runtime));
 }
 
-CreateOssShipperResponse Alibabacloud_Sls20201230::Client::createOssShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOssShipperRequest> request) {
+CreateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::createOssExternalStore(shared_ptr<string> project, shared_ptr<CreateOssExternalStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createOssShipperWithOptions(project, logstore, request, headers, runtime);
+  return createOssExternalStoreWithOptions(project, request, headers, runtime);
 }
 
 CreateOssShipperResponse Alibabacloud_Sls20201230::Client::createOssShipperWithOptions(shared_ptr<string> project,
@@ -469,10 +499,10 @@ CreateOssShipperResponse Alibabacloud_Sls20201230::Client::createOssShipperWithO
   return CreateOssShipperResponse(execute(params, req, runtime));
 }
 
-CreateProjectResponse Alibabacloud_Sls20201230::Client::createProject(shared_ptr<CreateProjectRequest> request) {
+CreateOssShipperResponse Alibabacloud_Sls20201230::Client::createOssShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOssShipperRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createProjectWithOptions(request, headers, runtime);
+  return createOssShipperWithOptions(project, logstore, request, headers, runtime);
 }
 
 CreateProjectResponse Alibabacloud_Sls20201230::Client::createProjectWithOptions(shared_ptr<CreateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -483,6 +513,9 @@ CreateProjectResponse Alibabacloud_Sls20201230::Client::createProjectWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("projectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -502,10 +535,10 @@ CreateProjectResponse Alibabacloud_Sls20201230::Client::createProjectWithOptions
   return CreateProjectResponse(execute(params, req, runtime));
 }
 
-CreateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::createRdsExternalStore(shared_ptr<string> project, shared_ptr<CreateRdsExternalStoreRequest> request) {
+CreateProjectResponse Alibabacloud_Sls20201230::Client::createProject(shared_ptr<CreateProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createRdsExternalStoreWithOptions(project, request, headers, runtime);
+  return createProjectWithOptions(request, headers, runtime);
 }
 
 CreateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::createRdsExternalStoreWithOptions(shared_ptr<string> project,
@@ -544,10 +577,10 @@ CreateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::createRdsExtern
   return CreateRdsExternalStoreResponse(execute(params, req, runtime));
 }
 
-CreateSavedSearchResponse Alibabacloud_Sls20201230::Client::createSavedSearch(shared_ptr<string> project, shared_ptr<CreateSavedSearchRequest> request) {
+CreateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::createRdsExternalStore(shared_ptr<string> project, shared_ptr<CreateRdsExternalStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createSavedSearchWithOptions(project, request, headers, runtime);
+  return createRdsExternalStoreWithOptions(project, request, headers, runtime);
 }
 
 CreateSavedSearchResponse Alibabacloud_Sls20201230::Client::createSavedSearchWithOptions(shared_ptr<string> project,
@@ -592,10 +625,10 @@ CreateSavedSearchResponse Alibabacloud_Sls20201230::Client::createSavedSearchWit
   return CreateSavedSearchResponse(execute(params, req, runtime));
 }
 
-DeleteConsumerGroupResponse Alibabacloud_Sls20201230::Client::deleteConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> consumerGroup) {
+CreateSavedSearchResponse Alibabacloud_Sls20201230::Client::createSavedSearch(shared_ptr<string> project, shared_ptr<CreateSavedSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
+  return createSavedSearchWithOptions(project, request, headers, runtime);
 }
 
 DeleteConsumerGroupResponse Alibabacloud_Sls20201230::Client::deleteConsumerGroupWithOptions(shared_ptr<string> project,
@@ -623,10 +656,10 @@ DeleteConsumerGroupResponse Alibabacloud_Sls20201230::Client::deleteConsumerGrou
   return DeleteConsumerGroupResponse(execute(params, req, runtime));
 }
 
-DeleteDomainResponse Alibabacloud_Sls20201230::Client::deleteDomain(shared_ptr<string> project, shared_ptr<string> domainName) {
+DeleteConsumerGroupResponse Alibabacloud_Sls20201230::Client::deleteConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> consumerGroup) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteDomainWithOptions(project, domainName, headers, runtime);
+  return deleteConsumerGroupWithOptions(project, logstore, consumerGroup, headers, runtime);
 }
 
 DeleteDomainResponse Alibabacloud_Sls20201230::Client::deleteDomainWithOptions(shared_ptr<string> project,
@@ -653,10 +686,10 @@ DeleteDomainResponse Alibabacloud_Sls20201230::Client::deleteDomainWithOptions(s
   return DeleteDomainResponse(execute(params, req, runtime));
 }
 
-DeleteExternalStoreResponse Alibabacloud_Sls20201230::Client::deleteExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
+DeleteDomainResponse Alibabacloud_Sls20201230::Client::deleteDomain(shared_ptr<string> project, shared_ptr<string> domainName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+  return deleteDomainWithOptions(project, domainName, headers, runtime);
 }
 
 DeleteExternalStoreResponse Alibabacloud_Sls20201230::Client::deleteExternalStoreWithOptions(shared_ptr<string> project,
@@ -683,10 +716,10 @@ DeleteExternalStoreResponse Alibabacloud_Sls20201230::Client::deleteExternalStor
   return DeleteExternalStoreResponse(execute(params, req, runtime));
 }
 
-DeleteIndexResponse Alibabacloud_Sls20201230::Client::deleteIndex(shared_ptr<string> project, shared_ptr<string> logstore) {
+DeleteExternalStoreResponse Alibabacloud_Sls20201230::Client::deleteExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteIndexWithOptions(project, logstore, headers, runtime);
+  return deleteExternalStoreWithOptions(project, externalStoreName, headers, runtime);
 }
 
 DeleteIndexResponse Alibabacloud_Sls20201230::Client::deleteIndexWithOptions(shared_ptr<string> project,
@@ -713,10 +746,10 @@ DeleteIndexResponse Alibabacloud_Sls20201230::Client::deleteIndexWithOptions(sha
   return DeleteIndexResponse(execute(params, req, runtime));
 }
 
-DeleteLogStoreResponse Alibabacloud_Sls20201230::Client::deleteLogStore(shared_ptr<string> project, shared_ptr<string> logstore) {
+DeleteIndexResponse Alibabacloud_Sls20201230::Client::deleteIndex(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteLogStoreWithOptions(project, logstore, headers, runtime);
+  return deleteIndexWithOptions(project, logstore, headers, runtime);
 }
 
 DeleteLogStoreResponse Alibabacloud_Sls20201230::Client::deleteLogStoreWithOptions(shared_ptr<string> project,
@@ -743,10 +776,10 @@ DeleteLogStoreResponse Alibabacloud_Sls20201230::Client::deleteLogStoreWithOptio
   return DeleteLogStoreResponse(execute(params, req, runtime));
 }
 
-DeleteLoggingResponse Alibabacloud_Sls20201230::Client::deleteLogging(shared_ptr<string> project) {
+DeleteLogStoreResponse Alibabacloud_Sls20201230::Client::deleteLogStore(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteLoggingWithOptions(project, headers, runtime);
+  return deleteLogStoreWithOptions(project, logstore, headers, runtime);
 }
 
 DeleteLoggingResponse Alibabacloud_Sls20201230::Client::deleteLoggingWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -770,10 +803,10 @@ DeleteLoggingResponse Alibabacloud_Sls20201230::Client::deleteLoggingWithOptions
   return DeleteLoggingResponse(execute(params, req, runtime));
 }
 
-DeleteMachineGroupResponse Alibabacloud_Sls20201230::Client::deleteMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup) {
+DeleteLoggingResponse Alibabacloud_Sls20201230::Client::deleteLogging(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  return deleteLoggingWithOptions(project, headers, runtime);
 }
 
 DeleteMachineGroupResponse Alibabacloud_Sls20201230::Client::deleteMachineGroupWithOptions(shared_ptr<string> project,
@@ -800,18 +833,21 @@ DeleteMachineGroupResponse Alibabacloud_Sls20201230::Client::deleteMachineGroupW
   return DeleteMachineGroupResponse(execute(params, req, runtime));
 }
 
-DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProject(shared_ptr<string> project) {
+DeleteMachineGroupResponse Alibabacloud_Sls20201230::Client::deleteMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProjectWithOptions(project, headers, runtime);
+  return deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
 }
 
-DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
+DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
+    query->insert(pair<string, string>("project", *request->project));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteProject"))},
@@ -827,10 +863,10 @@ DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions
   return DeleteProjectResponse(execute(params, req, runtime));
 }
 
-DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicy(shared_ptr<string> project) {
+DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProject(shared_ptr<DeleteProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProjectPolicyWithOptions(project, headers, runtime);
+  return deleteProjectWithOptions(request, headers, runtime);
 }
 
 DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -854,10 +890,10 @@ DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolic
   return DeleteProjectPolicyResponse(execute(params, req, runtime));
 }
 
-DeleteSavedSearchResponse Alibabacloud_Sls20201230::Client::deleteSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
+DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicy(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+  return deleteProjectPolicyWithOptions(project, headers, runtime);
 }
 
 DeleteSavedSearchResponse Alibabacloud_Sls20201230::Client::deleteSavedSearchWithOptions(shared_ptr<string> project,
@@ -884,10 +920,10 @@ DeleteSavedSearchResponse Alibabacloud_Sls20201230::Client::deleteSavedSearchWit
   return DeleteSavedSearchResponse(execute(params, req, runtime));
 }
 
-DeleteShipperResponse Alibabacloud_Sls20201230::Client::deleteShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> shipperName) {
+DeleteSavedSearchResponse Alibabacloud_Sls20201230::Client::deleteSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
+  return deleteSavedSearchWithOptions(project, savedsearchName, headers, runtime);
 }
 
 DeleteShipperResponse Alibabacloud_Sls20201230::Client::deleteShipperWithOptions(shared_ptr<string> project,
@@ -915,10 +951,10 @@ DeleteShipperResponse Alibabacloud_Sls20201230::Client::deleteShipperWithOptions
   return DeleteShipperResponse(execute(params, req, runtime));
 }
 
-GetAppliedConfigsResponse Alibabacloud_Sls20201230::Client::getAppliedConfigs(shared_ptr<string> project, shared_ptr<string> machineGroup) {
+DeleteShipperResponse Alibabacloud_Sls20201230::Client::deleteShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<string> shipperName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
+  return deleteShipperWithOptions(project, logstore, shipperName, headers, runtime);
 }
 
 GetAppliedConfigsResponse Alibabacloud_Sls20201230::Client::getAppliedConfigsWithOptions(shared_ptr<string> project,
@@ -945,10 +981,10 @@ GetAppliedConfigsResponse Alibabacloud_Sls20201230::Client::getAppliedConfigsWit
   return GetAppliedConfigsResponse(execute(params, req, runtime));
 }
 
-GetAppliedMachineGroupsResponse Alibabacloud_Sls20201230::Client::getAppliedMachineGroups(shared_ptr<string> project, shared_ptr<string> configName) {
+GetAppliedConfigsResponse Alibabacloud_Sls20201230::Client::getAppliedConfigs(shared_ptr<string> project, shared_ptr<string> machineGroup) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
+  return getAppliedConfigsWithOptions(project, machineGroup, headers, runtime);
 }
 
 GetAppliedMachineGroupsResponse Alibabacloud_Sls20201230::Client::getAppliedMachineGroupsWithOptions(shared_ptr<string> project,
@@ -975,13 +1011,10 @@ GetAppliedMachineGroupsResponse Alibabacloud_Sls20201230::Client::getAppliedMach
   return GetAppliedMachineGroupsResponse(execute(params, req, runtime));
 }
 
-GetCheckPointResponse Alibabacloud_Sls20201230::Client::getCheckPoint(shared_ptr<string> project,
-                                                                      shared_ptr<string> logstore,
-                                                                      shared_ptr<string> consumerGroup,
-                                                                      shared_ptr<GetCheckPointRequest> request) {
+GetAppliedMachineGroupsResponse Alibabacloud_Sls20201230::Client::getAppliedMachineGroups(shared_ptr<string> project, shared_ptr<string> configName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  return getAppliedMachineGroupsWithOptions(project, configName, headers, runtime);
 }
 
 GetCheckPointResponse Alibabacloud_Sls20201230::Client::getCheckPointWithOptions(shared_ptr<string> project,
@@ -1016,10 +1049,13 @@ GetCheckPointResponse Alibabacloud_Sls20201230::Client::getCheckPointWithOptions
   return GetCheckPointResponse(execute(params, req, runtime));
 }
 
-GetContextLogsResponse Alibabacloud_Sls20201230::Client::getContextLogs(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetContextLogsRequest> request) {
+GetCheckPointResponse Alibabacloud_Sls20201230::Client::getCheckPoint(shared_ptr<string> project,
+                                                                      shared_ptr<string> logstore,
+                                                                      shared_ptr<string> consumerGroup,
+                                                                      shared_ptr<GetCheckPointRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getContextLogsWithOptions(project, logstore, request, headers, runtime);
+  return getCheckPointWithOptions(project, logstore, consumerGroup, request, headers, runtime);
 }
 
 GetContextLogsResponse Alibabacloud_Sls20201230::Client::getContextLogsWithOptions(shared_ptr<string> project,
@@ -1065,13 +1101,10 @@ GetContextLogsResponse Alibabacloud_Sls20201230::Client::getContextLogsWithOptio
   return GetContextLogsResponse(execute(params, req, runtime));
 }
 
-GetCursorResponse Alibabacloud_Sls20201230::Client::getCursor(shared_ptr<string> project,
-                                                              shared_ptr<string> logstore,
-                                                              shared_ptr<string> shardId,
-                                                              shared_ptr<GetCursorRequest> request) {
+GetContextLogsResponse Alibabacloud_Sls20201230::Client::getContextLogs(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetContextLogsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getCursorWithOptions(project, logstore, shardId, request, headers, runtime);
+  return getContextLogsWithOptions(project, logstore, request, headers, runtime);
 }
 
 GetCursorResponse Alibabacloud_Sls20201230::Client::getCursorWithOptions(shared_ptr<string> project,
@@ -1106,13 +1139,13 @@ GetCursorResponse Alibabacloud_Sls20201230::Client::getCursorWithOptions(shared_
   return GetCursorResponse(execute(params, req, runtime));
 }
 
-GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTime(shared_ptr<string> project,
-                                                                      shared_ptr<string> logstore,
-                                                                      shared_ptr<string> shardId,
-                                                                      shared_ptr<GetCursorTimeRequest> request) {
+GetCursorResponse Alibabacloud_Sls20201230::Client::getCursor(shared_ptr<string> project,
+                                                              shared_ptr<string> logstore,
+                                                              shared_ptr<string> shardId,
+                                                              shared_ptr<GetCursorRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
+  return getCursorWithOptions(project, logstore, shardId, request, headers, runtime);
 }
 
 GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTimeWithOptions(shared_ptr<string> project,
@@ -1147,10 +1180,13 @@ GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTimeWithOptions
   return GetCursorTimeResponse(execute(params, req, runtime));
 }
 
-GetExternalStoreResponse Alibabacloud_Sls20201230::Client::getExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
+GetCursorTimeResponse Alibabacloud_Sls20201230::Client::getCursorTime(shared_ptr<string> project,
+                                                                      shared_ptr<string> logstore,
+                                                                      shared_ptr<string> shardId,
+                                                                      shared_ptr<GetCursorTimeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
+  return getCursorTimeWithOptions(project, logstore, shardId, request, headers, runtime);
 }
 
 GetExternalStoreResponse Alibabacloud_Sls20201230::Client::getExternalStoreWithOptions(shared_ptr<string> project,
@@ -1177,10 +1213,10 @@ GetExternalStoreResponse Alibabacloud_Sls20201230::Client::getExternalStoreWithO
   return GetExternalStoreResponse(execute(params, req, runtime));
 }
 
-GetHistogramsResponse Alibabacloud_Sls20201230::Client::getHistograms(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetHistogramsRequest> request) {
+GetExternalStoreResponse Alibabacloud_Sls20201230::Client::getExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getHistogramsWithOptions(project, logstore, request, headers, runtime);
+  return getExternalStoreWithOptions(project, externalStoreName, headers, runtime);
 }
 
 GetHistogramsResponse Alibabacloud_Sls20201230::Client::getHistogramsWithOptions(shared_ptr<string> project,
@@ -1223,10 +1259,10 @@ GetHistogramsResponse Alibabacloud_Sls20201230::Client::getHistogramsWithOptions
   return GetHistogramsResponse(execute(params, req, runtime));
 }
 
-GetIndexResponse Alibabacloud_Sls20201230::Client::getIndex(shared_ptr<string> project, shared_ptr<string> logstore) {
+GetHistogramsResponse Alibabacloud_Sls20201230::Client::getHistograms(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetHistogramsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getIndexWithOptions(project, logstore, headers, runtime);
+  return getHistogramsWithOptions(project, logstore, request, headers, runtime);
 }
 
 GetIndexResponse Alibabacloud_Sls20201230::Client::getIndexWithOptions(shared_ptr<string> project,
@@ -1253,10 +1289,10 @@ GetIndexResponse Alibabacloud_Sls20201230::Client::getIndexWithOptions(shared_pt
   return GetIndexResponse(execute(params, req, runtime));
 }
 
-GetLogStoreResponse Alibabacloud_Sls20201230::Client::getLogStore(shared_ptr<string> project, shared_ptr<string> logstore) {
+GetIndexResponse Alibabacloud_Sls20201230::Client::getIndex(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getLogStoreWithOptions(project, logstore, headers, runtime);
+  return getIndexWithOptions(project, logstore, headers, runtime);
 }
 
 GetLogStoreResponse Alibabacloud_Sls20201230::Client::getLogStoreWithOptions(shared_ptr<string> project,
@@ -1283,10 +1319,10 @@ GetLogStoreResponse Alibabacloud_Sls20201230::Client::getLogStoreWithOptions(sha
   return GetLogStoreResponse(execute(params, req, runtime));
 }
 
-GetLoggingResponse Alibabacloud_Sls20201230::Client::getLogging(shared_ptr<string> project) {
+GetLogStoreResponse Alibabacloud_Sls20201230::Client::getLogStore(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getLoggingWithOptions(project, headers, runtime);
+  return getLogStoreWithOptions(project, logstore, headers, runtime);
 }
 
 GetLoggingResponse Alibabacloud_Sls20201230::Client::getLoggingWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1310,10 +1346,10 @@ GetLoggingResponse Alibabacloud_Sls20201230::Client::getLoggingWithOptions(share
   return GetLoggingResponse(execute(params, req, runtime));
 }
 
-GetLogsResponse Alibabacloud_Sls20201230::Client::getLogs(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetLogsRequest> request) {
+GetLoggingResponse Alibabacloud_Sls20201230::Client::getLogging(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getLogsWithOptions(project, logstore, request, headers, runtime);
+  return getLoggingWithOptions(project, headers, runtime);
 }
 
 GetLogsResponse Alibabacloud_Sls20201230::Client::getLogsWithOptions(shared_ptr<string> project,
@@ -1368,10 +1404,10 @@ GetLogsResponse Alibabacloud_Sls20201230::Client::getLogsWithOptions(shared_ptr<
   return GetLogsResponse(execute(params, req, runtime));
 }
 
-GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup) {
+GetLogsResponse Alibabacloud_Sls20201230::Client::getLogs(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<GetLogsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  return getLogsWithOptions(project, logstore, request, headers, runtime);
 }
 
 GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroupWithOptions(shared_ptr<string> project,
@@ -1398,10 +1434,10 @@ GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroupWithOpt
   return GetMachineGroupResponse(execute(params, req, runtime));
 }
 
-GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<string> project) {
+GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectWithOptions(project, headers, runtime);
+  return getMachineGroupWithOptions(project, machineGroup, headers, runtime);
 }
 
 GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1425,10 +1461,10 @@ GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(share
   return GetProjectResponse(execute(params, req, runtime));
 }
 
-GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogs(shared_ptr<string> project, shared_ptr<GetProjectLogsRequest> request) {
+GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectLogsWithOptions(project, request, headers, runtime);
+  return getProjectWithOptions(project, headers, runtime);
 }
 
 GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogsWithOptions(shared_ptr<string> project,
@@ -1464,10 +1500,10 @@ GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogsWithOptio
   return GetProjectLogsResponse(execute(params, req, runtime));
 }
 
-GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicy(shared_ptr<string> project) {
+GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogs(shared_ptr<string> project, shared_ptr<GetProjectLogsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectPolicyWithOptions(project, headers, runtime);
+  return getProjectLogsWithOptions(project, request, headers, runtime);
 }
 
 GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1486,15 +1522,15 @@ GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicyWithO
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("string"))}
   }));
   return GetProjectPolicyResponse(execute(params, req, runtime));
 }
 
-GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
+GetProjectPolicyResponse Alibabacloud_Sls20201230::Client::getProjectPolicy(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+  return getProjectPolicyWithOptions(project, headers, runtime);
 }
 
 GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearchWithOptions(shared_ptr<string> project,
@@ -1521,13 +1557,10 @@ GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearchWithOptio
   return GetSavedSearchResponse(execute(params, req, runtime));
 }
 
-GetShipperStatusResponse Alibabacloud_Sls20201230::Client::getShipperStatus(shared_ptr<string> project,
-                                                                            shared_ptr<string> logstore,
-                                                                            shared_ptr<string> shipperName,
-                                                                            shared_ptr<GetShipperStatusRequest> request) {
+GetSavedSearchResponse Alibabacloud_Sls20201230::Client::getSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
+  return getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
 }
 
 GetShipperStatusResponse Alibabacloud_Sls20201230::Client::getShipperStatusWithOptions(shared_ptr<string> project,
@@ -1574,10 +1607,13 @@ GetShipperStatusResponse Alibabacloud_Sls20201230::Client::getShipperStatusWithO
   return GetShipperStatusResponse(execute(params, req, runtime));
 }
 
-ListConsumerGroupResponse Alibabacloud_Sls20201230::Client::listConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore) {
+GetShipperStatusResponse Alibabacloud_Sls20201230::Client::getShipperStatus(shared_ptr<string> project,
+                                                                            shared_ptr<string> logstore,
+                                                                            shared_ptr<string> shipperName,
+                                                                            shared_ptr<GetShipperStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listConsumerGroupWithOptions(project, logstore, headers, runtime);
+  return getShipperStatusWithOptions(project, logstore, shipperName, request, headers, runtime);
 }
 
 ListConsumerGroupResponse Alibabacloud_Sls20201230::Client::listConsumerGroupWithOptions(shared_ptr<string> project,
@@ -1604,10 +1640,10 @@ ListConsumerGroupResponse Alibabacloud_Sls20201230::Client::listConsumerGroupWit
   return ListConsumerGroupResponse(execute(params, req, runtime));
 }
 
-ListDomainsResponse Alibabacloud_Sls20201230::Client::listDomains(shared_ptr<string> project, shared_ptr<ListDomainsRequest> request) {
+ListConsumerGroupResponse Alibabacloud_Sls20201230::Client::listConsumerGroup(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listDomainsWithOptions(project, request, headers, runtime);
+  return listConsumerGroupWithOptions(project, logstore, headers, runtime);
 }
 
 ListDomainsResponse Alibabacloud_Sls20201230::Client::listDomainsWithOptions(shared_ptr<string> project,
@@ -1646,10 +1682,10 @@ ListDomainsResponse Alibabacloud_Sls20201230::Client::listDomainsWithOptions(sha
   return ListDomainsResponse(execute(params, req, runtime));
 }
 
-ListExternalStoreResponse Alibabacloud_Sls20201230::Client::listExternalStore(shared_ptr<string> project, shared_ptr<ListExternalStoreRequest> request) {
+ListDomainsResponse Alibabacloud_Sls20201230::Client::listDomains(shared_ptr<string> project, shared_ptr<ListDomainsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listExternalStoreWithOptions(project, request, headers, runtime);
+  return listDomainsWithOptions(project, request, headers, runtime);
 }
 
 ListExternalStoreResponse Alibabacloud_Sls20201230::Client::listExternalStoreWithOptions(shared_ptr<string> project,
@@ -1688,10 +1724,10 @@ ListExternalStoreResponse Alibabacloud_Sls20201230::Client::listExternalStoreWit
   return ListExternalStoreResponse(execute(params, req, runtime));
 }
 
-ListLogStoresResponse Alibabacloud_Sls20201230::Client::listLogStores(shared_ptr<string> project, shared_ptr<ListLogStoresRequest> request) {
+ListExternalStoreResponse Alibabacloud_Sls20201230::Client::listExternalStore(shared_ptr<string> project, shared_ptr<ListExternalStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listLogStoresWithOptions(project, request, headers, runtime);
+  return listExternalStoreWithOptions(project, request, headers, runtime);
 }
 
 ListLogStoresResponse Alibabacloud_Sls20201230::Client::listLogStoresWithOptions(shared_ptr<string> project,
@@ -1736,10 +1772,10 @@ ListLogStoresResponse Alibabacloud_Sls20201230::Client::listLogStoresWithOptions
   return ListLogStoresResponse(execute(params, req, runtime));
 }
 
-ListMachineGroupResponse Alibabacloud_Sls20201230::Client::listMachineGroup(shared_ptr<string> project, shared_ptr<ListMachineGroupRequest> request) {
+ListLogStoresResponse Alibabacloud_Sls20201230::Client::listLogStores(shared_ptr<string> project, shared_ptr<ListLogStoresRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listMachineGroupWithOptions(project, request, headers, runtime);
+  return listLogStoresWithOptions(project, request, headers, runtime);
 }
 
 ListMachineGroupResponse Alibabacloud_Sls20201230::Client::listMachineGroupWithOptions(shared_ptr<string> project,
@@ -1778,10 +1814,10 @@ ListMachineGroupResponse Alibabacloud_Sls20201230::Client::listMachineGroupWithO
   return ListMachineGroupResponse(execute(params, req, runtime));
 }
 
-ListMachinesResponse Alibabacloud_Sls20201230::Client::listMachines(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<ListMachinesRequest> request) {
+ListMachineGroupResponse Alibabacloud_Sls20201230::Client::listMachineGroup(shared_ptr<string> project, shared_ptr<ListMachineGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listMachinesWithOptions(project, machineGroup, request, headers, runtime);
+  return listMachineGroupWithOptions(project, request, headers, runtime);
 }
 
 ListMachinesResponse Alibabacloud_Sls20201230::Client::listMachinesWithOptions(shared_ptr<string> project,
@@ -1818,10 +1854,10 @@ ListMachinesResponse Alibabacloud_Sls20201230::Client::listMachinesWithOptions(s
   return ListMachinesResponse(execute(params, req, runtime));
 }
 
-ListProjectResponse Alibabacloud_Sls20201230::Client::listProject(shared_ptr<ListProjectRequest> request) {
+ListMachinesResponse Alibabacloud_Sls20201230::Client::listMachines(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<ListMachinesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProjectWithOptions(request, headers, runtime);
+  return listMachinesWithOptions(project, machineGroup, request, headers, runtime);
 }
 
 ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(shared_ptr<ListProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1854,10 +1890,10 @@ ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(sha
   return ListProjectResponse(execute(params, req, runtime));
 }
 
-ListSavedSearchResponse Alibabacloud_Sls20201230::Client::listSavedSearch(shared_ptr<string> project, shared_ptr<ListSavedSearchRequest> request) {
+ListProjectResponse Alibabacloud_Sls20201230::Client::listProject(shared_ptr<ListProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSavedSearchWithOptions(project, request, headers, runtime);
+  return listProjectWithOptions(request, headers, runtime);
 }
 
 ListSavedSearchResponse Alibabacloud_Sls20201230::Client::listSavedSearchWithOptions(shared_ptr<string> project,
@@ -1893,10 +1929,10 @@ ListSavedSearchResponse Alibabacloud_Sls20201230::Client::listSavedSearchWithOpt
   return ListSavedSearchResponse(execute(params, req, runtime));
 }
 
-ListShardsResponse Alibabacloud_Sls20201230::Client::listShards(shared_ptr<string> project, shared_ptr<string> logstore) {
+ListSavedSearchResponse Alibabacloud_Sls20201230::Client::listSavedSearch(shared_ptr<string> project, shared_ptr<ListSavedSearchRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listShardsWithOptions(project, logstore, headers, runtime);
+  return listSavedSearchWithOptions(project, request, headers, runtime);
 }
 
 ListShardsResponse Alibabacloud_Sls20201230::Client::listShardsWithOptions(shared_ptr<string> project,
@@ -1923,10 +1959,10 @@ ListShardsResponse Alibabacloud_Sls20201230::Client::listShardsWithOptions(share
   return ListShardsResponse(execute(params, req, runtime));
 }
 
-ListShipperResponse Alibabacloud_Sls20201230::Client::listShipper(shared_ptr<string> project, shared_ptr<string> logstore) {
+ListShardsResponse Alibabacloud_Sls20201230::Client::listShards(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listShipperWithOptions(project, logstore, headers, runtime);
+  return listShardsWithOptions(project, logstore, headers, runtime);
 }
 
 ListShipperResponse Alibabacloud_Sls20201230::Client::listShipperWithOptions(shared_ptr<string> project,
@@ -1953,10 +1989,10 @@ ListShipperResponse Alibabacloud_Sls20201230::Client::listShipperWithOptions(sha
   return ListShipperResponse(execute(params, req, runtime));
 }
 
-ListTagResourcesResponse Alibabacloud_Sls20201230::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
+ListShipperResponse Alibabacloud_Sls20201230::Client::listShipper(shared_ptr<string> project, shared_ptr<string> logstore) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTagResourcesWithOptions(request, headers, runtime);
+  return listShipperWithOptions(project, logstore, headers, runtime);
 }
 
 ListTagResourcesResponse Alibabacloud_Sls20201230::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1997,13 +2033,10 @@ ListTagResourcesResponse Alibabacloud_Sls20201230::Client::listTagResourcesWithO
   return ListTagResourcesResponse(execute(params, req, runtime));
 }
 
-PullDataResponse Alibabacloud_Sls20201230::Client::pullData(shared_ptr<string> project,
-                                                            shared_ptr<string> logstore,
-                                                            shared_ptr<string> shard,
-                                                            shared_ptr<PullDataRequest> request) {
+ListTagResourcesResponse Alibabacloud_Sls20201230::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return pullDataWithOptions(project, logstore, shard, request, headers, runtime);
+  return listTagResourcesWithOptions(request, headers, runtime);
 }
 
 PullDataResponse Alibabacloud_Sls20201230::Client::pullDataWithOptions(shared_ptr<string> project,
@@ -2044,10 +2077,13 @@ PullDataResponse Alibabacloud_Sls20201230::Client::pullDataWithOptions(shared_pt
   return PullDataResponse(execute(params, req, runtime));
 }
 
-PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicy(shared_ptr<string> project, shared_ptr<PutProjectPolicyRequest> request) {
+PullDataResponse Alibabacloud_Sls20201230::Client::pullData(shared_ptr<string> project,
+                                                            shared_ptr<string> logstore,
+                                                            shared_ptr<string> shard,
+                                                            shared_ptr<PullDataRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return putProjectPolicyWithOptions(project, request, headers, runtime);
+  return pullDataWithOptions(project, logstore, shard, request, headers, runtime);
 }
 
 PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicyWithOptions(shared_ptr<string> project,
@@ -2076,10 +2112,10 @@ PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicyWithO
   return PutProjectPolicyResponse(execute(params, req, runtime));
 }
 
-PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtracking(shared_ptr<string> project, shared_ptr<string> logstoreName, shared_ptr<PutWebtrackingRequest> request) {
+PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicy(shared_ptr<string> project, shared_ptr<PutProjectPolicyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
+  return putProjectPolicyWithOptions(project, request, headers, runtime);
 }
 
 PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtrackingWithOptions(shared_ptr<string> project,
@@ -2091,8 +2127,8 @@ PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtrackingWithOptio
   shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
   hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<undefined>>(request->logs)) {
-    body->insert(pair<string, vector<undefined>>("__logs__", *request->logs));
+  if (!Darabonba_Util::Client::isUnset<vector<map<string, string>>>(request->logs)) {
+    body->insert(pair<string, vector<map<string, string>>>("__logs__", *request->logs));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     body->insert(pair<string, string>("__source__", *request->source));
@@ -2122,10 +2158,10 @@ PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtrackingWithOptio
   return PutWebtrackingResponse(execute(params, req, runtime));
 }
 
-RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeConfigFromMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName) {
+PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtracking(shared_ptr<string> project, shared_ptr<string> logstoreName, shared_ptr<PutWebtrackingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
+  return putWebtrackingWithOptions(project, logstoreName, request, headers, runtime);
 }
 
 RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeConfigFromMachineGroupWithOptions(shared_ptr<string> project,
@@ -2153,13 +2189,10 @@ RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeCon
   return RemoveConfigFromMachineGroupResponse(execute(params, req, runtime));
 }
 
-SplitShardResponse Alibabacloud_Sls20201230::Client::splitShard(shared_ptr<string> project,
-                                                                shared_ptr<string> logstore,
-                                                                shared_ptr<string> shard,
-                                                                shared_ptr<SplitShardRequest> request) {
+RemoveConfigFromMachineGroupResponse Alibabacloud_Sls20201230::Client::removeConfigFromMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return splitShardWithOptions(project, logstore, shard, request, headers, runtime);
+  return removeConfigFromMachineGroupWithOptions(project, machineGroup, configName, headers, runtime);
 }
 
 SplitShardResponse Alibabacloud_Sls20201230::Client::splitShardWithOptions(shared_ptr<string> project,
@@ -2197,10 +2230,13 @@ SplitShardResponse Alibabacloud_Sls20201230::Client::splitShardWithOptions(share
   return SplitShardResponse(execute(params, req, runtime));
 }
 
-TagResourcesResponse Alibabacloud_Sls20201230::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
+SplitShardResponse Alibabacloud_Sls20201230::Client::splitShard(shared_ptr<string> project,
+                                                                shared_ptr<string> logstore,
+                                                                shared_ptr<string> shard,
+                                                                shared_ptr<SplitShardRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return tagResourcesWithOptions(request, headers, runtime);
+  return splitShardWithOptions(project, logstore, shard, request, headers, runtime);
 }
 
 TagResourcesResponse Alibabacloud_Sls20201230::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2233,10 +2269,10 @@ TagResourcesResponse Alibabacloud_Sls20201230::Client::tagResourcesWithOptions(s
   return TagResourcesResponse(execute(params, req, runtime));
 }
 
-UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
+TagResourcesResponse Alibabacloud_Sls20201230::Client::tagResources(shared_ptr<TagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return untagResourcesWithOptions(request, headers, runtime);
+  return tagResourcesWithOptions(request, headers, runtime);
 }
 
 UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2272,13 +2308,10 @@ UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResourcesWithOptio
   return UntagResourcesResponse(execute(params, req, runtime));
 }
 
-UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGroup(shared_ptr<string> project,
-                                                                                  shared_ptr<string> logstore,
-                                                                                  shared_ptr<string> consumerGroup,
-                                                                                  shared_ptr<UpdateConsumerGroupRequest> request) {
+UntagResourcesResponse Alibabacloud_Sls20201230::Client::untagResources(shared_ptr<UntagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+  return untagResourcesWithOptions(request, headers, runtime);
 }
 
 UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGroupWithOptions(shared_ptr<string> project,
@@ -2316,10 +2349,13 @@ UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGrou
   return UpdateConsumerGroupResponse(execute(params, req, runtime));
 }
 
-UpdateIndexResponse Alibabacloud_Sls20201230::Client::updateIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateIndexRequest> request) {
+UpdateConsumerGroupResponse Alibabacloud_Sls20201230::Client::updateConsumerGroup(shared_ptr<string> project,
+                                                                                  shared_ptr<string> logstore,
+                                                                                  shared_ptr<string> consumerGroup,
+                                                                                  shared_ptr<UpdateConsumerGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateIndexWithOptions(project, logstore, request, headers, runtime);
+  return updateConsumerGroupWithOptions(project, logstore, consumerGroup, request, headers, runtime);
 }
 
 UpdateIndexResponse Alibabacloud_Sls20201230::Client::updateIndexWithOptions(shared_ptr<string> project,
@@ -2371,10 +2407,10 @@ UpdateIndexResponse Alibabacloud_Sls20201230::Client::updateIndexWithOptions(sha
   return UpdateIndexResponse(execute(params, req, runtime));
 }
 
-UpdateLogStoreResponse Alibabacloud_Sls20201230::Client::updateLogStore(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateLogStoreRequest> request) {
+UpdateIndexResponse Alibabacloud_Sls20201230::Client::updateIndex(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateIndexRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLogStoreWithOptions(project, logstore, request, headers, runtime);
+  return updateIndexWithOptions(project, logstore, request, headers, runtime);
 }
 
 UpdateLogStoreResponse Alibabacloud_Sls20201230::Client::updateLogStoreWithOptions(shared_ptr<string> project,
@@ -2438,10 +2474,10 @@ UpdateLogStoreResponse Alibabacloud_Sls20201230::Client::updateLogStoreWithOptio
   return UpdateLogStoreResponse(execute(params, req, runtime));
 }
 
-UpdateLoggingResponse Alibabacloud_Sls20201230::Client::updateLogging(shared_ptr<string> project, shared_ptr<UpdateLoggingRequest> request) {
+UpdateLogStoreResponse Alibabacloud_Sls20201230::Client::updateLogStore(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<UpdateLogStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateLoggingWithOptions(project, request, headers, runtime);
+  return updateLogStoreWithOptions(project, logstore, request, headers, runtime);
 }
 
 UpdateLoggingResponse Alibabacloud_Sls20201230::Client::updateLoggingWithOptions(shared_ptr<string> project,
@@ -2477,10 +2513,10 @@ UpdateLoggingResponse Alibabacloud_Sls20201230::Client::updateLoggingWithOptions
   return UpdateLoggingResponse(execute(params, req, runtime));
 }
 
-UpdateMachineGroupResponse Alibabacloud_Sls20201230::Client::updateMachineGroup(shared_ptr<string> project, shared_ptr<string> groupName, shared_ptr<UpdateMachineGroupRequest> request) {
+UpdateLoggingResponse Alibabacloud_Sls20201230::Client::updateLogging(shared_ptr<string> project, shared_ptr<UpdateLoggingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
+  return updateLoggingWithOptions(project, request, headers, runtime);
 }
 
 UpdateMachineGroupResponse Alibabacloud_Sls20201230::Client::updateMachineGroupWithOptions(shared_ptr<string> project,
@@ -2526,10 +2562,10 @@ UpdateMachineGroupResponse Alibabacloud_Sls20201230::Client::updateMachineGroupW
   return UpdateMachineGroupResponse(execute(params, req, runtime));
 }
 
-UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachineGroupMachine(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<UpdateMachineGroupMachineRequest> request) {
+UpdateMachineGroupResponse Alibabacloud_Sls20201230::Client::updateMachineGroup(shared_ptr<string> project, shared_ptr<string> groupName, shared_ptr<UpdateMachineGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
+  return updateMachineGroupWithOptions(project, groupName, request, headers, runtime);
 }
 
 UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachineGroupMachineWithOptions(shared_ptr<string> project,
@@ -2564,13 +2600,10 @@ UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachin
   return UpdateMachineGroupMachineResponse(execute(params, req, runtime));
 }
 
-UpdateOdpsShipperResponse Alibabacloud_Sls20201230::Client::updateOdpsShipper(shared_ptr<string> project,
-                                                                              shared_ptr<string> logstore,
-                                                                              shared_ptr<string> shipperName,
-                                                                              shared_ptr<UpdateOdpsShipperRequest> request) {
+UpdateMachineGroupMachineResponse Alibabacloud_Sls20201230::Client::updateMachineGroupMachine(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<UpdateMachineGroupMachineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+  return updateMachineGroupMachineWithOptions(project, machineGroup, request, headers, runtime);
 }
 
 UpdateOdpsShipperResponse Alibabacloud_Sls20201230::Client::updateOdpsShipperWithOptions(shared_ptr<string> project,
@@ -2611,10 +2644,13 @@ UpdateOdpsShipperResponse Alibabacloud_Sls20201230::Client::updateOdpsShipperWit
   return UpdateOdpsShipperResponse(execute(params, req, runtime));
 }
 
-UpdateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::updateOssExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName, shared_ptr<UpdateOssExternalStoreRequest> request) {
+UpdateOdpsShipperResponse Alibabacloud_Sls20201230::Client::updateOdpsShipper(shared_ptr<string> project,
+                                                                              shared_ptr<string> logstore,
+                                                                              shared_ptr<string> shipperName,
+                                                                              shared_ptr<UpdateOdpsShipperRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+  return updateOdpsShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
 }
 
 UpdateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::updateOssExternalStoreWithOptions(shared_ptr<string> project,
@@ -2654,13 +2690,10 @@ UpdateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::updateOssExtern
   return UpdateOssExternalStoreResponse(execute(params, req, runtime));
 }
 
-UpdateOssShipperResponse Alibabacloud_Sls20201230::Client::updateOssShipper(shared_ptr<string> project,
-                                                                            shared_ptr<string> logstore,
-                                                                            shared_ptr<string> shipperName,
-                                                                            shared_ptr<UpdateOssShipperRequest> request) {
+UpdateOssExternalStoreResponse Alibabacloud_Sls20201230::Client::updateOssExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName, shared_ptr<UpdateOssExternalStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
+  return updateOssExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
 }
 
 UpdateOssShipperResponse Alibabacloud_Sls20201230::Client::updateOssShipperWithOptions(shared_ptr<string> project,
@@ -2701,26 +2734,28 @@ UpdateOssShipperResponse Alibabacloud_Sls20201230::Client::updateOssShipperWithO
   return UpdateOssShipperResponse(execute(params, req, runtime));
 }
 
-UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProject(shared_ptr<string> project, shared_ptr<UpdateProjectRequest> request) {
+UpdateOssShipperResponse Alibabacloud_Sls20201230::Client::updateOssShipper(shared_ptr<string> project,
+                                                                            shared_ptr<string> logstore,
+                                                                            shared_ptr<string> shipperName,
+                                                                            shared_ptr<UpdateOssShipperRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProjectWithOptions(project, request, headers, runtime);
+  return updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
 }
 
-UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions(shared_ptr<string> project,
-                                                                                 shared_ptr<UpdateProjectRequest> request,
-                                                                                 shared_ptr<map<string, string>> headers,
-                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions(shared_ptr<UpdateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
+    query->insert(pair<string, string>("project", *request->project));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
     {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2737,10 +2772,10 @@ UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions
   return UpdateProjectResponse(execute(params, req, runtime));
 }
 
-UpdateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::updateRdsExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName, shared_ptr<UpdateRdsExternalStoreRequest> request) {
+UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProject(shared_ptr<UpdateProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateRdsExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
+  return updateProjectWithOptions(request, headers, runtime);
 }
 
 UpdateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::updateRdsExternalStoreWithOptions(shared_ptr<string> project,
@@ -2780,10 +2815,10 @@ UpdateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::updateRdsExtern
   return UpdateRdsExternalStoreResponse(execute(params, req, runtime));
 }
 
-UpdateSavedSearchResponse Alibabacloud_Sls20201230::Client::updateSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName, shared_ptr<UpdateSavedSearchRequest> request) {
+UpdateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::updateRdsExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName, shared_ptr<UpdateRdsExternalStoreRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateSavedSearchWithOptions(project, savedsearchName, request, headers, runtime);
+  return updateRdsExternalStoreWithOptions(project, externalStoreName, request, headers, runtime);
 }
 
 UpdateSavedSearchResponse Alibabacloud_Sls20201230::Client::updateSavedSearchWithOptions(shared_ptr<string> project,
@@ -2827,5 +2862,11 @@ UpdateSavedSearchResponse Alibabacloud_Sls20201230::Client::updateSavedSearchWit
     {"bodyType", boost::any(string("none"))}
   }));
   return UpdateSavedSearchResponse(execute(params, req, runtime));
+}
+
+UpdateSavedSearchResponse Alibabacloud_Sls20201230::Client::updateSavedSearch(shared_ptr<string> project, shared_ptr<string> savedsearchName, shared_ptr<UpdateSavedSearchRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateSavedSearchWithOptions(project, savedsearchName, request, headers, runtime);
 }
 
