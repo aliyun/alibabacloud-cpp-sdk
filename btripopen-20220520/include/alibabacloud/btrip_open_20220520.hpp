@@ -14116,6 +14116,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> itineraryId{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> userId{};
 
   EstimatedPriceQueryRequest() {}
@@ -14146,6 +14147,9 @@ public:
     if (startTime) {
       res["start_time"] = boost::any(*startTime);
     }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -14170,6 +14174,9 @@ public:
     }
     if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["start_time"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));

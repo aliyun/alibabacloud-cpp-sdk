@@ -1665,6 +1665,9 @@ EstimatedPriceQueryResponse Alibabacloud_BtripOpen20220520::Client::estimatedPri
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("start_time", *request->startTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("user_id", *request->userId));
   }
