@@ -653,6 +653,126 @@ public:
 
   virtual ~BindSecureMobilePhoneResponse() = default;
 };
+class CancelChangeAccountEmailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  CancelChangeAccountEmailRequest() {}
+
+  explicit CancelChangeAccountEmailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~CancelChangeAccountEmailRequest() = default;
+};
+class CancelChangeAccountEmailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CancelChangeAccountEmailResponseBody() {}
+
+  explicit CancelChangeAccountEmailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CancelChangeAccountEmailResponseBody() = default;
+};
+class CancelChangeAccountEmailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CancelChangeAccountEmailResponseBody> body{};
+
+  CancelChangeAccountEmailResponse() {}
+
+  explicit CancelChangeAccountEmailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CancelChangeAccountEmailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CancelChangeAccountEmailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CancelChangeAccountEmailResponse() = default;
+};
 class CancelCreateCloudAccountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> recordId{};
@@ -1122,6 +1242,133 @@ public:
 
 
   virtual ~CancelPromoteResourceAccountResponse() = default;
+};
+class ChangeAccountEmailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> email{};
+
+  ChangeAccountEmailRequest() {}
+
+  explicit ChangeAccountEmailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (email) {
+      res["Email"] = boost::any(*email);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("Email") != m.end() && !m["Email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["Email"]));
+    }
+  }
+
+
+  virtual ~ChangeAccountEmailRequest() = default;
+};
+class ChangeAccountEmailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ChangeAccountEmailResponseBody() {}
+
+  explicit ChangeAccountEmailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ChangeAccountEmailResponseBody() = default;
+};
+class ChangeAccountEmailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeAccountEmailResponseBody> body{};
+
+  ChangeAccountEmailResponse() {}
+
+  explicit ChangeAccountEmailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeAccountEmailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeAccountEmailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeAccountEmailResponse() = default;
 };
 class CheckAccountDeleteRequest : public Darabonba::Model {
 public:
@@ -2337,6 +2584,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> parentFolderId{};
   shared_ptr<string> payerAccountId{};
+  shared_ptr<string> resellAccountType{};
   shared_ptr<vector<CreateResourceAccountRequestTag>> tag{};
 
   CreateResourceAccountRequest() {}
@@ -2361,6 +2609,9 @@ public:
     if (payerAccountId) {
       res["PayerAccountId"] = boost::any(*payerAccountId);
     }
+    if (resellAccountType) {
+      res["ResellAccountType"] = boost::any(*resellAccountType);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -2383,6 +2634,9 @@ public:
     }
     if (m.find("PayerAccountId") != m.end() && !m["PayerAccountId"].empty()) {
       payerAccountId = make_shared<string>(boost::any_cast<string>(m["PayerAccountId"]));
+    }
+    if (m.find("ResellAccountType") != m.end() && !m["ResellAccountType"].empty()) {
+      resellAccountType = make_shared<string>(boost::any_cast<string>(m["ResellAccountType"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -5742,6 +5996,7 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<string> accountName{};
   shared_ptr<string> displayName{};
+  shared_ptr<string> emailStatus{};
   shared_ptr<string> folderId{};
   shared_ptr<string> identityInformation{};
   shared_ptr<string> joinMethod{};
@@ -5772,6 +6027,9 @@ public:
     }
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
+    }
+    if (emailStatus) {
+      res["EmailStatus"] = boost::any(*emailStatus);
     }
     if (folderId) {
       res["FolderId"] = boost::any(*folderId);
@@ -5822,6 +6080,9 @@ public:
     }
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
+    }
+    if (m.find("EmailStatus") != m.end() && !m["EmailStatus"].empty()) {
+      emailStatus = make_shared<string>(boost::any_cast<string>(m["EmailStatus"]));
     }
     if (m.find("FolderId") != m.end() && !m["FolderId"].empty()) {
       folderId = make_shared<string>(boost::any_cast<string>(m["FolderId"]));
@@ -16996,6 +17257,126 @@ public:
 
   virtual ~ResendPromoteResourceAccountEmailResponse() = default;
 };
+class RetryChangeAccountEmailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+
+  RetryChangeAccountEmailRequest() {}
+
+  explicit RetryChangeAccountEmailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+  }
+
+
+  virtual ~RetryChangeAccountEmailRequest() = default;
+};
+class RetryChangeAccountEmailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RetryChangeAccountEmailResponseBody() {}
+
+  explicit RetryChangeAccountEmailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RetryChangeAccountEmailResponseBody() = default;
+};
+class RetryChangeAccountEmailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RetryChangeAccountEmailResponseBody> body{};
+
+  RetryChangeAccountEmailResponse() {}
+
+  explicit RetryChangeAccountEmailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RetryChangeAccountEmailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RetryChangeAccountEmailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RetryChangeAccountEmailResponse() = default;
+};
 class SendVerificationCodeForBindSecureMobilePhoneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accountId{};
@@ -18969,12 +19350,16 @@ public:
   AttachPolicyResponse attachPolicy(shared_ptr<AttachPolicyRequest> request);
   BindSecureMobilePhoneResponse bindSecureMobilePhoneWithOptions(shared_ptr<BindSecureMobilePhoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindSecureMobilePhoneResponse bindSecureMobilePhone(shared_ptr<BindSecureMobilePhoneRequest> request);
+  CancelChangeAccountEmailResponse cancelChangeAccountEmailWithOptions(shared_ptr<CancelChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CancelChangeAccountEmailResponse cancelChangeAccountEmail(shared_ptr<CancelChangeAccountEmailRequest> request);
   CancelCreateCloudAccountResponse cancelCreateCloudAccountWithOptions(shared_ptr<CancelCreateCloudAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelCreateCloudAccountResponse cancelCreateCloudAccount(shared_ptr<CancelCreateCloudAccountRequest> request);
   CancelHandshakeResponse cancelHandshakeWithOptions(shared_ptr<CancelHandshakeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelHandshakeResponse cancelHandshake(shared_ptr<CancelHandshakeRequest> request);
   CancelPromoteResourceAccountResponse cancelPromoteResourceAccountWithOptions(shared_ptr<CancelPromoteResourceAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelPromoteResourceAccountResponse cancelPromoteResourceAccount(shared_ptr<CancelPromoteResourceAccountRequest> request);
+  ChangeAccountEmailResponse changeAccountEmailWithOptions(shared_ptr<ChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeAccountEmailResponse changeAccountEmail(shared_ptr<ChangeAccountEmailRequest> request);
   CheckAccountDeleteResponse checkAccountDeleteWithOptions(shared_ptr<CheckAccountDeleteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckAccountDeleteResponse checkAccountDelete(shared_ptr<CheckAccountDeleteRequest> request);
   CreateCloudAccountResponse createCloudAccountWithOptions(shared_ptr<CreateCloudAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19117,6 +19502,8 @@ public:
   ResendCreateCloudAccountEmailResponse resendCreateCloudAccountEmail(shared_ptr<ResendCreateCloudAccountEmailRequest> request);
   ResendPromoteResourceAccountEmailResponse resendPromoteResourceAccountEmailWithOptions(shared_ptr<ResendPromoteResourceAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResendPromoteResourceAccountEmailResponse resendPromoteResourceAccountEmail(shared_ptr<ResendPromoteResourceAccountEmailRequest> request);
+  RetryChangeAccountEmailResponse retryChangeAccountEmailWithOptions(shared_ptr<RetryChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RetryChangeAccountEmailResponse retryChangeAccountEmail(shared_ptr<RetryChangeAccountEmailRequest> request);
   SendVerificationCodeForBindSecureMobilePhoneResponse sendVerificationCodeForBindSecureMobilePhoneWithOptions(shared_ptr<SendVerificationCodeForBindSecureMobilePhoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SendVerificationCodeForBindSecureMobilePhoneResponse sendVerificationCodeForBindSecureMobilePhone(shared_ptr<SendVerificationCodeForBindSecureMobilePhoneRequest> request);
   SendVerificationCodeForEnableRDResponse sendVerificationCodeForEnableRDWithOptions(shared_ptr<SendVerificationCodeForEnableRDRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

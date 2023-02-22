@@ -197,6 +197,34 @@ BindSecureMobilePhoneResponse Alibabacloud_ResourceManager20200331::Client::bind
   return bindSecureMobilePhoneWithOptions(request, runtime);
 }
 
+CancelChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::cancelChangeAccountEmailWithOptions(shared_ptr<CancelChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelChangeAccountEmail"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelChangeAccountEmailResponse(callApi(params, req, runtime));
+}
+
+CancelChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::cancelChangeAccountEmail(shared_ptr<CancelChangeAccountEmailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelChangeAccountEmailWithOptions(request, runtime);
+}
+
 CancelCreateCloudAccountResponse Alibabacloud_ResourceManager20200331::Client::cancelCreateCloudAccountWithOptions(shared_ptr<CancelCreateCloudAccountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -279,6 +307,37 @@ CancelPromoteResourceAccountResponse Alibabacloud_ResourceManager20200331::Clien
 CancelPromoteResourceAccountResponse Alibabacloud_ResourceManager20200331::Client::cancelPromoteResourceAccount(shared_ptr<CancelPromoteResourceAccountRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return cancelPromoteResourceAccountWithOptions(request, runtime);
+}
+
+ChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::changeAccountEmailWithOptions(shared_ptr<ChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeAccountEmail"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeAccountEmailResponse(callApi(params, req, runtime));
+}
+
+ChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::changeAccountEmail(shared_ptr<ChangeAccountEmailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeAccountEmailWithOptions(request, runtime);
 }
 
 CheckAccountDeleteResponse Alibabacloud_ResourceManager20200331::Client::checkAccountDeleteWithOptions(shared_ptr<CheckAccountDeleteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -496,6 +555,9 @@ CreateResourceAccountResponse Alibabacloud_ResourceManager20200331::Client::crea
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->payerAccountId)) {
     query->insert(pair<string, string>("PayerAccountId", *request->payerAccountId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resellAccountType)) {
+    query->insert(pair<string, string>("ResellAccountType", *request->resellAccountType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateResourceAccountRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreateResourceAccountRequestTag>>("Tag", *request->tag));
@@ -2547,6 +2609,34 @@ ResendPromoteResourceAccountEmailResponse Alibabacloud_ResourceManager20200331::
 ResendPromoteResourceAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::resendPromoteResourceAccountEmail(shared_ptr<ResendPromoteResourceAccountEmailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return resendPromoteResourceAccountEmailWithOptions(request, runtime);
+}
+
+RetryChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::retryChangeAccountEmailWithOptions(shared_ptr<RetryChangeAccountEmailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountId)) {
+    query->insert(pair<string, string>("AccountId", *request->accountId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RetryChangeAccountEmail"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RetryChangeAccountEmailResponse(callApi(params, req, runtime));
+}
+
+RetryChangeAccountEmailResponse Alibabacloud_ResourceManager20200331::Client::retryChangeAccountEmail(shared_ptr<RetryChangeAccountEmailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return retryChangeAccountEmailWithOptions(request, runtime);
 }
 
 SendVerificationCodeForBindSecureMobilePhoneResponse Alibabacloud_ResourceManager20200331::Client::sendVerificationCodeForBindSecureMobilePhoneWithOptions(shared_ptr<SendVerificationCodeForBindSecureMobilePhoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
