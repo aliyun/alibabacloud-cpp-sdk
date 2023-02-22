@@ -2460,6 +2460,216 @@ public:
 
   virtual ~EraseVideoSubtitlesResponse() = default;
 };
+class GenerateHumanAnimeStyleVideoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cartoonStyle{};
+  shared_ptr<string> videoUrl{};
+
+  GenerateHumanAnimeStyleVideoRequest() {}
+
+  explicit GenerateHumanAnimeStyleVideoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cartoonStyle) {
+      res["CartoonStyle"] = boost::any(*cartoonStyle);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CartoonStyle") != m.end() && !m["CartoonStyle"].empty()) {
+      cartoonStyle = make_shared<string>(boost::any_cast<string>(m["CartoonStyle"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~GenerateHumanAnimeStyleVideoRequest() = default;
+};
+class GenerateHumanAnimeStyleVideoAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cartoonStyle{};
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
+
+  GenerateHumanAnimeStyleVideoAdvanceRequest() {}
+
+  explicit GenerateHumanAnimeStyleVideoAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cartoonStyle) {
+      res["CartoonStyle"] = boost::any(*cartoonStyle);
+    }
+    if (videoUrlObject) {
+      res["VideoUrl"] = boost::any(*videoUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CartoonStyle") != m.end() && !m["CartoonStyle"].empty()) {
+      cartoonStyle = make_shared<string>(boost::any_cast<string>(m["CartoonStyle"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~GenerateHumanAnimeStyleVideoAdvanceRequest() = default;
+};
+class GenerateHumanAnimeStyleVideoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> videoUrl{};
+
+  GenerateHumanAnimeStyleVideoResponseBodyData() {}
+
+  explicit GenerateHumanAnimeStyleVideoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~GenerateHumanAnimeStyleVideoResponseBodyData() = default;
+};
+class GenerateHumanAnimeStyleVideoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GenerateHumanAnimeStyleVideoResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GenerateHumanAnimeStyleVideoResponseBody() {}
+
+  explicit GenerateHumanAnimeStyleVideoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GenerateHumanAnimeStyleVideoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GenerateHumanAnimeStyleVideoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GenerateHumanAnimeStyleVideoResponseBody() = default;
+};
+class GenerateHumanAnimeStyleVideoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GenerateHumanAnimeStyleVideoResponseBody> body{};
+
+  GenerateHumanAnimeStyleVideoResponse() {}
+
+  explicit GenerateHumanAnimeStyleVideoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GenerateHumanAnimeStyleVideoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GenerateHumanAnimeStyleVideoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GenerateHumanAnimeStyleVideoResponse() = default;
+};
 class GenerateVideoRequestFileList : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
@@ -4453,6 +4663,9 @@ public:
   EraseVideoSubtitlesResponse eraseVideoSubtitlesWithOptions(shared_ptr<EraseVideoSubtitlesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EraseVideoSubtitlesResponse eraseVideoSubtitles(shared_ptr<EraseVideoSubtitlesRequest> request);
   EraseVideoSubtitlesResponse eraseVideoSubtitlesAdvance(shared_ptr<EraseVideoSubtitlesAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateHumanAnimeStyleVideoResponse generateHumanAnimeStyleVideoWithOptions(shared_ptr<GenerateHumanAnimeStyleVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GenerateHumanAnimeStyleVideoResponse generateHumanAnimeStyleVideo(shared_ptr<GenerateHumanAnimeStyleVideoRequest> request);
+  GenerateHumanAnimeStyleVideoResponse generateHumanAnimeStyleVideoAdvance(shared_ptr<GenerateHumanAnimeStyleVideoAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoResponse generateVideoWithOptions(shared_ptr<GenerateVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoResponse generateVideo(shared_ptr<GenerateVideoRequest> request);
   GenerateVideoResponse generateVideoAdvance(shared_ptr<GenerateVideoAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
