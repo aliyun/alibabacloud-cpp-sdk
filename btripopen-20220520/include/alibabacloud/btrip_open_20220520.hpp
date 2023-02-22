@@ -6546,6 +6546,230 @@ public:
 
   virtual ~ApplyQueryResponse() = default;
 };
+class BtripBillInfoAdjustHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  BtripBillInfoAdjustHeaders() {}
+
+  explicit BtripBillInfoAdjustHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~BtripBillInfoAdjustHeaders() = default;
+};
+class BtripBillInfoAdjustRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> primaryId{};
+  shared_ptr<string> thirdPartCostCenterId{};
+  shared_ptr<string> thirdPartDepartmentId{};
+  shared_ptr<string> thirdPartInvoiceId{};
+  shared_ptr<string> thirdPartProjectId{};
+  shared_ptr<string> userId{};
+
+  BtripBillInfoAdjustRequest() {}
+
+  explicit BtripBillInfoAdjustRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (primaryId) {
+      res["primary_id"] = boost::any(*primaryId);
+    }
+    if (thirdPartCostCenterId) {
+      res["third_part_cost_center_id"] = boost::any(*thirdPartCostCenterId);
+    }
+    if (thirdPartDepartmentId) {
+      res["third_part_department_id"] = boost::any(*thirdPartDepartmentId);
+    }
+    if (thirdPartInvoiceId) {
+      res["third_part_invoice_id"] = boost::any(*thirdPartInvoiceId);
+    }
+    if (thirdPartProjectId) {
+      res["third_part_project_id"] = boost::any(*thirdPartProjectId);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("primary_id") != m.end() && !m["primary_id"].empty()) {
+      primaryId = make_shared<long>(boost::any_cast<long>(m["primary_id"]));
+    }
+    if (m.find("third_part_cost_center_id") != m.end() && !m["third_part_cost_center_id"].empty()) {
+      thirdPartCostCenterId = make_shared<string>(boost::any_cast<string>(m["third_part_cost_center_id"]));
+    }
+    if (m.find("third_part_department_id") != m.end() && !m["third_part_department_id"].empty()) {
+      thirdPartDepartmentId = make_shared<string>(boost::any_cast<string>(m["third_part_department_id"]));
+    }
+    if (m.find("third_part_invoice_id") != m.end() && !m["third_part_invoice_id"].empty()) {
+      thirdPartInvoiceId = make_shared<string>(boost::any_cast<string>(m["third_part_invoice_id"]));
+    }
+    if (m.find("third_part_project_id") != m.end() && !m["third_part_project_id"].empty()) {
+      thirdPartProjectId = make_shared<string>(boost::any_cast<string>(m["third_part_project_id"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~BtripBillInfoAdjustRequest() = default;
+};
+class BtripBillInfoAdjustResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  BtripBillInfoAdjustResponseBody() {}
+
+  explicit BtripBillInfoAdjustResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~BtripBillInfoAdjustResponseBody() = default;
+};
+class BtripBillInfoAdjustResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BtripBillInfoAdjustResponseBody> body{};
+
+  BtripBillInfoAdjustResponse() {}
+
+  explicit BtripBillInfoAdjustResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BtripBillInfoAdjustResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BtripBillInfoAdjustResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BtripBillInfoAdjustResponse() = default;
+};
 class CarApplyAddHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -32912,6 +33136,202 @@ public:
 
   virtual ~IsvUserSaveResponse() = default;
 };
+class MonthBillConfirmHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  MonthBillConfirmHeaders() {}
+
+  explicit MonthBillConfirmHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~MonthBillConfirmHeaders() = default;
+};
+class MonthBillConfirmRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> mailBillDate{};
+  shared_ptr<string> userId{};
+
+  MonthBillConfirmRequest() {}
+
+  explicit MonthBillConfirmRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mailBillDate) {
+      res["mail_bill_date"] = boost::any(*mailBillDate);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("mail_bill_date") != m.end() && !m["mail_bill_date"].empty()) {
+      mailBillDate = make_shared<long>(boost::any_cast<long>(m["mail_bill_date"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~MonthBillConfirmRequest() = default;
+};
+class MonthBillConfirmResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  MonthBillConfirmResponseBody() {}
+
+  explicit MonthBillConfirmResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~MonthBillConfirmResponseBody() = default;
+};
+class MonthBillConfirmResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<MonthBillConfirmResponseBody> body{};
+
+  MonthBillConfirmResponse() {}
+
+  explicit MonthBillConfirmResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        MonthBillConfirmResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<MonthBillConfirmResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~MonthBillConfirmResponse() = default;
+};
 class MonthBillGetHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -46070,6 +46490,8 @@ public:
   ApplyModifyResponse applyModify(shared_ptr<ApplyModifyRequest> request);
   ApplyQueryResponse applyQueryWithOptions(shared_ptr<ApplyQueryRequest> request, shared_ptr<ApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApplyQueryResponse applyQuery(shared_ptr<ApplyQueryRequest> request);
+  BtripBillInfoAdjustResponse btripBillInfoAdjustWithOptions(shared_ptr<BtripBillInfoAdjustRequest> request, shared_ptr<BtripBillInfoAdjustHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BtripBillInfoAdjustResponse btripBillInfoAdjust(shared_ptr<BtripBillInfoAdjustRequest> request);
   CarApplyAddResponse carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> request, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CarApplyAddResponse carApplyAdd(shared_ptr<CarApplyAddRequest> request);
   CarApplyModifyResponse carApplyModifyWithOptions(shared_ptr<CarApplyModifyRequest> request, shared_ptr<CarApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -46160,6 +46582,8 @@ public:
   InvoiceSearchResponse invoiceSearch(shared_ptr<InvoiceSearchRequest> request);
   IsvUserSaveResponse isvUserSaveWithOptions(shared_ptr<IsvUserSaveRequest> tmpReq, shared_ptr<IsvUserSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsvUserSaveResponse isvUserSave(shared_ptr<IsvUserSaveRequest> request);
+  MonthBillConfirmResponse monthBillConfirmWithOptions(shared_ptr<MonthBillConfirmRequest> request, shared_ptr<MonthBillConfirmHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  MonthBillConfirmResponse monthBillConfirm(shared_ptr<MonthBillConfirmRequest> request);
   MonthBillGetResponse monthBillGetWithOptions(shared_ptr<MonthBillGetRequest> request, shared_ptr<MonthBillGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MonthBillGetResponse monthBillGet(shared_ptr<MonthBillGetRequest> request);
   ProjectAddResponse projectAddWithOptions(shared_ptr<ProjectAddRequest> request, shared_ptr<ProjectAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
