@@ -5212,6 +5212,7 @@ public:
   shared_ptr<long> jobInstanceId{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> namespaceSource{};
+  shared_ptr<string> regionId{};
 
   GetJobInstanceRequest() {}
 
@@ -5238,6 +5239,9 @@ public:
     if (namespaceSource) {
       res["NamespaceSource"] = boost::any(*namespaceSource);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -5256,6 +5260,9 @@ public:
     }
     if (m.find("NamespaceSource") != m.end() && !m["NamespaceSource"].empty()) {
       namespaceSource = make_shared<string>(boost::any_cast<string>(m["NamespaceSource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
