@@ -13706,20 +13706,20 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (gpgKeyId) {
-      res["GpgKeyId"] = boost::any(*gpgKeyId);
+      res["gpgKeyId"] = boost::any(*gpgKeyId);
     }
     if (verificationStatus) {
-      res["VerificationStatus"] = boost::any(*verificationStatus);
+      res["verificationStatus"] = boost::any(*verificationStatus);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("GpgKeyId") != m.end() && !m["GpgKeyId"].empty()) {
-      gpgKeyId = make_shared<string>(boost::any_cast<string>(m["GpgKeyId"]));
+    if (m.find("gpgKeyId") != m.end() && !m["gpgKeyId"].empty()) {
+      gpgKeyId = make_shared<string>(boost::any_cast<string>(m["gpgKeyId"]));
     }
-    if (m.find("VerificationStatus") != m.end() && !m["VerificationStatus"].empty()) {
-      verificationStatus = make_shared<string>(boost::any_cast<string>(m["VerificationStatus"]));
+    if (m.find("verificationStatus") != m.end() && !m["verificationStatus"].empty()) {
+      verificationStatus = make_shared<string>(boost::any_cast<string>(m["verificationStatus"]));
     }
   }
 
@@ -19042,6 +19042,7 @@ public:
   shared_ptr<string> identifier{};
   shared_ptr<string> modifier{};
   shared_ptr<string> name{};
+  shared_ptr<vector<string>> owners{};
   shared_ptr<string> scope{};
   shared_ptr<string> spaceIdentifier{};
   shared_ptr<long> startDate{};
@@ -19080,6 +19081,9 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (owners) {
+      res["owners"] = boost::any(*owners);
     }
     if (scope) {
       res["scope"] = boost::any(*scope);
@@ -19120,6 +19124,16 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("owners") != m.end() && !m["owners"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["owners"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["owners"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      owners = make_shared<vector<string>>(toVec1);
     }
     if (m.find("scope") != m.end() && !m["scope"].empty()) {
       scope = make_shared<string>(boost::any_cast<string>(m["scope"]));
@@ -26330,6 +26344,7 @@ public:
   shared_ptr<ListProjectMembersResponseBodyMembersOrganizationUserInfo> organizationUserInfo{};
   shared_ptr<string> realName{};
   shared_ptr<string> realNamePinyin{};
+  shared_ptr<string> roleName{};
   shared_ptr<string> stamp{};
   shared_ptr<string> tbRoleId{};
 
@@ -26393,6 +26408,9 @@ public:
     }
     if (realNamePinyin) {
       res["realNamePinyin"] = boost::any(*realNamePinyin);
+    }
+    if (roleName) {
+      res["roleName"] = boost::any(*roleName);
     }
     if (stamp) {
       res["stamp"] = boost::any(*stamp);
@@ -26462,6 +26480,9 @@ public:
     }
     if (m.find("realNamePinyin") != m.end() && !m["realNamePinyin"].empty()) {
       realNamePinyin = make_shared<string>(boost::any_cast<string>(m["realNamePinyin"]));
+    }
+    if (m.find("roleName") != m.end() && !m["roleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["roleName"]));
     }
     if (m.find("stamp") != m.end() && !m["stamp"].empty()) {
       stamp = make_shared<string>(boost::any_cast<string>(m["stamp"]));
