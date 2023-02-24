@@ -11103,6 +11103,154 @@ public:
 
   virtual ~DeleteVariableGroupResponse() = default;
 };
+class DeleteWorkitemRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> identifier{};
+
+  DeleteWorkitemRequest() {}
+
+  explicit DeleteWorkitemRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (identifier) {
+      res["identifier"] = boost::any(*identifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("identifier") != m.end() && !m["identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["identifier"]));
+    }
+  }
+
+
+  virtual ~DeleteWorkitemRequest() = default;
+};
+class DeleteWorkitemResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> deleteFlag{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteWorkitemResponseBody() {}
+
+  explicit DeleteWorkitemResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deleteFlag) {
+      res["deleteFlag"] = boost::any(*deleteFlag);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("deleteFlag") != m.end() && !m["deleteFlag"].empty()) {
+      deleteFlag = make_shared<bool>(boost::any_cast<bool>(m["deleteFlag"]));
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~DeleteWorkitemResponseBody() = default;
+};
+class DeleteWorkitemResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteWorkitemResponseBody> body{};
+
+  DeleteWorkitemResponse() {}
+
+  explicit DeleteWorkitemResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteWorkitemResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteWorkitemResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteWorkitemResponse() = default;
+};
 class DeleteWorkitemAllCommentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> identifier{};
@@ -21662,6 +21810,63 @@ public:
 
   virtual ~GetWorkItemWorkFlowInfoResponse() = default;
 };
+class GetWorkitemCommentListResponseBodyCommentListUser : public Darabonba::Model {
+public:
+  shared_ptr<string> account{};
+  shared_ptr<string> avatar{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> nickName{};
+  shared_ptr<string> realName{};
+
+  GetWorkitemCommentListResponseBodyCommentListUser() {}
+
+  explicit GetWorkitemCommentListResponseBodyCommentListUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (account) {
+      res["account"] = boost::any(*account);
+    }
+    if (avatar) {
+      res["avatar"] = boost::any(*avatar);
+    }
+    if (identifier) {
+      res["identifier"] = boost::any(*identifier);
+    }
+    if (nickName) {
+      res["nickName"] = boost::any(*nickName);
+    }
+    if (realName) {
+      res["realName"] = boost::any(*realName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("account") != m.end() && !m["account"].empty()) {
+      account = make_shared<string>(boost::any_cast<string>(m["account"]));
+    }
+    if (m.find("avatar") != m.end() && !m["avatar"].empty()) {
+      avatar = make_shared<string>(boost::any_cast<string>(m["avatar"]));
+    }
+    if (m.find("identifier") != m.end() && !m["identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["identifier"]));
+    }
+    if (m.find("nickName") != m.end() && !m["nickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["nickName"]));
+    }
+    if (m.find("realName") != m.end() && !m["realName"].empty()) {
+      realName = make_shared<string>(boost::any_cast<string>(m["realName"]));
+    }
+  }
+
+
+  virtual ~GetWorkitemCommentListResponseBodyCommentListUser() = default;
+};
 class GetWorkitemCommentListResponseBodyCommentList : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
@@ -21674,6 +21879,7 @@ public:
   shared_ptr<string> targetIdentifier{};
   shared_ptr<string> targetType{};
   shared_ptr<long> topTime{};
+  shared_ptr<GetWorkitemCommentListResponseBodyCommentListUser> user{};
 
   GetWorkitemCommentListResponseBodyCommentList() {}
 
@@ -21715,6 +21921,9 @@ public:
     if (topTime) {
       res["topTime"] = boost::any(*topTime);
     }
+    if (user) {
+      res["user"] = user ? boost::any(user->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -21748,6 +21957,13 @@ public:
     }
     if (m.find("topTime") != m.end() && !m["topTime"].empty()) {
       topTime = make_shared<long>(boost::any_cast<long>(m["topTime"]));
+    }
+    if (m.find("user") != m.end() && !m["user"].empty()) {
+      if (typeid(map<string, boost::any>) == m["user"].type()) {
+        GetWorkitemCommentListResponseBodyCommentListUser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["user"]));
+        user = make_shared<GetWorkitemCommentListResponseBodyCommentListUser>(model1);
+      }
     }
   }
 
@@ -42901,6 +43117,384 @@ public:
 
   virtual ~UpdateWorkitemCommentResponse() = default;
 };
+class UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fieldIdentifier{};
+  shared_ptr<string> fieldValue{};
+
+  UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest() {}
+
+  explicit UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fieldIdentifier) {
+      res["fieldIdentifier"] = boost::any(*fieldIdentifier);
+    }
+    if (fieldValue) {
+      res["fieldValue"] = boost::any(*fieldValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("fieldIdentifier") != m.end() && !m["fieldIdentifier"].empty()) {
+      fieldIdentifier = make_shared<string>(boost::any_cast<string>(m["fieldIdentifier"]));
+    }
+    if (m.find("fieldValue") != m.end() && !m["fieldValue"].empty()) {
+      fieldValue = make_shared<string>(boost::any_cast<string>(m["fieldValue"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest() = default;
+};
+class UpdateWorkitemFieldRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest>> updateWorkitemPropertyRequest{};
+  shared_ptr<string> workitemIdentifier{};
+
+  UpdateWorkitemFieldRequest() {}
+
+  explicit UpdateWorkitemFieldRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (updateWorkitemPropertyRequest) {
+      vector<boost::any> temp1;
+      for(auto item1:*updateWorkitemPropertyRequest){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["updateWorkitemPropertyRequest"] = boost::any(temp1);
+    }
+    if (workitemIdentifier) {
+      res["workitemIdentifier"] = boost::any(*workitemIdentifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("updateWorkitemPropertyRequest") != m.end() && !m["updateWorkitemPropertyRequest"].empty()) {
+      if (typeid(vector<boost::any>) == m["updateWorkitemPropertyRequest"].type()) {
+        vector<UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["updateWorkitemPropertyRequest"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        updateWorkitemPropertyRequest = make_shared<vector<UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest>>(expect1);
+      }
+    }
+    if (m.find("workitemIdentifier") != m.end() && !m["workitemIdentifier"].empty()) {
+      workitemIdentifier = make_shared<string>(boost::any_cast<string>(m["workitemIdentifier"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkitemFieldRequest() = default;
+};
+class UpdateWorkitemFieldResponseBodyWorkitem : public Darabonba::Model {
+public:
+  shared_ptr<string> assignedTo{};
+  shared_ptr<string> categoryIdentifier{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> document{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<long> gmtModified{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> logicalStatus{};
+  shared_ptr<string> modifier{};
+  shared_ptr<string> parentIdentifier{};
+  shared_ptr<string> serialNumber{};
+  shared_ptr<string> spaceIdentifier{};
+  shared_ptr<string> spaceName{};
+  shared_ptr<string> spaceType{};
+  shared_ptr<string> sprintIdentifier{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusIdentifier{};
+  shared_ptr<string> statusStageIdentifier{};
+  shared_ptr<string> subject{};
+  shared_ptr<long> updateStatusAt{};
+  shared_ptr<string> workitemTypeIdentifier{};
+
+  UpdateWorkitemFieldResponseBodyWorkitem() {}
+
+  explicit UpdateWorkitemFieldResponseBodyWorkitem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assignedTo) {
+      res["assignedTo"] = boost::any(*assignedTo);
+    }
+    if (categoryIdentifier) {
+      res["categoryIdentifier"] = boost::any(*categoryIdentifier);
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (document) {
+      res["document"] = boost::any(*document);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["gmtModified"] = boost::any(*gmtModified);
+    }
+    if (identifier) {
+      res["identifier"] = boost::any(*identifier);
+    }
+    if (logicalStatus) {
+      res["logicalStatus"] = boost::any(*logicalStatus);
+    }
+    if (modifier) {
+      res["modifier"] = boost::any(*modifier);
+    }
+    if (parentIdentifier) {
+      res["parentIdentifier"] = boost::any(*parentIdentifier);
+    }
+    if (serialNumber) {
+      res["serialNumber"] = boost::any(*serialNumber);
+    }
+    if (spaceIdentifier) {
+      res["spaceIdentifier"] = boost::any(*spaceIdentifier);
+    }
+    if (spaceName) {
+      res["spaceName"] = boost::any(*spaceName);
+    }
+    if (spaceType) {
+      res["spaceType"] = boost::any(*spaceType);
+    }
+    if (sprintIdentifier) {
+      res["sprintIdentifier"] = boost::any(*sprintIdentifier);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (statusIdentifier) {
+      res["statusIdentifier"] = boost::any(*statusIdentifier);
+    }
+    if (statusStageIdentifier) {
+      res["statusStageIdentifier"] = boost::any(*statusStageIdentifier);
+    }
+    if (subject) {
+      res["subject"] = boost::any(*subject);
+    }
+    if (updateStatusAt) {
+      res["updateStatusAt"] = boost::any(*updateStatusAt);
+    }
+    if (workitemTypeIdentifier) {
+      res["workitemTypeIdentifier"] = boost::any(*workitemTypeIdentifier);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assignedTo") != m.end() && !m["assignedTo"].empty()) {
+      assignedTo = make_shared<string>(boost::any_cast<string>(m["assignedTo"]));
+    }
+    if (m.find("categoryIdentifier") != m.end() && !m["categoryIdentifier"].empty()) {
+      categoryIdentifier = make_shared<string>(boost::any_cast<string>(m["categoryIdentifier"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("document") != m.end() && !m["document"].empty()) {
+      document = make_shared<string>(boost::any_cast<string>(m["document"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
+    }
+    if (m.find("gmtModified") != m.end() && !m["gmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["gmtModified"]));
+    }
+    if (m.find("identifier") != m.end() && !m["identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["identifier"]));
+    }
+    if (m.find("logicalStatus") != m.end() && !m["logicalStatus"].empty()) {
+      logicalStatus = make_shared<string>(boost::any_cast<string>(m["logicalStatus"]));
+    }
+    if (m.find("modifier") != m.end() && !m["modifier"].empty()) {
+      modifier = make_shared<string>(boost::any_cast<string>(m["modifier"]));
+    }
+    if (m.find("parentIdentifier") != m.end() && !m["parentIdentifier"].empty()) {
+      parentIdentifier = make_shared<string>(boost::any_cast<string>(m["parentIdentifier"]));
+    }
+    if (m.find("serialNumber") != m.end() && !m["serialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["serialNumber"]));
+    }
+    if (m.find("spaceIdentifier") != m.end() && !m["spaceIdentifier"].empty()) {
+      spaceIdentifier = make_shared<string>(boost::any_cast<string>(m["spaceIdentifier"]));
+    }
+    if (m.find("spaceName") != m.end() && !m["spaceName"].empty()) {
+      spaceName = make_shared<string>(boost::any_cast<string>(m["spaceName"]));
+    }
+    if (m.find("spaceType") != m.end() && !m["spaceType"].empty()) {
+      spaceType = make_shared<string>(boost::any_cast<string>(m["spaceType"]));
+    }
+    if (m.find("sprintIdentifier") != m.end() && !m["sprintIdentifier"].empty()) {
+      sprintIdentifier = make_shared<string>(boost::any_cast<string>(m["sprintIdentifier"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("statusIdentifier") != m.end() && !m["statusIdentifier"].empty()) {
+      statusIdentifier = make_shared<string>(boost::any_cast<string>(m["statusIdentifier"]));
+    }
+    if (m.find("statusStageIdentifier") != m.end() && !m["statusStageIdentifier"].empty()) {
+      statusStageIdentifier = make_shared<string>(boost::any_cast<string>(m["statusStageIdentifier"]));
+    }
+    if (m.find("subject") != m.end() && !m["subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["subject"]));
+    }
+    if (m.find("updateStatusAt") != m.end() && !m["updateStatusAt"].empty()) {
+      updateStatusAt = make_shared<long>(boost::any_cast<long>(m["updateStatusAt"]));
+    }
+    if (m.find("workitemTypeIdentifier") != m.end() && !m["workitemTypeIdentifier"].empty()) {
+      workitemTypeIdentifier = make_shared<string>(boost::any_cast<string>(m["workitemTypeIdentifier"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkitemFieldResponseBodyWorkitem() = default;
+};
+class UpdateWorkitemFieldResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<UpdateWorkitemFieldResponseBodyWorkitem> workitem{};
+
+  UpdateWorkitemFieldResponseBody() {}
+
+  explicit UpdateWorkitemFieldResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (workitem) {
+      res["workitem"] = workitem ? boost::any(workitem->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("workitem") != m.end() && !m["workitem"].empty()) {
+      if (typeid(map<string, boost::any>) == m["workitem"].type()) {
+        UpdateWorkitemFieldResponseBodyWorkitem model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["workitem"]));
+        workitem = make_shared<UpdateWorkitemFieldResponseBodyWorkitem>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateWorkitemFieldResponseBody() = default;
+};
+class UpdateWorkitemFieldResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateWorkitemFieldResponseBody> body{};
+
+  UpdateWorkitemFieldResponse() {}
+
+  explicit UpdateWorkitemFieldResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateWorkitemFieldResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateWorkitemFieldResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateWorkitemFieldResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -43131,6 +43725,11 @@ public:
                                                              shared_ptr<map<string, string>> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVariableGroupResponse deleteVariableGroup(shared_ptr<string> organizationId, shared_ptr<string> id);
+  DeleteWorkitemResponse deleteWorkitemWithOptions(shared_ptr<string> organizationId,
+                                                   shared_ptr<DeleteWorkitemRequest> request,
+                                                   shared_ptr<map<string, string>> headers,
+                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteWorkitemResponse deleteWorkitem(shared_ptr<string> organizationId, shared_ptr<DeleteWorkitemRequest> request);
   DeleteWorkitemAllCommentResponse deleteWorkitemAllCommentWithOptions(shared_ptr<string> organizationId,
                                                                        shared_ptr<DeleteWorkitemAllCommentRequest> request,
                                                                        shared_ptr<map<string, string>> headers,
@@ -43716,6 +44315,11 @@ public:
                                                                  shared_ptr<map<string, string>> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateWorkitemCommentResponse updateWorkitemComment(shared_ptr<string> organizationId, shared_ptr<UpdateWorkitemCommentRequest> request);
+  UpdateWorkitemFieldResponse updateWorkitemFieldWithOptions(shared_ptr<string> organizationId,
+                                                             shared_ptr<UpdateWorkitemFieldRequest> request,
+                                                             shared_ptr<map<string, string>> headers,
+                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateWorkitemFieldResponse updateWorkitemField(shared_ptr<string> organizationId, shared_ptr<UpdateWorkitemFieldRequest> request);
 
   virtual ~Client() = default;
 };

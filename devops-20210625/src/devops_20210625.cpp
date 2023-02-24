@@ -1914,6 +1914,39 @@ DeleteVariableGroupResponse Alibabacloud_Devops20210625::Client::deleteVariableG
   return deleteVariableGroupWithOptions(organizationId, id, headers, runtime);
 }
 
+DeleteWorkitemResponse Alibabacloud_Devops20210625::Client::deleteWorkitemWithOptions(shared_ptr<string> organizationId,
+                                                                                      shared_ptr<DeleteWorkitemRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identifier)) {
+    query->insert(pair<string, string>("identifier", *request->identifier));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteWorkitem"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/organization/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(organizationId)) + string("/workitem/delete"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteWorkitemResponse(callApi(params, req, runtime));
+}
+
+DeleteWorkitemResponse Alibabacloud_Devops20210625::Client::deleteWorkitem(shared_ptr<string> organizationId, shared_ptr<DeleteWorkitemRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteWorkitemWithOptions(organizationId, request, headers, runtime);
+}
+
 DeleteWorkitemAllCommentResponse Alibabacloud_Devops20210625::Client::deleteWorkitemAllCommentWithOptions(shared_ptr<string> organizationId,
                                                                                                           shared_ptr<DeleteWorkitemAllCommentRequest> request,
                                                                                                           shared_ptr<map<string, string>> headers,
@@ -6137,5 +6170,41 @@ UpdateWorkitemCommentResponse Alibabacloud_Devops20210625::Client::updateWorkite
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updateWorkitemCommentWithOptions(organizationId, request, headers, runtime);
+}
+
+UpdateWorkitemFieldResponse Alibabacloud_Devops20210625::Client::updateWorkitemFieldWithOptions(shared_ptr<string> organizationId,
+                                                                                                shared_ptr<UpdateWorkitemFieldRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest>>(request->updateWorkitemPropertyRequest)) {
+    body->insert(pair<string, vector<UpdateWorkitemFieldRequestUpdateWorkitemPropertyRequest>>("updateWorkitemPropertyRequest", *request->updateWorkitemPropertyRequest));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->workitemIdentifier)) {
+    body->insert(pair<string, string>("workitemIdentifier", *request->workitemIdentifier));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateWorkitemField"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/organization/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(organizationId)) + string("/workitems/updateWorkitemField"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateWorkitemFieldResponse(callApi(params, req, runtime));
+}
+
+UpdateWorkitemFieldResponse Alibabacloud_Devops20210625::Client::updateWorkitemField(shared_ptr<string> organizationId, shared_ptr<UpdateWorkitemFieldRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateWorkitemFieldWithOptions(organizationId, request, headers, runtime);
 }
 
