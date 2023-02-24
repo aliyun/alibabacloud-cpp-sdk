@@ -3799,6 +3799,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> routeName{};
 
   ThreeElementsVerificationRequest() {}
 
@@ -3834,6 +3835,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (routeName) {
+      res["RouteName"] = boost::any(*routeName);
+    }
     return res;
   }
 
@@ -3861,6 +3865,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RouteName") != m.end() && !m["RouteName"].empty()) {
+      routeName = make_shared<string>(boost::any_cast<string>(m["RouteName"]));
     }
   }
 

@@ -790,6 +790,9 @@ ThreeElementsVerificationResponse Alibabacloud_Dytnsapi20200217::Client::threeEl
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeName)) {
+    query->insert(pair<string, string>("RouteName", *request->routeName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
