@@ -99,6 +99,68 @@ ADMMUResponse Alibabacloud_Alinlp20200629::Client::aDMMU(shared_ptr<ADMMURequest
   return aDMMUWithOptions(request, runtime);
 }
 
+ADMiniCogResponse Alibabacloud_Alinlp20200629::Client::aDMiniCogWithOptions(shared_ptr<ADMiniCogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ADMiniCog"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ADMiniCogResponse(callApi(params, req, runtime));
+}
+
+ADMiniCogResponse Alibabacloud_Alinlp20200629::Client::aDMiniCog(shared_ptr<ADMiniCogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return aDMiniCogWithOptions(request, runtime);
+}
+
+ADMiniCogResultResponse Alibabacloud_Alinlp20200629::Client::aDMiniCogResultWithOptions(shared_ptr<ADMiniCogResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ADMiniCogResult"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ADMiniCogResultResponse(callApi(params, req, runtime));
+}
+
+ADMiniCogResultResponse Alibabacloud_Alinlp20200629::Client::aDMiniCogResult(shared_ptr<ADMiniCogResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return aDMiniCogResultWithOptions(request, runtime);
+}
+
 GetBrandChEcomResponse Alibabacloud_Alinlp20200629::Client::getBrandChEcomWithOptions(shared_ptr<GetBrandChEcomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -925,6 +987,37 @@ GetSummaryChEcomResponse Alibabacloud_Alinlp20200629::Client::getSummaryChEcom(s
   return getSummaryChEcomWithOptions(request, runtime);
 }
 
+GetTableQAServiceInfoByIdResponse Alibabacloud_Alinlp20200629::Client::getTableQAServiceInfoByIdWithOptions(shared_ptr<GetTableQAServiceInfoByIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    body->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetTableQAServiceInfoById"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetTableQAServiceInfoByIdResponse(callApi(params, req, runtime));
+}
+
+GetTableQAServiceInfoByIdResponse Alibabacloud_Alinlp20200629::Client::getTableQAServiceInfoById(shared_ptr<GetTableQAServiceInfoByIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getTableQAServiceInfoByIdWithOptions(request, runtime);
+}
+
 GetTcChEcomResponse Alibabacloud_Alinlp20200629::Client::getTcChEcomWithOptions(shared_ptr<GetTcChEcomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1563,49 +1656,6 @@ GetWsCustomizedSeaGeneralResponse Alibabacloud_Alinlp20200629::Client::getWsCust
   return getWsCustomizedSeaGeneralWithOptions(request, runtime);
 }
 
-InsertCustomResponse Alibabacloud_Alinlp20200629::Client::insertCustomWithOptions(shared_ptr<InsertCustomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->apiId)) {
-    body->insert(pair<string, long>("ApiId", *request->apiId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customFileName)) {
-    body->insert(pair<string, string>("CustomFileName", *request->customFileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customUrl)) {
-    body->insert(pair<string, string>("CustomUrl", *request->customUrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regFileName)) {
-    body->insert(pair<string, string>("RegFileName", *request->regFileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regUrl)) {
-    body->insert(pair<string, string>("RegUrl", *request->regUrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
-    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("InsertCustom"))},
-    {"version", boost::any(string("2020-06-29"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return InsertCustomResponse(callApi(params, req, runtime));
-}
-
-InsertCustomResponse Alibabacloud_Alinlp20200629::Client::insertCustom(shared_ptr<InsertCustomRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return insertCustomWithOptions(request, runtime);
-}
-
 OpenAlinlpServiceResponse Alibabacloud_Alinlp20200629::Client::openAlinlpServiceWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1627,23 +1677,11 @@ OpenAlinlpServiceResponse Alibabacloud_Alinlp20200629::Client::openAlinlpService
   return openAlinlpServiceWithOptions(runtime);
 }
 
-UpdateCustomResponse Alibabacloud_Alinlp20200629::Client::updateCustomWithOptions(shared_ptr<UpdateCustomRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+RequestTableQAResponse Alibabacloud_Alinlp20200629::Client::requestTableQAWithOptions(shared_ptr<RequestTableQARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->customFileName)) {
-    body->insert(pair<string, string>("CustomFileName", *request->customFileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->customId)) {
-    body->insert(pair<string, long>("CustomId", *request->customId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customUrl)) {
-    body->insert(pair<string, string>("CustomUrl", *request->customUrl));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regFileName)) {
-    body->insert(pair<string, string>("RegFileName", *request->regFileName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regUrl)) {
-    body->insert(pair<string, string>("RegUrl", *request->regUrl));
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
     body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
@@ -1652,7 +1690,7 @@ UpdateCustomResponse Alibabacloud_Alinlp20200629::Client::updateCustomWithOption
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("UpdateCustom"))},
+    {"action", boost::any(string("RequestTableQA"))},
     {"version", boost::any(string("2020-06-29"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -1662,11 +1700,48 @@ UpdateCustomResponse Alibabacloud_Alinlp20200629::Client::updateCustomWithOption
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return UpdateCustomResponse(callApi(params, req, runtime));
+  return RequestTableQAResponse(callApi(params, req, runtime));
 }
 
-UpdateCustomResponse Alibabacloud_Alinlp20200629::Client::updateCustom(shared_ptr<UpdateCustomRequest> request) {
+RequestTableQAResponse Alibabacloud_Alinlp20200629::Client::requestTableQA(shared_ptr<RequestTableQARequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return updateCustomWithOptions(request, runtime);
+  return requestTableQAWithOptions(request, runtime);
+}
+
+RequestTableQAOnlineResponse Alibabacloud_Alinlp20200629::Client::requestTableQAOnlineWithOptions(shared_ptr<RequestTableQAOnlineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->botId)) {
+    body->insert(pair<string, string>("BotId", *request->botId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->question)) {
+    body->insert(pair<string, string>("Question", *request->question));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
+    body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RequestTableQAOnline"))},
+    {"version", boost::any(string("2020-06-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RequestTableQAOnlineResponse(callApi(params, req, runtime));
+}
+
+RequestTableQAOnlineResponse Alibabacloud_Alinlp20200629::Client::requestTableQAOnline(shared_ptr<RequestTableQAOnlineRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return requestTableQAOnlineWithOptions(request, runtime);
 }
 
