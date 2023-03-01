@@ -21252,6 +21252,42 @@ public:
 
   virtual ~GetSmartHandleJobRequest() = default;
 };
+class GetSmartHandleJobResponseBodyJobResult : public Darabonba::Model {
+public:
+  shared_ptr<string> aiResult{};
+  shared_ptr<string> mediaId{};
+
+  GetSmartHandleJobResponseBodyJobResult() {}
+
+  explicit GetSmartHandleJobResponseBodyJobResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aiResult) {
+      res["AiResult"] = boost::any(*aiResult);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiResult") != m.end() && !m["AiResult"].empty()) {
+      aiResult = make_shared<string>(boost::any_cast<string>(m["AiResult"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+  }
+
+
+  virtual ~GetSmartHandleJobResponseBodyJobResult() = default;
+};
 class GetSmartHandleJobResponseBodySmartJobInfoInputConfig : public Darabonba::Model {
 public:
   shared_ptr<string> inputFile{};
@@ -21406,6 +21442,7 @@ public:
 class GetSmartHandleJobResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> jobId{};
+  shared_ptr<GetSmartHandleJobResponseBodyJobResult> jobResult{};
   shared_ptr<string> output{};
   shared_ptr<string> requestId{};
   shared_ptr<GetSmartHandleJobResponseBodySmartJobInfo> smartJobInfo{};
@@ -21424,6 +21461,9 @@ public:
     map<string, boost::any> res;
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (jobResult) {
+      res["JobResult"] = jobResult ? boost::any(jobResult->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (output) {
       res["Output"] = boost::any(*output);
@@ -21446,6 +21486,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobResult") != m.end() && !m["JobResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["JobResult"].type()) {
+        GetSmartHandleJobResponseBodyJobResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JobResult"]));
+        jobResult = make_shared<GetSmartHandleJobResponseBodyJobResult>(model1);
+      }
     }
     if (m.find("Output") != m.end() && !m["Output"].empty()) {
       output = make_shared<string>(boost::any_cast<string>(m["Output"]));
@@ -26890,11 +26937,13 @@ public:
 };
 class GetWorkflowTaskResponseBodyWorkflowTask : public Darabonba::Model {
 public:
+  shared_ptr<string> activityResults{};
   shared_ptr<string> createTime{};
   shared_ptr<string> finishTime{};
   shared_ptr<string> status{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskInput{};
+  shared_ptr<string> userData{};
   shared_ptr<GetWorkflowTaskResponseBodyWorkflowTaskWorkflow> workflow{};
 
   GetWorkflowTaskResponseBodyWorkflowTask() {}
@@ -26907,6 +26956,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (activityResults) {
+      res["ActivityResults"] = boost::any(*activityResults);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -26922,6 +26974,9 @@ public:
     if (taskInput) {
       res["TaskInput"] = boost::any(*taskInput);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     if (workflow) {
       res["Workflow"] = workflow ? boost::any(workflow->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -26929,6 +26984,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ActivityResults") != m.end() && !m["ActivityResults"].empty()) {
+      activityResults = make_shared<string>(boost::any_cast<string>(m["ActivityResults"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -26943,6 +27001,9 @@ public:
     }
     if (m.find("TaskInput") != m.end() && !m["TaskInput"].empty()) {
       taskInput = make_shared<string>(boost::any_cast<string>(m["TaskInput"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("Workflow") != m.end() && !m["Workflow"].empty()) {
       if (typeid(map<string, boost::any>) == m["Workflow"].type()) {
