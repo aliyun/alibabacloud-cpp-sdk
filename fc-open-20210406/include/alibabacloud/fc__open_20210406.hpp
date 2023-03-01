@@ -1717,6 +1717,7 @@ public:
 };
 class NASConfigMountPoints : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableTLS{};
   shared_ptr<string> mountDir{};
   shared_ptr<string> serverAddr{};
 
@@ -1730,6 +1731,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableTLS) {
+      res["enableTLS"] = boost::any(*enableTLS);
+    }
     if (mountDir) {
       res["mountDir"] = boost::any(*mountDir);
     }
@@ -1740,6 +1744,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("enableTLS") != m.end() && !m["enableTLS"].empty()) {
+      enableTLS = make_shared<bool>(boost::any_cast<bool>(m["enableTLS"]));
+    }
     if (m.find("mountDir") != m.end() && !m["mountDir"].empty()) {
       mountDir = make_shared<string>(boost::any_cast<string>(m["mountDir"]));
     }
