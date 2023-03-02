@@ -1940,6 +1940,9 @@ DescribeVodDomainUsageDataResponse Alibabacloud_Vod20170321::Client::describeVod
   if (!Darabonba_Util::Client::isUnset<string>(request->field)) {
     query->insert(pair<string, string>("Field", *request->field));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
+    query->insert(pair<string, string>("Interval", *request->interval));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }

@@ -9837,6 +9837,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> field{};
+  shared_ptr<string> interval{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> type{};
@@ -9863,6 +9864,9 @@ public:
     if (field) {
       res["Field"] = boost::any(*field);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -9887,6 +9891,9 @@ public:
     }
     if (m.find("Field") != m.end() && !m["Field"].empty()) {
       field = make_shared<string>(boost::any_cast<string>(m["Field"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
