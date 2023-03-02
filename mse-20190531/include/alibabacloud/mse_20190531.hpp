@@ -43681,6 +43681,7 @@ public:
   shared_ptr<bool> configAuthEnabled{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<string> configType{};
+  shared_ptr<bool> eurekaSupported{};
   shared_ptr<string> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
   shared_ptr<string> instanceId{};
@@ -43728,6 +43729,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (eurekaSupported) {
+      res["EurekaSupported"] = boost::any(*eurekaSupported);
     }
     if (extendedTypesEnable) {
       res["ExtendedTypesEnable"] = boost::any(*extendedTypesEnable);
@@ -43801,6 +43805,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
+      eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));
     }
     if (m.find("ExtendedTypesEnable") != m.end() && !m["ExtendedTypesEnable"].empty()) {
       extendedTypesEnable = make_shared<string>(boost::any_cast<string>(m["ExtendedTypesEnable"]));
