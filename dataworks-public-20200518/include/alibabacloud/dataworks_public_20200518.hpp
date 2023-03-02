@@ -2841,8 +2841,10 @@ public:
   shared_ptr<string> protocols{};
   shared_ptr<string> registrationDetails{};
   shared_ptr<long> requestMethod{};
+  shared_ptr<long> resourceGroupId{};
   shared_ptr<long> responseContentType{};
   shared_ptr<string> scriptDetails{};
+  shared_ptr<long> sqlMode{};
   shared_ptr<long> tenantId{};
   shared_ptr<long> timeout{};
   shared_ptr<long> visibleRange{};
@@ -2888,11 +2890,17 @@ public:
     if (requestMethod) {
       res["RequestMethod"] = boost::any(*requestMethod);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (responseContentType) {
       res["ResponseContentType"] = boost::any(*responseContentType);
     }
     if (scriptDetails) {
       res["ScriptDetails"] = boost::any(*scriptDetails);
+    }
+    if (sqlMode) {
+      res["SqlMode"] = boost::any(*sqlMode);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
@@ -2940,11 +2948,17 @@ public:
     if (m.find("RequestMethod") != m.end() && !m["RequestMethod"].empty()) {
       requestMethod = make_shared<long>(boost::any_cast<long>(m["RequestMethod"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<long>(boost::any_cast<long>(m["ResourceGroupId"]));
+    }
     if (m.find("ResponseContentType") != m.end() && !m["ResponseContentType"].empty()) {
       responseContentType = make_shared<long>(boost::any_cast<long>(m["ResponseContentType"]));
     }
     if (m.find("ScriptDetails") != m.end() && !m["ScriptDetails"].empty()) {
       scriptDetails = make_shared<string>(boost::any_cast<string>(m["ScriptDetails"]));
+    }
+    if (m.find("SqlMode") != m.end() && !m["SqlMode"].empty()) {
+      sqlMode = make_shared<long>(boost::any_cast<long>(m["SqlMode"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
@@ -65081,6 +65095,7 @@ public:
   shared_ptr<string> protocols{};
   shared_ptr<string> registrationDetails{};
   shared_ptr<long> requestMethod{};
+  shared_ptr<long> resourceGroupId{};
   shared_ptr<long> responseContentType{};
   shared_ptr<string> scriptDetails{};
   shared_ptr<long> tenantId{};
@@ -65118,6 +65133,9 @@ public:
     }
     if (requestMethod) {
       res["RequestMethod"] = boost::any(*requestMethod);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (responseContentType) {
       res["ResponseContentType"] = boost::any(*responseContentType);
@@ -65161,6 +65179,9 @@ public:
     }
     if (m.find("RequestMethod") != m.end() && !m["RequestMethod"].empty()) {
       requestMethod = make_shared<long>(boost::any_cast<long>(m["RequestMethod"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<long>(boost::any_cast<long>(m["ResourceGroupId"]));
     }
     if (m.find("ResponseContentType") != m.end() && !m["ResponseContentType"].empty()) {
       responseContentType = make_shared<long>(boost::any_cast<long>(m["ResponseContentType"]));

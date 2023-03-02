@@ -699,11 +699,17 @@ CreateDataServiceApiResponse Alibabacloud_Dataworks-public20200518::Client::crea
   if (!Darabonba_Util::Client::isUnset<long>(request->requestMethod)) {
     body->insert(pair<string, long>("RequestMethod", *request->requestMethod));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceGroupId)) {
+    body->insert(pair<string, long>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->responseContentType)) {
     body->insert(pair<string, long>("ResponseContentType", *request->responseContentType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scriptDetails)) {
     body->insert(pair<string, string>("ScriptDetails", *request->scriptDetails));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->sqlMode)) {
+    body->insert(pair<string, long>("SqlMode", *request->sqlMode));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     body->insert(pair<string, long>("TenantId", *request->tenantId));
@@ -8791,6 +8797,9 @@ UpdateDataServiceApiResponse Alibabacloud_Dataworks-public20200518::Client::upda
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->requestMethod)) {
     body->insert(pair<string, long>("RequestMethod", *request->requestMethod));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceGroupId)) {
+    body->insert(pair<string, long>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->responseContentType)) {
     body->insert(pair<string, long>("ResponseContentType", *request->responseContentType));
