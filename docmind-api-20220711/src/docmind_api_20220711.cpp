@@ -252,6 +252,9 @@ SubmitConvertImageToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::s
     request->imageUrlsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->imageUrls, make_shared<string>("ImageUrls"), make_shared<string>("simple")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceMergeExcel)) {
+    query->insert(pair<string, bool>("ForceMergeExcel", *request->forceMergeExcel));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageNameExtension)) {
     query->insert(pair<string, string>("ImageNameExtension", *request->imageNameExtension));
   }
@@ -375,6 +378,9 @@ SubmitConvertPdfToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::sub
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceMergeExcel)) {
+    query->insert(pair<string, bool>("ForceMergeExcel", *request->forceMergeExcel));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

@@ -871,6 +871,7 @@ public:
 };
 class SubmitConvertImageToExcelJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> forceMergeExcel{};
   shared_ptr<string> imageNameExtension{};
   shared_ptr<vector<string>> imageNames{};
   shared_ptr<vector<string>> imageUrls{};
@@ -885,6 +886,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (forceMergeExcel) {
+      res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
+    }
     if (imageNameExtension) {
       res["ImageNameExtension"] = boost::any(*imageNameExtension);
     }
@@ -898,6 +902,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
+      forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
+    }
     if (m.find("ImageNameExtension") != m.end() && !m["ImageNameExtension"].empty()) {
       imageNameExtension = make_shared<string>(boost::any_cast<string>(m["ImageNameExtension"]));
     }
@@ -928,6 +935,7 @@ public:
 };
 class SubmitConvertImageToExcelJobShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> forceMergeExcel{};
   shared_ptr<string> imageNameExtension{};
   shared_ptr<string> imageNamesShrink{};
   shared_ptr<string> imageUrlsShrink{};
@@ -942,6 +950,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (forceMergeExcel) {
+      res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
+    }
     if (imageNameExtension) {
       res["ImageNameExtension"] = boost::any(*imageNameExtension);
     }
@@ -955,6 +966,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
+      forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
+    }
     if (m.find("ImageNameExtension") != m.end() && !m["ImageNameExtension"].empty()) {
       imageNameExtension = make_shared<string>(boost::any_cast<string>(m["ImageNameExtension"]));
     }
@@ -1608,6 +1622,7 @@ class SubmitConvertPdfToExcelJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<bool> forceMergeExcel{};
 
   SubmitConvertPdfToExcelJobRequest() {}
 
@@ -1625,6 +1640,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (forceMergeExcel) {
+      res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
+    }
     return res;
   }
 
@@ -1635,6 +1653,9 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
+      forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
+    }
   }
 
 
@@ -1644,6 +1665,7 @@ class SubmitConvertPdfToExcelJobAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<bool> forceMergeExcel{};
 
   SubmitConvertPdfToExcelJobAdvanceRequest() {}
 
@@ -1661,6 +1683,9 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (forceMergeExcel) {
+      res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
+    }
     return res;
   }
 
@@ -1670,6 +1695,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
+      forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
     }
   }
 
