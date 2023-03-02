@@ -3598,6 +3598,8 @@ public:
   shared_ptr<string> assignObjectType{};
   shared_ptr<string> childRuleRelation{};
   shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> convergenceFields{};
+  shared_ptr<long> convergenceType{};
   shared_ptr<vector<string>> coverageProblemLevels{};
   shared_ptr<string> effection{};
   shared_ptr<string> enableStatus{};
@@ -3634,6 +3636,12 @@ public:
     }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
+    }
+    if (convergenceFields) {
+      res["convergenceFields"] = boost::any(*convergenceFields);
+    }
+    if (convergenceType) {
+      res["convergenceType"] = boost::any(*convergenceType);
     }
     if (coverageProblemLevels) {
       res["coverageProblemLevels"] = boost::any(*coverageProblemLevels);
@@ -3700,6 +3708,19 @@ public:
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("convergenceFields") != m.end() && !m["convergenceFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["convergenceFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["convergenceFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      convergenceFields = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("convergenceType") != m.end() && !m["convergenceType"].empty()) {
+      convergenceType = make_shared<long>(boost::any_cast<long>(m["convergenceType"]));
     }
     if (m.find("coverageProblemLevels") != m.end() && !m["coverageProblemLevels"].empty()) {
       vector<string> toVec1;
@@ -4376,8 +4397,10 @@ public:
 };
 class CreateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers : public Darabonba::Model {
 public:
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
 
   CreateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers() {}
 
@@ -4389,21 +4412,40 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
     }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
   }
 
@@ -4478,9 +4520,11 @@ class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts : pu
 public:
   shared_ptr<long> cycleOrder{};
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> shiftName{};
   shared_ptr<bool> skipOneDay{};
 
@@ -4500,6 +4544,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -4508,6 +4555,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (shiftName) {
       res["shiftName"] = boost::any(*shiftName);
@@ -4525,6 +4575,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -4533,6 +4586,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("shiftName") != m.end() && !m["shiftName"].empty()) {
       shiftName = make_shared<string>(boost::any_cast<string>(m["shiftName"]));
@@ -4548,9 +4611,11 @@ public:
 class CreateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts : public Darabonba::Model {
 public:
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> schedulingUserName{};
   shared_ptr<bool> skipOneDay{};
 
@@ -4567,6 +4632,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -4575,6 +4643,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (schedulingUserName) {
       res["schedulingUserName"] = boost::any(*schedulingUserName);
@@ -4589,6 +4660,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -4597,6 +4671,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("schedulingUserName") != m.end() && !m["schedulingUserName"].empty()) {
       schedulingUserName = make_shared<string>(boost::any_cast<string>(m["schedulingUserName"]));
@@ -11507,6 +11591,407 @@ public:
 
   virtual ~GetIncidentResponse() = default;
 };
+class GetIncidentListByIdListRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<long>> incidentIdList{};
+
+  GetIncidentListByIdListRequest() {}
+
+  explicit GetIncidentListByIdListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["clientToken"] = boost::any(*clientToken);
+    }
+    if (incidentIdList) {
+      res["incidentIdList"] = boost::any(*incidentIdList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("incidentIdList") != m.end() && !m["incidentIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["incidentIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["incidentIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      incidentIdList = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetIncidentListByIdListRequest() = default;
+};
+class GetIncidentListByIdListResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> assignToWhoIsValid{};
+  shared_ptr<long> assignUserId{};
+  shared_ptr<string> assignUserName{};
+  shared_ptr<string> assignUserPhone{};
+  shared_ptr<string> createTime{};
+  shared_ptr<long> defaultAssignToWho{};
+  shared_ptr<long> defaultAssignToWhoIsValid{};
+  shared_ptr<string> defaultAssignToWhoName{};
+  shared_ptr<string> durationTime{};
+  shared_ptr<string> effect{};
+  shared_ptr<string> incidentDescription{};
+  shared_ptr<long> incidentId{};
+  shared_ptr<string> incidentLevel{};
+  shared_ptr<string> incidentNumber{};
+  shared_ptr<string> incidentStatus{};
+  shared_ptr<string> incidentTitle{};
+  shared_ptr<bool> isManual{};
+  shared_ptr<bool> isUpgrade{};
+  shared_ptr<vector<string>> notifyChannels{};
+  shared_ptr<long> problemId{};
+  shared_ptr<string> problemNumber{};
+  shared_ptr<long> relRouteRuleDeleteType{};
+  shared_ptr<long> relServiceDeleteType{};
+  shared_ptr<long> relServiceGroupIsValid{};
+  shared_ptr<string> relatedServiceDescription{};
+  shared_ptr<long> relatedServiceGroupId{};
+  shared_ptr<string> relatedServiceGroupName{};
+  shared_ptr<long> relatedServiceId{};
+  shared_ptr<string> relatedServiceName{};
+  shared_ptr<long> routeRuleId{};
+  shared_ptr<string> routeRuleName{};
+
+  GetIncidentListByIdListResponseBodyData() {}
+
+  explicit GetIncidentListByIdListResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assignToWhoIsValid) {
+      res["assignToWhoIsValid"] = boost::any(*assignToWhoIsValid);
+    }
+    if (assignUserId) {
+      res["assignUserId"] = boost::any(*assignUserId);
+    }
+    if (assignUserName) {
+      res["assignUserName"] = boost::any(*assignUserName);
+    }
+    if (assignUserPhone) {
+      res["assignUserPhone"] = boost::any(*assignUserPhone);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (defaultAssignToWho) {
+      res["defaultAssignToWho"] = boost::any(*defaultAssignToWho);
+    }
+    if (defaultAssignToWhoIsValid) {
+      res["defaultAssignToWhoIsValid"] = boost::any(*defaultAssignToWhoIsValid);
+    }
+    if (defaultAssignToWhoName) {
+      res["defaultAssignToWhoName"] = boost::any(*defaultAssignToWhoName);
+    }
+    if (durationTime) {
+      res["durationTime"] = boost::any(*durationTime);
+    }
+    if (effect) {
+      res["effect"] = boost::any(*effect);
+    }
+    if (incidentDescription) {
+      res["incidentDescription"] = boost::any(*incidentDescription);
+    }
+    if (incidentId) {
+      res["incidentId"] = boost::any(*incidentId);
+    }
+    if (incidentLevel) {
+      res["incidentLevel"] = boost::any(*incidentLevel);
+    }
+    if (incidentNumber) {
+      res["incidentNumber"] = boost::any(*incidentNumber);
+    }
+    if (incidentStatus) {
+      res["incidentStatus"] = boost::any(*incidentStatus);
+    }
+    if (incidentTitle) {
+      res["incidentTitle"] = boost::any(*incidentTitle);
+    }
+    if (isManual) {
+      res["isManual"] = boost::any(*isManual);
+    }
+    if (isUpgrade) {
+      res["isUpgrade"] = boost::any(*isUpgrade);
+    }
+    if (notifyChannels) {
+      res["notifyChannels"] = boost::any(*notifyChannels);
+    }
+    if (problemId) {
+      res["problemId"] = boost::any(*problemId);
+    }
+    if (problemNumber) {
+      res["problemNumber"] = boost::any(*problemNumber);
+    }
+    if (relRouteRuleDeleteType) {
+      res["relRouteRuleDeleteType"] = boost::any(*relRouteRuleDeleteType);
+    }
+    if (relServiceDeleteType) {
+      res["relServiceDeleteType"] = boost::any(*relServiceDeleteType);
+    }
+    if (relServiceGroupIsValid) {
+      res["relServiceGroupIsValid"] = boost::any(*relServiceGroupIsValid);
+    }
+    if (relatedServiceDescription) {
+      res["relatedServiceDescription"] = boost::any(*relatedServiceDescription);
+    }
+    if (relatedServiceGroupId) {
+      res["relatedServiceGroupId"] = boost::any(*relatedServiceGroupId);
+    }
+    if (relatedServiceGroupName) {
+      res["relatedServiceGroupName"] = boost::any(*relatedServiceGroupName);
+    }
+    if (relatedServiceId) {
+      res["relatedServiceId"] = boost::any(*relatedServiceId);
+    }
+    if (relatedServiceName) {
+      res["relatedServiceName"] = boost::any(*relatedServiceName);
+    }
+    if (routeRuleId) {
+      res["routeRuleId"] = boost::any(*routeRuleId);
+    }
+    if (routeRuleName) {
+      res["routeRuleName"] = boost::any(*routeRuleName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("assignToWhoIsValid") != m.end() && !m["assignToWhoIsValid"].empty()) {
+      assignToWhoIsValid = make_shared<long>(boost::any_cast<long>(m["assignToWhoIsValid"]));
+    }
+    if (m.find("assignUserId") != m.end() && !m["assignUserId"].empty()) {
+      assignUserId = make_shared<long>(boost::any_cast<long>(m["assignUserId"]));
+    }
+    if (m.find("assignUserName") != m.end() && !m["assignUserName"].empty()) {
+      assignUserName = make_shared<string>(boost::any_cast<string>(m["assignUserName"]));
+    }
+    if (m.find("assignUserPhone") != m.end() && !m["assignUserPhone"].empty()) {
+      assignUserPhone = make_shared<string>(boost::any_cast<string>(m["assignUserPhone"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
+    }
+    if (m.find("defaultAssignToWho") != m.end() && !m["defaultAssignToWho"].empty()) {
+      defaultAssignToWho = make_shared<long>(boost::any_cast<long>(m["defaultAssignToWho"]));
+    }
+    if (m.find("defaultAssignToWhoIsValid") != m.end() && !m["defaultAssignToWhoIsValid"].empty()) {
+      defaultAssignToWhoIsValid = make_shared<long>(boost::any_cast<long>(m["defaultAssignToWhoIsValid"]));
+    }
+    if (m.find("defaultAssignToWhoName") != m.end() && !m["defaultAssignToWhoName"].empty()) {
+      defaultAssignToWhoName = make_shared<string>(boost::any_cast<string>(m["defaultAssignToWhoName"]));
+    }
+    if (m.find("durationTime") != m.end() && !m["durationTime"].empty()) {
+      durationTime = make_shared<string>(boost::any_cast<string>(m["durationTime"]));
+    }
+    if (m.find("effect") != m.end() && !m["effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["effect"]));
+    }
+    if (m.find("incidentDescription") != m.end() && !m["incidentDescription"].empty()) {
+      incidentDescription = make_shared<string>(boost::any_cast<string>(m["incidentDescription"]));
+    }
+    if (m.find("incidentId") != m.end() && !m["incidentId"].empty()) {
+      incidentId = make_shared<long>(boost::any_cast<long>(m["incidentId"]));
+    }
+    if (m.find("incidentLevel") != m.end() && !m["incidentLevel"].empty()) {
+      incidentLevel = make_shared<string>(boost::any_cast<string>(m["incidentLevel"]));
+    }
+    if (m.find("incidentNumber") != m.end() && !m["incidentNumber"].empty()) {
+      incidentNumber = make_shared<string>(boost::any_cast<string>(m["incidentNumber"]));
+    }
+    if (m.find("incidentStatus") != m.end() && !m["incidentStatus"].empty()) {
+      incidentStatus = make_shared<string>(boost::any_cast<string>(m["incidentStatus"]));
+    }
+    if (m.find("incidentTitle") != m.end() && !m["incidentTitle"].empty()) {
+      incidentTitle = make_shared<string>(boost::any_cast<string>(m["incidentTitle"]));
+    }
+    if (m.find("isManual") != m.end() && !m["isManual"].empty()) {
+      isManual = make_shared<bool>(boost::any_cast<bool>(m["isManual"]));
+    }
+    if (m.find("isUpgrade") != m.end() && !m["isUpgrade"].empty()) {
+      isUpgrade = make_shared<bool>(boost::any_cast<bool>(m["isUpgrade"]));
+    }
+    if (m.find("notifyChannels") != m.end() && !m["notifyChannels"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["notifyChannels"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["notifyChannels"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      notifyChannels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("problemId") != m.end() && !m["problemId"].empty()) {
+      problemId = make_shared<long>(boost::any_cast<long>(m["problemId"]));
+    }
+    if (m.find("problemNumber") != m.end() && !m["problemNumber"].empty()) {
+      problemNumber = make_shared<string>(boost::any_cast<string>(m["problemNumber"]));
+    }
+    if (m.find("relRouteRuleDeleteType") != m.end() && !m["relRouteRuleDeleteType"].empty()) {
+      relRouteRuleDeleteType = make_shared<long>(boost::any_cast<long>(m["relRouteRuleDeleteType"]));
+    }
+    if (m.find("relServiceDeleteType") != m.end() && !m["relServiceDeleteType"].empty()) {
+      relServiceDeleteType = make_shared<long>(boost::any_cast<long>(m["relServiceDeleteType"]));
+    }
+    if (m.find("relServiceGroupIsValid") != m.end() && !m["relServiceGroupIsValid"].empty()) {
+      relServiceGroupIsValid = make_shared<long>(boost::any_cast<long>(m["relServiceGroupIsValid"]));
+    }
+    if (m.find("relatedServiceDescription") != m.end() && !m["relatedServiceDescription"].empty()) {
+      relatedServiceDescription = make_shared<string>(boost::any_cast<string>(m["relatedServiceDescription"]));
+    }
+    if (m.find("relatedServiceGroupId") != m.end() && !m["relatedServiceGroupId"].empty()) {
+      relatedServiceGroupId = make_shared<long>(boost::any_cast<long>(m["relatedServiceGroupId"]));
+    }
+    if (m.find("relatedServiceGroupName") != m.end() && !m["relatedServiceGroupName"].empty()) {
+      relatedServiceGroupName = make_shared<string>(boost::any_cast<string>(m["relatedServiceGroupName"]));
+    }
+    if (m.find("relatedServiceId") != m.end() && !m["relatedServiceId"].empty()) {
+      relatedServiceId = make_shared<long>(boost::any_cast<long>(m["relatedServiceId"]));
+    }
+    if (m.find("relatedServiceName") != m.end() && !m["relatedServiceName"].empty()) {
+      relatedServiceName = make_shared<string>(boost::any_cast<string>(m["relatedServiceName"]));
+    }
+    if (m.find("routeRuleId") != m.end() && !m["routeRuleId"].empty()) {
+      routeRuleId = make_shared<long>(boost::any_cast<long>(m["routeRuleId"]));
+    }
+    if (m.find("routeRuleName") != m.end() && !m["routeRuleName"].empty()) {
+      routeRuleName = make_shared<string>(boost::any_cast<string>(m["routeRuleName"]));
+    }
+  }
+
+
+  virtual ~GetIncidentListByIdListResponseBodyData() = default;
+};
+class GetIncidentListByIdListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetIncidentListByIdListResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  GetIncidentListByIdListResponseBody() {}
+
+  explicit GetIncidentListByIdListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<GetIncidentListByIdListResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetIncidentListByIdListResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetIncidentListByIdListResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~GetIncidentListByIdListResponseBody() = default;
+};
+class GetIncidentListByIdListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetIncidentListByIdListResponseBody> body{};
+
+  GetIncidentListByIdListResponse() {}
+
+  explicit GetIncidentListByIdListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetIncidentListByIdListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetIncidentListByIdListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetIncidentListByIdListResponse() = default;
+};
 class GetIncidentStatisticsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -12540,6 +13025,7 @@ public:
   shared_ptr<vector<GetProblemResponseBodyDataHandingProblemOperateLogs>> handingProblemOperateLogs{};
   shared_ptr<long> incidentId{};
   shared_ptr<string> incidentNumber{};
+  shared_ptr<bool> isRuleTrigger{};
   shared_ptr<long> mainHandler{};
   shared_ptr<long> mainHandlerId{};
   shared_ptr<long> mainHandlerIsValid{};
@@ -12622,6 +13108,9 @@ public:
     }
     if (incidentNumber) {
       res["incidentNumber"] = boost::any(*incidentNumber);
+    }
+    if (isRuleTrigger) {
+      res["isRuleTrigger"] = boost::any(*isRuleTrigger);
     }
     if (mainHandler) {
       res["mainHandler"] = boost::any(*mainHandler);
@@ -12778,6 +13267,9 @@ public:
     }
     if (m.find("incidentNumber") != m.end() && !m["incidentNumber"].empty()) {
       incidentNumber = make_shared<string>(boost::any_cast<string>(m["incidentNumber"]));
+    }
+    if (m.find("isRuleTrigger") != m.end() && !m["isRuleTrigger"].empty()) {
+      isRuleTrigger = make_shared<bool>(boost::any_cast<bool>(m["isRuleTrigger"]));
     }
     if (m.find("mainHandler") != m.end() && !m["mainHandler"].empty()) {
       mainHandler = make_shared<long>(boost::any_cast<long>(m["mainHandler"]));
@@ -15094,6 +15586,8 @@ public:
   shared_ptr<string> assignObjectName{};
   shared_ptr<string> assignObjectType{};
   shared_ptr<string> childRuleRelation{};
+  shared_ptr<vector<string>> convergenceFields{};
+  shared_ptr<long> convergenceType{};
   shared_ptr<vector<string>> coverageProblemLevels{};
   shared_ptr<string> createTime{};
   shared_ptr<string> effection{};
@@ -15135,6 +15629,12 @@ public:
     }
     if (childRuleRelation) {
       res["childRuleRelation"] = boost::any(*childRuleRelation);
+    }
+    if (convergenceFields) {
+      res["convergenceFields"] = boost::any(*convergenceFields);
+    }
+    if (convergenceType) {
+      res["convergenceType"] = boost::any(*convergenceType);
     }
     if (coverageProblemLevels) {
       res["coverageProblemLevels"] = boost::any(*coverageProblemLevels);
@@ -15216,6 +15716,19 @@ public:
     }
     if (m.find("childRuleRelation") != m.end() && !m["childRuleRelation"].empty()) {
       childRuleRelation = make_shared<string>(boost::any_cast<string>(m["childRuleRelation"]));
+    }
+    if (m.find("convergenceFields") != m.end() && !m["convergenceFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["convergenceFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["convergenceFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      convergenceFields = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("convergenceType") != m.end() && !m["convergenceType"].empty()) {
+      convergenceType = make_shared<long>(boost::any_cast<long>(m["convergenceType"]));
     }
     if (m.find("coverageProblemLevels") != m.end() && !m["coverageProblemLevels"].empty()) {
       vector<string> toVec1;
@@ -16102,8 +16615,10 @@ public:
 };
 class GetServiceGroupSchedulingResponseBodyDataFastSchedulingSchedulingUsers : public Darabonba::Model {
 public:
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> schedulingUserName{};
 
   GetServiceGroupSchedulingResponseBodyDataFastSchedulingSchedulingUsers() {}
@@ -16116,11 +16631,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (schedulingUserName) {
       res["schedulingUserName"] = boost::any(*schedulingUserName);
@@ -16129,11 +16650,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("schedulingUserName") != m.end() && !m["schedulingUserName"].empty()) {
       schedulingUserName = make_shared<string>(boost::any_cast<string>(m["schedulingUserName"]));
@@ -16218,9 +16752,11 @@ class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingFineShift
 public:
   shared_ptr<long> cycleOrder{};
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> schedulingUserName{};
   shared_ptr<string> shiftName{};
   shared_ptr<bool> skipOneDay{};
@@ -16241,6 +16777,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -16249,6 +16788,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (schedulingUserName) {
       res["schedulingUserName"] = boost::any(*schedulingUserName);
@@ -16269,6 +16811,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -16277,6 +16822,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("schedulingUserName") != m.end() && !m["schedulingUserName"].empty()) {
       schedulingUserName = make_shared<string>(boost::any_cast<string>(m["schedulingUserName"]));
@@ -16295,9 +16850,11 @@ public:
 class GetServiceGroupSchedulingResponseBodyDataFineSchedulingSchedulingTemplateFineShifts : public Darabonba::Model {
 public:
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<string> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> schedulingUserName{};
   shared_ptr<string> shiftName{};
   shared_ptr<bool> skipOneDay{};
@@ -16315,6 +16872,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -16323,6 +16883,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (schedulingUserName) {
       res["schedulingUserName"] = boost::any(*schedulingUserName);
@@ -16340,6 +16903,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -16348,6 +16914,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<string>(boost::any_cast<string>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("schedulingUserName") != m.end() && !m["schedulingUserName"].empty()) {
       schedulingUserName = make_shared<string>(boost::any_cast<string>(m["schedulingUserName"]));
@@ -29548,6 +30124,133 @@ public:
 
   virtual ~ListUsersResponse() = default;
 };
+class PushMonitorRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> body{};
+
+  PushMonitorRequest() {}
+
+  explicit PushMonitorRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
+    }
+  }
+
+
+  virtual ~PushMonitorRequest() = default;
+};
+class PushMonitorResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> requestId{};
+
+  PushMonitorResponseBody() {}
+
+  explicit PushMonitorResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["data"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+  }
+
+
+  virtual ~PushMonitorResponseBody() = default;
+};
+class PushMonitorResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PushMonitorResponseBody> body{};
+
+  PushMonitorResponse() {}
+
+  explicit PushMonitorResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PushMonitorResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PushMonitorResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PushMonitorResponse() = default;
+};
 class RecoverProblemRequest : public Darabonba::Model {
 public:
   shared_ptr<long> problemId{};
@@ -32721,6 +33424,8 @@ public:
   shared_ptr<string> assignObjectType{};
   shared_ptr<string> childRuleRelation{};
   shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> convergenceFields{};
+  shared_ptr<long> convergenceType{};
   shared_ptr<vector<string>> coverageProblemLevels{};
   shared_ptr<string> effection{};
   shared_ptr<string> incidentLevel{};
@@ -32757,6 +33462,12 @@ public:
     }
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
+    }
+    if (convergenceFields) {
+      res["convergenceFields"] = boost::any(*convergenceFields);
+    }
+    if (convergenceType) {
+      res["convergenceType"] = boost::any(*convergenceType);
     }
     if (coverageProblemLevels) {
       res["coverageProblemLevels"] = boost::any(*coverageProblemLevels);
@@ -32823,6 +33534,19 @@ public:
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("convergenceFields") != m.end() && !m["convergenceFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["convergenceFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["convergenceFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      convergenceFields = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("convergenceType") != m.end() && !m["convergenceType"].empty()) {
+      convergenceType = make_shared<long>(boost::any_cast<long>(m["convergenceType"]));
     }
     if (m.find("coverageProblemLevels") != m.end() && !m["coverageProblemLevels"].empty()) {
       vector<string> toVec1;
@@ -33407,8 +34131,10 @@ public:
 };
 class UpdateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers : public Darabonba::Model {
 public:
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
 
   UpdateServiceGroupSchedulingRequestFastSchedulingSchedulingUsers() {}
 
@@ -33420,21 +34146,40 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
     }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
   }
 
@@ -33516,9 +34261,11 @@ class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingFineShifts : pu
 public:
   shared_ptr<long> cycleOrder{};
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> shiftName{};
   shared_ptr<bool> skipOneDay{};
 
@@ -33538,6 +34285,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -33546,6 +34296,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (shiftName) {
       res["shiftName"] = boost::any(*shiftName);
@@ -33563,6 +34316,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -33571,6 +34327,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("shiftName") != m.end() && !m["shiftName"].empty()) {
       shiftName = make_shared<string>(boost::any_cast<string>(m["shiftName"]));
@@ -33586,9 +34352,11 @@ public:
 class UpdateServiceGroupSchedulingRequestFineSchedulingSchedulingTemplateFineShifts : public Darabonba::Model {
 public:
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
   shared_ptr<string> shiftName{};
   shared_ptr<bool> skipOneDay{};
 
@@ -33605,6 +34373,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -33613,6 +34384,9 @@ public:
     }
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
+    }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
     }
     if (shiftName) {
       res["shiftName"] = boost::any(*shiftName);
@@ -33627,6 +34401,9 @@ public:
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
     }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
+    }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
     }
@@ -33635,6 +34412,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("shiftName") != m.end() && !m["shiftName"].empty()) {
       shiftName = make_shared<string>(boost::any_cast<string>(m["shiftName"]));
@@ -33898,9 +34685,11 @@ public:
 class UpdateServiceGroupSpecialDaySchedulingRequestSchedulingSpecialDays : public Darabonba::Model {
 public:
   shared_ptr<string> schedulingEndTime{};
+  shared_ptr<string> schedulingObjectType{};
   shared_ptr<long> schedulingOrder{};
   shared_ptr<string> schedulingStartTime{};
   shared_ptr<long> schedulingUserId{};
+  shared_ptr<vector<long>> schedulingUserIdList{};
 
   UpdateServiceGroupSpecialDaySchedulingRequestSchedulingSpecialDays() {}
 
@@ -33915,6 +34704,9 @@ public:
     if (schedulingEndTime) {
       res["schedulingEndTime"] = boost::any(*schedulingEndTime);
     }
+    if (schedulingObjectType) {
+      res["schedulingObjectType"] = boost::any(*schedulingObjectType);
+    }
     if (schedulingOrder) {
       res["schedulingOrder"] = boost::any(*schedulingOrder);
     }
@@ -33924,12 +34716,18 @@ public:
     if (schedulingUserId) {
       res["schedulingUserId"] = boost::any(*schedulingUserId);
     }
+    if (schedulingUserIdList) {
+      res["schedulingUserIdList"] = boost::any(*schedulingUserIdList);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("schedulingEndTime") != m.end() && !m["schedulingEndTime"].empty()) {
       schedulingEndTime = make_shared<string>(boost::any_cast<string>(m["schedulingEndTime"]));
+    }
+    if (m.find("schedulingObjectType") != m.end() && !m["schedulingObjectType"].empty()) {
+      schedulingObjectType = make_shared<string>(boost::any_cast<string>(m["schedulingObjectType"]));
     }
     if (m.find("schedulingOrder") != m.end() && !m["schedulingOrder"].empty()) {
       schedulingOrder = make_shared<long>(boost::any_cast<long>(m["schedulingOrder"]));
@@ -33939,6 +34737,16 @@ public:
     }
     if (m.find("schedulingUserId") != m.end() && !m["schedulingUserId"].empty()) {
       schedulingUserId = make_shared<long>(boost::any_cast<long>(m["schedulingUserId"]));
+    }
+    if (m.find("schedulingUserIdList") != m.end() && !m["schedulingUserIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["schedulingUserIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["schedulingUserIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      schedulingUserIdList = make_shared<vector<long>>(toVec1);
     }
   }
 
@@ -35396,6 +36204,8 @@ public:
   GetHomePageGuidanceResponse getHomePageGuidance(shared_ptr<GetHomePageGuidanceRequest> request);
   GetIncidentResponse getIncidentWithOptions(shared_ptr<GetIncidentRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIncidentResponse getIncident(shared_ptr<GetIncidentRequest> request);
+  GetIncidentListByIdListResponse getIncidentListByIdListWithOptions(shared_ptr<GetIncidentListByIdListRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetIncidentListByIdListResponse getIncidentListByIdList(shared_ptr<GetIncidentListByIdListRequest> request);
   GetIncidentStatisticsResponse getIncidentStatisticsWithOptions(shared_ptr<GetIncidentStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetIncidentStatisticsResponse getIncidentStatistics(shared_ptr<GetIncidentStatisticsRequest> request);
   GetIncidentSubtotalCountResponse getIncidentSubtotalCountWithOptions(shared_ptr<GetIncidentSubtotalCountRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -35516,6 +36326,11 @@ public:
   ListUserSerivceGroupsResponse listUserSerivceGroups(shared_ptr<ListUserSerivceGroupsRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<ListUsersRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUsersResponse listUsers(shared_ptr<ListUsersRequest> request);
+  PushMonitorResponse pushMonitorWithOptions(shared_ptr<string> apiKey,
+                                             shared_ptr<PushMonitorRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PushMonitorResponse pushMonitor(shared_ptr<string> apiKey, shared_ptr<PushMonitorRequest> request);
   RecoverProblemResponse recoverProblemWithOptions(shared_ptr<RecoverProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecoverProblemResponse recoverProblem(shared_ptr<RecoverProblemRequest> request);
   RefreshIntegrationConfigKeyResponse refreshIntegrationConfigKeyWithOptions(shared_ptr<RefreshIntegrationConfigKeyRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

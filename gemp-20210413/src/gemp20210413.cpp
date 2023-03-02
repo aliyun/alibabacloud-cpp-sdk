@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_GEMP20210413;
 
 Alibabacloud_GEMP20210413::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("gemp"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -712,6 +713,12 @@ CreateRouteRuleResponse Alibabacloud_GEMP20210413::Client::createRouteRuleWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->convergenceFields)) {
+    body->insert(pair<string, vector<string>>("convergenceFields", *request->convergenceFields));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->convergenceType)) {
+    body->insert(pair<string, long>("convergenceType", *request->convergenceType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->coverageProblemLevels)) {
     body->insert(pair<string, vector<string>>("coverageProblemLevels", *request->coverageProblemLevels));
@@ -2214,6 +2221,39 @@ GetIncidentResponse Alibabacloud_GEMP20210413::Client::getIncident(shared_ptr<Ge
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getIncidentWithOptions(request, headers, runtime);
+}
+
+GetIncidentListByIdListResponse Alibabacloud_GEMP20210413::Client::getIncidentListByIdListWithOptions(shared_ptr<GetIncidentListByIdListRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->incidentIdList)) {
+    body->insert(pair<string, vector<long>>("incidentIdList", *request->incidentIdList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetIncidentListByIdList"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/incident/getIncidentListByIdList"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetIncidentListByIdListResponse(callApi(params, req, runtime));
+}
+
+GetIncidentListByIdListResponse Alibabacloud_GEMP20210413::Client::getIncidentListByIdList(shared_ptr<GetIncidentListByIdListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getIncidentListByIdListWithOptions(request, headers, runtime);
 }
 
 GetIncidentStatisticsResponse Alibabacloud_GEMP20210413::Client::getIncidentStatisticsWithOptions(shared_ptr<GetIncidentStatisticsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4463,6 +4503,35 @@ ListUsersResponse Alibabacloud_GEMP20210413::Client::listUsers(shared_ptr<ListUs
   return listUsersWithOptions(request, headers, runtime);
 }
 
+PushMonitorResponse Alibabacloud_GEMP20210413::Client::pushMonitorWithOptions(shared_ptr<string> apiKey,
+                                                                              shared_ptr<PushMonitorRequest> request,
+                                                                              shared_ptr<map<string, string>> headers,
+                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PushMonitor"))},
+    {"version", boost::any(string("2021-04-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/monitor/push/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(apiKey)))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PushMonitorResponse(callApi(params, req, runtime));
+}
+
+PushMonitorResponse Alibabacloud_GEMP20210413::Client::pushMonitor(shared_ptr<string> apiKey, shared_ptr<PushMonitorRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return pushMonitorWithOptions(apiKey, request, headers, runtime);
+}
+
 RecoverProblemResponse Alibabacloud_GEMP20210413::Client::recoverProblemWithOptions(shared_ptr<RecoverProblemRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5227,6 +5296,12 @@ UpdateRouteRuleResponse Alibabacloud_GEMP20210413::Client::updateRouteRuleWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->convergenceFields)) {
+    body->insert(pair<string, vector<string>>("convergenceFields", *request->convergenceFields));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->convergenceType)) {
+    body->insert(pair<string, long>("convergenceType", *request->convergenceType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->coverageProblemLevels)) {
     body->insert(pair<string, vector<string>>("coverageProblemLevels", *request->coverageProblemLevels));
