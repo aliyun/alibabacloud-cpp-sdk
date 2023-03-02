@@ -2365,9 +2365,11 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> name{};
+  shared_ptr<string> policies{};
   shared_ptr<AddGatewayRouteRequestPredicates> predicates{};
   shared_ptr<AddGatewayRouteRequestRedirectJSON> redirectJSON{};
   shared_ptr<long> routeOrder{};
+  shared_ptr<string> routeType{};
   shared_ptr<vector<AddGatewayRouteRequestServices>> services{};
 
   AddGatewayRouteRequest() {}
@@ -2417,6 +2419,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (policies) {
+      res["Policies"] = boost::any(*policies);
+    }
     if (predicates) {
       res["Predicates"] = predicates ? boost::any(predicates->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -2425,6 +2430,9 @@ public:
     }
     if (routeOrder) {
       res["RouteOrder"] = boost::any(*routeOrder);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
     }
     if (services) {
       vector<boost::any> temp1;
@@ -2484,6 +2492,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("Policies") != m.end() && !m["Policies"].empty()) {
+      policies = make_shared<string>(boost::any_cast<string>(m["Policies"]));
+    }
     if (m.find("Predicates") != m.end() && !m["Predicates"].empty()) {
       if (typeid(map<string, boost::any>) == m["Predicates"].type()) {
         AddGatewayRouteRequestPredicates model1;
@@ -2500,6 +2511,9 @@ public:
     }
     if (m.find("RouteOrder") != m.end() && !m["RouteOrder"].empty()) {
       routeOrder = make_shared<long>(boost::any_cast<long>(m["RouteOrder"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
     }
     if (m.find("Services") != m.end() && !m["Services"].empty()) {
       if (typeid(vector<boost::any>) == m["Services"].type()) {
@@ -2532,9 +2546,11 @@ public:
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<string> name{};
+  shared_ptr<string> policies{};
   shared_ptr<string> predicatesShrink{};
   shared_ptr<string> redirectJSONShrink{};
   shared_ptr<long> routeOrder{};
+  shared_ptr<string> routeType{};
   shared_ptr<string> servicesShrink{};
 
   AddGatewayRouteShrinkRequest() {}
@@ -2580,6 +2596,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (policies) {
+      res["Policies"] = boost::any(*policies);
+    }
     if (predicatesShrink) {
       res["Predicates"] = boost::any(*predicatesShrink);
     }
@@ -2588,6 +2607,9 @@ public:
     }
     if (routeOrder) {
       res["RouteOrder"] = boost::any(*routeOrder);
+    }
+    if (routeType) {
+      res["RouteType"] = boost::any(*routeType);
     }
     if (servicesShrink) {
       res["Services"] = boost::any(*servicesShrink);
@@ -2629,6 +2651,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("Policies") != m.end() && !m["Policies"].empty()) {
+      policies = make_shared<string>(boost::any_cast<string>(m["Policies"]));
+    }
     if (m.find("Predicates") != m.end() && !m["Predicates"].empty()) {
       predicatesShrink = make_shared<string>(boost::any_cast<string>(m["Predicates"]));
     }
@@ -2637,6 +2662,9 @@ public:
     }
     if (m.find("RouteOrder") != m.end() && !m["RouteOrder"].empty()) {
       routeOrder = make_shared<long>(boost::any_cast<long>(m["RouteOrder"]));
+    }
+    if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
+      routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
     }
     if (m.find("Services") != m.end() && !m["Services"].empty()) {
       servicesShrink = make_shared<string>(boost::any_cast<string>(m["Services"]));
@@ -17196,6 +17224,7 @@ public:
   shared_ptr<GetGatewayRouteDetailResponseBodyDataHeaderOp> headerOp{};
   shared_ptr<long> id{};
   shared_ptr<string> name{};
+  shared_ptr<string> policies{};
   shared_ptr<string> predicates{};
   shared_ptr<GetGatewayRouteDetailResponseBodyDataRedirect> redirect{};
   shared_ptr<GetGatewayRouteDetailResponseBodyDataRetry> retry{};
@@ -17282,6 +17311,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (policies) {
+      res["Policies"] = boost::any(*policies);
     }
     if (predicates) {
       res["Predicates"] = boost::any(*predicates);
@@ -17420,6 +17452,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Policies") != m.end() && !m["Policies"].empty()) {
+      policies = make_shared<string>(boost::any_cast<string>(m["Policies"]));
     }
     if (m.find("Predicates") != m.end() && !m["Predicates"].empty()) {
       predicates = make_shared<string>(boost::any_cast<string>(m["Predicates"]));
@@ -39792,6 +39827,7 @@ public:
   shared_ptr<long> configContentLimit{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<bool> configSecretSupported{};
+  shared_ptr<bool> eurekaSupported{};
   shared_ptr<bool> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
   shared_ptr<string> juteMaxbuffer{};
@@ -39846,6 +39882,9 @@ public:
     }
     if (configSecretSupported) {
       res["ConfigSecretSupported"] = boost::any(*configSecretSupported);
+    }
+    if (eurekaSupported) {
+      res["EurekaSupported"] = boost::any(*eurekaSupported);
     }
     if (extendedTypesEnable) {
       res["ExtendedTypesEnable"] = boost::any(*extendedTypesEnable);
@@ -39934,6 +39973,9 @@ public:
     }
     if (m.find("ConfigSecretSupported") != m.end() && !m["ConfigSecretSupported"].empty()) {
       configSecretSupported = make_shared<bool>(boost::any_cast<bool>(m["ConfigSecretSupported"]));
+    }
+    if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
+      eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));
     }
     if (m.find("ExtendedTypesEnable") != m.end() && !m["ExtendedTypesEnable"].empty()) {
       extendedTypesEnable = make_shared<bool>(boost::any_cast<bool>(m["ExtendedTypesEnable"]));

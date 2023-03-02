@@ -329,6 +329,9 @@ AddGatewayRouteResponse Alibabacloud_Mse20190531::Client::addGatewayRouteWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->policies)) {
+    query->insert(pair<string, string>("Policies", *request->policies));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->predicatesShrink)) {
     query->insert(pair<string, string>("Predicates", *request->predicatesShrink));
   }
@@ -337,6 +340,9 @@ AddGatewayRouteResponse Alibabacloud_Mse20190531::Client::addGatewayRouteWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->routeOrder)) {
     query->insert(pair<string, long>("RouteOrder", *request->routeOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeType)) {
+    query->insert(pair<string, string>("RouteType", *request->routeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->servicesShrink)) {
     query->insert(pair<string, string>("Services", *request->servicesShrink));
