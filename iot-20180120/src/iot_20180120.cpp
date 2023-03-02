@@ -2513,9 +2513,6 @@ CreateDownloadDataJobResponse Alibabacloud_Iot20180120::Client::createDownloadDa
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateDownloadDataJobShrinkRequest> request = make_shared<CreateDownloadDataJobShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->context)) {
-    request->contextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->context, make_shared<string>("Context"), make_shared<string>("json")));
-  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->fileConfig)) {
     request->fileConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->fileConfig, make_shared<string>("FileConfig"), make_shared<string>("json")));
   }
@@ -2536,9 +2533,6 @@ CreateDownloadDataJobResponse Alibabacloud_Iot20180120::Client::createDownloadDa
     query->insert(pair<string, string>("TableName", *request->tableName));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->contextShrink)) {
-    body->insert(pair<string, string>("Context", *request->contextShrink));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
     body->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
   }
@@ -9897,6 +9891,39 @@ QueryDevicePropertyStatusResponse Alibabacloud_Iot20180120::Client::queryDeviceP
 QueryDevicePropertyStatusResponse Alibabacloud_Iot20180120::Client::queryDevicePropertyStatus(shared_ptr<QueryDevicePropertyStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryDevicePropertyStatusWithOptions(request, runtime);
+}
+
+QueryDeviceProvisioningResponse Alibabacloud_Iot20180120::Client::queryDeviceProvisioningWithOptions(shared_ptr<QueryDeviceProvisioningRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->deviceName)) {
+    query->insert(pair<string, string>("DeviceName", *request->deviceName));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
+    body->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryDeviceProvisioning"))},
+    {"version", boost::any(string("2018-01-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryDeviceProvisioningResponse(callApi(params, req, runtime));
+}
+
+QueryDeviceProvisioningResponse Alibabacloud_Iot20180120::Client::queryDeviceProvisioning(shared_ptr<QueryDeviceProvisioningRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryDeviceProvisioningWithOptions(request, runtime);
 }
 
 QueryDeviceServiceDataResponse Alibabacloud_Iot20180120::Client::queryDeviceServiceDataWithOptions(shared_ptr<QueryDeviceServiceDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

@@ -14123,7 +14123,6 @@ public:
 };
 class CreateDownloadDataJobRequest : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> context{};
   shared_ptr<string> downloadDataType{};
   shared_ptr<long> endTime{};
   shared_ptr<map<string, boost::any>> fileConfig{};
@@ -14141,9 +14140,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (context) {
-      res["Context"] = boost::any(*context);
-    }
     if (downloadDataType) {
       res["DownloadDataType"] = boost::any(*downloadDataType);
     }
@@ -14166,14 +14162,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Context") != m.end() && !m["Context"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Context"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      context = make_shared<map<string, boost::any>>(toMap1);
-    }
     if (m.find("DownloadDataType") != m.end() && !m["DownloadDataType"].empty()) {
       downloadDataType = make_shared<string>(boost::any_cast<string>(m["DownloadDataType"]));
     }
@@ -14204,7 +14192,6 @@ public:
 };
 class CreateDownloadDataJobShrinkRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> contextShrink{};
   shared_ptr<string> downloadDataType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> fileConfigShrink{};
@@ -14222,9 +14209,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (contextShrink) {
-      res["Context"] = boost::any(*contextShrink);
-    }
     if (downloadDataType) {
       res["DownloadDataType"] = boost::any(*downloadDataType);
     }
@@ -14247,9 +14231,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Context") != m.end() && !m["Context"].empty()) {
-      contextShrink = make_shared<string>(boost::any_cast<string>(m["Context"]));
-    }
     if (m.find("DownloadDataType") != m.end() && !m["DownloadDataType"].empty()) {
       downloadDataType = make_shared<string>(boost::any_cast<string>(m["DownloadDataType"]));
     }
@@ -14273,265 +14254,13 @@ public:
 
   virtual ~CreateDownloadDataJobShrinkRequest() = default;
 };
-class CreateDownloadDataJobResponseBodyDataHeader : public Darabonba::Model {
-public:
-  shared_ptr<string> alias{};
-  shared_ptr<string> dataPrecision{};
-  shared_ptr<string> dimDateClass{};
-  shared_ptr<string> fieldName{};
-  shared_ptr<string> fieldType{};
-  shared_ptr<string> geoClass{};
-  shared_ptr<string> timeClass{};
-  shared_ptr<string> typeClass{};
-
-  CreateDownloadDataJobResponseBodyDataHeader() {}
-
-  explicit CreateDownloadDataJobResponseBodyDataHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (alias) {
-      res["Alias"] = boost::any(*alias);
-    }
-    if (dataPrecision) {
-      res["DataPrecision"] = boost::any(*dataPrecision);
-    }
-    if (dimDateClass) {
-      res["DimDateClass"] = boost::any(*dimDateClass);
-    }
-    if (fieldName) {
-      res["FieldName"] = boost::any(*fieldName);
-    }
-    if (fieldType) {
-      res["FieldType"] = boost::any(*fieldType);
-    }
-    if (geoClass) {
-      res["GeoClass"] = boost::any(*geoClass);
-    }
-    if (timeClass) {
-      res["TimeClass"] = boost::any(*timeClass);
-    }
-    if (typeClass) {
-      res["TypeClass"] = boost::any(*typeClass);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
-      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
-    }
-    if (m.find("DataPrecision") != m.end() && !m["DataPrecision"].empty()) {
-      dataPrecision = make_shared<string>(boost::any_cast<string>(m["DataPrecision"]));
-    }
-    if (m.find("DimDateClass") != m.end() && !m["DimDateClass"].empty()) {
-      dimDateClass = make_shared<string>(boost::any_cast<string>(m["DimDateClass"]));
-    }
-    if (m.find("FieldName") != m.end() && !m["FieldName"].empty()) {
-      fieldName = make_shared<string>(boost::any_cast<string>(m["FieldName"]));
-    }
-    if (m.find("FieldType") != m.end() && !m["FieldType"].empty()) {
-      fieldType = make_shared<string>(boost::any_cast<string>(m["FieldType"]));
-    }
-    if (m.find("GeoClass") != m.end() && !m["GeoClass"].empty()) {
-      geoClass = make_shared<string>(boost::any_cast<string>(m["GeoClass"]));
-    }
-    if (m.find("TimeClass") != m.end() && !m["TimeClass"].empty()) {
-      timeClass = make_shared<string>(boost::any_cast<string>(m["TimeClass"]));
-    }
-    if (m.find("TypeClass") != m.end() && !m["TypeClass"].empty()) {
-      typeClass = make_shared<string>(boost::any_cast<string>(m["TypeClass"]));
-    }
-  }
-
-
-  virtual ~CreateDownloadDataJobResponseBodyDataHeader() = default;
-};
-class CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr : public Darabonba::Model {
-public:
-  shared_ptr<string> expr{};
-  shared_ptr<string> exprType{};
-
-  CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr() {}
-
-  explicit CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (expr) {
-      res["Expr"] = boost::any(*expr);
-    }
-    if (exprType) {
-      res["ExprType"] = boost::any(*exprType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Expr") != m.end() && !m["Expr"].empty()) {
-      expr = make_shared<string>(boost::any_cast<string>(m["Expr"]));
-    }
-    if (m.find("ExprType") != m.end() && !m["ExprType"].empty()) {
-      exprType = make_shared<string>(boost::any_cast<string>(m["ExprType"]));
-    }
-  }
-
-
-  virtual ~CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr() = default;
-};
-class CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders : public Darabonba::Model {
-public:
-  shared_ptr<string> alias{};
-  shared_ptr<string> dimDateClass{};
-  shared_ptr<string> fieldName{};
-  shared_ptr<string> fieldType{};
-  shared_ptr<string> geoClass{};
-  shared_ptr<string> timeClass{};
-
-  CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders() {}
-
-  explicit CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (alias) {
-      res["Alias"] = boost::any(*alias);
-    }
-    if (dimDateClass) {
-      res["DimDateClass"] = boost::any(*dimDateClass);
-    }
-    if (fieldName) {
-      res["FieldName"] = boost::any(*fieldName);
-    }
-    if (fieldType) {
-      res["FieldType"] = boost::any(*fieldType);
-    }
-    if (geoClass) {
-      res["GeoClass"] = boost::any(*geoClass);
-    }
-    if (timeClass) {
-      res["TimeClass"] = boost::any(*timeClass);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
-      alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
-    }
-    if (m.find("DimDateClass") != m.end() && !m["DimDateClass"].empty()) {
-      dimDateClass = make_shared<string>(boost::any_cast<string>(m["DimDateClass"]));
-    }
-    if (m.find("FieldName") != m.end() && !m["FieldName"].empty()) {
-      fieldName = make_shared<string>(boost::any_cast<string>(m["FieldName"]));
-    }
-    if (m.find("FieldType") != m.end() && !m["FieldType"].empty()) {
-      fieldType = make_shared<string>(boost::any_cast<string>(m["FieldType"]));
-    }
-    if (m.find("GeoClass") != m.end() && !m["GeoClass"].empty()) {
-      geoClass = make_shared<string>(boost::any_cast<string>(m["GeoClass"]));
-    }
-    if (m.find("TimeClass") != m.end() && !m["TimeClass"].empty()) {
-      timeClass = make_shared<string>(boost::any_cast<string>(m["TimeClass"]));
-    }
-  }
-
-
-  virtual ~CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders() = default;
-};
-class CreateDownloadDataJobResponseBodyDataQuerySetting : public Darabonba::Model {
-public:
-  shared_ptr<vector<CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr>> astExpr{};
-  shared_ptr<vector<CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders>> selectedHeaders{};
-
-  CreateDownloadDataJobResponseBodyDataQuerySetting() {}
-
-  explicit CreateDownloadDataJobResponseBodyDataQuerySetting(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (astExpr) {
-      vector<boost::any> temp1;
-      for(auto item1:*astExpr){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["AstExpr"] = boost::any(temp1);
-    }
-    if (selectedHeaders) {
-      vector<boost::any> temp1;
-      for(auto item1:*selectedHeaders){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["SelectedHeaders"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AstExpr") != m.end() && !m["AstExpr"].empty()) {
-      if (typeid(vector<boost::any>) == m["AstExpr"].type()) {
-        vector<CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["AstExpr"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        astExpr = make_shared<vector<CreateDownloadDataJobResponseBodyDataQuerySettingAstExpr>>(expect1);
-      }
-    }
-    if (m.find("SelectedHeaders") != m.end() && !m["SelectedHeaders"].empty()) {
-      if (typeid(vector<boost::any>) == m["SelectedHeaders"].type()) {
-        vector<CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["SelectedHeaders"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        selectedHeaders = make_shared<vector<CreateDownloadDataJobResponseBodyDataQuerySettingSelectedHeaders>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~CreateDownloadDataJobResponseBodyDataQuerySetting() = default;
-};
 class CreateDownloadDataJobResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<bool> asyncExecute{};
-  shared_ptr<long> beginTime{};
   shared_ptr<string> csvFileName{};
   shared_ptr<string> csvUrl{};
-  shared_ptr<string> datasetId{};
-  shared_ptr<long> endTime{};
-  shared_ptr<vector<CreateDownloadDataJobResponseBodyDataHeader>> header{};
   shared_ptr<string> longJobId{};
-  shared_ptr<long> pageNo{};
-  shared_ptr<long> pageSize{};
-  shared_ptr<long> previewSize{};
-  shared_ptr<CreateDownloadDataJobResponseBodyDataQuerySetting> querySetting{};
-  shared_ptr<string> resultDataInString{};
   shared_ptr<long> status{};
-  shared_ptr<long> totalCount{};
 
   CreateDownloadDataJobResponseBodyData() {}
 
@@ -14546,51 +14275,17 @@ public:
     if (asyncExecute) {
       res["AsyncExecute"] = boost::any(*asyncExecute);
     }
-    if (beginTime) {
-      res["BeginTime"] = boost::any(*beginTime);
-    }
     if (csvFileName) {
       res["CsvFileName"] = boost::any(*csvFileName);
     }
     if (csvUrl) {
       res["CsvUrl"] = boost::any(*csvUrl);
     }
-    if (datasetId) {
-      res["DatasetId"] = boost::any(*datasetId);
-    }
-    if (endTime) {
-      res["EndTime"] = boost::any(*endTime);
-    }
-    if (header) {
-      vector<boost::any> temp1;
-      for(auto item1:*header){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Header"] = boost::any(temp1);
-    }
     if (longJobId) {
       res["LongJobId"] = boost::any(*longJobId);
     }
-    if (pageNo) {
-      res["PageNo"] = boost::any(*pageNo);
-    }
-    if (pageSize) {
-      res["PageSize"] = boost::any(*pageSize);
-    }
-    if (previewSize) {
-      res["PreviewSize"] = boost::any(*previewSize);
-    }
-    if (querySetting) {
-      res["QuerySetting"] = querySetting ? boost::any(querySetting->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (resultDataInString) {
-      res["ResultDataInString"] = boost::any(*resultDataInString);
-    }
     if (status) {
       res["Status"] = boost::any(*status);
-    }
-    if (totalCount) {
-      res["TotalCount"] = boost::any(*totalCount);
     }
     return res;
   }
@@ -14599,61 +14294,17 @@ public:
     if (m.find("AsyncExecute") != m.end() && !m["AsyncExecute"].empty()) {
       asyncExecute = make_shared<bool>(boost::any_cast<bool>(m["AsyncExecute"]));
     }
-    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
-      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
-    }
     if (m.find("CsvFileName") != m.end() && !m["CsvFileName"].empty()) {
       csvFileName = make_shared<string>(boost::any_cast<string>(m["CsvFileName"]));
     }
     if (m.find("CsvUrl") != m.end() && !m["CsvUrl"].empty()) {
       csvUrl = make_shared<string>(boost::any_cast<string>(m["CsvUrl"]));
     }
-    if (m.find("DatasetId") != m.end() && !m["DatasetId"].empty()) {
-      datasetId = make_shared<string>(boost::any_cast<string>(m["DatasetId"]));
-    }
-    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
-    }
-    if (m.find("Header") != m.end() && !m["Header"].empty()) {
-      if (typeid(vector<boost::any>) == m["Header"].type()) {
-        vector<CreateDownloadDataJobResponseBodyDataHeader> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Header"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            CreateDownloadDataJobResponseBodyDataHeader model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        header = make_shared<vector<CreateDownloadDataJobResponseBodyDataHeader>>(expect1);
-      }
-    }
     if (m.find("LongJobId") != m.end() && !m["LongJobId"].empty()) {
       longJobId = make_shared<string>(boost::any_cast<string>(m["LongJobId"]));
     }
-    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
-      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
-    }
-    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
-    }
-    if (m.find("PreviewSize") != m.end() && !m["PreviewSize"].empty()) {
-      previewSize = make_shared<long>(boost::any_cast<long>(m["PreviewSize"]));
-    }
-    if (m.find("QuerySetting") != m.end() && !m["QuerySetting"].empty()) {
-      if (typeid(map<string, boost::any>) == m["QuerySetting"].type()) {
-        CreateDownloadDataJobResponseBodyDataQuerySetting model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QuerySetting"]));
-        querySetting = make_shared<CreateDownloadDataJobResponseBodyDataQuerySetting>(model1);
-      }
-    }
-    if (m.find("ResultDataInString") != m.end() && !m["ResultDataInString"].empty()) {
-      resultDataInString = make_shared<string>(boost::any_cast<string>(m["ResultDataInString"]));
-    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
-    }
-    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
-      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
@@ -61107,6 +60758,250 @@ public:
 
   virtual ~QueryDevicePropertyStatusResponse() = default;
 };
+class QueryDeviceProvisioningRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> productKey{};
+
+  QueryDeviceProvisioningRequest() {}
+
+  explicit QueryDeviceProvisioningRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~QueryDeviceProvisioningRequest() = default;
+};
+class QueryDeviceProvisioningResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunUid{};
+  shared_ptr<string> deviceName{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<long> gmtModified{};
+  shared_ptr<string> productKey{};
+  shared_ptr<string> sourceIotInstanceId{};
+  shared_ptr<string> sourceRegion{};
+  shared_ptr<string> targetIotInstanceId{};
+  shared_ptr<string> targetRegion{};
+
+  QueryDeviceProvisioningResponseBodyData() {}
+
+  explicit QueryDeviceProvisioningResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunUid) {
+      res["AliyunUid"] = boost::any(*aliyunUid);
+    }
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    if (sourceIotInstanceId) {
+      res["SourceIotInstanceId"] = boost::any(*sourceIotInstanceId);
+    }
+    if (sourceRegion) {
+      res["SourceRegion"] = boost::any(*sourceRegion);
+    }
+    if (targetIotInstanceId) {
+      res["TargetIotInstanceId"] = boost::any(*targetIotInstanceId);
+    }
+    if (targetRegion) {
+      res["TargetRegion"] = boost::any(*targetRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunUid") != m.end() && !m["AliyunUid"].empty()) {
+      aliyunUid = make_shared<string>(boost::any_cast<string>(m["AliyunUid"]));
+    }
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("SourceIotInstanceId") != m.end() && !m["SourceIotInstanceId"].empty()) {
+      sourceIotInstanceId = make_shared<string>(boost::any_cast<string>(m["SourceIotInstanceId"]));
+    }
+    if (m.find("SourceRegion") != m.end() && !m["SourceRegion"].empty()) {
+      sourceRegion = make_shared<string>(boost::any_cast<string>(m["SourceRegion"]));
+    }
+    if (m.find("TargetIotInstanceId") != m.end() && !m["TargetIotInstanceId"].empty()) {
+      targetIotInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetIotInstanceId"]));
+    }
+    if (m.find("TargetRegion") != m.end() && !m["TargetRegion"].empty()) {
+      targetRegion = make_shared<string>(boost::any_cast<string>(m["TargetRegion"]));
+    }
+  }
+
+
+  virtual ~QueryDeviceProvisioningResponseBodyData() = default;
+};
+class QueryDeviceProvisioningResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<QueryDeviceProvisioningResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryDeviceProvisioningResponseBody() {}
+
+  explicit QueryDeviceProvisioningResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        QueryDeviceProvisioningResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<QueryDeviceProvisioningResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryDeviceProvisioningResponseBody() = default;
+};
+class QueryDeviceProvisioningResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryDeviceProvisioningResponseBody> body{};
+
+  QueryDeviceProvisioningResponse() {}
+
+  explicit QueryDeviceProvisioningResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryDeviceProvisioningResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryDeviceProvisioningResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryDeviceProvisioningResponse() = default;
+};
 class QueryDeviceServiceDataRequest : public Darabonba::Model {
 public:
   shared_ptr<long> asc{};
@@ -95165,6 +95060,8 @@ public:
   QueryDevicePropertyDataResponse queryDevicePropertyData(shared_ptr<QueryDevicePropertyDataRequest> request);
   QueryDevicePropertyStatusResponse queryDevicePropertyStatusWithOptions(shared_ptr<QueryDevicePropertyStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryDevicePropertyStatusResponse queryDevicePropertyStatus(shared_ptr<QueryDevicePropertyStatusRequest> request);
+  QueryDeviceProvisioningResponse queryDeviceProvisioningWithOptions(shared_ptr<QueryDeviceProvisioningRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryDeviceProvisioningResponse queryDeviceProvisioning(shared_ptr<QueryDeviceProvisioningRequest> request);
   QueryDeviceServiceDataResponse queryDeviceServiceDataWithOptions(shared_ptr<QueryDeviceServiceDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryDeviceServiceDataResponse queryDeviceServiceData(shared_ptr<QueryDeviceServiceDataRequest> request);
   QueryDeviceSpeechResponse queryDeviceSpeechWithOptions(shared_ptr<QueryDeviceSpeechRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
