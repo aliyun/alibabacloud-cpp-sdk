@@ -27724,6 +27724,7 @@ public:
 class GetMetaTableLineageResponseBodyDataDataEntityList : public Darabonba::Model {
 public:
   shared_ptr<long> createTimestamp{};
+  shared_ptr<string> databaseName{};
   shared_ptr<string> tableGuid{};
   shared_ptr<string> tableName{};
 
@@ -27740,6 +27741,9 @@ public:
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
     }
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
     if (tableGuid) {
       res["TableGuid"] = boost::any(*tableGuid);
     }
@@ -27752,6 +27756,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
     }
     if (m.find("TableGuid") != m.end() && !m["TableGuid"].empty()) {
       tableGuid = make_shared<string>(boost::any_cast<string>(m["TableGuid"]));
@@ -30056,6 +30063,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dqcDescription{};
   shared_ptr<long> dqcType{};
+  shared_ptr<long> fileType{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<string> ownerId{};
@@ -30066,6 +30074,7 @@ public:
   shared_ptr<long> relatedFlowId{};
   shared_ptr<long> repeatInterval{};
   shared_ptr<string> repeatability{};
+  shared_ptr<string> resGroupIdentifier{};
   shared_ptr<string> resGroupName{};
   shared_ptr<string> schedulerType{};
 
@@ -30100,6 +30109,9 @@ public:
     if (dqcType) {
       res["DqcType"] = boost::any(*dqcType);
     }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
@@ -30129,6 +30141,9 @@ public:
     }
     if (repeatability) {
       res["Repeatability"] = boost::any(*repeatability);
+    }
+    if (resGroupIdentifier) {
+      res["ResGroupIdentifier"] = boost::any(*resGroupIdentifier);
     }
     if (resGroupName) {
       res["ResGroupName"] = boost::any(*resGroupName);
@@ -30161,6 +30176,9 @@ public:
     if (m.find("DqcType") != m.end() && !m["DqcType"].empty()) {
       dqcType = make_shared<long>(boost::any_cast<long>(m["DqcType"]));
     }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
     }
@@ -30190,6 +30208,9 @@ public:
     }
     if (m.find("Repeatability") != m.end() && !m["Repeatability"].empty()) {
       repeatability = make_shared<string>(boost::any_cast<string>(m["Repeatability"]));
+    }
+    if (m.find("ResGroupIdentifier") != m.end() && !m["ResGroupIdentifier"].empty()) {
+      resGroupIdentifier = make_shared<string>(boost::any_cast<string>(m["ResGroupIdentifier"]));
     }
     if (m.find("ResGroupName") != m.end() && !m["ResGroupName"].empty()) {
       resGroupName = make_shared<string>(boost::any_cast<string>(m["ResGroupName"]));
@@ -50219,6 +50240,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> dqcDescription{};
   shared_ptr<long> dqcType{};
+  shared_ptr<long> fileType{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
   shared_ptr<string> ownerId{};
@@ -50229,6 +50251,7 @@ public:
   shared_ptr<long> relatedFlowId{};
   shared_ptr<long> repeatInterval{};
   shared_ptr<bool> repeatability{};
+  shared_ptr<string> resGroupIdentifier{};
   shared_ptr<string> resGroupName{};
   shared_ptr<string> schedulerType{};
 
@@ -50263,6 +50286,9 @@ public:
     if (dqcType) {
       res["DqcType"] = boost::any(*dqcType);
     }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
@@ -50292,6 +50318,9 @@ public:
     }
     if (repeatability) {
       res["Repeatability"] = boost::any(*repeatability);
+    }
+    if (resGroupIdentifier) {
+      res["ResGroupIdentifier"] = boost::any(*resGroupIdentifier);
     }
     if (resGroupName) {
       res["ResGroupName"] = boost::any(*resGroupName);
@@ -50324,6 +50353,9 @@ public:
     if (m.find("DqcType") != m.end() && !m["DqcType"].empty()) {
       dqcType = make_shared<long>(boost::any_cast<long>(m["DqcType"]));
     }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
     }
@@ -50353,6 +50385,9 @@ public:
     }
     if (m.find("Repeatability") != m.end() && !m["Repeatability"].empty()) {
       repeatability = make_shared<bool>(boost::any_cast<bool>(m["Repeatability"]));
+    }
+    if (m.find("ResGroupIdentifier") != m.end() && !m["ResGroupIdentifier"].empty()) {
+      resGroupIdentifier = make_shared<string>(boost::any_cast<string>(m["ResGroupIdentifier"]));
     }
     if (m.find("ResGroupName") != m.end() && !m["ResGroupName"].empty()) {
       resGroupName = make_shared<string>(boost::any_cast<string>(m["ResGroupName"]));
@@ -57814,6 +57849,7 @@ class MountDirectoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> targetId{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> targetUserId{};
 
   MountDirectoryRequest() {}
 
@@ -57831,6 +57867,9 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (targetUserId) {
+      res["TargetUserId"] = boost::any(*targetUserId);
+    }
     return res;
   }
 
@@ -57840,6 +57879,9 @@ public:
     }
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TargetUserId") != m.end() && !m["TargetUserId"].empty()) {
+      targetUserId = make_shared<string>(boost::any_cast<string>(m["TargetUserId"]));
     }
   }
 
@@ -63516,6 +63558,7 @@ class UmountDirectoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> targetId{};
   shared_ptr<string> targetType{};
+  shared_ptr<string> targetUserId{};
 
   UmountDirectoryRequest() {}
 
@@ -63533,6 +63576,9 @@ public:
     if (targetType) {
       res["TargetType"] = boost::any(*targetType);
     }
+    if (targetUserId) {
+      res["TargetUserId"] = boost::any(*targetUserId);
+    }
     return res;
   }
 
@@ -63542,6 +63588,9 @@ public:
     }
     if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
       targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+    if (m.find("TargetUserId") != m.end() && !m["TargetUserId"].empty()) {
+      targetUserId = make_shared<string>(boost::any_cast<string>(m["TargetUserId"]));
     }
   }
 

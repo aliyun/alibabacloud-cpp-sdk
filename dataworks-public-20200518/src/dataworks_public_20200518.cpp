@@ -7423,6 +7423,9 @@ MountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::mountDirec
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     body->insert(pair<string, string>("TargetType", *request->targetType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetUserId)) {
+    body->insert(pair<string, string>("TargetUserId", *request->targetUserId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -8507,6 +8510,9 @@ UmountDirectoryResponse Alibabacloud_Dataworks-public20200518::Client::umountDir
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
     body->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetUserId)) {
+    body->insert(pair<string, string>("TargetUserId", *request->targetUserId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
