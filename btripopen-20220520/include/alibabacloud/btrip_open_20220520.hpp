@@ -310,6 +310,7 @@ public:
   shared_ptr<long> actionType{};
   shared_ptr<string> itineraryId{};
   shared_ptr<string> phone{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<long> type{};
   shared_ptr<string> userId{};
 
@@ -332,6 +333,9 @@ public:
     if (phone) {
       res["phone"] = boost::any(*phone);
     }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -350,6 +354,9 @@ public:
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["type"]));

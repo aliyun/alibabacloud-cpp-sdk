@@ -83,6 +83,9 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
     query->insert(pair<string, string>("phone", *request->phone));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
     query->insert(pair<string, long>("type", *request->type));
   }
