@@ -82,6 +82,9 @@ AssumeRoleResponse Alibabacloud_Sts20150401::Client::assumeRoleWithOptions(share
   if (!Darabonba_Util::Client::isUnset<long>(request->durationSeconds)) {
     query->insert(pair<string, long>("DurationSeconds", *request->durationSeconds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalId)) {
+    query->insert(pair<string, string>("ExternalId", *request->externalId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->policy)) {
     query->insert(pair<string, string>("Policy", *request->policy));
   }

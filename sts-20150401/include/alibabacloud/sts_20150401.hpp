@@ -16,6 +16,7 @@ namespace Alibabacloud_Sts20150401 {
 class AssumeRoleRequest : public Darabonba::Model {
 public:
   shared_ptr<long> durationSeconds{};
+  shared_ptr<string> externalId{};
   shared_ptr<string> policy{};
   shared_ptr<string> roleArn{};
   shared_ptr<string> roleSessionName{};
@@ -33,6 +34,9 @@ public:
     if (durationSeconds) {
       res["DurationSeconds"] = boost::any(*durationSeconds);
     }
+    if (externalId) {
+      res["ExternalId"] = boost::any(*externalId);
+    }
     if (policy) {
       res["Policy"] = boost::any(*policy);
     }
@@ -48,6 +52,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DurationSeconds") != m.end() && !m["DurationSeconds"].empty()) {
       durationSeconds = make_shared<long>(boost::any_cast<long>(m["DurationSeconds"]));
+    }
+    if (m.find("ExternalId") != m.end() && !m["ExternalId"].empty()) {
+      externalId = make_shared<string>(boost::any_cast<string>(m["ExternalId"]));
     }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
