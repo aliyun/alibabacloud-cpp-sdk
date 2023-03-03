@@ -1088,6 +1088,7 @@ public:
 class CreateEscalationPlanRequestEscalationPlanRulesEscalationPlanStrategies : public Darabonba::Model {
 public:
   shared_ptr<bool> enableWebhook{};
+  shared_ptr<string> escalationPlanType{};
   shared_ptr<vector<string>> noticeChannels{};
   shared_ptr<vector<long>> noticeObjects{};
   shared_ptr<string> noticeTime{};
@@ -1105,6 +1106,9 @@ public:
     map<string, boost::any> res;
     if (enableWebhook) {
       res["enableWebhook"] = boost::any(*enableWebhook);
+    }
+    if (escalationPlanType) {
+      res["escalationPlanType"] = boost::any(*escalationPlanType);
     }
     if (noticeChannels) {
       res["noticeChannels"] = boost::any(*noticeChannels);
@@ -1124,6 +1128,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("enableWebhook") != m.end() && !m["enableWebhook"].empty()) {
       enableWebhook = make_shared<bool>(boost::any_cast<bool>(m["enableWebhook"]));
+    }
+    if (m.find("escalationPlanType") != m.end() && !m["escalationPlanType"].empty()) {
+      escalationPlanType = make_shared<string>(boost::any_cast<string>(m["escalationPlanType"]));
     }
     if (m.find("noticeChannels") != m.end() && !m["noticeChannels"].empty()) {
       vector<string> toVec1;
