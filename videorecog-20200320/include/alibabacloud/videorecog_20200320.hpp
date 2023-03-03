@@ -218,6 +218,312 @@ public:
 
   virtual ~DetectVideoShotResponse() = default;
 };
+class EvaluateVideoQualityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mode{};
+  shared_ptr<string> videoUrl{};
+
+  EvaluateVideoQualityRequest() {}
+
+  explicit EvaluateVideoQualityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (videoUrl) {
+      res["VideoUrl"] = boost::any(*videoUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityRequest() = default;
+};
+class EvaluateVideoQualityAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mode{};
+  shared_ptr<Darabonba::Stream> videoUrlObject{};
+
+  EvaluateVideoQualityAdvanceRequest() {}
+
+  explicit EvaluateVideoQualityAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
+    if (videoUrlObject) {
+      res["VideoUrl"] = boost::any(*videoUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
+    if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
+      videoUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoUrl"]));
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityAdvanceRequest() = default;
+};
+class EvaluateVideoQualityResponseBodyDataVideoQualityInfo : public Darabonba::Model {
+public:
+  shared_ptr<double> blurriness{};
+  shared_ptr<double> colorContrast{};
+  shared_ptr<double> colorSaturation{};
+  shared_ptr<double> colorfulness{};
+  shared_ptr<double> compressiveStrength{};
+  shared_ptr<double> luminance{};
+  shared_ptr<double> mosScore{};
+  shared_ptr<double> noiseIntensity{};
+
+  EvaluateVideoQualityResponseBodyDataVideoQualityInfo() {}
+
+  explicit EvaluateVideoQualityResponseBodyDataVideoQualityInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blurriness) {
+      res["Blurriness"] = boost::any(*blurriness);
+    }
+    if (colorContrast) {
+      res["ColorContrast"] = boost::any(*colorContrast);
+    }
+    if (colorSaturation) {
+      res["ColorSaturation"] = boost::any(*colorSaturation);
+    }
+    if (colorfulness) {
+      res["Colorfulness"] = boost::any(*colorfulness);
+    }
+    if (compressiveStrength) {
+      res["CompressiveStrength"] = boost::any(*compressiveStrength);
+    }
+    if (luminance) {
+      res["Luminance"] = boost::any(*luminance);
+    }
+    if (mosScore) {
+      res["MosScore"] = boost::any(*mosScore);
+    }
+    if (noiseIntensity) {
+      res["NoiseIntensity"] = boost::any(*noiseIntensity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Blurriness") != m.end() && !m["Blurriness"].empty()) {
+      blurriness = make_shared<double>(boost::any_cast<double>(m["Blurriness"]));
+    }
+    if (m.find("ColorContrast") != m.end() && !m["ColorContrast"].empty()) {
+      colorContrast = make_shared<double>(boost::any_cast<double>(m["ColorContrast"]));
+    }
+    if (m.find("ColorSaturation") != m.end() && !m["ColorSaturation"].empty()) {
+      colorSaturation = make_shared<double>(boost::any_cast<double>(m["ColorSaturation"]));
+    }
+    if (m.find("Colorfulness") != m.end() && !m["Colorfulness"].empty()) {
+      colorfulness = make_shared<double>(boost::any_cast<double>(m["Colorfulness"]));
+    }
+    if (m.find("CompressiveStrength") != m.end() && !m["CompressiveStrength"].empty()) {
+      compressiveStrength = make_shared<double>(boost::any_cast<double>(m["CompressiveStrength"]));
+    }
+    if (m.find("Luminance") != m.end() && !m["Luminance"].empty()) {
+      luminance = make_shared<double>(boost::any_cast<double>(m["Luminance"]));
+    }
+    if (m.find("MosScore") != m.end() && !m["MosScore"].empty()) {
+      mosScore = make_shared<double>(boost::any_cast<double>(m["MosScore"]));
+    }
+    if (m.find("NoiseIntensity") != m.end() && !m["NoiseIntensity"].empty()) {
+      noiseIntensity = make_shared<double>(boost::any_cast<double>(m["NoiseIntensity"]));
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityResponseBodyDataVideoQualityInfo() = default;
+};
+class EvaluateVideoQualityResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> jsonUrl{};
+  shared_ptr<string> pdfUrl{};
+  shared_ptr<EvaluateVideoQualityResponseBodyDataVideoQualityInfo> videoQualityInfo{};
+
+  EvaluateVideoQualityResponseBodyData() {}
+
+  explicit EvaluateVideoQualityResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jsonUrl) {
+      res["JsonUrl"] = boost::any(*jsonUrl);
+    }
+    if (pdfUrl) {
+      res["PdfUrl"] = boost::any(*pdfUrl);
+    }
+    if (videoQualityInfo) {
+      res["VideoQualityInfo"] = videoQualityInfo ? boost::any(videoQualityInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JsonUrl") != m.end() && !m["JsonUrl"].empty()) {
+      jsonUrl = make_shared<string>(boost::any_cast<string>(m["JsonUrl"]));
+    }
+    if (m.find("PdfUrl") != m.end() && !m["PdfUrl"].empty()) {
+      pdfUrl = make_shared<string>(boost::any_cast<string>(m["PdfUrl"]));
+    }
+    if (m.find("VideoQualityInfo") != m.end() && !m["VideoQualityInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VideoQualityInfo"].type()) {
+        EvaluateVideoQualityResponseBodyDataVideoQualityInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VideoQualityInfo"]));
+        videoQualityInfo = make_shared<EvaluateVideoQualityResponseBodyDataVideoQualityInfo>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityResponseBodyData() = default;
+};
+class EvaluateVideoQualityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<EvaluateVideoQualityResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  EvaluateVideoQualityResponseBody() {}
+
+  explicit EvaluateVideoQualityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        EvaluateVideoQualityResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<EvaluateVideoQualityResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityResponseBody() = default;
+};
+class EvaluateVideoQualityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EvaluateVideoQualityResponseBody> body{};
+
+  EvaluateVideoQualityResponse() {}
+
+  explicit EvaluateVideoQualityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EvaluateVideoQualityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EvaluateVideoQualityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EvaluateVideoQualityResponse() = default;
+};
 class GenerateVideoCoverRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> isGif{};
@@ -2220,6 +2526,9 @@ public:
   DetectVideoShotResponse detectVideoShotWithOptions(shared_ptr<DetectVideoShotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetectVideoShotResponse detectVideoShot(shared_ptr<DetectVideoShotRequest> request);
   DetectVideoShotResponse detectVideoShotAdvance(shared_ptr<DetectVideoShotAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EvaluateVideoQualityResponse evaluateVideoQualityWithOptions(shared_ptr<EvaluateVideoQualityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EvaluateVideoQualityResponse evaluateVideoQuality(shared_ptr<EvaluateVideoQualityRequest> request);
+  EvaluateVideoQualityResponse evaluateVideoQualityAdvance(shared_ptr<EvaluateVideoQualityAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoCoverResponse generateVideoCoverWithOptions(shared_ptr<GenerateVideoCoverRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateVideoCoverResponse generateVideoCover(shared_ptr<GenerateVideoCoverRequest> request);
   GenerateVideoCoverResponse generateVideoCoverAdvance(shared_ptr<GenerateVideoCoverAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
