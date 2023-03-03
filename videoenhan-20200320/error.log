@@ -1,6 +1,6 @@
-- PublishError: decb0f4d-04a2-4628-b732-691482cff1db cpp-tea ReleaseReport:
+- PublishError: 89a6e9b0-39ab-4698-82c9-76e914fa2b55 cpp-tea ReleaseReport:
 
-[message] Invalid Version: master
+[message] ReadTimeout(60000). GET https://darabonba.api.aliyun.com/scope/alibabacloud/module/videoenhan20200320/version/1.0.24 failed.
 
 [stdout] undefined
 
