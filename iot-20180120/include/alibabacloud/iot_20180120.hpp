@@ -236,8 +236,11 @@ public:
 };
 class AddShareTaskDeviceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> failSum{};
+  shared_ptr<string> failedResultCsvFile{};
   shared_ptr<long> progress{};
   shared_ptr<string> progressId{};
+  shared_ptr<long> successSum{};
 
   AddShareTaskDeviceResponseBodyData() {}
 
@@ -249,21 +252,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (failSum) {
+      res["FailSum"] = boost::any(*failSum);
+    }
+    if (failedResultCsvFile) {
+      res["FailedResultCsvFile"] = boost::any(*failedResultCsvFile);
+    }
     if (progress) {
       res["Progress"] = boost::any(*progress);
     }
     if (progressId) {
       res["ProgressId"] = boost::any(*progressId);
     }
+    if (successSum) {
+      res["SuccessSum"] = boost::any(*successSum);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailSum") != m.end() && !m["FailSum"].empty()) {
+      failSum = make_shared<long>(boost::any_cast<long>(m["FailSum"]));
+    }
+    if (m.find("FailedResultCsvFile") != m.end() && !m["FailedResultCsvFile"].empty()) {
+      failedResultCsvFile = make_shared<string>(boost::any_cast<string>(m["FailedResultCsvFile"]));
+    }
     if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
       progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
     }
     if (m.find("ProgressId") != m.end() && !m["ProgressId"].empty()) {
       progressId = make_shared<string>(boost::any_cast<string>(m["ProgressId"]));
+    }
+    if (m.find("SuccessSum") != m.end() && !m["SuccessSum"].empty()) {
+      successSum = make_shared<long>(boost::any_cast<long>(m["SuccessSum"]));
     }
   }
 
@@ -35457,6 +35478,215 @@ public:
 
 
   virtual ~GetSceneRuleResponse() = default;
+};
+class GetShareSpeechModelAudioRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> shareTaskId{};
+  shared_ptr<vector<string>> speechModelCodeList{};
+
+  GetShareSpeechModelAudioRequest() {}
+
+  explicit GetShareSpeechModelAudioRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (shareTaskId) {
+      res["ShareTaskId"] = boost::any(*shareTaskId);
+    }
+    if (speechModelCodeList) {
+      res["SpeechModelCodeList"] = boost::any(*speechModelCodeList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ShareTaskId") != m.end() && !m["ShareTaskId"].empty()) {
+      shareTaskId = make_shared<string>(boost::any_cast<string>(m["ShareTaskId"]));
+    }
+    if (m.find("SpeechModelCodeList") != m.end() && !m["SpeechModelCodeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SpeechModelCodeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpeechModelCodeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      speechModelCodeList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetShareSpeechModelAudioRequest() = default;
+};
+class GetShareSpeechModelAudioResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> data{};
+
+  GetShareSpeechModelAudioResponseBodyData() {}
+
+  explicit GetShareSpeechModelAudioResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = boost::any(*data);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["data"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["data"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      data = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetShareSpeechModelAudioResponseBodyData() = default;
+};
+class GetShareSpeechModelAudioResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetShareSpeechModelAudioResponseBodyData> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetShareSpeechModelAudioResponseBody() {}
+
+  explicit GetShareSpeechModelAudioResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetShareSpeechModelAudioResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetShareSpeechModelAudioResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetShareSpeechModelAudioResponseBody() = default;
+};
+class GetShareSpeechModelAudioResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetShareSpeechModelAudioResponseBody> body{};
+
+  GetShareSpeechModelAudioResponse() {}
+
+  explicit GetShareSpeechModelAudioResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetShareSpeechModelAudioResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetShareSpeechModelAudioResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetShareSpeechModelAudioResponse() = default;
 };
 class GetShareTaskByDeviceOpenRequest : public Darabonba::Model {
 public:
@@ -75220,6 +75450,154 @@ public:
 
   virtual ~QuerySpeechDeviceResponse() = default;
 };
+class QuerySpeechLicenseAvailableQuotaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iotInstanceId{};
+
+  QuerySpeechLicenseAvailableQuotaRequest() {}
+
+  explicit QuerySpeechLicenseAvailableQuotaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+  }
+
+
+  virtual ~QuerySpeechLicenseAvailableQuotaRequest() = default;
+};
+class QuerySpeechLicenseAvailableQuotaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QuerySpeechLicenseAvailableQuotaResponseBody() {}
+
+  explicit QuerySpeechLicenseAvailableQuotaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QuerySpeechLicenseAvailableQuotaResponseBody() = default;
+};
+class QuerySpeechLicenseAvailableQuotaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QuerySpeechLicenseAvailableQuotaResponseBody> body{};
+
+  QuerySpeechLicenseAvailableQuotaResponse() {}
+
+  explicit QuerySpeechLicenseAvailableQuotaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QuerySpeechLicenseAvailableQuotaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QuerySpeechLicenseAvailableQuotaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QuerySpeechLicenseAvailableQuotaResponse() = default;
+};
 class QuerySpeechLicenseDeviceListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkGroupId{};
@@ -94880,6 +95258,8 @@ public:
   GetRuleActionResponse getRuleAction(shared_ptr<GetRuleActionRequest> request);
   GetSceneRuleResponse getSceneRuleWithOptions(shared_ptr<GetSceneRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetSceneRuleResponse getSceneRule(shared_ptr<GetSceneRuleRequest> request);
+  GetShareSpeechModelAudioResponse getShareSpeechModelAudioWithOptions(shared_ptr<GetShareSpeechModelAudioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetShareSpeechModelAudioResponse getShareSpeechModelAudio(shared_ptr<GetShareSpeechModelAudioRequest> request);
   GetShareTaskByDeviceOpenResponse getShareTaskByDeviceOpenWithOptions(shared_ptr<GetShareTaskByDeviceOpenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetShareTaskByDeviceOpenResponse getShareTaskByDeviceOpen(shared_ptr<GetShareTaskByDeviceOpenRequest> request);
   GetSoundCodeAudioResponse getSoundCodeAudioWithOptions(shared_ptr<GetSoundCodeAudioRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -95150,6 +95530,8 @@ public:
   QuerySpeechResponse querySpeech(shared_ptr<QuerySpeechRequest> request);
   QuerySpeechDeviceResponse querySpeechDeviceWithOptions(shared_ptr<QuerySpeechDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySpeechDeviceResponse querySpeechDevice(shared_ptr<QuerySpeechDeviceRequest> request);
+  QuerySpeechLicenseAvailableQuotaResponse querySpeechLicenseAvailableQuotaWithOptions(shared_ptr<QuerySpeechLicenseAvailableQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QuerySpeechLicenseAvailableQuotaResponse querySpeechLicenseAvailableQuota(shared_ptr<QuerySpeechLicenseAvailableQuotaRequest> request);
   QuerySpeechLicenseDeviceListResponse querySpeechLicenseDeviceListWithOptions(shared_ptr<QuerySpeechLicenseDeviceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySpeechLicenseDeviceListResponse querySpeechLicenseDeviceList(shared_ptr<QuerySpeechLicenseDeviceListRequest> request);
   QuerySpeechListResponse querySpeechListWithOptions(shared_ptr<QuerySpeechListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
