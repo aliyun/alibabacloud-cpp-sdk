@@ -653,6 +653,9 @@ CreateLogstashResponse Alibabacloud_Elasticsearch20170613::Client::createLogstas
   if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
     body->insert(pair<string, string>("paymentType", *request->paymentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->version)) {
     body->insert(pair<string, string>("version", *request->version));
   }
@@ -696,7 +699,7 @@ CreatePipelinesResponse Alibabacloud_Elasticsearch20170613::Client::createPipeli
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Darabonba_Util::Client::toArray<vector<CreatePipelinesRequestBody>>(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreatePipelines"))},
@@ -3085,6 +3088,36 @@ ListDiagnoseReportIdsResponse Alibabacloud_Elasticsearch20170613::Client::listDi
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listDiagnoseReportIdsWithOptions(InstanceId, request, headers, runtime);
+}
+
+ListDiagnosisItemsResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnosisItemsWithOptions(shared_ptr<ListDiagnosisItemsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("lang", *request->lang));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDiagnosisItems"))},
+    {"version", boost::any(string("2017-06-13"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/openapi/diagnosis/items"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDiagnosisItemsResponse(callApi(params, req, runtime));
+}
+
+ListDiagnosisItemsResponse Alibabacloud_Elasticsearch20170613::Client::listDiagnosisItems(shared_ptr<ListDiagnosisItemsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listDiagnosisItemsWithOptions(request, headers, runtime);
 }
 
 ListDictInformationResponse Alibabacloud_Elasticsearch20170613::Client::listDictInformationWithOptions(shared_ptr<string> InstanceId,
@@ -6122,10 +6155,14 @@ UpdateLogstashDescriptionResponse Alibabacloud_Elasticsearch20170613::Client::up
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
-    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateLogstashDescription"))},
@@ -6794,6 +6831,9 @@ CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanc
   if (!Darabonba_Util::Client::isUnset<ClientNodeConfiguration>(request->clientNodeConfiguration)) {
     body->insert(pair<string, ClientNodeConfiguration>("clientNodeConfiguration", *request->clientNodeConfiguration));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    body->insert(pair<string, string>("description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<ElasticDataNodeConfiguration>(request->elasticDataNodeConfiguration)) {
     body->insert(pair<string, ElasticDataNodeConfiguration>("elasticDataNodeConfiguration", *request->elasticDataNodeConfiguration));
   }
@@ -6827,6 +6867,9 @@ CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanc
   if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
     body->insert(pair<string, string>("paymentType", *request->paymentType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<WarmNodeConfiguration>(request->warmNodeConfiguration)) {
     body->insert(pair<string, WarmNodeConfiguration>("warmNodeConfiguration", *request->warmNodeConfiguration));
   }
@@ -6847,7 +6890,7 @@ CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanc
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return CreateInstanceResponse(callApi(params, req, runtime));
 }
