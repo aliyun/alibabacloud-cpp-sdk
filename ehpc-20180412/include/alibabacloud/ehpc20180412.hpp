@@ -678,6 +678,7 @@ public:
   shared_ptr<long> internetMaxBandWidthOut{};
   shared_ptr<string> jobQueue{};
   shared_ptr<long> minCount{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
   shared_ptr<bool> sync{};
@@ -772,6 +773,9 @@ public:
     }
     if (minCount) {
       res["MinCount"] = boost::any(*minCount);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
     }
     if (period) {
       res["Period"] = boost::any(*period);
@@ -882,6 +886,9 @@ public:
     }
     if (m.find("MinCount") != m.end() && !m["MinCount"].empty()) {
       minCount = make_shared<long>(boost::any_cast<long>(m["MinCount"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
@@ -2472,6 +2479,7 @@ public:
   shared_ptr<string> jobQueue{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> name{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
   shared_ptr<string> osTag{};
   shared_ptr<string> password{};
   shared_ptr<long> period{};
@@ -2594,6 +2602,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
     }
     if (osTag) {
       res["OsTag"] = boost::any(*osTag);
@@ -2792,6 +2803,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
     }
     if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
       osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
@@ -19520,6 +19534,8 @@ public:
   shared_ptr<string> architecture{};
   shared_ptr<string> baseOsTag{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> OSName{};
+  shared_ptr<string> OSNameEn{};
   shared_ptr<string> osTag{};
   shared_ptr<string> platform{};
   shared_ptr<string> version{};
@@ -19543,6 +19559,12 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (OSName) {
+      res["OSName"] = boost::any(*OSName);
+    }
+    if (OSNameEn) {
+      res["OSNameEn"] = boost::any(*OSNameEn);
+    }
     if (osTag) {
       res["OsTag"] = boost::any(*osTag);
     }
@@ -19564,6 +19586,12 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("OSName") != m.end() && !m["OSName"].empty()) {
+      OSName = make_shared<string>(boost::any_cast<string>(m["OSName"]));
+    }
+    if (m.find("OSNameEn") != m.end() && !m["OSNameEn"].empty()) {
+      OSNameEn = make_shared<string>(boost::any_cast<string>(m["OSNameEn"]));
     }
     if (m.find("OsTag") != m.end() && !m["OsTag"].empty()) {
       osTag = make_shared<string>(boost::any_cast<string>(m["OsTag"]));
@@ -31681,8 +31709,52 @@ public:
 
   virtual ~StopVisualServiceResponse() = default;
 };
+class SubmitJobRequestJobRetry : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<long> onExitCode{};
+  shared_ptr<long> priority{};
+
+  SubmitJobRequestJobRetry() {}
+
+  explicit SubmitJobRequestJobRetry(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (onExitCode) {
+      res["OnExitCode"] = boost::any(*onExitCode);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("OnExitCode") != m.end() && !m["OnExitCode"].empty()) {
+      onExitCode = make_shared<long>(boost::any_cast<long>(m["OnExitCode"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+  }
+
+
+  virtual ~SubmitJobRequestJobRetry() = default;
+};
 class SubmitJobRequest : public Darabonba::Model {
 public:
+  shared_ptr<SubmitJobRequestJobRetry> jobRetry{};
   shared_ptr<string> arrayRequest{};
   shared_ptr<bool> async{};
   shared_ptr<string> clockTime{};
@@ -31719,6 +31791,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (jobRetry) {
+      res["JobRetry"] = jobRetry ? boost::any(jobRetry->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (arrayRequest) {
       res["ArrayRequest"] = boost::any(*arrayRequest);
     }
@@ -31798,6 +31873,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobRetry") != m.end() && !m["JobRetry"].empty()) {
+      if (typeid(map<string, boost::any>) == m["JobRetry"].type()) {
+        SubmitJobRequestJobRetry model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["JobRetry"]));
+        jobRetry = make_shared<SubmitJobRequestJobRetry>(model1);
+      }
+    }
     if (m.find("ArrayRequest") != m.end() && !m["ArrayRequest"].empty()) {
       arrayRequest = make_shared<string>(boost::any_cast<string>(m["ArrayRequest"]));
     }
