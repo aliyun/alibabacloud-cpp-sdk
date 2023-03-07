@@ -7956,6 +7956,46 @@ RunTriggerNodeResponse Alibabacloud_Dataworks-public20200518::Client::runTrigger
   return runTriggerNodeWithOptions(request, runtime);
 }
 
+SaveDataServiceApiTestResultResponse Alibabacloud_Dataworks-public20200518::Client::saveDataServiceApiTestResultWithOptions(shared_ptr<SaveDataServiceApiTestResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->apiId)) {
+    body->insert(pair<string, long>("ApiId", *request->apiId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoGenerate)) {
+    body->insert(pair<string, bool>("AutoGenerate", *request->autoGenerate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->failResultSample)) {
+    body->insert(pair<string, string>("FailResultSample", *request->failResultSample));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resultSample)) {
+    body->insert(pair<string, string>("ResultSample", *request->resultSample));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveDataServiceApiTestResult"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveDataServiceApiTestResultResponse(callApi(params, req, runtime));
+}
+
+SaveDataServiceApiTestResultResponse Alibabacloud_Dataworks-public20200518::Client::saveDataServiceApiTestResult(shared_ptr<SaveDataServiceApiTestResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return saveDataServiceApiTestResultWithOptions(request, runtime);
+}
+
 ScanSensitiveDataResponse Alibabacloud_Dataworks-public20200518::Client::scanSensitiveDataWithOptions(shared_ptr<ScanSensitiveDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));

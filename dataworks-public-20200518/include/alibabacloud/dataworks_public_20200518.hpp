@@ -60207,6 +60207,175 @@ public:
 
   virtual ~RunTriggerNodeResponse() = default;
 };
+class SaveDataServiceApiTestResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> apiId{};
+  shared_ptr<bool> autoGenerate{};
+  shared_ptr<string> failResultSample{};
+  shared_ptr<long> projectId{};
+  shared_ptr<string> resultSample{};
+
+  SaveDataServiceApiTestResultRequest() {}
+
+  explicit SaveDataServiceApiTestResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (autoGenerate) {
+      res["AutoGenerate"] = boost::any(*autoGenerate);
+    }
+    if (failResultSample) {
+      res["FailResultSample"] = boost::any(*failResultSample);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (resultSample) {
+      res["ResultSample"] = boost::any(*resultSample);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<long>(boost::any_cast<long>(m["ApiId"]));
+    }
+    if (m.find("AutoGenerate") != m.end() && !m["AutoGenerate"].empty()) {
+      autoGenerate = make_shared<bool>(boost::any_cast<bool>(m["AutoGenerate"]));
+    }
+    if (m.find("FailResultSample") != m.end() && !m["FailResultSample"].empty()) {
+      failResultSample = make_shared<string>(boost::any_cast<string>(m["FailResultSample"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("ResultSample") != m.end() && !m["ResultSample"].empty()) {
+      resultSample = make_shared<string>(boost::any_cast<string>(m["ResultSample"]));
+    }
+  }
+
+
+  virtual ~SaveDataServiceApiTestResultRequest() = default;
+};
+class SaveDataServiceApiTestResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SaveDataServiceApiTestResultResponseBody() {}
+
+  explicit SaveDataServiceApiTestResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SaveDataServiceApiTestResultResponseBody() = default;
+};
+class SaveDataServiceApiTestResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SaveDataServiceApiTestResultResponseBody> body{};
+
+  SaveDataServiceApiTestResultResponse() {}
+
+  explicit SaveDataServiceApiTestResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SaveDataServiceApiTestResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SaveDataServiceApiTestResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SaveDataServiceApiTestResultResponse() = default;
+};
 class ScanSensitiveDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> data{};
@@ -70014,6 +70183,8 @@ public:
   RunSmokeTestResponse runSmokeTest(shared_ptr<RunSmokeTestRequest> request);
   RunTriggerNodeResponse runTriggerNodeWithOptions(shared_ptr<RunTriggerNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunTriggerNodeResponse runTriggerNode(shared_ptr<RunTriggerNodeRequest> request);
+  SaveDataServiceApiTestResultResponse saveDataServiceApiTestResultWithOptions(shared_ptr<SaveDataServiceApiTestResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SaveDataServiceApiTestResultResponse saveDataServiceApiTestResult(shared_ptr<SaveDataServiceApiTestResultRequest> request);
   ScanSensitiveDataResponse scanSensitiveDataWithOptions(shared_ptr<ScanSensitiveDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScanSensitiveDataResponse scanSensitiveData(shared_ptr<ScanSensitiveDataRequest> request);
   SearchMetaTablesResponse searchMetaTablesWithOptions(shared_ptr<SearchMetaTablesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
