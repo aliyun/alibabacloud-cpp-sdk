@@ -8302,6 +8302,7 @@ public:
   shared_ptr<bool> messageQueueGrayEnable{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<bool> recordCanaryDetail{};
   shared_ptr<string> region{};
   shared_ptr<string> source{};
   shared_ptr<long> status{};
@@ -8355,6 +8356,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (recordCanaryDetail) {
+      res["RecordCanaryDetail"] = boost::any(*recordCanaryDetail);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -8411,6 +8415,9 @@ public:
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
+    if (m.find("RecordCanaryDetail") != m.end() && !m["RecordCanaryDetail"].empty()) {
+      recordCanaryDetail = make_shared<bool>(boost::any_cast<bool>(m["RecordCanaryDetail"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
@@ -8428,10 +8435,130 @@ public:
 
   virtual ~CreateOrUpdateSwimmingLaneGroupRequest() = default;
 };
+class CreateOrUpdateSwimmingLaneGroupResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> appIds{};
+  shared_ptr<string> dbGrayEnable{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> entryApp{};
+  shared_ptr<long> id{};
+  shared_ptr<string> messageQueueFilterSide{};
+  shared_ptr<bool> messageQueueGrayEnable{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<bool> recordCanaryDetail{};
+  shared_ptr<string> region{};
+  shared_ptr<string> source{};
+  shared_ptr<long> status{};
+  shared_ptr<string> userId{};
+
+  CreateOrUpdateSwimmingLaneGroupResponseBodyData() {}
+
+  explicit CreateOrUpdateSwimmingLaneGroupResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
+    if (dbGrayEnable) {
+      res["DbGrayEnable"] = boost::any(*dbGrayEnable);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (entryApp) {
+      res["EntryApp"] = boost::any(*entryApp);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (messageQueueFilterSide) {
+      res["MessageQueueFilterSide"] = boost::any(*messageQueueFilterSide);
+    }
+    if (messageQueueGrayEnable) {
+      res["MessageQueueGrayEnable"] = boost::any(*messageQueueGrayEnable);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (recordCanaryDetail) {
+      res["RecordCanaryDetail"] = boost::any(*recordCanaryDetail);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      appIds = make_shared<string>(boost::any_cast<string>(m["AppIds"]));
+    }
+    if (m.find("DbGrayEnable") != m.end() && !m["DbGrayEnable"].empty()) {
+      dbGrayEnable = make_shared<string>(boost::any_cast<string>(m["DbGrayEnable"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("EntryApp") != m.end() && !m["EntryApp"].empty()) {
+      entryApp = make_shared<string>(boost::any_cast<string>(m["EntryApp"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("MessageQueueFilterSide") != m.end() && !m["MessageQueueFilterSide"].empty()) {
+      messageQueueFilterSide = make_shared<string>(boost::any_cast<string>(m["MessageQueueFilterSide"]));
+    }
+    if (m.find("MessageQueueGrayEnable") != m.end() && !m["MessageQueueGrayEnable"].empty()) {
+      messageQueueGrayEnable = make_shared<bool>(boost::any_cast<bool>(m["MessageQueueGrayEnable"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RecordCanaryDetail") != m.end() && !m["RecordCanaryDetail"].empty()) {
+      recordCanaryDetail = make_shared<bool>(boost::any_cast<bool>(m["RecordCanaryDetail"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateSwimmingLaneGroupResponseBodyData() = default;
+};
 class CreateOrUpdateSwimmingLaneGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<boost::any> data{};
+  shared_ptr<CreateOrUpdateSwimmingLaneGroupResponseBodyData> data{};
   shared_ptr<string> dynamicMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<long> httpStatusCode{};
@@ -8453,7 +8580,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (dynamicMessage) {
       res["DynamicMessage"] = boost::any(*dynamicMessage);
@@ -8481,7 +8608,11 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateOrUpdateSwimmingLaneGroupResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateOrUpdateSwimmingLaneGroupResponseBodyData>(model1);
+      }
     }
     if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
       dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
@@ -12391,6 +12522,9 @@ class DeleteSwimmingLaneGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<long> groupId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> region{};
+  shared_ptr<string> name{};
 
   DeleteSwimmingLaneGroupRequest() {}
 
@@ -12408,6 +12542,15 @@ public:
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
     return res;
   }
 
@@ -12417,6 +12560,15 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
   }
 
@@ -37744,10 +37896,130 @@ public:
 
   virtual ~QueryAllSwimmingLaneGroupRequest() = default;
 };
+class QueryAllSwimmingLaneGroupResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> appIds{};
+  shared_ptr<string> dbGrayEnable{};
+  shared_ptr<string> enable{};
+  shared_ptr<string> entryApp{};
+  shared_ptr<long> id{};
+  shared_ptr<string> messageQueueFilterSide{};
+  shared_ptr<bool> messageQueueGrayEnable{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<bool> recordCanaryDetail{};
+  shared_ptr<string> region{};
+  shared_ptr<string> source{};
+  shared_ptr<long> status{};
+  shared_ptr<string> userId{};
+
+  QueryAllSwimmingLaneGroupResponseBodyData() {}
+
+  explicit QueryAllSwimmingLaneGroupResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
+    if (dbGrayEnable) {
+      res["DbGrayEnable"] = boost::any(*dbGrayEnable);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (entryApp) {
+      res["EntryApp"] = boost::any(*entryApp);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (messageQueueFilterSide) {
+      res["MessageQueueFilterSide"] = boost::any(*messageQueueFilterSide);
+    }
+    if (messageQueueGrayEnable) {
+      res["MessageQueueGrayEnable"] = boost::any(*messageQueueGrayEnable);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (recordCanaryDetail) {
+      res["RecordCanaryDetail"] = boost::any(*recordCanaryDetail);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      appIds = make_shared<string>(boost::any_cast<string>(m["AppIds"]));
+    }
+    if (m.find("DbGrayEnable") != m.end() && !m["DbGrayEnable"].empty()) {
+      dbGrayEnable = make_shared<string>(boost::any_cast<string>(m["DbGrayEnable"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<string>(boost::any_cast<string>(m["Enable"]));
+    }
+    if (m.find("EntryApp") != m.end() && !m["EntryApp"].empty()) {
+      entryApp = make_shared<string>(boost::any_cast<string>(m["EntryApp"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("MessageQueueFilterSide") != m.end() && !m["MessageQueueFilterSide"].empty()) {
+      messageQueueFilterSide = make_shared<string>(boost::any_cast<string>(m["MessageQueueFilterSide"]));
+    }
+    if (m.find("MessageQueueGrayEnable") != m.end() && !m["MessageQueueGrayEnable"].empty()) {
+      messageQueueGrayEnable = make_shared<bool>(boost::any_cast<bool>(m["MessageQueueGrayEnable"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RecordCanaryDetail") != m.end() && !m["RecordCanaryDetail"].empty()) {
+      recordCanaryDetail = make_shared<bool>(boost::any_cast<bool>(m["RecordCanaryDetail"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~QueryAllSwimmingLaneGroupResponseBodyData() = default;
+};
 class QueryAllSwimmingLaneGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<boost::any> data{};
+  shared_ptr<vector<QueryAllSwimmingLaneGroupResponseBodyData>> data{};
   shared_ptr<string> dynamicMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<long> httpStatusCode{};
@@ -37769,7 +38041,11 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      res["Data"] = boost::any(*data);
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
     }
     if (dynamicMessage) {
       res["DynamicMessage"] = boost::any(*dynamicMessage);
@@ -37797,7 +38073,17 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryAllSwimmingLaneGroupResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryAllSwimmingLaneGroupResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryAllSwimmingLaneGroupResponseBodyData>>(expect1);
+      }
     }
     if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
       dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));

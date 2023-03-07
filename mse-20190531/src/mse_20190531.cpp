@@ -1362,6 +1362,9 @@ CreateOrUpdateSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->recordCanaryDetail)) {
+    query->insert(pair<string, bool>("RecordCanaryDetail", *request->recordCanaryDetail));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
@@ -2061,6 +2064,15 @@ DeleteSwimmingLaneGroupResponse Alibabacloud_Mse20190531::Client::deleteSwimming
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     query->insert(pair<string, long>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
+    query->insert(pair<string, string>("Region", *request->region));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
