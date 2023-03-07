@@ -26776,6 +26776,232 @@ public:
 
   virtual ~QueryResellerAvailableQuotaResponse() = default;
 };
+class QueryResellerUserAlarmThresholdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alarmType{};
+  shared_ptr<long> ownerId{};
+
+  QueryResellerUserAlarmThresholdRequest() {}
+
+  explicit QueryResellerUserAlarmThresholdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmType) {
+      res["AlarmType"] = boost::any(*alarmType);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmType") != m.end() && !m["AlarmType"].empty()) {
+      alarmType = make_shared<string>(boost::any_cast<string>(m["AlarmType"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+  }
+
+
+  virtual ~QueryResellerUserAlarmThresholdRequest() = default;
+};
+class QueryResellerUserAlarmThresholdResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> denominator{};
+  shared_ptr<long> numerator{};
+  shared_ptr<string> thresholdAmount{};
+  shared_ptr<long> thresholdType{};
+
+  QueryResellerUserAlarmThresholdResponseBodyData() {}
+
+  explicit QueryResellerUserAlarmThresholdResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (denominator) {
+      res["Denominator"] = boost::any(*denominator);
+    }
+    if (numerator) {
+      res["Numerator"] = boost::any(*numerator);
+    }
+    if (thresholdAmount) {
+      res["ThresholdAmount"] = boost::any(*thresholdAmount);
+    }
+    if (thresholdType) {
+      res["ThresholdType"] = boost::any(*thresholdType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Denominator") != m.end() && !m["Denominator"].empty()) {
+      denominator = make_shared<long>(boost::any_cast<long>(m["Denominator"]));
+    }
+    if (m.find("Numerator") != m.end() && !m["Numerator"].empty()) {
+      numerator = make_shared<long>(boost::any_cast<long>(m["Numerator"]));
+    }
+    if (m.find("ThresholdAmount") != m.end() && !m["ThresholdAmount"].empty()) {
+      thresholdAmount = make_shared<string>(boost::any_cast<string>(m["ThresholdAmount"]));
+    }
+    if (m.find("ThresholdType") != m.end() && !m["ThresholdType"].empty()) {
+      thresholdType = make_shared<long>(boost::any_cast<long>(m["ThresholdType"]));
+    }
+  }
+
+
+  virtual ~QueryResellerUserAlarmThresholdResponseBodyData() = default;
+};
+class QueryResellerUserAlarmThresholdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> count{};
+  shared_ptr<vector<QueryResellerUserAlarmThresholdResponseBodyData>> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryResellerUserAlarmThresholdResponseBody() {}
+
+  explicit QueryResellerUserAlarmThresholdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<QueryResellerUserAlarmThresholdResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryResellerUserAlarmThresholdResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<QueryResellerUserAlarmThresholdResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryResellerUserAlarmThresholdResponseBody() = default;
+};
+class QueryResellerUserAlarmThresholdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryResellerUserAlarmThresholdResponseBody> body{};
+
+  QueryResellerUserAlarmThresholdResponse() {}
+
+  explicit QueryResellerUserAlarmThresholdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryResellerUserAlarmThresholdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryResellerUserAlarmThresholdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryResellerUserAlarmThresholdResponse() = default;
+};
 class QueryResourcePackageInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> expiryTimeEnd{};
@@ -28013,6 +28239,7 @@ public:
   shared_ptr<long> pageNum{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
   shared_ptr<vector<QuerySavingsPlansInstanceRequestTag>> tag{};
 
   QuerySavingsPlansInstanceRequest() {}
@@ -28043,6 +28270,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -28071,6 +28301,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
@@ -34064,6 +34297,8 @@ public:
   QueryRelationListResponse queryRelationList(shared_ptr<QueryRelationListRequest> request);
   QueryResellerAvailableQuotaResponse queryResellerAvailableQuotaWithOptions(shared_ptr<QueryResellerAvailableQuotaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryResellerAvailableQuotaResponse queryResellerAvailableQuota(shared_ptr<QueryResellerAvailableQuotaRequest> request);
+  QueryResellerUserAlarmThresholdResponse queryResellerUserAlarmThresholdWithOptions(shared_ptr<QueryResellerUserAlarmThresholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryResellerUserAlarmThresholdResponse queryResellerUserAlarmThreshold(shared_ptr<QueryResellerUserAlarmThresholdRequest> request);
   QueryResourcePackageInstancesResponse queryResourcePackageInstancesWithOptions(shared_ptr<QueryResourcePackageInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryResourcePackageInstancesResponse queryResourcePackageInstances(shared_ptr<QueryResourcePackageInstancesRequest> request);
   QuerySavingsPlansDeductLogResponse querySavingsPlansDeductLogWithOptions(shared_ptr<QuerySavingsPlansDeductLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

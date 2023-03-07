@@ -3117,6 +3117,37 @@ QueryResellerAvailableQuotaResponse Alibabacloud_BssOpenApi20171214::Client::que
   return queryResellerAvailableQuotaWithOptions(request, runtime);
 }
 
+QueryResellerUserAlarmThresholdResponse Alibabacloud_BssOpenApi20171214::Client::queryResellerUserAlarmThresholdWithOptions(shared_ptr<QueryResellerUserAlarmThresholdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alarmType)) {
+    query->insert(pair<string, string>("AlarmType", *request->alarmType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryResellerUserAlarmThreshold"))},
+    {"version", boost::any(string("2017-12-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryResellerUserAlarmThresholdResponse(callApi(params, req, runtime));
+}
+
+QueryResellerUserAlarmThresholdResponse Alibabacloud_BssOpenApi20171214::Client::queryResellerUserAlarmThreshold(shared_ptr<QueryResellerUserAlarmThresholdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryResellerUserAlarmThresholdWithOptions(request, runtime);
+}
+
 QueryResourcePackageInstancesResponse Alibabacloud_BssOpenApi20171214::Client::queryResourcePackageInstancesWithOptions(shared_ptr<QueryResourcePackageInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3254,6 +3285,9 @@ QuerySavingsPlansInstanceResponse Alibabacloud_BssOpenApi20171214::Client::query
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
   }
   if (!Darabonba_Util::Client::isUnset<vector<QuerySavingsPlansInstanceRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<QuerySavingsPlansInstanceRequestTag>>("Tag", *request->tag));
