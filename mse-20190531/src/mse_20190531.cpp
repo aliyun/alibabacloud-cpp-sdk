@@ -3241,6 +3241,12 @@ ImportServicesResponse Alibabacloud_Mse20190531::Client::importServicesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fcServiceName)) {
+    query->insert(pair<string, string>("FcServiceName", *request->fcServiceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fcVersion)) {
+    query->insert(pair<string, string>("FcVersion", *request->fcVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
