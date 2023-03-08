@@ -1067,6 +1067,7 @@ public:
   shared_ptr<string> failReason{};
   shared_ptr<string> subtitlesUrl{};
   shared_ptr<string> videoUrl{};
+  shared_ptr<string> wordSubtitlesUrl{};
 
   GetVideoTaskInfoResponseBodyDataTaskResult() {}
 
@@ -1090,6 +1091,9 @@ public:
     if (videoUrl) {
       res["VideoUrl"] = boost::any(*videoUrl);
     }
+    if (wordSubtitlesUrl) {
+      res["WordSubtitlesUrl"] = boost::any(*wordSubtitlesUrl);
+    }
     return res;
   }
 
@@ -1105,6 +1109,9 @@ public:
     }
     if (m.find("VideoUrl") != m.end() && !m["VideoUrl"].empty()) {
       videoUrl = make_shared<string>(boost::any_cast<string>(m["VideoUrl"]));
+    }
+    if (m.find("WordSubtitlesUrl") != m.end() && !m["WordSubtitlesUrl"].empty()) {
+      wordSubtitlesUrl = make_shared<string>(boost::any_cast<string>(m["WordSubtitlesUrl"]));
     }
   }
 
