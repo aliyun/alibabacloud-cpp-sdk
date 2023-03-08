@@ -1791,45 +1791,8 @@ public:
 
   virtual ~ListResourceTypesRequest() = default;
 };
-class ListResourceTypesResponseBodyResourceTypesCodeMapping : public Darabonba::Model {
-public:
-  shared_ptr<string> resourceGroup{};
-  shared_ptr<string> tag{};
-
-  ListResourceTypesResponseBodyResourceTypesCodeMapping() {}
-
-  explicit ListResourceTypesResponseBodyResourceTypesCodeMapping(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resourceGroup) {
-      res["ResourceGroup"] = boost::any(*resourceGroup);
-    }
-    if (tag) {
-      res["Tag"] = boost::any(*tag);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ResourceGroup") != m.end() && !m["ResourceGroup"].empty()) {
-      resourceGroup = make_shared<string>(boost::any_cast<string>(m["ResourceGroup"]));
-    }
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
-    }
-  }
-
-
-  virtual ~ListResourceTypesResponseBodyResourceTypesCodeMapping() = default;
-};
 class ListResourceTypesResponseBodyResourceTypes : public Darabonba::Model {
 public:
-  shared_ptr<ListResourceTypesResponseBodyResourceTypesCodeMapping> codeMapping{};
   shared_ptr<vector<string>> filterKeys{};
   shared_ptr<string> productName{};
   shared_ptr<string> resourceType{};
@@ -1845,9 +1808,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (codeMapping) {
-      res["CodeMapping"] = codeMapping ? boost::any(codeMapping->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (filterKeys) {
       res["FilterKeys"] = boost::any(*filterKeys);
     }
@@ -1864,13 +1824,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CodeMapping") != m.end() && !m["CodeMapping"].empty()) {
-      if (typeid(map<string, boost::any>) == m["CodeMapping"].type()) {
-        ListResourceTypesResponseBodyResourceTypesCodeMapping model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CodeMapping"]));
-        codeMapping = make_shared<ListResourceTypesResponseBodyResourceTypesCodeMapping>(model1);
-      }
-    }
     if (m.find("FilterKeys") != m.end() && !m["FilterKeys"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["FilterKeys"].type()) {
