@@ -5719,6 +5719,7 @@ public:
   shared_ptr<long> entityLevel{};
   shared_ptr<string> envType{};
   shared_ptr<string> matchExpression{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> tableName{};
 
@@ -5741,6 +5742,9 @@ public:
     if (matchExpression) {
       res["MatchExpression"] = boost::any(*matchExpression);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -5759,6 +5763,9 @@ public:
     }
     if (m.find("MatchExpression") != m.end() && !m["MatchExpression"].empty()) {
       matchExpression = make_shared<string>(boost::any_cast<string>(m["MatchExpression"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -5902,6 +5909,7 @@ public:
   shared_ptr<long> alarmMode{};
   shared_ptr<long> entityId{};
   shared_ptr<string> follower{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   CreateQualityFollowerRequest() {}
@@ -5923,6 +5931,9 @@ public:
     if (follower) {
       res["Follower"] = boost::any(*follower);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -5938,6 +5949,9 @@ public:
     }
     if (m.find("Follower") != m.end() && !m["Follower"].empty()) {
       follower = make_shared<string>(boost::any_cast<string>(m["Follower"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -6288,6 +6302,7 @@ public:
   shared_ptr<string> methodName{};
   shared_ptr<string> operator_{};
   shared_ptr<long> predictType{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> property{};
   shared_ptr<string> propertyType{};
@@ -6334,6 +6349,9 @@ public:
     }
     if (predictType) {
       res["PredictType"] = boost::any(*predictType);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
@@ -6392,6 +6410,9 @@ public:
     }
     if (m.find("PredictType") != m.end() && !m["PredictType"].empty()) {
       predictType = make_shared<long>(boost::any_cast<long>(m["PredictType"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -10065,6 +10086,7 @@ class DeleteQualityEntityRequest : public Darabonba::Model {
 public:
   shared_ptr<long> entityId{};
   shared_ptr<string> envType{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   DeleteQualityEntityRequest() {}
@@ -10083,6 +10105,9 @@ public:
     if (envType) {
       res["EnvType"] = boost::any(*envType);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -10095,6 +10120,9 @@ public:
     }
     if (m.find("EnvType") != m.end() && !m["EnvType"].empty()) {
       envType = make_shared<string>(boost::any_cast<string>(m["EnvType"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -10233,6 +10261,7 @@ public:
 class DeleteQualityFollowerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> followerId{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   DeleteQualityFollowerRequest() {}
@@ -10248,6 +10277,9 @@ public:
     if (followerId) {
       res["FollowerId"] = boost::any(*followerId);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -10257,6 +10289,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("FollowerId") != m.end() && !m["FollowerId"].empty()) {
       followerId = make_shared<long>(boost::any_cast<long>(m["FollowerId"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -10598,6 +10633,7 @@ public:
 };
 class DeleteQualityRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<long> ruleId{};
 
@@ -10611,6 +10647,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -10621,6 +10660,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
@@ -33407,6 +33449,7 @@ class GetQualityEntityRequest : public Darabonba::Model {
 public:
   shared_ptr<string> envType{};
   shared_ptr<string> matchExpression{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> tableName{};
 
@@ -33426,6 +33469,9 @@ public:
     if (matchExpression) {
       res["MatchExpression"] = boost::any(*matchExpression);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -33441,6 +33487,9 @@ public:
     }
     if (m.find("MatchExpression") != m.end() && !m["MatchExpression"].empty()) {
       matchExpression = make_shared<string>(boost::any_cast<string>(m["MatchExpression"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -33730,6 +33779,7 @@ public:
 class GetQualityFollowerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> entityId{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   GetQualityFollowerRequest() {}
@@ -33745,6 +33795,9 @@ public:
     if (entityId) {
       res["EntityId"] = boost::any(*entityId);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -33754,6 +33807,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
       entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -33990,6 +34046,7 @@ public:
 };
 class GetQualityRuleRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<long> ruleId{};
 
@@ -34003,6 +34060,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -34013,6 +34073,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
@@ -53005,6 +53068,7 @@ public:
   shared_ptr<long> entityId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> startDate{};
 
@@ -53030,6 +53094,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -53051,6 +53118,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -53699,6 +53769,7 @@ public:
   shared_ptr<string> endDate{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<long> ruleId{};
   shared_ptr<string> startDate{};
@@ -53722,6 +53793,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -53743,6 +53817,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -54401,6 +54478,7 @@ public:
   shared_ptr<long> entityId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   ListQualityRulesRequest() {}
@@ -54422,6 +54500,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -54437,6 +54518,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -67442,6 +67526,7 @@ public:
   shared_ptr<long> alarmMode{};
   shared_ptr<string> follower{};
   shared_ptr<long> followerId{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
 
   UpdateQualityFollowerRequest() {}
@@ -67463,6 +67548,9 @@ public:
     if (followerId) {
       res["FollowerId"] = boost::any(*followerId);
     }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -67478,6 +67566,9 @@ public:
     }
     if (m.find("FollowerId") != m.end() && !m["FollowerId"].empty()) {
       followerId = make_shared<long>(boost::any_cast<long>(m["FollowerId"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
@@ -67626,6 +67717,7 @@ public:
   shared_ptr<bool> openSwitch{};
   shared_ptr<string> operator_{};
   shared_ptr<long> predictType{};
+  shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
   shared_ptr<string> property{};
   shared_ptr<string> propertyType{};
@@ -67678,6 +67770,9 @@ public:
     }
     if (predictType) {
       res["PredictType"] = boost::any(*predictType);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
@@ -67742,6 +67837,9 @@ public:
     }
     if (m.find("PredictType") != m.end() && !m["PredictType"].empty()) {
       predictType = make_shared<long>(boost::any_cast<long>(m["PredictType"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));

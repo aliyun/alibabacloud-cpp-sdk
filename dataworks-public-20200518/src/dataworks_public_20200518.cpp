@@ -1441,6 +1441,9 @@ CreateQualityEntityResponse Alibabacloud_Dataworks-public20200518::Client::creat
   if (!Darabonba_Util::Client::isUnset<string>(request->matchExpression)) {
     body->insert(pair<string, string>("MatchExpression", *request->matchExpression));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -1480,6 +1483,9 @@ CreateQualityFollowerResponse Alibabacloud_Dataworks-public20200518::Client::cre
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->follower)) {
     body->insert(pair<string, string>("Follower", *request->follower));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -1584,6 +1590,9 @@ CreateQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::createQ
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->predictType)) {
     body->insert(pair<string, long>("PredictType", *request->predictType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -2378,6 +2387,9 @@ DeleteQualityEntityResponse Alibabacloud_Dataworks-public20200518::Client::delet
   if (!Darabonba_Util::Client::isUnset<string>(request->envType)) {
     body->insert(pair<string, string>("EnvType", *request->envType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -2408,6 +2420,9 @@ DeleteQualityFollowerResponse Alibabacloud_Dataworks-public20200518::Client::del
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->followerId)) {
     body->insert(pair<string, long>("FollowerId", *request->followerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -2486,6 +2501,9 @@ DeleteQualityRelativeNodeResponse Alibabacloud_Dataworks-public20200518::Client:
 DeleteQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::deleteQualityRuleWithOptions(shared_ptr<DeleteQualityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -4910,6 +4928,9 @@ GetQualityEntityResponse Alibabacloud_Dataworks-public20200518::Client::getQuali
   if (!Darabonba_Util::Client::isUnset<string>(request->matchExpression)) {
     body->insert(pair<string, string>("MatchExpression", *request->matchExpression));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -4944,6 +4965,9 @@ GetQualityFollowerResponse Alibabacloud_Dataworks-public20200518::Client::getQua
   if (!Darabonba_Util::Client::isUnset<long>(request->entityId)) {
     body->insert(pair<string, long>("EntityId", *request->entityId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -4972,6 +4996,9 @@ GetQualityFollowerResponse Alibabacloud_Dataworks-public20200518::Client::getQua
 GetQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::getQualityRuleWithOptions(shared_ptr<GetQualityRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -6971,6 +6998,9 @@ ListQualityResultsByEntityResponse Alibabacloud_Dataworks-public20200518::Client
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -7010,6 +7040,9 @@ ListQualityResultsByRuleResponse Alibabacloud_Dataworks-public20200518::Client::
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -7053,6 +7086,9 @@ ListQualityRulesResponse Alibabacloud_Dataworks-public20200518::Client::listQual
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
@@ -9382,6 +9418,9 @@ UpdateQualityFollowerResponse Alibabacloud_Dataworks-public20200518::Client::upd
   if (!Darabonba_Util::Client::isUnset<long>(request->followerId)) {
     body->insert(pair<string, long>("FollowerId", *request->followerId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
   }
@@ -9442,6 +9481,9 @@ UpdateQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::updateQ
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->predictType)) {
     body->insert(pair<string, long>("PredictType", *request->predictType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
