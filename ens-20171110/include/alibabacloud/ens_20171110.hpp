@@ -4302,7 +4302,7 @@ public:
   shared_ptr<string> deleteAfterImageUpload{};
   shared_ptr<string> imageName{};
   shared_ptr<string> instanceId{};
-  shared_ptr<string> product{};
+  shared_ptr<string> snapshotId{};
 
   CreateImageRequest() {}
 
@@ -4323,8 +4323,8 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
-    if (product) {
-      res["product"] = boost::any(*product);
+    if (snapshotId) {
+      res["SnapshotId"] = boost::any(*snapshotId);
     }
     return res;
   }
@@ -4339,8 +4339,8 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
-    if (m.find("product") != m.end() && !m["product"].empty()) {
-      product = make_shared<string>(boost::any_cast<string>(m["product"]));
+    if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
     }
   }
 
@@ -7810,6 +7810,133 @@ public:
 
 
   virtual ~DeleteDeviceInternetPortResponse() = default;
+};
+class DeleteDiskRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> diskId{};
+
+  DeleteDiskRequest() {}
+
+  explicit DeleteDiskRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (diskId) {
+      res["DiskId"] = boost::any(*diskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
+      diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
+    }
+  }
+
+
+  virtual ~DeleteDiskRequest() = default;
+};
+class DeleteDiskResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> requestId{};
+
+  DeleteDiskResponseBody() {}
+
+  explicit DeleteDiskResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDiskResponseBody() = default;
+};
+class DeleteDiskResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDiskResponseBody> body{};
+
+  DeleteDiskResponse() {}
+
+  explicit DeleteDiskResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDiskResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDiskResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDiskResponse() = default;
 };
 class DeleteEnsRouteEntryRequest : public Darabonba::Model {
 public:
@@ -36382,6 +36509,239 @@ public:
 
   virtual ~GetOssStorageAndAccByBucketsResponse() = default;
 };
+class GetOssUsageDataRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bucket{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> period{};
+  shared_ptr<string> startTime{};
+
+  GetOssUsageDataRequest() {}
+
+  explicit GetOssUsageDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bucket) {
+      res["Bucket"] = boost::any(*bucket);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bucket") != m.end() && !m["Bucket"].empty()) {
+      bucket = make_shared<string>(boost::any_cast<string>(m["Bucket"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~GetOssUsageDataRequest() = default;
+};
+class GetOssUsageDataResponseBodyUsageList : public Darabonba::Model {
+public:
+  shared_ptr<long> lanRxBw{};
+  shared_ptr<long> lanTxBw{};
+  shared_ptr<long> point{};
+  shared_ptr<string> pointTs{};
+  shared_ptr<long> storageUsageByte{};
+  shared_ptr<long> wanRxBw{};
+  shared_ptr<long> wanTxBw{};
+
+  GetOssUsageDataResponseBodyUsageList() {}
+
+  explicit GetOssUsageDataResponseBodyUsageList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (lanRxBw) {
+      res["LanRxBw"] = boost::any(*lanRxBw);
+    }
+    if (lanTxBw) {
+      res["LanTxBw"] = boost::any(*lanTxBw);
+    }
+    if (point) {
+      res["Point"] = boost::any(*point);
+    }
+    if (pointTs) {
+      res["PointTs"] = boost::any(*pointTs);
+    }
+    if (storageUsageByte) {
+      res["StorageUsageByte"] = boost::any(*storageUsageByte);
+    }
+    if (wanRxBw) {
+      res["WanRxBw"] = boost::any(*wanRxBw);
+    }
+    if (wanTxBw) {
+      res["WanTxBw"] = boost::any(*wanTxBw);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LanRxBw") != m.end() && !m["LanRxBw"].empty()) {
+      lanRxBw = make_shared<long>(boost::any_cast<long>(m["LanRxBw"]));
+    }
+    if (m.find("LanTxBw") != m.end() && !m["LanTxBw"].empty()) {
+      lanTxBw = make_shared<long>(boost::any_cast<long>(m["LanTxBw"]));
+    }
+    if (m.find("Point") != m.end() && !m["Point"].empty()) {
+      point = make_shared<long>(boost::any_cast<long>(m["Point"]));
+    }
+    if (m.find("PointTs") != m.end() && !m["PointTs"].empty()) {
+      pointTs = make_shared<string>(boost::any_cast<string>(m["PointTs"]));
+    }
+    if (m.find("StorageUsageByte") != m.end() && !m["StorageUsageByte"].empty()) {
+      storageUsageByte = make_shared<long>(boost::any_cast<long>(m["StorageUsageByte"]));
+    }
+    if (m.find("WanRxBw") != m.end() && !m["WanRxBw"].empty()) {
+      wanRxBw = make_shared<long>(boost::any_cast<long>(m["WanRxBw"]));
+    }
+    if (m.find("WanTxBw") != m.end() && !m["WanTxBw"].empty()) {
+      wanTxBw = make_shared<long>(boost::any_cast<long>(m["WanTxBw"]));
+    }
+  }
+
+
+  virtual ~GetOssUsageDataResponseBodyUsageList() = default;
+};
+class GetOssUsageDataResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetOssUsageDataResponseBodyUsageList>> usageList{};
+
+  GetOssUsageDataResponseBody() {}
+
+  explicit GetOssUsageDataResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (usageList) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsageList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UsageList") != m.end() && !m["UsageList"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsageList"].type()) {
+        vector<GetOssUsageDataResponseBodyUsageList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsageList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetOssUsageDataResponseBodyUsageList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageList = make_shared<vector<GetOssUsageDataResponseBodyUsageList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetOssUsageDataResponseBody() = default;
+};
+class GetOssUsageDataResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetOssUsageDataResponseBody> body{};
+
+  GetOssUsageDataResponse() {}
+
+  explicit GetOssUsageDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetOssUsageDataResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetOssUsageDataResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetOssUsageDataResponse() = default;
+};
 class ImportKeyPairRequest : public Darabonba::Model {
 public:
   shared_ptr<string> keyPairName{};
@@ -47921,6 +48281,8 @@ public:
   DeleteApplicationResponse deleteApplication(shared_ptr<DeleteApplicationRequest> request);
   DeleteDeviceInternetPortResponse deleteDeviceInternetPortWithOptions(shared_ptr<DeleteDeviceInternetPortRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDeviceInternetPortResponse deleteDeviceInternetPort(shared_ptr<DeleteDeviceInternetPortRequest> request);
+  DeleteDiskResponse deleteDiskWithOptions(shared_ptr<DeleteDiskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDiskResponse deleteDisk(shared_ptr<DeleteDiskRequest> request);
   DeleteEnsRouteEntryResponse deleteEnsRouteEntryWithOptions(shared_ptr<DeleteEnsRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEnsRouteEntryResponse deleteEnsRouteEntry(shared_ptr<DeleteEnsRouteEntryRequest> request);
   DeleteEpnInstanceResponse deleteEpnInstanceWithOptions(shared_ptr<DeleteEpnInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -48113,6 +48475,8 @@ public:
   GetDeviceInternetPortResponse getDeviceInternetPort(shared_ptr<GetDeviceInternetPortRequest> request);
   GetOssStorageAndAccByBucketsResponse getOssStorageAndAccByBucketsWithOptions(shared_ptr<GetOssStorageAndAccByBucketsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOssStorageAndAccByBucketsResponse getOssStorageAndAccByBuckets(shared_ptr<GetOssStorageAndAccByBucketsRequest> request);
+  GetOssUsageDataResponse getOssUsageDataWithOptions(shared_ptr<GetOssUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetOssUsageDataResponse getOssUsageData(shared_ptr<GetOssUsageDataRequest> request);
   ImportKeyPairResponse importKeyPairWithOptions(shared_ptr<ImportKeyPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImportKeyPairResponse importKeyPair(shared_ptr<ImportKeyPairRequest> request);
   JoinPublicIpsToEpnInstanceResponse joinPublicIpsToEpnInstanceWithOptions(shared_ptr<JoinPublicIpsToEpnInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
