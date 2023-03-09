@@ -366,6 +366,34 @@ DescribeRegionsResponse Alibabacloud_Adcp20220101::Client::describeRegions(share
   return describeRegionsWithOptions(request, runtime);
 }
 
+DescribeUserPermissionsResponse Alibabacloud_Adcp20220101::Client::describeUserPermissionsWithOptions(shared_ptr<DescribeUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeUserPermissions"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeUserPermissionsResponse(callApi(params, req, runtime));
+}
+
+DescribeUserPermissionsResponse Alibabacloud_Adcp20220101::Client::describeUserPermissions(shared_ptr<DescribeUserPermissionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeUserPermissionsWithOptions(request, runtime);
+}
+
 DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -400,6 +428,37 @@ DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFro
 DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detachClusterFromHubWithOptions(request, runtime);
+}
+
+GrantUserPermissionsResponse Alibabacloud_Adcp20220101::Client::grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<GrantUserPermissionsRequestPermissions>>(request->permissions)) {
+    query->insert(pair<string, vector<GrantUserPermissionsRequestPermissions>>("Permissions", *request->permissions));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
+    query->insert(pair<string, string>("UserId", *request->userId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GrantUserPermissions"))},
+    {"version", boost::any(string("2022-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GrantUserPermissionsResponse(callApi(params, req, runtime));
+}
+
+GrantUserPermissionsResponse Alibabacloud_Adcp20220101::Client::grantUserPermissions(shared_ptr<GrantUserPermissionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return grantUserPermissionsWithOptions(request, runtime);
 }
 
 UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

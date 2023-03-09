@@ -2854,6 +2854,211 @@ public:
 
   virtual ~DescribeRegionsResponse() = default;
 };
+class DescribeUserPermissionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> userId{};
+
+  DescribeUserPermissionsRequest() {}
+
+  explicit DescribeUserPermissionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeUserPermissionsRequest() = default;
+};
+class DescribeUserPermissionsResponseBodyPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> parentId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> roleType{};
+
+  DescribeUserPermissionsResponseBodyPermissions() {}
+
+  explicit DescribeUserPermissionsResponseBodyPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (parentId) {
+      res["ParentId"] = boost::any(*parentId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
+      parentId = make_shared<string>(boost::any_cast<string>(m["ParentId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+  }
+
+
+  virtual ~DescribeUserPermissionsResponseBodyPermissions() = default;
+};
+class DescribeUserPermissionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeUserPermissionsResponseBodyPermissions>> permissions{};
+  shared_ptr<string> requestId{};
+
+  DescribeUserPermissionsResponseBody() {}
+
+  explicit DescribeUserPermissionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<DescribeUserPermissionsResponseBodyPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeUserPermissionsResponseBodyPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<DescribeUserPermissionsResponseBodyPermissions>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeUserPermissionsResponseBody() = default;
+};
+class DescribeUserPermissionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeUserPermissionsResponseBody> body{};
+
+  DescribeUserPermissionsResponse() {}
+
+  explicit DescribeUserPermissionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeUserPermissionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeUserPermissionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeUserPermissionsResponse() = default;
+};
 class DetachClusterFromHubRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -3015,6 +3220,197 @@ public:
 
 
   virtual ~DetachClusterFromHubResponse() = default;
+};
+class GrantUserPermissionsRequestPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> roleType{};
+
+  GrantUserPermissionsRequestPermissions() {}
+
+  explicit GrantUserPermissionsRequestPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (roleType) {
+      res["RoleType"] = boost::any(*roleType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("RoleType") != m.end() && !m["RoleType"].empty()) {
+      roleType = make_shared<string>(boost::any_cast<string>(m["RoleType"]));
+    }
+  }
+
+
+  virtual ~GrantUserPermissionsRequestPermissions() = default;
+};
+class GrantUserPermissionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<GrantUserPermissionsRequestPermissions>> permissions{};
+  shared_ptr<string> userId{};
+
+  GrantUserPermissionsRequest() {}
+
+  explicit GrantUserPermissionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (permissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*permissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Permissions"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Permissions"].type()) {
+        vector<GrantUserPermissionsRequestPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Permissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GrantUserPermissionsRequestPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        permissions = make_shared<vector<GrantUserPermissionsRequestPermissions>>(expect1);
+      }
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~GrantUserPermissionsRequest() = default;
+};
+class GrantUserPermissionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  GrantUserPermissionsResponseBody() {}
+
+  explicit GrantUserPermissionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GrantUserPermissionsResponseBody() = default;
+};
+class GrantUserPermissionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GrantUserPermissionsResponseBody> body{};
+
+  GrantUserPermissionsResponse() {}
+
+  explicit GrantUserPermissionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GrantUserPermissionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GrantUserPermissionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GrantUserPermissionsResponse() = default;
 };
 class UpdateHubClusterFeatureRequest : public Darabonba::Model {
 public:
@@ -3354,8 +3750,12 @@ public:
   DescribeManagedClustersResponse describeManagedClusters(shared_ptr<DescribeManagedClustersRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
+  DescribeUserPermissionsResponse describeUserPermissionsWithOptions(shared_ptr<DescribeUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeUserPermissionsResponse describeUserPermissions(shared_ptr<DescribeUserPermissionsRequest> request);
   DetachClusterFromHubResponse detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachClusterFromHubResponse detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request);
+  GrantUserPermissionsResponse grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GrantUserPermissionsResponse grantUserPermissions(shared_ptr<GrantUserPermissionsRequest> request);
   UpdateHubClusterFeatureResponse updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateHubClusterFeatureResponse updateHubClusterFeature(shared_ptr<UpdateHubClusterFeatureRequest> request);
 
