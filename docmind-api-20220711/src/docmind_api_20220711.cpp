@@ -379,6 +379,9 @@ SubmitConvertPdfToExcelJobResponse Alibabacloud_Docmind-api20220711::Client::sub
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("FileUrl", *request->fileUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceExportInnerImage)) {
+    query->insert(pair<string, bool>("ForceExportInnerImage", *request->forceExportInnerImage));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->forceMergeExcel)) {
     query->insert(pair<string, bool>("ForceMergeExcel", *request->forceMergeExcel));
   }
@@ -585,6 +588,9 @@ SubmitConvertPdfToWordJobResponse Alibabacloud_Docmind-api20220711::Client::subm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("FileUrl", *request->fileUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->forceExportInnerImage)) {
+    query->insert(pair<string, bool>("ForceExportInnerImage", *request->forceExportInnerImage));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

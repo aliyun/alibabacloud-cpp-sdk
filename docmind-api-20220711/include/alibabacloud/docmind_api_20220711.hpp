@@ -1622,6 +1622,7 @@ class SubmitConvertPdfToExcelJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<bool> forceExportInnerImage{};
   shared_ptr<bool> forceMergeExcel{};
 
   SubmitConvertPdfToExcelJobRequest() {}
@@ -1640,6 +1641,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (forceExportInnerImage) {
+      res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
+    }
     if (forceMergeExcel) {
       res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
     }
@@ -1653,6 +1657,9 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
+      forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
+    }
     if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
       forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
     }
@@ -1665,6 +1672,7 @@ class SubmitConvertPdfToExcelJobAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<bool> forceExportInnerImage{};
   shared_ptr<bool> forceMergeExcel{};
 
   SubmitConvertPdfToExcelJobAdvanceRequest() {}
@@ -1683,6 +1691,9 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (forceExportInnerImage) {
+      res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
+    }
     if (forceMergeExcel) {
       res["ForceMergeExcel"] = boost::any(*forceMergeExcel);
     }
@@ -1695,6 +1706,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
+      forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
     }
     if (m.find("ForceMergeExcel") != m.end() && !m["ForceMergeExcel"].empty()) {
       forceMergeExcel = make_shared<bool>(boost::any_cast<bool>(m["ForceMergeExcel"]));
@@ -2070,6 +2084,7 @@ class SubmitConvertPdfToWordJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<bool> forceExportInnerImage{};
 
   SubmitConvertPdfToWordJobRequest() {}
 
@@ -2087,6 +2102,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (forceExportInnerImage) {
+      res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
+    }
     return res;
   }
 
@@ -2097,6 +2115,9 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
+      forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
+    }
   }
 
 
@@ -2106,6 +2127,7 @@ class SubmitConvertPdfToWordJobAdvanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<bool> forceExportInnerImage{};
 
   SubmitConvertPdfToWordJobAdvanceRequest() {}
 
@@ -2123,6 +2145,9 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (forceExportInnerImage) {
+      res["ForceExportInnerImage"] = boost::any(*forceExportInnerImage);
+    }
     return res;
   }
 
@@ -2132,6 +2157,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("ForceExportInnerImage") != m.end() && !m["ForceExportInnerImage"].empty()) {
+      forceExportInnerImage = make_shared<bool>(boost::any_cast<bool>(m["ForceExportInnerImage"]));
     }
   }
 
