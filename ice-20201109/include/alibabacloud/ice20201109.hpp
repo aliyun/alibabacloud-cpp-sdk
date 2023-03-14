@@ -2726,6 +2726,7 @@ public:
   shared_ptr<string> materialMaps{};
   shared_ptr<string> projectType{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> templateType{};
   shared_ptr<string> timeline{};
   shared_ptr<string> title{};
 
@@ -2760,6 +2761,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
     if (timeline) {
       res["Timeline"] = boost::any(*timeline);
     }
@@ -2790,6 +2794,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
     }
     if (m.find("Timeline") != m.end() && !m["Timeline"].empty()) {
       timeline = make_shared<string>(boost::any_cast<string>(m["Timeline"]));

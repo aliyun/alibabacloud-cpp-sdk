@@ -508,6 +508,9 @@ CreateEditingProjectResponse Alibabacloud_ICE20201109::Client::createEditingProj
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
+    query->insert(pair<string, string>("TemplateType", *request->templateType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeline)) {
     query->insert(pair<string, string>("Timeline", *request->timeline));
   }
