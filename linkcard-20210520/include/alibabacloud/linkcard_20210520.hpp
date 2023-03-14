@@ -942,6 +942,254 @@ public:
 
   virtual ~AddDirectionalGroupResponse() = default;
 };
+class AddTagsToCardRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<vector<string>> tagNameList{};
+
+  AddTagsToCardRequest() {}
+
+  explicit AddTagsToCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (tagNameList) {
+      res["TagNameList"] = boost::any(*tagNameList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("TagNameList") != m.end() && !m["TagNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagNameList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddTagsToCardRequest() = default;
+};
+class AddTagsToCardShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<string> tagNameListShrink{};
+
+  AddTagsToCardShrinkRequest() {}
+
+  explicit AddTagsToCardShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (tagNameListShrink) {
+      res["TagNameList"] = boost::any(*tagNameListShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("TagNameList") != m.end() && !m["TagNameList"].empty()) {
+      tagNameListShrink = make_shared<string>(boost::any_cast<string>(m["TagNameList"]));
+    }
+  }
+
+
+  virtual ~AddTagsToCardShrinkRequest() = default;
+};
+class AddTagsToCardResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> tagId{};
+  shared_ptr<string> tagName{};
+
+  AddTagsToCardResponseBodyData() {}
+
+  explicit AddTagsToCardResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagId) {
+      res["TagId"] = boost::any(*tagId);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
+      tagId = make_shared<string>(boost::any_cast<string>(m["TagId"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+  }
+
+
+  virtual ~AddTagsToCardResponseBodyData() = default;
+};
+class AddTagsToCardResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<AddTagsToCardResponseBodyData>> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AddTagsToCardResponseBody() {}
+
+  explicit AddTagsToCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<AddTagsToCardResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddTagsToCardResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<AddTagsToCardResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AddTagsToCardResponseBody() = default;
+};
+class AddTagsToCardResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddTagsToCardResponseBody> body{};
+
+  AddTagsToCardResponse() {}
+
+  explicit AddTagsToCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddTagsToCardResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddTagsToCardResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddTagsToCardResponse() = default;
+};
 class BatchAddDirectionalAddressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> addressType{};
@@ -2985,6 +3233,296 @@ public:
 
 
   virtual ~GetCardLatestFlowResponse() = default;
+};
+class GetCardRealStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<string> msisdn{};
+  shared_ptr<vector<string>> serialNo{};
+
+  GetCardRealStatusRequest() {}
+
+  explicit GetCardRealStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (msisdn) {
+      res["Msisdn"] = boost::any(*msisdn);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("Msisdn") != m.end() && !m["Msisdn"].empty()) {
+      msisdn = make_shared<string>(boost::any_cast<string>(m["Msisdn"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SerialNo"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SerialNo"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      serialNo = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetCardRealStatusRequest() = default;
+};
+class GetCardRealStatusShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<string> msisdn{};
+  shared_ptr<string> serialNoShrink{};
+
+  GetCardRealStatusShrinkRequest() {}
+
+  explicit GetCardRealStatusShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (msisdn) {
+      res["Msisdn"] = boost::any(*msisdn);
+    }
+    if (serialNoShrink) {
+      res["SerialNo"] = boost::any(*serialNoShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("Msisdn") != m.end() && !m["Msisdn"].empty()) {
+      msisdn = make_shared<string>(boost::any_cast<string>(m["Msisdn"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNoShrink = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+  }
+
+
+  virtual ~GetCardRealStatusShrinkRequest() = default;
+};
+class GetCardRealStatusResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<bool> gprs{};
+  shared_ptr<string> iccid{};
+  shared_ptr<bool> online{};
+  shared_ptr<string> serialNo{};
+  shared_ptr<string> status{};
+
+  GetCardRealStatusResponseBodyData() {}
+
+  explicit GetCardRealStatusResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gprs) {
+      res["Gprs"] = boost::any(*gprs);
+    }
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (online) {
+      res["Online"] = boost::any(*online);
+    }
+    if (serialNo) {
+      res["SerialNo"] = boost::any(*serialNo);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Gprs") != m.end() && !m["Gprs"].empty()) {
+      gprs = make_shared<bool>(boost::any_cast<bool>(m["Gprs"]));
+    }
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("Online") != m.end() && !m["Online"].empty()) {
+      online = make_shared<bool>(boost::any_cast<bool>(m["Online"]));
+    }
+    if (m.find("SerialNo") != m.end() && !m["SerialNo"].empty()) {
+      serialNo = make_shared<string>(boost::any_cast<string>(m["SerialNo"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~GetCardRealStatusResponseBodyData() = default;
+};
+class GetCardRealStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<GetCardRealStatusResponseBodyData>> data{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> localizedMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetCardRealStatusResponseBody() {}
+
+  explicit GetCardRealStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (localizedMessage) {
+      res["LocalizedMessage"] = boost::any(*localizedMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetCardRealStatusResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetCardRealStatusResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetCardRealStatusResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("LocalizedMessage") != m.end() && !m["LocalizedMessage"].empty()) {
+      localizedMessage = make_shared<string>(boost::any_cast<string>(m["LocalizedMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetCardRealStatusResponseBody() = default;
+};
+class GetCardRealStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetCardRealStatusResponseBody> body{};
+
+  GetCardRealStatusResponse() {}
+
+  explicit GetCardRealStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetCardRealStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetCardRealStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetCardRealStatusResponse() = default;
 };
 class GetCardStatusStatisticsResponseBodyDataErrorStopStatisticsDTO : public Darabonba::Model {
 public:
@@ -7989,6 +8527,8 @@ public:
   AddDirectionalCardResponse addDirectionalCard(shared_ptr<AddDirectionalCardRequest> request);
   AddDirectionalGroupResponse addDirectionalGroupWithOptions(shared_ptr<AddDirectionalGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddDirectionalGroupResponse addDirectionalGroup(shared_ptr<AddDirectionalGroupRequest> request);
+  AddTagsToCardResponse addTagsToCardWithOptions(shared_ptr<AddTagsToCardRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddTagsToCardResponse addTagsToCard(shared_ptr<AddTagsToCardRequest> request);
   BatchAddDirectionalAddressResponse batchAddDirectionalAddressWithOptions(shared_ptr<BatchAddDirectionalAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchAddDirectionalAddressResponse batchAddDirectionalAddress(shared_ptr<BatchAddDirectionalAddressRequest> request);
   DeleteDirectionalAddressResponse deleteDirectionalAddressWithOptions(shared_ptr<DeleteDirectionalAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8003,6 +8543,8 @@ public:
   GetCardFlowInfoResponse getCardFlowInfo(shared_ptr<GetCardFlowInfoRequest> request);
   GetCardLatestFlowResponse getCardLatestFlowWithOptions(shared_ptr<GetCardLatestFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCardLatestFlowResponse getCardLatestFlow(shared_ptr<GetCardLatestFlowRequest> request);
+  GetCardRealStatusResponse getCardRealStatusWithOptions(shared_ptr<GetCardRealStatusRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCardRealStatusResponse getCardRealStatus(shared_ptr<GetCardRealStatusRequest> request);
   GetCardStatusStatisticsResponse getCardStatusStatisticsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetCardStatusStatisticsResponse getCardStatusStatistics();
   GetCredentialPoolStatisticsResponse getCredentialPoolStatisticsWithOptions(shared_ptr<GetCredentialPoolStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
