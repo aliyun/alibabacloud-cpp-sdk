@@ -16145,6 +16145,8 @@ public:
   shared_ptr<string> certType{};
   shared_ptr<string> certValidDate{};
   shared_ptr<string> name{};
+  shared_ptr<string> nationality{};
+  shared_ptr<string> nationalityCode{};
   shared_ptr<string> outUserId{};
   shared_ptr<string> phone{};
   shared_ptr<long> sex{};
@@ -16177,6 +16179,12 @@ public:
     }
     if (name) {
       res["name"] = boost::any(*name);
+    }
+    if (nationality) {
+      res["nationality"] = boost::any(*nationality);
+    }
+    if (nationalityCode) {
+      res["nationality_code"] = boost::any(*nationalityCode);
     }
     if (outUserId) {
       res["out_user_id"] = boost::any(*outUserId);
@@ -16211,6 +16219,12 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("nationality") != m.end() && !m["nationality"].empty()) {
+      nationality = make_shared<string>(boost::any_cast<string>(m["nationality"]));
+    }
+    if (m.find("nationality_code") != m.end() && !m["nationality_code"].empty()) {
+      nationalityCode = make_shared<string>(boost::any_cast<string>(m["nationality_code"]));
     }
     if (m.find("out_user_id") != m.end() && !m["out_user_id"].empty()) {
       outUserId = make_shared<string>(boost::any_cast<string>(m["out_user_id"]));
