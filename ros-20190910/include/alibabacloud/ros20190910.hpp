@@ -11683,6 +11683,289 @@ public:
 
   virtual ~GetTemplateParameterConstraintsResponse() = default;
 };
+class GetTemplateRecommendParametersRequestParameters : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> parameterCandidateValues{};
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> parameterValue{};
+
+  GetTemplateRecommendParametersRequestParameters() {}
+
+  explicit GetTemplateRecommendParametersRequestParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterCandidateValues) {
+      res["ParameterCandidateValues"] = boost::any(*parameterCandidateValues);
+    }
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (parameterValue) {
+      res["ParameterValue"] = boost::any(*parameterValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterCandidateValues") != m.end() && !m["ParameterCandidateValues"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParameterCandidateValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParameterCandidateValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parameterCandidateValues = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("ParameterValue") != m.end() && !m["ParameterValue"].empty()) {
+      parameterValue = make_shared<string>(boost::any_cast<string>(m["ParameterValue"]));
+    }
+  }
+
+
+  virtual ~GetTemplateRecommendParametersRequestParameters() = default;
+};
+class GetTemplateRecommendParametersRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<GetTemplateRecommendParametersRequestParameters>> parameters{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> templateBody{};
+  shared_ptr<string> templateId{};
+  shared_ptr<string> templateURL{};
+  shared_ptr<string> templateVersion{};
+
+  GetTemplateRecommendParametersRequest() {}
+
+  explicit GetTemplateRecommendParametersRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (parameters) {
+      vector<boost::any> temp1;
+      for(auto item1:*parameters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Parameters"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (templateBody) {
+      res["TemplateBody"] = boost::any(*templateBody);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateURL) {
+      res["TemplateURL"] = boost::any(*templateURL);
+    }
+    if (templateVersion) {
+      res["TemplateVersion"] = boost::any(*templateVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Parameters"].type()) {
+        vector<GetTemplateRecommendParametersRequestParameters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Parameters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateRecommendParametersRequestParameters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        parameters = make_shared<vector<GetTemplateRecommendParametersRequestParameters>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
+      templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
+      templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("TemplateVersion") != m.end() && !m["TemplateVersion"].empty()) {
+      templateVersion = make_shared<string>(boost::any_cast<string>(m["TemplateVersion"]));
+    }
+  }
+
+
+  virtual ~GetTemplateRecommendParametersRequest() = default;
+};
+class GetTemplateRecommendParametersResponseBodyRecommendParameterValues : public Darabonba::Model {
+public:
+  shared_ptr<string> parameterKey{};
+  shared_ptr<string> recommendValue{};
+
+  GetTemplateRecommendParametersResponseBodyRecommendParameterValues() {}
+
+  explicit GetTemplateRecommendParametersResponseBodyRecommendParameterValues(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (parameterKey) {
+      res["ParameterKey"] = boost::any(*parameterKey);
+    }
+    if (recommendValue) {
+      res["RecommendValue"] = boost::any(*recommendValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
+      parameterKey = make_shared<string>(boost::any_cast<string>(m["ParameterKey"]));
+    }
+    if (m.find("RecommendValue") != m.end() && !m["RecommendValue"].empty()) {
+      recommendValue = make_shared<string>(boost::any_cast<string>(m["RecommendValue"]));
+    }
+  }
+
+
+  virtual ~GetTemplateRecommendParametersResponseBodyRecommendParameterValues() = default;
+};
+class GetTemplateRecommendParametersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetTemplateRecommendParametersResponseBodyRecommendParameterValues>> recommendParameterValues{};
+  shared_ptr<string> requestId{};
+
+  GetTemplateRecommendParametersResponseBody() {}
+
+  explicit GetTemplateRecommendParametersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (recommendParameterValues) {
+      vector<boost::any> temp1;
+      for(auto item1:*recommendParameterValues){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RecommendParameterValues"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RecommendParameterValues") != m.end() && !m["RecommendParameterValues"].empty()) {
+      if (typeid(vector<boost::any>) == m["RecommendParameterValues"].type()) {
+        vector<GetTemplateRecommendParametersResponseBodyRecommendParameterValues> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RecommendParameterValues"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateRecommendParametersResponseBodyRecommendParameterValues model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recommendParameterValues = make_shared<vector<GetTemplateRecommendParametersResponseBodyRecommendParameterValues>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetTemplateRecommendParametersResponseBody() = default;
+};
+class GetTemplateRecommendParametersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTemplateRecommendParametersResponseBody> body{};
+
+  GetTemplateRecommendParametersResponse() {}
+
+  explicit GetTemplateRecommendParametersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTemplateRecommendParametersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTemplateRecommendParametersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTemplateRecommendParametersResponse() = default;
+};
 class GetTemplateScratchRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
@@ -22753,6 +23036,8 @@ public:
   GetTemplateEstimateCostResponse getTemplateEstimateCost(shared_ptr<GetTemplateEstimateCostRequest> request);
   GetTemplateParameterConstraintsResponse getTemplateParameterConstraintsWithOptions(shared_ptr<GetTemplateParameterConstraintsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateParameterConstraintsResponse getTemplateParameterConstraints(shared_ptr<GetTemplateParameterConstraintsRequest> request);
+  GetTemplateRecommendParametersResponse getTemplateRecommendParametersWithOptions(shared_ptr<GetTemplateRecommendParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTemplateRecommendParametersResponse getTemplateRecommendParameters(shared_ptr<GetTemplateRecommendParametersRequest> request);
   GetTemplateScratchResponse getTemplateScratchWithOptions(shared_ptr<GetTemplateScratchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTemplateScratchResponse getTemplateScratch(shared_ptr<GetTemplateScratchRequest> request);
   GetTemplateSummaryResponse getTemplateSummaryWithOptions(shared_ptr<GetTemplateSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
