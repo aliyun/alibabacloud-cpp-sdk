@@ -1802,10 +1802,13 @@ public:
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
   shared_ptr<string> androidExtParameters{};
+  shared_ptr<string> androidHuaweiReceiptId{};
+  shared_ptr<long> androidHuaweiTargetUserType{};
   shared_ptr<string> androidImageUrl{};
   shared_ptr<string> androidInboxBody{};
   shared_ptr<string> androidMessageHuaweiCategory{};
   shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageVivoCategory{};
   shared_ptr<string> androidMusic{};
   shared_ptr<long> androidNotificationBarPriority{};
   shared_ptr<long> androidNotificationBarType{};
@@ -1884,6 +1887,12 @@ public:
     if (androidExtParameters) {
       res["AndroidExtParameters"] = boost::any(*androidExtParameters);
     }
+    if (androidHuaweiReceiptId) {
+      res["AndroidHuaweiReceiptId"] = boost::any(*androidHuaweiReceiptId);
+    }
+    if (androidHuaweiTargetUserType) {
+      res["AndroidHuaweiTargetUserType"] = boost::any(*androidHuaweiTargetUserType);
+    }
     if (androidImageUrl) {
       res["AndroidImageUrl"] = boost::any(*androidImageUrl);
     }
@@ -1895,6 +1904,9 @@ public:
     }
     if (androidMessageHuaweiUrgency) {
       res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageVivoCategory) {
+      res["AndroidMessageVivoCategory"] = boost::any(*androidMessageVivoCategory);
     }
     if (androidMusic) {
       res["AndroidMusic"] = boost::any(*androidMusic);
@@ -2071,6 +2083,12 @@ public:
     if (m.find("AndroidExtParameters") != m.end() && !m["AndroidExtParameters"].empty()) {
       androidExtParameters = make_shared<string>(boost::any_cast<string>(m["AndroidExtParameters"]));
     }
+    if (m.find("AndroidHuaweiReceiptId") != m.end() && !m["AndroidHuaweiReceiptId"].empty()) {
+      androidHuaweiReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidHuaweiReceiptId"]));
+    }
+    if (m.find("AndroidHuaweiTargetUserType") != m.end() && !m["AndroidHuaweiTargetUserType"].empty()) {
+      androidHuaweiTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidHuaweiTargetUserType"]));
+    }
     if (m.find("AndroidImageUrl") != m.end() && !m["AndroidImageUrl"].empty()) {
       androidImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidImageUrl"]));
     }
@@ -2082,6 +2100,9 @@ public:
     }
     if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
       androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageVivoCategory") != m.end() && !m["AndroidMessageVivoCategory"].empty()) {
+      androidMessageVivoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageVivoCategory"]));
     }
     if (m.find("AndroidMusic") != m.end() && !m["AndroidMusic"].empty()) {
       androidMusic = make_shared<string>(boost::any_cast<string>(m["AndroidMusic"]));
@@ -2439,10 +2460,13 @@ public:
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
   shared_ptr<string> androidExtParameters{};
+  shared_ptr<string> androidHuaweiReceiptId{};
+  shared_ptr<long> androidHuaweiTargetUserType{};
   shared_ptr<string> androidImageUrl{};
   shared_ptr<string> androidInboxBody{};
   shared_ptr<string> androidMessageHuaweiCategory{};
   shared_ptr<string> androidMessageHuaweiUrgency{};
+  shared_ptr<string> androidMessageVivoCategory{};
   shared_ptr<string> androidMusic{};
   shared_ptr<long> androidNotificationBarPriority{};
   shared_ptr<long> androidNotificationBarType{};
@@ -2527,6 +2551,12 @@ public:
     if (androidExtParameters) {
       res["AndroidExtParameters"] = boost::any(*androidExtParameters);
     }
+    if (androidHuaweiReceiptId) {
+      res["AndroidHuaweiReceiptId"] = boost::any(*androidHuaweiReceiptId);
+    }
+    if (androidHuaweiTargetUserType) {
+      res["AndroidHuaweiTargetUserType"] = boost::any(*androidHuaweiTargetUserType);
+    }
     if (androidImageUrl) {
       res["AndroidImageUrl"] = boost::any(*androidImageUrl);
     }
@@ -2538,6 +2568,9 @@ public:
     }
     if (androidMessageHuaweiUrgency) {
       res["AndroidMessageHuaweiUrgency"] = boost::any(*androidMessageHuaweiUrgency);
+    }
+    if (androidMessageVivoCategory) {
+      res["AndroidMessageVivoCategory"] = boost::any(*androidMessageVivoCategory);
     }
     if (androidMusic) {
       res["AndroidMusic"] = boost::any(*androidMusic);
@@ -2732,6 +2765,12 @@ public:
     if (m.find("AndroidExtParameters") != m.end() && !m["AndroidExtParameters"].empty()) {
       androidExtParameters = make_shared<string>(boost::any_cast<string>(m["AndroidExtParameters"]));
     }
+    if (m.find("AndroidHuaweiReceiptId") != m.end() && !m["AndroidHuaweiReceiptId"].empty()) {
+      androidHuaweiReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidHuaweiReceiptId"]));
+    }
+    if (m.find("AndroidHuaweiTargetUserType") != m.end() && !m["AndroidHuaweiTargetUserType"].empty()) {
+      androidHuaweiTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidHuaweiTargetUserType"]));
+    }
     if (m.find("AndroidImageUrl") != m.end() && !m["AndroidImageUrl"].empty()) {
       androidImageUrl = make_shared<string>(boost::any_cast<string>(m["AndroidImageUrl"]));
     }
@@ -2743,6 +2782,9 @@ public:
     }
     if (m.find("AndroidMessageHuaweiUrgency") != m.end() && !m["AndroidMessageHuaweiUrgency"].empty()) {
       androidMessageHuaweiUrgency = make_shared<string>(boost::any_cast<string>(m["AndroidMessageHuaweiUrgency"]));
+    }
+    if (m.find("AndroidMessageVivoCategory") != m.end() && !m["AndroidMessageVivoCategory"].empty()) {
+      androidMessageVivoCategory = make_shared<string>(boost::any_cast<string>(m["AndroidMessageVivoCategory"]));
     }
     if (m.find("AndroidMusic") != m.end() && !m["AndroidMusic"].empty()) {
       androidMusic = make_shared<string>(boost::any_cast<string>(m["AndroidMusic"]));

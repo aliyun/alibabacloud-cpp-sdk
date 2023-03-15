@@ -489,6 +489,12 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->androidExtParameters)) {
     query->insert(pair<string, string>("AndroidExtParameters", *request->androidExtParameters));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidHuaweiReceiptId)) {
+    query->insert(pair<string, string>("AndroidHuaweiReceiptId", *request->androidHuaweiReceiptId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidHuaweiTargetUserType)) {
+    query->insert(pair<string, long>("AndroidHuaweiTargetUserType", *request->androidHuaweiTargetUserType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidImageUrl)) {
     query->insert(pair<string, string>("AndroidImageUrl", *request->androidImageUrl));
   }
@@ -500,6 +506,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidMessageHuaweiUrgency)) {
     query->insert(pair<string, string>("AndroidMessageHuaweiUrgency", *request->androidMessageHuaweiUrgency));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidMessageVivoCategory)) {
+    query->insert(pair<string, string>("AndroidMessageVivoCategory", *request->androidMessageVivoCategory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidMusic)) {
     query->insert(pair<string, string>("AndroidMusic", *request->androidMusic));
