@@ -816,6 +816,7 @@ public:
 class VoiceModerationResultResponseBodyDataSliceDetails : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
+  shared_ptr<long> endTimestamp{};
   shared_ptr<string> extend{};
   shared_ptr<string> labels{};
   shared_ptr<map<string, boost::any>> originAlgoResult{};
@@ -823,6 +824,7 @@ public:
   shared_ptr<string> riskWords{};
   shared_ptr<double> score{};
   shared_ptr<long> startTime{};
+  shared_ptr<long> startTimestamp{};
   shared_ptr<string> text{};
   shared_ptr<string> url{};
 
@@ -838,6 +840,9 @@ public:
     map<string, boost::any> res;
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (endTimestamp) {
+      res["EndTimestamp"] = boost::any(*endTimestamp);
     }
     if (extend) {
       res["Extend"] = boost::any(*extend);
@@ -860,6 +865,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (startTimestamp) {
+      res["StartTimestamp"] = boost::any(*startTimestamp);
+    }
     if (text) {
       res["Text"] = boost::any(*text);
     }
@@ -872,6 +880,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EndTimestamp") != m.end() && !m["EndTimestamp"].empty()) {
+      endTimestamp = make_shared<long>(boost::any_cast<long>(m["EndTimestamp"]));
     }
     if (m.find("Extend") != m.end() && !m["Extend"].empty()) {
       extend = make_shared<string>(boost::any_cast<string>(m["Extend"]));
@@ -898,6 +909,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("StartTimestamp") != m.end() && !m["StartTimestamp"].empty()) {
+      startTimestamp = make_shared<long>(boost::any_cast<long>(m["StartTimestamp"]));
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
