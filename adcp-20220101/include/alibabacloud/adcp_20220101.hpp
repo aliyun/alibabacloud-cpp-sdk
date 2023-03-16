@@ -2885,8 +2885,6 @@ public:
 };
 class DescribeUserPermissionsResponseBodyPermissions : public Darabonba::Model {
 public:
-  shared_ptr<string> ownerId{};
-  shared_ptr<string> parentId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> roleName{};
@@ -2902,12 +2900,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (parentId) {
-      res["ParentId"] = boost::any(*parentId);
-    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -2924,12 +2916,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
-    }
-    if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
-      parentId = make_shared<string>(boost::any_cast<string>(m["ParentId"]));
-    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
@@ -3320,6 +3306,42 @@ public:
 
 
   virtual ~GrantUserPermissionsRequest() = default;
+};
+class GrantUserPermissionsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> permissionsShrink{};
+  shared_ptr<string> userId{};
+
+  GrantUserPermissionsShrinkRequest() {}
+
+  explicit GrantUserPermissionsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (permissionsShrink) {
+      res["Permissions"] = boost::any(*permissionsShrink);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      permissionsShrink = make_shared<string>(boost::any_cast<string>(m["Permissions"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~GrantUserPermissionsShrinkRequest() = default;
 };
 class GrantUserPermissionsResponseBody : public Darabonba::Model {
 public:
@@ -3754,7 +3776,7 @@ public:
   DescribeUserPermissionsResponse describeUserPermissions(shared_ptr<DescribeUserPermissionsRequest> request);
   DetachClusterFromHubResponse detachClusterFromHubWithOptions(shared_ptr<DetachClusterFromHubRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachClusterFromHubResponse detachClusterFromHub(shared_ptr<DetachClusterFromHubRequest> request);
-  GrantUserPermissionsResponse grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GrantUserPermissionsResponse grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GrantUserPermissionsResponse grantUserPermissions(shared_ptr<GrantUserPermissionsRequest> request);
   UpdateHubClusterFeatureResponse updateHubClusterFeatureWithOptions(shared_ptr<UpdateHubClusterFeatureRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateHubClusterFeatureResponse updateHubClusterFeature(shared_ptr<UpdateHubClusterFeatureRequest> request);

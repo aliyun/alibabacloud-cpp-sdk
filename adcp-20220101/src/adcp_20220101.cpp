@@ -430,11 +430,16 @@ DetachClusterFromHubResponse Alibabacloud_Adcp20220101::Client::detachClusterFro
   return detachClusterFromHubWithOptions(request, runtime);
 }
 
-GrantUserPermissionsResponse Alibabacloud_Adcp20220101::Client::grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GrantUserPermissionsResponse Alibabacloud_Adcp20220101::Client::grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GrantUserPermissionsShrinkRequest> request = make_shared<GrantUserPermissionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GrantUserPermissionsRequestPermissions>>(tmpReq->permissions)) {
+    request->permissionsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->permissions, make_shared<string>("Permissions"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<GrantUserPermissionsRequestPermissions>>(request->permissions)) {
-    query->insert(pair<string, vector<GrantUserPermissionsRequestPermissions>>("Permissions", *request->permissions));
+  if (!Darabonba_Util::Client::isUnset<string>(request->permissionsShrink)) {
+    query->insert(pair<string, string>("Permissions", *request->permissionsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
