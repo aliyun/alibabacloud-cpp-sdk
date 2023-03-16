@@ -2163,17 +2163,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!compute) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("compute is required.")));
-    }
-    if (!login) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("login is required.")));
-    }
-    if (!manager) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("manager is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -3621,14 +3611,7 @@ public:
     fromMap(config);
   };
 
-  void validate() override {
-    if (!compute) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("compute is required.")));
-    }
-    if (!manager) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("manager is required.")));
-    }
-  }
+  void validate() override {}
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
@@ -11595,6 +11578,7 @@ class GetAutoScaleConfigResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterType{};
+  shared_ptr<bool> computeEnableHt{};
   shared_ptr<bool> enableAutoGrow{};
   shared_ptr<bool> enableAutoShrink{};
   shared_ptr<string> excludeNodes{};
@@ -11627,6 +11611,9 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
+    }
+    if (computeEnableHt) {
+      res["ComputeEnableHt"] = boost::any(*computeEnableHt);
     }
     if (enableAutoGrow) {
       res["EnableAutoGrow"] = boost::any(*enableAutoGrow);
@@ -11685,6 +11672,9 @@ public:
     }
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
+    }
+    if (m.find("ComputeEnableHt") != m.end() && !m["ComputeEnableHt"].empty()) {
+      computeEnableHt = make_shared<bool>(boost::any_cast<bool>(m["ComputeEnableHt"]));
     }
     if (m.find("EnableAutoGrow") != m.end() && !m["EnableAutoGrow"].empty()) {
       enableAutoGrow = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoGrow"]));
@@ -28964,6 +28954,7 @@ public:
 class SetAutoScaleConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<bool> computeEnableHt{};
   shared_ptr<bool> enableAutoGrow{};
   shared_ptr<bool> enableAutoShrink{};
   shared_ptr<string> excludeNodes{};
@@ -28991,6 +28982,9 @@ public:
     map<string, boost::any> res;
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (computeEnableHt) {
+      res["ComputeEnableHt"] = boost::any(*computeEnableHt);
     }
     if (enableAutoGrow) {
       res["EnableAutoGrow"] = boost::any(*enableAutoGrow);
@@ -29044,6 +29038,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("ComputeEnableHt") != m.end() && !m["ComputeEnableHt"].empty()) {
+      computeEnableHt = make_shared<bool>(boost::any_cast<bool>(m["ComputeEnableHt"]));
     }
     if (m.find("EnableAutoGrow") != m.end() && !m["EnableAutoGrow"].empty()) {
       enableAutoGrow = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoGrow"]));
@@ -32984,6 +32981,7 @@ public:
   shared_ptr<string> remoteDirectory{};
   shared_ptr<vector<UpdateClusterVolumesRequestAdditionalVolumesRoles>> roles{};
   shared_ptr<string> volumeId{};
+  shared_ptr<string> volumeMountOption{};
   shared_ptr<string> volumeMountpoint{};
   shared_ptr<string> volumeProtocol{};
   shared_ptr<string> volumeType{};
@@ -33019,6 +33017,9 @@ public:
     }
     if (volumeId) {
       res["VolumeId"] = boost::any(*volumeId);
+    }
+    if (volumeMountOption) {
+      res["VolumeMountOption"] = boost::any(*volumeMountOption);
     }
     if (volumeMountpoint) {
       res["VolumeMountpoint"] = boost::any(*volumeMountpoint);
@@ -33060,6 +33061,9 @@ public:
     }
     if (m.find("VolumeId") != m.end() && !m["VolumeId"].empty()) {
       volumeId = make_shared<string>(boost::any_cast<string>(m["VolumeId"]));
+    }
+    if (m.find("VolumeMountOption") != m.end() && !m["VolumeMountOption"].empty()) {
+      volumeMountOption = make_shared<string>(boost::any_cast<string>(m["VolumeMountOption"]));
     }
     if (m.find("VolumeMountpoint") != m.end() && !m["VolumeMountpoint"].empty()) {
       volumeMountpoint = make_shared<string>(boost::any_cast<string>(m["VolumeMountpoint"]));
