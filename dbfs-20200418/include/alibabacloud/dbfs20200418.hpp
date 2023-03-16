@@ -5161,6 +5161,7 @@ public:
 };
 class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> imageId{};
   shared_ptr<string> instanceTypeFamily{};
   shared_ptr<string> OSName{};
   shared_ptr<string> status{};
@@ -5178,6 +5179,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
     if (instanceTypeFamily) {
       res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
     }
@@ -5200,6 +5204,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
     if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
       instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
     }
@@ -5917,6 +5924,8 @@ class ListSnapshotLinksRequest : public Darabonba::Model {
 public:
   shared_ptr<string> filterKey{};
   shared_ptr<string> filterValue{};
+  shared_ptr<string> fsIds{};
+  shared_ptr<string> linkIds{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
@@ -5937,6 +5946,12 @@ public:
     if (filterValue) {
       res["FilterValue"] = boost::any(*filterValue);
     }
+    if (fsIds) {
+      res["FsIds"] = boost::any(*fsIds);
+    }
+    if (linkIds) {
+      res["LinkIds"] = boost::any(*linkIds);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -5955,6 +5970,12 @@ public:
     }
     if (m.find("FilterValue") != m.end() && !m["FilterValue"].empty()) {
       filterValue = make_shared<string>(boost::any_cast<string>(m["FilterValue"]));
+    }
+    if (m.find("FsIds") != m.end() && !m["FsIds"].empty()) {
+      fsIds = make_shared<string>(boost::any_cast<string>(m["FsIds"]));
+    }
+    if (m.find("LinkIds") != m.end() && !m["LinkIds"].empty()) {
+      linkIds = make_shared<string>(boost::any_cast<string>(m["LinkIds"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));

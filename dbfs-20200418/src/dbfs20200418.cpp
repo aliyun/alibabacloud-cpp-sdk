@@ -1088,6 +1088,12 @@ ListSnapshotLinksResponse Alibabacloud_DBFS20200418::Client::listSnapshotLinksWi
   if (!Darabonba_Util::Client::isUnset<string>(request->filterValue)) {
     query->insert(pair<string, string>("FilterValue", *request->filterValue));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fsIds)) {
+    query->insert(pair<string, string>("FsIds", *request->fsIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->linkIds)) {
+    query->insert(pair<string, string>("LinkIds", *request->linkIds));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
