@@ -13814,16 +13814,8 @@ public:
   shared_ptr<long> beginRunningTime{};
   shared_ptr<long> beginWaitResTime{};
   shared_ptr<long> beginWaitTimeTime{};
-  shared_ptr<long> bizdate{};
-  shared_ptr<long> cycTime{};
   shared_ptr<long> endCast{};
   shared_ptr<long> finishTime{};
-  shared_ptr<long> inGroupId{};
-  shared_ptr<long> instanceId{};
-  shared_ptr<long> nodeId{};
-  shared_ptr<string> nodeName{};
-  shared_ptr<string> owner{};
-  shared_ptr<long> projectId{};
   shared_ptr<string> status{};
 
   GetBaselineKeyPathResponseBodyDataRuns() {}
@@ -13851,35 +13843,11 @@ public:
     if (beginWaitTimeTime) {
       res["BeginWaitTimeTime"] = boost::any(*beginWaitTimeTime);
     }
-    if (bizdate) {
-      res["Bizdate"] = boost::any(*bizdate);
-    }
-    if (cycTime) {
-      res["CycTime"] = boost::any(*cycTime);
-    }
     if (endCast) {
       res["EndCast"] = boost::any(*endCast);
     }
     if (finishTime) {
       res["FinishTime"] = boost::any(*finishTime);
-    }
-    if (inGroupId) {
-      res["InGroupId"] = boost::any(*inGroupId);
-    }
-    if (instanceId) {
-      res["InstanceId"] = boost::any(*instanceId);
-    }
-    if (nodeId) {
-      res["NodeId"] = boost::any(*nodeId);
-    }
-    if (nodeName) {
-      res["NodeName"] = boost::any(*nodeName);
-    }
-    if (owner) {
-      res["Owner"] = boost::any(*owner);
-    }
-    if (projectId) {
-      res["ProjectId"] = boost::any(*projectId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -13903,35 +13871,11 @@ public:
     if (m.find("BeginWaitTimeTime") != m.end() && !m["BeginWaitTimeTime"].empty()) {
       beginWaitTimeTime = make_shared<long>(boost::any_cast<long>(m["BeginWaitTimeTime"]));
     }
-    if (m.find("Bizdate") != m.end() && !m["Bizdate"].empty()) {
-      bizdate = make_shared<long>(boost::any_cast<long>(m["Bizdate"]));
-    }
-    if (m.find("CycTime") != m.end() && !m["CycTime"].empty()) {
-      cycTime = make_shared<long>(boost::any_cast<long>(m["CycTime"]));
-    }
     if (m.find("EndCast") != m.end() && !m["EndCast"].empty()) {
       endCast = make_shared<long>(boost::any_cast<long>(m["EndCast"]));
     }
     if (m.find("FinishTime") != m.end() && !m["FinishTime"].empty()) {
       finishTime = make_shared<long>(boost::any_cast<long>(m["FinishTime"]));
-    }
-    if (m.find("InGroupId") != m.end() && !m["InGroupId"].empty()) {
-      inGroupId = make_shared<long>(boost::any_cast<long>(m["InGroupId"]));
-    }
-    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
-      instanceId = make_shared<long>(boost::any_cast<long>(m["InstanceId"]));
-    }
-    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
-      nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
-    }
-    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
-      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
-    }
-    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
-      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
-    }
-    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
-      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -13946,7 +13890,7 @@ public:
   shared_ptr<long> addTime{};
   shared_ptr<long> instanceId{};
   shared_ptr<long> topicId{};
-  shared_ptr<long> topicName{};
+  shared_ptr<string> topicName{};
 
   GetBaselineKeyPathResponseBodyDataTopics() {}
 
@@ -13984,7 +13928,7 @@ public:
       topicId = make_shared<long>(boost::any_cast<long>(m["TopicId"]));
     }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
-      topicName = make_shared<long>(boost::any_cast<long>(m["TopicName"]));
+      topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
     }
   }
 
