@@ -1060,8 +1060,8 @@ CreateTransitRouteTableAggregationResponse Alibabacloud_Cbn20170912::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouteTableAggregationName)) {
     query->insert(pair<string, string>("TransitRouteTableAggregationName", *request->transitRouteTableAggregationName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouteTableAggregationScop)) {
-    query->insert(pair<string, string>("TransitRouteTableAggregationScop", *request->transitRouteTableAggregationScop));
+  if (!Darabonba_Util::Client::isUnset<string>(request->transitRouteTableAggregationScope)) {
+    query->insert(pair<string, string>("TransitRouteTableAggregationScope", *request->transitRouteTableAggregationScope));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouteTableId)) {
     query->insert(pair<string, string>("TransitRouteTableId", *request->transitRouteTableId));

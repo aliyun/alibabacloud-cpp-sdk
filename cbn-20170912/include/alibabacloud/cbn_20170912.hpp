@@ -3990,7 +3990,7 @@ public:
   shared_ptr<string> transitRouteTableAggregationCidr{};
   shared_ptr<string> transitRouteTableAggregationDescription{};
   shared_ptr<string> transitRouteTableAggregationName{};
-  shared_ptr<string> transitRouteTableAggregationScop{};
+  shared_ptr<string> transitRouteTableAggregationScope{};
   shared_ptr<string> transitRouteTableId{};
 
   CreateTransitRouteTableAggregationRequest() {}
@@ -4030,8 +4030,8 @@ public:
     if (transitRouteTableAggregationName) {
       res["TransitRouteTableAggregationName"] = boost::any(*transitRouteTableAggregationName);
     }
-    if (transitRouteTableAggregationScop) {
-      res["TransitRouteTableAggregationScop"] = boost::any(*transitRouteTableAggregationScop);
+    if (transitRouteTableAggregationScope) {
+      res["TransitRouteTableAggregationScope"] = boost::any(*transitRouteTableAggregationScope);
     }
     if (transitRouteTableId) {
       res["TransitRouteTableId"] = boost::any(*transitRouteTableId);
@@ -4067,8 +4067,8 @@ public:
     if (m.find("TransitRouteTableAggregationName") != m.end() && !m["TransitRouteTableAggregationName"].empty()) {
       transitRouteTableAggregationName = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationName"]));
     }
-    if (m.find("TransitRouteTableAggregationScop") != m.end() && !m["TransitRouteTableAggregationScop"].empty()) {
-      transitRouteTableAggregationScop = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationScop"]));
+    if (m.find("TransitRouteTableAggregationScope") != m.end() && !m["TransitRouteTableAggregationScope"].empty()) {
+      transitRouteTableAggregationScope = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableAggregationScope"]));
     }
     if (m.find("TransitRouteTableId") != m.end() && !m["TransitRouteTableId"].empty()) {
       transitRouteTableId = make_shared<string>(boost::any_cast<string>(m["TransitRouteTableId"]));
@@ -19607,7 +19607,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> routeType{};
-  shared_ptr<string> scop{};
+  shared_ptr<string> scope{};
   shared_ptr<string> status{};
   shared_ptr<string> trRouteTableId{};
   shared_ptr<string> transitRouteTableAggregationCidr{};
@@ -19631,8 +19631,8 @@ public:
     if (routeType) {
       res["RouteType"] = boost::any(*routeType);
     }
-    if (scop) {
-      res["Scop"] = boost::any(*scop);
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -19656,8 +19656,8 @@ public:
     if (m.find("RouteType") != m.end() && !m["RouteType"].empty()) {
       routeType = make_shared<string>(boost::any_cast<string>(m["RouteType"]));
     }
-    if (m.find("Scop") != m.end() && !m["Scop"].empty()) {
-      scop = make_shared<string>(boost::any_cast<string>(m["Scop"]));
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
