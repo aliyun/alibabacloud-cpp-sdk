@@ -2120,6 +2120,9 @@ DescribeParametersResponse Alibabacloud_Dds20151201::Client::describeParametersW
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extraParam)) {
+    query->insert(pair<string, string>("ExtraParam", *request->extraParam));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeId)) {
     query->insert(pair<string, string>("NodeId", *request->nodeId));
   }

@@ -11407,6 +11407,7 @@ class DescribeParametersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> characterType{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> extraParam{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -11429,6 +11430,9 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (extraParam) {
+      res["ExtraParam"] = boost::any(*extraParam);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -11457,6 +11461,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("ExtraParam") != m.end() && !m["ExtraParam"].empty()) {
+      extraParam = make_shared<string>(boost::any_cast<string>(m["ExtraParam"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
