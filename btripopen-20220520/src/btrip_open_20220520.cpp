@@ -71,6 +71,51 @@ AccessTokenResponse Alibabacloud_BtripOpen20220520::Client::accessToken(shared_p
   return accessTokenWithOptions(request, headers, runtime);
 }
 
+AddInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::addInvoiceEntityWithOptions(shared_ptr<AddInvoiceEntityRequest> tmpReq, shared_ptr<AddInvoiceEntityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<AddInvoiceEntityShrinkRequest> request = make_shared<AddInvoiceEntityShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<AddInvoiceEntityRequestEntities>>(tmpReq->entities)) {
+    request->entitiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->entities, make_shared<string>("entities"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->entitiesShrink)) {
+    body->insert(pair<string, string>("entities", *request->entitiesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartId)) {
+    body->insert(pair<string, string>("third_part_id", *request->thirdPartId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddInvoiceEntity"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/invoice/v1/entities"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddInvoiceEntityResponse(callApi(params, req, runtime));
+}
+
+AddInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::addInvoiceEntity(shared_ptr<AddInvoiceEntityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<AddInvoiceEntityHeaders> headers = make_shared<AddInvoiceEntityHeaders>();
+  return addInvoiceEntityWithOptions(request, headers, runtime);
+}
+
 AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions(shared_ptr<AddressGetRequest> request, shared_ptr<AddressGetHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1471,6 +1516,54 @@ CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSave(sh
   return costCenterSaveWithOptions(request, headers, runtime);
 }
 
+DeleteInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::deleteInvoiceEntityWithOptions(shared_ptr<DeleteInvoiceEntityRequest> tmpReq, shared_ptr<DeleteInvoiceEntityHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteInvoiceEntityShrinkRequest> request = make_shared<DeleteInvoiceEntityShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<DeleteInvoiceEntityRequestEntities>>(tmpReq->entities)) {
+    request->entitiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->entities, make_shared<string>("entities"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->delAll)) {
+    query->insert(pair<string, bool>("del_all", *request->delAll));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entitiesShrink)) {
+    query->insert(pair<string, string>("entities", *request->entitiesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartId)) {
+    query->insert(pair<string, string>("third_part_id", *request->thirdPartId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteInvoiceEntity"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/invoice/v1/entities"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteInvoiceEntityResponse(callApi(params, req, runtime));
+}
+
+DeleteInvoiceEntityResponse Alibabacloud_BtripOpen20220520::Client::deleteInvoiceEntity(shared_ptr<DeleteInvoiceEntityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteInvoiceEntityHeaders> headers = make_shared<DeleteInvoiceEntityHeaders>();
+  return deleteInvoiceEntityWithOptions(request, headers, runtime);
+}
+
 DepartmentSaveResponse Alibabacloud_BtripOpen20220520::Client::departmentSaveWithOptions(shared_ptr<DepartmentSaveRequest> tmpReq, shared_ptr<DepartmentSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<DepartmentSaveShrinkRequest> request = make_shared<DepartmentSaveShrinkRequest>();
@@ -2818,6 +2911,55 @@ IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFl
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<IeFlightBillSettlementQueryHeaders> headers = make_shared<IeFlightBillSettlementQueryHeaders>();
   return ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
+InsInvoiceScanQueryResponse Alibabacloud_BtripOpen20220520::Client::insInvoiceScanQueryWithOptions(shared_ptr<InsInvoiceScanQueryRequest> request, shared_ptr<InsInvoiceScanQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->billDate)) {
+    query->insert(pair<string, string>("bill_date", *request->billDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->billId)) {
+    query->insert(pair<string, long>("bill_id", *request->billId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->invoiceSubTaskId)) {
+    query->insert(pair<string, long>("invoice_sub_task_id", *request->invoiceSubTaskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("page_no", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("page_size", *request->pageSize));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripSoCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-so-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripSoCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsInvoiceScanQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/scan/v1/ins-invoice"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsInvoiceScanQueryResponse(callApi(params, req, runtime));
+}
+
+InsInvoiceScanQueryResponse Alibabacloud_BtripOpen20220520::Client::insInvoiceScanQuery(shared_ptr<InsInvoiceScanQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsInvoiceScanQueryHeaders> headers = make_shared<InsInvoiceScanQueryHeaders>();
+  return insInvoiceScanQueryWithOptions(request, headers, runtime);
 }
 
 InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAddWithOptions(shared_ptr<InvoiceAddRequest> request, shared_ptr<InvoiceAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
