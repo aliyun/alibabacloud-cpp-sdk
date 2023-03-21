@@ -156,6 +156,9 @@ CreateAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::cr
   if (!Darabonba_Util::Client::isUnset<CreateAppInstanceGroupRequestNodePool>(tmpReq->nodePool)) {
     request->nodePoolShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodePool, make_shared<string>("NodePool"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateAppInstanceGroupRequestRuntimePolicy>(tmpReq->runtimePolicy)) {
+    request->runtimePolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->runtimePolicy, make_shared<string>("RuntimePolicy"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateAppInstanceGroupRequestUserInfo>(tmpReq->userInfo)) {
     request->userInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userInfo, make_shared<string>("UserInfo"), make_shared<string>("json")));
   }
@@ -201,6 +204,9 @@ CreateAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::cr
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->promotionId)) {
     body->insert(pair<string, string>("PromotionId", *request->promotionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->runtimePolicyShrink)) {
+    body->insert(pair<string, string>("RuntimePolicy", *request->runtimePolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->sessionTimeout)) {
     body->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));

@@ -785,6 +785,35 @@ public:
 
   virtual ~CreateAppInstanceGroupRequestNodePool() = default;
 };
+class CreateAppInstanceGroupRequestRuntimePolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> sessionType{};
+
+  CreateAppInstanceGroupRequestRuntimePolicy() {}
+
+  explicit CreateAppInstanceGroupRequestRuntimePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sessionType) {
+      res["SessionType"] = boost::any(*sessionType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SessionType") != m.end() && !m["SessionType"].empty()) {
+      sessionType = make_shared<string>(boost::any_cast<string>(m["SessionType"]));
+    }
+  }
+
+
+  virtual ~CreateAppInstanceGroupRequestRuntimePolicy() = default;
+};
 class CreateAppInstanceGroupRequestUserInfo : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
@@ -830,6 +859,7 @@ public:
   shared_ptr<string> preOpenAppId{};
   shared_ptr<string> productType{};
   shared_ptr<string> promotionId{};
+  shared_ptr<CreateAppInstanceGroupRequestRuntimePolicy> runtimePolicy{};
   shared_ptr<long> sessionTimeout{};
   shared_ptr<CreateAppInstanceGroupRequestUserInfo> userInfo{};
   shared_ptr<vector<string>> users{};
@@ -885,6 +915,9 @@ public:
     }
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
+    }
+    if (runtimePolicy) {
+      res["RuntimePolicy"] = runtimePolicy ? boost::any(runtimePolicy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sessionTimeout) {
       res["SessionTimeout"] = boost::any(*sessionTimeout);
@@ -949,6 +982,13 @@ public:
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
     }
+    if (m.find("RuntimePolicy") != m.end() && !m["RuntimePolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RuntimePolicy"].type()) {
+        CreateAppInstanceGroupRequestRuntimePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuntimePolicy"]));
+        runtimePolicy = make_shared<CreateAppInstanceGroupRequestRuntimePolicy>(model1);
+      }
+    }
     if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
       sessionTimeout = make_shared<long>(boost::any_cast<long>(m["SessionTimeout"]));
     }
@@ -990,6 +1030,7 @@ public:
   shared_ptr<string> preOpenAppId{};
   shared_ptr<string> productType{};
   shared_ptr<string> promotionId{};
+  shared_ptr<string> runtimePolicyShrink{};
   shared_ptr<long> sessionTimeout{};
   shared_ptr<string> userInfoShrink{};
   shared_ptr<vector<string>> users{};
@@ -1046,6 +1087,9 @@ public:
     if (promotionId) {
       res["PromotionId"] = boost::any(*promotionId);
     }
+    if (runtimePolicyShrink) {
+      res["RuntimePolicy"] = boost::any(*runtimePolicyShrink);
+    }
     if (sessionTimeout) {
       res["SessionTimeout"] = boost::any(*sessionTimeout);
     }
@@ -1100,6 +1144,9 @@ public:
     }
     if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
+    }
+    if (m.find("RuntimePolicy") != m.end() && !m["RuntimePolicy"].empty()) {
+      runtimePolicyShrink = make_shared<string>(boost::any_cast<string>(m["RuntimePolicy"]));
     }
     if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
       sessionTimeout = make_shared<long>(boost::any_cast<long>(m["SessionTimeout"]));
