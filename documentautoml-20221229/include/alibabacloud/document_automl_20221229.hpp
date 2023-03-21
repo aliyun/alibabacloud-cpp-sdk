@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_DOCUMENTAUTOML20221229_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -221,7 +222,7 @@ public:
 class PredictModelResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> code{};
-  shared_ptr<string> data{};
+  shared_ptr<map<string, boost::any>> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -255,7 +256,12 @@ public:
       code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      data = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
