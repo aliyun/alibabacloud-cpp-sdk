@@ -9044,6 +9044,8 @@ public:
 };
 class ListAgentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentName{};
+  shared_ptr<string> goodsCodes{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -9057,6 +9059,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentName) {
+      res["AgentName"] = boost::any(*agentName);
+    }
+    if (goodsCodes) {
+      res["GoodsCodes"] = boost::any(*goodsCodes);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -9067,6 +9075,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
+      agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
+    }
+    if (m.find("GoodsCodes") != m.end() && !m["GoodsCodes"].empty()) {
+      goodsCodes = make_shared<string>(boost::any_cast<string>(m["GoodsCodes"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -9083,6 +9097,7 @@ public:
   shared_ptr<long> agentId{};
   shared_ptr<string> agentKey{};
   shared_ptr<string> agentName{};
+  shared_ptr<map<string, boost::any>> instanceInfos{};
 
   ListAgentResponseBodyData() {}
 
@@ -9103,6 +9118,9 @@ public:
     if (agentName) {
       res["AgentName"] = boost::any(*agentName);
     }
+    if (instanceInfos) {
+      res["InstanceInfos"] = boost::any(*instanceInfos);
+    }
     return res;
   }
 
@@ -9115,6 +9133,14 @@ public:
     }
     if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
       agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
+    }
+    if (m.find("InstanceInfos") != m.end() && !m["InstanceInfos"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["InstanceInfos"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      instanceInfos = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 

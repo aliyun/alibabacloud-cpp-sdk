@@ -1679,6 +1679,12 @@ LinkInstanceCategoryResponse Alibabacloud_Chatbot20220408::Client::linkInstanceC
 ListAgentResponse Alibabacloud_Chatbot20220408::Client::listAgentWithOptions(shared_ptr<ListAgentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentName)) {
+    query->insert(pair<string, string>("AgentName", *request->agentName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->goodsCodes)) {
+    query->insert(pair<string, string>("GoodsCodes", *request->goodsCodes));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
