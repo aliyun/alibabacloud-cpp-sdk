@@ -338,6 +338,7 @@ public:
 };
 class PredictTemplateModelRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> binaryToText{};
   shared_ptr<string> content{};
   shared_ptr<long> taskId{};
 
@@ -351,6 +352,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (binaryToText) {
+      res["BinaryToText"] = boost::any(*binaryToText);
+    }
     if (content) {
       res["Content"] = boost::any(*content);
     }
@@ -361,6 +365,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BinaryToText") != m.end() && !m["BinaryToText"].empty()) {
+      binaryToText = make_shared<bool>(boost::any_cast<bool>(m["BinaryToText"]));
+    }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
     }

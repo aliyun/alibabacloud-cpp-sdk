@@ -111,6 +111,9 @@ PredictModelResponse Alibabacloud_DocumentAutoml20221229::Client::predictModel(s
 PredictTemplateModelResponse Alibabacloud_DocumentAutoml20221229::Client::predictTemplateModelWithOptions(shared_ptr<PredictTemplateModelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->binaryToText)) {
+    query->insert(pair<string, bool>("BinaryToText", *request->binaryToText));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     query->insert(pair<string, string>("Content", *request->content));
   }
