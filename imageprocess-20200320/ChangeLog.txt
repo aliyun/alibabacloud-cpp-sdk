@@ -1,3 +1,6 @@
+2023-03-22 Version: 1.0.22
+- Release SegmentLymphNode.
+
 2023-02-02 Version: 1.0.21
 - Release TargetVolumeSegment.
 

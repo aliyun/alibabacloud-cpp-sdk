@@ -2928,7 +2928,11 @@ public:
   shared_ptr<double> imageZ{};
   shared_ptr<string> lobe{};
   shared_ptr<string> lung{};
+  shared_ptr<vector<double>> majorAxis{};
   shared_ptr<double> meanValue{};
+  shared_ptr<vector<double>> minorAxis{};
+  shared_ptr<string> recistSOPInstanceUID{};
+  shared_ptr<double> risk{};
   shared_ptr<string> SOPInstanceUID{};
   shared_ptr<double> volume{};
   shared_ptr<double> x{};
@@ -2969,8 +2973,20 @@ public:
     if (lung) {
       res["Lung"] = boost::any(*lung);
     }
+    if (majorAxis) {
+      res["MajorAxis"] = boost::any(*majorAxis);
+    }
     if (meanValue) {
       res["MeanValue"] = boost::any(*meanValue);
+    }
+    if (minorAxis) {
+      res["MinorAxis"] = boost::any(*minorAxis);
+    }
+    if (recistSOPInstanceUID) {
+      res["RecistSOPInstanceUID"] = boost::any(*recistSOPInstanceUID);
+    }
+    if (risk) {
+      res["Risk"] = boost::any(*risk);
     }
     if (SOPInstanceUID) {
       res["SOPInstanceUID"] = boost::any(*SOPInstanceUID);
@@ -3015,8 +3031,34 @@ public:
     if (m.find("Lung") != m.end() && !m["Lung"].empty()) {
       lung = make_shared<string>(boost::any_cast<string>(m["Lung"]));
     }
+    if (m.find("MajorAxis") != m.end() && !m["MajorAxis"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MajorAxis"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MajorAxis"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      majorAxis = make_shared<vector<double>>(toVec1);
+    }
     if (m.find("MeanValue") != m.end() && !m["MeanValue"].empty()) {
       meanValue = make_shared<double>(boost::any_cast<double>(m["MeanValue"]));
+    }
+    if (m.find("MinorAxis") != m.end() && !m["MinorAxis"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MinorAxis"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MinorAxis"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      minorAxis = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("RecistSOPInstanceUID") != m.end() && !m["RecistSOPInstanceUID"].empty()) {
+      recistSOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["RecistSOPInstanceUID"]));
+    }
+    if (m.find("Risk") != m.end() && !m["Risk"].empty()) {
+      risk = make_shared<double>(boost::any_cast<double>(m["Risk"]));
     }
     if (m.find("SOPInstanceUID") != m.end() && !m["SOPInstanceUID"].empty()) {
       SOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["SOPInstanceUID"]));
@@ -3564,6 +3606,7 @@ public:
 class DetectLymphResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DetectLymphResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   DetectLymphResponseBody() {}
@@ -3579,6 +3622,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3592,6 +3638,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DetectLymphResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -3921,6 +3970,7 @@ public:
 class DetectPancResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DetectPancResponseBodyData> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   DetectPancResponseBody() {}
@@ -3936,6 +3986,9 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3949,6 +4002,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<DetectPancResponseBodyData>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -7632,7 +7688,11 @@ public:
   shared_ptr<double> imageZ{};
   shared_ptr<string> lobe{};
   shared_ptr<string> lung{};
+  shared_ptr<vector<double>> majorAxis{};
   shared_ptr<double> meanValue{};
+  shared_ptr<vector<double>> minorAxis{};
+  shared_ptr<string> recistSOPInstanceUID{};
+  shared_ptr<double> risk{};
   shared_ptr<string> SOPInstanceUID{};
   shared_ptr<double> volume{};
   shared_ptr<double> x{};
@@ -7673,8 +7733,20 @@ public:
     if (lung) {
       res["Lung"] = boost::any(*lung);
     }
+    if (majorAxis) {
+      res["MajorAxis"] = boost::any(*majorAxis);
+    }
     if (meanValue) {
       res["MeanValue"] = boost::any(*meanValue);
+    }
+    if (minorAxis) {
+      res["MinorAxis"] = boost::any(*minorAxis);
+    }
+    if (recistSOPInstanceUID) {
+      res["RecistSOPInstanceUID"] = boost::any(*recistSOPInstanceUID);
+    }
+    if (risk) {
+      res["Risk"] = boost::any(*risk);
     }
     if (SOPInstanceUID) {
       res["SOPInstanceUID"] = boost::any(*SOPInstanceUID);
@@ -7719,8 +7791,34 @@ public:
     if (m.find("Lung") != m.end() && !m["Lung"].empty()) {
       lung = make_shared<string>(boost::any_cast<string>(m["Lung"]));
     }
+    if (m.find("MajorAxis") != m.end() && !m["MajorAxis"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MajorAxis"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MajorAxis"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      majorAxis = make_shared<vector<double>>(toVec1);
+    }
     if (m.find("MeanValue") != m.end() && !m["MeanValue"].empty()) {
       meanValue = make_shared<double>(boost::any_cast<double>(m["MeanValue"]));
+    }
+    if (m.find("MinorAxis") != m.end() && !m["MinorAxis"].empty()) {
+      vector<double> toVec1;
+      if (typeid(vector<boost::any>) == m["MinorAxis"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MinorAxis"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<double>(item));
+        }
+      }
+      minorAxis = make_shared<vector<double>>(toVec1);
+    }
+    if (m.find("RecistSOPInstanceUID") != m.end() && !m["RecistSOPInstanceUID"].empty()) {
+      recistSOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["RecistSOPInstanceUID"]));
+    }
+    if (m.find("Risk") != m.end() && !m["Risk"].empty()) {
+      risk = make_shared<double>(boost::any_cast<double>(m["Risk"]));
     }
     if (m.find("SOPInstanceUID") != m.end() && !m["SOPInstanceUID"].empty()) {
       SOPInstanceUID = make_shared<string>(boost::any_cast<string>(m["SOPInstanceUID"]));
@@ -7937,7 +8035,7 @@ public:
 class ScreenChestCTResponseBodyDataScreenEc : public Darabonba::Model {
 public:
   shared_ptr<ScreenChestCTResponseBodyDataScreenEcLesion> lesion{};
-  shared_ptr<string> seriesInsanceUid{};
+  shared_ptr<string> seriesInstanceUid{};
 
   ScreenChestCTResponseBodyDataScreenEc() {}
 
@@ -7952,8 +8050,8 @@ public:
     if (lesion) {
       res["Lesion"] = lesion ? boost::any(lesion->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (seriesInsanceUid) {
-      res["SeriesInsanceUid"] = boost::any(*seriesInsanceUid);
+    if (seriesInstanceUid) {
+      res["SeriesInstanceUid"] = boost::any(*seriesInstanceUid);
     }
     return res;
   }
@@ -7966,8 +8064,8 @@ public:
         lesion = make_shared<ScreenChestCTResponseBodyDataScreenEcLesion>(model1);
       }
     }
-    if (m.find("SeriesInsanceUid") != m.end() && !m["SeriesInsanceUid"].empty()) {
-      seriesInsanceUid = make_shared<string>(boost::any_cast<string>(m["SeriesInsanceUid"]));
+    if (m.find("SeriesInstanceUid") != m.end() && !m["SeriesInstanceUid"].empty()) {
+      seriesInstanceUid = make_shared<string>(boost::any_cast<string>(m["SeriesInstanceUid"]));
     }
   }
 
@@ -8508,6 +8606,344 @@ public:
 
 
   virtual ~ScreenECResponse() = default;
+};
+class SegmentLymphNodeRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<string> URL{};
+
+  SegmentLymphNodeRequestURLList() {}
+
+  explicit SegmentLymphNodeRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeRequestURLList() = default;
+};
+class SegmentLymphNodeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyPart{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<SegmentLymphNodeRequestURLList>> URLList{};
+
+  SegmentLymphNodeRequest() {}
+
+  explicit SegmentLymphNodeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyPart) {
+      res["BodyPart"] = boost::any(*bodyPart);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyPart") != m.end() && !m["BodyPart"].empty()) {
+      bodyPart = make_shared<string>(boost::any_cast<string>(m["BodyPart"]));
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<SegmentLymphNodeRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SegmentLymphNodeRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<SegmentLymphNodeRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeRequest() = default;
+};
+class SegmentLymphNodeAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  SegmentLymphNodeAdvanceRequestURLList() {}
+
+  explicit SegmentLymphNodeAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeAdvanceRequestURLList() = default;
+};
+class SegmentLymphNodeAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bodyPart{};
+  shared_ptr<string> dataFormat{};
+  shared_ptr<string> orgId{};
+  shared_ptr<string> orgName{};
+  shared_ptr<vector<SegmentLymphNodeAdvanceRequestURLList>> URLList{};
+
+  SegmentLymphNodeAdvanceRequest() {}
+
+  explicit SegmentLymphNodeAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bodyPart) {
+      res["BodyPart"] = boost::any(*bodyPart);
+    }
+    if (dataFormat) {
+      res["DataFormat"] = boost::any(*dataFormat);
+    }
+    if (orgId) {
+      res["OrgId"] = boost::any(*orgId);
+    }
+    if (orgName) {
+      res["OrgName"] = boost::any(*orgName);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BodyPart") != m.end() && !m["BodyPart"].empty()) {
+      bodyPart = make_shared<string>(boost::any_cast<string>(m["BodyPart"]));
+    }
+    if (m.find("DataFormat") != m.end() && !m["DataFormat"].empty()) {
+      dataFormat = make_shared<string>(boost::any_cast<string>(m["DataFormat"]));
+    }
+    if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
+      orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("OrgName") != m.end() && !m["OrgName"].empty()) {
+      orgName = make_shared<string>(boost::any_cast<string>(m["OrgName"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<SegmentLymphNodeAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SegmentLymphNodeAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<SegmentLymphNodeAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeAdvanceRequest() = default;
+};
+class SegmentLymphNodeResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> resultURL{};
+
+  SegmentLymphNodeResponseBodyData() {}
+
+  explicit SegmentLymphNodeResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resultURL) {
+      res["ResultURL"] = boost::any(*resultURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResultURL") != m.end() && !m["ResultURL"].empty()) {
+      resultURL = make_shared<string>(boost::any_cast<string>(m["ResultURL"]));
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeResponseBodyData() = default;
+};
+class SegmentLymphNodeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<SegmentLymphNodeResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  SegmentLymphNodeResponseBody() {}
+
+  explicit SegmentLymphNodeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        SegmentLymphNodeResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<SegmentLymphNodeResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeResponseBody() = default;
+};
+class SegmentLymphNodeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SegmentLymphNodeResponseBody> body{};
+
+  SegmentLymphNodeResponse() {}
+
+  explicit SegmentLymphNodeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SegmentLymphNodeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SegmentLymphNodeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SegmentLymphNodeResponse() = default;
 };
 class SegmentOARRequestURLList : public Darabonba::Model {
 public:
@@ -9486,6 +9922,9 @@ public:
   ScreenChestCTResponse screenChestCTAdvance(shared_ptr<ScreenChestCTAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenECWithOptions(shared_ptr<ScreenECRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenEC(shared_ptr<ScreenECRequest> request);
+  SegmentLymphNodeResponse segmentLymphNodeWithOptions(shared_ptr<SegmentLymphNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SegmentLymphNodeResponse segmentLymphNode(shared_ptr<SegmentLymphNodeRequest> request);
+  SegmentLymphNodeResponse segmentLymphNodeAdvance(shared_ptr<SegmentLymphNodeAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentOARResponse segmentOARWithOptions(shared_ptr<SegmentOARRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentOARResponse segmentOAR(shared_ptr<SegmentOARRequest> request);
   SegmentOARResponse segmentOARAdvance(shared_ptr<SegmentOARAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
