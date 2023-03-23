@@ -178,6 +178,9 @@ CreateJobResponse Alibabacloud_Pai-dlc20201203::Client::createJob(shared_ptr<Cre
 CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboardWithOptions(shared_ptr<CreateTensorboardRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->cpu)) {
+    body->insert(pair<string, long>("Cpu", *request->cpu));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceId)) {
     body->insert(pair<string, string>("DataSourceId", *request->dataSourceId));
   }
@@ -195,6 +198,9 @@ CreateTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::createTensorboar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxRunningTimeMinutes)) {
     body->insert(pair<string, long>("MaxRunningTimeMinutes", *request->maxRunningTimeMinutes));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->memory)) {
+    body->insert(pair<string, long>("Memory", *request->memory));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
     body->insert(pair<string, string>("Options", *request->options));

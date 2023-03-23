@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_PAI-DLC20201203_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -953,6 +954,198 @@ public:
 
   virtual ~ExtraPodSpec() = default;
 };
+class FreeResourceClusterControlItem : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterID{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<bool> crossClusters{};
+  shared_ptr<bool> enableFreeResource{};
+  shared_ptr<string> freeResourceClusterControlId{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifyTime{};
+  shared_ptr<string> regionID{};
+
+  FreeResourceClusterControlItem() {}
+
+  explicit FreeResourceClusterControlItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterID) {
+      res["ClusterID"] = boost::any(*clusterID);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (crossClusters) {
+      res["CrossClusters"] = boost::any(*crossClusters);
+    }
+    if (enableFreeResource) {
+      res["EnableFreeResource"] = boost::any(*enableFreeResource);
+    }
+    if (freeResourceClusterControlId) {
+      res["FreeResourceClusterControlId"] = boost::any(*freeResourceClusterControlId);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifyTime) {
+      res["GmtModifyTime"] = boost::any(*gmtModifyTime);
+    }
+    if (regionID) {
+      res["RegionID"] = boost::any(*regionID);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterID") != m.end() && !m["ClusterID"].empty()) {
+      clusterID = make_shared<string>(boost::any_cast<string>(m["ClusterID"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("CrossClusters") != m.end() && !m["CrossClusters"].empty()) {
+      crossClusters = make_shared<bool>(boost::any_cast<bool>(m["CrossClusters"]));
+    }
+    if (m.find("EnableFreeResource") != m.end() && !m["EnableFreeResource"].empty()) {
+      enableFreeResource = make_shared<bool>(boost::any_cast<bool>(m["EnableFreeResource"]));
+    }
+    if (m.find("FreeResourceClusterControlId") != m.end() && !m["FreeResourceClusterControlId"].empty()) {
+      freeResourceClusterControlId = make_shared<string>(boost::any_cast<string>(m["FreeResourceClusterControlId"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifyTime") != m.end() && !m["GmtModifyTime"].empty()) {
+      gmtModifyTime = make_shared<string>(boost::any_cast<string>(m["GmtModifyTime"]));
+    }
+    if (m.find("RegionID") != m.end() && !m["RegionID"].empty()) {
+      regionID = make_shared<string>(boost::any_cast<string>(m["RegionID"]));
+    }
+  }
+
+
+  virtual ~FreeResourceClusterControlItem() = default;
+};
+class FreeResourceDetail : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<string> resourceType{};
+
+  FreeResourceDetail() {}
+
+  explicit FreeResourceDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~FreeResourceDetail() = default;
+};
+class FreeResourceItem : public Darabonba::Model {
+public:
+  shared_ptr<long> availableNumber{};
+  shared_ptr<string> clusterID{};
+  shared_ptr<string> clusterName{};
+  shared_ptr<string> freeResourceId{};
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtModifyTime{};
+  shared_ptr<string> regionID{};
+  shared_ptr<string> resourceType{};
+
+  FreeResourceItem() {}
+
+  explicit FreeResourceItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (availableNumber) {
+      res["AvailableNumber"] = boost::any(*availableNumber);
+    }
+    if (clusterID) {
+      res["ClusterID"] = boost::any(*clusterID);
+    }
+    if (clusterName) {
+      res["ClusterName"] = boost::any(*clusterName);
+    }
+    if (freeResourceId) {
+      res["FreeResourceId"] = boost::any(*freeResourceId);
+    }
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtModifyTime) {
+      res["GmtModifyTime"] = boost::any(*gmtModifyTime);
+    }
+    if (regionID) {
+      res["RegionID"] = boost::any(*regionID);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableNumber") != m.end() && !m["AvailableNumber"].empty()) {
+      availableNumber = make_shared<long>(boost::any_cast<long>(m["AvailableNumber"]));
+    }
+    if (m.find("ClusterID") != m.end() && !m["ClusterID"].empty()) {
+      clusterID = make_shared<string>(boost::any_cast<string>(m["ClusterID"]));
+    }
+    if (m.find("ClusterName") != m.end() && !m["ClusterName"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["ClusterName"]));
+    }
+    if (m.find("FreeResourceId") != m.end() && !m["FreeResourceId"].empty()) {
+      freeResourceId = make_shared<string>(boost::any_cast<string>(m["FreeResourceId"]));
+    }
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtModifyTime") != m.end() && !m["GmtModifyTime"].empty()) {
+      gmtModifyTime = make_shared<string>(boost::any_cast<string>(m["GmtModifyTime"]));
+    }
+    if (m.find("RegionID") != m.end() && !m["RegionID"].empty()) {
+      regionID = make_shared<string>(boost::any_cast<string>(m["RegionID"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~FreeResourceItem() = default;
+};
 class GPUDetail : public Darabonba::Model {
 public:
   shared_ptr<string> GPU{};
@@ -995,6 +1188,56 @@ public:
 
 
   virtual ~GPUDetail() = default;
+};
+class ImageConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> auth{};
+  shared_ptr<string> dockerRegistry{};
+  shared_ptr<string> password{};
+  shared_ptr<string> username{};
+
+  ImageConfig() {}
+
+  explicit ImageConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auth) {
+      res["Auth"] = boost::any(*auth);
+    }
+    if (dockerRegistry) {
+      res["DockerRegistry"] = boost::any(*dockerRegistry);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Auth") != m.end() && !m["Auth"].empty()) {
+      auth = make_shared<string>(boost::any_cast<string>(m["Auth"]));
+    }
+    if (m.find("DockerRegistry") != m.end() && !m["DockerRegistry"].empty()) {
+      dockerRegistry = make_shared<string>(boost::any_cast<string>(m["DockerRegistry"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~ImageConfig() = default;
 };
 class ImageItem : public Darabonba::Model {
 public:
@@ -1119,8 +1362,11 @@ public:
 };
 class JobElasticSpec : public Darabonba::Model {
 public:
+  shared_ptr<string> AIMasterDockerImage{};
   shared_ptr<string> AIMasterType{};
+  shared_ptr<bool> enableAIMaster{};
   shared_ptr<bool> enableElasticTraining{};
+  shared_ptr<bool> enablePsJobElasticWorker{};
   shared_ptr<long> maxParallelism{};
   shared_ptr<long> minParallelism{};
 
@@ -1134,11 +1380,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (AIMasterDockerImage) {
+      res["AIMasterDockerImage"] = boost::any(*AIMasterDockerImage);
+    }
     if (AIMasterType) {
       res["AIMasterType"] = boost::any(*AIMasterType);
     }
+    if (enableAIMaster) {
+      res["EnableAIMaster"] = boost::any(*enableAIMaster);
+    }
     if (enableElasticTraining) {
       res["EnableElasticTraining"] = boost::any(*enableElasticTraining);
+    }
+    if (enablePsJobElasticWorker) {
+      res["EnablePsJobElasticWorker"] = boost::any(*enablePsJobElasticWorker);
     }
     if (maxParallelism) {
       res["MaxParallelism"] = boost::any(*maxParallelism);
@@ -1150,11 +1405,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AIMasterDockerImage") != m.end() && !m["AIMasterDockerImage"].empty()) {
+      AIMasterDockerImage = make_shared<string>(boost::any_cast<string>(m["AIMasterDockerImage"]));
+    }
     if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
       AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
     }
+    if (m.find("EnableAIMaster") != m.end() && !m["EnableAIMaster"].empty()) {
+      enableAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableAIMaster"]));
+    }
     if (m.find("EnableElasticTraining") != m.end() && !m["EnableElasticTraining"].empty()) {
       enableElasticTraining = make_shared<bool>(boost::any_cast<bool>(m["EnableElasticTraining"]));
+    }
+    if (m.find("EnablePsJobElasticWorker") != m.end() && !m["EnablePsJobElasticWorker"].empty()) {
+      enablePsJobElasticWorker = make_shared<bool>(boost::any_cast<bool>(m["EnablePsJobElasticWorker"]));
     }
     if (m.find("MaxParallelism") != m.end() && !m["MaxParallelism"].empty()) {
       maxParallelism = make_shared<long>(boost::any_cast<long>(m["MaxParallelism"]));
@@ -1315,6 +1579,7 @@ public:
   shared_ptr<string> ecsSpec{};
   shared_ptr<ExtraPodSpec> extraPodSpec{};
   shared_ptr<string> image{};
+  shared_ptr<ImageConfig> imageConfig{};
   shared_ptr<long> podCount{};
   shared_ptr<ResourceConfig> resourceConfig{};
   shared_ptr<string> type{};
@@ -1338,6 +1603,9 @@ public:
     }
     if (image) {
       res["Image"] = boost::any(*image);
+    }
+    if (imageConfig) {
+      res["ImageConfig"] = imageConfig ? boost::any(imageConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (podCount) {
       res["PodCount"] = boost::any(*podCount);
@@ -1368,6 +1636,13 @@ public:
     if (m.find("Image") != m.end() && !m["Image"].empty()) {
       image = make_shared<string>(boost::any_cast<string>(m["Image"]));
     }
+    if (m.find("ImageConfig") != m.end() && !m["ImageConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ImageConfig"].type()) {
+        ImageConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ImageConfig"]));
+        imageConfig = make_shared<ImageConfig>(model1);
+      }
+    }
     if (m.find("PodCount") != m.end() && !m["PodCount"].empty()) {
       podCount = make_shared<long>(boost::any_cast<long>(m["PodCount"]));
     }
@@ -1391,6 +1666,7 @@ public:
 };
 class JobSettings : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> advancedSettings{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
@@ -1398,6 +1674,7 @@ public:
   shared_ptr<bool> enableRDMA{};
   shared_ptr<bool> enableTideResource{};
   shared_ptr<string> errorMonitoringArgs{};
+  shared_ptr<string> oversoldType{};
   shared_ptr<string> pipelineId{};
   shared_ptr<map<string, string>> tags{};
 
@@ -1411,6 +1688,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (advancedSettings) {
+      res["AdvancedSettings"] = boost::any(*advancedSettings);
+    }
     if (businessUserId) {
       res["BusinessUserId"] = boost::any(*businessUserId);
     }
@@ -1432,6 +1712,9 @@ public:
     if (errorMonitoringArgs) {
       res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
     }
+    if (oversoldType) {
+      res["OversoldType"] = boost::any(*oversoldType);
+    }
     if (pipelineId) {
       res["PipelineId"] = boost::any(*pipelineId);
     }
@@ -1442,6 +1725,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedSettings") != m.end() && !m["AdvancedSettings"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AdvancedSettings"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      advancedSettings = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("BusinessUserId") != m.end() && !m["BusinessUserId"].empty()) {
       businessUserId = make_shared<string>(boost::any_cast<string>(m["BusinessUserId"]));
     }
@@ -1462,6 +1753,9 @@ public:
     }
     if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
       errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
+    }
+    if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
+      oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
     }
     if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
       pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
@@ -1505,6 +1799,7 @@ public:
   shared_ptr<string> resourceName{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
+  shared_ptr<string> subStatus{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<string> userCommand{};
@@ -1601,6 +1896,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
     }
     if (thirdpartyLibDir) {
       res["ThirdpartyLibDir"] = boost::any(*thirdpartyLibDir);
@@ -1728,6 +2026,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
     }
     if (m.find("ThirdpartyLibDir") != m.end() && !m["ThirdpartyLibDir"].empty()) {
       thirdpartyLibDir = make_shared<string>(boost::any_cast<string>(m["ThirdpartyLibDir"]));
@@ -3060,12 +3361,14 @@ public:
 };
 class CreateTensorboardRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> cpu{};
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> dataSourceType{};
   shared_ptr<vector<DataSourceItem>> dataSources{};
   shared_ptr<string> displayName{};
   shared_ptr<string> jobId{};
   shared_ptr<long> maxRunningTimeMinutes{};
+  shared_ptr<long> memory{};
   shared_ptr<string> options{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
@@ -3084,6 +3387,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
     if (dataSourceId) {
       res["DataSourceId"] = boost::any(*dataSourceId);
     }
@@ -3105,6 +3411,9 @@ public:
     }
     if (maxRunningTimeMinutes) {
       res["MaxRunningTimeMinutes"] = boost::any(*maxRunningTimeMinutes);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
     }
     if (options) {
       res["Options"] = boost::any(*options);
@@ -3131,6 +3440,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<long>(boost::any_cast<long>(m["Cpu"]));
+    }
     if (m.find("DataSourceId") != m.end() && !m["DataSourceId"].empty()) {
       dataSourceId = make_shared<string>(boost::any_cast<string>(m["DataSourceId"]));
     }
@@ -3158,6 +3470,9 @@ public:
     }
     if (m.find("MaxRunningTimeMinutes") != m.end() && !m["MaxRunningTimeMinutes"].empty()) {
       maxRunningTimeMinutes = make_shared<long>(boost::any_cast<long>(m["MaxRunningTimeMinutes"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<long>(boost::any_cast<long>(m["Memory"]));
     }
     if (m.find("Options") != m.end() && !m["Options"].empty()) {
       options = make_shared<string>(boost::any_cast<string>(m["Options"]));
@@ -3616,7 +3931,9 @@ public:
   shared_ptr<string> ip{};
   shared_ptr<string> podId{};
   shared_ptr<string> podUid{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
+  shared_ptr<string> subStatus{};
   shared_ptr<string> type{};
 
   GetJobResponseBodyPodsHistoryPods() {}
@@ -3647,8 +3964,14 @@ public:
     if (podUid) {
       res["PodUid"] = boost::any(*podUid);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -3675,8 +3998,14 @@ public:
     if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
       podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
     }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -3695,7 +4024,9 @@ public:
   shared_ptr<string> ip{};
   shared_ptr<string> podId{};
   shared_ptr<string> podUid{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
+  shared_ptr<string> subStatus{};
   shared_ptr<string> type{};
 
   GetJobResponseBodyPods() {}
@@ -3733,8 +4064,14 @@ public:
     if (podUid) {
       res["PodUid"] = boost::any(*podUid);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -3774,8 +4111,14 @@ public:
     if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
       podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
     }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -3812,8 +4155,10 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceLevel{};
+  shared_ptr<string> restartTimes{};
   shared_ptr<JobSettings> settings{};
   shared_ptr<string> status{};
+  shared_ptr<string> subStatus{};
   shared_ptr<string> thirdpartyLibDir{};
   shared_ptr<vector<string>> thirdpartyLibs{};
   shared_ptr<string> userCommand{};
@@ -3918,11 +4263,17 @@ public:
     if (resourceLevel) {
       res["ResourceLevel"] = boost::any(*resourceLevel);
     }
+    if (restartTimes) {
+      res["RestartTimes"] = boost::any(*restartTimes);
+    }
     if (settings) {
       res["Settings"] = settings ? boost::any(settings->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (subStatus) {
+      res["SubStatus"] = boost::any(*subStatus);
     }
     if (thirdpartyLibDir) {
       res["ThirdpartyLibDir"] = boost::any(*thirdpartyLibDir);
@@ -4064,6 +4415,9 @@ public:
     if (m.find("ResourceLevel") != m.end() && !m["ResourceLevel"].empty()) {
       resourceLevel = make_shared<string>(boost::any_cast<string>(m["ResourceLevel"]));
     }
+    if (m.find("RestartTimes") != m.end() && !m["RestartTimes"].empty()) {
+      restartTimes = make_shared<string>(boost::any_cast<string>(m["RestartTimes"]));
+    }
     if (m.find("Settings") != m.end() && !m["Settings"].empty()) {
       if (typeid(map<string, boost::any>) == m["Settings"].type()) {
         JobSettings model1;
@@ -4073,6 +4427,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubStatus") != m.end() && !m["SubStatus"].empty()) {
+      subStatus = make_shared<string>(boost::any_cast<string>(m["SubStatus"]));
     }
     if (m.find("ThirdpartyLibDir") != m.end() && !m["ThirdpartyLibDir"].empty()) {
       thirdpartyLibDir = make_shared<string>(boost::any_cast<string>(m["ThirdpartyLibDir"]));
@@ -4213,7 +4570,7 @@ class GetJobEventsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> events{};
   shared_ptr<string> jobId{};
-  shared_ptr<long> requestId{};
+  shared_ptr<string> requestId{};
 
   GetJobEventsResponseBody() {}
 
@@ -4252,7 +4609,7 @@ public:
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<long>(boost::any_cast<long>(m["RequestId"]));
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
   }
 
