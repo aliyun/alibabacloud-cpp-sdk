@@ -839,15 +839,12 @@ DeleteMachineGroupResponse Alibabacloud_Sls20201230::Client::deleteMachineGroup(
   return deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
 }
 
-DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions(shared_ptr<DeleteProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
-    query->insert(pair<string, string>("project", *request->project));
-  }
+DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("DeleteProject"))},
@@ -863,10 +860,10 @@ DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProjectWithOptions
   return DeleteProjectResponse(execute(params, req, runtime));
 }
 
-DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProject(shared_ptr<DeleteProjectRequest> request) {
+DeleteProjectResponse Alibabacloud_Sls20201230::Client::deleteProject(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteProjectWithOptions(request, headers, runtime);
+  return deleteProjectWithOptions(project, headers, runtime);
 }
 
 DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolicyWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1440,12 +1437,15 @@ GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroup(shared
   return getMachineGroupWithOptions(project, machineGroup, headers, runtime);
 }
 
-GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
-  hostMap->insert(pair<string, string>("project", *project));
+GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(shared_ptr<GetProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
+    query->insert(pair<string, string>("project", *request->project));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetProject"))},
@@ -1461,10 +1461,10 @@ GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(share
   return GetProjectResponse(execute(params, req, runtime));
 }
 
-GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<string> project) {
+GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<GetProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectWithOptions(project, headers, runtime);
+  return getProjectWithOptions(request, headers, runtime);
 }
 
 GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogsWithOptions(shared_ptr<string> project,
@@ -2743,19 +2743,20 @@ UpdateOssShipperResponse Alibabacloud_Sls20201230::Client::updateOssShipper(shar
   return updateOssShipperWithOptions(project, logstore, shipperName, request, headers, runtime);
 }
 
-UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions(shared_ptr<UpdateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions(shared_ptr<string> project,
+                                                                                 shared_ptr<UpdateProjectRequest> request,
+                                                                                 shared_ptr<map<string, string>> headers,
+                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
-    query->insert(pair<string, string>("project", *request->project));
-  }
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
     {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2772,10 +2773,10 @@ UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProjectWithOptions
   return UpdateProjectResponse(execute(params, req, runtime));
 }
 
-UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProject(shared_ptr<UpdateProjectRequest> request) {
+UpdateProjectResponse Alibabacloud_Sls20201230::Client::updateProject(shared_ptr<string> project, shared_ptr<UpdateProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateProjectWithOptions(request, headers, runtime);
+  return updateProjectWithOptions(project, request, headers, runtime);
 }
 
 UpdateRdsExternalStoreResponse Alibabacloud_Sls20201230::Client::updateRdsExternalStoreWithOptions(shared_ptr<string> project,
