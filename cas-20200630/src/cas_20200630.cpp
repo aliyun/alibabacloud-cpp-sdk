@@ -245,6 +245,46 @@ CreateClientCertificateWithCsrResponse Alibabacloud_Cas20200630::Client::createC
   return createClientCertificateWithCsrWithOptions(request, runtime);
 }
 
+CreateCustomCertificateResponse Alibabacloud_Cas20200630::Client::createCustomCertificateWithOptions(shared_ptr<CreateCustomCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateCustomCertificateRequestApiPassthrough>(request->apiPassthrough)) {
+    query->insert(pair<string, CreateCustomCertificateRequestApiPassthrough>("ApiPassthrough", *request->apiPassthrough));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->csr)) {
+    query->insert(pair<string, string>("Csr", *request->csr));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->immediately)) {
+    query->insert(pair<string, long>("Immediately", *request->immediately));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentIdentifier)) {
+    query->insert(pair<string, string>("ParentIdentifier", *request->parentIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->validity)) {
+    query->insert(pair<string, string>("Validity", *request->validity));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateCustomCertificate"))},
+    {"version", boost::any(string("2020-06-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateCustomCertificateResponse(callApi(params, req, runtime));
+}
+
+CreateCustomCertificateResponse Alibabacloud_Cas20200630::Client::createCustomCertificate(shared_ptr<CreateCustomCertificateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createCustomCertificateWithOptions(request, runtime);
+}
+
 CreateRevokeClientCertificateResponse Alibabacloud_Cas20200630::Client::createRevokeClientCertificateWithOptions(shared_ptr<CreateRevokeClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -483,6 +523,9 @@ CreateSubCACertificateResponse Alibabacloud_Cas20200630::Client::createSubCACert
   if (!Darabonba_Util::Client::isUnset<string>(request->countryCode)) {
     query->insert(pair<string, string>("CountryCode", *request->countryCode));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->extendedKeyUsages)) {
+    query->insert(pair<string, vector<string>>("ExtendedKeyUsages", *request->extendedKeyUsages));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->locality)) {
     query->insert(pair<string, string>("Locality", *request->locality));
   }
@@ -494,6 +537,9 @@ CreateSubCACertificateResponse Alibabacloud_Cas20200630::Client::createSubCACert
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parentIdentifier)) {
     query->insert(pair<string, string>("ParentIdentifier", *request->parentIdentifier));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pathLenConstraint)) {
+    query->insert(pair<string, long>("PathLenConstraint", *request->pathLenConstraint));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
     query->insert(pair<string, string>("State", *request->state));

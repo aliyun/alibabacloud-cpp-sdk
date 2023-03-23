@@ -541,6 +541,476 @@ public:
 
   virtual ~CreateClientCertificateWithCsrResponse() = default;
 };
+class CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage : public Darabonba::Model {
+public:
+  shared_ptr<bool> contentCommitment{};
+  shared_ptr<bool> dataEncipherment{};
+  shared_ptr<bool> decipherOnly{};
+  shared_ptr<bool> digitalSignature{};
+  shared_ptr<bool> encipherOnly{};
+  shared_ptr<bool> keyAgreement{};
+  shared_ptr<bool> keyEncipherment{};
+  shared_ptr<bool> nonRepudiation{};
+
+  CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage() {}
+
+  explicit CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contentCommitment) {
+      res["ContentCommitment"] = boost::any(*contentCommitment);
+    }
+    if (dataEncipherment) {
+      res["DataEncipherment"] = boost::any(*dataEncipherment);
+    }
+    if (decipherOnly) {
+      res["DecipherOnly"] = boost::any(*decipherOnly);
+    }
+    if (digitalSignature) {
+      res["DigitalSignature"] = boost::any(*digitalSignature);
+    }
+    if (encipherOnly) {
+      res["EncipherOnly"] = boost::any(*encipherOnly);
+    }
+    if (keyAgreement) {
+      res["KeyAgreement"] = boost::any(*keyAgreement);
+    }
+    if (keyEncipherment) {
+      res["KeyEncipherment"] = boost::any(*keyEncipherment);
+    }
+    if (nonRepudiation) {
+      res["NonRepudiation"] = boost::any(*nonRepudiation);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContentCommitment") != m.end() && !m["ContentCommitment"].empty()) {
+      contentCommitment = make_shared<bool>(boost::any_cast<bool>(m["ContentCommitment"]));
+    }
+    if (m.find("DataEncipherment") != m.end() && !m["DataEncipherment"].empty()) {
+      dataEncipherment = make_shared<bool>(boost::any_cast<bool>(m["DataEncipherment"]));
+    }
+    if (m.find("DecipherOnly") != m.end() && !m["DecipherOnly"].empty()) {
+      decipherOnly = make_shared<bool>(boost::any_cast<bool>(m["DecipherOnly"]));
+    }
+    if (m.find("DigitalSignature") != m.end() && !m["DigitalSignature"].empty()) {
+      digitalSignature = make_shared<bool>(boost::any_cast<bool>(m["DigitalSignature"]));
+    }
+    if (m.find("EncipherOnly") != m.end() && !m["EncipherOnly"].empty()) {
+      encipherOnly = make_shared<bool>(boost::any_cast<bool>(m["EncipherOnly"]));
+    }
+    if (m.find("KeyAgreement") != m.end() && !m["KeyAgreement"].empty()) {
+      keyAgreement = make_shared<bool>(boost::any_cast<bool>(m["KeyAgreement"]));
+    }
+    if (m.find("KeyEncipherment") != m.end() && !m["KeyEncipherment"].empty()) {
+      keyEncipherment = make_shared<bool>(boost::any_cast<bool>(m["KeyEncipherment"]));
+    }
+    if (m.find("NonRepudiation") != m.end() && !m["NonRepudiation"].empty()) {
+      nonRepudiation = make_shared<bool>(boost::any_cast<bool>(m["NonRepudiation"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage() = default;
+};
+class CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
+
+  CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames() {}
+
+  explicit CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames() = default;
+};
+class CreateCustomCertificateRequestApiPassthroughExtensions : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> extendedKeyUsages{};
+  shared_ptr<CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage> keyUsage{};
+  shared_ptr<vector<CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames>> subjectAlternativeNames{};
+
+  CreateCustomCertificateRequestApiPassthroughExtensions() {}
+
+  explicit CreateCustomCertificateRequestApiPassthroughExtensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extendedKeyUsages) {
+      res["ExtendedKeyUsages"] = boost::any(*extendedKeyUsages);
+    }
+    if (keyUsage) {
+      res["KeyUsage"] = keyUsage ? boost::any(keyUsage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (subjectAlternativeNames) {
+      vector<boost::any> temp1;
+      for(auto item1:*subjectAlternativeNames){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubjectAlternativeNames"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtendedKeyUsages") != m.end() && !m["ExtendedKeyUsages"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtendedKeyUsages"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedKeyUsages"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extendedKeyUsages = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("KeyUsage") != m.end() && !m["KeyUsage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["KeyUsage"].type()) {
+        CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["KeyUsage"]));
+        keyUsage = make_shared<CreateCustomCertificateRequestApiPassthroughExtensionsKeyUsage>(model1);
+      }
+    }
+    if (m.find("SubjectAlternativeNames") != m.end() && !m["SubjectAlternativeNames"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubjectAlternativeNames"].type()) {
+        vector<CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubjectAlternativeNames"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subjectAlternativeNames = make_shared<vector<CreateCustomCertificateRequestApiPassthroughExtensionsSubjectAlternativeNames>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthroughExtensions() = default;
+};
+class CreateCustomCertificateRequestApiPassthroughSubject : public Darabonba::Model {
+public:
+  shared_ptr<string> commonName{};
+  shared_ptr<string> country{};
+  shared_ptr<string> locality{};
+  shared_ptr<string> organization{};
+  shared_ptr<string> organizationUnit{};
+  shared_ptr<string> state{};
+
+  CreateCustomCertificateRequestApiPassthroughSubject() {}
+
+  explicit CreateCustomCertificateRequestApiPassthroughSubject(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    if (locality) {
+      res["Locality"] = boost::any(*locality);
+    }
+    if (organization) {
+      res["Organization"] = boost::any(*organization);
+    }
+    if (organizationUnit) {
+      res["OrganizationUnit"] = boost::any(*organizationUnit);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+    if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
+      locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
+    }
+    if (m.find("Organization") != m.end() && !m["Organization"].empty()) {
+      organization = make_shared<string>(boost::any_cast<string>(m["Organization"]));
+    }
+    if (m.find("OrganizationUnit") != m.end() && !m["OrganizationUnit"].empty()) {
+      organizationUnit = make_shared<string>(boost::any_cast<string>(m["OrganizationUnit"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthroughSubject() = default;
+};
+class CreateCustomCertificateRequestApiPassthrough : public Darabonba::Model {
+public:
+  shared_ptr<CreateCustomCertificateRequestApiPassthroughExtensions> extensions{};
+  shared_ptr<CreateCustomCertificateRequestApiPassthroughSubject> subject{};
+
+  CreateCustomCertificateRequestApiPassthrough() {}
+
+  explicit CreateCustomCertificateRequestApiPassthrough(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extensions) {
+      res["Extensions"] = extensions ? boost::any(extensions->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (subject) {
+      res["Subject"] = subject ? boost::any(subject->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extensions") != m.end() && !m["Extensions"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Extensions"].type()) {
+        CreateCustomCertificateRequestApiPassthroughExtensions model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Extensions"]));
+        extensions = make_shared<CreateCustomCertificateRequestApiPassthroughExtensions>(model1);
+      }
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Subject"].type()) {
+        CreateCustomCertificateRequestApiPassthroughSubject model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Subject"]));
+        subject = make_shared<CreateCustomCertificateRequestApiPassthroughSubject>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequestApiPassthrough() = default;
+};
+class CreateCustomCertificateRequest : public Darabonba::Model {
+public:
+  shared_ptr<CreateCustomCertificateRequestApiPassthrough> apiPassthrough{};
+  shared_ptr<string> csr{};
+  shared_ptr<long> immediately{};
+  shared_ptr<string> parentIdentifier{};
+  shared_ptr<string> validity{};
+
+  CreateCustomCertificateRequest() {}
+
+  explicit CreateCustomCertificateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiPassthrough) {
+      res["ApiPassthrough"] = apiPassthrough ? boost::any(apiPassthrough->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (csr) {
+      res["Csr"] = boost::any(*csr);
+    }
+    if (immediately) {
+      res["Immediately"] = boost::any(*immediately);
+    }
+    if (parentIdentifier) {
+      res["ParentIdentifier"] = boost::any(*parentIdentifier);
+    }
+    if (validity) {
+      res["Validity"] = boost::any(*validity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiPassthrough") != m.end() && !m["ApiPassthrough"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ApiPassthrough"].type()) {
+        CreateCustomCertificateRequestApiPassthrough model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ApiPassthrough"]));
+        apiPassthrough = make_shared<CreateCustomCertificateRequestApiPassthrough>(model1);
+      }
+    }
+    if (m.find("Csr") != m.end() && !m["Csr"].empty()) {
+      csr = make_shared<string>(boost::any_cast<string>(m["Csr"]));
+    }
+    if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
+      immediately = make_shared<long>(boost::any_cast<long>(m["Immediately"]));
+    }
+    if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
+      parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
+    }
+    if (m.find("Validity") != m.end() && !m["Validity"].empty()) {
+      validity = make_shared<string>(boost::any_cast<string>(m["Validity"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateRequest() = default;
+};
+class CreateCustomCertificateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> certificate{};
+  shared_ptr<string> certificateChain{};
+  shared_ptr<string> identifier{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> serialNumber{};
+
+  CreateCustomCertificateResponseBody() {}
+
+  explicit CreateCustomCertificateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certificate) {
+      res["Certificate"] = boost::any(*certificate);
+    }
+    if (certificateChain) {
+      res["CertificateChain"] = boost::any(*certificateChain);
+    }
+    if (identifier) {
+      res["Identifier"] = boost::any(*identifier);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serialNumber) {
+      res["SerialNumber"] = boost::any(*serialNumber);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Certificate") != m.end() && !m["Certificate"].empty()) {
+      certificate = make_shared<string>(boost::any_cast<string>(m["Certificate"]));
+    }
+    if (m.find("CertificateChain") != m.end() && !m["CertificateChain"].empty()) {
+      certificateChain = make_shared<string>(boost::any_cast<string>(m["CertificateChain"]));
+    }
+    if (m.find("Identifier") != m.end() && !m["Identifier"].empty()) {
+      identifier = make_shared<string>(boost::any_cast<string>(m["Identifier"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateResponseBody() = default;
+};
+class CreateCustomCertificateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCustomCertificateResponseBody> body{};
+
+  CreateCustomCertificateResponse() {}
+
+  explicit CreateCustomCertificateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCustomCertificateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomCertificateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCustomCertificateResponse() = default;
+};
 class CreateRevokeClientCertificateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> identifier{};
@@ -1369,10 +1839,12 @@ public:
   shared_ptr<string> algorithm{};
   shared_ptr<string> commonName{};
   shared_ptr<string> countryCode{};
+  shared_ptr<vector<string>> extendedKeyUsages{};
   shared_ptr<string> locality{};
   shared_ptr<string> organization{};
   shared_ptr<string> organizationUnit{};
   shared_ptr<string> parentIdentifier{};
+  shared_ptr<long> pathLenConstraint{};
   shared_ptr<string> state{};
   shared_ptr<long> years{};
 
@@ -1395,6 +1867,9 @@ public:
     if (countryCode) {
       res["CountryCode"] = boost::any(*countryCode);
     }
+    if (extendedKeyUsages) {
+      res["ExtendedKeyUsages"] = boost::any(*extendedKeyUsages);
+    }
     if (locality) {
       res["Locality"] = boost::any(*locality);
     }
@@ -1406,6 +1881,9 @@ public:
     }
     if (parentIdentifier) {
       res["ParentIdentifier"] = boost::any(*parentIdentifier);
+    }
+    if (pathLenConstraint) {
+      res["PathLenConstraint"] = boost::any(*pathLenConstraint);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -1426,6 +1904,16 @@ public:
     if (m.find("CountryCode") != m.end() && !m["CountryCode"].empty()) {
       countryCode = make_shared<string>(boost::any_cast<string>(m["CountryCode"]));
     }
+    if (m.find("ExtendedKeyUsages") != m.end() && !m["ExtendedKeyUsages"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExtendedKeyUsages"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExtendedKeyUsages"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      extendedKeyUsages = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Locality") != m.end() && !m["Locality"].empty()) {
       locality = make_shared<string>(boost::any_cast<string>(m["Locality"]));
     }
@@ -1437,6 +1925,9 @@ public:
     }
     if (m.find("ParentIdentifier") != m.end() && !m["ParentIdentifier"].empty()) {
       parentIdentifier = make_shared<string>(boost::any_cast<string>(m["ParentIdentifier"]));
+    }
+    if (m.find("PathLenConstraint") != m.end() && !m["PathLenConstraint"].empty()) {
+      pathLenConstraint = make_shared<long>(boost::any_cast<long>(m["PathLenConstraint"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -4141,6 +4632,8 @@ public:
   CreateClientCertificateResponse createClientCertificate(shared_ptr<CreateClientCertificateRequest> request);
   CreateClientCertificateWithCsrResponse createClientCertificateWithCsrWithOptions(shared_ptr<CreateClientCertificateWithCsrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateClientCertificateWithCsrResponse createClientCertificateWithCsr(shared_ptr<CreateClientCertificateWithCsrRequest> request);
+  CreateCustomCertificateResponse createCustomCertificateWithOptions(shared_ptr<CreateCustomCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCustomCertificateResponse createCustomCertificate(shared_ptr<CreateCustomCertificateRequest> request);
   CreateRevokeClientCertificateResponse createRevokeClientCertificateWithOptions(shared_ptr<CreateRevokeClientCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRevokeClientCertificateResponse createRevokeClientCertificate(shared_ptr<CreateRevokeClientCertificateRequest> request);
   CreateRootCACertificateResponse createRootCACertificateWithOptions(shared_ptr<CreateRootCACertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
