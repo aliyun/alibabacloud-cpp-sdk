@@ -1849,8 +1849,13 @@ SetPasswordPolicyResponse Alibabacloud_Ims20190815::Client::setPasswordPolicy(sh
   return setPasswordPolicyWithOptions(request, runtime);
 }
 
-SetSecurityPreferenceResponse Alibabacloud_Ims20190815::Client::setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+SetSecurityPreferenceResponse Alibabacloud_Ims20190815::Client::setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SetSecurityPreferenceShrinkRequest> request = make_shared<SetSecurityPreferenceShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->verificationTypes)) {
+    request->verificationTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->verificationTypes, make_shared<string>("VerificationTypes"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->allowUserToChangePassword)) {
     query->insert(pair<string, bool>("AllowUserToChangePassword", *request->allowUserToChangePassword));
@@ -1878,6 +1883,9 @@ SetSecurityPreferenceResponse Alibabacloud_Ims20190815::Client::setSecurityPrefe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->operationForRiskLogin)) {
     query->insert(pair<string, string>("OperationForRiskLogin", *request->operationForRiskLogin));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verificationTypesShrink)) {
+    query->insert(pair<string, string>("VerificationTypes", *request->verificationTypesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

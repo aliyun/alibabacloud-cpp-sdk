@@ -7177,12 +7177,49 @@ public:
 
   virtual ~GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() = default;
 };
+class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> verificationTypes{};
+
+  GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
+
+  explicit GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (verificationTypes) {
+      res["VerificationTypes"] = boost::any(*verificationTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verificationTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() = default;
+};
 class GetSecurityPreferenceResponseBodySecurityPreference : public Darabonba::Model {
 public:
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
   shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
+  shared_ptr<GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
 
   GetSecurityPreferenceResponseBodySecurityPreference() {}
 
@@ -7205,6 +7242,9 @@ public:
     }
     if (personalInfoPreference) {
       res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (verificationPreference) {
+      res["VerificationPreference"] = verificationPreference ? boost::any(verificationPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -7236,6 +7276,13 @@ public:
         GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PersonalInfoPreference"]));
         personalInfoPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference>(model1);
+      }
+    }
+    if (m.find("VerificationPreference") != m.end() && !m["VerificationPreference"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VerificationPreference"].type()) {
+        GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VerificationPreference"]));
+        verificationPreference = make_shared<GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference>(model1);
       }
     }
   }
@@ -10515,89 +10562,9 @@ public:
 
   virtual ~ListUserBasicInfosRequest() = default;
 };
-class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag : public Darabonba::Model {
-public:
-  shared_ptr<string> tagKey{};
-  shared_ptr<string> tagValue{};
-
-  ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag() {}
-
-  explicit ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tagKey) {
-      res["TagKey"] = boost::any(*tagKey);
-    }
-    if (tagValue) {
-      res["TagValue"] = boost::any(*tagValue);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
-      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
-    }
-    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
-      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
-    }
-  }
-
-
-  virtual ~ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag() = default;
-};
-class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags : public Darabonba::Model {
-public:
-  shared_ptr<vector<ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag>> tag{};
-
-  ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags() {}
-
-  explicit ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (tag) {
-      vector<boost::any> temp1;
-      for(auto item1:*tag){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Tag"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
-      if (typeid(vector<boost::any>) == m["Tag"].type()) {
-        vector<ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        tag = make_shared<vector<ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTagsTag>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags() = default;
-};
 class ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfo : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
-  shared_ptr<ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags> tags{};
   shared_ptr<string> userId{};
   shared_ptr<string> userPrincipalName{};
 
@@ -10614,9 +10581,6 @@ public:
     if (displayName) {
       res["DisplayName"] = boost::any(*displayName);
     }
-    if (tags) {
-      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -10629,13 +10593,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DisplayName") != m.end() && !m["DisplayName"].empty()) {
       displayName = make_shared<string>(boost::any_cast<string>(m["DisplayName"]));
-    }
-    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
-        ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
-        tags = make_shared<ListUserBasicInfosResponseBodyUserBasicInfosUserBasicInfoTags>(model1);
-      }
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
@@ -12803,6 +12760,7 @@ public:
   shared_ptr<long> loginSessionDuration{};
   shared_ptr<string> MFAOperationForLogin{};
   shared_ptr<string> operationForRiskLogin{};
+  shared_ptr<vector<string>> verificationTypes{};
 
   SetSecurityPreferenceRequest() {}
 
@@ -12841,6 +12799,9 @@ public:
     if (operationForRiskLogin) {
       res["OperationForRiskLogin"] = boost::any(*operationForRiskLogin);
     }
+    if (verificationTypes) {
+      res["VerificationTypes"] = boost::any(*verificationTypes);
+    }
     return res;
   }
 
@@ -12872,10 +12833,112 @@ public:
     if (m.find("OperationForRiskLogin") != m.end() && !m["OperationForRiskLogin"].empty()) {
       operationForRiskLogin = make_shared<string>(boost::any_cast<string>(m["OperationForRiskLogin"]));
     }
+    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verificationTypes = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~SetSecurityPreferenceRequest() = default;
+};
+class SetSecurityPreferenceShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> allowUserToChangePassword{};
+  shared_ptr<bool> allowUserToManageAccessKeys{};
+  shared_ptr<bool> allowUserToManageMFADevices{};
+  shared_ptr<bool> allowUserToManagePersonalDingTalk{};
+  shared_ptr<bool> enableSaveMFATicket{};
+  shared_ptr<string> loginNetworkMasks{};
+  shared_ptr<long> loginSessionDuration{};
+  shared_ptr<string> MFAOperationForLogin{};
+  shared_ptr<string> operationForRiskLogin{};
+  shared_ptr<string> verificationTypesShrink{};
+
+  SetSecurityPreferenceShrinkRequest() {}
+
+  explicit SetSecurityPreferenceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowUserToChangePassword) {
+      res["AllowUserToChangePassword"] = boost::any(*allowUserToChangePassword);
+    }
+    if (allowUserToManageAccessKeys) {
+      res["AllowUserToManageAccessKeys"] = boost::any(*allowUserToManageAccessKeys);
+    }
+    if (allowUserToManageMFADevices) {
+      res["AllowUserToManageMFADevices"] = boost::any(*allowUserToManageMFADevices);
+    }
+    if (allowUserToManagePersonalDingTalk) {
+      res["AllowUserToManagePersonalDingTalk"] = boost::any(*allowUserToManagePersonalDingTalk);
+    }
+    if (enableSaveMFATicket) {
+      res["EnableSaveMFATicket"] = boost::any(*enableSaveMFATicket);
+    }
+    if (loginNetworkMasks) {
+      res["LoginNetworkMasks"] = boost::any(*loginNetworkMasks);
+    }
+    if (loginSessionDuration) {
+      res["LoginSessionDuration"] = boost::any(*loginSessionDuration);
+    }
+    if (MFAOperationForLogin) {
+      res["MFAOperationForLogin"] = boost::any(*MFAOperationForLogin);
+    }
+    if (operationForRiskLogin) {
+      res["OperationForRiskLogin"] = boost::any(*operationForRiskLogin);
+    }
+    if (verificationTypesShrink) {
+      res["VerificationTypes"] = boost::any(*verificationTypesShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUserToChangePassword") != m.end() && !m["AllowUserToChangePassword"].empty()) {
+      allowUserToChangePassword = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToChangePassword"]));
+    }
+    if (m.find("AllowUserToManageAccessKeys") != m.end() && !m["AllowUserToManageAccessKeys"].empty()) {
+      allowUserToManageAccessKeys = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageAccessKeys"]));
+    }
+    if (m.find("AllowUserToManageMFADevices") != m.end() && !m["AllowUserToManageMFADevices"].empty()) {
+      allowUserToManageMFADevices = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManageMFADevices"]));
+    }
+    if (m.find("AllowUserToManagePersonalDingTalk") != m.end() && !m["AllowUserToManagePersonalDingTalk"].empty()) {
+      allowUserToManagePersonalDingTalk = make_shared<bool>(boost::any_cast<bool>(m["AllowUserToManagePersonalDingTalk"]));
+    }
+    if (m.find("EnableSaveMFATicket") != m.end() && !m["EnableSaveMFATicket"].empty()) {
+      enableSaveMFATicket = make_shared<bool>(boost::any_cast<bool>(m["EnableSaveMFATicket"]));
+    }
+    if (m.find("LoginNetworkMasks") != m.end() && !m["LoginNetworkMasks"].empty()) {
+      loginNetworkMasks = make_shared<string>(boost::any_cast<string>(m["LoginNetworkMasks"]));
+    }
+    if (m.find("LoginSessionDuration") != m.end() && !m["LoginSessionDuration"].empty()) {
+      loginSessionDuration = make_shared<long>(boost::any_cast<long>(m["LoginSessionDuration"]));
+    }
+    if (m.find("MFAOperationForLogin") != m.end() && !m["MFAOperationForLogin"].empty()) {
+      MFAOperationForLogin = make_shared<string>(boost::any_cast<string>(m["MFAOperationForLogin"]));
+    }
+    if (m.find("OperationForRiskLogin") != m.end() && !m["OperationForRiskLogin"].empty()) {
+      operationForRiskLogin = make_shared<string>(boost::any_cast<string>(m["OperationForRiskLogin"]));
+    }
+    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
+      verificationTypesShrink = make_shared<string>(boost::any_cast<string>(m["VerificationTypes"]));
+    }
+  }
+
+
+  virtual ~SetSecurityPreferenceShrinkRequest() = default;
 };
 class SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference : public Darabonba::Model {
 public:
@@ -13028,12 +13091,49 @@ public:
 
   virtual ~SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference() = default;
 };
+class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> verificationTypes{};
+
+  SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() {}
+
+  explicit SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (verificationTypes) {
+      res["VerificationTypes"] = boost::any(*verificationTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("VerificationTypes") != m.end() && !m["VerificationTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VerificationTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VerificationTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      verificationTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference() = default;
+};
 class SetSecurityPreferenceResponseBodySecurityPreference : public Darabonba::Model {
 public:
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference> accessKeyPreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference> loginProfilePreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference> MFAPreference{};
   shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference> personalInfoPreference{};
+  shared_ptr<SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference> verificationPreference{};
 
   SetSecurityPreferenceResponseBodySecurityPreference() {}
 
@@ -13056,6 +13156,9 @@ public:
     }
     if (personalInfoPreference) {
       res["PersonalInfoPreference"] = personalInfoPreference ? boost::any(personalInfoPreference->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (verificationPreference) {
+      res["VerificationPreference"] = verificationPreference ? boost::any(verificationPreference->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -13087,6 +13190,13 @@ public:
         SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PersonalInfoPreference"]));
         personalInfoPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference>(model1);
+      }
+    }
+    if (m.find("VerificationPreference") != m.end() && !m["VerificationPreference"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VerificationPreference"].type()) {
+        SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VerificationPreference"]));
+        verificationPreference = make_shared<SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference>(model1);
       }
     }
   }
@@ -15767,7 +15877,7 @@ public:
   SetDefaultDomainResponse setDefaultDomain(shared_ptr<SetDefaultDomainRequest> request);
   SetPasswordPolicyResponse setPasswordPolicyWithOptions(shared_ptr<SetPasswordPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetPasswordPolicyResponse setPasswordPolicy(shared_ptr<SetPasswordPolicyRequest> request);
-  SetSecurityPreferenceResponse setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetSecurityPreferenceResponse setSecurityPreferenceWithOptions(shared_ptr<SetSecurityPreferenceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetSecurityPreferenceResponse setSecurityPreference(shared_ptr<SetSecurityPreferenceRequest> request);
   SetUserSsoSettingsResponse setUserSsoSettingsWithOptions(shared_ptr<SetUserSsoSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetUserSsoSettingsResponse setUserSsoSettings(shared_ptr<SetUserSsoSettingsRequest> request);
