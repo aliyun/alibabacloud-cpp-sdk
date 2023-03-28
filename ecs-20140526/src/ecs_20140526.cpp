@@ -507,6 +507,9 @@ ApplyAutoSnapshotPolicyResponse Alibabacloud_Ecs20140526::Client::applyAutoSnaps
 AssignIpv6AddressesResponse Alibabacloud_Ecs20140526::Client::assignIpv6AddressesWithOptions(shared_ptr<AssignIpv6AddressesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ipv6Address)) {
     query->insert(pair<string, vector<string>>("Ipv6Address", *request->ipv6Address));
   }
@@ -15627,6 +15630,9 @@ ModifyInstanceAttributeResponse Alibabacloud_Ecs20140526::Client::modifyInstance
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableJumboFrame)) {
+    query->insert(pair<string, bool>("EnableJumboFrame", *request->enableJumboFrame));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->hostName)) {
     query->insert(pair<string, string>("HostName", *request->hostName));
   }
@@ -19242,6 +19248,9 @@ RunInstancesResponse Alibabacloud_Ecs20140526::Client::runInstancesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<RunInstancesRequestImageOptions>(request->imageOptions)) {
+    query->insert(pair<string, RunInstancesRequestImageOptions>("ImageOptions", *request->imageOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceChargeType)) {
     query->insert(pair<string, string>("InstanceChargeType", *request->instanceChargeType));
   }
@@ -19292,6 +19301,9 @@ RunInstancesResponse Alibabacloud_Ecs20140526::Client::runInstancesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->networkInterfaceQueueNumber)) {
     query->insert(pair<string, long>("NetworkInterfaceQueueNumber", *request->networkInterfaceQueueNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<RunInstancesRequestNetworkOptions>(request->networkOptions)) {
+    query->insert(pair<string, RunInstancesRequestNetworkOptions>("NetworkOptions", *request->networkOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -19617,9 +19629,6 @@ StartInstanceResponse Alibabacloud_Ecs20140526::Client::startInstanceWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceRegionId)) {
-    query->insert(pair<string, string>("SourceRegionId", *request->sourceRegionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
