@@ -1083,6 +1083,7 @@ public:
 };
 class HTTPTriggerConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> authConfig{};
   shared_ptr<string> authType{};
   shared_ptr<bool> disableURLInternet{};
   shared_ptr<vector<string>> methods{};
@@ -1097,6 +1098,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authConfig) {
+      res["authConfig"] = boost::any(*authConfig);
+    }
     if (authType) {
       res["authType"] = boost::any(*authType);
     }
@@ -1110,6 +1114,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("authConfig") != m.end() && !m["authConfig"].empty()) {
+      authConfig = make_shared<string>(boost::any_cast<string>(m["authConfig"]));
+    }
     if (m.find("authType") != m.end() && !m["authType"].empty()) {
       authType = make_shared<string>(boost::any_cast<string>(m["authType"]));
     }
@@ -1210,6 +1217,84 @@ public:
 
 
   virtual ~InstanceLifecycleConfig() = default;
+};
+class JWTAuthConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> blackList{};
+  shared_ptr<vector<string>> claimPassBy{};
+  shared_ptr<string> jwks{};
+  shared_ptr<vector<string>> tokenLookup{};
+  shared_ptr<vector<string>> whiteList{};
+
+  JWTAuthConfig() {}
+
+  explicit JWTAuthConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blackList) {
+      res["blackList"] = boost::any(*blackList);
+    }
+    if (claimPassBy) {
+      res["claimPassBy"] = boost::any(*claimPassBy);
+    }
+    if (jwks) {
+      res["jwks"] = boost::any(*jwks);
+    }
+    if (tokenLookup) {
+      res["tokenLookup"] = boost::any(*tokenLookup);
+    }
+    if (whiteList) {
+      res["whiteList"] = boost::any(*whiteList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("blackList") != m.end() && !m["blackList"].empty()) {
+      blackList = make_shared<string>(boost::any_cast<string>(m["blackList"]));
+    }
+    if (m.find("claimPassBy") != m.end() && !m["claimPassBy"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["claimPassBy"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["claimPassBy"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      claimPassBy = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("jwks") != m.end() && !m["jwks"].empty()) {
+      jwks = make_shared<string>(boost::any_cast<string>(m["jwks"]));
+    }
+    if (m.find("tokenLookup") != m.end() && !m["tokenLookup"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["tokenLookup"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["tokenLookup"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tokenLookup = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("whiteList") != m.end() && !m["whiteList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["whiteList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["whiteList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      whiteList = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~JWTAuthConfig() = default;
 };
 class JaegerConfig : public Darabonba::Model {
 public:
@@ -2701,7 +2786,7 @@ public:
 class RoutePolicy : public Darabonba::Model {
 public:
   shared_ptr<vector<uint8_t>> condition{};
-  shared_ptr<PolicyItem> policyItems{};
+  shared_ptr<vector<PolicyItem>> policyItems{};
 
   RoutePolicy() {}
 
@@ -2717,7 +2802,11 @@ public:
       res["condition"] = boost::any(*condition);
     }
     if (policyItems) {
-      res["policyItems"] = policyItems ? boost::any(policyItems->toMap()) : boost::any(map<string,boost::any>({}));
+      vector<boost::any> temp1;
+      for(auto item1:*policyItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["policyItems"] = boost::any(temp1);
     }
     return res;
   }
@@ -2727,10 +2816,16 @@ public:
       condition = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["condition"]));
     }
     if (m.find("policyItems") != m.end() && !m["policyItems"].empty()) {
-      if (typeid(map<string, boost::any>) == m["policyItems"].type()) {
-        PolicyItem model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["policyItems"]));
-        policyItems = make_shared<PolicyItem>(model1);
+      if (typeid(vector<boost::any>) == m["policyItems"].type()) {
+        vector<PolicyItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["policyItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PolicyItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        policyItems = make_shared<vector<PolicyItem>>(expect1);
       }
     }
   }
