@@ -4578,6 +4578,42 @@ public:
 
   virtual ~GetPtsSceneResponseBodySceneGlobalParameterList() = default;
 };
+class GetPtsSceneResponseBodySceneHeaders : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> value{};
+
+  GetPtsSceneResponseBodySceneHeaders() {}
+
+  explicit GetPtsSceneResponseBodySceneHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetPtsSceneResponseBodySceneHeaders() = default;
+};
 class GetPtsSceneResponseBodySceneLoadConfigApiLoadConfigList : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -5336,6 +5372,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<vector<GetPtsSceneResponseBodySceneFileParameterList>> fileParameterList{};
   shared_ptr<vector<GetPtsSceneResponseBodySceneGlobalParameterList>> globalParameterList{};
+  shared_ptr<vector<GetPtsSceneResponseBodySceneHeaders>> headers{};
   shared_ptr<GetPtsSceneResponseBodySceneLoadConfig> loadConfig{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<vector<GetPtsSceneResponseBodySceneRelationList>> relationList{};
@@ -5372,6 +5409,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["GlobalParameterList"] = boost::any(temp1);
+    }
+    if (headers) {
+      vector<boost::any> temp1;
+      for(auto item1:*headers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Headers"] = boost::any(temp1);
     }
     if (loadConfig) {
       res["LoadConfig"] = loadConfig ? boost::any(loadConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5433,6 +5477,19 @@ public:
           }
         }
         globalParameterList = make_shared<vector<GetPtsSceneResponseBodySceneGlobalParameterList>>(expect1);
+      }
+    }
+    if (m.find("Headers") != m.end() && !m["Headers"].empty()) {
+      if (typeid(vector<boost::any>) == m["Headers"].type()) {
+        vector<GetPtsSceneResponseBodySceneHeaders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Headers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPtsSceneResponseBodySceneHeaders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        headers = make_shared<vector<GetPtsSceneResponseBodySceneHeaders>>(expect1);
       }
     }
     if (m.find("LoadConfig") != m.end() && !m["LoadConfig"].empty()) {
