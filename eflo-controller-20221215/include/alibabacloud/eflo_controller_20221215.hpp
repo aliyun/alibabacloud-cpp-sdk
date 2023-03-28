@@ -232,6 +232,339 @@ public:
 
   virtual ~CreateClusterRequestComponents() = default;
 };
+class CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicyBondPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> bondDefaultSubnet{};
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds>> bonds{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyBondPolicy() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyBondPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bondDefaultSubnet) {
+      res["BondDefaultSubnet"] = boost::any(*bondDefaultSubnet);
+    }
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BondDefaultSubnet") != m.end() && !m["BondDefaultSubnet"].empty()) {
+      bondDefaultSubnet = make_shared<string>(boost::any_cast<string>(m["BondDefaultSubnet"]));
+    }
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicyBondPolicyBonds>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyBondPolicy() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds>> bonds{};
+  shared_ptr<string> machineType{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    if (machineType) {
+      res["MachineType"] = boost::any(*machineType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicyBonds>>(expect1);
+      }
+    }
+    if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
+      machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicyNodePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds>> bonds{};
+  shared_ptr<string> nodeId{};
+
+  CreateClusterRequestNetworksIpAllocationPolicyNodePolicy() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicyNodePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicyBonds>>(expect1);
+      }
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicyNodePolicy() = default;
+};
+class CreateClusterRequestNetworksIpAllocationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<CreateClusterRequestNetworksIpAllocationPolicyBondPolicy> bondPolicy{};
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy>> machineTypePolicy{};
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicy>> nodePolicy{};
+
+  CreateClusterRequestNetworksIpAllocationPolicy() {}
+
+  explicit CreateClusterRequestNetworksIpAllocationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bondPolicy) {
+      res["BondPolicy"] = bondPolicy ? boost::any(bondPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (machineTypePolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*machineTypePolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MachineTypePolicy"] = boost::any(temp1);
+    }
+    if (nodePolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodePolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodePolicy"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BondPolicy") != m.end() && !m["BondPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BondPolicy"].type()) {
+        CreateClusterRequestNetworksIpAllocationPolicyBondPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BondPolicy"]));
+        bondPolicy = make_shared<CreateClusterRequestNetworksIpAllocationPolicyBondPolicy>(model1);
+      }
+    }
+    if (m.find("MachineTypePolicy") != m.end() && !m["MachineTypePolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["MachineTypePolicy"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MachineTypePolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        machineTypePolicy = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicyMachineTypePolicy>>(expect1);
+      }
+    }
+    if (m.find("NodePolicy") != m.end() && !m["NodePolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodePolicy"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodePolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicyNodePolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodePolicy = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicyNodePolicy>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateClusterRequestNetworksIpAllocationPolicy() = default;
+};
 class CreateClusterRequestNetworksNewVpdInfoVpdSubnets : public Darabonba::Model {
 public:
   shared_ptr<string> subnetCidr{};
@@ -405,6 +738,7 @@ public:
 };
 class CreateClusterRequestNetworks : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<CreateClusterRequestNetworksNewVpdInfo> newVpdInfo{};
   shared_ptr<CreateClusterRequestNetworksVpdInfo> vpdInfo{};
 
@@ -418,6 +752,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ipAllocationPolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipAllocationPolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpAllocationPolicy"] = boost::any(temp1);
+    }
     if (newVpdInfo) {
       res["NewVpdInfo"] = newVpdInfo ? boost::any(newVpdInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -428,6 +769,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpAllocationPolicy") != m.end() && !m["IpAllocationPolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpAllocationPolicy"].type()) {
+        vector<CreateClusterRequestNetworksIpAllocationPolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpAllocationPolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateClusterRequestNetworksIpAllocationPolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipAllocationPolicy = make_shared<vector<CreateClusterRequestNetworksIpAllocationPolicy>>(expect1);
+      }
+    }
     if (m.find("NewVpdInfo") != m.end() && !m["NewVpdInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["NewVpdInfo"].type()) {
         CreateClusterRequestNetworksNewVpdInfo model1;
@@ -2381,6 +2735,339 @@ public:
 
   virtual ~DescribeZonesResponse() = default;
 };
+class ExtendClusterRequestIpAllocationPolicyBondPolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  ExtendClusterRequestIpAllocationPolicyBondPolicyBonds() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyBondPolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyBondPolicyBonds() = default;
+};
+class ExtendClusterRequestIpAllocationPolicyBondPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> bondDefaultSubnet{};
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyBondPolicyBonds>> bonds{};
+
+  ExtendClusterRequestIpAllocationPolicyBondPolicy() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyBondPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bondDefaultSubnet) {
+      res["BondDefaultSubnet"] = boost::any(*bondDefaultSubnet);
+    }
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BondDefaultSubnet") != m.end() && !m["BondDefaultSubnet"].empty()) {
+      bondDefaultSubnet = make_shared<string>(boost::any_cast<string>(m["BondDefaultSubnet"]));
+    }
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicyBondPolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicyBondPolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<ExtendClusterRequestIpAllocationPolicyBondPolicyBonds>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyBondPolicy() = default;
+};
+class ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds() = default;
+};
+class ExtendClusterRequestIpAllocationPolicyMachineTypePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds>> bonds{};
+  shared_ptr<string> machineType{};
+
+  ExtendClusterRequestIpAllocationPolicyMachineTypePolicy() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyMachineTypePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    if (machineType) {
+      res["MachineType"] = boost::any(*machineType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicyBonds>>(expect1);
+      }
+    }
+    if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
+      machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyMachineTypePolicy() = default;
+};
+class ExtendClusterRequestIpAllocationPolicyNodePolicyBonds : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> subnet{};
+
+  ExtendClusterRequestIpAllocationPolicyNodePolicyBonds() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyNodePolicyBonds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subnet) {
+      res["Subnet"] = boost::any(*subnet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Subnet") != m.end() && !m["Subnet"].empty()) {
+      subnet = make_shared<string>(boost::any_cast<string>(m["Subnet"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyNodePolicyBonds() = default;
+};
+class ExtendClusterRequestIpAllocationPolicyNodePolicy : public Darabonba::Model {
+public:
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyNodePolicyBonds>> bonds{};
+  shared_ptr<string> nodeId{};
+
+  ExtendClusterRequestIpAllocationPolicyNodePolicy() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicyNodePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bonds) {
+      vector<boost::any> temp1;
+      for(auto item1:*bonds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Bonds"] = boost::any(temp1);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bonds") != m.end() && !m["Bonds"].empty()) {
+      if (typeid(vector<boost::any>) == m["Bonds"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicyNodePolicyBonds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Bonds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicyNodePolicyBonds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bonds = make_shared<vector<ExtendClusterRequestIpAllocationPolicyNodePolicyBonds>>(expect1);
+      }
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicyNodePolicy() = default;
+};
+class ExtendClusterRequestIpAllocationPolicy : public Darabonba::Model {
+public:
+  shared_ptr<ExtendClusterRequestIpAllocationPolicyBondPolicy> bondPolicy{};
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicy>> machineTypePolicy{};
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicyNodePolicy>> nodePolicy{};
+
+  ExtendClusterRequestIpAllocationPolicy() {}
+
+  explicit ExtendClusterRequestIpAllocationPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bondPolicy) {
+      res["BondPolicy"] = bondPolicy ? boost::any(bondPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (machineTypePolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*machineTypePolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MachineTypePolicy"] = boost::any(temp1);
+    }
+    if (nodePolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodePolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodePolicy"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BondPolicy") != m.end() && !m["BondPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BondPolicy"].type()) {
+        ExtendClusterRequestIpAllocationPolicyBondPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BondPolicy"]));
+        bondPolicy = make_shared<ExtendClusterRequestIpAllocationPolicyBondPolicy>(model1);
+      }
+    }
+    if (m.find("MachineTypePolicy") != m.end() && !m["MachineTypePolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["MachineTypePolicy"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MachineTypePolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicyMachineTypePolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        machineTypePolicy = make_shared<vector<ExtendClusterRequestIpAllocationPolicyMachineTypePolicy>>(expect1);
+      }
+    }
+    if (m.find("NodePolicy") != m.end() && !m["NodePolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodePolicy"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicyNodePolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodePolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicyNodePolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodePolicy = make_shared<vector<ExtendClusterRequestIpAllocationPolicyNodePolicy>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ExtendClusterRequestIpAllocationPolicy() = default;
+};
 class ExtendClusterRequestNodeGroupsNodes : public Darabonba::Model {
 public:
   shared_ptr<string> hostname{};
@@ -2478,6 +3165,7 @@ class ExtendClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
+  shared_ptr<vector<ExtendClusterRequestIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<vector<ExtendClusterRequestNodeGroups>> nodeGroups{};
   shared_ptr<vector<string>> vpdSubnets{};
 
@@ -2496,6 +3184,13 @@ public:
     }
     if (ignoreFailedNodeTasks) {
       res["IgnoreFailedNodeTasks"] = boost::any(*ignoreFailedNodeTasks);
+    }
+    if (ipAllocationPolicy) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipAllocationPolicy){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpAllocationPolicy"] = boost::any(temp1);
     }
     if (nodeGroups) {
       vector<boost::any> temp1;
@@ -2516,6 +3211,19 @@ public:
     }
     if (m.find("IgnoreFailedNodeTasks") != m.end() && !m["IgnoreFailedNodeTasks"].empty()) {
       ignoreFailedNodeTasks = make_shared<bool>(boost::any_cast<bool>(m["IgnoreFailedNodeTasks"]));
+    }
+    if (m.find("IpAllocationPolicy") != m.end() && !m["IpAllocationPolicy"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpAllocationPolicy"].type()) {
+        vector<ExtendClusterRequestIpAllocationPolicy> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpAllocationPolicy"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ExtendClusterRequestIpAllocationPolicy model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipAllocationPolicy = make_shared<vector<ExtendClusterRequestIpAllocationPolicy>>(expect1);
+      }
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       if (typeid(vector<boost::any>) == m["NodeGroups"].type()) {
@@ -2549,6 +3257,7 @@ class ExtendClusterShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
+  shared_ptr<string> ipAllocationPolicyShrink{};
   shared_ptr<string> nodeGroupsShrink{};
   shared_ptr<string> vpdSubnetsShrink{};
 
@@ -2568,6 +3277,9 @@ public:
     if (ignoreFailedNodeTasks) {
       res["IgnoreFailedNodeTasks"] = boost::any(*ignoreFailedNodeTasks);
     }
+    if (ipAllocationPolicyShrink) {
+      res["IpAllocationPolicy"] = boost::any(*ipAllocationPolicyShrink);
+    }
     if (nodeGroupsShrink) {
       res["NodeGroups"] = boost::any(*nodeGroupsShrink);
     }
@@ -2583,6 +3295,9 @@ public:
     }
     if (m.find("IgnoreFailedNodeTasks") != m.end() && !m["IgnoreFailedNodeTasks"].empty()) {
       ignoreFailedNodeTasks = make_shared<bool>(boost::any_cast<bool>(m["IgnoreFailedNodeTasks"]));
+    }
+    if (m.find("IpAllocationPolicy") != m.end() && !m["IpAllocationPolicy"].empty()) {
+      ipAllocationPolicyShrink = make_shared<string>(boost::any_cast<string>(m["IpAllocationPolicy"]));
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       nodeGroupsShrink = make_shared<string>(boost::any_cast<string>(m["NodeGroups"]));

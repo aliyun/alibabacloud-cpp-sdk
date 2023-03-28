@@ -309,6 +309,9 @@ ExtendClusterResponse Alibabacloud_Eflo-controller20221215::Client::extendCluste
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ExtendClusterShrinkRequest> request = make_shared<ExtendClusterShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<ExtendClusterRequestIpAllocationPolicy>>(tmpReq->ipAllocationPolicy)) {
+    request->ipAllocationPolicyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ipAllocationPolicy, make_shared<string>("IpAllocationPolicy"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ExtendClusterRequestNodeGroups>>(tmpReq->nodeGroups)) {
     request->nodeGroupsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodeGroups, make_shared<string>("NodeGroups"), make_shared<string>("json")));
   }
@@ -321,6 +324,9 @@ ExtendClusterResponse Alibabacloud_Eflo-controller20221215::Client::extendCluste
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreFailedNodeTasks)) {
     body->insert(pair<string, bool>("IgnoreFailedNodeTasks", *request->ignoreFailedNodeTasks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipAllocationPolicyShrink)) {
+    body->insert(pair<string, string>("IpAllocationPolicy", *request->ipAllocationPolicyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupsShrink)) {
     body->insert(pair<string, string>("NodeGroups", *request->nodeGroupsShrink));
