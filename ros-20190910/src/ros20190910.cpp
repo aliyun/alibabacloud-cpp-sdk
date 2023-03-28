@@ -3317,17 +3317,19 @@ ValidateTemplateResponse Alibabacloud_ROS20190910::Client::validateTemplateWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
     query->insert(pair<string, string>("TemplateURL", *request->templateURL));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->validationOption)) {
     query->insert(pair<string, string>("ValidationOption", *request->validationOption));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("ValidateTemplate"))},
