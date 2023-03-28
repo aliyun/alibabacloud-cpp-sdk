@@ -2565,6 +2565,7 @@ public:
   shared_ptr<string> imageId{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> keyPairName{};
+  shared_ptr<string> nameSpace_{};
   shared_ptr<string> payType{};
   shared_ptr<long> period{};
   shared_ptr<string> periodUnit{};
@@ -2601,6 +2602,9 @@ public:
     }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (nameSpace_) {
+      res["NameSpace"] = boost::any(*nameSpace_);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -2641,6 +2645,9 @@ public:
     }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("NameSpace") != m.end() && !m["NameSpace"].empty()) {
+      nameSpace_ = make_shared<string>(boost::any_cast<string>(m["NameSpace"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
@@ -10265,6 +10272,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> serverId{};
   shared_ptr<string> specName{};
   shared_ptr<string> state{};
@@ -10295,6 +10303,9 @@ public:
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (serverId) {
       res["ServerId"] = boost::any(*serverId);
@@ -10333,6 +10344,9 @@ public:
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("ServerId") != m.end() && !m["ServerId"].empty()) {
       serverId = make_shared<string>(boost::any_cast<string>(m["ServerId"]));

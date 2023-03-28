@@ -453,6 +453,9 @@ CreateARMServerInstancesResponse Alibabacloud_Ens20171110::Client::createARMServ
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairName)) {
     query->insert(pair<string, string>("KeyPairName", *request->keyPairName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nameSpace_)) {
+    query->insert(pair<string, string>("NameSpace_", *request->nameSpace_));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->payType)) {
     query->insert(pair<string, string>("PayType", *request->payType));
   }
