@@ -37,6 +37,77 @@ string Alibabacloud_DocumentAutoml20221229::Client::getEndpoint(shared_ptr<strin
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CreateModelAsyncPredictResponse Alibabacloud_DocumentAutoml20221229::Client::createModelAsyncPredictWithOptions(shared_ptr<CreateModelAsyncPredictRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->binaryToText)) {
+    query->insert(pair<string, bool>("BinaryToText", *request->binaryToText));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    query->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->modelId)) {
+    query->insert(pair<string, long>("ModelId", *request->modelId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelVersion)) {
+    query->insert(pair<string, string>("ModelVersion", *request->modelVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
+    query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateModelAsyncPredict"))},
+    {"version", boost::any(string("2022-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateModelAsyncPredictResponse(callApi(params, req, runtime));
+}
+
+CreateModelAsyncPredictResponse Alibabacloud_DocumentAutoml20221229::Client::createModelAsyncPredict(shared_ptr<CreateModelAsyncPredictRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createModelAsyncPredictWithOptions(request, runtime);
+}
+
+GetModelAsyncPredictResponse Alibabacloud_DocumentAutoml20221229::Client::getModelAsyncPredictWithOptions(shared_ptr<GetModelAsyncPredictRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->asyncPredictId)) {
+    query->insert(pair<string, long>("AsyncPredictId", *request->asyncPredictId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetModelAsyncPredict"))},
+    {"version", boost::any(string("2022-12-29"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetModelAsyncPredictResponse(callApi(params, req, runtime));
+}
+
+GetModelAsyncPredictResponse Alibabacloud_DocumentAutoml20221229::Client::getModelAsyncPredict(shared_ptr<GetModelAsyncPredictRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getModelAsyncPredictWithOptions(request, runtime);
+}
+
 PredictClassifierModelResponse Alibabacloud_DocumentAutoml20221229::Client::predictClassifierModelWithOptions(shared_ptr<PredictClassifierModelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
