@@ -3420,6 +3420,7 @@ public:
 };
 class DeleteStackRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> deleteOptions{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> retainAllResources{};
@@ -3436,6 +3437,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (deleteOptions) {
+      res["DeleteOptions"] = boost::any(*deleteOptions);
+    }
     if (ramRoleName) {
       res["RamRoleName"] = boost::any(*ramRoleName);
     }
@@ -3455,6 +3459,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeleteOptions") != m.end() && !m["DeleteOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeleteOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeleteOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deleteOptions = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
       ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
     }
@@ -6135,6 +6149,42 @@ public:
 
   virtual ~GetFeatureDetailsRequest() = default;
 };
+class GetFeatureDetailsResponseBodyDriftDetection : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> supportedResourceTypes{};
+
+  GetFeatureDetailsResponseBodyDriftDetection() {}
+
+  explicit GetFeatureDetailsResponseBodyDriftDetection(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supportedResourceTypes) {
+      res["SupportedResourceTypes"] = boost::any(*supportedResourceTypes);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SupportedResourceTypes") != m.end() && !m["SupportedResourceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportedResourceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportedResourceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportedResourceTypes = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyDriftDetection() = default;
+};
 class GetFeatureDetailsResponseBodyResourceCleanerSupportedResourceTypes : public Darabonba::Model {
 public:
   shared_ptr<string> resourceType{};
@@ -6234,6 +6284,92 @@ public:
 
 
   virtual ~GetFeatureDetailsResponseBodyResourceCleaner() = default;
+};
+class GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> resourceIdentifiers{};
+  shared_ptr<string> resourceType{};
+
+  GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes() {}
+
+  explicit GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceIdentifiers) {
+      res["ResourceIdentifiers"] = boost::any(*resourceIdentifiers);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceIdentifiers") != m.end() && !m["ResourceIdentifiers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceIdentifiers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceIdentifiers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceIdentifiers = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes() = default;
+};
+class GetFeatureDetailsResponseBodyResourceImport : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes>> supportedResourceTypes{};
+
+  GetFeatureDetailsResponseBodyResourceImport() {}
+
+  explicit GetFeatureDetailsResponseBodyResourceImport(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (supportedResourceTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*supportedResourceTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SupportedResourceTypes"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SupportedResourceTypes") != m.end() && !m["SupportedResourceTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["SupportedResourceTypes"].type()) {
+        vector<GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SupportedResourceTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        supportedResourceTypes = make_shared<vector<GetFeatureDetailsResponseBodyResourceImportSupportedResourceTypes>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetFeatureDetailsResponseBodyResourceImport() = default;
 };
 class GetFeatureDetailsResponseBodyTemplateParameterConstraintsSupportedResourceTypes : public Darabonba::Model {
 public:
@@ -6716,8 +6852,10 @@ public:
 };
 class GetFeatureDetailsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<GetFeatureDetailsResponseBodyDriftDetection> driftDetection{};
   shared_ptr<string> requestId{};
   shared_ptr<GetFeatureDetailsResponseBodyResourceCleaner> resourceCleaner{};
+  shared_ptr<GetFeatureDetailsResponseBodyResourceImport> resourceImport{};
   shared_ptr<GetFeatureDetailsResponseBodyTemplateParameterConstraints> templateParameterConstraints{};
   shared_ptr<GetFeatureDetailsResponseBodyTemplateScratch> templateScratch{};
   shared_ptr<GetFeatureDetailsResponseBodyTerraform> terraform{};
@@ -6732,11 +6870,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (driftDetection) {
+      res["DriftDetection"] = driftDetection ? boost::any(driftDetection->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
     if (resourceCleaner) {
       res["ResourceCleaner"] = resourceCleaner ? boost::any(resourceCleaner->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceImport) {
+      res["ResourceImport"] = resourceImport ? boost::any(resourceImport->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (templateParameterConstraints) {
       res["TemplateParameterConstraints"] = templateParameterConstraints ? boost::any(templateParameterConstraints->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6751,6 +6895,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DriftDetection") != m.end() && !m["DriftDetection"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DriftDetection"].type()) {
+        GetFeatureDetailsResponseBodyDriftDetection model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DriftDetection"]));
+        driftDetection = make_shared<GetFeatureDetailsResponseBodyDriftDetection>(model1);
+      }
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -6759,6 +6910,13 @@ public:
         GetFeatureDetailsResponseBodyResourceCleaner model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceCleaner"]));
         resourceCleaner = make_shared<GetFeatureDetailsResponseBodyResourceCleaner>(model1);
+      }
+    }
+    if (m.find("ResourceImport") != m.end() && !m["ResourceImport"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResourceImport"].type()) {
+        GetFeatureDetailsResponseBodyResourceImport model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResourceImport"]));
+        resourceImport = make_shared<GetFeatureDetailsResponseBodyResourceImport>(model1);
       }
     }
     if (m.find("TemplateParameterConstraints") != m.end() && !m["TemplateParameterConstraints"].empty()) {

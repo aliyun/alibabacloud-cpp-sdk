@@ -657,6 +657,9 @@ DeleteChangeSetResponse Alibabacloud_ROS20190910::Client::deleteChangeSet(shared
 DeleteStackResponse Alibabacloud_ROS20190910::Client::deleteStackWithOptions(shared_ptr<DeleteStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deleteOptions)) {
+    query->insert(pair<string, vector<string>>("DeleteOptions", *request->deleteOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ramRoleName)) {
     query->insert(pair<string, string>("RamRoleName", *request->ramRoleName));
   }
