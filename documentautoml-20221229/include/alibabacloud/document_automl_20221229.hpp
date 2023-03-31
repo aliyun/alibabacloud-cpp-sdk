@@ -22,6 +22,7 @@ public:
   shared_ptr<string> modelVersion{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> serviceVersion{};
+  shared_ptr<string> body{};
 
   CreateModelAsyncPredictRequest() {}
 
@@ -51,6 +52,9 @@ public:
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
     }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     return res;
   }
 
@@ -72,6 +76,9 @@ public:
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
@@ -336,6 +343,7 @@ public:
   shared_ptr<bool> autoPrediction{};
   shared_ptr<long> classifierId{};
   shared_ptr<string> content{};
+  shared_ptr<string> body{};
 
   PredictClassifierModelRequest() {}
 
@@ -356,6 +364,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     return res;
   }
 
@@ -368,6 +379,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
@@ -497,6 +511,7 @@ public:
   shared_ptr<string> content{};
   shared_ptr<long> modelId{};
   shared_ptr<string> modelVersion{};
+  shared_ptr<string> body{};
 
   PredictModelRequest() {}
 
@@ -520,6 +535,9 @@ public:
     if (modelVersion) {
       res["ModelVersion"] = boost::any(*modelVersion);
     }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     return res;
   }
 
@@ -535,6 +553,9 @@ public:
     }
     if (m.find("ModelVersion") != m.end() && !m["ModelVersion"].empty()) {
       modelVersion = make_shared<string>(boost::any_cast<string>(m["ModelVersion"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
@@ -663,6 +684,7 @@ public:
   shared_ptr<bool> binaryToText{};
   shared_ptr<string> content{};
   shared_ptr<long> taskId{};
+  shared_ptr<string> body{};
 
   PredictTemplateModelRequest() {}
 
@@ -683,6 +705,9 @@ public:
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     return res;
   }
 
@@ -695,6 +720,9 @@ public:
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<string>(boost::any_cast<string>(m["body"]));
     }
   }
 
