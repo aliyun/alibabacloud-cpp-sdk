@@ -2840,6 +2840,7 @@ public:
   shared_ptr<long> projectId{};
   shared_ptr<string> protocols{};
   shared_ptr<string> registrationDetails{};
+  shared_ptr<long> requestContentType{};
   shared_ptr<long> requestMethod{};
   shared_ptr<long> resourceGroupId{};
   shared_ptr<long> responseContentType{};
@@ -2886,6 +2887,9 @@ public:
     }
     if (registrationDetails) {
       res["RegistrationDetails"] = boost::any(*registrationDetails);
+    }
+    if (requestContentType) {
+      res["RequestContentType"] = boost::any(*requestContentType);
     }
     if (requestMethod) {
       res["RequestMethod"] = boost::any(*requestMethod);
@@ -2944,6 +2948,9 @@ public:
     }
     if (m.find("RegistrationDetails") != m.end() && !m["RegistrationDetails"].empty()) {
       registrationDetails = make_shared<string>(boost::any_cast<string>(m["RegistrationDetails"]));
+    }
+    if (m.find("RequestContentType") != m.end() && !m["RequestContentType"].empty()) {
+      requestContentType = make_shared<long>(boost::any_cast<long>(m["RequestContentType"]));
     }
     if (m.find("RequestMethod") != m.end() && !m["RequestMethod"].empty()) {
       requestMethod = make_shared<long>(boost::any_cast<long>(m["RequestMethod"]));

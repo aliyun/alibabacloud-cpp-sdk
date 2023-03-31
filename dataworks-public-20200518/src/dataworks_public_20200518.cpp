@@ -696,6 +696,9 @@ CreateDataServiceApiResponse Alibabacloud_Dataworks-public20200518::Client::crea
   if (!Darabonba_Util::Client::isUnset<string>(request->registrationDetails)) {
     body->insert(pair<string, string>("RegistrationDetails", *request->registrationDetails));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->requestContentType)) {
+    body->insert(pair<string, long>("RequestContentType", *request->requestContentType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->requestMethod)) {
     body->insert(pair<string, long>("RequestMethod", *request->requestMethod));
   }
