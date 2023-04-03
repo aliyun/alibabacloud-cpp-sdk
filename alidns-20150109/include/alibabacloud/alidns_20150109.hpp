@@ -16417,6 +16417,7 @@ public:
 class DescribeDomainNsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> allAliDns{};
+  shared_ptr<string> detectFailedReasonCode{};
   shared_ptr<DescribeDomainNsResponseBodyDnsServers> dnsServers{};
   shared_ptr<DescribeDomainNsResponseBodyExpectDnsServers> expectDnsServers{};
   shared_ptr<bool> includeAliDns{};
@@ -16434,6 +16435,9 @@ public:
     map<string, boost::any> res;
     if (allAliDns) {
       res["AllAliDns"] = boost::any(*allAliDns);
+    }
+    if (detectFailedReasonCode) {
+      res["DetectFailedReasonCode"] = boost::any(*detectFailedReasonCode);
     }
     if (dnsServers) {
       res["DnsServers"] = dnsServers ? boost::any(dnsServers->toMap()) : boost::any(map<string,boost::any>({}));
@@ -16453,6 +16457,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AllAliDns") != m.end() && !m["AllAliDns"].empty()) {
       allAliDns = make_shared<bool>(boost::any_cast<bool>(m["AllAliDns"]));
+    }
+    if (m.find("DetectFailedReasonCode") != m.end() && !m["DetectFailedReasonCode"].empty()) {
+      detectFailedReasonCode = make_shared<string>(boost::any_cast<string>(m["DetectFailedReasonCode"]));
     }
     if (m.find("DnsServers") != m.end() && !m["DnsServers"].empty()) {
       if (typeid(map<string, boost::any>) == m["DnsServers"].type()) {
@@ -16596,6 +16603,7 @@ public:
   shared_ptr<string> punyCode{};
   shared_ptr<string> RR{};
   shared_ptr<string> recordId{};
+  shared_ptr<string> remark{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
   shared_ptr<long> TTL{};
@@ -16641,6 +16649,9 @@ public:
     }
     if (recordId) {
       res["RecordId"] = boost::any(*recordId);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -16690,6 +16701,9 @@ public:
     }
     if (m.find("RecordId") != m.end() && !m["RecordId"].empty()) {
       recordId = make_shared<string>(boost::any_cast<string>(m["RecordId"]));
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -17171,6 +17185,274 @@ public:
 
 
   virtual ~DescribeDomainRecordsResponse() = default;
+};
+class DescribeDomainResolveStatisticsSummaryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> lang{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchMode{};
+  shared_ptr<string> startDate{};
+  shared_ptr<long> threshold{};
+
+  DescribeDomainResolveStatisticsSummaryRequest() {}
+
+  explicit DescribeDomainResolveStatisticsSummaryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchMode) {
+      res["SearchMode"] = boost::any(*searchMode);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchMode") != m.end() && !m["SearchMode"].empty()) {
+      searchMode = make_shared<string>(boost::any_cast<string>(m["SearchMode"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainResolveStatisticsSummaryRequest() = default;
+};
+class DescribeDomainResolveStatisticsSummaryResponseBodyStatistics : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domainType{};
+
+  DescribeDomainResolveStatisticsSummaryResponseBodyStatistics() {}
+
+  explicit DescribeDomainResolveStatisticsSummaryResponseBodyStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainResolveStatisticsSummaryResponseBodyStatistics() = default;
+};
+class DescribeDomainResolveStatisticsSummaryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeDomainResolveStatisticsSummaryResponseBodyStatistics>> statistics{};
+  shared_ptr<long> totalItems{};
+  shared_ptr<long> totalPages{};
+
+  DescribeDomainResolveStatisticsSummaryResponseBody() {}
+
+  explicit DescribeDomainResolveStatisticsSummaryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (statistics) {
+      vector<boost::any> temp1;
+      for(auto item1:*statistics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Statistics"] = boost::any(temp1);
+    }
+    if (totalItems) {
+      res["TotalItems"] = boost::any(*totalItems);
+    }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Statistics") != m.end() && !m["Statistics"].empty()) {
+      if (typeid(vector<boost::any>) == m["Statistics"].type()) {
+        vector<DescribeDomainResolveStatisticsSummaryResponseBodyStatistics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Statistics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDomainResolveStatisticsSummaryResponseBodyStatistics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statistics = make_shared<vector<DescribeDomainResolveStatisticsSummaryResponseBodyStatistics>>(expect1);
+      }
+    }
+    if (m.find("TotalItems") != m.end() && !m["TotalItems"].empty()) {
+      totalItems = make_shared<long>(boost::any_cast<long>(m["TotalItems"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<long>(boost::any_cast<long>(m["TotalPages"]));
+    }
+  }
+
+
+  virtual ~DescribeDomainResolveStatisticsSummaryResponseBody() = default;
+};
+class DescribeDomainResolveStatisticsSummaryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDomainResolveStatisticsSummaryResponseBody> body{};
+
+  DescribeDomainResolveStatisticsSummaryResponse() {}
+
+  explicit DescribeDomainResolveStatisticsSummaryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDomainResolveStatisticsSummaryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDomainResolveStatisticsSummaryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDomainResolveStatisticsSummaryResponse() = default;
 };
 class DescribeDomainStatisticsRequest : public Darabonba::Model {
 public:
@@ -19250,6 +19532,7 @@ public:
   shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBodyAddrPools> addrPools{};
   shared_ptr<DescribeGtmAccessStrategyAvailableConfigResponseBodyLines> lines{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> suggestSetDefaultLine{};
 
   DescribeGtmAccessStrategyAvailableConfigResponseBody() {}
 
@@ -19269,6 +19552,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (suggestSetDefaultLine) {
+      res["SuggestSetDefaultLine"] = boost::any(*suggestSetDefaultLine);
     }
     return res;
   }
@@ -19290,6 +19576,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuggestSetDefaultLine") != m.end() && !m["SuggestSetDefaultLine"].empty()) {
+      suggestSetDefaultLine = make_shared<bool>(boost::any_cast<bool>(m["SuggestSetDefaultLine"]));
     }
   }
 
@@ -27488,6 +27777,288 @@ public:
 
 
   virtual ~DescribeRecordLogsResponse() = default;
+};
+class DescribeRecordResolveStatisticsSummaryRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> direction{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domainType{};
+  shared_ptr<string> endDate{};
+  shared_ptr<string> keyword{};
+  shared_ptr<string> lang{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> searchMode{};
+  shared_ptr<string> startDate{};
+  shared_ptr<long> threshold{};
+
+  DescribeRecordResolveStatisticsSummaryRequest() {}
+
+  explicit DescribeRecordResolveStatisticsSummaryRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    if (endDate) {
+      res["EndDate"] = boost::any(*endDate);
+    }
+    if (keyword) {
+      res["Keyword"] = boost::any(*keyword);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (searchMode) {
+      res["SearchMode"] = boost::any(*searchMode);
+    }
+    if (startDate) {
+      res["StartDate"] = boost::any(*startDate);
+    }
+    if (threshold) {
+      res["Threshold"] = boost::any(*threshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
+      endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
+    }
+    if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
+      keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SearchMode") != m.end() && !m["SearchMode"].empty()) {
+      searchMode = make_shared<string>(boost::any_cast<string>(m["SearchMode"]));
+    }
+    if (m.find("StartDate") != m.end() && !m["StartDate"].empty()) {
+      startDate = make_shared<string>(boost::any_cast<string>(m["StartDate"]));
+    }
+    if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
+      threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordResolveStatisticsSummaryRequest() = default;
+};
+class DescribeRecordResolveStatisticsSummaryResponseBodyStatistics : public Darabonba::Model {
+public:
+  shared_ptr<string> count{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domainType{};
+
+  DescribeRecordResolveStatisticsSummaryResponseBodyStatistics() {}
+
+  explicit DescribeRecordResolveStatisticsSummaryResponseBodyStatistics(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<string>(boost::any_cast<string>(m["Count"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordResolveStatisticsSummaryResponseBodyStatistics() = default;
+};
+class DescribeRecordResolveStatisticsSummaryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribeRecordResolveStatisticsSummaryResponseBodyStatistics>> statistics{};
+  shared_ptr<long> totalItems{};
+  shared_ptr<long> totalPages{};
+
+  DescribeRecordResolveStatisticsSummaryResponseBody() {}
+
+  explicit DescribeRecordResolveStatisticsSummaryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (statistics) {
+      vector<boost::any> temp1;
+      for(auto item1:*statistics){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Statistics"] = boost::any(temp1);
+    }
+    if (totalItems) {
+      res["TotalItems"] = boost::any(*totalItems);
+    }
+    if (totalPages) {
+      res["TotalPages"] = boost::any(*totalPages);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Statistics") != m.end() && !m["Statistics"].empty()) {
+      if (typeid(vector<boost::any>) == m["Statistics"].type()) {
+        vector<DescribeRecordResolveStatisticsSummaryResponseBodyStatistics> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Statistics"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeRecordResolveStatisticsSummaryResponseBodyStatistics model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statistics = make_shared<vector<DescribeRecordResolveStatisticsSummaryResponseBodyStatistics>>(expect1);
+      }
+    }
+    if (m.find("TotalItems") != m.end() && !m["TotalItems"].empty()) {
+      totalItems = make_shared<long>(boost::any_cast<long>(m["TotalItems"]));
+    }
+    if (m.find("TotalPages") != m.end() && !m["TotalPages"].empty()) {
+      totalPages = make_shared<long>(boost::any_cast<long>(m["TotalPages"]));
+    }
+  }
+
+
+  virtual ~DescribeRecordResolveStatisticsSummaryResponseBody() = default;
+};
+class DescribeRecordResolveStatisticsSummaryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRecordResolveStatisticsSummaryResponseBody> body{};
+
+  DescribeRecordResolveStatisticsSummaryResponse() {}
+
+  explicit DescribeRecordResolveStatisticsSummaryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRecordResolveStatisticsSummaryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRecordResolveStatisticsSummaryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRecordResolveStatisticsSummaryResponse() = default;
 };
 class DescribeRecordStatisticsRequest : public Darabonba::Model {
 public:
@@ -37608,6 +38179,8 @@ public:
   DescribeDomainRecordInfoResponse describeDomainRecordInfo(shared_ptr<DescribeDomainRecordInfoRequest> request);
   DescribeDomainRecordsResponse describeDomainRecordsWithOptions(shared_ptr<DescribeDomainRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainRecordsResponse describeDomainRecords(shared_ptr<DescribeDomainRecordsRequest> request);
+  DescribeDomainResolveStatisticsSummaryResponse describeDomainResolveStatisticsSummaryWithOptions(shared_ptr<DescribeDomainResolveStatisticsSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDomainResolveStatisticsSummaryResponse describeDomainResolveStatisticsSummary(shared_ptr<DescribeDomainResolveStatisticsSummaryRequest> request);
   DescribeDomainStatisticsResponse describeDomainStatisticsWithOptions(shared_ptr<DescribeDomainStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainStatisticsResponse describeDomainStatistics(shared_ptr<DescribeDomainStatisticsRequest> request);
   DescribeDomainStatisticsSummaryResponse describeDomainStatisticsSummaryWithOptions(shared_ptr<DescribeDomainStatisticsSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37680,6 +38253,8 @@ public:
   DescribePdnsUserInfoResponse describePdnsUserInfo(shared_ptr<DescribePdnsUserInfoRequest> request);
   DescribeRecordLogsResponse describeRecordLogsWithOptions(shared_ptr<DescribeRecordLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRecordLogsResponse describeRecordLogs(shared_ptr<DescribeRecordLogsRequest> request);
+  DescribeRecordResolveStatisticsSummaryResponse describeRecordResolveStatisticsSummaryWithOptions(shared_ptr<DescribeRecordResolveStatisticsSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRecordResolveStatisticsSummaryResponse describeRecordResolveStatisticsSummary(shared_ptr<DescribeRecordResolveStatisticsSummaryRequest> request);
   DescribeRecordStatisticsResponse describeRecordStatisticsWithOptions(shared_ptr<DescribeRecordStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRecordStatisticsResponse describeRecordStatistics(shared_ptr<DescribeRecordStatisticsRequest> request);
   DescribeRecordStatisticsSummaryResponse describeRecordStatisticsSummaryWithOptions(shared_ptr<DescribeRecordStatisticsSummaryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
