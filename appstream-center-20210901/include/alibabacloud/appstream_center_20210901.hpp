@@ -2045,6 +2045,7 @@ public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceGroupName{};
   shared_ptr<string> appInstanceType{};
+  shared_ptr<string> appPolicyId{};
   shared_ptr<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps>> apps{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> expiredTime{};
@@ -2086,6 +2087,9 @@ public:
     }
     if (appInstanceType) {
       res["AppInstanceType"] = boost::any(*appInstanceType);
+    }
+    if (appPolicyId) {
+      res["AppPolicyId"] = boost::any(*appPolicyId);
     }
     if (apps) {
       vector<boost::any> temp1;
@@ -2155,6 +2159,9 @@ public:
     }
     if (m.find("AppInstanceType") != m.end() && !m["AppInstanceType"].empty()) {
       appInstanceType = make_shared<string>(boost::any_cast<string>(m["AppInstanceType"]));
+    }
+    if (m.find("AppPolicyId") != m.end() && !m["AppPolicyId"].empty()) {
+      appPolicyId = make_shared<string>(boost::any_cast<string>(m["AppPolicyId"]));
     }
     if (m.find("Apps") != m.end() && !m["Apps"].empty()) {
       if (typeid(vector<boost::any>) == m["Apps"].type()) {
@@ -4548,6 +4555,7 @@ class ListNodeInstanceTypeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> language{};
+  shared_ptr<string> nodeInstanceType{};
   shared_ptr<string> osType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -4568,6 +4576,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (nodeInstanceType) {
+      res["NodeInstanceType"] = boost::any(*nodeInstanceType);
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
@@ -4590,6 +4601,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("NodeInstanceType") != m.end() && !m["NodeInstanceType"].empty()) {
+      nodeInstanceType = make_shared<string>(boost::any_cast<string>(m["NodeInstanceType"]));
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
@@ -5724,13 +5738,125 @@ public:
 
   virtual ~ModifyAppInstanceGroupAttributeResponse() = default;
 };
+class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods : public Darabonba::Model {
+public:
+  shared_ptr<long> amount{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+
+  ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods() {}
+
+  explicit ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods() = default;
+};
+class ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules : public Darabonba::Model {
+public:
+  shared_ptr<string> recurrenceType{};
+  shared_ptr<vector<long>> recurrenceValues{};
+  shared_ptr<vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods>> timerPeriods{};
+
+  ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules() {}
+
+  explicit ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (recurrenceType) {
+      res["RecurrenceType"] = boost::any(*recurrenceType);
+    }
+    if (recurrenceValues) {
+      res["RecurrenceValues"] = boost::any(*recurrenceValues);
+    }
+    if (timerPeriods) {
+      vector<boost::any> temp1;
+      for(auto item1:*timerPeriods){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TimerPeriods"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RecurrenceType") != m.end() && !m["RecurrenceType"].empty()) {
+      recurrenceType = make_shared<string>(boost::any_cast<string>(m["RecurrenceType"]));
+    }
+    if (m.find("RecurrenceValues") != m.end() && !m["RecurrenceValues"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RecurrenceValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RecurrenceValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      recurrenceValues = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("TimerPeriods") != m.end() && !m["TimerPeriods"].empty()) {
+      if (typeid(vector<boost::any>) == m["TimerPeriods"].type()) {
+        vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TimerPeriods"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        timerPeriods = make_shared<vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedulesTimerPeriods>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules() = default;
+};
 class ModifyNodePoolAttributeRequestNodePoolStrategy : public Darabonba::Model {
 public:
   shared_ptr<long> maxScalingAmount{};
+  shared_ptr<long> nodeAmount{};
+  shared_ptr<vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules>> recurrenceSchedules{};
   shared_ptr<long> scalingDownAfterIdleMinutes{};
   shared_ptr<long> scalingStep{};
   shared_ptr<string> scalingUsageThreshold{};
+  shared_ptr<string> strategyDisableDate{};
+  shared_ptr<string> strategyEnableDate{};
   shared_ptr<string> strategyType{};
+  shared_ptr<bool> warmUp{};
 
   ModifyNodePoolAttributeRequestNodePoolStrategy() {}
 
@@ -5745,6 +5871,16 @@ public:
     if (maxScalingAmount) {
       res["MaxScalingAmount"] = boost::any(*maxScalingAmount);
     }
+    if (nodeAmount) {
+      res["NodeAmount"] = boost::any(*nodeAmount);
+    }
+    if (recurrenceSchedules) {
+      vector<boost::any> temp1;
+      for(auto item1:*recurrenceSchedules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RecurrenceSchedules"] = boost::any(temp1);
+    }
     if (scalingDownAfterIdleMinutes) {
       res["ScalingDownAfterIdleMinutes"] = boost::any(*scalingDownAfterIdleMinutes);
     }
@@ -5754,8 +5890,17 @@ public:
     if (scalingUsageThreshold) {
       res["ScalingUsageThreshold"] = boost::any(*scalingUsageThreshold);
     }
+    if (strategyDisableDate) {
+      res["StrategyDisableDate"] = boost::any(*strategyDisableDate);
+    }
+    if (strategyEnableDate) {
+      res["StrategyEnableDate"] = boost::any(*strategyEnableDate);
+    }
     if (strategyType) {
       res["StrategyType"] = boost::any(*strategyType);
+    }
+    if (warmUp) {
+      res["WarmUp"] = boost::any(*warmUp);
     }
     return res;
   }
@@ -5763,6 +5908,22 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("MaxScalingAmount") != m.end() && !m["MaxScalingAmount"].empty()) {
       maxScalingAmount = make_shared<long>(boost::any_cast<long>(m["MaxScalingAmount"]));
+    }
+    if (m.find("NodeAmount") != m.end() && !m["NodeAmount"].empty()) {
+      nodeAmount = make_shared<long>(boost::any_cast<long>(m["NodeAmount"]));
+    }
+    if (m.find("RecurrenceSchedules") != m.end() && !m["RecurrenceSchedules"].empty()) {
+      if (typeid(vector<boost::any>) == m["RecurrenceSchedules"].type()) {
+        vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RecurrenceSchedules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        recurrenceSchedules = make_shared<vector<ModifyNodePoolAttributeRequestNodePoolStrategyRecurrenceSchedules>>(expect1);
+      }
     }
     if (m.find("ScalingDownAfterIdleMinutes") != m.end() && !m["ScalingDownAfterIdleMinutes"].empty()) {
       scalingDownAfterIdleMinutes = make_shared<long>(boost::any_cast<long>(m["ScalingDownAfterIdleMinutes"]));
@@ -5773,8 +5934,17 @@ public:
     if (m.find("ScalingUsageThreshold") != m.end() && !m["ScalingUsageThreshold"].empty()) {
       scalingUsageThreshold = make_shared<string>(boost::any_cast<string>(m["ScalingUsageThreshold"]));
     }
+    if (m.find("StrategyDisableDate") != m.end() && !m["StrategyDisableDate"].empty()) {
+      strategyDisableDate = make_shared<string>(boost::any_cast<string>(m["StrategyDisableDate"]));
+    }
+    if (m.find("StrategyEnableDate") != m.end() && !m["StrategyEnableDate"].empty()) {
+      strategyEnableDate = make_shared<string>(boost::any_cast<string>(m["StrategyEnableDate"]));
+    }
     if (m.find("StrategyType") != m.end() && !m["StrategyType"].empty()) {
       strategyType = make_shared<string>(boost::any_cast<string>(m["StrategyType"]));
+    }
+    if (m.find("WarmUp") != m.end() && !m["WarmUp"].empty()) {
+      warmUp = make_shared<bool>(boost::any_cast<bool>(m["WarmUp"]));
     }
   }
 

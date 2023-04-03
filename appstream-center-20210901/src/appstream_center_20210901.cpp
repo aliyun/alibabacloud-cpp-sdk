@@ -603,6 +603,9 @@ ListNodeInstanceTypeResponse Alibabacloud_Appstream-center20210901::Client::list
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     query->insert(pair<string, string>("Language", *request->language));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nodeInstanceType)) {
+    query->insert(pair<string, string>("NodeInstanceType", *request->nodeInstanceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     query->insert(pair<string, string>("OsType", *request->osType));
   }
