@@ -27882,6 +27882,7 @@ public:
   shared_ptr<string> count{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainType{};
+  shared_ptr<string> subDomain{};
 
   DescribeRecordResolveStatisticsSummaryResponseBodyStatistics() {}
 
@@ -27902,6 +27903,9 @@ public:
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
     }
+    if (subDomain) {
+      res["SubDomain"] = boost::any(*subDomain);
+    }
     return res;
   }
 
@@ -27914,6 +27918,9 @@ public:
     }
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("SubDomain") != m.end() && !m["SubDomain"].empty()) {
+      subDomain = make_shared<string>(boost::any_cast<string>(m["SubDomain"]));
     }
   }
 
