@@ -9092,6 +9092,154 @@ public:
 
   virtual ~OpenCc5gServiceResponse() = default;
 };
+class RebindCardsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<string>> iccids{};
+  shared_ptr<string> regionId{};
+
+  RebindCardsRequest() {}
+
+  explicit RebindCardsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (iccids) {
+      res["Iccids"] = boost::any(*iccids);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Iccids") != m.end() && !m["Iccids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Iccids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Iccids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iccids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~RebindCardsRequest() = default;
+};
+class RebindCardsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  RebindCardsResponseBody() {}
+
+  explicit RebindCardsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RebindCardsResponseBody() = default;
+};
+class RebindCardsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RebindCardsResponseBody> body{};
+
+  RebindCardsResponse() {}
+
+  explicit RebindCardsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RebindCardsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RebindCardsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RebindCardsResponse() = default;
+};
 class RemoveWirelessCloudConnectorFromGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -11607,6 +11755,8 @@ public:
   ModifyWirelessCloudConnectorFeatureResponse modifyWirelessCloudConnectorFeature(shared_ptr<ModifyWirelessCloudConnectorFeatureRequest> request);
   OpenCc5gServiceResponse openCc5gServiceWithOptions(shared_ptr<OpenCc5gServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenCc5gServiceResponse openCc5gService(shared_ptr<OpenCc5gServiceRequest> request);
+  RebindCardsResponse rebindCardsWithOptions(shared_ptr<RebindCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RebindCardsResponse rebindCards(shared_ptr<RebindCardsRequest> request);
   RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroupWithOptions(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroup(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request);
   ResumeCardsResponse resumeCardsWithOptions(shared_ptr<ResumeCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
