@@ -201,6 +201,40 @@ GetVideoTaskInfoResponse Alibabacloud_Avatar20220130::Client::getVideoTaskInfo(s
   return getVideoTaskInfoWithOptions(request, runtime);
 }
 
+LicenseAuthResponse Alibabacloud_Avatar20220130::Client::licenseAuthWithOptions(shared_ptr<LicenseAuthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->license)) {
+    query->insert(pair<string, string>("License", *request->license));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
+    query->insert(pair<string, long>("TenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LicenseAuth"))},
+    {"version", boost::any(string("2022-01-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LicenseAuthResponse(callApi(params, req, runtime));
+}
+
+LicenseAuthResponse Alibabacloud_Avatar20220130::Client::licenseAuth(shared_ptr<LicenseAuthRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return licenseAuthWithOptions(request, runtime);
+}
+
 QueryRunningInstanceResponse Alibabacloud_Avatar20220130::Client::queryRunningInstanceWithOptions(shared_ptr<QueryRunningInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryRunningInstanceShrinkRequest> request = make_shared<QueryRunningInstanceShrinkRequest>();
