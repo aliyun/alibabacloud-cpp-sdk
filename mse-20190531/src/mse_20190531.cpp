@@ -531,9 +531,6 @@ AddMigrationTaskResponse Alibabacloud_Mse20190531::Client::addMigrationTaskWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
     query->insert(pair<string, string>("ClusterType", *request->clusterType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
-    query->insert(pair<string, string>("Id", *request->id));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->originInstanceAddress)) {
     query->insert(pair<string, string>("OriginInstanceAddress", *request->originInstanceAddress));
   }

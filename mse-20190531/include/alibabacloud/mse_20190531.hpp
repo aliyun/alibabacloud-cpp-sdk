@@ -3458,7 +3458,6 @@ class AddMigrationTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterType{};
-  shared_ptr<string> id{};
   shared_ptr<string> originInstanceAddress{};
   shared_ptr<string> originInstanceName{};
   shared_ptr<string> originInstanceNamespace{};
@@ -3483,9 +3482,6 @@ public:
     }
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
-    }
-    if (id) {
-      res["Id"] = boost::any(*id);
     }
     if (originInstanceAddress) {
       res["OriginInstanceAddress"] = boost::any(*originInstanceAddress);
@@ -3521,9 +3517,6 @@ public:
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
     }
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
     if (m.find("OriginInstanceAddress") != m.end() && !m["OriginInstanceAddress"].empty()) {
       originInstanceAddress = make_shared<string>(boost::any_cast<string>(m["OriginInstanceAddress"]));
     }
@@ -3556,8 +3549,6 @@ public:
 class AddMigrationTaskResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> clusterType{};
-  shared_ptr<string> gmtCreate{};
-  shared_ptr<string> gmtModified{};
   shared_ptr<string> id{};
   shared_ptr<string> originInstanceAddress{};
   shared_ptr<string> originInstanceName{};
@@ -3580,12 +3571,6 @@ public:
     map<string, boost::any> res;
     if (clusterType) {
       res["ClusterType"] = boost::any(*clusterType);
-    }
-    if (gmtCreate) {
-      res["GmtCreate"] = boost::any(*gmtCreate);
-    }
-    if (gmtModified) {
-      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (id) {
       res["Id"] = boost::any(*id);
@@ -3620,12 +3605,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterType") != m.end() && !m["ClusterType"].empty()) {
       clusterType = make_shared<string>(boost::any_cast<string>(m["ClusterType"]));
-    }
-    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
-      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
-    }
-    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
-      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
     }
     if (m.find("Id") != m.end() && !m["Id"].empty()) {
       id = make_shared<string>(boost::any_cast<string>(m["Id"]));
@@ -3663,7 +3642,6 @@ class AddMigrationTaskResponseBody : public Darabonba::Model {
 public:
   shared_ptr<AddMigrationTaskResponseBodyData> data{};
   shared_ptr<string> errorCode{};
-  shared_ptr<string> httpCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -3683,9 +3661,6 @@ public:
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
-    }
-    if (httpCode) {
-      res["HttpCode"] = boost::any(*httpCode);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -3709,9 +3684,6 @@ public:
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
-    }
-    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
-      httpCode = make_shared<string>(boost::any_cast<string>(m["HttpCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
