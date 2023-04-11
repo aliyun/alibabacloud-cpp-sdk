@@ -2522,10 +2522,10 @@ public:
 };
 class PolicyItem : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> key{};
-  shared_ptr<vector<uint8_t>> operator_{};
-  shared_ptr<vector<uint8_t>> type{};
-  shared_ptr<vector<uint8_t>> value{};
+  shared_ptr<string> key{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> type{};
+  shared_ptr<string> value{};
 
   PolicyItem() {}
 
@@ -2554,16 +2554,16 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("key") != m.end() && !m["key"].empty()) {
-      key = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["key"]));
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
     }
     if (m.find("operator") != m.end() && !m["operator"].empty()) {
-      operator_ = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["operator"]));
+      operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
-      type = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["type"]));
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
     if (m.find("value") != m.end() && !m["value"].empty()) {
-      value = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["value"]));
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
     }
   }
 
@@ -2785,7 +2785,7 @@ public:
 };
 class RoutePolicy : public Darabonba::Model {
 public:
-  shared_ptr<vector<uint8_t>> condition{};
+  shared_ptr<string> condition{};
   shared_ptr<vector<PolicyItem>> policyItems{};
 
   RoutePolicy() {}
@@ -2813,7 +2813,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("condition") != m.end() && !m["condition"].empty()) {
-      condition = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["condition"]));
+      condition = make_shared<string>(boost::any_cast<string>(m["condition"]));
     }
     if (m.find("policyItems") != m.end() && !m["policyItems"].empty()) {
       if (typeid(vector<boost::any>) == m["policyItems"].type()) {
