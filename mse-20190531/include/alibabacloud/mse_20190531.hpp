@@ -14291,7 +14291,6 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> source{};
 
   FetchLosslessRuleListRequest() {}
 
@@ -14324,9 +14323,6 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
-    if (source) {
-      res["Source"] = boost::any(*source);
-    }
     return res;
   }
 
@@ -14352,9 +14348,6 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
-    if (m.find("Source") != m.end() && !m["Source"].empty()) {
-      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
-    }
   }
 
 
@@ -14372,7 +14365,6 @@ public:
   shared_ptr<bool> lossLessDetail{};
   shared_ptr<bool> notice{};
   shared_ptr<bool> related{};
-  shared_ptr<long> shutdownWaitSeconds{};
   shared_ptr<long> warmupTime{};
 
   FetchLosslessRuleListResponseBodyDataResults() {}
@@ -14415,9 +14407,6 @@ public:
     if (related) {
       res["Related"] = boost::any(*related);
     }
-    if (shutdownWaitSeconds) {
-      res["ShutdownWaitSeconds"] = boost::any(*shutdownWaitSeconds);
-    }
     if (warmupTime) {
       res["WarmupTime"] = boost::any(*warmupTime);
     }
@@ -14454,9 +14443,6 @@ public:
     }
     if (m.find("Related") != m.end() && !m["Related"].empty()) {
       related = make_shared<bool>(boost::any_cast<bool>(m["Related"]));
-    }
-    if (m.find("ShutdownWaitSeconds") != m.end() && !m["ShutdownWaitSeconds"].empty()) {
-      shutdownWaitSeconds = make_shared<long>(boost::any_cast<long>(m["ShutdownWaitSeconds"]));
     }
     if (m.find("WarmupTime") != m.end() && !m["WarmupTime"].empty()) {
       warmupTime = make_shared<long>(boost::any_cast<long>(m["WarmupTime"]));
@@ -14532,9 +14518,10 @@ public:
 };
 class FetchLosslessRuleListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> code{};
+  shared_ptr<long> code{};
   shared_ptr<FetchLosslessRuleListResponseBodyData> data{};
-  shared_ptr<string> httpCode{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -14555,8 +14542,11 @@ public:
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (httpCode) {
-      res["HttpCode"] = boost::any(*httpCode);
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -14572,7 +14562,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       if (typeid(map<string, boost::any>) == m["Data"].type()) {
@@ -14581,8 +14571,11 @@ public:
         data = make_shared<FetchLosslessRuleListResponseBodyData>(model1);
       }
     }
-    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
-      httpCode = make_shared<string>(boost::any_cast<string>(m["HttpCode"]));
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -38974,8 +38967,6 @@ public:
   shared_ptr<bool> notice{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> related{};
-  shared_ptr<long> shutdownWaitSeconds{};
-  shared_ptr<string> source{};
   shared_ptr<long> warmupTime{};
 
   ModifyLosslessRuleRequest() {}
@@ -39024,12 +39015,6 @@ public:
     if (related) {
       res["Related"] = boost::any(*related);
     }
-    if (shutdownWaitSeconds) {
-      res["ShutdownWaitSeconds"] = boost::any(*shutdownWaitSeconds);
-    }
-    if (source) {
-      res["Source"] = boost::any(*source);
-    }
     if (warmupTime) {
       res["WarmupTime"] = boost::any(*warmupTime);
     }
@@ -39073,12 +39058,6 @@ public:
     if (m.find("Related") != m.end() && !m["Related"].empty()) {
       related = make_shared<bool>(boost::any_cast<bool>(m["Related"]));
     }
-    if (m.find("ShutdownWaitSeconds") != m.end() && !m["ShutdownWaitSeconds"].empty()) {
-      shutdownWaitSeconds = make_shared<long>(boost::any_cast<long>(m["ShutdownWaitSeconds"]));
-    }
-    if (m.find("Source") != m.end() && !m["Source"].empty()) {
-      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
-    }
     if (m.find("WarmupTime") != m.end() && !m["WarmupTime"].empty()) {
       warmupTime = make_shared<long>(boost::any_cast<long>(m["WarmupTime"]));
     }
@@ -39089,8 +39068,10 @@ public:
 };
 class ModifyLosslessRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<boost::any> data{};
   shared_ptr<string> errorCode{};
-  shared_ptr<string> httpCode{};
+  shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -39105,11 +39086,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
-    if (httpCode) {
-      res["HttpCode"] = boost::any(*httpCode);
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -39124,11 +39111,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
-    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
-      httpCode = make_shared<string>(boost::any_cast<string>(m["HttpCode"]));
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));

@@ -2399,7 +2399,28 @@ ExportZookeeperDataResponse Alibabacloud_Mse20190531::Client::exportZookeeperDat
 
 FetchLosslessRuleListResponse Alibabacloud_Mse20190531::Client::fetchLosslessRuleListWithOptions(shared_ptr<FetchLosslessRuleListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2408,7 +2429,7 @@ FetchLosslessRuleListResponse Alibabacloud_Mse20190531::Client::fetchLosslessRul
     {"version", boost::any(string("2019-05-31"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},
@@ -4896,12 +4917,6 @@ ModifyLosslessRuleResponse Alibabacloud_Mse20190531::Client::modifyLosslessRuleW
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->related)) {
     query->insert(pair<string, bool>("Related", *request->related));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->shutdownWaitSeconds)) {
-    query->insert(pair<string, long>("ShutdownWaitSeconds", *request->shutdownWaitSeconds));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
-    query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->warmupTime)) {
     query->insert(pair<string, long>("WarmupTime", *request->warmupTime));
