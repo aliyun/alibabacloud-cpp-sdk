@@ -854,6 +854,9 @@ ListDirectionalDetailResponse Alibabacloud_Linkcard20210520::Client::listDirecti
 ListOrderResponse Alibabacloud_Linkcard20210520::Client::listOrderWithOptions(shared_ptr<ListOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->credentialNo)) {
+    query->insert(pair<string, string>("CredentialNo", *request->credentialNo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
     query->insert(pair<string, string>("EndDate", *request->endDate));
   }

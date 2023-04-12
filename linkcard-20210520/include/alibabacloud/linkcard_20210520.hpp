@@ -4603,6 +4603,7 @@ public:
 };
 class GetOperateResultResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> executeResult{};
   shared_ptr<string> operateType{};
   shared_ptr<bool> result{};
   shared_ptr<string> status{};
@@ -4617,6 +4618,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executeResult) {
+      res["ExecuteResult"] = boost::any(*executeResult);
+    }
     if (operateType) {
       res["OperateType"] = boost::any(*operateType);
     }
@@ -4630,6 +4634,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecuteResult") != m.end() && !m["ExecuteResult"].empty()) {
+      executeResult = make_shared<string>(boost::any_cast<string>(m["ExecuteResult"]));
+    }
     if (m.find("OperateType") != m.end() && !m["OperateType"].empty()) {
       operateType = make_shared<string>(boost::any_cast<string>(m["OperateType"]));
     }
@@ -6636,6 +6643,7 @@ public:
 };
 class ListOrderRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> credentialNo{};
   shared_ptr<string> endDate{};
   shared_ptr<string> orderId{};
   shared_ptr<string> orderStatus{};
@@ -6654,6 +6662,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (credentialNo) {
+      res["CredentialNo"] = boost::any(*credentialNo);
+    }
     if (endDate) {
       res["EndDate"] = boost::any(*endDate);
     }
@@ -6679,6 +6690,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CredentialNo") != m.end() && !m["CredentialNo"].empty()) {
+      credentialNo = make_shared<string>(boost::any_cast<string>(m["CredentialNo"]));
+    }
     if (m.find("EndDate") != m.end() && !m["EndDate"].empty()) {
       endDate = make_shared<string>(boost::any_cast<string>(m["EndDate"]));
     }
