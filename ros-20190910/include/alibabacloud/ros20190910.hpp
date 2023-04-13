@@ -1139,6 +1139,7 @@ class CreateStackRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> createOption{};
+  shared_ptr<vector<string>> createOptions{};
   shared_ptr<string> deletionProtection{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<vector<string>> notificationURLs{};
@@ -1174,6 +1175,9 @@ public:
     }
     if (createOption) {
       res["CreateOption"] = boost::any(*createOption);
+    }
+    if (createOptions) {
+      res["CreateOptions"] = boost::any(*createOptions);
     }
     if (deletionProtection) {
       res["DeletionProtection"] = boost::any(*deletionProtection);
@@ -1249,6 +1253,16 @@ public:
     }
     if (m.find("CreateOption") != m.end() && !m["CreateOption"].empty()) {
       createOption = make_shared<string>(boost::any_cast<string>(m["CreateOption"]));
+    }
+    if (m.find("CreateOptions") != m.end() && !m["CreateOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CreateOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CreateOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      createOptions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
       deletionProtection = make_shared<string>(boost::any_cast<string>(m["DeletionProtection"]));
@@ -15995,6 +16009,7 @@ public:
 };
 class ListStacksRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> parentStackId{};
@@ -16004,6 +16019,7 @@ public:
   shared_ptr<string> stackId{};
   shared_ptr<vector<string>> stackIds{};
   shared_ptr<vector<string>> stackName{};
+  shared_ptr<string> startTime{};
   shared_ptr<vector<string>> status{};
   shared_ptr<vector<ListStacksRequestTag>> tag{};
 
@@ -16017,6 +16033,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -16044,6 +16063,9 @@ public:
     if (stackName) {
       res["StackName"] = boost::any(*stackName);
     }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -16058,6 +16080,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -16098,6 +16123,9 @@ public:
         }
       }
       stackName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       vector<string> toVec1;

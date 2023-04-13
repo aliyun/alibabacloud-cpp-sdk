@@ -282,6 +282,9 @@ CreateStackResponse Alibabacloud_ROS20190910::Client::createStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->createOption)) {
     query->insert(pair<string, string>("CreateOption", *request->createOption));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->createOptions)) {
+    query->insert(pair<string, vector<string>>("CreateOptions", *request->createOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deletionProtection)) {
     query->insert(pair<string, string>("DeletionProtection", *request->deletionProtection));
   }
@@ -2239,6 +2242,9 @@ ListStackResourcesResponse Alibabacloud_ROS20190910::Client::listStackResources(
 ListStacksResponse Alibabacloud_ROS20190910::Client::listStacksWithOptions(shared_ptr<ListStacksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
@@ -2265,6 +2271,9 @@ ListStacksResponse Alibabacloud_ROS20190910::Client::listStacksWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->stackName)) {
     query->insert(pair<string, vector<string>>("StackName", *request->stackName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->status)) {
     query->insert(pair<string, vector<string>>("Status", *request->status));
