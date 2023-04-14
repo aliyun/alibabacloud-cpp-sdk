@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Dypnsapi20170525;
 
 Alibabacloud_Dypnsapi20170525::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("central");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("dypnsapi"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -44,8 +45,29 @@ CreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::createVerifySc
   if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
     query->insert(pair<string, string>("AppName", *request->appName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authType)) {
+    query->insert(pair<string, string>("AuthType", *request->authType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bundleId)) {
     query->insert(pair<string, string>("BundleId", *request->bundleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cmApiCode)) {
+    query->insert(pair<string, long>("CmApiCode", *request->cmApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ctApiCode)) {
+    query->insert(pair<string, long>("CtApiCode", *request->ctApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->cuApiCode)) {
+    query->insert(pair<string, long>("CuApiCode", *request->cuApiCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->email)) {
+    query->insert(pair<string, string>("Email", *request->email));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipWhiteList)) {
+    query->insert(pair<string, string>("IpWhiteList", *request->ipWhiteList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
+    query->insert(pair<string, string>("Origin", *request->origin));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->osType)) {
     query->insert(pair<string, string>("OsType", *request->osType));
@@ -65,8 +87,17 @@ CreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::createVerifySc
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneType)) {
+    query->insert(pair<string, string>("SceneType", *request->sceneType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->schemeName)) {
     query->insert(pair<string, string>("SchemeName", *request->schemeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smsSignName)) {
+    query->insert(pair<string, string>("SmsSignName", *request->smsSignName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -253,11 +284,26 @@ GetAuthorizationUrlResponse Alibabacloud_Dypnsapi20170525::Client::getAuthorizat
   return getAuthorizationUrlWithOptions(request, runtime);
 }
 
-GetCertifyResultResponse Alibabacloud_Dypnsapi20170525::Client::getCertifyResultWithOptions(shared_ptr<GetCertifyResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetFusionAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::getFusionAuthTokenWithOptions(shared_ptr<GetFusionAuthTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bundleId)) {
+    query->insert(pair<string, string>("BundleId", *request->bundleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->durationSeconds)) {
+    query->insert(pair<string, long>("DurationSeconds", *request->durationSeconds));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageName)) {
+    query->insert(pair<string, string>("PackageName", *request->packageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageSign)) {
+    query->insert(pair<string, string>("PackageSign", *request->packageSign));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
+    query->insert(pair<string, string>("Platform", *request->platform));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -265,14 +311,14 @@ GetCertifyResultResponse Alibabacloud_Dypnsapi20170525::Client::getCertifyResult
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
-    query->insert(pair<string, string>("Token", *request->token));
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemeCode)) {
+    query->insert(pair<string, string>("SchemeCode", *request->schemeCode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetCertifyResult"))},
+    {"action", boost::any(string("GetFusionAuthToken"))},
     {"version", boost::any(string("2017-05-25"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
@@ -282,12 +328,12 @@ GetCertifyResultResponse Alibabacloud_Dypnsapi20170525::Client::getCertifyResult
     {"reqBodyType", boost::any(string("formData"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetCertifyResultResponse(callApi(params, req, runtime));
+  return GetFusionAuthTokenResponse(callApi(params, req, runtime));
 }
 
-GetCertifyResultResponse Alibabacloud_Dypnsapi20170525::Client::getCertifyResult(shared_ptr<GetCertifyResultRequest> request) {
+GetFusionAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::getFusionAuthToken(shared_ptr<GetFusionAuthTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getCertifyResultWithOptions(request, runtime);
+  return getFusionAuthTokenWithOptions(request, runtime);
 }
 
 GetMobileResponse Alibabacloud_Dypnsapi20170525::Client::getMobileWithOptions(shared_ptr<GetMobileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -328,6 +374,43 @@ GetMobileResponse Alibabacloud_Dypnsapi20170525::Client::getMobileWithOptions(sh
 GetMobileResponse Alibabacloud_Dypnsapi20170525::Client::getMobile(shared_ptr<GetMobileRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getMobileWithOptions(request, runtime);
+}
+
+GetPhoneWithTokenResponse Alibabacloud_Dypnsapi20170525::Client::getPhoneWithTokenWithOptions(shared_ptr<GetPhoneWithTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spToken)) {
+    query->insert(pair<string, string>("SpToken", *request->spToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPhoneWithToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPhoneWithTokenResponse(callApi(params, req, runtime));
+}
+
+GetPhoneWithTokenResponse Alibabacloud_Dypnsapi20170525::Client::getPhoneWithToken(shared_ptr<GetPhoneWithTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPhoneWithTokenWithOptions(request, runtime);
 }
 
 GetSmsAuthTokensResponse Alibabacloud_Dypnsapi20170525::Client::getSmsAuthTokensWithOptions(shared_ptr<GetSmsAuthTokensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -586,5 +669,42 @@ VerifySmsCodeResponse Alibabacloud_Dypnsapi20170525::Client::verifySmsCodeWithOp
 VerifySmsCodeResponse Alibabacloud_Dypnsapi20170525::Client::verifySmsCode(shared_ptr<VerifySmsCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return verifySmsCodeWithOptions(request, runtime);
+}
+
+VerifyWithFusionAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::verifyWithFusionAuthTokenWithOptions(shared_ptr<VerifyWithFusionAuthTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyToken)) {
+    query->insert(pair<string, string>("VerifyToken", *request->verifyToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VerifyWithFusionAuthToken"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VerifyWithFusionAuthTokenResponse(callApi(params, req, runtime));
+}
+
+VerifyWithFusionAuthTokenResponse Alibabacloud_Dypnsapi20170525::Client::verifyWithFusionAuthToken(shared_ptr<VerifyWithFusionAuthTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return verifyWithFusionAuthTokenWithOptions(request, runtime);
 }
 
