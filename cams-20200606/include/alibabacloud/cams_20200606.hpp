@@ -2846,6 +2846,7 @@ public:
 };
 class CreateChatappTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowCategoryChange{};
   shared_ptr<string> category{};
   shared_ptr<vector<CreateChatappTemplateRequestComponents>> components{};
   shared_ptr<string> custSpaceId{};
@@ -2866,6 +2867,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowCategoryChange) {
+      res["AllowCategoryChange"] = boost::any(*allowCategoryChange);
+    }
     if (category) {
       res["Category"] = boost::any(*category);
     }
@@ -2901,6 +2905,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCategoryChange") != m.end() && !m["AllowCategoryChange"].empty()) {
+      allowCategoryChange = make_shared<bool>(boost::any_cast<bool>(m["AllowCategoryChange"]));
+    }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
@@ -2950,6 +2957,7 @@ public:
 };
 class CreateChatappTemplateShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowCategoryChange{};
   shared_ptr<string> category{};
   shared_ptr<string> componentsShrink{};
   shared_ptr<string> custSpaceId{};
@@ -2970,6 +2978,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowCategoryChange) {
+      res["AllowCategoryChange"] = boost::any(*allowCategoryChange);
+    }
     if (category) {
       res["Category"] = boost::any(*category);
     }
@@ -3001,6 +3012,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowCategoryChange") != m.end() && !m["AllowCategoryChange"].empty()) {
+      allowCategoryChange = make_shared<bool>(boost::any_cast<bool>(m["AllowCategoryChange"]));
+    }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
@@ -3469,6 +3483,10 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileType{};
   shared_ptr<string> format{};
+  shared_ptr<string> latitude{};
+  shared_ptr<string> locationAddress{};
+  shared_ptr<string> locationName{};
+  shared_ptr<string> longitude{};
   shared_ptr<string> text{};
   shared_ptr<string> thumbUrl{};
   shared_ptr<string> type{};
@@ -3505,6 +3523,18 @@ public:
     }
     if (format) {
       res["Format"] = boost::any(*format);
+    }
+    if (latitude) {
+      res["Latitude"] = boost::any(*latitude);
+    }
+    if (locationAddress) {
+      res["LocationAddress"] = boost::any(*locationAddress);
+    }
+    if (locationName) {
+      res["LocationName"] = boost::any(*locationName);
+    }
+    if (longitude) {
+      res["Longitude"] = boost::any(*longitude);
     }
     if (text) {
       res["Text"] = boost::any(*text);
@@ -3549,6 +3579,18 @@ public:
     }
     if (m.find("Format") != m.end() && !m["Format"].empty()) {
       format = make_shared<string>(boost::any_cast<string>(m["Format"]));
+    }
+    if (m.find("Latitude") != m.end() && !m["Latitude"].empty()) {
+      latitude = make_shared<string>(boost::any_cast<string>(m["Latitude"]));
+    }
+    if (m.find("LocationAddress") != m.end() && !m["LocationAddress"].empty()) {
+      locationAddress = make_shared<string>(boost::any_cast<string>(m["LocationAddress"]));
+    }
+    if (m.find("LocationName") != m.end() && !m["LocationName"].empty()) {
+      locationName = make_shared<string>(boost::any_cast<string>(m["LocationName"]));
+    }
+    if (m.find("Longitude") != m.end() && !m["Longitude"].empty()) {
+      longitude = make_shared<string>(boost::any_cast<string>(m["Longitude"]));
     }
     if (m.find("Text") != m.end() && !m["Text"].empty()) {
       text = make_shared<string>(boost::any_cast<string>(m["Text"]));
@@ -4955,6 +4997,7 @@ public:
   shared_ptr<vector<ListChatappTemplateResponseBodyListTemplate>> listTemplate{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> total{};
 
   ListChatappTemplateResponseBody() {}
 
@@ -4982,6 +5025,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
     return res;
   }
 
@@ -5007,6 +5053,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
     }
   }
 
@@ -6810,6 +6859,7 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
+  shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
@@ -6842,6 +6892,9 @@ public:
     }
     if (fallBackContent) {
       res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackDuration) {
+      res["FallBackDuration"] = boost::any(*fallBackDuration);
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
@@ -6892,6 +6945,9 @@ public:
     }
     if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
       fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackDuration") != m.end() && !m["FallBackDuration"].empty()) {
+      fallBackDuration = make_shared<long>(boost::any_cast<long>(m["FallBackDuration"]));
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
@@ -6944,6 +7000,7 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
+  shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
@@ -6976,6 +7033,9 @@ public:
     }
     if (fallBackContent) {
       res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackDuration) {
+      res["FallBackDuration"] = boost::any(*fallBackDuration);
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
@@ -7022,6 +7082,9 @@ public:
     }
     if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
       fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackDuration") != m.end() && !m["FallBackDuration"].empty()) {
+      fallBackDuration = make_shared<long>(boost::any_cast<long>(m["FallBackDuration"]));
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
@@ -7178,6 +7241,7 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
+  shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
@@ -7221,6 +7285,9 @@ public:
     }
     if (fallBackContent) {
       res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackDuration) {
+      res["FallBackDuration"] = boost::any(*fallBackDuration);
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
@@ -7288,6 +7355,9 @@ public:
     }
     if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
       fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackDuration") != m.end() && !m["FallBackDuration"].empty()) {
+      fallBackDuration = make_shared<long>(boost::any_cast<long>(m["FallBackDuration"]));
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
@@ -7359,6 +7429,7 @@ public:
   shared_ptr<string> custSpaceId{};
   shared_ptr<string> custWabaId{};
   shared_ptr<string> fallBackContent{};
+  shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
@@ -7402,6 +7473,9 @@ public:
     }
     if (fallBackContent) {
       res["FallBackContent"] = boost::any(*fallBackContent);
+    }
+    if (fallBackDuration) {
+      res["FallBackDuration"] = boost::any(*fallBackDuration);
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
@@ -7469,6 +7543,9 @@ public:
     }
     if (m.find("FallBackContent") != m.end() && !m["FallBackContent"].empty()) {
       fallBackContent = make_shared<string>(boost::any_cast<string>(m["FallBackContent"]));
+    }
+    if (m.find("FallBackDuration") != m.end() && !m["FallBackDuration"].empty()) {
+      fallBackDuration = make_shared<long>(boost::any_cast<long>(m["FallBackDuration"]));
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));

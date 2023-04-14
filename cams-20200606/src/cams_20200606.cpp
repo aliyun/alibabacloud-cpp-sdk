@@ -413,16 +413,18 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->example)) {
     request->exampleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->example, make_shared<string>("Example"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
-    query->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allowCategoryChange)) {
+    body->insert(pair<string, bool>("AllowCategoryChange", *request->allowCategoryChange));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
     body->insert(pair<string, string>("Category", *request->category));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->componentsShrink)) {
     body->insert(pair<string, string>("Components", *request->componentsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->custSpaceId)) {
+    body->insert(pair<string, string>("CustSpaceId", *request->custSpaceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->custWabaId)) {
     body->insert(pair<string, string>("CustWabaId", *request->custWabaId));
@@ -443,7 +445,6 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
     body->insert(pair<string, string>("TemplateType", *request->templateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1018,6 +1019,9 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
     body->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fallBackDuration)) {
+    body->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
     body->insert(pair<string, string>("FallBackId", *request->fallBackId));
   }
@@ -1102,6 +1106,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackContent)) {
     body->insert(pair<string, string>("FallBackContent", *request->fallBackContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fallBackDuration)) {
+    body->insert(pair<string, long>("FallBackDuration", *request->fallBackDuration));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
     body->insert(pair<string, string>("FallBackId", *request->fallBackId));
