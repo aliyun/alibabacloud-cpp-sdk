@@ -1168,6 +1168,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
+  shared_ptr<string> requestPars{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> slbSpec{};
   shared_ptr<string> spec{};
@@ -1213,6 +1214,9 @@ public:
     }
     if (replica) {
       res["Replica"] = boost::any(*replica);
+    }
+    if (requestPars) {
+      res["RequestPars"] = boost::any(*requestPars);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -1272,6 +1276,9 @@ public:
     }
     if (m.find("Replica") != m.end() && !m["Replica"].empty()) {
       replica = make_shared<long>(boost::any_cast<long>(m["Replica"]));
+    }
+    if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
+      requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
