@@ -351,6 +351,7 @@ public:
 class BeginSessionResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<long> silenceReplyTimeout{};
   shared_ptr<string> welcomeMessage{};
 
   BeginSessionResponseBody() {}
@@ -366,6 +367,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (silenceReplyTimeout) {
+      res["SilenceReplyTimeout"] = boost::any(*silenceReplyTimeout);
+    }
     if (welcomeMessage) {
       res["WelcomeMessage"] = boost::any(*welcomeMessage);
     }
@@ -375,6 +379,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SilenceReplyTimeout") != m.end() && !m["SilenceReplyTimeout"].empty()) {
+      silenceReplyTimeout = make_shared<long>(boost::any_cast<long>(m["SilenceReplyTimeout"]));
     }
     if (m.find("WelcomeMessage") != m.end() && !m["WelcomeMessage"].empty()) {
       welcomeMessage = make_shared<string>(boost::any_cast<string>(m["WelcomeMessage"]));
