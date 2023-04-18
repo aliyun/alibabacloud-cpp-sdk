@@ -17,7 +17,6 @@ using namespace std;
 namespace Alibabacloud_BtripOpen20220520 {
 class AccessTokenRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> appKey{};
   shared_ptr<string> appSecret{};
 
   AccessTokenRequest() {}
@@ -30,9 +29,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (appKey) {
-      res["app_key"] = boost::any(*appKey);
-    }
     if (appSecret) {
       res["app_secret"] = boost::any(*appSecret);
     }
@@ -40,9 +36,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("app_key") != m.end() && !m["app_key"].empty()) {
-      appKey = make_shared<string>(boost::any_cast<string>(m["app_key"]));
-    }
     if (m.find("app_secret") != m.end() && !m["app_secret"].empty()) {
       appSecret = make_shared<string>(boost::any_cast<string>(m["app_secret"]));
     }
