@@ -177,6 +177,247 @@ public:
 
   virtual ~AdjustJMeterSceneSpeedResponse() = default;
 };
+class AdjustPtsSceneSpeedRequestApiSpeedList : public Darabonba::Model {
+public:
+  shared_ptr<string> apiId{};
+  shared_ptr<long> speed{};
+
+  AdjustPtsSceneSpeedRequestApiSpeedList() {}
+
+  explicit AdjustPtsSceneSpeedRequestApiSpeedList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiId) {
+      res["ApiId"] = boost::any(*apiId);
+    }
+    if (speed) {
+      res["Speed"] = boost::any(*speed);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
+      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
+    }
+    if (m.find("Speed") != m.end() && !m["Speed"].empty()) {
+      speed = make_shared<long>(boost::any_cast<long>(m["Speed"]));
+    }
+  }
+
+
+  virtual ~AdjustPtsSceneSpeedRequestApiSpeedList() = default;
+};
+class AdjustPtsSceneSpeedRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<AdjustPtsSceneSpeedRequestApiSpeedList>> apiSpeedList{};
+  shared_ptr<string> sceneId{};
+
+  AdjustPtsSceneSpeedRequest() {}
+
+  explicit AdjustPtsSceneSpeedRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiSpeedList) {
+      vector<boost::any> temp1;
+      for(auto item1:*apiSpeedList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApiSpeedList"] = boost::any(temp1);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiSpeedList") != m.end() && !m["ApiSpeedList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApiSpeedList"].type()) {
+        vector<AdjustPtsSceneSpeedRequestApiSpeedList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApiSpeedList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AdjustPtsSceneSpeedRequestApiSpeedList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apiSpeedList = make_shared<vector<AdjustPtsSceneSpeedRequestApiSpeedList>>(expect1);
+      }
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+  }
+
+
+  virtual ~AdjustPtsSceneSpeedRequest() = default;
+};
+class AdjustPtsSceneSpeedShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiSpeedListShrink{};
+  shared_ptr<string> sceneId{};
+
+  AdjustPtsSceneSpeedShrinkRequest() {}
+
+  explicit AdjustPtsSceneSpeedShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiSpeedListShrink) {
+      res["ApiSpeedList"] = boost::any(*apiSpeedListShrink);
+    }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiSpeedList") != m.end() && !m["ApiSpeedList"].empty()) {
+      apiSpeedListShrink = make_shared<string>(boost::any_cast<string>(m["ApiSpeedList"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
+    }
+  }
+
+
+  virtual ~AdjustPtsSceneSpeedShrinkRequest() = default;
+};
+class AdjustPtsSceneSpeedResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AdjustPtsSceneSpeedResponseBody() {}
+
+  explicit AdjustPtsSceneSpeedResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AdjustPtsSceneSpeedResponseBody() = default;
+};
+class AdjustPtsSceneSpeedResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AdjustPtsSceneSpeedResponseBody> body{};
+
+  AdjustPtsSceneSpeedResponse() {}
+
+  explicit AdjustPtsSceneSpeedResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AdjustPtsSceneSpeedResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AdjustPtsSceneSpeedResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AdjustPtsSceneSpeedResponse() = default;
+};
 class CreatePtsSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> scene{};
@@ -2667,6 +2908,358 @@ public:
 
 
   virtual ~GetOpenJMeterSceneResponse() = default;
+};
+class GetPtsDebugSampleLogsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> planId{};
+
+  GetPtsDebugSampleLogsRequest() {}
+
+  explicit GetPtsDebugSampleLogsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (planId) {
+      res["PlanId"] = boost::any(*planId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PlanId") != m.end() && !m["PlanId"].empty()) {
+      planId = make_shared<string>(boost::any_cast<string>(m["PlanId"]));
+    }
+  }
+
+
+  virtual ~GetPtsDebugSampleLogsRequest() = default;
+};
+class GetPtsDebugSampleLogsResponseBodySamplingLogs : public Darabonba::Model {
+public:
+  shared_ptr<string> chainId{};
+  shared_ptr<string> chainName{};
+  shared_ptr<string> checkResult{};
+  shared_ptr<string> exportConfig{};
+  shared_ptr<string> exportContent{};
+  shared_ptr<string> httpRequestBody{};
+  shared_ptr<string> httpRequestHeaders{};
+  shared_ptr<string> httpRequestMethod{};
+  shared_ptr<string> httpRequestUrl{};
+  shared_ptr<string> httpResponseBody{};
+  shared_ptr<string> httpResponseFailMsg{};
+  shared_ptr<string> httpResponseHeaders{};
+  shared_ptr<string> httpResponseStatus{};
+  shared_ptr<long> httpStartTime{};
+  shared_ptr<string> httpTiming{};
+  shared_ptr<string> importContent{};
+  shared_ptr<string> nodeId{};
+  shared_ptr<string> rt{};
+  shared_ptr<long> timestamp{};
+
+  GetPtsDebugSampleLogsResponseBodySamplingLogs() {}
+
+  explicit GetPtsDebugSampleLogsResponseBodySamplingLogs(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (chainId) {
+      res["ChainId"] = boost::any(*chainId);
+    }
+    if (chainName) {
+      res["ChainName"] = boost::any(*chainName);
+    }
+    if (checkResult) {
+      res["CheckResult"] = boost::any(*checkResult);
+    }
+    if (exportConfig) {
+      res["ExportConfig"] = boost::any(*exportConfig);
+    }
+    if (exportContent) {
+      res["ExportContent"] = boost::any(*exportContent);
+    }
+    if (httpRequestBody) {
+      res["HttpRequestBody"] = boost::any(*httpRequestBody);
+    }
+    if (httpRequestHeaders) {
+      res["HttpRequestHeaders"] = boost::any(*httpRequestHeaders);
+    }
+    if (httpRequestMethod) {
+      res["HttpRequestMethod"] = boost::any(*httpRequestMethod);
+    }
+    if (httpRequestUrl) {
+      res["HttpRequestUrl"] = boost::any(*httpRequestUrl);
+    }
+    if (httpResponseBody) {
+      res["HttpResponseBody"] = boost::any(*httpResponseBody);
+    }
+    if (httpResponseFailMsg) {
+      res["HttpResponseFailMsg"] = boost::any(*httpResponseFailMsg);
+    }
+    if (httpResponseHeaders) {
+      res["HttpResponseHeaders"] = boost::any(*httpResponseHeaders);
+    }
+    if (httpResponseStatus) {
+      res["HttpResponseStatus"] = boost::any(*httpResponseStatus);
+    }
+    if (httpStartTime) {
+      res["HttpStartTime"] = boost::any(*httpStartTime);
+    }
+    if (httpTiming) {
+      res["HttpTiming"] = boost::any(*httpTiming);
+    }
+    if (importContent) {
+      res["ImportContent"] = boost::any(*importContent);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
+    }
+    if (rt) {
+      res["Rt"] = boost::any(*rt);
+    }
+    if (timestamp) {
+      res["Timestamp"] = boost::any(*timestamp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChainId") != m.end() && !m["ChainId"].empty()) {
+      chainId = make_shared<string>(boost::any_cast<string>(m["ChainId"]));
+    }
+    if (m.find("ChainName") != m.end() && !m["ChainName"].empty()) {
+      chainName = make_shared<string>(boost::any_cast<string>(m["ChainName"]));
+    }
+    if (m.find("CheckResult") != m.end() && !m["CheckResult"].empty()) {
+      checkResult = make_shared<string>(boost::any_cast<string>(m["CheckResult"]));
+    }
+    if (m.find("ExportConfig") != m.end() && !m["ExportConfig"].empty()) {
+      exportConfig = make_shared<string>(boost::any_cast<string>(m["ExportConfig"]));
+    }
+    if (m.find("ExportContent") != m.end() && !m["ExportContent"].empty()) {
+      exportContent = make_shared<string>(boost::any_cast<string>(m["ExportContent"]));
+    }
+    if (m.find("HttpRequestBody") != m.end() && !m["HttpRequestBody"].empty()) {
+      httpRequestBody = make_shared<string>(boost::any_cast<string>(m["HttpRequestBody"]));
+    }
+    if (m.find("HttpRequestHeaders") != m.end() && !m["HttpRequestHeaders"].empty()) {
+      httpRequestHeaders = make_shared<string>(boost::any_cast<string>(m["HttpRequestHeaders"]));
+    }
+    if (m.find("HttpRequestMethod") != m.end() && !m["HttpRequestMethod"].empty()) {
+      httpRequestMethod = make_shared<string>(boost::any_cast<string>(m["HttpRequestMethod"]));
+    }
+    if (m.find("HttpRequestUrl") != m.end() && !m["HttpRequestUrl"].empty()) {
+      httpRequestUrl = make_shared<string>(boost::any_cast<string>(m["HttpRequestUrl"]));
+    }
+    if (m.find("HttpResponseBody") != m.end() && !m["HttpResponseBody"].empty()) {
+      httpResponseBody = make_shared<string>(boost::any_cast<string>(m["HttpResponseBody"]));
+    }
+    if (m.find("HttpResponseFailMsg") != m.end() && !m["HttpResponseFailMsg"].empty()) {
+      httpResponseFailMsg = make_shared<string>(boost::any_cast<string>(m["HttpResponseFailMsg"]));
+    }
+    if (m.find("HttpResponseHeaders") != m.end() && !m["HttpResponseHeaders"].empty()) {
+      httpResponseHeaders = make_shared<string>(boost::any_cast<string>(m["HttpResponseHeaders"]));
+    }
+    if (m.find("HttpResponseStatus") != m.end() && !m["HttpResponseStatus"].empty()) {
+      httpResponseStatus = make_shared<string>(boost::any_cast<string>(m["HttpResponseStatus"]));
+    }
+    if (m.find("HttpStartTime") != m.end() && !m["HttpStartTime"].empty()) {
+      httpStartTime = make_shared<long>(boost::any_cast<long>(m["HttpStartTime"]));
+    }
+    if (m.find("HttpTiming") != m.end() && !m["HttpTiming"].empty()) {
+      httpTiming = make_shared<string>(boost::any_cast<string>(m["HttpTiming"]));
+    }
+    if (m.find("ImportContent") != m.end() && !m["ImportContent"].empty()) {
+      importContent = make_shared<string>(boost::any_cast<string>(m["ImportContent"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("Rt") != m.end() && !m["Rt"].empty()) {
+      rt = make_shared<string>(boost::any_cast<string>(m["Rt"]));
+    }
+    if (m.find("Timestamp") != m.end() && !m["Timestamp"].empty()) {
+      timestamp = make_shared<long>(boost::any_cast<long>(m["Timestamp"]));
+    }
+  }
+
+
+  virtual ~GetPtsDebugSampleLogsResponseBodySamplingLogs() = default;
+};
+class GetPtsDebugSampleLogsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetPtsDebugSampleLogsResponseBodySamplingLogs>> samplingLogs{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> totalCount{};
+
+  GetPtsDebugSampleLogsResponseBody() {}
+
+  explicit GetPtsDebugSampleLogsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (samplingLogs) {
+      vector<boost::any> temp1;
+      for(auto item1:*samplingLogs){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SamplingLogs"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SamplingLogs") != m.end() && !m["SamplingLogs"].empty()) {
+      if (typeid(vector<boost::any>) == m["SamplingLogs"].type()) {
+        vector<GetPtsDebugSampleLogsResponseBodySamplingLogs> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SamplingLogs"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPtsDebugSampleLogsResponseBodySamplingLogs model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        samplingLogs = make_shared<vector<GetPtsDebugSampleLogsResponseBodySamplingLogs>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~GetPtsDebugSampleLogsResponseBody() = default;
+};
+class GetPtsDebugSampleLogsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPtsDebugSampleLogsResponseBody> body{};
+
+  GetPtsDebugSampleLogsResponse() {}
+
+  explicit GetPtsDebugSampleLogsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPtsDebugSampleLogsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPtsDebugSampleLogsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPtsDebugSampleLogsResponse() = default;
 };
 class GetPtsReportDetailsRequest : public Darabonba::Model {
 public:
@@ -12893,6 +13486,8 @@ public:
                      shared_ptr<string> endpoint);
   AdjustJMeterSceneSpeedResponse adjustJMeterSceneSpeedWithOptions(shared_ptr<AdjustJMeterSceneSpeedRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AdjustJMeterSceneSpeedResponse adjustJMeterSceneSpeed(shared_ptr<AdjustJMeterSceneSpeedRequest> request);
+  AdjustPtsSceneSpeedResponse adjustPtsSceneSpeedWithOptions(shared_ptr<AdjustPtsSceneSpeedRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AdjustPtsSceneSpeedResponse adjustPtsSceneSpeed(shared_ptr<AdjustPtsSceneSpeedRequest> request);
   CreatePtsSceneResponse createPtsSceneWithOptions(shared_ptr<CreatePtsSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePtsSceneResponse createPtsScene(shared_ptr<CreatePtsSceneRequest> request);
   CreatePtsSceneBaseLineFromReportResponse createPtsSceneBaseLineFromReportWithOptions(shared_ptr<CreatePtsSceneBaseLineFromReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12915,6 +13510,8 @@ public:
   GetJMeterSceneRunningDataResponse getJMeterSceneRunningData(shared_ptr<GetJMeterSceneRunningDataRequest> request);
   GetOpenJMeterSceneResponse getOpenJMeterSceneWithOptions(shared_ptr<GetOpenJMeterSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOpenJMeterSceneResponse getOpenJMeterScene(shared_ptr<GetOpenJMeterSceneRequest> request);
+  GetPtsDebugSampleLogsResponse getPtsDebugSampleLogsWithOptions(shared_ptr<GetPtsDebugSampleLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPtsDebugSampleLogsResponse getPtsDebugSampleLogs(shared_ptr<GetPtsDebugSampleLogsRequest> request);
   GetPtsReportDetailsResponse getPtsReportDetailsWithOptions(shared_ptr<GetPtsReportDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPtsReportDetailsResponse getPtsReportDetails(shared_ptr<GetPtsReportDetailsRequest> request);
   GetPtsReportsBySceneIdResponse getPtsReportsBySceneIdWithOptions(shared_ptr<GetPtsReportsBySceneIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
