@@ -119,6 +119,9 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->actionType)) {
     query->insert(pair<string, long>("action_type", *request->actionType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->carScenesCode)) {
+    query->insert(pair<string, string>("car_scenes_code", *request->carScenesCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryId)) {
     query->insert(pair<string, string>("itinerary_id", *request->itineraryId));
   }

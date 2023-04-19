@@ -644,6 +644,7 @@ public:
 class AddressGetRequest : public Darabonba::Model {
 public:
   shared_ptr<long> actionType{};
+  shared_ptr<string> carScenesCode{};
   shared_ptr<string> itineraryId{};
   shared_ptr<string> phone{};
   shared_ptr<string> subCorpId{};
@@ -662,6 +663,9 @@ public:
     map<string, boost::any> res;
     if (actionType) {
       res["action_type"] = boost::any(*actionType);
+    }
+    if (carScenesCode) {
+      res["car_scenes_code"] = boost::any(*carScenesCode);
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
@@ -684,6 +688,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("action_type") != m.end() && !m["action_type"].empty()) {
       actionType = make_shared<long>(boost::any_cast<long>(m["action_type"]));
+    }
+    if (m.find("car_scenes_code") != m.end() && !m["car_scenes_code"].empty()) {
+      carScenesCode = make_shared<string>(boost::any_cast<string>(m["car_scenes_code"]));
     }
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
@@ -46862,30 +46869,130 @@ public:
 
   virtual ~InsInvoiceScanQueryRequest() = default;
 };
+class InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> amount{};
+  shared_ptr<string> index{};
+  shared_ptr<string> itemName{};
+  shared_ptr<string> quantity{};
+  shared_ptr<string> specification{};
+  shared_ptr<string> tax{};
+  shared_ptr<string> taxRate{};
+  shared_ptr<string> unit{};
+  shared_ptr<string> unitPrice{};
+
+  InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails() {}
+
+  explicit InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["amount"] = boost::any(*amount);
+    }
+    if (index) {
+      res["index"] = boost::any(*index);
+    }
+    if (itemName) {
+      res["item_name"] = boost::any(*itemName);
+    }
+    if (quantity) {
+      res["quantity"] = boost::any(*quantity);
+    }
+    if (specification) {
+      res["specification"] = boost::any(*specification);
+    }
+    if (tax) {
+      res["tax"] = boost::any(*tax);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
+    }
+    if (unit) {
+      res["unit"] = boost::any(*unit);
+    }
+    if (unitPrice) {
+      res["unit_price"] = boost::any(*unitPrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("amount") != m.end() && !m["amount"].empty()) {
+      amount = make_shared<string>(boost::any_cast<string>(m["amount"]));
+    }
+    if (m.find("index") != m.end() && !m["index"].empty()) {
+      index = make_shared<string>(boost::any_cast<string>(m["index"]));
+    }
+    if (m.find("item_name") != m.end() && !m["item_name"].empty()) {
+      itemName = make_shared<string>(boost::any_cast<string>(m["item_name"]));
+    }
+    if (m.find("quantity") != m.end() && !m["quantity"].empty()) {
+      quantity = make_shared<string>(boost::any_cast<string>(m["quantity"]));
+    }
+    if (m.find("specification") != m.end() && !m["specification"].empty()) {
+      specification = make_shared<string>(boost::any_cast<string>(m["specification"]));
+    }
+    if (m.find("tax") != m.end() && !m["tax"].empty()) {
+      tax = make_shared<string>(boost::any_cast<string>(m["tax"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("unit") != m.end() && !m["unit"].empty()) {
+      unit = make_shared<string>(boost::any_cast<string>(m["unit"]));
+    }
+    if (m.find("unit_price") != m.end() && !m["unit_price"].empty()) {
+      unitPrice = make_shared<string>(boost::any_cast<string>(m["unit_price"]));
+    }
+  }
+
+
+  virtual ~InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails() = default;
+};
 class InsInvoiceScanQueryResponseBodyModuleItems : public Darabonba::Model {
 public:
   shared_ptr<string> amountWithTax{};
   shared_ptr<string> amountWithoutTax{};
   shared_ptr<string> billDate{};
+  shared_ptr<string> checkCode{};
   shared_ptr<string> costCenter{};
   shared_ptr<string> department{};
+  shared_ptr<string> drawer{};
+  shared_ptr<string> id{};
   shared_ptr<string> insuranceCompany{};
   shared_ptr<string> insuranceOrderId{};
   shared_ptr<string> insuranceType{};
   shared_ptr<string> invoiceCode{};
   shared_ptr<string> invoiceDay{};
+  shared_ptr<vector<InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails>> invoiceDetails{};
+  shared_ptr<string> invoiceLocation{};
   shared_ptr<string> invoiceNo{};
+  shared_ptr<string> invoiceTitle{};
   shared_ptr<long> orderId{};
   shared_ptr<string> ossUrl{};
   shared_ptr<string> passenger{};
+  shared_ptr<string> passwordArea{};
   shared_ptr<string> project{};
+  shared_ptr<string> purchaserBankAccountInfo{};
+  shared_ptr<string> purchaserContactInfo{};
   shared_ptr<string> purchaserName{};
   shared_ptr<string> purchaserTaxNo{};
-  shared_ptr<string> realInvoiceTitle{};
+  shared_ptr<string> recipient{};
+  shared_ptr<string> remarks{};
+  shared_ptr<string> reviewer{};
+  shared_ptr<string> sellerBankAccountInfo{};
+  shared_ptr<string> sellerContactInfo{};
   shared_ptr<string> sellerName{};
   shared_ptr<string> sellerTaxNo{};
+  shared_ptr<string> smartCheckCode{};
   shared_ptr<string> taxAmount{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> totalAmountInWords{};
 
   InsInvoiceScanQueryResponseBodyModuleItems() {}
 
@@ -46906,11 +47013,20 @@ public:
     if (billDate) {
       res["bill_date"] = boost::any(*billDate);
     }
+    if (checkCode) {
+      res["check_code"] = boost::any(*checkCode);
+    }
     if (costCenter) {
       res["cost_center"] = boost::any(*costCenter);
     }
     if (department) {
       res["department"] = boost::any(*department);
+    }
+    if (drawer) {
+      res["drawer"] = boost::any(*drawer);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
     }
     if (insuranceCompany) {
       res["insurance_company"] = boost::any(*insuranceCompany);
@@ -46927,8 +47043,21 @@ public:
     if (invoiceDay) {
       res["invoice_day"] = boost::any(*invoiceDay);
     }
+    if (invoiceDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*invoiceDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["invoice_details"] = boost::any(temp1);
+    }
+    if (invoiceLocation) {
+      res["invoice_location"] = boost::any(*invoiceLocation);
+    }
     if (invoiceNo) {
       res["invoice_no"] = boost::any(*invoiceNo);
+    }
+    if (invoiceTitle) {
+      res["invoice_title"] = boost::any(*invoiceTitle);
     }
     if (orderId) {
       res["order_id"] = boost::any(*orderId);
@@ -46939,8 +47068,17 @@ public:
     if (passenger) {
       res["passenger"] = boost::any(*passenger);
     }
+    if (passwordArea) {
+      res["password_area"] = boost::any(*passwordArea);
+    }
     if (project) {
       res["project"] = boost::any(*project);
+    }
+    if (purchaserBankAccountInfo) {
+      res["purchaser_bank_account_info"] = boost::any(*purchaserBankAccountInfo);
+    }
+    if (purchaserContactInfo) {
+      res["purchaser_contact_info"] = boost::any(*purchaserContactInfo);
     }
     if (purchaserName) {
       res["purchaser_name"] = boost::any(*purchaserName);
@@ -46948,8 +47086,20 @@ public:
     if (purchaserTaxNo) {
       res["purchaser_tax_no"] = boost::any(*purchaserTaxNo);
     }
-    if (realInvoiceTitle) {
-      res["real_invoice_title"] = boost::any(*realInvoiceTitle);
+    if (recipient) {
+      res["recipient"] = boost::any(*recipient);
+    }
+    if (remarks) {
+      res["remarks"] = boost::any(*remarks);
+    }
+    if (reviewer) {
+      res["reviewer"] = boost::any(*reviewer);
+    }
+    if (sellerBankAccountInfo) {
+      res["seller_bank_account_info"] = boost::any(*sellerBankAccountInfo);
+    }
+    if (sellerContactInfo) {
+      res["seller_contact_info"] = boost::any(*sellerContactInfo);
     }
     if (sellerName) {
       res["seller_name"] = boost::any(*sellerName);
@@ -46957,11 +47107,17 @@ public:
     if (sellerTaxNo) {
       res["seller_tax_no"] = boost::any(*sellerTaxNo);
     }
+    if (smartCheckCode) {
+      res["smart_check_code"] = boost::any(*smartCheckCode);
+    }
     if (taxAmount) {
       res["tax_amount"] = boost::any(*taxAmount);
     }
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
+    }
+    if (totalAmountInWords) {
+      res["total_amount_in_words"] = boost::any(*totalAmountInWords);
     }
     return res;
   }
@@ -46976,11 +47132,20 @@ public:
     if (m.find("bill_date") != m.end() && !m["bill_date"].empty()) {
       billDate = make_shared<string>(boost::any_cast<string>(m["bill_date"]));
     }
+    if (m.find("check_code") != m.end() && !m["check_code"].empty()) {
+      checkCode = make_shared<string>(boost::any_cast<string>(m["check_code"]));
+    }
     if (m.find("cost_center") != m.end() && !m["cost_center"].empty()) {
       costCenter = make_shared<string>(boost::any_cast<string>(m["cost_center"]));
     }
     if (m.find("department") != m.end() && !m["department"].empty()) {
       department = make_shared<string>(boost::any_cast<string>(m["department"]));
+    }
+    if (m.find("drawer") != m.end() && !m["drawer"].empty()) {
+      drawer = make_shared<string>(boost::any_cast<string>(m["drawer"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
     }
     if (m.find("insurance_company") != m.end() && !m["insurance_company"].empty()) {
       insuranceCompany = make_shared<string>(boost::any_cast<string>(m["insurance_company"]));
@@ -46997,8 +47162,27 @@ public:
     if (m.find("invoice_day") != m.end() && !m["invoice_day"].empty()) {
       invoiceDay = make_shared<string>(boost::any_cast<string>(m["invoice_day"]));
     }
+    if (m.find("invoice_details") != m.end() && !m["invoice_details"].empty()) {
+      if (typeid(vector<boost::any>) == m["invoice_details"].type()) {
+        vector<InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["invoice_details"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        invoiceDetails = make_shared<vector<InsInvoiceScanQueryResponseBodyModuleItemsInvoiceDetails>>(expect1);
+      }
+    }
+    if (m.find("invoice_location") != m.end() && !m["invoice_location"].empty()) {
+      invoiceLocation = make_shared<string>(boost::any_cast<string>(m["invoice_location"]));
+    }
     if (m.find("invoice_no") != m.end() && !m["invoice_no"].empty()) {
       invoiceNo = make_shared<string>(boost::any_cast<string>(m["invoice_no"]));
+    }
+    if (m.find("invoice_title") != m.end() && !m["invoice_title"].empty()) {
+      invoiceTitle = make_shared<string>(boost::any_cast<string>(m["invoice_title"]));
     }
     if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["order_id"]));
@@ -47009,8 +47193,17 @@ public:
     if (m.find("passenger") != m.end() && !m["passenger"].empty()) {
       passenger = make_shared<string>(boost::any_cast<string>(m["passenger"]));
     }
+    if (m.find("password_area") != m.end() && !m["password_area"].empty()) {
+      passwordArea = make_shared<string>(boost::any_cast<string>(m["password_area"]));
+    }
     if (m.find("project") != m.end() && !m["project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["project"]));
+    }
+    if (m.find("purchaser_bank_account_info") != m.end() && !m["purchaser_bank_account_info"].empty()) {
+      purchaserBankAccountInfo = make_shared<string>(boost::any_cast<string>(m["purchaser_bank_account_info"]));
+    }
+    if (m.find("purchaser_contact_info") != m.end() && !m["purchaser_contact_info"].empty()) {
+      purchaserContactInfo = make_shared<string>(boost::any_cast<string>(m["purchaser_contact_info"]));
     }
     if (m.find("purchaser_name") != m.end() && !m["purchaser_name"].empty()) {
       purchaserName = make_shared<string>(boost::any_cast<string>(m["purchaser_name"]));
@@ -47018,8 +47211,20 @@ public:
     if (m.find("purchaser_tax_no") != m.end() && !m["purchaser_tax_no"].empty()) {
       purchaserTaxNo = make_shared<string>(boost::any_cast<string>(m["purchaser_tax_no"]));
     }
-    if (m.find("real_invoice_title") != m.end() && !m["real_invoice_title"].empty()) {
-      realInvoiceTitle = make_shared<string>(boost::any_cast<string>(m["real_invoice_title"]));
+    if (m.find("recipient") != m.end() && !m["recipient"].empty()) {
+      recipient = make_shared<string>(boost::any_cast<string>(m["recipient"]));
+    }
+    if (m.find("remarks") != m.end() && !m["remarks"].empty()) {
+      remarks = make_shared<string>(boost::any_cast<string>(m["remarks"]));
+    }
+    if (m.find("reviewer") != m.end() && !m["reviewer"].empty()) {
+      reviewer = make_shared<string>(boost::any_cast<string>(m["reviewer"]));
+    }
+    if (m.find("seller_bank_account_info") != m.end() && !m["seller_bank_account_info"].empty()) {
+      sellerBankAccountInfo = make_shared<string>(boost::any_cast<string>(m["seller_bank_account_info"]));
+    }
+    if (m.find("seller_contact_info") != m.end() && !m["seller_contact_info"].empty()) {
+      sellerContactInfo = make_shared<string>(boost::any_cast<string>(m["seller_contact_info"]));
     }
     if (m.find("seller_name") != m.end() && !m["seller_name"].empty()) {
       sellerName = make_shared<string>(boost::any_cast<string>(m["seller_name"]));
@@ -47027,11 +47232,17 @@ public:
     if (m.find("seller_tax_no") != m.end() && !m["seller_tax_no"].empty()) {
       sellerTaxNo = make_shared<string>(boost::any_cast<string>(m["seller_tax_no"]));
     }
+    if (m.find("smart_check_code") != m.end() && !m["smart_check_code"].empty()) {
+      smartCheckCode = make_shared<string>(boost::any_cast<string>(m["smart_check_code"]));
+    }
     if (m.find("tax_amount") != m.end() && !m["tax_amount"].empty()) {
       taxAmount = make_shared<string>(boost::any_cast<string>(m["tax_amount"]));
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("total_amount_in_words") != m.end() && !m["total_amount_in_words"].empty()) {
+      totalAmountInWords = make_shared<string>(boost::any_cast<string>(m["total_amount_in_words"]));
     }
   }
 
@@ -61828,6 +62039,8 @@ public:
   shared_ptr<string> serialNumber{};
   shared_ptr<string> taxAmount{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> ticketNo{};
+  shared_ptr<string> trainNo{};
 
   TrainTicketScanQueryResponseBodyModuleItems() {}
 
@@ -61896,6 +62109,12 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (ticketNo) {
+      res["ticket_no"] = boost::any(*ticketNo);
+    }
+    if (trainNo) {
+      res["train_no"] = boost::any(*trainNo);
+    }
     return res;
   }
 
@@ -61956,6 +62175,12 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
+      ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
+    }
+    if (m.find("train_no") != m.end() && !m["train_no"].empty()) {
+      trainNo = make_shared<string>(boost::any_cast<string>(m["train_no"]));
     }
   }
 
