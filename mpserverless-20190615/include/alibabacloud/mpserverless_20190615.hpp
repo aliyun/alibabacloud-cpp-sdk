@@ -1858,6 +1858,182 @@ public:
 
   virtual ~CreateSpaceResponse() = default;
 };
+class CreateSpaceWithOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> desc{};
+  shared_ptr<string> name{};
+  shared_ptr<string> packageVersion{};
+  shared_ptr<long> period{};
+  shared_ptr<string> subscriptionType{};
+  shared_ptr<bool> useCoupon{};
+
+  CreateSpaceWithOrderRequest() {}
+
+  explicit CreateSpaceWithOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (desc) {
+      res["Desc"] = boost::any(*desc);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (packageVersion) {
+      res["PackageVersion"] = boost::any(*packageVersion);
+    }
+    if (period) {
+      res["Period"] = boost::any(*period);
+    }
+    if (subscriptionType) {
+      res["SubscriptionType"] = boost::any(*subscriptionType);
+    }
+    if (useCoupon) {
+      res["UseCoupon"] = boost::any(*useCoupon);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Desc") != m.end() && !m["Desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["Desc"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PackageVersion") != m.end() && !m["PackageVersion"].empty()) {
+      packageVersion = make_shared<string>(boost::any_cast<string>(m["PackageVersion"]));
+    }
+    if (m.find("Period") != m.end() && !m["Period"].empty()) {
+      period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("SubscriptionType") != m.end() && !m["SubscriptionType"].empty()) {
+      subscriptionType = make_shared<string>(boost::any_cast<string>(m["SubscriptionType"]));
+    }
+    if (m.find("UseCoupon") != m.end() && !m["UseCoupon"].empty()) {
+      useCoupon = make_shared<bool>(boost::any_cast<bool>(m["UseCoupon"]));
+    }
+  }
+
+
+  virtual ~CreateSpaceWithOrderRequest() = default;
+};
+class CreateSpaceWithOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> spaceId{};
+
+  CreateSpaceWithOrderResponseBody() {}
+
+  explicit CreateSpaceWithOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (spaceId) {
+      res["SpaceId"] = boost::any(*spaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SpaceId") != m.end() && !m["SpaceId"].empty()) {
+      spaceId = make_shared<string>(boost::any_cast<string>(m["SpaceId"]));
+    }
+  }
+
+
+  virtual ~CreateSpaceWithOrderResponseBody() = default;
+};
+class CreateSpaceWithOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSpaceWithOrderResponseBody> body{};
+
+  CreateSpaceWithOrderResponse() {}
+
+  explicit CreateSpaceWithOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSpaceWithOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSpaceWithOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSpaceWithOrderResponse() = default;
+};
 class DeleteAntOpenPlatformConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -3363,6 +3539,7 @@ public:
 class DescribeFileUploadSignedUrlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contentType{};
+  shared_ptr<string> fileId{};
   shared_ptr<string> filename{};
   shared_ptr<long> size{};
   shared_ptr<string> spaceId{};
@@ -3380,6 +3557,9 @@ public:
     if (contentType) {
       res["ContentType"] = boost::any(*contentType);
     }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
+    }
     if (filename) {
       res["Filename"] = boost::any(*filename);
     }
@@ -3395,6 +3575,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
       contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
+    }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<string>(boost::any_cast<string>(m["FileId"]));
     }
     if (m.find("Filename") != m.end() && !m["Filename"].empty()) {
       filename = make_shared<string>(boost::any_cast<string>(m["Filename"]));
@@ -7471,8 +7654,10 @@ class ListFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileId{};
   shared_ptr<string> keyword{};
+  shared_ptr<string> mode{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> prefix{};
   shared_ptr<string> spaceId{};
 
   ListFileRequest() {}
@@ -7491,11 +7676,17 @@ public:
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (prefix) {
+      res["Prefix"] = boost::any(*prefix);
     }
     if (spaceId) {
       res["SpaceId"] = boost::any(*spaceId);
@@ -7510,11 +7701,17 @@ public:
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Prefix") != m.end() && !m["Prefix"].empty()) {
+      prefix = make_shared<string>(boost::any_cast<string>(m["Prefix"]));
     }
     if (m.find("SpaceId") != m.end() && !m["SpaceId"].empty()) {
       spaceId = make_shared<string>(boost::any_cast<string>(m["SpaceId"]));
@@ -11963,6 +12160,7 @@ class QuerySpaceUsageResponseBodySpaceUsageDataList : public Darabonba::Model {
 public:
   shared_ptr<QuerySpaceUsageResponseBodySpaceUsageDataListCsUsage> csUsage{};
   shared_ptr<QuerySpaceUsageResponseBodySpaceUsageDataListDbUsage> dbUsage{};
+  shared_ptr<bool> effectiveBillFlag{};
   shared_ptr<QuerySpaceUsageResponseBodySpaceUsageDataListFcUsage> fcUsage{};
   shared_ptr<string> timestamp{};
   shared_ptr<QuerySpaceUsageResponseBodySpaceUsageDataListWhUsage> whUsage{};
@@ -11982,6 +12180,9 @@ public:
     }
     if (dbUsage) {
       res["DbUsage"] = dbUsage ? boost::any(dbUsage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (effectiveBillFlag) {
+      res["EffectiveBillFlag"] = boost::any(*effectiveBillFlag);
     }
     if (fcUsage) {
       res["FcUsage"] = fcUsage ? boost::any(fcUsage->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12009,6 +12210,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DbUsage"]));
         dbUsage = make_shared<QuerySpaceUsageResponseBodySpaceUsageDataListDbUsage>(model1);
       }
+    }
+    if (m.find("EffectiveBillFlag") != m.end() && !m["EffectiveBillFlag"].empty()) {
+      effectiveBillFlag = make_shared<bool>(boost::any_cast<bool>(m["EffectiveBillFlag"]));
     }
     if (m.find("FcUsage") != m.end() && !m["FcUsage"].empty()) {
       if (typeid(map<string, boost::any>) == m["FcUsage"].type()) {
@@ -14992,6 +15196,8 @@ public:
   CreateFunctionDeploymentResponse createFunctionDeployment(shared_ptr<CreateFunctionDeploymentRequest> request);
   CreateSpaceResponse createSpaceWithOptions(shared_ptr<CreateSpaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSpaceResponse createSpace(shared_ptr<CreateSpaceRequest> request);
+  CreateSpaceWithOrderResponse createSpaceWithOrderWithOptions(shared_ptr<CreateSpaceWithOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSpaceWithOrderResponse createSpaceWithOrder(shared_ptr<CreateSpaceWithOrderRequest> request);
   DeleteAntOpenPlatformConfigResponse deleteAntOpenPlatformConfigWithOptions(shared_ptr<DeleteAntOpenPlatformConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAntOpenPlatformConfigResponse deleteAntOpenPlatformConfig(shared_ptr<DeleteAntOpenPlatformConfigRequest> request);
   DeleteCorsDomainResponse deleteCorsDomainWithOptions(shared_ptr<DeleteCorsDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -455,6 +455,49 @@ CreateSpaceResponse Alibabacloud_MPServerless20190615::Client::createSpace(share
   return createSpaceWithOptions(request, runtime);
 }
 
+CreateSpaceWithOrderResponse Alibabacloud_MPServerless20190615::Client::createSpaceWithOrderWithOptions(shared_ptr<CreateSpaceWithOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->desc)) {
+    body->insert(pair<string, string>("Desc", *request->desc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->packageVersion)) {
+    body->insert(pair<string, string>("PackageVersion", *request->packageVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
+    body->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionType)) {
+    body->insert(pair<string, string>("SubscriptionType", *request->subscriptionType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->useCoupon)) {
+    body->insert(pair<string, bool>("UseCoupon", *request->useCoupon));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSpaceWithOrder"))},
+    {"version", boost::any(string("2019-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSpaceWithOrderResponse(callApi(params, req, runtime));
+}
+
+CreateSpaceWithOrderResponse Alibabacloud_MPServerless20190615::Client::createSpaceWithOrder(shared_ptr<CreateSpaceWithOrderRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSpaceWithOrderWithOptions(request, runtime);
+}
+
 DeleteAntOpenPlatformConfigResponse Alibabacloud_MPServerless20190615::Client::deleteAntOpenPlatformConfigWithOptions(shared_ptr<DeleteAntOpenPlatformConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -819,6 +862,9 @@ DescribeFileUploadSignedUrlResponse Alibabacloud_MPServerless20190615::Client::d
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->contentType)) {
     body->insert(pair<string, string>("ContentType", *request->contentType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
+    body->insert(pair<string, string>("FileId", *request->fileId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->filename)) {
     body->insert(pair<string, string>("Filename", *request->filename));
@@ -1436,8 +1482,14 @@ ListFileResponse Alibabacloud_MPServerless20190615::Client::listFileWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     body->insert(pair<string, string>("Keyword", *request->keyword));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mode)) {
+    body->insert(pair<string, string>("Mode", *request->mode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     body->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
+    body->insert(pair<string, string>("Prefix", *request->prefix));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
     body->insert(pair<string, string>("SpaceId", *request->spaceId));
