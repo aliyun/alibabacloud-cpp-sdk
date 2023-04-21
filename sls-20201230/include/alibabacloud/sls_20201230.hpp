@@ -1557,13 +1557,13 @@ public:
 class Project : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
   shared_ptr<string> lastModifyTime{};
-  shared_ptr<string> projectDesc{};
+  shared_ptr<string> owner{};
   shared_ptr<string> projectName{};
-  shared_ptr<string> projectOwner{};
-  shared_ptr<string> projectStatus{};
   shared_ptr<string> region{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> status{};
 
   Project() {}
 
@@ -1578,26 +1578,26 @@ public:
     if (createTime) {
       res["createTime"] = boost::any(*createTime);
     }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
     if (lastModifyTime) {
       res["lastModifyTime"] = boost::any(*lastModifyTime);
     }
-    if (projectDesc) {
-      res["projectDesc"] = boost::any(*projectDesc);
+    if (owner) {
+      res["owner"] = boost::any(*owner);
     }
     if (projectName) {
       res["projectName"] = boost::any(*projectName);
-    }
-    if (projectOwner) {
-      res["projectOwner"] = boost::any(*projectOwner);
-    }
-    if (projectStatus) {
-      res["projectStatus"] = boost::any(*projectStatus);
     }
     if (region) {
       res["region"] = boost::any(*region);
     }
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
     }
     return res;
   }
@@ -1606,26 +1606,26 @@ public:
     if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["createTime"]));
     }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
     if (m.find("lastModifyTime") != m.end() && !m["lastModifyTime"].empty()) {
       lastModifyTime = make_shared<string>(boost::any_cast<string>(m["lastModifyTime"]));
     }
-    if (m.find("projectDesc") != m.end() && !m["projectDesc"].empty()) {
-      projectDesc = make_shared<string>(boost::any_cast<string>(m["projectDesc"]));
+    if (m.find("owner") != m.end() && !m["owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["owner"]));
     }
     if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
-    }
-    if (m.find("projectOwner") != m.end() && !m["projectOwner"].empty()) {
-      projectOwner = make_shared<string>(boost::any_cast<string>(m["projectOwner"]));
-    }
-    if (m.find("projectStatus") != m.end() && !m["projectStatus"].empty()) {
-      projectStatus = make_shared<string>(boost::any_cast<string>(m["projectStatus"]));
     }
     if (m.find("region") != m.end() && !m["region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["region"]));
     }
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
   }
 
@@ -1898,6 +1898,114 @@ public:
 
 
   virtual ~ChangeResourceGroupResponse() = default;
+};
+class ConsumerGroupHeartBeatRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> body{};
+  shared_ptr<string> consumer{};
+
+  ConsumerGroupHeartBeatRequest() {}
+
+  explicit ConsumerGroupHeartBeatRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    if (consumer) {
+      res["consumer"] = boost::any(*consumer);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["body"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      body = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("consumer") != m.end() && !m["consumer"].empty()) {
+      consumer = make_shared<string>(boost::any_cast<string>(m["consumer"]));
+    }
+  }
+
+
+  virtual ~ConsumerGroupHeartBeatRequest() = default;
+};
+class ConsumerGroupHeartBeatResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<vector<long>> body{};
+
+  ConsumerGroupHeartBeatResponse() {}
+
+  explicit ConsumerGroupHeartBeatResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["body"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["body"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      body = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~ConsumerGroupHeartBeatResponse() = default;
 };
 class CreateConsumerGroupRequest : public Darabonba::Model {
 public:
@@ -5892,35 +6000,6 @@ public:
 
 
   virtual ~GetMachineGroupResponse() = default;
-};
-class GetProjectRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> project{};
-
-  GetProjectRequest() {}
-
-  explicit GetProjectRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (project) {
-      res["project"] = boost::any(*project);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("project") != m.end() && !m["project"].empty()) {
-      project = make_shared<string>(boost::any_cast<string>(m["project"]));
-    }
-  }
-
-
-  virtual ~GetProjectRequest() = default;
 };
 class GetProjectResponse : public Darabonba::Model {
 public:
@@ -10717,6 +10796,16 @@ public:
   ApplyConfigToMachineGroupResponse applyConfigToMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<string> configName);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
+  ConsumerGroupHeartBeatResponse consumerGroupHeartBeatWithOptions(shared_ptr<string> project,
+                                                                   shared_ptr<string> logstore,
+                                                                   shared_ptr<string> consumerGroup,
+                                                                   shared_ptr<ConsumerGroupHeartBeatRequest> request,
+                                                                   shared_ptr<map<string, string>> headers,
+                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConsumerGroupHeartBeatResponse consumerGroupHeartBeat(shared_ptr<string> project,
+                                                        shared_ptr<string> logstore,
+                                                        shared_ptr<string> consumerGroup,
+                                                        shared_ptr<ConsumerGroupHeartBeatRequest> request);
   CreateConsumerGroupResponse createConsumerGroupWithOptions(shared_ptr<string> project,
                                                              shared_ptr<string> logstore,
                                                              shared_ptr<CreateConsumerGroupRequest> request,
@@ -10906,8 +10995,8 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMachineGroupResponse getMachineGroup(shared_ptr<string> project, shared_ptr<string> machineGroup);
-  GetProjectResponse getProjectWithOptions(shared_ptr<GetProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetProjectResponse getProject(shared_ptr<GetProjectRequest> request);
+  GetProjectResponse getProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetProjectResponse getProject(shared_ptr<string> project);
   GetProjectLogsResponse getProjectLogsWithOptions(shared_ptr<string> project,
                                                    shared_ptr<GetProjectLogsRequest> request,
                                                    shared_ptr<map<string, string>> headers,
@@ -10961,8 +11050,11 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMachinesResponse listMachines(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<ListMachinesRequest> request);
-  ListProjectResponse listProjectWithOptions(shared_ptr<ListProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListProjectResponse listProject(shared_ptr<ListProjectRequest> request);
+  ListProjectResponse listProjectWithOptions(shared_ptr<string> resourceGroupId,
+                                             shared_ptr<ListProjectRequest> request,
+                                             shared_ptr<map<string, string>> headers,
+                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListProjectResponse listProject(shared_ptr<string> resourceGroupId, shared_ptr<ListProjectRequest> request);
   ListSavedSearchResponse listSavedSearchWithOptions(shared_ptr<string> project,
                                                      shared_ptr<ListSavedSearchRequest> request,
                                                      shared_ptr<map<string, string>> headers,

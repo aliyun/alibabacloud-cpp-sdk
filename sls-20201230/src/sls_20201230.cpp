@@ -90,6 +90,48 @@ ChangeResourceGroupResponse Alibabacloud_Sls20201230::Client::changeResourceGrou
   return changeResourceGroupWithOptions(request, headers, runtime);
 }
 
+ConsumerGroupHeartBeatResponse Alibabacloud_Sls20201230::Client::consumerGroupHeartBeatWithOptions(shared_ptr<string> project,
+                                                                                                   shared_ptr<string> logstore,
+                                                                                                   shared_ptr<string> consumerGroup,
+                                                                                                   shared_ptr<ConsumerGroupHeartBeatRequest> request,
+                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->consumer)) {
+    query->insert(pair<string, string>("consumer", *request->consumer));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConsumerGroupHeartBeat"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/logstores/") + string(*logstore) + string("/consumergroups/") + string(*consumerGroup) + string("?type=heartbeat"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("array"))}
+  }));
+  return ConsumerGroupHeartBeatResponse(execute(params, req, runtime));
+}
+
+ConsumerGroupHeartBeatResponse Alibabacloud_Sls20201230::Client::consumerGroupHeartBeat(shared_ptr<string> project,
+                                                                                        shared_ptr<string> logstore,
+                                                                                        shared_ptr<string> consumerGroup,
+                                                                                        shared_ptr<ConsumerGroupHeartBeatRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return consumerGroupHeartBeatWithOptions(project, logstore, consumerGroup, request, headers, runtime);
+}
+
 CreateConsumerGroupResponse Alibabacloud_Sls20201230::Client::createConsumerGroupWithOptions(shared_ptr<string> project,
                                                                                              shared_ptr<string> logstore,
                                                                                              shared_ptr<CreateConsumerGroupRequest> request,
@@ -1437,15 +1479,12 @@ GetMachineGroupResponse Alibabacloud_Sls20201230::Client::getMachineGroup(shared
   return getMachineGroupWithOptions(project, machineGroup, headers, runtime);
 }
 
-GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(shared_ptr<GetProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
-    query->insert(pair<string, string>("project", *request->project));
-  }
+GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(shared_ptr<string> project, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetProject"))},
@@ -1461,10 +1500,10 @@ GetProjectResponse Alibabacloud_Sls20201230::Client::getProjectWithOptions(share
   return GetProjectResponse(execute(params, req, runtime));
 }
 
-GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<GetProjectRequest> request) {
+GetProjectResponse Alibabacloud_Sls20201230::Client::getProject(shared_ptr<string> project) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProjectWithOptions(request, headers, runtime);
+  return getProjectWithOptions(project, headers, runtime);
 }
 
 GetProjectLogsResponse Alibabacloud_Sls20201230::Client::getProjectLogsWithOptions(shared_ptr<string> project,
@@ -1860,7 +1899,10 @@ ListMachinesResponse Alibabacloud_Sls20201230::Client::listMachines(shared_ptr<s
   return listMachinesWithOptions(project, machineGroup, request, headers, runtime);
 }
 
-ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(shared_ptr<ListProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(shared_ptr<string> resourceGroupId,
+                                                                             shared_ptr<ListProjectRequest> request,
+                                                                             shared_ptr<map<string, string>> headers,
+                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
@@ -1890,10 +1932,10 @@ ListProjectResponse Alibabacloud_Sls20201230::Client::listProjectWithOptions(sha
   return ListProjectResponse(execute(params, req, runtime));
 }
 
-ListProjectResponse Alibabacloud_Sls20201230::Client::listProject(shared_ptr<ListProjectRequest> request) {
+ListProjectResponse Alibabacloud_Sls20201230::Client::listProject(shared_ptr<string> resourceGroupId, shared_ptr<ListProjectRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProjectWithOptions(request, headers, runtime);
+  return listProjectWithOptions(resourceGroupId, request, headers, runtime);
 }
 
 ListSavedSearchResponse Alibabacloud_Sls20201230::Client::listSavedSearchWithOptions(shared_ptr<string> project,
