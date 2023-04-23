@@ -10673,6 +10673,230 @@ public:
 
   virtual ~CarOrderQueryResponse() = default;
 };
+class CarSceneQueryHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  CarSceneQueryHeaders() {}
+
+  explicit CarSceneQueryHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~CarSceneQueryHeaders() = default;
+};
+class CarSceneQueryResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> scenarioTemplateId{};
+  shared_ptr<string> scenarioTemplateName{};
+  shared_ptr<string> state{};
+
+  CarSceneQueryResponseBodyModule() {}
+
+  explicit CarSceneQueryResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scenarioTemplateId) {
+      res["scenarioTemplateId"] = boost::any(*scenarioTemplateId);
+    }
+    if (scenarioTemplateName) {
+      res["scenarioTemplateName"] = boost::any(*scenarioTemplateName);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scenarioTemplateId") != m.end() && !m["scenarioTemplateId"].empty()) {
+      scenarioTemplateId = make_shared<string>(boost::any_cast<string>(m["scenarioTemplateId"]));
+    }
+    if (m.find("scenarioTemplateName") != m.end() && !m["scenarioTemplateName"].empty()) {
+      scenarioTemplateName = make_shared<string>(boost::any_cast<string>(m["scenarioTemplateName"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~CarSceneQueryResponseBodyModule() = default;
+};
+class CarSceneQueryResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<CarSceneQueryResponseBodyModule>> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  CarSceneQueryResponseBody() {}
+
+  explicit CarSceneQueryResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      vector<boost::any> temp1;
+      for(auto item1:*module){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["module"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(vector<boost::any>) == m["module"].type()) {
+        vector<CarSceneQueryResponseBodyModule> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["module"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CarSceneQueryResponseBodyModule model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        module = make_shared<vector<CarSceneQueryResponseBodyModule>>(expect1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~CarSceneQueryResponseBody() = default;
+};
+class CarSceneQueryResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CarSceneQueryResponseBody> body{};
+
+  CarSceneQueryResponse() {}
+
+  explicit CarSceneQueryResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CarSceneQueryResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CarSceneQueryResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CarSceneQueryResponse() = default;
+};
 class CitySearchHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -41283,6 +41507,7 @@ public:
   shared_ptr<HotelOrderListQueryResponseBodyModuleCostCenter> costCenter{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
+  shared_ptr<string> extendField{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> guest{};
@@ -41350,6 +41575,9 @@ public:
     }
     if (departName) {
       res["depart_name"] = boost::any(*departName);
+    }
+    if (extendField) {
+      res["extend_field"] = boost::any(*extendField);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -41471,6 +41699,9 @@ public:
     }
     if (m.find("depart_name") != m.end() && !m["depart_name"].empty()) {
       departName = make_shared<string>(boost::any_cast<string>(m["depart_name"]));
+    }
+    if (m.find("extend_field") != m.end() && !m["extend_field"].empty()) {
+      extendField = make_shared<string>(boost::any_cast<string>(m["extend_field"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
@@ -43194,6 +43425,7 @@ public:
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
+  shared_ptr<string> extendField{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
   shared_ptr<long> id{};
@@ -43233,6 +43465,9 @@ public:
     }
     if (departName) {
       res["depart_name"] = boost::any(*departName);
+    }
+    if (extendField) {
+      res["extend_field"] = boost::any(*extendField);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -43288,6 +43523,9 @@ public:
     }
     if (m.find("depart_name") != m.end() && !m["depart_name"].empty()) {
       departName = make_shared<string>(boost::any_cast<string>(m["depart_name"]));
+    }
+    if (m.find("extend_field") != m.end() && !m["extend_field"].empty()) {
+      extendField = make_shared<string>(boost::any_cast<string>(m["extend_field"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmt_create"]));
@@ -63778,6 +64016,8 @@ public:
   CarOrderListQueryResponse carOrderListQuery(shared_ptr<CarOrderListQueryRequest> request);
   CarOrderQueryResponse carOrderQueryWithOptions(shared_ptr<CarOrderQueryRequest> request, shared_ptr<CarOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CarOrderQueryResponse carOrderQuery(shared_ptr<CarOrderQueryRequest> request);
+  CarSceneQueryResponse carSceneQueryWithOptions(shared_ptr<CarSceneQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CarSceneQueryResponse carSceneQuery();
   CitySearchResponse citySearchWithOptions(shared_ptr<CitySearchRequest> request, shared_ptr<CitySearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CitySearchResponse citySearch(shared_ptr<CitySearchRequest> request);
   CommonApplyQueryResponse commonApplyQueryWithOptions(shared_ptr<CommonApplyQueryRequest> request, shared_ptr<CommonApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
