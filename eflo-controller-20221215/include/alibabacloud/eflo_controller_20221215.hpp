@@ -1840,6 +1840,7 @@ public:
   shared_ptr<string> expiredTime{};
   shared_ptr<string> hostname{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> imageName{};
   shared_ptr<string> machineType{};
   shared_ptr<vector<DescribeNodeResponseBodyNetworks>> networks{};
   shared_ptr<string> nodeGroupId{};
@@ -1877,6 +1878,9 @@ public:
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
+    }
+    if (imageName) {
+      res["ImageName"] = boost::any(*imageName);
     }
     if (machineType) {
       res["MachineType"] = boost::any(*machineType);
@@ -1930,6 +1934,9 @@ public:
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("ImageName") != m.end() && !m["ImageName"].empty()) {
+      imageName = make_shared<string>(boost::any_cast<string>(m["ImageName"]));
     }
     if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
       machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
