@@ -3319,146 +3319,6 @@ public:
 
   virtual ~FigureClusterForReq() = default;
 };
-class FileForReqFigures : public Darabonba::Model {
-public:
-  shared_ptr<string> figureClusterId{};
-  shared_ptr<string> figureId{};
-  shared_ptr<string> figureType{};
-
-  FileForReqFigures() {}
-
-  explicit FileForReqFigures(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (figureClusterId) {
-      res["FigureClusterId"] = boost::any(*figureClusterId);
-    }
-    if (figureId) {
-      res["FigureId"] = boost::any(*figureId);
-    }
-    if (figureType) {
-      res["FigureType"] = boost::any(*figureType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("FigureClusterId") != m.end() && !m["FigureClusterId"].empty()) {
-      figureClusterId = make_shared<string>(boost::any_cast<string>(m["FigureClusterId"]));
-    }
-    if (m.find("FigureId") != m.end() && !m["FigureId"].empty()) {
-      figureId = make_shared<string>(boost::any_cast<string>(m["FigureId"]));
-    }
-    if (m.find("FigureType") != m.end() && !m["FigureType"].empty()) {
-      figureType = make_shared<string>(boost::any_cast<string>(m["FigureType"]));
-    }
-  }
-
-
-  virtual ~FileForReqFigures() = default;
-};
-class FileForReq : public Darabonba::Model {
-public:
-  shared_ptr<string> contentType{};
-  shared_ptr<string> customId{};
-  shared_ptr<map<string, boost::any>> customLabels{};
-  shared_ptr<vector<FileForReqFigures>> figures{};
-  shared_ptr<string> fileHash{};
-  shared_ptr<string> mediaType{};
-  shared_ptr<string> OSSURI{};
-  shared_ptr<string> URI{};
-
-  FileForReq() {}
-
-  explicit FileForReq(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (contentType) {
-      res["ContentType"] = boost::any(*contentType);
-    }
-    if (customId) {
-      res["CustomId"] = boost::any(*customId);
-    }
-    if (customLabels) {
-      res["CustomLabels"] = boost::any(*customLabels);
-    }
-    if (figures) {
-      vector<boost::any> temp1;
-      for(auto item1:*figures){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Figures"] = boost::any(temp1);
-    }
-    if (fileHash) {
-      res["FileHash"] = boost::any(*fileHash);
-    }
-    if (mediaType) {
-      res["MediaType"] = boost::any(*mediaType);
-    }
-    if (OSSURI) {
-      res["OSSURI"] = boost::any(*OSSURI);
-    }
-    if (URI) {
-      res["URI"] = boost::any(*URI);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
-      contentType = make_shared<string>(boost::any_cast<string>(m["ContentType"]));
-    }
-    if (m.find("CustomId") != m.end() && !m["CustomId"].empty()) {
-      customId = make_shared<string>(boost::any_cast<string>(m["CustomId"]));
-    }
-    if (m.find("CustomLabels") != m.end() && !m["CustomLabels"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["CustomLabels"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      customLabels = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("Figures") != m.end() && !m["Figures"].empty()) {
-      if (typeid(vector<boost::any>) == m["Figures"].type()) {
-        vector<FileForReqFigures> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Figures"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            FileForReqFigures model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        figures = make_shared<vector<FileForReqFigures>>(expect1);
-      }
-    }
-    if (m.find("FileHash") != m.end() && !m["FileHash"].empty()) {
-      fileHash = make_shared<string>(boost::any_cast<string>(m["FileHash"]));
-    }
-    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
-      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
-    }
-    if (m.find("OSSURI") != m.end() && !m["OSSURI"].empty()) {
-      OSSURI = make_shared<string>(boost::any_cast<string>(m["OSSURI"]));
-    }
-    if (m.find("URI") != m.end() && !m["URI"].empty()) {
-      URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
-    }
-  }
-
-
-  virtual ~FileForReq() = default;
-};
 class InputFileFigures : public Darabonba::Model {
 public:
   shared_ptr<string> figureClusterId{};
@@ -7645,7 +7505,7 @@ public:
 class BatchUpdateFileMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
-  shared_ptr<vector<FileForReq>> files{};
+  shared_ptr<vector<InputFile>> files{};
   shared_ptr<string> projectName{};
 
   BatchUpdateFileMetaRequest() {}
@@ -7680,15 +7540,15 @@ public:
     }
     if (m.find("Files") != m.end() && !m["Files"].empty()) {
       if (typeid(vector<boost::any>) == m["Files"].type()) {
-        vector<FileForReq> expect1;
+        vector<InputFile> expect1;
         for(auto item1:boost::any_cast<vector<boost::any>>(m["Files"])){
           if (typeid(map<string, boost::any>) == item1.type()) {
-            FileForReq model2;
+            InputFile model2;
             model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
             expect1.push_back(model2);
           }
         }
-        files = make_shared<vector<FileForReq>>(expect1);
+        files = make_shared<vector<InputFile>>(expect1);
       }
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
@@ -28706,7 +28566,7 @@ public:
 class UpdateFileMetaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
-  shared_ptr<FileForReq> file{};
+  shared_ptr<InputFile> file{};
   shared_ptr<string> projectName{};
 
   UpdateFileMetaRequest() {}
@@ -28737,9 +28597,9 @@ public:
     }
     if (m.find("File") != m.end() && !m["File"].empty()) {
       if (typeid(map<string, boost::any>) == m["File"].type()) {
-        FileForReq model1;
+        InputFile model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["File"]));
-        file = make_shared<FileForReq>(model1);
+        file = make_shared<InputFile>(model1);
       }
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {

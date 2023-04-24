@@ -335,7 +335,7 @@ BatchUpdateFileMetaResponse Alibabacloud_Imm20200930::Client::batchUpdateFileMet
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<BatchUpdateFileMetaShrinkRequest> request = make_shared<BatchUpdateFileMetaShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<FileForReq>>(tmpReq->files)) {
+  if (!Darabonba_Util::Client::isUnset<vector<InputFile>>(tmpReq->files)) {
     request->filesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->files, make_shared<string>("Files"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4511,7 +4511,7 @@ UpdateFileMetaResponse Alibabacloud_Imm20200930::Client::updateFileMetaWithOptio
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateFileMetaShrinkRequest> request = make_shared<UpdateFileMetaShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<FileForReq>(tmpReq->file)) {
+  if (!Darabonba_Util::Client::isUnset<InputFile>(tmpReq->file)) {
     request->fileShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->file, make_shared<string>("File"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
