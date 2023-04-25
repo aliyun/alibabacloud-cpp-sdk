@@ -354,19 +354,14 @@ CreateSaslUserResponse Alibabacloud_Alikafka20190916::Client::createSaslUser(sha
   return createSaslUserWithOptions(request, runtime);
 }
 
-CreateTopicResponse Alibabacloud_Alikafka20190916::Client::createTopicWithOptions(shared_ptr<CreateTopicRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreateTopicShrinkRequest> request = make_shared<CreateTopicShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->config)) {
-    request->configShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->config, make_shared<string>("Config"), make_shared<string>("json")));
-  }
+CreateTopicResponse Alibabacloud_Alikafka20190916::Client::createTopicWithOptions(shared_ptr<CreateTopicRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->compactTopic)) {
     query->insert(pair<string, bool>("CompactTopic", *request->compactTopic));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->configShrink)) {
-    query->insert(pair<string, string>("Config", *request->configShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
+    query->insert(pair<string, string>("Config", *request->config));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
@@ -389,8 +384,8 @@ CreateTopicResponse Alibabacloud_Alikafka20190916::Client::createTopicWithOption
   if (!Darabonba_Util::Client::isUnset<long>(request->replicationFactor)) {
     query->insert(pair<string, long>("ReplicationFactor", *request->replicationFactor));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateTopicShrinkRequestTag>>(request->tag)) {
-    query->insert(pair<string, vector<CreateTopicShrinkRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateTopicRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateTopicRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
     query->insert(pair<string, string>("Topic", *request->topic));
@@ -1333,6 +1328,57 @@ UpdateAllowedIpResponse Alibabacloud_Alikafka20190916::Client::updateAllowedIpWi
 UpdateAllowedIpResponse Alibabacloud_Alikafka20190916::Client::updateAllowedIp(shared_ptr<UpdateAllowedIpRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateAllowedIpWithOptions(request, runtime);
+}
+
+UpdateConsumerOffsetResponse Alibabacloud_Alikafka20190916::Client::updateConsumerOffsetWithOptions(shared_ptr<UpdateConsumerOffsetRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateConsumerOffsetShrinkRequest> request = make_shared<UpdateConsumerOffsetShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateConsumerOffsetRequestOffsets>>(tmpReq->offsets)) {
+    request->offsetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->offsets, make_shared<string>("Offsets"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->consumerId)) {
+    query->insert(pair<string, string>("ConsumerId", *request->consumerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->offsetsShrink)) {
+    query->insert(pair<string, string>("Offsets", *request->offsetsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetType)) {
+    query->insert(pair<string, string>("ResetType", *request->resetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->time)) {
+    query->insert(pair<string, string>("Time", *request->time));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
+    query->insert(pair<string, string>("Topic", *request->topic));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateConsumerOffset"))},
+    {"version", boost::any(string("2019-09-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateConsumerOffsetResponse(callApi(params, req, runtime));
+}
+
+UpdateConsumerOffsetResponse Alibabacloud_Alikafka20190916::Client::updateConsumerOffset(shared_ptr<UpdateConsumerOffsetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateConsumerOffsetWithOptions(request, runtime);
 }
 
 UpdateInstanceConfigResponse Alibabacloud_Alikafka20190916::Client::updateInstanceConfigWithOptions(shared_ptr<UpdateInstanceConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
