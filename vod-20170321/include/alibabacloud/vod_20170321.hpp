@@ -29889,6 +29889,291 @@ public:
 
   virtual ~RegisterMediaResponse() = default;
 };
+class RestoreMediaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaIds{};
+  shared_ptr<string> restoreDays{};
+  shared_ptr<string> restoreTier{};
+  shared_ptr<string> scope{};
+
+  RestoreMediaRequest() {}
+
+  explicit RestoreMediaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaIds) {
+      res["MediaIds"] = boost::any(*mediaIds);
+    }
+    if (restoreDays) {
+      res["RestoreDays"] = boost::any(*restoreDays);
+    }
+    if (restoreTier) {
+      res["RestoreTier"] = boost::any(*restoreTier);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaIds") != m.end() && !m["MediaIds"].empty()) {
+      mediaIds = make_shared<string>(boost::any_cast<string>(m["MediaIds"]));
+    }
+    if (m.find("RestoreDays") != m.end() && !m["RestoreDays"].empty()) {
+      restoreDays = make_shared<string>(boost::any_cast<string>(m["RestoreDays"]));
+    }
+    if (m.find("RestoreTier") != m.end() && !m["RestoreTier"].empty()) {
+      restoreTier = make_shared<string>(boost::any_cast<string>(m["RestoreTier"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+  }
+
+
+  virtual ~RestoreMediaRequest() = default;
+};
+class RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> reason{};
+
+  RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO() {}
+
+  explicit RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+  }
+
+
+  virtual ~RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO() = default;
+};
+class RestoreMediaResponseBodyForbiddenList : public Darabonba::Model {
+public:
+  shared_ptr<vector<RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO>> mediaForbiddenReasonDTO{};
+
+  RestoreMediaResponseBodyForbiddenList() {}
+
+  explicit RestoreMediaResponseBodyForbiddenList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaForbiddenReasonDTO) {
+      vector<boost::any> temp1;
+      for(auto item1:*mediaForbiddenReasonDTO){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MediaForbiddenReasonDTO"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaForbiddenReasonDTO") != m.end() && !m["MediaForbiddenReasonDTO"].empty()) {
+      if (typeid(vector<boost::any>) == m["MediaForbiddenReasonDTO"].type()) {
+        vector<RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MediaForbiddenReasonDTO"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mediaForbiddenReasonDTO = make_shared<vector<RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RestoreMediaResponseBodyForbiddenList() = default;
+};
+class RestoreMediaResponseBodyIgnoredList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> mediaId{};
+
+  RestoreMediaResponseBodyIgnoredList() {}
+
+  explicit RestoreMediaResponseBodyIgnoredList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MediaId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MediaId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mediaId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RestoreMediaResponseBodyIgnoredList() = default;
+};
+class RestoreMediaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<RestoreMediaResponseBodyForbiddenList> forbiddenList{};
+  shared_ptr<RestoreMediaResponseBodyIgnoredList> ignoredList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  RestoreMediaResponseBody() {}
+
+  explicit RestoreMediaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (forbiddenList) {
+      res["ForbiddenList"] = forbiddenList ? boost::any(forbiddenList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ignoredList) {
+      res["IgnoredList"] = ignoredList ? boost::any(ignoredList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ForbiddenList") != m.end() && !m["ForbiddenList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ForbiddenList"].type()) {
+        RestoreMediaResponseBodyForbiddenList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ForbiddenList"]));
+        forbiddenList = make_shared<RestoreMediaResponseBodyForbiddenList>(model1);
+      }
+    }
+    if (m.find("IgnoredList") != m.end() && !m["IgnoredList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IgnoredList"].type()) {
+        RestoreMediaResponseBodyIgnoredList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IgnoredList"]));
+        ignoredList = make_shared<RestoreMediaResponseBodyIgnoredList>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~RestoreMediaResponseBody() = default;
+};
+class RestoreMediaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RestoreMediaResponseBody> body{};
+
+  RestoreMediaResponse() {}
+
+  explicit RestoreMediaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RestoreMediaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RestoreMediaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RestoreMediaResponse() = default;
+};
 class SearchEditingProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -35421,6 +35706,291 @@ public:
 
   virtual ~UpdateImageInfosResponse() = default;
 };
+class UpdateMediaStorageClassRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaIds{};
+  shared_ptr<string> restoreTier{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> storageClass{};
+
+  UpdateMediaStorageClassRequest() {}
+
+  explicit UpdateMediaStorageClassRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaIds) {
+      res["MediaIds"] = boost::any(*mediaIds);
+    }
+    if (restoreTier) {
+      res["RestoreTier"] = boost::any(*restoreTier);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaIds") != m.end() && !m["MediaIds"].empty()) {
+      mediaIds = make_shared<string>(boost::any_cast<string>(m["MediaIds"]));
+    }
+    if (m.find("RestoreTier") != m.end() && !m["RestoreTier"].empty()) {
+      restoreTier = make_shared<string>(boost::any_cast<string>(m["RestoreTier"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassRequest() = default;
+};
+class UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> reason{};
+
+  UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO() {}
+
+  explicit UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO() = default;
+};
+class UpdateMediaStorageClassResponseBodyForbiddenList : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO>> mediaForbiddenReasonDTO{};
+
+  UpdateMediaStorageClassResponseBodyForbiddenList() {}
+
+  explicit UpdateMediaStorageClassResponseBodyForbiddenList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaForbiddenReasonDTO) {
+      vector<boost::any> temp1;
+      for(auto item1:*mediaForbiddenReasonDTO){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MediaForbiddenReasonDTO"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaForbiddenReasonDTO") != m.end() && !m["MediaForbiddenReasonDTO"].empty()) {
+      if (typeid(vector<boost::any>) == m["MediaForbiddenReasonDTO"].type()) {
+        vector<UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MediaForbiddenReasonDTO"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mediaForbiddenReasonDTO = make_shared<vector<UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassResponseBodyForbiddenList() = default;
+};
+class UpdateMediaStorageClassResponseBodyIgnoredList : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> mediaId{};
+
+  UpdateMediaStorageClassResponseBodyIgnoredList() {}
+
+  explicit UpdateMediaStorageClassResponseBodyIgnoredList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MediaId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MediaId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mediaId = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassResponseBodyIgnoredList() = default;
+};
+class UpdateMediaStorageClassResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<UpdateMediaStorageClassResponseBodyForbiddenList> forbiddenList{};
+  shared_ptr<UpdateMediaStorageClassResponseBodyIgnoredList> ignoredList{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  UpdateMediaStorageClassResponseBody() {}
+
+  explicit UpdateMediaStorageClassResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (forbiddenList) {
+      res["ForbiddenList"] = forbiddenList ? boost::any(forbiddenList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ignoredList) {
+      res["IgnoredList"] = ignoredList ? boost::any(ignoredList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ForbiddenList") != m.end() && !m["ForbiddenList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ForbiddenList"].type()) {
+        UpdateMediaStorageClassResponseBodyForbiddenList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ForbiddenList"]));
+        forbiddenList = make_shared<UpdateMediaStorageClassResponseBodyForbiddenList>(model1);
+      }
+    }
+    if (m.find("IgnoredList") != m.end() && !m["IgnoredList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IgnoredList"].type()) {
+        UpdateMediaStorageClassResponseBodyIgnoredList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IgnoredList"]));
+        ignoredList = make_shared<UpdateMediaStorageClassResponseBodyIgnoredList>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassResponseBody() = default;
+};
+class UpdateMediaStorageClassResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMediaStorageClassResponseBody> body{};
+
+  UpdateMediaStorageClassResponse() {}
+
+  explicit UpdateMediaStorageClassResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMediaStorageClassResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMediaStorageClassResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMediaStorageClassResponse() = default;
+};
 class UpdateTranscodeTemplateGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> locked{};
@@ -37147,6 +37717,8 @@ public:
   RefreshVodObjectCachesResponse refreshVodObjectCaches(shared_ptr<RefreshVodObjectCachesRequest> request);
   RegisterMediaResponse registerMediaWithOptions(shared_ptr<RegisterMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RegisterMediaResponse registerMedia(shared_ptr<RegisterMediaRequest> request);
+  RestoreMediaResponse restoreMediaWithOptions(shared_ptr<RestoreMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RestoreMediaResponse restoreMedia(shared_ptr<RestoreMediaRequest> request);
   SearchEditingProjectResponse searchEditingProjectWithOptions(shared_ptr<SearchEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchEditingProjectResponse searchEditingProject(shared_ptr<SearchEditingProjectRequest> request);
   SearchMediaResponse searchMediaWithOptions(shared_ptr<SearchMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37199,6 +37771,8 @@ public:
   UpdateEditingProjectResponse updateEditingProject(shared_ptr<UpdateEditingProjectRequest> request);
   UpdateImageInfosResponse updateImageInfosWithOptions(shared_ptr<UpdateImageInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateImageInfosResponse updateImageInfos(shared_ptr<UpdateImageInfosRequest> request);
+  UpdateMediaStorageClassResponse updateMediaStorageClassWithOptions(shared_ptr<UpdateMediaStorageClassRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMediaStorageClassResponse updateMediaStorageClass(shared_ptr<UpdateMediaStorageClassRequest> request);
   UpdateTranscodeTemplateGroupResponse updateTranscodeTemplateGroupWithOptions(shared_ptr<UpdateTranscodeTemplateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTranscodeTemplateGroupResponse updateTranscodeTemplateGroup(shared_ptr<UpdateTranscodeTemplateGroupRequest> request);
   UpdateVideoInfoResponse updateVideoInfoWithOptions(shared_ptr<UpdateVideoInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

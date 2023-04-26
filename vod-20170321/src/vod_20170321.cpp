@@ -4147,6 +4147,43 @@ RegisterMediaResponse Alibabacloud_Vod20170321::Client::registerMedia(shared_ptr
   return registerMediaWithOptions(request, runtime);
 }
 
+RestoreMediaResponse Alibabacloud_Vod20170321::Client::restoreMediaWithOptions(shared_ptr<RestoreMediaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaIds)) {
+    query->insert(pair<string, string>("MediaIds", *request->mediaIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreDays)) {
+    query->insert(pair<string, string>("RestoreDays", *request->restoreDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreTier)) {
+    query->insert(pair<string, string>("RestoreTier", *request->restoreTier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RestoreMedia"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RestoreMediaResponse(callApi(params, req, runtime));
+}
+
+RestoreMediaResponse Alibabacloud_Vod20170321::Client::restoreMedia(shared_ptr<RestoreMediaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return restoreMediaWithOptions(request, runtime);
+}
+
 SearchEditingProjectResponse Alibabacloud_Vod20170321::Client::searchEditingProjectWithOptions(shared_ptr<SearchEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5182,6 +5219,43 @@ UpdateImageInfosResponse Alibabacloud_Vod20170321::Client::updateImageInfosWithO
 UpdateImageInfosResponse Alibabacloud_Vod20170321::Client::updateImageInfos(shared_ptr<UpdateImageInfosRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateImageInfosWithOptions(request, runtime);
+}
+
+UpdateMediaStorageClassResponse Alibabacloud_Vod20170321::Client::updateMediaStorageClassWithOptions(shared_ptr<UpdateMediaStorageClassRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaIds)) {
+    query->insert(pair<string, string>("MediaIds", *request->mediaIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreTier)) {
+    query->insert(pair<string, string>("RestoreTier", *request->restoreTier));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->scope)) {
+    query->insert(pair<string, string>("Scope", *request->scope));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageClass)) {
+    query->insert(pair<string, string>("StorageClass", *request->storageClass));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMediaStorageClass"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMediaStorageClassResponse(callApi(params, req, runtime));
+}
+
+UpdateMediaStorageClassResponse Alibabacloud_Vod20170321::Client::updateMediaStorageClass(shared_ptr<UpdateMediaStorageClassRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateMediaStorageClassWithOptions(request, runtime);
 }
 
 UpdateTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::updateTranscodeTemplateGroupWithOptions(shared_ptr<UpdateTranscodeTemplateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
