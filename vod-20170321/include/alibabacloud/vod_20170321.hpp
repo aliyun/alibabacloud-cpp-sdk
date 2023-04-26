@@ -21149,8 +21149,11 @@ public:
   shared_ptr<string> fps{};
   shared_ptr<long> height{};
   shared_ptr<string> outputType{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> videoId{};
   shared_ptr<vector<GetMezzanineInfoResponseBodyMezzanineVideoStreamList>> videoStreamList{};
   shared_ptr<long> width{};
@@ -21196,11 +21199,20 @@ public:
     if (outputType) {
       res["OutputType"] = boost::any(*outputType);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
@@ -21256,11 +21268,20 @@ public:
     if (m.find("OutputType") != m.end() && !m["OutputType"].empty()) {
       outputType = make_shared<string>(boost::any_cast<string>(m["OutputType"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -23688,9 +23709,12 @@ public:
   shared_ptr<double> duration{};
   shared_ptr<string> modificationTime{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<GetVideoInfoResponseBodyVideoSnapshots> snapshots{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> templateGroupId{};
@@ -23740,6 +23764,12 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -23748,6 +23778,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -23801,6 +23834,12 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
@@ -23813,6 +23852,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
@@ -23975,9 +24017,12 @@ public:
   shared_ptr<string> description{};
   shared_ptr<double> duration{};
   shared_ptr<string> modificationTime{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<vector<string>> snapshots{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> templateGroupId{};
@@ -24018,6 +24063,12 @@ public:
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -24026,6 +24077,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -24070,6 +24124,12 @@ public:
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
@@ -24085,6 +24145,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
@@ -24356,9 +24419,12 @@ public:
   shared_ptr<string> description{};
   shared_ptr<double> duration{};
   shared_ptr<string> modificationTime{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<GetVideoListResponseBodyVideoListVideoSnapshots> snapshots{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
@@ -24398,6 +24464,12 @@ public:
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -24406,6 +24478,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -24447,6 +24522,12 @@ public:
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
@@ -24459,6 +24540,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
@@ -30219,6 +30303,270 @@ public:
 
   virtual ~SearchMediaRequest() = default;
 };
+class SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences : public Darabonba::Model {
+public:
+  shared_ptr<double> from{};
+  shared_ptr<double> score{};
+  shared_ptr<double> to{};
+
+  SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences() {}
+
+  explicit SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (score) {
+      res["Score"] = boost::any(*score);
+    }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<double>(boost::any_cast<double>(m["From"]));
+    }
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<double>(boost::any_cast<double>(m["To"]));
+    }
+  }
+
+
+  virtual ~SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences() = default;
+};
+class SearchMediaResponseBodyMediaListAiDataAiLabelInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> labelId{};
+  shared_ptr<string> labelName{};
+  shared_ptr<vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences>> occurrences{};
+
+  SearchMediaResponseBodyMediaListAiDataAiLabelInfo() {}
+
+  explicit SearchMediaResponseBodyMediaListAiDataAiLabelInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (labelId) {
+      res["LabelId"] = boost::any(*labelId);
+    }
+    if (labelName) {
+      res["LabelName"] = boost::any(*labelName);
+    }
+    if (occurrences) {
+      vector<boost::any> temp1;
+      for(auto item1:*occurrences){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Occurrences"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("LabelId") != m.end() && !m["LabelId"].empty()) {
+      labelId = make_shared<string>(boost::any_cast<string>(m["LabelId"]));
+    }
+    if (m.find("LabelName") != m.end() && !m["LabelName"].empty()) {
+      labelName = make_shared<string>(boost::any_cast<string>(m["LabelName"]));
+    }
+    if (m.find("Occurrences") != m.end() && !m["Occurrences"].empty()) {
+      if (typeid(vector<boost::any>) == m["Occurrences"].type()) {
+        vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Occurrences"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        occurrences = make_shared<vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfoOccurrences>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SearchMediaResponseBodyMediaListAiDataAiLabelInfo() = default;
+};
+class SearchMediaResponseBodyMediaListAiDataOcrInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<double> from{};
+  shared_ptr<double> to{};
+
+  SearchMediaResponseBodyMediaListAiDataOcrInfo() {}
+
+  explicit SearchMediaResponseBodyMediaListAiDataOcrInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (from) {
+      res["From"] = boost::any(*from);
+    }
+    if (to) {
+      res["To"] = boost::any(*to);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("From") != m.end() && !m["From"].empty()) {
+      from = make_shared<double>(boost::any_cast<double>(m["From"]));
+    }
+    if (m.find("To") != m.end() && !m["To"].empty()) {
+      to = make_shared<double>(boost::any_cast<double>(m["To"]));
+    }
+  }
+
+
+  virtual ~SearchMediaResponseBodyMediaListAiDataOcrInfo() = default;
+};
+class SearchMediaResponseBodyMediaListAiData : public Darabonba::Model {
+public:
+  shared_ptr<vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfo>> aiLabelInfo{};
+  shared_ptr<vector<SearchMediaResponseBodyMediaListAiDataOcrInfo>> ocrInfo{};
+
+  SearchMediaResponseBodyMediaListAiData() {}
+
+  explicit SearchMediaResponseBodyMediaListAiData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aiLabelInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*aiLabelInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AiLabelInfo"] = boost::any(temp1);
+    }
+    if (ocrInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*ocrInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OcrInfo"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiLabelInfo") != m.end() && !m["AiLabelInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["AiLabelInfo"].type()) {
+        vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AiLabelInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchMediaResponseBodyMediaListAiDataAiLabelInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        aiLabelInfo = make_shared<vector<SearchMediaResponseBodyMediaListAiDataAiLabelInfo>>(expect1);
+      }
+    }
+    if (m.find("OcrInfo") != m.end() && !m["OcrInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["OcrInfo"].type()) {
+        vector<SearchMediaResponseBodyMediaListAiDataOcrInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OcrInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SearchMediaResponseBodyMediaListAiDataOcrInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ocrInfo = make_shared<vector<SearchMediaResponseBodyMediaListAiDataOcrInfo>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SearchMediaResponseBodyMediaListAiData() = default;
+};
+class SearchMediaResponseBodyMediaListAiRoughData : public Darabonba::Model {
+public:
+  shared_ptr<string> aiCategory{};
+  shared_ptr<string> aiJobId{};
+  shared_ptr<string> saveType{};
+  shared_ptr<string> status{};
+
+  SearchMediaResponseBodyMediaListAiRoughData() {}
+
+  explicit SearchMediaResponseBodyMediaListAiRoughData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aiCategory) {
+      res["AiCategory"] = boost::any(*aiCategory);
+    }
+    if (aiJobId) {
+      res["AiJobId"] = boost::any(*aiJobId);
+    }
+    if (saveType) {
+      res["SaveType"] = boost::any(*saveType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiCategory") != m.end() && !m["AiCategory"].empty()) {
+      aiCategory = make_shared<string>(boost::any_cast<string>(m["AiCategory"]));
+    }
+    if (m.find("AiJobId") != m.end() && !m["AiJobId"].empty()) {
+      aiJobId = make_shared<string>(boost::any_cast<string>(m["AiJobId"]));
+    }
+    if (m.find("SaveType") != m.end() && !m["SaveType"].empty()) {
+      saveType = make_shared<string>(boost::any_cast<string>(m["SaveType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~SearchMediaResponseBodyMediaListAiRoughData() = default;
+};
 class SearchMediaResponseBodyMediaListAttachedMediaCategories : public Darabonba::Model {
 public:
   shared_ptr<long> cateId{};
@@ -30403,10 +30751,13 @@ public:
   shared_ptr<string> mediaSource{};
   shared_ptr<string> modificationTime{};
   shared_ptr<string> preprocessStatus{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<vector<string>> snapshots{};
   shared_ptr<vector<string>> spriteSnapshots{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
@@ -30458,6 +30809,12 @@ public:
     if (preprocessStatus) {
       res["PreprocessStatus"] = boost::any(*preprocessStatus);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -30469,6 +30826,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -30522,6 +30882,12 @@ public:
     if (m.find("PreprocessStatus") != m.end() && !m["PreprocessStatus"].empty()) {
       preprocessStatus = make_shared<string>(boost::any_cast<string>(m["PreprocessStatus"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
@@ -30547,6 +30913,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
@@ -30684,10 +31053,13 @@ public:
   shared_ptr<string> mediaSource{};
   shared_ptr<string> modificationTime{};
   shared_ptr<string> preprocessStatus{};
+  shared_ptr<string> restoreExpiration{};
+  shared_ptr<string> restoreStatus{};
   shared_ptr<long> size{};
   shared_ptr<vector<string>> snapshots{};
   shared_ptr<vector<string>> spriteSnapshots{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> storageLocation{};
   shared_ptr<string> tags{};
   shared_ptr<string> title{};
@@ -30737,6 +31109,12 @@ public:
     if (preprocessStatus) {
       res["PreprocessStatus"] = boost::any(*preprocessStatus);
     }
+    if (restoreExpiration) {
+      res["RestoreExpiration"] = boost::any(*restoreExpiration);
+    }
+    if (restoreStatus) {
+      res["RestoreStatus"] = boost::any(*restoreStatus);
+    }
     if (size) {
       res["Size"] = boost::any(*size);
     }
@@ -30748,6 +31126,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
     }
     if (storageLocation) {
       res["StorageLocation"] = boost::any(*storageLocation);
@@ -30801,6 +31182,12 @@ public:
     if (m.find("PreprocessStatus") != m.end() && !m["PreprocessStatus"].empty()) {
       preprocessStatus = make_shared<string>(boost::any_cast<string>(m["PreprocessStatus"]));
     }
+    if (m.find("RestoreExpiration") != m.end() && !m["RestoreExpiration"].empty()) {
+      restoreExpiration = make_shared<string>(boost::any_cast<string>(m["RestoreExpiration"]));
+    }
+    if (m.find("RestoreStatus") != m.end() && !m["RestoreStatus"].empty()) {
+      restoreStatus = make_shared<string>(boost::any_cast<string>(m["RestoreStatus"]));
+    }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
     }
@@ -30827,6 +31214,9 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
+    }
     if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
       storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
     }
@@ -30849,6 +31239,8 @@ public:
 };
 class SearchMediaResponseBodyMediaList : public Darabonba::Model {
 public:
+  shared_ptr<SearchMediaResponseBodyMediaListAiData> aiData{};
+  shared_ptr<SearchMediaResponseBodyMediaListAiRoughData> aiRoughData{};
   shared_ptr<SearchMediaResponseBodyMediaListAttachedMedia> attachedMedia{};
   shared_ptr<SearchMediaResponseBodyMediaListAudio> audio{};
   shared_ptr<string> creationTime{};
@@ -30867,6 +31259,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aiData) {
+      res["AiData"] = aiData ? boost::any(aiData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (aiRoughData) {
+      res["AiRoughData"] = aiRoughData ? boost::any(aiRoughData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (attachedMedia) {
       res["AttachedMedia"] = attachedMedia ? boost::any(attachedMedia->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -30892,6 +31290,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiData") != m.end() && !m["AiData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AiData"].type()) {
+        SearchMediaResponseBodyMediaListAiData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AiData"]));
+        aiData = make_shared<SearchMediaResponseBodyMediaListAiData>(model1);
+      }
+    }
+    if (m.find("AiRoughData") != m.end() && !m["AiRoughData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AiRoughData"].type()) {
+        SearchMediaResponseBodyMediaListAiRoughData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AiRoughData"]));
+        aiRoughData = make_shared<SearchMediaResponseBodyMediaListAiRoughData>(model1);
+      }
+    }
     if (m.find("AttachedMedia") != m.end() && !m["AttachedMedia"].empty()) {
       if (typeid(map<string, boost::any>) == m["AttachedMedia"].type()) {
         SearchMediaResponseBodyMediaListAttachedMedia model1;
