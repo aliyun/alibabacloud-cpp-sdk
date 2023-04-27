@@ -16552,6 +16552,284 @@ public:
 
   virtual ~GetDataExportOrderDetailResponse() = default;
 };
+class GetDataExportPreCheckDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetDataExportPreCheckDetailRequest() {}
+
+  explicit GetDataExportPreCheckDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailRequest() = default;
+};
+class GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList : public Darabonba::Model {
+public:
+  shared_ptr<long> affectRows{};
+  shared_ptr<string> SQL{};
+
+  GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList() {}
+
+  explicit GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (affectRows) {
+      res["AffectRows"] = boost::any(*affectRows);
+    }
+    if (SQL) {
+      res["SQL"] = boost::any(*SQL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AffectRows") != m.end() && !m["AffectRows"].empty()) {
+      affectRows = make_shared<long>(boost::any_cast<long>(m["AffectRows"]));
+    }
+    if (m.find("SQL") != m.end() && !m["SQL"].empty()) {
+      SQL = make_shared<string>(boost::any_cast<string>(m["SQL"]));
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList() = default;
+};
+class GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList>> preCheckDetailList{};
+
+  GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList() {}
+
+  explicit GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (preCheckDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*preCheckDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PreCheckDetailList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PreCheckDetailList") != m.end() && !m["PreCheckDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PreCheckDetailList"].type()) {
+        vector<GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PreCheckDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        preCheckDetailList = make_shared<vector<GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailListPreCheckDetailList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList() = default;
+};
+class GetDataExportPreCheckDetailResponseBodyPreCheckResult : public Darabonba::Model {
+public:
+  shared_ptr<bool> ignoreAffectRows{};
+  shared_ptr<GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList> preCheckDetailList{};
+
+  GetDataExportPreCheckDetailResponseBodyPreCheckResult() {}
+
+  explicit GetDataExportPreCheckDetailResponseBodyPreCheckResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ignoreAffectRows) {
+      res["IgnoreAffectRows"] = boost::any(*ignoreAffectRows);
+    }
+    if (preCheckDetailList) {
+      res["PreCheckDetailList"] = preCheckDetailList ? boost::any(preCheckDetailList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IgnoreAffectRows") != m.end() && !m["IgnoreAffectRows"].empty()) {
+      ignoreAffectRows = make_shared<bool>(boost::any_cast<bool>(m["IgnoreAffectRows"]));
+    }
+    if (m.find("PreCheckDetailList") != m.end() && !m["PreCheckDetailList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PreCheckDetailList"].type()) {
+        GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PreCheckDetailList"]));
+        preCheckDetailList = make_shared<GetDataExportPreCheckDetailResponseBodyPreCheckResultPreCheckDetailList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailResponseBodyPreCheckResult() = default;
+};
+class GetDataExportPreCheckDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<GetDataExportPreCheckDetailResponseBodyPreCheckResult> preCheckResult{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDataExportPreCheckDetailResponseBody() {}
+
+  explicit GetDataExportPreCheckDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (preCheckResult) {
+      res["PreCheckResult"] = preCheckResult ? boost::any(preCheckResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("PreCheckResult") != m.end() && !m["PreCheckResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PreCheckResult"].type()) {
+        GetDataExportPreCheckDetailResponseBodyPreCheckResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PreCheckResult"]));
+        preCheckResult = make_shared<GetDataExportPreCheckDetailResponseBodyPreCheckResult>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailResponseBody() = default;
+};
+class GetDataExportPreCheckDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDataExportPreCheckDetailResponseBody> body{};
+
+  GetDataExportPreCheckDetailResponse() {}
+
+  explicit GetDataExportPreCheckDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDataExportPreCheckDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDataExportPreCheckDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataExportPreCheckDetailResponse() = default;
+};
 class GetDataImportSQLRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -20600,12 +20878,14 @@ public:
 };
 class GetOpLogRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> databaseName{};
   shared_ptr<string> endTime{};
   shared_ptr<string> module{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> startTime{};
   shared_ptr<long> tid{};
+  shared_ptr<string> userNick{};
 
   GetOpLogRequest() {}
 
@@ -20617,6 +20897,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (databaseName) {
+      res["DatabaseName"] = boost::any(*databaseName);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -20635,10 +20918,16 @@ public:
     if (tid) {
       res["Tid"] = boost::any(*tid);
     }
+    if (userNick) {
+      res["UserNick"] = boost::any(*userNick);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatabaseName") != m.end() && !m["DatabaseName"].empty()) {
+      databaseName = make_shared<string>(boost::any_cast<string>(m["DatabaseName"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
@@ -20656,6 +20945,9 @@ public:
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+    if (m.find("UserNick") != m.end() && !m["UserNick"].empty()) {
+      userNick = make_shared<string>(boost::any_cast<string>(m["UserNick"]));
     }
   }
 
@@ -54435,6 +54727,8 @@ public:
   GetDataExportDownloadURLResponse getDataExportDownloadURL(shared_ptr<GetDataExportDownloadURLRequest> request);
   GetDataExportOrderDetailResponse getDataExportOrderDetailWithOptions(shared_ptr<GetDataExportOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataExportOrderDetailResponse getDataExportOrderDetail(shared_ptr<GetDataExportOrderDetailRequest> request);
+  GetDataExportPreCheckDetailResponse getDataExportPreCheckDetailWithOptions(shared_ptr<GetDataExportPreCheckDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDataExportPreCheckDetailResponse getDataExportPreCheckDetail(shared_ptr<GetDataExportPreCheckDetailRequest> request);
   GetDataImportSQLResponse getDataImportSQLWithOptions(shared_ptr<GetDataImportSQLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataImportSQLResponse getDataImportSQL(shared_ptr<GetDataImportSQLRequest> request);
   GetDataTrackJobDegreeResponse getDataTrackJobDegreeWithOptions(shared_ptr<GetDataTrackJobDegreeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
