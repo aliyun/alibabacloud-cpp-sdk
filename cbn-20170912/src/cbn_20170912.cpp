@@ -1614,6 +1614,9 @@ CreateTransitRouterVbrAttachmentResponse Alibabacloud_Cbn20170912::Client::creat
 CreateTransitRouterVpcAttachmentResponse Alibabacloud_Cbn20170912::Client::createTransitRouterVpcAttachmentWithOptions(shared_ptr<CreateTransitRouterVpcAttachmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
+    query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
   }
@@ -7751,6 +7754,9 @@ UpdateTransitRouterVbrAttachmentAttributeResponse Alibabacloud_Cbn20170912::Clie
 UpdateTransitRouterVpcAttachmentAttributeResponse Alibabacloud_Cbn20170912::Client::updateTransitRouterVpcAttachmentAttributeWithOptions(shared_ptr<UpdateTransitRouterVpcAttachmentAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPublishRouteEnabled)) {
+    query->insert(pair<string, bool>("AutoPublishRouteEnabled", *request->autoPublishRouteEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }

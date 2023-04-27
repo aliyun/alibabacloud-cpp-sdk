@@ -6448,6 +6448,7 @@ public:
 };
 class CreateTransitRouterVpcAttachmentRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPublishRouteEnabled{};
   shared_ptr<string> cenId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clientToken{};
@@ -6475,6 +6476,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPublishRouteEnabled) {
+      res["AutoPublishRouteEnabled"] = boost::any(*autoPublishRouteEnabled);
+    }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
     }
@@ -6535,6 +6539,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPublishRouteEnabled") != m.end() && !m["AutoPublishRouteEnabled"].empty()) {
+      autoPublishRouteEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoPublishRouteEnabled"]));
+    }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
     }
@@ -11235,10 +11242,184 @@ public:
 
   virtual ~DescribeCenAttachedChildInstanceAttributeRequest() = default;
 };
+class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock : public Darabonba::Model {
+public:
+  shared_ptr<string> ipv6CidrBlock{};
+  shared_ptr<string> ipv6Isp{};
+
+  DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock() {}
+
+  explicit DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv6CidrBlock) {
+      res["Ipv6CidrBlock"] = boost::any(*ipv6CidrBlock);
+    }
+    if (ipv6Isp) {
+      res["Ipv6Isp"] = boost::any(*ipv6Isp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ipv6CidrBlock") != m.end() && !m["Ipv6CidrBlock"].empty()) {
+      ipv6CidrBlock = make_shared<string>(boost::any_cast<string>(m["Ipv6CidrBlock"]));
+    }
+    if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
+      ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
+    }
+  }
+
+
+  virtual ~DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock() = default;
+};
+class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock>> ipv6CidrBlock{};
+
+  DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks() {}
+
+  explicit DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipv6CidrBlock) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipv6CidrBlock){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ipv6CidrBlock"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ipv6CidrBlock") != m.end() && !m["ipv6CidrBlock"].empty()) {
+      if (typeid(vector<boost::any>) == m["ipv6CidrBlock"].type()) {
+        vector<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ipv6CidrBlock"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipv6CidrBlock = make_shared<vector<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocksIpv6CidrBlock>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks() = default;
+};
+class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> secondaryCidrBlock{};
+
+  DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks() {}
+
+  explicit DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (secondaryCidrBlock) {
+      res["secondaryCidrBlock"] = boost::any(*secondaryCidrBlock);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("secondaryCidrBlock") != m.end() && !m["secondaryCidrBlock"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["secondaryCidrBlock"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["secondaryCidrBlock"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      secondaryCidrBlock = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks() = default;
+};
+class DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> cidrBlock{};
+  shared_ptr<string> ipv6CidrBlock{};
+  shared_ptr<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks> ipv6CidrBlocks{};
+  shared_ptr<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks> secondaryCidrBlocks{};
+
+  DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes() {}
+
+  explicit DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cidrBlock) {
+      res["CidrBlock"] = boost::any(*cidrBlock);
+    }
+    if (ipv6CidrBlock) {
+      res["Ipv6CidrBlock"] = boost::any(*ipv6CidrBlock);
+    }
+    if (ipv6CidrBlocks) {
+      res["Ipv6CidrBlocks"] = ipv6CidrBlocks ? boost::any(ipv6CidrBlocks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (secondaryCidrBlocks) {
+      res["SecondaryCidrBlocks"] = secondaryCidrBlocks ? boost::any(secondaryCidrBlocks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CidrBlock") != m.end() && !m["CidrBlock"].empty()) {
+      cidrBlock = make_shared<string>(boost::any_cast<string>(m["CidrBlock"]));
+    }
+    if (m.find("Ipv6CidrBlock") != m.end() && !m["Ipv6CidrBlock"].empty()) {
+      ipv6CidrBlock = make_shared<string>(boost::any_cast<string>(m["Ipv6CidrBlock"]));
+    }
+    if (m.find("Ipv6CidrBlocks") != m.end() && !m["Ipv6CidrBlocks"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Ipv6CidrBlocks"].type()) {
+        DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Ipv6CidrBlocks"]));
+        ipv6CidrBlocks = make_shared<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesIpv6CidrBlocks>(model1);
+      }
+    }
+    if (m.find("SecondaryCidrBlocks") != m.end() && !m["SecondaryCidrBlocks"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecondaryCidrBlocks"].type()) {
+        DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecondaryCidrBlocks"]));
+        secondaryCidrBlocks = make_shared<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributesSecondaryCidrBlocks>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes() = default;
+};
 class DescribeCenAttachedChildInstanceAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
   shared_ptr<string> childInstanceAttachTime{};
+  shared_ptr<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes> childInstanceAttributes{};
   shared_ptr<string> childInstanceId{};
   shared_ptr<string> childInstanceName{};
   shared_ptr<long> childInstanceOwnerId{};
@@ -11262,6 +11443,9 @@ public:
     }
     if (childInstanceAttachTime) {
       res["ChildInstanceAttachTime"] = boost::any(*childInstanceAttachTime);
+    }
+    if (childInstanceAttributes) {
+      res["ChildInstanceAttributes"] = childInstanceAttributes ? boost::any(childInstanceAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (childInstanceId) {
       res["ChildInstanceId"] = boost::any(*childInstanceId);
@@ -11293,6 +11477,13 @@ public:
     }
     if (m.find("ChildInstanceAttachTime") != m.end() && !m["ChildInstanceAttachTime"].empty()) {
       childInstanceAttachTime = make_shared<string>(boost::any_cast<string>(m["ChildInstanceAttachTime"]));
+    }
+    if (m.find("ChildInstanceAttributes") != m.end() && !m["ChildInstanceAttributes"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ChildInstanceAttributes"].type()) {
+        DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ChildInstanceAttributes"]));
+        childInstanceAttributes = make_shared<DescribeCenAttachedChildInstanceAttributeResponseBodyChildInstanceAttributes>(model1);
+      }
     }
     if (m.find("ChildInstanceId") != m.end() && !m["ChildInstanceId"].empty()) {
       childInstanceId = make_shared<string>(boost::any_cast<string>(m["ChildInstanceId"]));
@@ -29067,6 +29258,7 @@ public:
 };
 class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPublishRouteEnabled{};
   shared_ptr<string> cenId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> creationTime{};
@@ -29093,6 +29285,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPublishRouteEnabled) {
+      res["AutoPublishRouteEnabled"] = boost::any(*autoPublishRouteEnabled);
+    }
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
     }
@@ -29150,6 +29345,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPublishRouteEnabled") != m.end() && !m["AutoPublishRouteEnabled"].empty()) {
+      autoPublishRouteEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoPublishRouteEnabled"]));
+    }
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
     }
@@ -36841,6 +37039,7 @@ public:
 };
 class UpdateTransitRouterVpcAttachmentAttributeRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPublishRouteEnabled{};
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
@@ -36861,6 +37060,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPublishRouteEnabled) {
+      res["AutoPublishRouteEnabled"] = boost::any(*autoPublishRouteEnabled);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -36892,6 +37094,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPublishRouteEnabled") != m.end() && !m["AutoPublishRouteEnabled"].empty()) {
+      autoPublishRouteEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoPublishRouteEnabled"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
