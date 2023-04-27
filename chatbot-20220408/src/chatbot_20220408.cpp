@@ -205,6 +205,9 @@ ChatResponse Alibabacloud_Chatbot20220408::Client::chatWithOptions(shared_ptr<Ch
   if (!Darabonba_Util::Client::isUnset<string>(request->perspectiveShrink)) {
     query->insert(pair<string, string>("Perspective", *request->perspectiveShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sandBox)) {
+    query->insert(pair<string, bool>("SandBox", *request->sandBox));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->senderId)) {
     query->insert(pair<string, string>("SenderId", *request->senderId));
   }

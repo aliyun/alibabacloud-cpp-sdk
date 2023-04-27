@@ -833,6 +833,7 @@ public:
   shared_ptr<string> intentName{};
   shared_ptr<string> knowledgeId{};
   shared_ptr<vector<string>> perspective{};
+  shared_ptr<bool> sandBox{};
   shared_ptr<string> senderId{};
   shared_ptr<string> senderNick{};
   shared_ptr<string> sessionId{};
@@ -863,6 +864,9 @@ public:
     }
     if (perspective) {
       res["Perspective"] = boost::any(*perspective);
+    }
+    if (sandBox) {
+      res["SandBox"] = boost::any(*sandBox);
     }
     if (senderId) {
       res["SenderId"] = boost::any(*senderId);
@@ -905,6 +909,9 @@ public:
       }
       perspective = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("SandBox") != m.end() && !m["SandBox"].empty()) {
+      sandBox = make_shared<bool>(boost::any_cast<bool>(m["SandBox"]));
+    }
     if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
       senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
     }
@@ -932,6 +939,7 @@ public:
   shared_ptr<string> intentName{};
   shared_ptr<string> knowledgeId{};
   shared_ptr<string> perspectiveShrink{};
+  shared_ptr<bool> sandBox{};
   shared_ptr<string> senderId{};
   shared_ptr<string> senderNick{};
   shared_ptr<string> sessionId{};
@@ -962,6 +970,9 @@ public:
     }
     if (perspectiveShrink) {
       res["Perspective"] = boost::any(*perspectiveShrink);
+    }
+    if (sandBox) {
+      res["SandBox"] = boost::any(*sandBox);
     }
     if (senderId) {
       res["SenderId"] = boost::any(*senderId);
@@ -996,6 +1007,9 @@ public:
     }
     if (m.find("Perspective") != m.end() && !m["Perspective"].empty()) {
       perspectiveShrink = make_shared<string>(boost::any_cast<string>(m["Perspective"]));
+    }
+    if (m.find("SandBox") != m.end() && !m["SandBox"].empty()) {
+      sandBox = make_shared<bool>(boost::any_cast<bool>(m["SandBox"]));
     }
     if (m.find("SenderId") != m.end() && !m["SenderId"].empty()) {
       senderId = make_shared<string>(boost::any_cast<string>(m["SenderId"]));
