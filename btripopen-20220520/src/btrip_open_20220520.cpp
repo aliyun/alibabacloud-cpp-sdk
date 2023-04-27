@@ -3322,14 +3322,14 @@ HotelOrderListQueryResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderLi
 HotelOrderPayResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderPayWithOptions(shared_ptr<HotelOrderPayRequest> request, shared_ptr<HotelOrderPayHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->btripOrderId)) {
+    body->insert(pair<string, long>("btrip_order_id", *request->btripOrderId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
     body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->companyPayFee)) {
     body->insert(pair<string, long>("company_pay_fee", *request->companyPayFee));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
-    body->insert(pair<string, string>("dis_order_id", *request->disOrderId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->personPayFee)) {
     body->insert(pair<string, long>("person_pay_fee", *request->personPayFee));

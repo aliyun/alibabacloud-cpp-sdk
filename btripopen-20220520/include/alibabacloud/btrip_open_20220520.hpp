@@ -42041,9 +42041,9 @@ public:
 };
 class HotelOrderPayRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> btripOrderId{};
   shared_ptr<string> btripUserId{};
   shared_ptr<long> companyPayFee{};
-  shared_ptr<string> disOrderId{};
   shared_ptr<long> personPayFee{};
   shared_ptr<string> thirdPayAccount{};
   shared_ptr<string> thirdTradeNo{};
@@ -42059,14 +42059,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (btripOrderId) {
+      res["btrip_order_id"] = boost::any(*btripOrderId);
+    }
     if (btripUserId) {
       res["btrip_user_id"] = boost::any(*btripUserId);
     }
     if (companyPayFee) {
       res["company_pay_fee"] = boost::any(*companyPayFee);
-    }
-    if (disOrderId) {
-      res["dis_order_id"] = boost::any(*disOrderId);
     }
     if (personPayFee) {
       res["person_pay_fee"] = boost::any(*personPayFee);
@@ -42084,14 +42084,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("btrip_order_id") != m.end() && !m["btrip_order_id"].empty()) {
+      btripOrderId = make_shared<long>(boost::any_cast<long>(m["btrip_order_id"]));
+    }
     if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
       btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
     }
     if (m.find("company_pay_fee") != m.end() && !m["company_pay_fee"].empty()) {
       companyPayFee = make_shared<long>(boost::any_cast<long>(m["company_pay_fee"]));
-    }
-    if (m.find("dis_order_id") != m.end() && !m["dis_order_id"].empty()) {
-      disOrderId = make_shared<string>(boost::any_cast<string>(m["dis_order_id"]));
     }
     if (m.find("person_pay_fee") != m.end() && !m["person_pay_fee"].empty()) {
       personPayFee = make_shared<long>(boost::any_cast<long>(m["person_pay_fee"]));
@@ -47211,6 +47211,7 @@ public:
   shared_ptr<string> invoiceLocation{};
   shared_ptr<string> invoiceNo{};
   shared_ptr<string> invoiceTitle{};
+  shared_ptr<string> machineCode{};
   shared_ptr<long> orderId{};
   shared_ptr<string> ossUrl{};
   shared_ptr<string> passenger{};
@@ -47296,6 +47297,9 @@ public:
     }
     if (invoiceTitle) {
       res["invoice_title"] = boost::any(*invoiceTitle);
+    }
+    if (machineCode) {
+      res["machine_code"] = boost::any(*machineCode);
     }
     if (orderId) {
       res["order_id"] = boost::any(*orderId);
@@ -47421,6 +47425,9 @@ public:
     }
     if (m.find("invoice_title") != m.end() && !m["invoice_title"].empty()) {
       invoiceTitle = make_shared<string>(boost::any_cast<string>(m["invoice_title"]));
+    }
+    if (m.find("machine_code") != m.end() && !m["machine_code"].empty()) {
+      machineCode = make_shared<string>(boost::any_cast<string>(m["machine_code"]));
     }
     if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["order_id"]));
@@ -63161,6 +63168,7 @@ public:
   shared_ptr<long> invoiceSubTaskId{};
   shared_ptr<long> invoiceType{};
   shared_ptr<string> invoiceTypeDesc{};
+  shared_ptr<string> machineCode{};
   shared_ptr<string> ossUrl{};
   shared_ptr<string> passwordArea{};
   shared_ptr<string> purchaserBankAccountInfo{};
@@ -63237,6 +63245,9 @@ public:
     }
     if (invoiceTypeDesc) {
       res["invoice_type_desc"] = boost::any(*invoiceTypeDesc);
+    }
+    if (machineCode) {
+      res["machine_code"] = boost::any(*machineCode);
     }
     if (ossUrl) {
       res["oss_url"] = boost::any(*ossUrl);
@@ -63347,6 +63358,9 @@ public:
     }
     if (m.find("invoice_type_desc") != m.end() && !m["invoice_type_desc"].empty()) {
       invoiceTypeDesc = make_shared<string>(boost::any_cast<string>(m["invoice_type_desc"]));
+    }
+    if (m.find("machine_code") != m.end() && !m["machine_code"].empty()) {
+      machineCode = make_shared<string>(boost::any_cast<string>(m["machine_code"]));
     }
     if (m.find("oss_url") != m.end() && !m["oss_url"].empty()) {
       ossUrl = make_shared<string>(boost::any_cast<string>(m["oss_url"]));
