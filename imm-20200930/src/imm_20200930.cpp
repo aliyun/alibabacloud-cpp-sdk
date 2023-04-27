@@ -3690,6 +3690,9 @@ QueryFigureClustersResponse Alibabacloud_Imm20200930::Client::queryFigureCluster
   if (!Darabonba_Util::Client::isUnset<string>(request->updateTimeRangeShrink)) {
     query->insert(pair<string, string>("UpdateTimeRange", *request->updateTimeRangeShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withTotalCount)) {
+    query->insert(pair<string, bool>("WithTotalCount", *request->withTotalCount));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

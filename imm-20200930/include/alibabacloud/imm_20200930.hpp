@@ -24438,6 +24438,7 @@ public:
   shared_ptr<string> projectName{};
   shared_ptr<string> sort{};
   shared_ptr<TimeRange> updateTimeRange{};
+  shared_ptr<bool> withTotalCount{};
 
   QueryFigureClustersRequest() {}
 
@@ -24475,6 +24476,9 @@ public:
     }
     if (updateTimeRange) {
       res["UpdateTimeRange"] = updateTimeRange ? boost::any(updateTimeRange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (withTotalCount) {
+      res["WithTotalCount"] = boost::any(*withTotalCount);
     }
     return res;
   }
@@ -24515,6 +24519,9 @@ public:
         updateTimeRange = make_shared<TimeRange>(model1);
       }
     }
+    if (m.find("WithTotalCount") != m.end() && !m["WithTotalCount"].empty()) {
+      withTotalCount = make_shared<bool>(boost::any_cast<bool>(m["WithTotalCount"]));
+    }
   }
 
 
@@ -24531,6 +24538,7 @@ public:
   shared_ptr<string> projectName{};
   shared_ptr<string> sort{};
   shared_ptr<string> updateTimeRangeShrink{};
+  shared_ptr<bool> withTotalCount{};
 
   QueryFigureClustersShrinkRequest() {}
 
@@ -24569,6 +24577,9 @@ public:
     if (updateTimeRangeShrink) {
       res["UpdateTimeRange"] = boost::any(*updateTimeRangeShrink);
     }
+    if (withTotalCount) {
+      res["WithTotalCount"] = boost::any(*withTotalCount);
+    }
     return res;
   }
 
@@ -24600,6 +24611,9 @@ public:
     if (m.find("UpdateTimeRange") != m.end() && !m["UpdateTimeRange"].empty()) {
       updateTimeRangeShrink = make_shared<string>(boost::any_cast<string>(m["UpdateTimeRange"]));
     }
+    if (m.find("WithTotalCount") != m.end() && !m["WithTotalCount"].empty()) {
+      withTotalCount = make_shared<bool>(boost::any_cast<bool>(m["WithTotalCount"]));
+    }
   }
 
 
@@ -24610,6 +24624,7 @@ public:
   shared_ptr<vector<FigureCluster>> figureClusters{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
 
   QueryFigureClustersResponseBody() {}
 
@@ -24634,6 +24649,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -24656,6 +24674,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
