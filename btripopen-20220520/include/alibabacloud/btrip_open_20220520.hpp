@@ -2155,6 +2155,7 @@ public:
   shared_ptr<vector<ApplyAddRequestItinerarySetList>> itinerarySetList{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
   shared_ptr<string> thirdpartDepartId{};
@@ -2243,6 +2244,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
     }
     if (thirdpartApplyId) {
       res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
@@ -2390,6 +2394,9 @@ public:
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
     }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
+    }
     if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
       thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));
     }
@@ -2479,6 +2486,7 @@ public:
   shared_ptr<string> itinerarySetListShrink{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
   shared_ptr<string> thirdpartDepartId{};
@@ -2555,6 +2563,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
     }
     if (thirdpartApplyId) {
       res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
@@ -2655,6 +2666,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
       thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));
@@ -2926,6 +2940,7 @@ public:
   shared_ptr<string> note{};
   shared_ptr<string> operateTime{};
   shared_ptr<long> status{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
 
@@ -2951,6 +2966,9 @@ public:
     if (status) {
       res["status"] = boost::any(*status);
     }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -2972,6 +2990,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
@@ -3555,6 +3576,7 @@ public:
   shared_ptr<long> page{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<long> type{};
   shared_ptr<string> unionNo{};
   shared_ptr<string> userId{};
@@ -3593,6 +3615,9 @@ public:
     if (startTime) {
       res["start_time"] = boost::any(*startTime);
     }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -3629,6 +3654,9 @@ public:
     }
     if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["start_time"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["type"]));
@@ -5069,6 +5097,7 @@ public:
   shared_ptr<vector<ApplyModifyRequestItinerarySetList>> itinerarySetList{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
   shared_ptr<string> thirdpartDepartId{};
@@ -5153,6 +5182,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
     }
     if (thirdpartApplyId) {
       res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
@@ -5294,6 +5326,9 @@ public:
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
     }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
+    }
     if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
       thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));
     }
@@ -5379,6 +5414,7 @@ public:
   shared_ptr<string> itinerarySetListShrink{};
   shared_ptr<long> limitTraveler{};
   shared_ptr<long> status{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartBusinessId{};
   shared_ptr<string> thirdpartDepartId{};
@@ -5451,6 +5487,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
     }
     if (thirdpartApplyId) {
       res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
@@ -5545,6 +5584,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
       thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));
@@ -5811,6 +5853,7 @@ class ApplyQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
   shared_ptr<string> applyShowId{};
+  shared_ptr<string> subCorpId{};
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<long> type{};
 
@@ -5830,6 +5873,9 @@ public:
     if (applyShowId) {
       res["apply_show_id"] = boost::any(*applyShowId);
     }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
     if (thirdpartApplyId) {
       res["thirdpart_apply_id"] = boost::any(*thirdpartApplyId);
     }
@@ -5845,6 +5891,9 @@ public:
     }
     if (m.find("apply_show_id") != m.end() && !m["apply_show_id"].empty()) {
       applyShowId = make_shared<string>(boost::any_cast<string>(m["apply_show_id"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
     }
     if (m.find("thirdpart_apply_id") != m.end() && !m["thirdpart_apply_id"].empty()) {
       thirdpartApplyId = make_shared<string>(boost::any_cast<string>(m["thirdpart_apply_id"]));

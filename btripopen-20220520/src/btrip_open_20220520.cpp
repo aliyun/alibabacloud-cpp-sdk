@@ -317,6 +317,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    body->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartApplyId)) {
     body->insert(pair<string, string>("thirdpart_apply_id", *request->thirdpartApplyId));
   }
@@ -408,6 +411,9 @@ ApplyApproveResponse Alibabacloud_BtripOpen20220520::Client::applyApproveWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    body->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("user_id", *request->userId));
@@ -517,6 +523,9 @@ ApplyListQueryResponse Alibabacloud_BtripOpen20220520::Client::applyListQueryWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("start_time", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
     query->insert(pair<string, long>("type", *request->type));
@@ -632,6 +641,9 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    body->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartApplyId)) {
     body->insert(pair<string, string>("thirdpart_apply_id", *request->thirdpartApplyId));
   }
@@ -713,6 +725,9 @@ ApplyQueryResponse Alibabacloud_BtripOpen20220520::Client::applyQueryWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->applyShowId)) {
     query->insert(pair<string, string>("apply_show_id", *request->applyShowId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdpartApplyId)) {
     query->insert(pair<string, string>("thirdpart_apply_id", *request->thirdpartApplyId));
