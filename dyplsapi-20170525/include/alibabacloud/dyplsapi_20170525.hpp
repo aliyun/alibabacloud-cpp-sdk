@@ -1594,6 +1594,484 @@ public:
 
   virtual ~BindAxnExtensionResponse() = default;
 };
+class BindBatchAxgRequestAxgBindList : public Darabonba::Model {
+public:
+  shared_ptr<string> ASRModelId{};
+  shared_ptr<bool> ASRStatus{};
+  shared_ptr<long> callDisplayType{};
+  shared_ptr<string> callRestrict{};
+  shared_ptr<string> expectCity{};
+  shared_ptr<string> expiration{};
+  shared_ptr<string> groupId{};
+  shared_ptr<bool> isRecordingEnabled{};
+  shared_ptr<string> outId{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<string> phoneNoA{};
+  shared_ptr<string> phoneNoB{};
+  shared_ptr<string> phoneNoX{};
+  shared_ptr<string> ringConfig{};
+
+  BindBatchAxgRequestAxgBindList() {}
+
+  explicit BindBatchAxgRequestAxgBindList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ASRModelId) {
+      res["ASRModelId"] = boost::any(*ASRModelId);
+    }
+    if (ASRStatus) {
+      res["ASRStatus"] = boost::any(*ASRStatus);
+    }
+    if (callDisplayType) {
+      res["CallDisplayType"] = boost::any(*callDisplayType);
+    }
+    if (callRestrict) {
+      res["CallRestrict"] = boost::any(*callRestrict);
+    }
+    if (expectCity) {
+      res["ExpectCity"] = boost::any(*expectCity);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (isRecordingEnabled) {
+      res["IsRecordingEnabled"] = boost::any(*isRecordingEnabled);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
+    }
+    if (outOrderId) {
+      res["OutOrderId"] = boost::any(*outOrderId);
+    }
+    if (phoneNoA) {
+      res["PhoneNoA"] = boost::any(*phoneNoA);
+    }
+    if (phoneNoB) {
+      res["PhoneNoB"] = boost::any(*phoneNoB);
+    }
+    if (phoneNoX) {
+      res["PhoneNoX"] = boost::any(*phoneNoX);
+    }
+    if (ringConfig) {
+      res["RingConfig"] = boost::any(*ringConfig);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ASRModelId") != m.end() && !m["ASRModelId"].empty()) {
+      ASRModelId = make_shared<string>(boost::any_cast<string>(m["ASRModelId"]));
+    }
+    if (m.find("ASRStatus") != m.end() && !m["ASRStatus"].empty()) {
+      ASRStatus = make_shared<bool>(boost::any_cast<bool>(m["ASRStatus"]));
+    }
+    if (m.find("CallDisplayType") != m.end() && !m["CallDisplayType"].empty()) {
+      callDisplayType = make_shared<long>(boost::any_cast<long>(m["CallDisplayType"]));
+    }
+    if (m.find("CallRestrict") != m.end() && !m["CallRestrict"].empty()) {
+      callRestrict = make_shared<string>(boost::any_cast<string>(m["CallRestrict"]));
+    }
+    if (m.find("ExpectCity") != m.end() && !m["ExpectCity"].empty()) {
+      expectCity = make_shared<string>(boost::any_cast<string>(m["ExpectCity"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<string>(boost::any_cast<string>(m["Expiration"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("IsRecordingEnabled") != m.end() && !m["IsRecordingEnabled"].empty()) {
+      isRecordingEnabled = make_shared<bool>(boost::any_cast<bool>(m["IsRecordingEnabled"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
+    if (m.find("OutOrderId") != m.end() && !m["OutOrderId"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["OutOrderId"]));
+    }
+    if (m.find("PhoneNoA") != m.end() && !m["PhoneNoA"].empty()) {
+      phoneNoA = make_shared<string>(boost::any_cast<string>(m["PhoneNoA"]));
+    }
+    if (m.find("PhoneNoB") != m.end() && !m["PhoneNoB"].empty()) {
+      phoneNoB = make_shared<string>(boost::any_cast<string>(m["PhoneNoB"]));
+    }
+    if (m.find("PhoneNoX") != m.end() && !m["PhoneNoX"].empty()) {
+      phoneNoX = make_shared<string>(boost::any_cast<string>(m["PhoneNoX"]));
+    }
+    if (m.find("RingConfig") != m.end() && !m["RingConfig"].empty()) {
+      ringConfig = make_shared<string>(boost::any_cast<string>(m["RingConfig"]));
+    }
+  }
+
+
+  virtual ~BindBatchAxgRequestAxgBindList() = default;
+};
+class BindBatchAxgRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<BindBatchAxgRequestAxgBindList>> axgBindList{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> poolKey{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  BindBatchAxgRequest() {}
+
+  explicit BindBatchAxgRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (axgBindList) {
+      vector<boost::any> temp1;
+      for(auto item1:*axgBindList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AxgBindList"] = boost::any(temp1);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (poolKey) {
+      res["PoolKey"] = boost::any(*poolKey);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AxgBindList") != m.end() && !m["AxgBindList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AxgBindList"].type()) {
+        vector<BindBatchAxgRequestAxgBindList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AxgBindList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BindBatchAxgRequestAxgBindList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        axgBindList = make_shared<vector<BindBatchAxgRequestAxgBindList>>(expect1);
+      }
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PoolKey") != m.end() && !m["PoolKey"].empty()) {
+      poolKey = make_shared<string>(boost::any_cast<string>(m["PoolKey"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~BindBatchAxgRequest() = default;
+};
+class BindBatchAxgShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> axgBindListShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> poolKey{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  BindBatchAxgShrinkRequest() {}
+
+  explicit BindBatchAxgShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (axgBindListShrink) {
+      res["AxgBindList"] = boost::any(*axgBindListShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (poolKey) {
+      res["PoolKey"] = boost::any(*poolKey);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AxgBindList") != m.end() && !m["AxgBindList"].empty()) {
+      axgBindListShrink = make_shared<string>(boost::any_cast<string>(m["AxgBindList"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PoolKey") != m.end() && !m["PoolKey"].empty()) {
+      poolKey = make_shared<string>(boost::any_cast<string>(m["PoolKey"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~BindBatchAxgShrinkRequest() = default;
+};
+class BindBatchAxgResponseBodySecretBindListSecretBind : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> extension{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> message{};
+  shared_ptr<string> phoneNoA{};
+  shared_ptr<string> secretNo{};
+  shared_ptr<string> subsId{};
+
+  BindBatchAxgResponseBodySecretBindListSecretBind() {}
+
+  explicit BindBatchAxgResponseBodySecretBindListSecretBind(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (extension) {
+      res["Extension"] = boost::any(*extension);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (phoneNoA) {
+      res["PhoneNoA"] = boost::any(*phoneNoA);
+    }
+    if (secretNo) {
+      res["SecretNo"] = boost::any(*secretNo);
+    }
+    if (subsId) {
+      res["SubsId"] = boost::any(*subsId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Extension") != m.end() && !m["Extension"].empty()) {
+      extension = make_shared<string>(boost::any_cast<string>(m["Extension"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PhoneNoA") != m.end() && !m["PhoneNoA"].empty()) {
+      phoneNoA = make_shared<string>(boost::any_cast<string>(m["PhoneNoA"]));
+    }
+    if (m.find("SecretNo") != m.end() && !m["SecretNo"].empty()) {
+      secretNo = make_shared<string>(boost::any_cast<string>(m["SecretNo"]));
+    }
+    if (m.find("SubsId") != m.end() && !m["SubsId"].empty()) {
+      subsId = make_shared<string>(boost::any_cast<string>(m["SubsId"]));
+    }
+  }
+
+
+  virtual ~BindBatchAxgResponseBodySecretBindListSecretBind() = default;
+};
+class BindBatchAxgResponseBodySecretBindList : public Darabonba::Model {
+public:
+  shared_ptr<vector<BindBatchAxgResponseBodySecretBindListSecretBind>> secretBind{};
+
+  BindBatchAxgResponseBodySecretBindList() {}
+
+  explicit BindBatchAxgResponseBodySecretBindList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (secretBind) {
+      vector<boost::any> temp1;
+      for(auto item1:*secretBind){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SecretBind"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SecretBind") != m.end() && !m["SecretBind"].empty()) {
+      if (typeid(vector<boost::any>) == m["SecretBind"].type()) {
+        vector<BindBatchAxgResponseBodySecretBindListSecretBind> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SecretBind"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BindBatchAxgResponseBodySecretBindListSecretBind model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        secretBind = make_shared<vector<BindBatchAxgResponseBodySecretBindListSecretBind>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~BindBatchAxgResponseBodySecretBindList() = default;
+};
+class BindBatchAxgResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<BindBatchAxgResponseBodySecretBindList> secretBindList{};
+
+  BindBatchAxgResponseBody() {}
+
+  explicit BindBatchAxgResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (secretBindList) {
+      res["SecretBindList"] = secretBindList ? boost::any(secretBindList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SecretBindList") != m.end() && !m["SecretBindList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SecretBindList"].type()) {
+        BindBatchAxgResponseBodySecretBindList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SecretBindList"]));
+        secretBindList = make_shared<BindBatchAxgResponseBodySecretBindList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindBatchAxgResponseBody() = default;
+};
+class BindBatchAxgResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BindBatchAxgResponseBody> body{};
+
+  BindBatchAxgResponse() {}
+
+  explicit BindBatchAxgResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BindBatchAxgResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BindBatchAxgResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BindBatchAxgResponse() = default;
+};
 class BuySecretNoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> city{};
@@ -3598,6 +4076,168 @@ public:
 
 
   virtual ~CreatePickUpWaybillPreQueryResponse() = default;
+};
+class DeleteAxgGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> groupId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> poolKey{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeleteAxgGroupRequest() {}
+
+  explicit DeleteAxgGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (poolKey) {
+      res["PoolKey"] = boost::any(*poolKey);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PoolKey") != m.end() && !m["PoolKey"].empty()) {
+      poolKey = make_shared<string>(boost::any_cast<string>(m["PoolKey"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeleteAxgGroupRequest() = default;
+};
+class DeleteAxgGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  DeleteAxgGroupResponseBody() {}
+
+  explicit DeleteAxgGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteAxgGroupResponseBody() = default;
+};
+class DeleteAxgGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAxgGroupResponseBody> body{};
+
+  DeleteAxgGroupResponse() {}
+
+  explicit DeleteAxgGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAxgGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAxgGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAxgGroupResponse() = default;
 };
 class DeleteSecretBlacklistRequest : public Darabonba::Model {
 public:
@@ -7037,6 +7677,8 @@ public:
   BindAxnResponse bindAxn(shared_ptr<BindAxnRequest> request);
   BindAxnExtensionResponse bindAxnExtensionWithOptions(shared_ptr<BindAxnExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindAxnExtensionResponse bindAxnExtension(shared_ptr<BindAxnExtensionRequest> request);
+  BindBatchAxgResponse bindBatchAxgWithOptions(shared_ptr<BindBatchAxgRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BindBatchAxgResponse bindBatchAxg(shared_ptr<BindBatchAxgRequest> request);
   BuySecretNoResponse buySecretNoWithOptions(shared_ptr<BuySecretNoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BuySecretNoResponse buySecretNo(shared_ptr<BuySecretNoRequest> request);
   CancelPickUpWaybillResponse cancelPickUpWaybillWithOptions(shared_ptr<CancelPickUpWaybillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7047,6 +7689,8 @@ public:
   CreatePickUpWaybillResponse createPickUpWaybill(shared_ptr<CreatePickUpWaybillRequest> request);
   CreatePickUpWaybillPreQueryResponse createPickUpWaybillPreQueryWithOptions(shared_ptr<CreatePickUpWaybillPreQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePickUpWaybillPreQueryResponse createPickUpWaybillPreQuery(shared_ptr<CreatePickUpWaybillPreQueryRequest> request);
+  DeleteAxgGroupResponse deleteAxgGroupWithOptions(shared_ptr<DeleteAxgGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAxgGroupResponse deleteAxgGroup(shared_ptr<DeleteAxgGroupRequest> request);
   DeleteSecretBlacklistResponse deleteSecretBlacklistWithOptions(shared_ptr<DeleteSecretBlacklistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretBlacklistResponse deleteSecretBlacklist(shared_ptr<DeleteSecretBlacklistRequest> request);
   GetSecretAsrDetailResponse getSecretAsrDetailWithOptions(shared_ptr<GetSecretAsrDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
