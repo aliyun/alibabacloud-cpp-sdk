@@ -6513,6 +6513,7 @@ public:
 class InviteAccountToResourceDirectoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> note{};
+  shared_ptr<string> parentFolderId{};
   shared_ptr<vector<InviteAccountToResourceDirectoryRequestTag>> tag{};
   shared_ptr<string> targetEntity{};
   shared_ptr<string> targetType{};
@@ -6529,6 +6530,9 @@ public:
     map<string, boost::any> res;
     if (note) {
       res["Note"] = boost::any(*note);
+    }
+    if (parentFolderId) {
+      res["ParentFolderId"] = boost::any(*parentFolderId);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -6549,6 +6553,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Note") != m.end() && !m["Note"].empty()) {
       note = make_shared<string>(boost::any_cast<string>(m["Note"]));
+    }
+    if (m.find("ParentFolderId") != m.end() && !m["ParentFolderId"].empty()) {
+      parentFolderId = make_shared<string>(boost::any_cast<string>(m["ParentFolderId"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {

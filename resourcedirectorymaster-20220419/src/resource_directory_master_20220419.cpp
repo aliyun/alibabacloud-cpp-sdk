@@ -1112,6 +1112,9 @@ InviteAccountToResourceDirectoryResponse Alibabacloud_ResourceDirectoryMaster202
   if (!Darabonba_Util::Client::isUnset<string>(request->note)) {
     query->insert(pair<string, string>("Note", *request->note));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parentFolderId)) {
+    query->insert(pair<string, string>("ParentFolderId", *request->parentFolderId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<InviteAccountToResourceDirectoryRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<InviteAccountToResourceDirectoryRequestTag>>("Tag", *request->tag));
   }
