@@ -4586,6 +4586,68 @@ SyncThirdUserMappingResponse Alibabacloud_BtripOpen20220520::Client::syncThirdUs
   return syncThirdUserMappingWithOptions(request, headers, runtime);
 }
 
+TBAccountInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::tBAccountInfoQueryWithOptions(shared_ptr<string> userId, shared_ptr<TBAccountInfoQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TBAccountInfoQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/account/v1/tb-accounts/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TBAccountInfoQueryResponse(callApi(params, req, runtime));
+}
+
+TBAccountInfoQueryResponse Alibabacloud_BtripOpen20220520::Client::tBAccountInfoQuery(shared_ptr<string> userId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<TBAccountInfoQueryHeaders> headers = make_shared<TBAccountInfoQueryHeaders>();
+  return tBAccountInfoQueryWithOptions(userId, headers, runtime);
+}
+
+TBAccountUnbindResponse Alibabacloud_BtripOpen20220520::Client::tBAccountUnbindWithOptions(shared_ptr<string> userId, shared_ptr<TBAccountUnbindHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("TBAccountUnbind"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/account/v1/tb-accounts/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)) + string("/action/unbind"))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return TBAccountUnbindResponse(callApi(params, req, runtime));
+}
+
+TBAccountUnbindResponse Alibabacloud_BtripOpen20220520::Client::tBAccountUnbind(shared_ptr<string> userId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<TBAccountUnbindHeaders> headers = make_shared<TBAccountUnbindHeaders>();
+  return tBAccountUnbindWithOptions(userId, headers, runtime);
+}
+
 TicketChangingApplyResponse Alibabacloud_BtripOpen20220520::Client::ticketChangingApplyWithOptions(shared_ptr<TicketChangingApplyRequest> tmpReq, shared_ptr<TicketChangingApplyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<TicketChangingApplyShrinkRequest> request = make_shared<TicketChangingApplyShrinkRequest>();
