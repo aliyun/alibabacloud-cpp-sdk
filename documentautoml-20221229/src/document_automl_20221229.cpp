@@ -119,6 +119,9 @@ PredictClassifierModelResponse Alibabacloud_DocumentAutoml20221229::Client::pred
   if (!Darabonba_Util::Client::isUnset<bool>(request->autoPrediction)) {
     query->insert(pair<string, bool>("AutoPrediction", *request->autoPrediction));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->binaryToText)) {
+    query->insert(pair<string, bool>("BinaryToText", *request->binaryToText));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->classifierId)) {
     query->insert(pair<string, long>("ClassifierId", *request->classifierId));
   }

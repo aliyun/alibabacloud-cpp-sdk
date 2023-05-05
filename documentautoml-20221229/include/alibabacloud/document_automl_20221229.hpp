@@ -341,6 +341,7 @@ public:
 class PredictClassifierModelRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPrediction{};
+  shared_ptr<bool> binaryToText{};
   shared_ptr<string> body{};
   shared_ptr<long> classifierId{};
   shared_ptr<string> content{};
@@ -358,6 +359,9 @@ public:
     if (autoPrediction) {
       res["AutoPrediction"] = boost::any(*autoPrediction);
     }
+    if (binaryToText) {
+      res["BinaryToText"] = boost::any(*binaryToText);
+    }
     if (body) {
       res["Body"] = boost::any(*body);
     }
@@ -373,6 +377,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoPrediction") != m.end() && !m["AutoPrediction"].empty()) {
       autoPrediction = make_shared<bool>(boost::any_cast<bool>(m["AutoPrediction"]));
+    }
+    if (m.find("BinaryToText") != m.end() && !m["BinaryToText"].empty()) {
+      binaryToText = make_shared<bool>(boost::any_cast<bool>(m["BinaryToText"]));
     }
     if (m.find("Body") != m.end() && !m["Body"].empty()) {
       body = make_shared<string>(boost::any_cast<string>(m["Body"]));
