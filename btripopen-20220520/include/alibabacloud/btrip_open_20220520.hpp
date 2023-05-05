@@ -648,6 +648,7 @@ public:
   shared_ptr<string> itineraryId{};
   shared_ptr<string> phone{};
   shared_ptr<string> subCorpId{};
+  shared_ptr<string> taobaoCallbackUrl{};
   shared_ptr<long> type{};
   shared_ptr<string> userId{};
 
@@ -676,6 +677,9 @@ public:
     if (subCorpId) {
       res["sub_corp_id"] = boost::any(*subCorpId);
     }
+    if (taobaoCallbackUrl) {
+      res["taobao_callback_url"] = boost::any(*taobaoCallbackUrl);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -700,6 +704,9 @@ public:
     }
     if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
       subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
+    }
+    if (m.find("taobao_callback_url") != m.end() && !m["taobao_callback_url"].empty()) {
+      taobaoCallbackUrl = make_shared<string>(boost::any_cast<string>(m["taobao_callback_url"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["type"]));
@@ -8400,6 +8407,7 @@ public:
 class CarBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrCity{};
   shared_ptr<string> arrDate{};
@@ -8469,6 +8477,9 @@ public:
     map<string, boost::any> res;
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
@@ -8644,6 +8655,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
@@ -16291,6 +16305,7 @@ public:
   shared_ptr<string> airlineCorpCode{};
   shared_ptr<string> airlineCorpName{};
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrAirportCode{};
   shared_ptr<string> arrCity{};
@@ -16380,6 +16395,9 @@ public:
     }
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
@@ -16597,6 +16615,9 @@ public:
     }
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
@@ -36332,6 +36353,7 @@ public:
 class HotelBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> billRecordTime{};
   shared_ptr<string> bookTime{};
@@ -36397,6 +36419,9 @@ public:
     map<string, boost::any> res;
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
@@ -36560,6 +36585,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
@@ -46323,6 +46351,7 @@ public:
   shared_ptr<string> airlineCorpCode{};
   shared_ptr<string> airlineCorpName{};
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrAirportCode{};
   shared_ptr<string> arrCity{};
@@ -46413,6 +46442,9 @@ public:
     }
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
@@ -46633,6 +46665,9 @@ public:
     }
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
@@ -57501,6 +57536,7 @@ public:
 class TrainBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrDate{};
   shared_ptr<string> arrStation{};
@@ -57562,6 +57598,9 @@ public:
     map<string, boost::any> res;
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyExtendField) {
+      res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
@@ -57713,6 +57752,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
+      applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
