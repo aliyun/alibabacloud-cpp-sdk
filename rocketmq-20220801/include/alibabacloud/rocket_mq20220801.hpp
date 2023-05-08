@@ -1958,7 +1958,7 @@ class GetInstanceResponseBodyDataNetworkInfoEndpoints : public Darabonba::Model 
 public:
   shared_ptr<string> endpointType{};
   shared_ptr<string> endpointUrl{};
-  shared_ptr<string> ipWhitelist{};
+  shared_ptr<vector<string>> ipWhitelist{};
 
   GetInstanceResponseBodyDataNetworkInfoEndpoints() {}
 
@@ -1990,7 +1990,14 @@ public:
       endpointUrl = make_shared<string>(boost::any_cast<string>(m["endpointUrl"]));
     }
     if (m.find("ipWhitelist") != m.end() && !m["ipWhitelist"].empty()) {
-      ipWhitelist = make_shared<string>(boost::any_cast<string>(m["ipWhitelist"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ipWhitelist"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ipWhitelist"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ipWhitelist = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -2212,6 +2219,49 @@ public:
 
   virtual ~GetInstanceResponseBodyDataProductInfo() = default;
 };
+class GetInstanceResponseBodyDataSoftware : public Darabonba::Model {
+public:
+  shared_ptr<string> maintainTime{};
+  shared_ptr<string> softwareVersion{};
+  shared_ptr<string> upgradeMethod{};
+
+  GetInstanceResponseBodyDataSoftware() {}
+
+  explicit GetInstanceResponseBodyDataSoftware(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maintainTime) {
+      res["maintainTime"] = boost::any(*maintainTime);
+    }
+    if (softwareVersion) {
+      res["softwareVersion"] = boost::any(*softwareVersion);
+    }
+    if (upgradeMethod) {
+      res["upgradeMethod"] = boost::any(*upgradeMethod);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("maintainTime") != m.end() && !m["maintainTime"].empty()) {
+      maintainTime = make_shared<string>(boost::any_cast<string>(m["maintainTime"]));
+    }
+    if (m.find("softwareVersion") != m.end() && !m["softwareVersion"].empty()) {
+      softwareVersion = make_shared<string>(boost::any_cast<string>(m["softwareVersion"]));
+    }
+    if (m.find("upgradeMethod") != m.end() && !m["upgradeMethod"].empty()) {
+      upgradeMethod = make_shared<string>(boost::any_cast<string>(m["upgradeMethod"]));
+    }
+  }
+
+
+  virtual ~GetInstanceResponseBodyDataSoftware() = default;
+};
 class GetInstanceResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<GetInstanceResponseBodyDataAccountInfo> accountInfo{};
@@ -2221,6 +2271,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> expireTime{};
   shared_ptr<GetInstanceResponseBodyDataExtConfig> extConfig{};
+  shared_ptr<long> groupCount{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<vector<GetInstanceResponseBodyDataInstanceQuotas>> instanceQuotas{};
@@ -2233,9 +2284,11 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> seriesCode{};
   shared_ptr<string> serviceCode{};
+  shared_ptr<GetInstanceResponseBodyDataSoftware> software{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> subSeriesCode{};
+  shared_ptr<long> topicCount{};
   shared_ptr<string> updateTime{};
   shared_ptr<string> userId{};
 
@@ -2269,6 +2322,9 @@ public:
     }
     if (extConfig) {
       res["extConfig"] = extConfig ? boost::any(extConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (groupCount) {
+      res["groupCount"] = boost::any(*groupCount);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -2310,6 +2366,9 @@ public:
     if (serviceCode) {
       res["serviceCode"] = boost::any(*serviceCode);
     }
+    if (software) {
+      res["software"] = software ? boost::any(software->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (startTime) {
       res["startTime"] = boost::any(*startTime);
     }
@@ -2318,6 +2377,9 @@ public:
     }
     if (subSeriesCode) {
       res["subSeriesCode"] = boost::any(*subSeriesCode);
+    }
+    if (topicCount) {
+      res["topicCount"] = boost::any(*topicCount);
     }
     if (updateTime) {
       res["updateTime"] = boost::any(*updateTime);
@@ -2361,6 +2423,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["extConfig"]));
         extConfig = make_shared<GetInstanceResponseBodyDataExtConfig>(model1);
       }
+    }
+    if (m.find("groupCount") != m.end() && !m["groupCount"].empty()) {
+      groupCount = make_shared<long>(boost::any_cast<long>(m["groupCount"]));
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -2416,6 +2481,13 @@ public:
     if (m.find("serviceCode") != m.end() && !m["serviceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["serviceCode"]));
     }
+    if (m.find("software") != m.end() && !m["software"].empty()) {
+      if (typeid(map<string, boost::any>) == m["software"].type()) {
+        GetInstanceResponseBodyDataSoftware model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["software"]));
+        software = make_shared<GetInstanceResponseBodyDataSoftware>(model1);
+      }
+    }
     if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["startTime"]));
     }
@@ -2424,6 +2496,9 @@ public:
     }
     if (m.find("subSeriesCode") != m.end() && !m["subSeriesCode"].empty()) {
       subSeriesCode = make_shared<string>(boost::any_cast<string>(m["subSeriesCode"]));
+    }
+    if (m.find("topicCount") != m.end() && !m["topicCount"].empty()) {
+      topicCount = make_shared<long>(boost::any_cast<long>(m["topicCount"]));
     }
     if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["updateTime"]));
