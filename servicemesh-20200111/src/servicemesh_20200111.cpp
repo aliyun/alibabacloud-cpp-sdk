@@ -238,7 +238,7 @@ CreateIstioGatewayRoutesResponse Alibabacloud_Servicemesh20200111::Client::creat
   shared_ptr<CreateIstioGatewayRoutesShrinkRequest> request = make_shared<CreateIstioGatewayRoutesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<CreateIstioGatewayRoutesRequestGatewayRoute>(tmpReq->gatewayRoute)) {
-    request->gatewayRouteShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->gatewayRoute->toMap()), make_shared<string>("GatewayRoute"), make_shared<string>("json")));
+    request->gatewayRouteShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->gatewayRoute, make_shared<string>("GatewayRoute"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
@@ -394,9 +394,6 @@ CreateServiceMeshResponse Alibabacloud_Servicemesh20200111::Client::createServic
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->gatewayAPIEnabled)) {
     body->insert(pair<string, bool>("GatewayAPIEnabled", *request->gatewayAPIEnabled));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->globalRateLimitEnabled)) {
-    body->insert(pair<string, bool>("GlobalRateLimitEnabled", *request->globalRateLimitEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeIPRanges)) {
     body->insert(pair<string, string>("IncludeIPRanges", *request->includeIPRanges));
@@ -847,34 +844,6 @@ DescribeASMGatewayImportedServicesResponse Alibabacloud_Servicemesh20200111::Cli
 DescribeASMGatewayImportedServicesResponse Alibabacloud_Servicemesh20200111::Client::describeASMGatewayImportedServices(shared_ptr<DescribeASMGatewayImportedServicesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeASMGatewayImportedServicesWithOptions(request, runtime);
-}
-
-DescribeAhasProResponse Alibabacloud_Servicemesh20200111::Client::describeAhasProWithOptions(shared_ptr<DescribeAhasProRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    body->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeAhasPro"))},
-    {"version", boost::any(string("2020-01-11"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeAhasProResponse(callApi(params, req, runtime));
-}
-
-DescribeAhasProResponse Alibabacloud_Servicemesh20200111::Client::describeAhasPro(shared_ptr<DescribeAhasProRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeAhasProWithOptions(request, runtime);
 }
 
 DescribeCCMVersionResponse Alibabacloud_Servicemesh20200111::Client::describeCCMVersionWithOptions(shared_ptr<DescribeCCMVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2600,7 +2569,7 @@ UpdateIstioGatewayRoutesResponse Alibabacloud_Servicemesh20200111::Client::updat
   shared_ptr<UpdateIstioGatewayRoutesShrinkRequest> request = make_shared<UpdateIstioGatewayRoutesShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
   if (!Darabonba_Util::Client::isUnset<UpdateIstioGatewayRoutesRequestGatewayRoute>(tmpReq->gatewayRoute)) {
-    request->gatewayRouteShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(make_shared<map<string, boost::any>>(tmpReq->gatewayRoute->toMap()), make_shared<string>("GatewayRoute"), make_shared<string>("json")));
+    request->gatewayRouteShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->gatewayRoute, make_shared<string>("GatewayRoute"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
@@ -2837,6 +2806,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<bool>(request->DNSProxyingEnabled)) {
     body->insert(pair<string, bool>("DNSProxyingEnabled", *request->DNSProxyingEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultComponentsScheduleConfig)) {
+    body->insert(pair<string, string>("DefaultComponentsScheduleConfig", *request->defaultComponentsScheduleConfig));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->discoverySelectors)) {
     body->insert(pair<string, string>("DiscoverySelectors", *request->discoverySelectors));
   }
@@ -2848,6 +2820,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableAutoDiagnosis)) {
     body->insert(pair<string, bool>("EnableAutoDiagnosis", *request->enableAutoDiagnosis));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableBootstrapXdsAgent)) {
+    body->insert(pair<string, bool>("EnableBootstrapXdsAgent", *request->enableBootstrapXdsAgent));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableCRHistory)) {
     body->insert(pair<string, bool>("EnableCRHistory", *request->enableCRHistory));
@@ -2873,9 +2848,6 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   if (!Darabonba_Util::Client::isUnset<bool>(request->gatewayAPIEnabled)) {
     body->insert(pair<string, bool>("GatewayAPIEnabled", *request->gatewayAPIEnabled));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->globalRateLimitEnabled)) {
-    body->insert(pair<string, bool>("GlobalRateLimitEnabled", *request->globalRateLimitEnabled));
-  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->holdApplicationUntilProxyStarts)) {
     body->insert(pair<string, bool>("HoldApplicationUntilProxyStarts", *request->holdApplicationUntilProxyStarts));
   }
@@ -2896,6 +2868,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->interceptionMode)) {
     body->insert(pair<string, string>("InterceptionMode", *request->interceptionMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kialiArmsAuthTokens)) {
+    body->insert(pair<string, string>("KialiArmsAuthTokens", *request->kialiArmsAuthTokens));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->kialiEnabled)) {
     body->insert(pair<string, bool>("KialiEnabled", *request->kialiEnabled));
@@ -3126,6 +3101,18 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->preStop)) {
     body->insert(pair<string, string>("PreStop", *request->preStop));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitAckSloCPUResourceLimit)) {
+    body->insert(pair<string, string>("ProxyInitAckSloCPUResourceLimit", *request->proxyInitAckSloCPUResourceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitAckSloCPUResourceRequest)) {
+    body->insert(pair<string, string>("ProxyInitAckSloCPUResourceRequest", *request->proxyInitAckSloCPUResourceRequest));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitAckSloMemoryResourceLimit)) {
+    body->insert(pair<string, string>("ProxyInitAckSloMemoryResourceLimit", *request->proxyInitAckSloMemoryResourceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitAckSloMemoryResourceRequest)) {
+    body->insert(pair<string, string>("ProxyInitAckSloMemoryResourceRequest", *request->proxyInitAckSloMemoryResourceRequest));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitCPUResourceLimit)) {
     body->insert(pair<string, string>("ProxyInitCPUResourceLimit", *request->proxyInitCPUResourceLimit));
   }
@@ -3138,11 +3125,26 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitMemoryResourceRequest)) {
     body->insert(pair<string, string>("ProxyInitMemoryResourceRequest", *request->proxyInitMemoryResourceRequest));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyMetadata)) {
+    body->insert(pair<string, string>("ProxyMetadata", *request->proxyMetadata));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyStatsMatcher)) {
     body->insert(pair<string, string>("ProxyStatsMatcher", *request->proxyStatsMatcher));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarProxyAckSloCPUResourceLimit)) {
+    body->insert(pair<string, string>("SidecarProxyAckSloCPUResourceLimit", *request->sidecarProxyAckSloCPUResourceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarProxyAckSloCPUResourceRequest)) {
+    body->insert(pair<string, string>("SidecarProxyAckSloCPUResourceRequest", *request->sidecarProxyAckSloCPUResourceRequest));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarProxyAckSloMemoryResourceLimit)) {
+    body->insert(pair<string, string>("SidecarProxyAckSloMemoryResourceLimit", *request->sidecarProxyAckSloMemoryResourceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sidecarProxyAckSloMemoryResourceRequest)) {
+    body->insert(pair<string, string>("SidecarProxyAckSloMemoryResourceRequest", *request->sidecarProxyAckSloMemoryResourceRequest));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sidecarProxyCPUResourceLimit)) {
     body->insert(pair<string, string>("SidecarProxyCPUResourceLimit", *request->sidecarProxyCPUResourceLimit));

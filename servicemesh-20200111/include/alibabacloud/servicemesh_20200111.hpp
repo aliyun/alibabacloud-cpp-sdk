@@ -2202,7 +2202,6 @@ public:
   shared_ptr<string> existingRootCaKey{};
   shared_ptr<bool> filterGatewayClusterConfig{};
   shared_ptr<bool> gatewayAPIEnabled{};
-  shared_ptr<bool> globalRateLimitEnabled{};
   shared_ptr<string> includeIPRanges{};
   shared_ptr<string> istioVersion{};
   shared_ptr<bool> kialiEnabled{};
@@ -2358,9 +2357,6 @@ public:
     }
     if (gatewayAPIEnabled) {
       res["GatewayAPIEnabled"] = boost::any(*gatewayAPIEnabled);
-    }
-    if (globalRateLimitEnabled) {
-      res["GlobalRateLimitEnabled"] = boost::any(*globalRateLimitEnabled);
     }
     if (includeIPRanges) {
       res["IncludeIPRanges"] = boost::any(*includeIPRanges);
@@ -2578,9 +2574,6 @@ public:
     }
     if (m.find("GatewayAPIEnabled") != m.end() && !m["GatewayAPIEnabled"].empty()) {
       gatewayAPIEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayAPIEnabled"]));
-    }
-    if (m.find("GlobalRateLimitEnabled") != m.end() && !m["GlobalRateLimitEnabled"].empty()) {
-      globalRateLimitEnabled = make_shared<bool>(boost::any_cast<bool>(m["GlobalRateLimitEnabled"]));
     }
     if (m.find("IncludeIPRanges") != m.end() && !m["IncludeIPRanges"].empty()) {
       includeIPRanges = make_shared<string>(boost::any_cast<string>(m["IncludeIPRanges"]));
@@ -4119,133 +4112,6 @@ public:
 
 
   virtual ~DescribeASMGatewayImportedServicesResponse() = default;
-};
-class DescribeAhasProRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> regionId{};
-
-  DescribeAhasProRequest() {}
-
-  explicit DescribeAhasProRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-  }
-
-
-  virtual ~DescribeAhasProRequest() = default;
-};
-class DescribeAhasProResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> status{};
-
-  DescribeAhasProResponseBody() {}
-
-  explicit DescribeAhasProResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<bool>(boost::any_cast<bool>(m["Status"]));
-    }
-  }
-
-
-  virtual ~DescribeAhasProResponseBody() = default;
-};
-class DescribeAhasProResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<DescribeAhasProResponseBody> body{};
-
-  DescribeAhasProResponse() {}
-
-  explicit DescribeAhasProResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeAhasProResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeAhasProResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeAhasProResponse() = default;
 };
 class DescribeCCMVersionRequest : public Darabonba::Model {
 public:
@@ -8955,6 +8821,98 @@ public:
 
   virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher() = default;
 };
+class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> limits{};
+  shared_ptr<map<string, string>> requests{};
+
+  DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource() {}
+
+  explicit DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limits) {
+      res["Limits"] = boost::any(*limits);
+    }
+    if (requests) {
+      res["Requests"] = boost::any(*requests);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Limits") != m.end() && !m["Limits"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Limits"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      limits = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Requests") != m.end() && !m["Requests"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Requests"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      requests = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource() = default;
+};
+class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> limits{};
+  shared_ptr<map<string, string>> requests{};
+
+  DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource() {}
+
+  explicit DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limits) {
+      res["Limits"] = boost::any(*limits);
+    }
+    if (requests) {
+      res["Requests"] = boost::any(*requests);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Limits") != m.end() && !m["Limits"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Limits"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      limits = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Requests") != m.end() && !m["Requests"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["Requests"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      requests = make_shared<map<string, string>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource() = default;
+};
 class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit : public Darabonba::Model {
 public:
   shared_ptr<string> resourceCPULimit{};
@@ -9161,7 +9119,10 @@ public:
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycleStr{};
   shared_ptr<string> logLevel{};
+  shared_ptr<map<string, string>> proxyMetadata{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher> proxyStatsMatcher{};
+  shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource> sidecarProxyAckSloResource{};
+  shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource> sidecarProxyInitAckSloResource{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit> sidecarProxyInitResourceLimit{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceRequest> sidecarProxyInitResourceRequest{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyResourceLimit> sidecarProxyResourceLimit{};
@@ -9215,8 +9176,17 @@ public:
     if (logLevel) {
       res["LogLevel"] = boost::any(*logLevel);
     }
+    if (proxyMetadata) {
+      res["ProxyMetadata"] = boost::any(*proxyMetadata);
+    }
     if (proxyStatsMatcher) {
       res["ProxyStatsMatcher"] = proxyStatsMatcher ? boost::any(proxyStatsMatcher->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sidecarProxyAckSloResource) {
+      res["SidecarProxyAckSloResource"] = sidecarProxyAckSloResource ? boost::any(sidecarProxyAckSloResource->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (sidecarProxyInitAckSloResource) {
+      res["SidecarProxyInitAckSloResource"] = sidecarProxyInitAckSloResource ? boost::any(sidecarProxyInitAckSloResource->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sidecarProxyInitResourceLimit) {
       res["SidecarProxyInitResourceLimit"] = sidecarProxyInitResourceLimit ? boost::any(sidecarProxyInitResourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9276,11 +9246,33 @@ public:
     if (m.find("LogLevel") != m.end() && !m["LogLevel"].empty()) {
       logLevel = make_shared<string>(boost::any_cast<string>(m["LogLevel"]));
     }
+    if (m.find("ProxyMetadata") != m.end() && !m["ProxyMetadata"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ProxyMetadata"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      proxyMetadata = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
       if (typeid(map<string, boost::any>) == m["ProxyStatsMatcher"].type()) {
         DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyStatsMatcher"]));
         proxyStatsMatcher = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher>(model1);
+      }
+    }
+    if (m.find("SidecarProxyAckSloResource") != m.end() && !m["SidecarProxyAckSloResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SidecarProxyAckSloResource"].type()) {
+        DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SidecarProxyAckSloResource"]));
+        sidecarProxyAckSloResource = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource>(model1);
+      }
+    }
+    if (m.find("SidecarProxyInitAckSloResource") != m.end() && !m["SidecarProxyInitAckSloResource"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SidecarProxyInitAckSloResource"].type()) {
+        DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SidecarProxyInitAckSloResource"]));
+        sidecarProxyInitAckSloResource = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource>(model1);
       }
     }
     if (m.find("SidecarProxyInitResourceLimit") != m.end() && !m["SidecarProxyInitResourceLimit"].empty()) {
@@ -10911,6 +10903,200 @@ public:
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf() = default;
 };
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu : public Darabonba::Model {
+public:
+  shared_ptr<long> targetAverageUtilization{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetAverageUtilization) {
+      res["TargetAverageUtilization"] = boost::any(*targetAverageUtilization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetAverageUtilization") != m.end() && !m["TargetAverageUtilization"].empty()) {
+      targetAverageUtilization = make_shared<long>(boost::any_cast<long>(m["TargetAverageUtilization"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu() = default;
+};
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory : public Darabonba::Model {
+public:
+  shared_ptr<long> targetAverageUtilization{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (targetAverageUtilization) {
+      res["TargetAverageUtilization"] = boost::any(*targetAverageUtilization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TargetAverageUtilization") != m.end() && !m["TargetAverageUtilization"].empty()) {
+      targetAverageUtilization = make_shared<long>(boost::any_cast<long>(m["TargetAverageUtilization"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory() = default;
+};
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> limits{};
+  shared_ptr<map<string, boost::any>> requests{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (limits) {
+      res["Limits"] = boost::any(*limits);
+    }
+    if (requests) {
+      res["Requests"] = boost::any(*requests);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Limits") != m.end() && !m["Limits"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Limits"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      limits = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Requests") != m.end() && !m["Requests"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Requests"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      requests = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources() = default;
+};
+class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration : public Darabonba::Model {
+public:
+  shared_ptr<bool> egressAutoscaleEnabled{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu> egressHpaCpu{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory> egressHpaMemory{};
+  shared_ptr<long> egressMaxReplica{};
+  shared_ptr<long> egressMinReplica{};
+  shared_ptr<long> egressReplicaCount{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources> egressResources{};
+  shared_ptr<bool> enabled{};
+
+  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration() {}
+
+  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (egressAutoscaleEnabled) {
+      res["EgressAutoscaleEnabled"] = boost::any(*egressAutoscaleEnabled);
+    }
+    if (egressHpaCpu) {
+      res["EgressHpaCpu"] = egressHpaCpu ? boost::any(egressHpaCpu->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (egressHpaMemory) {
+      res["EgressHpaMemory"] = egressHpaMemory ? boost::any(egressHpaMemory->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (egressMaxReplica) {
+      res["EgressMaxReplica"] = boost::any(*egressMaxReplica);
+    }
+    if (egressMinReplica) {
+      res["EgressMinReplica"] = boost::any(*egressMinReplica);
+    }
+    if (egressReplicaCount) {
+      res["EgressReplicaCount"] = boost::any(*egressReplicaCount);
+    }
+    if (egressResources) {
+      res["EgressResources"] = egressResources ? boost::any(egressResources->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EgressAutoscaleEnabled") != m.end() && !m["EgressAutoscaleEnabled"].empty()) {
+      egressAutoscaleEnabled = make_shared<bool>(boost::any_cast<bool>(m["EgressAutoscaleEnabled"]));
+    }
+    if (m.find("EgressHpaCpu") != m.end() && !m["EgressHpaCpu"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EgressHpaCpu"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EgressHpaCpu"]));
+        egressHpaCpu = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaCpu>(model1);
+      }
+    }
+    if (m.find("EgressHpaMemory") != m.end() && !m["EgressHpaMemory"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EgressHpaMemory"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EgressHpaMemory"]));
+        egressHpaMemory = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressHpaMemory>(model1);
+      }
+    }
+    if (m.find("EgressMaxReplica") != m.end() && !m["EgressMaxReplica"].empty()) {
+      egressMaxReplica = make_shared<long>(boost::any_cast<long>(m["EgressMaxReplica"]));
+    }
+    if (m.find("EgressMinReplica") != m.end() && !m["EgressMinReplica"].empty()) {
+      egressMinReplica = make_shared<long>(boost::any_cast<long>(m["EgressMinReplica"]));
+    }
+    if (m.find("EgressReplicaCount") != m.end() && !m["EgressReplicaCount"].empty()) {
+      egressReplicaCount = make_shared<long>(boost::any_cast<long>(m["EgressReplicaCount"]));
+    }
+    if (m.find("EgressResources") != m.end() && !m["EgressResources"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EgressResources"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EgressResources"]));
+        egressResources = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfigurationEgressResources>(model1);
+      }
+    }
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+  }
+
+
+  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration() = default;
+};
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAutoDiagnosis : public Darabonba::Model {
 public:
   shared_ptr<bool> autoDiagnosisEnabled{};
@@ -11597,35 +11783,6 @@ public:
 
   virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection() = default;
 };
-class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit : public Darabonba::Model {
-public:
-  shared_ptr<bool> enableGlobalRateLimit{};
-
-  DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit() {}
-
-  explicit DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (enableGlobalRateLimit) {
-      res["EnableGlobalRateLimit"] = boost::any(*enableGlobalRateLimit);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("EnableGlobalRateLimit") != m.end() && !m["EnableGlobalRateLimit"].empty()) {
-      enableGlobalRateLimit = make_shared<bool>(boost::any_cast<bool>(m["EnableGlobalRateLimit"]));
-    }
-  }
-
-
-  virtual ~DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit() = default;
-};
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationSidecarProxyInitResourceLimit : public Darabonba::Model {
 public:
   shared_ptr<string> resourceCPULimit{};
@@ -11701,6 +11858,7 @@ public:
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfiguration : public Darabonba::Model {
 public:
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf> accessLogExtraConf{};
+  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration> adaptiveXdsConfiguration{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAutoDiagnosis> autoDiagnosis{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationCRAggregationConfiguration> CRAggregationConfiguration{};
   shared_ptr<bool> CRAggregationEnabled{};
@@ -11710,7 +11868,6 @@ public:
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationMultiBuffer> multiBuffer{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationNFDConfiguration> NFDConfiguration{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection> OPAScopeInjection{};
-  shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit> rateLimit{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationSidecarProxyInitResourceLimit> sidecarProxyInitResourceLimit{};
   shared_ptr<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationSidecarProxyInitResourceRequest> sidecarProxyInitResourceRequest{};
   shared_ptr<string> terminationDrainDuration{};
@@ -11727,6 +11884,9 @@ public:
     map<string, boost::any> res;
     if (accessLogExtraConf) {
       res["AccessLogExtraConf"] = accessLogExtraConf ? boost::any(accessLogExtraConf->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (adaptiveXdsConfiguration) {
+      res["AdaptiveXdsConfiguration"] = adaptiveXdsConfiguration ? boost::any(adaptiveXdsConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (autoDiagnosis) {
       res["AutoDiagnosis"] = autoDiagnosis ? boost::any(autoDiagnosis->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11755,9 +11915,6 @@ public:
     if (OPAScopeInjection) {
       res["OPAScopeInjection"] = OPAScopeInjection ? boost::any(OPAScopeInjection->toMap()) : boost::any(map<string,boost::any>({}));
     }
-    if (rateLimit) {
-      res["RateLimit"] = rateLimit ? boost::any(rateLimit->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (sidecarProxyInitResourceLimit) {
       res["SidecarProxyInitResourceLimit"] = sidecarProxyInitResourceLimit ? boost::any(sidecarProxyInitResourceLimit->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -11776,6 +11933,13 @@ public:
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AccessLogExtraConf"]));
         accessLogExtraConf = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf>(model1);
+      }
+    }
+    if (m.find("AdaptiveXdsConfiguration") != m.end() && !m["AdaptiveXdsConfiguration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdaptiveXdsConfiguration"].type()) {
+        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdaptiveXdsConfiguration"]));
+        adaptiveXdsConfiguration = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAdaptiveXdsConfiguration>(model1);
       }
     }
     if (m.find("AutoDiagnosis") != m.end() && !m["AutoDiagnosis"].empty()) {
@@ -11843,13 +12007,6 @@ public:
         DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OPAScopeInjection"]));
         OPAScopeInjection = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationOPAScopeInjection>(model1);
-      }
-    }
-    if (m.find("RateLimit") != m.end() && !m["RateLimit"].empty()) {
-      if (typeid(map<string, boost::any>) == m["RateLimit"].type()) {
-        DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RateLimit"]));
-        rateLimit = make_shared<DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationRateLimit>(model1);
       }
     }
     if (m.find("SidecarProxyInitResourceLimit") != m.end() && !m["SidecarProxyInitResourceLimit"].empty()) {
@@ -15563,6 +15720,7 @@ public:
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vSwitchName{};
   shared_ptr<string> vpcId{};
+  shared_ptr<string> zoneId{};
 
   DescribeVSwitchesResponseBodyVSwitches() {}
 
@@ -15589,6 +15747,9 @@ public:
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     return res;
   }
 
@@ -15607,6 +15768,9 @@ public:
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 
@@ -21077,10 +21241,12 @@ public:
   shared_ptr<bool> customizedPrometheus{};
   shared_ptr<bool> customizedZipkin{};
   shared_ptr<bool> DNSProxyingEnabled{};
+  shared_ptr<string> defaultComponentsScheduleConfig{};
   shared_ptr<string> discoverySelectors{};
   shared_ptr<bool> dubboFilterEnabled{};
   shared_ptr<bool> enableAudit{};
   shared_ptr<bool> enableAutoDiagnosis{};
+  shared_ptr<bool> enableBootstrapXdsAgent{};
   shared_ptr<bool> enableCRHistory{};
   shared_ptr<bool> enableNamespacesByDefault{};
   shared_ptr<bool> enableSDSServer{};
@@ -21089,7 +21255,6 @@ public:
   shared_ptr<string> excludeOutboundPorts{};
   shared_ptr<bool> filterGatewayClusterConfig{};
   shared_ptr<bool> gatewayAPIEnabled{};
-  shared_ptr<bool> globalRateLimitEnabled{};
   shared_ptr<bool> holdApplicationUntilProxyStarts{};
   shared_ptr<bool> http10Enabled{};
   shared_ptr<string> includeIPRanges{};
@@ -21097,6 +21262,7 @@ public:
   shared_ptr<string> includeOutboundPorts{};
   shared_ptr<bool> integrateKiali{};
   shared_ptr<string> interceptionMode{};
+  shared_ptr<string> kialiArmsAuthTokens{};
   shared_ptr<bool> kialiEnabled{};
   shared_ptr<string> lifecycle{};
   shared_ptr<string> localityLBConf{};
@@ -21224,6 +21390,9 @@ public:
     if (DNSProxyingEnabled) {
       res["DNSProxyingEnabled"] = boost::any(*DNSProxyingEnabled);
     }
+    if (defaultComponentsScheduleConfig) {
+      res["DefaultComponentsScheduleConfig"] = boost::any(*defaultComponentsScheduleConfig);
+    }
     if (discoverySelectors) {
       res["DiscoverySelectors"] = boost::any(*discoverySelectors);
     }
@@ -21235,6 +21404,9 @@ public:
     }
     if (enableAutoDiagnosis) {
       res["EnableAutoDiagnosis"] = boost::any(*enableAutoDiagnosis);
+    }
+    if (enableBootstrapXdsAgent) {
+      res["EnableBootstrapXdsAgent"] = boost::any(*enableBootstrapXdsAgent);
     }
     if (enableCRHistory) {
       res["EnableCRHistory"] = boost::any(*enableCRHistory);
@@ -21260,9 +21432,6 @@ public:
     if (gatewayAPIEnabled) {
       res["GatewayAPIEnabled"] = boost::any(*gatewayAPIEnabled);
     }
-    if (globalRateLimitEnabled) {
-      res["GlobalRateLimitEnabled"] = boost::any(*globalRateLimitEnabled);
-    }
     if (holdApplicationUntilProxyStarts) {
       res["HoldApplicationUntilProxyStarts"] = boost::any(*holdApplicationUntilProxyStarts);
     }
@@ -21283,6 +21452,9 @@ public:
     }
     if (interceptionMode) {
       res["InterceptionMode"] = boost::any(*interceptionMode);
+    }
+    if (kialiArmsAuthTokens) {
+      res["KialiArmsAuthTokens"] = boost::any(*kialiArmsAuthTokens);
     }
     if (kialiEnabled) {
       res["KialiEnabled"] = boost::any(*kialiEnabled);
@@ -21510,6 +21682,9 @@ public:
     if (m.find("DNSProxyingEnabled") != m.end() && !m["DNSProxyingEnabled"].empty()) {
       DNSProxyingEnabled = make_shared<bool>(boost::any_cast<bool>(m["DNSProxyingEnabled"]));
     }
+    if (m.find("DefaultComponentsScheduleConfig") != m.end() && !m["DefaultComponentsScheduleConfig"].empty()) {
+      defaultComponentsScheduleConfig = make_shared<string>(boost::any_cast<string>(m["DefaultComponentsScheduleConfig"]));
+    }
     if (m.find("DiscoverySelectors") != m.end() && !m["DiscoverySelectors"].empty()) {
       discoverySelectors = make_shared<string>(boost::any_cast<string>(m["DiscoverySelectors"]));
     }
@@ -21521,6 +21696,9 @@ public:
     }
     if (m.find("EnableAutoDiagnosis") != m.end() && !m["EnableAutoDiagnosis"].empty()) {
       enableAutoDiagnosis = make_shared<bool>(boost::any_cast<bool>(m["EnableAutoDiagnosis"]));
+    }
+    if (m.find("EnableBootstrapXdsAgent") != m.end() && !m["EnableBootstrapXdsAgent"].empty()) {
+      enableBootstrapXdsAgent = make_shared<bool>(boost::any_cast<bool>(m["EnableBootstrapXdsAgent"]));
     }
     if (m.find("EnableCRHistory") != m.end() && !m["EnableCRHistory"].empty()) {
       enableCRHistory = make_shared<bool>(boost::any_cast<bool>(m["EnableCRHistory"]));
@@ -21546,9 +21724,6 @@ public:
     if (m.find("GatewayAPIEnabled") != m.end() && !m["GatewayAPIEnabled"].empty()) {
       gatewayAPIEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayAPIEnabled"]));
     }
-    if (m.find("GlobalRateLimitEnabled") != m.end() && !m["GlobalRateLimitEnabled"].empty()) {
-      globalRateLimitEnabled = make_shared<bool>(boost::any_cast<bool>(m["GlobalRateLimitEnabled"]));
-    }
     if (m.find("HoldApplicationUntilProxyStarts") != m.end() && !m["HoldApplicationUntilProxyStarts"].empty()) {
       holdApplicationUntilProxyStarts = make_shared<bool>(boost::any_cast<bool>(m["HoldApplicationUntilProxyStarts"]));
     }
@@ -21569,6 +21744,9 @@ public:
     }
     if (m.find("InterceptionMode") != m.end() && !m["InterceptionMode"].empty()) {
       interceptionMode = make_shared<string>(boost::any_cast<string>(m["InterceptionMode"]));
+    }
+    if (m.find("KialiArmsAuthTokens") != m.end() && !m["KialiArmsAuthTokens"].empty()) {
+      kialiArmsAuthTokens = make_shared<string>(boost::any_cast<string>(m["KialiArmsAuthTokens"]));
     }
     if (m.find("KialiEnabled") != m.end() && !m["KialiEnabled"].empty()) {
       kialiEnabled = make_shared<bool>(boost::any_cast<bool>(m["KialiEnabled"]));
@@ -21842,12 +22020,21 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> postStart{};
   shared_ptr<string> preStop{};
+  shared_ptr<string> proxyInitAckSloCPUResourceLimit{};
+  shared_ptr<string> proxyInitAckSloCPUResourceRequest{};
+  shared_ptr<string> proxyInitAckSloMemoryResourceLimit{};
+  shared_ptr<string> proxyInitAckSloMemoryResourceRequest{};
   shared_ptr<string> proxyInitCPUResourceLimit{};
   shared_ptr<string> proxyInitCPUResourceRequest{};
   shared_ptr<string> proxyInitMemoryResourceLimit{};
   shared_ptr<string> proxyInitMemoryResourceRequest{};
+  shared_ptr<string> proxyMetadata{};
   shared_ptr<string> proxyStatsMatcher{};
   shared_ptr<string> serviceMeshId{};
+  shared_ptr<string> sidecarProxyAckSloCPUResourceLimit{};
+  shared_ptr<string> sidecarProxyAckSloCPUResourceRequest{};
+  shared_ptr<string> sidecarProxyAckSloMemoryResourceLimit{};
+  shared_ptr<string> sidecarProxyAckSloMemoryResourceRequest{};
   shared_ptr<string> sidecarProxyCPUResourceLimit{};
   shared_ptr<string> sidecarProxyCPUResourceRequest{};
   shared_ptr<string> sidecarProxyMemoryResourceLimit{};
@@ -21910,6 +22097,18 @@ public:
     if (preStop) {
       res["PreStop"] = boost::any(*preStop);
     }
+    if (proxyInitAckSloCPUResourceLimit) {
+      res["ProxyInitAckSloCPUResourceLimit"] = boost::any(*proxyInitAckSloCPUResourceLimit);
+    }
+    if (proxyInitAckSloCPUResourceRequest) {
+      res["ProxyInitAckSloCPUResourceRequest"] = boost::any(*proxyInitAckSloCPUResourceRequest);
+    }
+    if (proxyInitAckSloMemoryResourceLimit) {
+      res["ProxyInitAckSloMemoryResourceLimit"] = boost::any(*proxyInitAckSloMemoryResourceLimit);
+    }
+    if (proxyInitAckSloMemoryResourceRequest) {
+      res["ProxyInitAckSloMemoryResourceRequest"] = boost::any(*proxyInitAckSloMemoryResourceRequest);
+    }
     if (proxyInitCPUResourceLimit) {
       res["ProxyInitCPUResourceLimit"] = boost::any(*proxyInitCPUResourceLimit);
     }
@@ -21922,11 +22121,26 @@ public:
     if (proxyInitMemoryResourceRequest) {
       res["ProxyInitMemoryResourceRequest"] = boost::any(*proxyInitMemoryResourceRequest);
     }
+    if (proxyMetadata) {
+      res["ProxyMetadata"] = boost::any(*proxyMetadata);
+    }
     if (proxyStatsMatcher) {
       res["ProxyStatsMatcher"] = boost::any(*proxyStatsMatcher);
     }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    if (sidecarProxyAckSloCPUResourceLimit) {
+      res["SidecarProxyAckSloCPUResourceLimit"] = boost::any(*sidecarProxyAckSloCPUResourceLimit);
+    }
+    if (sidecarProxyAckSloCPUResourceRequest) {
+      res["SidecarProxyAckSloCPUResourceRequest"] = boost::any(*sidecarProxyAckSloCPUResourceRequest);
+    }
+    if (sidecarProxyAckSloMemoryResourceLimit) {
+      res["SidecarProxyAckSloMemoryResourceLimit"] = boost::any(*sidecarProxyAckSloMemoryResourceLimit);
+    }
+    if (sidecarProxyAckSloMemoryResourceRequest) {
+      res["SidecarProxyAckSloMemoryResourceRequest"] = boost::any(*sidecarProxyAckSloMemoryResourceRequest);
     }
     if (sidecarProxyCPUResourceLimit) {
       res["SidecarProxyCPUResourceLimit"] = boost::any(*sidecarProxyCPUResourceLimit);
@@ -21995,6 +22209,18 @@ public:
     if (m.find("PreStop") != m.end() && !m["PreStop"].empty()) {
       preStop = make_shared<string>(boost::any_cast<string>(m["PreStop"]));
     }
+    if (m.find("ProxyInitAckSloCPUResourceLimit") != m.end() && !m["ProxyInitAckSloCPUResourceLimit"].empty()) {
+      proxyInitAckSloCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["ProxyInitAckSloCPUResourceLimit"]));
+    }
+    if (m.find("ProxyInitAckSloCPUResourceRequest") != m.end() && !m["ProxyInitAckSloCPUResourceRequest"].empty()) {
+      proxyInitAckSloCPUResourceRequest = make_shared<string>(boost::any_cast<string>(m["ProxyInitAckSloCPUResourceRequest"]));
+    }
+    if (m.find("ProxyInitAckSloMemoryResourceLimit") != m.end() && !m["ProxyInitAckSloMemoryResourceLimit"].empty()) {
+      proxyInitAckSloMemoryResourceLimit = make_shared<string>(boost::any_cast<string>(m["ProxyInitAckSloMemoryResourceLimit"]));
+    }
+    if (m.find("ProxyInitAckSloMemoryResourceRequest") != m.end() && !m["ProxyInitAckSloMemoryResourceRequest"].empty()) {
+      proxyInitAckSloMemoryResourceRequest = make_shared<string>(boost::any_cast<string>(m["ProxyInitAckSloMemoryResourceRequest"]));
+    }
     if (m.find("ProxyInitCPUResourceLimit") != m.end() && !m["ProxyInitCPUResourceLimit"].empty()) {
       proxyInitCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["ProxyInitCPUResourceLimit"]));
     }
@@ -22007,11 +22233,26 @@ public:
     if (m.find("ProxyInitMemoryResourceRequest") != m.end() && !m["ProxyInitMemoryResourceRequest"].empty()) {
       proxyInitMemoryResourceRequest = make_shared<string>(boost::any_cast<string>(m["ProxyInitMemoryResourceRequest"]));
     }
+    if (m.find("ProxyMetadata") != m.end() && !m["ProxyMetadata"].empty()) {
+      proxyMetadata = make_shared<string>(boost::any_cast<string>(m["ProxyMetadata"]));
+    }
     if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
       proxyStatsMatcher = make_shared<string>(boost::any_cast<string>(m["ProxyStatsMatcher"]));
     }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+    if (m.find("SidecarProxyAckSloCPUResourceLimit") != m.end() && !m["SidecarProxyAckSloCPUResourceLimit"].empty()) {
+      sidecarProxyAckSloCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["SidecarProxyAckSloCPUResourceLimit"]));
+    }
+    if (m.find("SidecarProxyAckSloCPUResourceRequest") != m.end() && !m["SidecarProxyAckSloCPUResourceRequest"].empty()) {
+      sidecarProxyAckSloCPUResourceRequest = make_shared<string>(boost::any_cast<string>(m["SidecarProxyAckSloCPUResourceRequest"]));
+    }
+    if (m.find("SidecarProxyAckSloMemoryResourceLimit") != m.end() && !m["SidecarProxyAckSloMemoryResourceLimit"].empty()) {
+      sidecarProxyAckSloMemoryResourceLimit = make_shared<string>(boost::any_cast<string>(m["SidecarProxyAckSloMemoryResourceLimit"]));
+    }
+    if (m.find("SidecarProxyAckSloMemoryResourceRequest") != m.end() && !m["SidecarProxyAckSloMemoryResourceRequest"].empty()) {
+      sidecarProxyAckSloMemoryResourceRequest = make_shared<string>(boost::any_cast<string>(m["SidecarProxyAckSloMemoryResourceRequest"]));
     }
     if (m.find("SidecarProxyCPUResourceLimit") != m.end() && !m["SidecarProxyCPUResourceLimit"].empty()) {
       sidecarProxyCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["SidecarProxyCPUResourceLimit"]));
@@ -22726,8 +22967,6 @@ public:
   DeleteSwimLaneGroupResponse deleteSwimLaneGroup(shared_ptr<DeleteSwimLaneGroupRequest> request);
   DescribeASMGatewayImportedServicesResponse describeASMGatewayImportedServicesWithOptions(shared_ptr<DescribeASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeASMGatewayImportedServicesResponse describeASMGatewayImportedServices(shared_ptr<DescribeASMGatewayImportedServicesRequest> request);
-  DescribeAhasProResponse describeAhasProWithOptions(shared_ptr<DescribeAhasProRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeAhasProResponse describeAhasPro(shared_ptr<DescribeAhasProRequest> request);
   DescribeCCMVersionResponse describeCCMVersionWithOptions(shared_ptr<DescribeCCMVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeCCMVersionResponse describeCCMVersion(shared_ptr<DescribeCCMVersionRequest> request);
   DescribeCensResponse describeCensWithOptions(shared_ptr<DescribeCensRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
