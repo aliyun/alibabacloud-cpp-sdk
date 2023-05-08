@@ -35937,7 +35937,9 @@ public:
 class GroupUserSaveRequestSubCorpIdList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> departIds{};
+  shared_ptr<long> leaveStatus{};
   shared_ptr<string> managerUserId{};
+  shared_ptr<string> positionLevel{};
   shared_ptr<string> subCorpId{};
 
   GroupUserSaveRequestSubCorpIdList() {}
@@ -35953,8 +35955,14 @@ public:
     if (departIds) {
       res["depart_ids"] = boost::any(*departIds);
     }
+    if (leaveStatus) {
+      res["leave_status"] = boost::any(*leaveStatus);
+    }
     if (managerUserId) {
       res["manager_user_id"] = boost::any(*managerUserId);
+    }
+    if (positionLevel) {
+      res["position_level"] = boost::any(*positionLevel);
     }
     if (subCorpId) {
       res["sub_corp_id"] = boost::any(*subCorpId);
@@ -35973,8 +35981,14 @@ public:
       }
       departIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
+      leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
+    }
     if (m.find("manager_user_id") != m.end() && !m["manager_user_id"].empty()) {
       managerUserId = make_shared<string>(boost::any_cast<string>(m["manager_user_id"]));
+    }
+    if (m.find("position_level") != m.end() && !m["position_level"].empty()) {
+      positionLevel = make_shared<string>(boost::any_cast<string>(m["position_level"]));
     }
     if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
       subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
@@ -35987,7 +36001,6 @@ public:
 class GroupUserSaveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobNo{};
-  shared_ptr<long> leaveStatus{};
   shared_ptr<string> phone{};
   shared_ptr<string> realNameEn{};
   shared_ptr<vector<GroupUserSaveRequestSubCorpIdList>> subCorpIdList{};
@@ -36006,9 +36019,6 @@ public:
     map<string, boost::any> res;
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
-    }
-    if (leaveStatus) {
-      res["leave_status"] = boost::any(*leaveStatus);
     }
     if (phone) {
       res["phone"] = boost::any(*phone);
@@ -36035,9 +36045,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
-    }
-    if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
-      leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
@@ -36072,7 +36079,6 @@ public:
 class GroupUserSaveShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> jobNo{};
-  shared_ptr<long> leaveStatus{};
   shared_ptr<string> phone{};
   shared_ptr<string> realNameEn{};
   shared_ptr<string> subCorpIdListShrink{};
@@ -36091,9 +36097,6 @@ public:
     map<string, boost::any> res;
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
-    }
-    if (leaveStatus) {
-      res["leave_status"] = boost::any(*leaveStatus);
     }
     if (phone) {
       res["phone"] = boost::any(*phone);
@@ -36116,9 +36119,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
-    }
-    if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
-      leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));

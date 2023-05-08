@@ -2840,9 +2840,6 @@ GroupUserSaveResponse Alibabacloud_BtripOpen20220520::Client::groupUserSaveWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->jobNo)) {
     body->insert(pair<string, string>("job_no", *request->jobNo));
   }
-  if (!Darabonba_Util::Client::isUnset<long>(request->leaveStatus)) {
-    body->insert(pair<string, long>("leave_status", *request->leaveStatus));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
     body->insert(pair<string, string>("phone", *request->phone));
   }
