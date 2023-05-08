@@ -34802,6 +34802,42 @@ public:
 
   virtual ~ListMultiChannelRecordingsRequest() = default;
 };
+class ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<long> startTime{};
+
+  ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments() {}
+
+  explicit ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments() = default;
+};
 class ListMultiChannelRecordingsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> agentChannelId{};
@@ -34811,6 +34847,7 @@ public:
   shared_ptr<string> duration{};
   shared_ptr<string> fileName{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<vector<ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments>> holdTimeSegments{};
   shared_ptr<string> ramId{};
   shared_ptr<string> skillGroupId{};
   shared_ptr<long> startTime{};
@@ -34846,6 +34883,13 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (holdTimeSegments) {
+      vector<boost::any> temp1;
+      for(auto item1:*holdTimeSegments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HoldTimeSegments"] = boost::any(temp1);
+    }
     if (ramId) {
       res["RamId"] = boost::any(*ramId);
     }
@@ -34879,6 +34923,19 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("HoldTimeSegments") != m.end() && !m["HoldTimeSegments"].empty()) {
+      if (typeid(vector<boost::any>) == m["HoldTimeSegments"].type()) {
+        vector<ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HoldTimeSegments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        holdTimeSegments = make_shared<vector<ListMultiChannelRecordingsResponseBodyDataHoldTimeSegments>>(expect1);
+      }
     }
     if (m.find("RamId") != m.end() && !m["RamId"].empty()) {
       ramId = make_shared<string>(boost::any_cast<string>(m["RamId"]));
