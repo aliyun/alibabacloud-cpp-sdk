@@ -1331,6 +1331,9 @@ CreateMediaConvertTaskResponse Alibabacloud_Imm20200930::Client::createMediaConv
     request->targetsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->targets, make_shared<string>("Targets"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->alignmentIndex)) {
+    query->insert(pair<string, long>("AlignmentIndex", *request->alignmentIndex));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->credentialConfigShrink)) {
     query->insert(pair<string, string>("CredentialConfig", *request->credentialConfigShrink));
   }
@@ -3626,9 +3629,6 @@ LiveTranscodingResponse Alibabacloud_Imm20200930::Client::liveTranscodingWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceURI)) {
     query->insert(pair<string, string>("SourceURI", *request->sourceURI));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->token)) {
-    query->insert(pair<string, string>("Token", *request->token));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

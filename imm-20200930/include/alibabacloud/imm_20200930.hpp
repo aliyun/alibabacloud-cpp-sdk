@@ -12673,6 +12673,7 @@ public:
 };
 class CreateMediaConvertTaskRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> alignmentIndex{};
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<Notification> notification{};
   shared_ptr<string> projectName{};
@@ -12691,6 +12692,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alignmentIndex) {
+      res["AlignmentIndex"] = boost::any(*alignmentIndex);
+    }
     if (credentialConfig) {
       res["CredentialConfig"] = credentialConfig ? boost::any(credentialConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -12724,6 +12728,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlignmentIndex") != m.end() && !m["AlignmentIndex"].empty()) {
+      alignmentIndex = make_shared<long>(boost::any_cast<long>(m["AlignmentIndex"]));
+    }
     if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["CredentialConfig"].type()) {
         CredentialConfig model1;
@@ -12785,6 +12792,7 @@ public:
 };
 class CreateMediaConvertTaskShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> alignmentIndex{};
   shared_ptr<string> credentialConfigShrink{};
   shared_ptr<string> notificationShrink{};
   shared_ptr<string> projectName{};
@@ -12803,6 +12811,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alignmentIndex) {
+      res["AlignmentIndex"] = boost::any(*alignmentIndex);
+    }
     if (credentialConfigShrink) {
       res["CredentialConfig"] = boost::any(*credentialConfigShrink);
     }
@@ -12828,6 +12839,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlignmentIndex") != m.end() && !m["AlignmentIndex"].empty()) {
+      alignmentIndex = make_shared<long>(boost::any_cast<long>(m["AlignmentIndex"]));
+    }
     if (m.find("CredentialConfig") != m.end() && !m["CredentialConfig"].empty()) {
       credentialConfigShrink = make_shared<string>(boost::any_cast<string>(m["CredentialConfig"]));
     }
@@ -24230,7 +24244,6 @@ public:
   shared_ptr<CredentialConfig> credentialConfig{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sourceURI{};
-  shared_ptr<string> token{};
 
   LiveTranscodingRequest() {}
 
@@ -24251,9 +24264,6 @@ public:
     if (sourceURI) {
       res["SourceURI"] = boost::any(*sourceURI);
     }
-    if (token) {
-      res["Token"] = boost::any(*token);
-    }
     return res;
   }
 
@@ -24271,9 +24281,6 @@ public:
     if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
       sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
     }
-    if (m.find("Token") != m.end() && !m["Token"].empty()) {
-      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
-    }
   }
 
 
@@ -24284,7 +24291,6 @@ public:
   shared_ptr<string> credentialConfigShrink{};
   shared_ptr<string> projectName{};
   shared_ptr<string> sourceURI{};
-  shared_ptr<string> token{};
 
   LiveTranscodingShrinkRequest() {}
 
@@ -24305,9 +24311,6 @@ public:
     if (sourceURI) {
       res["SourceURI"] = boost::any(*sourceURI);
     }
-    if (token) {
-      res["Token"] = boost::any(*token);
-    }
     return res;
   }
 
@@ -24320,9 +24323,6 @@ public:
     }
     if (m.find("SourceURI") != m.end() && !m["SourceURI"].empty()) {
       sourceURI = make_shared<string>(boost::any_cast<string>(m["SourceURI"]));
-    }
-    if (m.find("Token") != m.end() && !m["Token"].empty()) {
-      token = make_shared<string>(boost::any_cast<string>(m["Token"]));
     }
   }
 
