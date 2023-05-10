@@ -188,6 +188,9 @@ DescribePhoneNumberOperatorAttributeResponse Alibabacloud_Dytnsapi20200217::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
+    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }

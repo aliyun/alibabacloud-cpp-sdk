@@ -710,6 +710,7 @@ public:
 class DescribePhoneNumberOperatorAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
+  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -728,6 +729,9 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
+    }
+    if (extendFunction) {
+      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -750,6 +754,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
+    }
+    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
+      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
