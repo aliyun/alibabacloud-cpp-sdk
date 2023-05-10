@@ -2225,6 +2225,7 @@ public:
 };
 class SendMessageRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> feedback{};
   shared_ptr<string> sessionId{};
   shared_ptr<long> tenantId{};
   shared_ptr<SendMessageRequestTextRequest> textRequest{};
@@ -2240,6 +2241,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (feedback) {
+      res["Feedback"] = boost::any(*feedback);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -2256,6 +2260,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Feedback") != m.end() && !m["Feedback"].empty()) {
+      feedback = make_shared<bool>(boost::any_cast<bool>(m["Feedback"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }
@@ -2283,6 +2290,7 @@ public:
 };
 class SendMessageShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> feedback{};
   shared_ptr<string> sessionId{};
   shared_ptr<long> tenantId{};
   shared_ptr<string> textRequestShrink{};
@@ -2298,6 +2306,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (feedback) {
+      res["Feedback"] = boost::any(*feedback);
+    }
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
@@ -2314,6 +2325,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Feedback") != m.end() && !m["Feedback"].empty()) {
+      feedback = make_shared<bool>(boost::any_cast<bool>(m["Feedback"]));
+    }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
     }

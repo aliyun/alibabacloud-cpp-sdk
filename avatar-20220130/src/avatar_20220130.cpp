@@ -316,6 +316,9 @@ SendMessageResponse Alibabacloud_Avatar20220130::Client::sendMessageWithOptions(
     request->VAMLRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->VAMLRequest, make_shared<string>("VAMLRequest"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->feedback)) {
+    query->insert(pair<string, bool>("Feedback", *request->feedback));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
