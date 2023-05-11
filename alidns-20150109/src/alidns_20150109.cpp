@@ -1989,11 +1989,17 @@ DescribeDnsProductInstanceResponse Alibabacloud_Alidns20150109::Client::describe
 DescribeDnsProductInstancesResponse Alibabacloud_Alidns20150109::Client::describeDnsProductInstancesWithOptions(shared_ptr<DescribeDnsProductInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainType)) {
     query->insert(pair<string, string>("DomainType", *request->domainType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    query->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));

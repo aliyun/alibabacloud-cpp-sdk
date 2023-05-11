@@ -13185,8 +13185,10 @@ public:
 };
 class DescribeDnsProductInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> direction{};
   shared_ptr<string> domainType{};
   shared_ptr<string> lang{};
+  shared_ptr<string> orderBy{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> userClientIp{};
@@ -13202,11 +13204,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
     }
     if (lang) {
       res["Lang"] = boost::any(*lang);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -13224,11 +13232,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
