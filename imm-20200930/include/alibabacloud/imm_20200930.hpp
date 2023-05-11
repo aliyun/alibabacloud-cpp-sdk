@@ -3651,7 +3651,6 @@ public:
 };
 class MNS : public Darabonba::Model {
 public:
-  shared_ptr<string> endpoint{};
   shared_ptr<string> topicName{};
 
   MNS() {}
@@ -3664,9 +3663,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
     if (topicName) {
       res["TopicName"] = boost::any(*topicName);
     }
@@ -3674,9 +3670,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
     if (m.find("TopicName") != m.end() && !m["TopicName"].empty()) {
       topicName = make_shared<string>(boost::any_cast<string>(m["TopicName"]));
     }
@@ -3687,7 +3680,6 @@ public:
 };
 class RocketMQ : public Darabonba::Model {
 public:
-  shared_ptr<string> endpoint{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> topicName{};
 
@@ -3701,9 +3693,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (endpoint) {
-      res["Endpoint"] = boost::any(*endpoint);
-    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -3714,9 +3703,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
-      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
-    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -4622,13 +4608,13 @@ class TargetImageAnimations : public Darabonba::Model {
 public:
   shared_ptr<string> format{};
   shared_ptr<double> frameRate{};
-  shared_ptr<long> height{};
+  shared_ptr<double> height{};
   shared_ptr<double> interval{};
   shared_ptr<long> number{};
   shared_ptr<string> scaleType{};
   shared_ptr<double> startTime{};
   shared_ptr<string> URI{};
-  shared_ptr<long> width{};
+  shared_ptr<double> width{};
 
   TargetImageAnimations() {}
 
@@ -4678,7 +4664,7 @@ public:
       frameRate = make_shared<double>(boost::any_cast<double>(m["FrameRate"]));
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
-      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<double>(boost::any_cast<double>(m["Interval"]));
@@ -4696,7 +4682,7 @@ public:
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
-      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
     }
   }
 
@@ -4706,13 +4692,13 @@ public:
 class TargetImageSnapshots : public Darabonba::Model {
 public:
   shared_ptr<string> format{};
-  shared_ptr<long> height{};
+  shared_ptr<double> height{};
   shared_ptr<double> interval{};
   shared_ptr<long> number{};
   shared_ptr<string> scaleType{};
   shared_ptr<double> startTime{};
   shared_ptr<string> URI{};
-  shared_ptr<long> width{};
+  shared_ptr<double> width{};
 
   TargetImageSnapshots() {}
 
@@ -4756,7 +4742,7 @@ public:
       format = make_shared<string>(boost::any_cast<string>(m["Format"]));
     }
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
-      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+      height = make_shared<double>(boost::any_cast<double>(m["Height"]));
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<double>(boost::any_cast<double>(m["Interval"]));
@@ -4774,7 +4760,7 @@ public:
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
     }
     if (m.find("Width") != m.end() && !m["Width"].empty()) {
-      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+      width = make_shared<double>(boost::any_cast<double>(m["Width"]));
     }
   }
 
@@ -5542,10 +5528,12 @@ public:
   shared_ptr<string> code{};
   shared_ptr<string> endTime{};
   shared_ptr<string> message{};
+  shared_ptr<long> progress{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> taskId{};
+  shared_ptr<string> taskRequestDefinition{};
   shared_ptr<string> taskType{};
   shared_ptr<string> userData{};
 
@@ -5568,6 +5556,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -5579,6 +5570,9 @@ public:
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskRequestDefinition) {
+      res["TaskRequestDefinition"] = boost::any(*taskRequestDefinition);
     }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
@@ -5599,6 +5593,9 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
@@ -5615,6 +5612,9 @@ public:
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskRequestDefinition") != m.end() && !m["TaskRequestDefinition"].empty()) {
+      taskRequestDefinition = make_shared<string>(boost::any_cast<string>(m["TaskRequestDefinition"]));
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
       taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
@@ -21735,6 +21735,7 @@ public:
 class GetTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> projectName{};
+  shared_ptr<bool> requestDefinition{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskType{};
 
@@ -21751,6 +21752,9 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (requestDefinition) {
+      res["RequestDefinition"] = boost::any(*requestDefinition);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -21763,6 +21767,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RequestDefinition") != m.end() && !m["RequestDefinition"].empty()) {
+      requestDefinition = make_shared<bool>(boost::any_cast<bool>(m["RequestDefinition"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
@@ -21781,12 +21788,14 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> eventId{};
   shared_ptr<string> message{};
+  shared_ptr<long> progress{};
   shared_ptr<string> projectName{};
   shared_ptr<string> requestId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> taskId{};
+  shared_ptr<string> taskRequestDefinition{};
   shared_ptr<string> taskType{};
   shared_ptr<string> userData{};
 
@@ -21812,6 +21821,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
@@ -21829,6 +21841,9 @@ public:
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
+    }
+    if (taskRequestDefinition) {
+      res["TaskRequestDefinition"] = boost::any(*taskRequestDefinition);
     }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
@@ -21852,6 +21867,9 @@ public:
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<long>(boost::any_cast<long>(m["Progress"]));
+    }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
@@ -21874,6 +21892,9 @@ public:
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+    if (m.find("TaskRequestDefinition") != m.end() && !m["TaskRequestDefinition"].empty()) {
+      taskRequestDefinition = make_shared<string>(boost::any_cast<string>(m["TaskRequestDefinition"]));
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
       taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
@@ -23724,6 +23745,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> order{};
   shared_ptr<string> projectName{};
+  shared_ptr<bool> requestDefinition{};
   shared_ptr<string> sort{};
   shared_ptr<TimeRange> startTimeRange{};
   shared_ptr<string> status{};
@@ -23754,6 +23776,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (requestDefinition) {
+      res["RequestDefinition"] = boost::any(*requestDefinition);
     }
     if (sort) {
       res["Sort"] = boost::any(*sort);
@@ -23793,6 +23818,9 @@ public:
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
+    if (m.find("RequestDefinition") != m.end() && !m["RequestDefinition"].empty()) {
+      requestDefinition = make_shared<bool>(boost::any_cast<bool>(m["RequestDefinition"]));
+    }
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
@@ -23831,6 +23859,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> order{};
   shared_ptr<string> projectName{};
+  shared_ptr<bool> requestDefinition{};
   shared_ptr<string> sort{};
   shared_ptr<string> startTimeRangeShrink{};
   shared_ptr<string> status{};
@@ -23861,6 +23890,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (requestDefinition) {
+      res["RequestDefinition"] = boost::any(*requestDefinition);
     }
     if (sort) {
       res["Sort"] = boost::any(*sort);
@@ -23895,6 +23927,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RequestDefinition") != m.end() && !m["RequestDefinition"].empty()) {
+      requestDefinition = make_shared<bool>(boost::any_cast<bool>(m["RequestDefinition"]));
     }
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));

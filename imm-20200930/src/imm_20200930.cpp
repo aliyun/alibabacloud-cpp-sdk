@@ -3147,6 +3147,9 @@ GetTaskResponse Alibabacloud_Imm20200930::Client::getTaskWithOptions(shared_ptr<
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->requestDefinition)) {
+    query->insert(pair<string, bool>("RequestDefinition", *request->requestDefinition));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
   }
@@ -3529,6 +3532,9 @@ ListTasksResponse Alibabacloud_Imm20200930::Client::listTasksWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     query->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->requestDefinition)) {
+    query->insert(pair<string, bool>("RequestDefinition", *request->requestDefinition));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
