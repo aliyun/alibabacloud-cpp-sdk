@@ -8523,6 +8523,9 @@ PubResponse Alibabacloud_Iot20180120::Client::pubWithOptions(shared_ptr<PubReque
   if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
     query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->messageExpiryInterval)) {
+    query->insert(pair<string, long>("MessageExpiryInterval", *request->messageExpiryInterval));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->payloadFormatIndicator)) {
     query->insert(pair<string, long>("PayloadFormatIndicator", *request->payloadFormatIndicator));
   }
@@ -8534,6 +8537,9 @@ PubResponse Alibabacloud_Iot20180120::Client::pubWithOptions(shared_ptr<PubReque
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->responseTopic)) {
     query->insert(pair<string, string>("ResponseTopic", *request->responseTopic));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->retained)) {
+    query->insert(pair<string, bool>("Retained", *request->retained));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicFullName)) {
     query->insert(pair<string, string>("TopicFullName", *request->topicFullName));
