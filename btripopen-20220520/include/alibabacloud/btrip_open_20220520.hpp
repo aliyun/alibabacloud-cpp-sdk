@@ -35598,6 +35598,256 @@ public:
 
   virtual ~FlightSearchListResponse() = default;
 };
+class GroupCorpTokenHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripAccessToken{};
+
+  GroupCorpTokenHeaders() {}
+
+  explicit GroupCorpTokenHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripAccessToken) {
+      res["x-acs-btrip-access-token"] = boost::any(*xAcsBtripAccessToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-access-token") != m.end() && !m["x-acs-btrip-access-token"].empty()) {
+      xAcsBtripAccessToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-access-token"]));
+    }
+  }
+
+
+  virtual ~GroupCorpTokenHeaders() = default;
+};
+class GroupCorpTokenRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appSecret{};
+  shared_ptr<string> corpId{};
+  shared_ptr<string> subCorpId{};
+
+  GroupCorpTokenRequest() {}
+
+  explicit GroupCorpTokenRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appSecret) {
+      res["app_secret"] = boost::any(*appSecret);
+    }
+    if (corpId) {
+      res["corp_id"] = boost::any(*corpId);
+    }
+    if (subCorpId) {
+      res["sub_corp_id"] = boost::any(*subCorpId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("app_secret") != m.end() && !m["app_secret"].empty()) {
+      appSecret = make_shared<string>(boost::any_cast<string>(m["app_secret"]));
+    }
+    if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
+      corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
+    }
+    if (m.find("sub_corp_id") != m.end() && !m["sub_corp_id"].empty()) {
+      subCorpId = make_shared<string>(boost::any_cast<string>(m["sub_corp_id"]));
+    }
+  }
+
+
+  virtual ~GroupCorpTokenRequest() = default;
+};
+class GroupCorpTokenResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> expire{};
+  shared_ptr<long> start{};
+  shared_ptr<string> token{};
+
+  GroupCorpTokenResponseBodyModule() {}
+
+  explicit GroupCorpTokenResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expire) {
+      res["expire"] = boost::any(*expire);
+    }
+    if (start) {
+      res["start"] = boost::any(*start);
+    }
+    if (token) {
+      res["token"] = boost::any(*token);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("expire") != m.end() && !m["expire"].empty()) {
+      expire = make_shared<long>(boost::any_cast<long>(m["expire"]));
+    }
+    if (m.find("start") != m.end() && !m["start"].empty()) {
+      start = make_shared<long>(boost::any_cast<long>(m["start"]));
+    }
+    if (m.find("token") != m.end() && !m["token"].empty()) {
+      token = make_shared<string>(boost::any_cast<string>(m["token"]));
+    }
+  }
+
+
+  virtual ~GroupCorpTokenResponseBodyModule() = default;
+};
+class GroupCorpTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<GroupCorpTokenResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> traceId{};
+
+  GroupCorpTokenResponseBody() {}
+
+  explicit GroupCorpTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        GroupCorpTokenResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<GroupCorpTokenResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~GroupCorpTokenResponseBody() = default;
+};
+class GroupCorpTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GroupCorpTokenResponseBody> body{};
+
+  GroupCorpTokenResponse() {}
+
+  explicit GroupCorpTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GroupCorpTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GroupCorpTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GroupCorpTokenResponse() = default;
+};
 class GroupDepartSaveHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -64921,6 +65171,8 @@ public:
   FlightRefundPreCalResponse flightRefundPreCal(shared_ptr<FlightRefundPreCalRequest> request);
   FlightSearchListResponse flightSearchListWithOptions(shared_ptr<FlightSearchListRequest> request, shared_ptr<FlightSearchListHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightSearchListResponse flightSearchList(shared_ptr<FlightSearchListRequest> request);
+  GroupCorpTokenResponse groupCorpTokenWithOptions(shared_ptr<GroupCorpTokenRequest> request, shared_ptr<GroupCorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GroupCorpTokenResponse groupCorpToken(shared_ptr<GroupCorpTokenRequest> request);
   GroupDepartSaveResponse groupDepartSaveWithOptions(shared_ptr<GroupDepartSaveRequest> tmpReq, shared_ptr<GroupDepartSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GroupDepartSaveResponse groupDepartSave(shared_ptr<GroupDepartSaveRequest> request);
   GroupUserSaveResponse groupUserSaveWithOptions(shared_ptr<GroupUserSaveRequest> tmpReq, shared_ptr<GroupUserSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

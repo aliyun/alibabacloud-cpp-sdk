@@ -2772,6 +2772,49 @@ FlightSearchListResponse Alibabacloud_BtripOpen20220520::Client::flightSearchLis
   return flightSearchListWithOptions(request, headers, runtime);
 }
 
+GroupCorpTokenResponse Alibabacloud_BtripOpen20220520::Client::groupCorpTokenWithOptions(shared_ptr<GroupCorpTokenRequest> request, shared_ptr<GroupCorpTokenHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appSecret)) {
+    query->insert(pair<string, string>("app_secret", *request->appSecret));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corpId)) {
+    query->insert(pair<string, string>("corp_id", *request->corpId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subCorpId)) {
+    query->insert(pair<string, string>("sub_corp_id", *request->subCorpId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripAccessToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-access-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripAccessToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GroupCorpToken"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/btrip-open-auth/v1/group-corp-token/action/take"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GroupCorpTokenResponse(callApi(params, req, runtime));
+}
+
+GroupCorpTokenResponse Alibabacloud_BtripOpen20220520::Client::groupCorpToken(shared_ptr<GroupCorpTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GroupCorpTokenHeaders> headers = make_shared<GroupCorpTokenHeaders>();
+  return groupCorpTokenWithOptions(request, headers, runtime);
+}
+
 GroupDepartSaveResponse Alibabacloud_BtripOpen20220520::Client::groupDepartSaveWithOptions(shared_ptr<GroupDepartSaveRequest> tmpReq, shared_ptr<GroupDepartSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GroupDepartSaveShrinkRequest> request = make_shared<GroupDepartSaveShrinkRequest>();
