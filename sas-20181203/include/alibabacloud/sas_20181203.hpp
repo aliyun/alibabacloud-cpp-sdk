@@ -4722,6 +4722,7 @@ public:
 };
 class CreateFileDetectRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> downloadUrl{};
   shared_ptr<string> hashKey{};
   shared_ptr<string> ossKey{};
   shared_ptr<string> sourceIp{};
@@ -4737,6 +4738,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (downloadUrl) {
+      res["DownloadUrl"] = boost::any(*downloadUrl);
+    }
     if (hashKey) {
       res["HashKey"] = boost::any(*hashKey);
     }
@@ -4753,6 +4757,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DownloadUrl") != m.end() && !m["DownloadUrl"].empty()) {
+      downloadUrl = make_shared<string>(boost::any_cast<string>(m["DownloadUrl"]));
+    }
     if (m.find("HashKey") != m.end() && !m["HashKey"].empty()) {
       hashKey = make_shared<string>(boost::any_cast<string>(m["HashKey"]));
     }
@@ -7294,6 +7301,168 @@ public:
 
 
   virtual ~CreateOrUpdateAssetGroupResponse() = default;
+};
+class CreateOrUpdateDingTalkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> configList{};
+  shared_ptr<string> dingTalkLang{};
+  shared_ptr<string> groupIdList{};
+  shared_ptr<long> id{};
+  shared_ptr<long> intervalTime{};
+  shared_ptr<string> ruleActionName{};
+  shared_ptr<string> sendUrl{};
+
+  CreateOrUpdateDingTalkRequest() {}
+
+  explicit CreateOrUpdateDingTalkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (configList) {
+      res["ConfigList"] = boost::any(*configList);
+    }
+    if (dingTalkLang) {
+      res["DingTalkLang"] = boost::any(*dingTalkLang);
+    }
+    if (groupIdList) {
+      res["GroupIdList"] = boost::any(*groupIdList);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (intervalTime) {
+      res["IntervalTime"] = boost::any(*intervalTime);
+    }
+    if (ruleActionName) {
+      res["RuleActionName"] = boost::any(*ruleActionName);
+    }
+    if (sendUrl) {
+      res["SendUrl"] = boost::any(*sendUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConfigList") != m.end() && !m["ConfigList"].empty()) {
+      configList = make_shared<string>(boost::any_cast<string>(m["ConfigList"]));
+    }
+    if (m.find("DingTalkLang") != m.end() && !m["DingTalkLang"].empty()) {
+      dingTalkLang = make_shared<string>(boost::any_cast<string>(m["DingTalkLang"]));
+    }
+    if (m.find("GroupIdList") != m.end() && !m["GroupIdList"].empty()) {
+      groupIdList = make_shared<string>(boost::any_cast<string>(m["GroupIdList"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IntervalTime") != m.end() && !m["IntervalTime"].empty()) {
+      intervalTime = make_shared<long>(boost::any_cast<long>(m["IntervalTime"]));
+    }
+    if (m.find("RuleActionName") != m.end() && !m["RuleActionName"].empty()) {
+      ruleActionName = make_shared<string>(boost::any_cast<string>(m["RuleActionName"]));
+    }
+    if (m.find("SendUrl") != m.end() && !m["SendUrl"].empty()) {
+      sendUrl = make_shared<string>(boost::any_cast<string>(m["SendUrl"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateDingTalkRequest() = default;
+};
+class CreateOrUpdateDingTalkResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateOrUpdateDingTalkResponseBody() {}
+
+  explicit CreateOrUpdateDingTalkResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateDingTalkResponseBody() = default;
+};
+class CreateOrUpdateDingTalkResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateOrUpdateDingTalkResponseBody> body{};
+
+  CreateOrUpdateDingTalkResponse() {}
+
+  explicit CreateOrUpdateDingTalkResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateOrUpdateDingTalkResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateOrUpdateDingTalkResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateOrUpdateDingTalkResponse() = default;
 };
 class CreateRestoreJobRequest : public Darabonba::Model {
 public:
@@ -113153,6 +113322,8 @@ public:
   CreateJenkinsImageRegistryResponse createJenkinsImageRegistry(shared_ptr<CreateJenkinsImageRegistryRequest> request);
   CreateOrUpdateAssetGroupResponse createOrUpdateAssetGroupWithOptions(shared_ptr<CreateOrUpdateAssetGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOrUpdateAssetGroupResponse createOrUpdateAssetGroup(shared_ptr<CreateOrUpdateAssetGroupRequest> request);
+  CreateOrUpdateDingTalkResponse createOrUpdateDingTalkWithOptions(shared_ptr<CreateOrUpdateDingTalkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateOrUpdateDingTalkResponse createOrUpdateDingTalk(shared_ptr<CreateOrUpdateDingTalkRequest> request);
   CreateRestoreJobResponse createRestoreJobWithOptions(shared_ptr<CreateRestoreJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRestoreJobResponse createRestoreJob(shared_ptr<CreateRestoreJobRequest> request);
   CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(shared_ptr<CreateServiceLinkedRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -1064,6 +1064,9 @@ CreateCycleTaskResponse Alibabacloud_Sas20181203::Client::createCycleTask(shared
 CreateFileDetectResponse Alibabacloud_Sas20181203::Client::createFileDetectWithOptions(shared_ptr<CreateFileDetectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->downloadUrl)) {
+    query->insert(pair<string, string>("DownloadUrl", *request->downloadUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->hashKey)) {
     query->insert(pair<string, string>("HashKey", *request->hashKey));
   }
@@ -1523,6 +1526,52 @@ CreateOrUpdateAssetGroupResponse Alibabacloud_Sas20181203::Client::createOrUpdat
 CreateOrUpdateAssetGroupResponse Alibabacloud_Sas20181203::Client::createOrUpdateAssetGroup(shared_ptr<CreateOrUpdateAssetGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createOrUpdateAssetGroupWithOptions(request, runtime);
+}
+
+CreateOrUpdateDingTalkResponse Alibabacloud_Sas20181203::Client::createOrUpdateDingTalkWithOptions(shared_ptr<CreateOrUpdateDingTalkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->configList)) {
+    query->insert(pair<string, string>("ConfigList", *request->configList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dingTalkLang)) {
+    query->insert(pair<string, string>("DingTalkLang", *request->dingTalkLang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupIdList)) {
+    query->insert(pair<string, string>("GroupIdList", *request->groupIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->intervalTime)) {
+    query->insert(pair<string, long>("IntervalTime", *request->intervalTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleActionName)) {
+    query->insert(pair<string, string>("RuleActionName", *request->ruleActionName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sendUrl)) {
+    query->insert(pair<string, string>("SendUrl", *request->sendUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateOrUpdateDingTalk"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateOrUpdateDingTalkResponse(callApi(params, req, runtime));
+}
+
+CreateOrUpdateDingTalkResponse Alibabacloud_Sas20181203::Client::createOrUpdateDingTalk(shared_ptr<CreateOrUpdateDingTalkRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createOrUpdateDingTalkWithOptions(request, runtime);
 }
 
 CreateRestoreJobResponse Alibabacloud_Sas20181203::Client::createRestoreJobWithOptions(shared_ptr<CreateRestoreJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
