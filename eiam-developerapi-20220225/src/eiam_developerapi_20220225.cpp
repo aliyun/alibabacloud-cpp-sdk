@@ -39,10 +39,49 @@ string Alibabacloud_Eiam-developerapi20220225::Client::getEndpoint(shared_ptr<st
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::createOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateOrganizationalUnitRequest> request) {
+AddUserToOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::addUserToOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
+                                                                                                                             shared_ptr<string> applicationId,
+                                                                                                                             shared_ptr<string> userId,
+                                                                                                                             shared_ptr<AddUserToOrganizationalUnitsRequest> request,
+                                                                                                                             shared_ptr<AddUserToOrganizationalUnitsHeaders> headers,
+                                                                                                                             shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->organizationalUnitIds)) {
+    body->insert(pair<string, vector<string>>("organizationalUnitIds", *request->organizationalUnitIds));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddUserToOrganizationalUnits"))},
+    {"version", boost::any(string("2022-02-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(applicationId)) + string("/users/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)) + string("/actions/addUserToOrganizationalUnits"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return AddUserToOrganizationalUnitsResponse(callApi(params, req, runtime));
+}
+
+AddUserToOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::addUserToOrganizationalUnits(shared_ptr<string> instanceId,
+                                                                                                                  shared_ptr<string> applicationId,
+                                                                                                                  shared_ptr<string> userId,
+                                                                                                                  shared_ptr<AddUserToOrganizationalUnitsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateOrganizationalUnitHeaders> headers = make_shared<CreateOrganizationalUnitHeaders>();
-  return createOrganizationalUnitWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<AddUserToOrganizationalUnitsHeaders> headers = make_shared<AddUserToOrganizationalUnitsHeaders>();
+  return addUserToOrganizationalUnitsWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 CreateOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::createOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
@@ -89,10 +128,10 @@ CreateOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client:
   return CreateOrganizationalUnitResponse(callApi(params, req, runtime));
 }
 
-CreateUserResponse Alibabacloud_Eiam-developerapi20220225::Client::createUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateUserRequest> request) {
+CreateOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::createOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateOrganizationalUnitRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateUserHeaders> headers = make_shared<CreateUserHeaders>();
-  return createUserWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<CreateOrganizationalUnitHeaders> headers = make_shared<CreateOrganizationalUnitHeaders>();
+  return createOrganizationalUnitWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 CreateUserResponse Alibabacloud_Eiam-developerapi20220225::Client::createUserWithOptions(shared_ptr<string> instanceId,
@@ -166,10 +205,10 @@ CreateUserResponse Alibabacloud_Eiam-developerapi20220225::Client::createUserWit
   return CreateUserResponse(callApi(params, req, runtime));
 }
 
-DeleteOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
+CreateUserResponse Alibabacloud_Eiam-developerapi20220225::Client::createUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteOrganizationalUnitHeaders> headers = make_shared<DeleteOrganizationalUnitHeaders>();
-  return deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  shared_ptr<CreateUserHeaders> headers = make_shared<CreateUserHeaders>();
+  return createUserWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 DeleteOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
@@ -201,10 +240,10 @@ DeleteOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client:
   return DeleteOrganizationalUnitResponse(callApi(params, req, runtime));
 }
 
-DeleteUserResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
+DeleteOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteUserHeaders> headers = make_shared<DeleteUserHeaders>();
-  return deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  shared_ptr<DeleteOrganizationalUnitHeaders> headers = make_shared<DeleteOrganizationalUnitHeaders>();
+  return deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
 }
 
 DeleteUserResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteUserWithOptions(shared_ptr<string> instanceId,
@@ -236,10 +275,10 @@ DeleteUserResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteUserWit
   return DeleteUserResponse(callApi(params, req, runtime));
 }
 
-DisableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::disableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
+DeleteUserResponse Alibabacloud_Eiam-developerapi20220225::Client::deleteUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DisableUserHeaders> headers = make_shared<DisableUserHeaders>();
-  return disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  shared_ptr<DeleteUserHeaders> headers = make_shared<DeleteUserHeaders>();
+  return deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
 }
 
 DisableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::disableUserWithOptions(shared_ptr<string> instanceId,
@@ -271,10 +310,10 @@ DisableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::disableUserW
   return DisableUserResponse(callApi(params, req, runtime));
 }
 
-EnableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::enableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
+DisableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::disableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<EnableUserHeaders> headers = make_shared<EnableUserHeaders>();
-  return enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  shared_ptr<DisableUserHeaders> headers = make_shared<DisableUserHeaders>();
+  return disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
 }
 
 EnableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::enableUserWithOptions(shared_ptr<string> instanceId,
@@ -306,10 +345,10 @@ EnableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::enableUserWit
   return EnableUserResponse(callApi(params, req, runtime));
 }
 
-GenerateDeviceCodeResponse Alibabacloud_Eiam-developerapi20220225::Client::generateDeviceCode(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateDeviceCodeRequest> request) {
+EnableUserResponse Alibabacloud_Eiam-developerapi20220225::Client::enableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<EnableUserHeaders> headers = make_shared<EnableUserHeaders>();
+  return enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
 }
 
 GenerateDeviceCodeResponse Alibabacloud_Eiam-developerapi20220225::Client::generateDeviceCodeWithOptions(shared_ptr<string> instanceId,
@@ -340,10 +379,10 @@ GenerateDeviceCodeResponse Alibabacloud_Eiam-developerapi20220225::Client::gener
   return GenerateDeviceCodeResponse(callApi(params, req, runtime));
 }
 
-GenerateTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::generateToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateTokenRequest> request) {
+GenerateDeviceCodeResponse Alibabacloud_Eiam-developerapi20220225::Client::generateDeviceCode(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateDeviceCodeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return generateTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+  return generateDeviceCodeWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GenerateTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::generateTokenWithOptions(shared_ptr<string> instanceId,
@@ -407,10 +446,10 @@ GenerateTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::generateTo
   return GenerateTokenResponse(callApi(params, req, runtime));
 }
 
-GetApplicationProvisioningScopeResponse Alibabacloud_Eiam-developerapi20220225::Client::getApplicationProvisioningScope(shared_ptr<string> instanceId, shared_ptr<string> applicationId) {
+GenerateTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::generateToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetApplicationProvisioningScopeHeaders> headers = make_shared<GetApplicationProvisioningScopeHeaders>();
-  return getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return generateTokenWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetApplicationProvisioningScopeResponse Alibabacloud_Eiam-developerapi20220225::Client::getApplicationProvisioningScopeWithOptions(shared_ptr<string> instanceId,
@@ -441,10 +480,10 @@ GetApplicationProvisioningScopeResponse Alibabacloud_Eiam-developerapi20220225::
   return GetApplicationProvisioningScopeResponse(callApi(params, req, runtime));
 }
 
-GetOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
+GetApplicationProvisioningScopeResponse Alibabacloud_Eiam-developerapi20220225::Client::getApplicationProvisioningScope(shared_ptr<string> instanceId, shared_ptr<string> applicationId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetOrganizationalUnitHeaders> headers = make_shared<GetOrganizationalUnitHeaders>();
-  return getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  shared_ptr<GetApplicationProvisioningScopeHeaders> headers = make_shared<GetApplicationProvisioningScopeHeaders>();
+  return getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
 }
 
 GetOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
@@ -476,10 +515,10 @@ GetOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::ge
   return GetOrganizationalUnitResponse(callApi(params, req, runtime));
 }
 
-GetOrganizationalUnitIdByExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnitIdByExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request) {
+GetOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetOrganizationalUnitIdByExternalIdHeaders> headers = make_shared<GetOrganizationalUnitIdByExternalIdHeaders>();
-  return getOrganizationalUnitIdByExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<GetOrganizationalUnitHeaders> headers = make_shared<GetOrganizationalUnitHeaders>();
+  return getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
 }
 
 GetOrganizationalUnitIdByExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnitIdByExternalIdWithOptions(shared_ptr<string> instanceId,
@@ -523,10 +562,10 @@ GetOrganizationalUnitIdByExternalIdResponse Alibabacloud_Eiam-developerapi202202
   return GetOrganizationalUnitIdByExternalIdResponse(callApi(params, req, runtime));
 }
 
-GetUserResponse Alibabacloud_Eiam-developerapi20220225::Client::getUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
+GetOrganizationalUnitIdByExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getOrganizationalUnitIdByExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserHeaders> headers = make_shared<GetUserHeaders>();
-  return getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+  shared_ptr<GetOrganizationalUnitIdByExternalIdHeaders> headers = make_shared<GetOrganizationalUnitIdByExternalIdHeaders>();
+  return getOrganizationalUnitIdByExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetUserResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserWithOptions(shared_ptr<string> instanceId,
@@ -558,10 +597,10 @@ GetUserResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserWithOptio
   return GetUserResponse(callApi(params, req, runtime));
 }
 
-GetUserIdByEmailResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByEmail(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByEmailRequest> request) {
+GetUserResponse Alibabacloud_Eiam-developerapi20220225::Client::getUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserIdByEmailHeaders> headers = make_shared<GetUserIdByEmailHeaders>();
-  return getUserIdByEmailWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<GetUserHeaders> headers = make_shared<GetUserHeaders>();
+  return getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
 }
 
 GetUserIdByEmailResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByEmailWithOptions(shared_ptr<string> instanceId,
@@ -599,10 +638,10 @@ GetUserIdByEmailResponse Alibabacloud_Eiam-developerapi20220225::Client::getUser
   return GetUserIdByEmailResponse(callApi(params, req, runtime));
 }
 
-GetUserIdByPhoneNumberResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByPhoneNumber(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByPhoneNumberRequest> request) {
+GetUserIdByEmailResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByEmail(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByEmailRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserIdByPhoneNumberHeaders> headers = make_shared<GetUserIdByPhoneNumberHeaders>();
-  return getUserIdByPhoneNumberWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<GetUserIdByEmailHeaders> headers = make_shared<GetUserIdByEmailHeaders>();
+  return getUserIdByEmailWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetUserIdByPhoneNumberResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByPhoneNumberWithOptions(shared_ptr<string> instanceId,
@@ -640,10 +679,10 @@ GetUserIdByPhoneNumberResponse Alibabacloud_Eiam-developerapi20220225::Client::g
   return GetUserIdByPhoneNumberResponse(callApi(params, req, runtime));
 }
 
-GetUserIdByUserExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUserExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUserExternalIdRequest> request) {
+GetUserIdByPhoneNumberResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByPhoneNumber(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByPhoneNumberRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserIdByUserExternalIdHeaders> headers = make_shared<GetUserIdByUserExternalIdHeaders>();
-  return getUserIdByUserExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<GetUserIdByPhoneNumberHeaders> headers = make_shared<GetUserIdByPhoneNumberHeaders>();
+  return getUserIdByPhoneNumberWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetUserIdByUserExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUserExternalIdWithOptions(shared_ptr<string> instanceId,
@@ -687,10 +726,10 @@ GetUserIdByUserExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client
   return GetUserIdByUserExternalIdResponse(callApi(params, req, runtime));
 }
 
-GetUserIdByUsernameResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUsername(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUsernameRequest> request) {
+GetUserIdByUserExternalIdResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUserExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUserExternalIdRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserIdByUsernameHeaders> headers = make_shared<GetUserIdByUsernameHeaders>();
-  return getUserIdByUsernameWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<GetUserIdByUserExternalIdHeaders> headers = make_shared<GetUserIdByUserExternalIdHeaders>();
+  return getUserIdByUserExternalIdWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetUserIdByUsernameResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUsernameWithOptions(shared_ptr<string> instanceId,
@@ -728,10 +767,10 @@ GetUserIdByUsernameResponse Alibabacloud_Eiam-developerapi20220225::Client::getU
   return GetUserIdByUsernameResponse(callApi(params, req, runtime));
 }
 
-GetUserInfoResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId) {
+GetUserIdByUsernameResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserIdByUsername(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUsernameRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetUserInfoHeaders> headers = make_shared<GetUserInfoHeaders>();
-  return getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
+  shared_ptr<GetUserIdByUsernameHeaders> headers = make_shared<GetUserIdByUsernameHeaders>();
+  return getUserIdByUsernameWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 GetUserInfoResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserInfoWithOptions(shared_ptr<string> instanceId,
@@ -762,10 +801,10 @@ GetUserInfoResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserInfoW
   return GetUserInfoResponse(callApi(params, req, runtime));
 }
 
-ListOrganizationalUnitParentIdsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnitParentIds(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
+GetUserInfoResponse Alibabacloud_Eiam-developerapi20220225::Client::getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListOrganizationalUnitParentIdsHeaders> headers = make_shared<ListOrganizationalUnitParentIdsHeaders>();
-  return listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+  shared_ptr<GetUserInfoHeaders> headers = make_shared<GetUserInfoHeaders>();
+  return getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
 }
 
 ListOrganizationalUnitParentIdsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnitParentIdsWithOptions(shared_ptr<string> instanceId,
@@ -797,10 +836,10 @@ ListOrganizationalUnitParentIdsResponse Alibabacloud_Eiam-developerapi20220225::
   return ListOrganizationalUnitParentIdsResponse(callApi(params, req, runtime));
 }
 
-ListOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnits(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListOrganizationalUnitsRequest> request) {
+ListOrganizationalUnitParentIdsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnitParentIds(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListOrganizationalUnitsHeaders> headers = make_shared<ListOrganizationalUnitsHeaders>();
-  return listOrganizationalUnitsWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<ListOrganizationalUnitParentIdsHeaders> headers = make_shared<ListOrganizationalUnitParentIdsHeaders>();
+  return listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
 }
 
 ListOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
@@ -844,10 +883,10 @@ ListOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::
   return ListOrganizationalUnitsResponse(callApi(params, req, runtime));
 }
 
-ListUsersResponse Alibabacloud_Eiam-developerapi20220225::Client::listUsers(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListUsersRequest> request) {
+ListOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::listOrganizationalUnits(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListOrganizationalUnitsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListUsersHeaders> headers = make_shared<ListUsersHeaders>();
-  return listUsersWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<ListOrganizationalUnitsHeaders> headers = make_shared<ListOrganizationalUnitsHeaders>();
+  return listOrganizationalUnitsWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 ListUsersResponse Alibabacloud_Eiam-developerapi20220225::Client::listUsersWithOptions(shared_ptr<string> instanceId,
@@ -891,13 +930,10 @@ ListUsersResponse Alibabacloud_Eiam-developerapi20220225::Client::listUsersWithO
   return ListUsersResponse(callApi(params, req, runtime));
 }
 
-PatchOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::patchOrganizationalUnit(shared_ptr<string> instanceId,
-                                                                                                        shared_ptr<string> applicationId,
-                                                                                                        shared_ptr<string> organizationalUnitId,
-                                                                                                        shared_ptr<PatchOrganizationalUnitRequest> request) {
+ListUsersResponse Alibabacloud_Eiam-developerapi20220225::Client::listUsers(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PatchOrganizationalUnitHeaders> headers = make_shared<PatchOrganizationalUnitHeaders>();
-  return patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
+  shared_ptr<ListUsersHeaders> headers = make_shared<ListUsersHeaders>();
+  return listUsersWithOptions(instanceId, applicationId, request, headers, runtime);
 }
 
 PatchOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::patchOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
@@ -939,13 +975,13 @@ PatchOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::
   return PatchOrganizationalUnitResponse(callApi(params, req, runtime));
 }
 
-PatchUserResponse Alibabacloud_Eiam-developerapi20220225::Client::patchUser(shared_ptr<string> instanceId,
-                                                                            shared_ptr<string> applicationId,
-                                                                            shared_ptr<string> userId,
-                                                                            shared_ptr<PatchUserRequest> request) {
+PatchOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::patchOrganizationalUnit(shared_ptr<string> instanceId,
+                                                                                                        shared_ptr<string> applicationId,
+                                                                                                        shared_ptr<string> organizationalUnitId,
+                                                                                                        shared_ptr<PatchOrganizationalUnitRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<PatchUserHeaders> headers = make_shared<PatchUserHeaders>();
-  return patchUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+  shared_ptr<PatchOrganizationalUnitHeaders> headers = make_shared<PatchOrganizationalUnitHeaders>();
+  return patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
 }
 
 PatchUserResponse Alibabacloud_Eiam-developerapi20220225::Client::patchUserWithOptions(shared_ptr<string> instanceId,
@@ -1005,10 +1041,58 @@ PatchUserResponse Alibabacloud_Eiam-developerapi20220225::Client::patchUserWithO
   return PatchUserResponse(callApi(params, req, runtime));
 }
 
-RevokeTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::revokeToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<RevokeTokenRequest> request) {
+PatchUserResponse Alibabacloud_Eiam-developerapi20220225::Client::patchUser(shared_ptr<string> instanceId,
+                                                                            shared_ptr<string> applicationId,
+                                                                            shared_ptr<string> userId,
+                                                                            shared_ptr<PatchUserRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return revokeTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+  shared_ptr<PatchUserHeaders> headers = make_shared<PatchUserHeaders>();
+  return patchUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+}
+
+RemoveUserFromOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::removeUserFromOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
+                                                                                                                                       shared_ptr<string> applicationId,
+                                                                                                                                       shared_ptr<string> userId,
+                                                                                                                                       shared_ptr<RemoveUserFromOrganizationalUnitsRequest> request,
+                                                                                                                                       shared_ptr<RemoveUserFromOrganizationalUnitsHeaders> headers,
+                                                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->organizationalUnitIds)) {
+    body->insert(pair<string, vector<string>>("organizationalUnitIds", *request->organizationalUnitIds));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RemoveUserFromOrganizationalUnits"))},
+    {"version", boost::any(string("2022-02-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(applicationId)) + string("/users/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)) + string("/actions/removeUserFromOrganizationalUnits"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return RemoveUserFromOrganizationalUnitsResponse(callApi(params, req, runtime));
+}
+
+RemoveUserFromOrganizationalUnitsResponse Alibabacloud_Eiam-developerapi20220225::Client::removeUserFromOrganizationalUnits(shared_ptr<string> instanceId,
+                                                                                                                            shared_ptr<string> applicationId,
+                                                                                                                            shared_ptr<string> userId,
+                                                                                                                            shared_ptr<RemoveUserFromOrganizationalUnitsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<RemoveUserFromOrganizationalUnitsHeaders> headers = make_shared<RemoveUserFromOrganizationalUnitsHeaders>();
+  return removeUserFromOrganizationalUnitsWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 
 RevokeTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::revokeTokenWithOptions(shared_ptr<string> instanceId,
@@ -1046,5 +1130,101 @@ RevokeTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::revokeTokenW
     {"bodyType", boost::any(string("json"))}
   }));
   return RevokeTokenResponse(callApi(params, req, runtime));
+}
+
+RevokeTokenResponse Alibabacloud_Eiam-developerapi20220225::Client::revokeToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<RevokeTokenRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return revokeTokenWithOptions(instanceId, applicationId, request, headers, runtime);
+}
+
+SetUserPrimaryOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::setUserPrimaryOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
+                                                                                                                                     shared_ptr<string> applicationId,
+                                                                                                                                     shared_ptr<string> userId,
+                                                                                                                                     shared_ptr<SetUserPrimaryOrganizationalUnitRequest> request,
+                                                                                                                                     shared_ptr<SetUserPrimaryOrganizationalUnitHeaders> headers,
+                                                                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationalUnitId)) {
+    body->insert(pair<string, string>("organizationalUnitId", *request->organizationalUnitId));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SetUserPrimaryOrganizationalUnit"))},
+    {"version", boost::any(string("2022-02-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(applicationId)) + string("/users/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)) + string("/actions/setUserPrimaryOrganizationalUnit"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return SetUserPrimaryOrganizationalUnitResponse(callApi(params, req, runtime));
+}
+
+SetUserPrimaryOrganizationalUnitResponse Alibabacloud_Eiam-developerapi20220225::Client::setUserPrimaryOrganizationalUnit(shared_ptr<string> instanceId,
+                                                                                                                          shared_ptr<string> applicationId,
+                                                                                                                          shared_ptr<string> userId,
+                                                                                                                          shared_ptr<SetUserPrimaryOrganizationalUnitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<SetUserPrimaryOrganizationalUnitHeaders> headers = make_shared<SetUserPrimaryOrganizationalUnitHeaders>();
+  return setUserPrimaryOrganizationalUnitWithOptions(instanceId, applicationId, userId, request, headers, runtime);
+}
+
+UpdateUserPasswordResponse Alibabacloud_Eiam-developerapi20220225::Client::updateUserPasswordWithOptions(shared_ptr<string> instanceId,
+                                                                                                         shared_ptr<string> applicationId,
+                                                                                                         shared_ptr<string> userId,
+                                                                                                         shared_ptr<UpdateUserPasswordRequest> request,
+                                                                                                         shared_ptr<UpdateUserPasswordHeaders> headers,
+                                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    body->insert(pair<string, string>("password", *request->password));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->authorization)) {
+    realHeaders->insert(pair<string, string>("Authorization", Darabonba_Util::Client::toJSONString(headers->authorization)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateUserPassword"))},
+    {"version", boost::any(string("2022-02-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/v2/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(applicationId)) + string("/users/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(userId)) + string("/actions/updateUserPassword"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("Anonymous"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return UpdateUserPasswordResponse(callApi(params, req, runtime));
+}
+
+UpdateUserPasswordResponse Alibabacloud_Eiam-developerapi20220225::Client::updateUserPassword(shared_ptr<string> instanceId,
+                                                                                              shared_ptr<string> applicationId,
+                                                                                              shared_ptr<string> userId,
+                                                                                              shared_ptr<UpdateUserPasswordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateUserPasswordHeaders> headers = make_shared<UpdateUserPasswordHeaders>();
+  return updateUserPasswordWithOptions(instanceId, applicationId, userId, request, headers, runtime);
 }
 

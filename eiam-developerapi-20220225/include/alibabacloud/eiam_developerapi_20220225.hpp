@@ -15,6 +15,131 @@
 using namespace std;
 
 namespace Alibabacloud_Eiam-developerapi20220225 {
+class AddUserToOrganizationalUnitsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  AddUserToOrganizationalUnitsHeaders() {}
+
+  explicit AddUserToOrganizationalUnitsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~AddUserToOrganizationalUnitsHeaders() = default;
+};
+class AddUserToOrganizationalUnitsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> organizationalUnitIds{};
+
+  AddUserToOrganizationalUnitsRequest() {}
+
+  explicit AddUserToOrganizationalUnitsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationalUnitIds) {
+      res["organizationalUnitIds"] = boost::any(*organizationalUnitIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationalUnitIds") != m.end() && !m["organizationalUnitIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["organizationalUnitIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["organizationalUnitIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      organizationalUnitIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~AddUserToOrganizationalUnitsRequest() = default;
+};
+class AddUserToOrganizationalUnitsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  AddUserToOrganizationalUnitsResponse() {}
+
+  explicit AddUserToOrganizationalUnitsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~AddUserToOrganizationalUnitsResponse() = default;
+};
 class CreateOrganizationalUnitHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -1889,6 +2014,49 @@ public:
 
   virtual ~GetUserResponseBodyCustomFields() = default;
 };
+class GetUserResponseBodyGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> groupName{};
+
+  GetUserResponseBodyGroups() {}
+
+  explicit GetUserResponseBodyGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (groupId) {
+      res["groupId"] = boost::any(*groupId);
+    }
+    if (groupName) {
+      res["groupName"] = boost::any(*groupName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("groupId") != m.end() && !m["groupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["groupId"]));
+    }
+    if (m.find("groupName") != m.end() && !m["groupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["groupName"]));
+    }
+  }
+
+
+  virtual ~GetUserResponseBodyGroups() = default;
+};
 class GetUserResponseBodyOrganizationalUnits : public Darabonba::Model {
 public:
   shared_ptr<string> organizationalUnitId{};
@@ -1941,6 +2109,7 @@ public:
   shared_ptr<string> displayName{};
   shared_ptr<string> email{};
   shared_ptr<bool> emailVerified{};
+  shared_ptr<vector<GetUserResponseBodyGroups>> groups{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> lockExpireTime{};
   shared_ptr<vector<GetUserResponseBodyOrganizationalUnits>> organizationalUnits{};
@@ -1992,6 +2161,13 @@ public:
     }
     if (emailVerified) {
       res["emailVerified"] = boost::any(*emailVerified);
+    }
+    if (groups) {
+      vector<boost::any> temp1;
+      for(auto item1:*groups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["groups"] = boost::any(temp1);
     }
     if (instanceId) {
       res["instanceId"] = boost::any(*instanceId);
@@ -2079,6 +2255,19 @@ public:
     }
     if (m.find("emailVerified") != m.end() && !m["emailVerified"].empty()) {
       emailVerified = make_shared<bool>(boost::any_cast<bool>(m["emailVerified"]));
+    }
+    if (m.find("groups") != m.end() && !m["groups"].empty()) {
+      if (typeid(vector<boost::any>) == m["groups"].type()) {
+        vector<GetUserResponseBodyGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["groups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetUserResponseBodyGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        groups = make_shared<vector<GetUserResponseBodyGroups>>(expect1);
+      }
     }
     if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
@@ -3922,6 +4111,7 @@ class PatchUserRequestCustomFields : public Darabonba::Model {
 public:
   shared_ptr<string> fieldName{};
   shared_ptr<string> fieldValue{};
+  shared_ptr<string> operation{};
   shared_ptr<string> operator_{};
 
   PatchUserRequestCustomFields() {}
@@ -3940,6 +4130,9 @@ public:
     if (fieldValue) {
       res["fieldValue"] = boost::any(*fieldValue);
     }
+    if (operation) {
+      res["operation"] = boost::any(*operation);
+    }
     if (operator_) {
       res["operator"] = boost::any(*operator_);
     }
@@ -3952,6 +4145,9 @@ public:
     }
     if (m.find("fieldValue") != m.end() && !m["fieldValue"].empty()) {
       fieldValue = make_shared<string>(boost::any_cast<string>(m["fieldValue"]));
+    }
+    if (m.find("operation") != m.end() && !m["operation"].empty()) {
+      operation = make_shared<string>(boost::any_cast<string>(m["operation"]));
     }
     if (m.find("operator") != m.end() && !m["operator"].empty()) {
       operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
@@ -4101,6 +4297,131 @@ public:
 
   virtual ~PatchUserResponse() = default;
 };
+class RemoveUserFromOrganizationalUnitsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  RemoveUserFromOrganizationalUnitsHeaders() {}
+
+  explicit RemoveUserFromOrganizationalUnitsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~RemoveUserFromOrganizationalUnitsHeaders() = default;
+};
+class RemoveUserFromOrganizationalUnitsRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> organizationalUnitIds{};
+
+  RemoveUserFromOrganizationalUnitsRequest() {}
+
+  explicit RemoveUserFromOrganizationalUnitsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationalUnitIds) {
+      res["organizationalUnitIds"] = boost::any(*organizationalUnitIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationalUnitIds") != m.end() && !m["organizationalUnitIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["organizationalUnitIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["organizationalUnitIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      organizationalUnitIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~RemoveUserFromOrganizationalUnitsRequest() = default;
+};
+class RemoveUserFromOrganizationalUnitsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  RemoveUserFromOrganizationalUnitsResponse() {}
+
+  explicit RemoveUserFromOrganizationalUnitsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~RemoveUserFromOrganizationalUnitsResponse() = default;
+};
 class RevokeTokenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientId{};
@@ -4214,6 +4535,242 @@ public:
 
   virtual ~RevokeTokenResponse() = default;
 };
+class SetUserPrimaryOrganizationalUnitHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  SetUserPrimaryOrganizationalUnitHeaders() {}
+
+  explicit SetUserPrimaryOrganizationalUnitHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~SetUserPrimaryOrganizationalUnitHeaders() = default;
+};
+class SetUserPrimaryOrganizationalUnitRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> organizationalUnitId{};
+
+  SetUserPrimaryOrganizationalUnitRequest() {}
+
+  explicit SetUserPrimaryOrganizationalUnitRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (organizationalUnitId) {
+      res["organizationalUnitId"] = boost::any(*organizationalUnitId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("organizationalUnitId") != m.end() && !m["organizationalUnitId"].empty()) {
+      organizationalUnitId = make_shared<string>(boost::any_cast<string>(m["organizationalUnitId"]));
+    }
+  }
+
+
+  virtual ~SetUserPrimaryOrganizationalUnitRequest() = default;
+};
+class SetUserPrimaryOrganizationalUnitResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  SetUserPrimaryOrganizationalUnitResponse() {}
+
+  explicit SetUserPrimaryOrganizationalUnitResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~SetUserPrimaryOrganizationalUnitResponse() = default;
+};
+class UpdateUserPasswordHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> authorization{};
+
+  UpdateUserPasswordHeaders() {}
+
+  explicit UpdateUserPasswordHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (authorization) {
+      res["Authorization"] = boost::any(*authorization);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Authorization") != m.end() && !m["Authorization"].empty()) {
+      authorization = make_shared<string>(boost::any_cast<string>(m["Authorization"]));
+    }
+  }
+
+
+  virtual ~UpdateUserPasswordHeaders() = default;
+};
+class UpdateUserPasswordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> password{};
+
+  UpdateUserPasswordRequest() {}
+
+  explicit UpdateUserPasswordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (password) {
+      res["password"] = boost::any(*password);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("password") != m.end() && !m["password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["password"]));
+    }
+  }
+
+
+  virtual ~UpdateUserPasswordRequest() = default;
+};
+class UpdateUserPasswordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  UpdateUserPasswordResponse() {}
+
+  explicit UpdateUserPasswordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~UpdateUserPasswordResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -4224,150 +4781,190 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateOrganizationalUnitResponse createOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateOrganizationalUnitRequest> request);
+  AddUserToOrganizationalUnitsResponse addUserToOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
+                                                                               shared_ptr<string> applicationId,
+                                                                               shared_ptr<string> userId,
+                                                                               shared_ptr<AddUserToOrganizationalUnitsRequest> request,
+                                                                               shared_ptr<AddUserToOrganizationalUnitsHeaders> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddUserToOrganizationalUnitsResponse addUserToOrganizationalUnits(shared_ptr<string> instanceId,
+                                                                    shared_ptr<string> applicationId,
+                                                                    shared_ptr<string> userId,
+                                                                    shared_ptr<AddUserToOrganizationalUnitsRequest> request);
   CreateOrganizationalUnitResponse createOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
                                                                        shared_ptr<string> applicationId,
                                                                        shared_ptr<CreateOrganizationalUnitRequest> request,
                                                                        shared_ptr<CreateOrganizationalUnitHeaders> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateUserResponse createUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateUserRequest> request);
+  CreateOrganizationalUnitResponse createOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateOrganizationalUnitRequest> request);
   CreateUserResponse createUserWithOptions(shared_ptr<string> instanceId,
                                            shared_ptr<string> applicationId,
                                            shared_ptr<CreateUserRequest> request,
                                            shared_ptr<CreateUserHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteOrganizationalUnitResponse deleteOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
+  CreateUserResponse createUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<CreateUserRequest> request);
   DeleteOrganizationalUnitResponse deleteOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
                                                                        shared_ptr<string> applicationId,
                                                                        shared_ptr<string> organizationalUnitId,
                                                                        shared_ptr<DeleteOrganizationalUnitHeaders> headers,
                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteUserResponse deleteUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  DeleteOrganizationalUnitResponse deleteOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
   DeleteUserResponse deleteUserWithOptions(shared_ptr<string> instanceId,
                                            shared_ptr<string> applicationId,
                                            shared_ptr<string> userId,
                                            shared_ptr<DeleteUserHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DisableUserResponse disableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  DeleteUserResponse deleteUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
   DisableUserResponse disableUserWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> applicationId,
                                              shared_ptr<string> userId,
                                              shared_ptr<DisableUserHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  EnableUserResponse enableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  DisableUserResponse disableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
   EnableUserResponse enableUserWithOptions(shared_ptr<string> instanceId,
                                            shared_ptr<string> applicationId,
                                            shared_ptr<string> userId,
                                            shared_ptr<EnableUserHeaders> headers,
                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GenerateDeviceCodeResponse generateDeviceCode(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateDeviceCodeRequest> request);
+  EnableUserResponse enableUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
   GenerateDeviceCodeResponse generateDeviceCodeWithOptions(shared_ptr<string> instanceId,
                                                            shared_ptr<string> applicationId,
                                                            shared_ptr<GenerateDeviceCodeRequest> request,
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GenerateTokenResponse generateToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateTokenRequest> request);
+  GenerateDeviceCodeResponse generateDeviceCode(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateDeviceCodeRequest> request);
   GenerateTokenResponse generateTokenWithOptions(shared_ptr<string> instanceId,
                                                  shared_ptr<string> applicationId,
                                                  shared_ptr<GenerateTokenRequest> request,
                                                  shared_ptr<map<string, string>> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
+  GenerateTokenResponse generateToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GenerateTokenRequest> request);
   GetApplicationProvisioningScopeResponse getApplicationProvisioningScopeWithOptions(shared_ptr<string> instanceId,
                                                                                      shared_ptr<string> applicationId,
                                                                                      shared_ptr<GetApplicationProvisioningScopeHeaders> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetOrganizationalUnitResponse getOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
+  GetApplicationProvisioningScopeResponse getApplicationProvisioningScope(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
   GetOrganizationalUnitResponse getOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
                                                                  shared_ptr<string> applicationId,
                                                                  shared_ptr<string> organizationalUnitId,
                                                                  shared_ptr<GetOrganizationalUnitHeaders> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request);
+  GetOrganizationalUnitResponse getOrganizationalUnit(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
   GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalIdWithOptions(shared_ptr<string> instanceId,
                                                                                              shared_ptr<string> applicationId,
                                                                                              shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request,
                                                                                              shared_ptr<GetOrganizationalUnitIdByExternalIdHeaders> headers,
                                                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserResponse getUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
+  GetOrganizationalUnitIdByExternalIdResponse getOrganizationalUnitIdByExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetOrganizationalUnitIdByExternalIdRequest> request);
   GetUserResponse getUserWithOptions(shared_ptr<string> instanceId,
                                      shared_ptr<string> applicationId,
                                      shared_ptr<string> userId,
                                      shared_ptr<GetUserHeaders> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserIdByEmailResponse getUserIdByEmail(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByEmailRequest> request);
+  GetUserResponse getUser(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> userId);
   GetUserIdByEmailResponse getUserIdByEmailWithOptions(shared_ptr<string> instanceId,
                                                        shared_ptr<string> applicationId,
                                                        shared_ptr<GetUserIdByEmailRequest> request,
                                                        shared_ptr<GetUserIdByEmailHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserIdByPhoneNumberResponse getUserIdByPhoneNumber(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByPhoneNumberRequest> request);
+  GetUserIdByEmailResponse getUserIdByEmail(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByEmailRequest> request);
   GetUserIdByPhoneNumberResponse getUserIdByPhoneNumberWithOptions(shared_ptr<string> instanceId,
                                                                    shared_ptr<string> applicationId,
                                                                    shared_ptr<GetUserIdByPhoneNumberRequest> request,
                                                                    shared_ptr<GetUserIdByPhoneNumberHeaders> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserIdByUserExternalIdResponse getUserIdByUserExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUserExternalIdRequest> request);
+  GetUserIdByPhoneNumberResponse getUserIdByPhoneNumber(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByPhoneNumberRequest> request);
   GetUserIdByUserExternalIdResponse getUserIdByUserExternalIdWithOptions(shared_ptr<string> instanceId,
                                                                          shared_ptr<string> applicationId,
                                                                          shared_ptr<GetUserIdByUserExternalIdRequest> request,
                                                                          shared_ptr<GetUserIdByUserExternalIdHeaders> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserIdByUsernameResponse getUserIdByUsername(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUsernameRequest> request);
+  GetUserIdByUserExternalIdResponse getUserIdByUserExternalId(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUserExternalIdRequest> request);
   GetUserIdByUsernameResponse getUserIdByUsernameWithOptions(shared_ptr<string> instanceId,
                                                              shared_ptr<string> applicationId,
                                                              shared_ptr<GetUserIdByUsernameRequest> request,
                                                              shared_ptr<GetUserIdByUsernameHeaders> headers,
                                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserInfoResponse getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
+  GetUserIdByUsernameResponse getUserIdByUsername(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<GetUserIdByUsernameRequest> request);
   GetUserInfoResponse getUserInfoWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> applicationId,
                                              shared_ptr<GetUserInfoHeaders> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
+  GetUserInfoResponse getUserInfo(shared_ptr<string> instanceId, shared_ptr<string> applicationId);
   ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIdsWithOptions(shared_ptr<string> instanceId,
                                                                                      shared_ptr<string> applicationId,
                                                                                      shared_ptr<string> organizationalUnitId,
                                                                                      shared_ptr<ListOrganizationalUnitParentIdsHeaders> headers,
                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListOrganizationalUnitsResponse listOrganizationalUnits(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListOrganizationalUnitsRequest> request);
+  ListOrganizationalUnitParentIdsResponse listOrganizationalUnitParentIds(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<string> organizationalUnitId);
   ListOrganizationalUnitsResponse listOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
                                                                      shared_ptr<string> applicationId,
                                                                      shared_ptr<ListOrganizationalUnitsRequest> request,
                                                                      shared_ptr<ListOrganizationalUnitsHeaders> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListUsersResponse listUsers(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListUsersRequest> request);
+  ListOrganizationalUnitsResponse listOrganizationalUnits(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListOrganizationalUnitsRequest> request);
   ListUsersResponse listUsersWithOptions(shared_ptr<string> instanceId,
                                          shared_ptr<string> applicationId,
                                          shared_ptr<ListUsersRequest> request,
                                          shared_ptr<ListUsersHeaders> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PatchOrganizationalUnitResponse patchOrganizationalUnit(shared_ptr<string> instanceId,
-                                                          shared_ptr<string> applicationId,
-                                                          shared_ptr<string> organizationalUnitId,
-                                                          shared_ptr<PatchOrganizationalUnitRequest> request);
+  ListUsersResponse listUsers(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<ListUsersRequest> request);
   PatchOrganizationalUnitResponse patchOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
                                                                      shared_ptr<string> applicationId,
                                                                      shared_ptr<string> organizationalUnitId,
                                                                      shared_ptr<PatchOrganizationalUnitRequest> request,
                                                                      shared_ptr<PatchOrganizationalUnitHeaders> headers,
                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PatchUserResponse patchUser(shared_ptr<string> instanceId,
-                              shared_ptr<string> applicationId,
-                              shared_ptr<string> userId,
-                              shared_ptr<PatchUserRequest> request);
+  PatchOrganizationalUnitResponse patchOrganizationalUnit(shared_ptr<string> instanceId,
+                                                          shared_ptr<string> applicationId,
+                                                          shared_ptr<string> organizationalUnitId,
+                                                          shared_ptr<PatchOrganizationalUnitRequest> request);
   PatchUserResponse patchUserWithOptions(shared_ptr<string> instanceId,
                                          shared_ptr<string> applicationId,
                                          shared_ptr<string> userId,
                                          shared_ptr<PatchUserRequest> request,
                                          shared_ptr<PatchUserHeaders> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RevokeTokenResponse revokeToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<RevokeTokenRequest> request);
+  PatchUserResponse patchUser(shared_ptr<string> instanceId,
+                              shared_ptr<string> applicationId,
+                              shared_ptr<string> userId,
+                              shared_ptr<PatchUserRequest> request);
+  RemoveUserFromOrganizationalUnitsResponse removeUserFromOrganizationalUnitsWithOptions(shared_ptr<string> instanceId,
+                                                                                         shared_ptr<string> applicationId,
+                                                                                         shared_ptr<string> userId,
+                                                                                         shared_ptr<RemoveUserFromOrganizationalUnitsRequest> request,
+                                                                                         shared_ptr<RemoveUserFromOrganizationalUnitsHeaders> headers,
+                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RemoveUserFromOrganizationalUnitsResponse removeUserFromOrganizationalUnits(shared_ptr<string> instanceId,
+                                                                              shared_ptr<string> applicationId,
+                                                                              shared_ptr<string> userId,
+                                                                              shared_ptr<RemoveUserFromOrganizationalUnitsRequest> request);
   RevokeTokenResponse revokeTokenWithOptions(shared_ptr<string> instanceId,
                                              shared_ptr<string> applicationId,
                                              shared_ptr<RevokeTokenRequest> request,
                                              shared_ptr<map<string, string>> headers,
                                              shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RevokeTokenResponse revokeToken(shared_ptr<string> instanceId, shared_ptr<string> applicationId, shared_ptr<RevokeTokenRequest> request);
+  SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnitWithOptions(shared_ptr<string> instanceId,
+                                                                                       shared_ptr<string> applicationId,
+                                                                                       shared_ptr<string> userId,
+                                                                                       shared_ptr<SetUserPrimaryOrganizationalUnitRequest> request,
+                                                                                       shared_ptr<SetUserPrimaryOrganizationalUnitHeaders> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetUserPrimaryOrganizationalUnitResponse setUserPrimaryOrganizationalUnit(shared_ptr<string> instanceId,
+                                                                            shared_ptr<string> applicationId,
+                                                                            shared_ptr<string> userId,
+                                                                            shared_ptr<SetUserPrimaryOrganizationalUnitRequest> request);
+  UpdateUserPasswordResponse updateUserPasswordWithOptions(shared_ptr<string> instanceId,
+                                                           shared_ptr<string> applicationId,
+                                                           shared_ptr<string> userId,
+                                                           shared_ptr<UpdateUserPasswordRequest> request,
+                                                           shared_ptr<UpdateUserPasswordHeaders> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateUserPasswordResponse updateUserPassword(shared_ptr<string> instanceId,
+                                                shared_ptr<string> applicationId,
+                                                shared_ptr<string> userId,
+                                                shared_ptr<UpdateUserPasswordRequest> request);
 
   virtual ~Client() = default;
 };
