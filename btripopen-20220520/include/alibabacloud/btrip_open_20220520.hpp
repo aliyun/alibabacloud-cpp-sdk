@@ -8459,6 +8459,7 @@ public:
   shared_ptr<string> specialReason{};
   shared_ptr<long> status{};
   shared_ptr<string> subOrderId{};
+  shared_ptr<string> taxRate{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
   shared_ptr<string> travelerName{};
@@ -8633,6 +8634,9 @@ public:
     }
     if (subOrderId) {
       res["sub_order_id"] = boost::any(*subOrderId);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
     }
     if (travelerId) {
       res["traveler_id"] = boost::any(*travelerId);
@@ -8811,6 +8815,9 @@ public:
     }
     if (m.find("sub_order_id") != m.end() && !m["sub_order_id"].empty()) {
       subOrderId = make_shared<string>(boost::any_cast<string>(m["sub_order_id"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
     }
     if (m.find("traveler_id") != m.end() && !m["traveler_id"].empty()) {
       travelerId = make_shared<string>(boost::any_cast<string>(m["traveler_id"]));
@@ -16367,6 +16374,7 @@ public:
   shared_ptr<string> settlementTime{};
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
+  shared_ptr<string> taxRate{};
   shared_ptr<string> ticketId{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
@@ -16581,6 +16589,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
     }
     if (ticketId) {
       res["ticket_id"] = boost::any(*ticketId);
@@ -16801,6 +16812,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
     }
     if (m.find("ticket_id") != m.end() && !m["ticket_id"].empty()) {
       ticketId = make_shared<string>(boost::any_cast<string>(m["ticket_id"]));
@@ -36651,6 +36665,7 @@ public:
   shared_ptr<string> settlementTime{};
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
+  shared_ptr<string> taxRate{};
   shared_ptr<long> totalNights{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
@@ -36813,6 +36828,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
     }
     if (totalNights) {
       res["total_nights"] = boost::any(*totalNights);
@@ -36979,6 +36997,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
     }
     if (m.find("total_nights") != m.end() && !m["total_nights"].empty()) {
       totalNights = make_shared<long>(boost::any_cast<long>(m["total_nights"]));
@@ -47024,6 +47045,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> subOrderId{};
   shared_ptr<double> taxFee{};
+  shared_ptr<string> taxRate{};
   shared_ptr<string> ticketId{};
   shared_ptr<string> trade{};
   shared_ptr<string> travelerId{};
@@ -47241,6 +47263,9 @@ public:
     }
     if (taxFee) {
       res["tax_fee"] = boost::any(*taxFee);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
     }
     if (ticketId) {
       res["ticket_id"] = boost::any(*ticketId);
@@ -47464,6 +47489,9 @@ public:
     }
     if (m.find("tax_fee") != m.end() && !m["tax_fee"].empty()) {
       taxFee = make_shared<double>(boost::any_cast<double>(m["tax_fee"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
     }
     if (m.find("ticket_id") != m.end() && !m["ticket_id"].empty()) {
       ticketId = make_shared<string>(boost::any_cast<string>(m["ticket_id"]));
@@ -58561,6 +58589,7 @@ public:
   shared_ptr<string> settlementTime{};
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
+  shared_ptr<string> taxRate{};
   shared_ptr<string> ticketNo{};
   shared_ptr<double> ticketPrice{};
   shared_ptr<string> trainNo{};
@@ -58705,6 +58734,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (taxRate) {
+      res["tax_rate"] = boost::any(*taxRate);
     }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
@@ -58859,6 +58891,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
+      taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
