@@ -15,6 +15,341 @@
 using namespace std;
 
 namespace Alibabacloud_Green20220302 {
+class DescribeImageResultExtRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> infoType{};
+  shared_ptr<string> reqId{};
+
+  DescribeImageResultExtRequest() {}
+
+  explicit DescribeImageResultExtRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (infoType) {
+      res["InfoType"] = boost::any(*infoType);
+    }
+    if (reqId) {
+      res["ReqId"] = boost::any(*reqId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InfoType") != m.end() && !m["InfoType"].empty()) {
+      infoType = make_shared<string>(boost::any_cast<string>(m["InfoType"]));
+    }
+    if (m.find("ReqId") != m.end() && !m["ReqId"].empty()) {
+      reqId = make_shared<string>(boost::any_cast<string>(m["ReqId"]));
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtRequest() = default;
+};
+class DescribeImageResultExtResponseBodyDataCustomImage : public Darabonba::Model {
+public:
+  shared_ptr<string> imageId{};
+  shared_ptr<string> libId{};
+  shared_ptr<string> libName{};
+
+  DescribeImageResultExtResponseBodyDataCustomImage() {}
+
+  explicit DescribeImageResultExtResponseBodyDataCustomImage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageId) {
+      res["ImageId"] = boost::any(*imageId);
+    }
+    if (libId) {
+      res["LibId"] = boost::any(*libId);
+    }
+    if (libName) {
+      res["LibName"] = boost::any(*libName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
+      imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
+    }
+    if (m.find("LibId") != m.end() && !m["LibId"].empty()) {
+      libId = make_shared<string>(boost::any_cast<string>(m["LibId"]));
+    }
+    if (m.find("LibName") != m.end() && !m["LibName"].empty()) {
+      libName = make_shared<string>(boost::any_cast<string>(m["LibName"]));
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBodyDataCustomImage() = default;
+};
+class DescribeImageResultExtResponseBodyDataPublicFigure : public Darabonba::Model {
+public:
+  shared_ptr<string> figureId{};
+
+  DescribeImageResultExtResponseBodyDataPublicFigure() {}
+
+  explicit DescribeImageResultExtResponseBodyDataPublicFigure(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (figureId) {
+      res["FigureId"] = boost::any(*figureId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FigureId") != m.end() && !m["FigureId"].empty()) {
+      figureId = make_shared<string>(boost::any_cast<string>(m["FigureId"]));
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBodyDataPublicFigure() = default;
+};
+class DescribeImageResultExtResponseBodyDataTextInImage : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> ocrDatas{};
+
+  DescribeImageResultExtResponseBodyDataTextInImage() {}
+
+  explicit DescribeImageResultExtResponseBodyDataTextInImage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ocrDatas) {
+      res["OcrDatas"] = boost::any(*ocrDatas);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OcrDatas") != m.end() && !m["OcrDatas"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OcrDatas"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OcrDatas"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ocrDatas = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBodyDataTextInImage() = default;
+};
+class DescribeImageResultExtResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeImageResultExtResponseBodyDataCustomImage>> customImage{};
+  shared_ptr<vector<DescribeImageResultExtResponseBodyDataPublicFigure>> publicFigure{};
+  shared_ptr<DescribeImageResultExtResponseBodyDataTextInImage> textInImage{};
+
+  DescribeImageResultExtResponseBodyData() {}
+
+  explicit DescribeImageResultExtResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customImage) {
+      vector<boost::any> temp1;
+      for(auto item1:*customImage){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CustomImage"] = boost::any(temp1);
+    }
+    if (publicFigure) {
+      vector<boost::any> temp1;
+      for(auto item1:*publicFigure){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PublicFigure"] = boost::any(temp1);
+    }
+    if (textInImage) {
+      res["TextInImage"] = textInImage ? boost::any(textInImage->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomImage") != m.end() && !m["CustomImage"].empty()) {
+      if (typeid(vector<boost::any>) == m["CustomImage"].type()) {
+        vector<DescribeImageResultExtResponseBodyDataCustomImage> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CustomImage"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageResultExtResponseBodyDataCustomImage model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        customImage = make_shared<vector<DescribeImageResultExtResponseBodyDataCustomImage>>(expect1);
+      }
+    }
+    if (m.find("PublicFigure") != m.end() && !m["PublicFigure"].empty()) {
+      if (typeid(vector<boost::any>) == m["PublicFigure"].type()) {
+        vector<DescribeImageResultExtResponseBodyDataPublicFigure> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PublicFigure"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeImageResultExtResponseBodyDataPublicFigure model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        publicFigure = make_shared<vector<DescribeImageResultExtResponseBodyDataPublicFigure>>(expect1);
+      }
+    }
+    if (m.find("TextInImage") != m.end() && !m["TextInImage"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TextInImage"].type()) {
+        DescribeImageResultExtResponseBodyDataTextInImage model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TextInImage"]));
+        textInImage = make_shared<DescribeImageResultExtResponseBodyDataTextInImage>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBodyData() = default;
+};
+class DescribeImageResultExtResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeImageResultExtResponseBodyData> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+
+  DescribeImageResultExtResponseBody() {}
+
+  explicit DescribeImageResultExtResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeImageResultExtResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeImageResultExtResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponseBody() = default;
+};
+class DescribeImageResultExtResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeImageResultExtResponseBody> body{};
+
+  DescribeImageResultExtResponse() {}
+
+  explicit DescribeImageResultExtResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeImageResultExtResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeImageResultExtResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeImageResultExtResponse() = default;
+};
 class ImageModerationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> service{};
@@ -1114,6 +1449,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  DescribeImageResultExtResponse describeImageResultExtWithOptions(shared_ptr<DescribeImageResultExtRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeImageResultExtResponse describeImageResultExt(shared_ptr<DescribeImageResultExtRequest> request);
   ImageModerationResponse imageModerationWithOptions(shared_ptr<ImageModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImageModerationResponse imageModeration(shared_ptr<ImageModerationRequest> request);
   TextModerationResponse textModerationWithOptions(shared_ptr<TextModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
