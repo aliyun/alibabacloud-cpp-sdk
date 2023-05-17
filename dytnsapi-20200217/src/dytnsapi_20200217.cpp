@@ -44,9 +44,6 @@ DescribeEmptyNumberResponse Alibabacloud_Dytnsapi20200217::Client::describeEmpty
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -142,9 +139,6 @@ DescribePhoneNumberOnlineTimeResponse Alibabacloud_Dytnsapi20200217::Client::des
   if (!Darabonba_Util::Client::isUnset<string>(request->carrier)) {
     query->insert(pair<string, string>("Carrier", *request->carrier));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -188,9 +182,6 @@ DescribePhoneNumberOperatorAttributeResponse Alibabacloud_Dytnsapi20200217::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -233,9 +224,6 @@ DescribePhoneTwiceTelVerifyResponse Alibabacloud_Dytnsapi20200217::Client::descr
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
@@ -369,9 +357,6 @@ PhoneNumberStatusForAccountResponse Alibabacloud_Dytnsapi20200217::Client::phone
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -458,9 +443,6 @@ PhoneNumberStatusForRealResponse Alibabacloud_Dytnsapi20200217::Client::phoneNum
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -503,9 +485,6 @@ PhoneNumberStatusForSmsResponse Alibabacloud_Dytnsapi20200217::Client::phoneNumb
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
@@ -550,9 +529,6 @@ PhoneNumberStatusForVirtualResponse Alibabacloud_Dytnsapi20200217::Client::phone
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -595,9 +571,6 @@ PhoneNumberStatusForVoiceResponse Alibabacloud_Dytnsapi20200217::Client::phoneNu
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
@@ -645,9 +618,6 @@ ThreeElementsVerificationResponse Alibabacloud_Dytnsapi20200217::Client::threeEl
   if (!Darabonba_Util::Client::isUnset<string>(request->certCode)) {
     query->insert(pair<string, string>("CertCode", *request->certCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));
   }
@@ -693,9 +663,6 @@ TwoElementsVerificationResponse Alibabacloud_Dytnsapi20200217::Client::twoElemen
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
     query->insert(pair<string, string>("AuthCode", *request->authCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->extendFunction)) {
-    query->insert(pair<string, string>("ExtendFunction", *request->extendFunction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputNumber)) {
     query->insert(pair<string, string>("InputNumber", *request->inputNumber));

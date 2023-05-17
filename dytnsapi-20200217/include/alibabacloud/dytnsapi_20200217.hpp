@@ -17,7 +17,6 @@ namespace Alibabacloud_Dytnsapi20200217 {
 class DescribeEmptyNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -36,9 +35,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -61,9 +57,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -481,7 +474,6 @@ class DescribePhoneNumberOnlineTimeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
   shared_ptr<string> carrier{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -503,9 +495,6 @@ public:
     }
     if (carrier) {
       res["Carrier"] = boost::any(*carrier);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -531,9 +520,6 @@ public:
     }
     if (m.find("Carrier") != m.end() && !m["Carrier"].empty()) {
       carrier = make_shared<string>(boost::any_cast<string>(m["Carrier"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -710,7 +696,6 @@ public:
 class DescribePhoneNumberOperatorAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -729,9 +714,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -754,9 +736,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -961,7 +940,6 @@ public:
 class DescribePhoneTwiceTelVerifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -981,9 +959,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -1009,9 +984,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -1664,7 +1636,6 @@ public:
 class PhoneNumberStatusForAccountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -1683,9 +1654,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -1708,9 +1676,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2103,7 +2068,6 @@ public:
 class PhoneNumberStatusForRealRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -2122,9 +2086,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -2147,9 +2108,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2326,7 +2284,6 @@ public:
 class PhoneNumberStatusForSmsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -2345,9 +2302,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -2370,9 +2324,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2549,7 +2500,6 @@ public:
 class PhoneNumberStatusForVirtualRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -2568,9 +2518,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -2593,9 +2540,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2765,7 +2709,6 @@ public:
 class PhoneNumberStatusForVoiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<long> ownerId{};
@@ -2784,9 +2727,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -2809,9 +2749,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -2989,7 +2926,6 @@ class ThreeElementsVerificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
   shared_ptr<string> certCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<string> name{};
@@ -3012,9 +2948,6 @@ public:
     }
     if (certCode) {
       res["CertCode"] = boost::any(*certCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -3043,9 +2976,6 @@ public:
     }
     if (m.find("CertCode") != m.end() && !m["CertCode"].empty()) {
       certCode = make_shared<string>(boost::any_cast<string>(m["CertCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
@@ -3225,7 +3155,6 @@ public:
 class TwoElementsVerificationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> authCode{};
-  shared_ptr<string> extendFunction{};
   shared_ptr<string> inputNumber{};
   shared_ptr<string> mask{};
   shared_ptr<string> name{};
@@ -3245,9 +3174,6 @@ public:
     map<string, boost::any> res;
     if (authCode) {
       res["AuthCode"] = boost::any(*authCode);
-    }
-    if (extendFunction) {
-      res["ExtendFunction"] = boost::any(*extendFunction);
     }
     if (inputNumber) {
       res["InputNumber"] = boost::any(*inputNumber);
@@ -3273,9 +3199,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AuthCode") != m.end() && !m["AuthCode"].empty()) {
       authCode = make_shared<string>(boost::any_cast<string>(m["AuthCode"]));
-    }
-    if (m.find("ExtendFunction") != m.end() && !m["ExtendFunction"].empty()) {
-      extendFunction = make_shared<string>(boost::any_cast<string>(m["ExtendFunction"]));
     }
     if (m.find("InputNumber") != m.end() && !m["InputNumber"].empty()) {
       inputNumber = make_shared<string>(boost::any_cast<string>(m["InputNumber"]));
