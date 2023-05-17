@@ -124,6 +124,12 @@ CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceType)) {
     body->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->systemDiskSize)) {
+    body->insert(pair<string, long>("SystemDiskSize", *request->systemDiskSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zone)) {
+    body->insert(pair<string, string>("Zone", *request->zone));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -167,8 +173,14 @@ CreateResourceInstancesResponse Alibabacloud_Eas20210701::Client::createResource
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceType)) {
     body->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->systemDiskSize)) {
+    body->insert(pair<string, long>("SystemDiskSize", *request->systemDiskSize));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
     body->insert(pair<string, string>("UserData", *request->userData));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zone)) {
+    body->insert(pair<string, string>("Zone", *request->zone));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -277,6 +289,9 @@ CreateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::createServiceA
                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<CreateServiceAutoScalerRequestBehavior>(request->behavior)) {
+    body->insert(pair<string, CreateServiceAutoScalerRequestBehavior>("behavior", *request->behavior));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->max)) {
     body->insert(pair<string, long>("max", *request->max));
   }
@@ -970,6 +985,12 @@ DescribeServiceEventResponse Alibabacloud_Eas20210701::Client::describeServiceEv
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
+    query->insert(pair<string, string>("EventType", *request->eventType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageNum)) {
     query->insert(pair<string, string>("PageNum", *request->pageNum));
   }
@@ -1010,8 +1031,14 @@ DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLogW
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerName)) {
+    query->insert(pair<string, string>("ContainerName", *request->containerName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ip)) {
     query->insert(pair<string, string>("Ip", *request->ip));
@@ -1024,6 +1051,9 @@ DescribeServiceLogResponse Alibabacloud_Eas20210701::Client::describeServiceLogW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->previous)) {
+    query->insert(pair<string, bool>("Previous", *request->previous));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
@@ -1239,17 +1269,32 @@ ListResourceInstancesResponse Alibabacloud_Eas20210701::Client::listResourceInst
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     query->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIP)) {
+    query->insert(pair<string, string>("InstanceIP", *request->instanceIP));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     query->insert(pair<string, string>("InstanceName", *request->instanceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceStatus)) {
+    query->insert(pair<string, string>("InstanceStatus", *request->instanceStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    query->insert(pair<string, string>("Sort", *request->sort));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1358,11 +1403,44 @@ ListServiceInstancesResponse Alibabacloud_Eas20210701::Client::listServiceInstan
                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filter)) {
+    query->insert(pair<string, string>("Filter", *request->filter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hostIP)) {
+    query->insert(pair<string, string>("HostIP", *request->hostIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceIP)) {
+    query->insert(pair<string, string>("InstanceIP", *request->instanceIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
+    query->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceStatus)) {
+    query->insert(pair<string, string>("InstanceStatus", *request->instanceStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isSpot)) {
+    query->insert(pair<string, bool>("IsSpot", *request->isSpot));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
+    query->insert(pair<string, string>("Order", *request->order));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->role)) {
+    query->insert(pair<string, string>("Role", *request->role));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
+    query->insert(pair<string, string>("Sort", *request->sort));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -1454,8 +1532,20 @@ ListServicesResponse Alibabacloud_Eas20210701::Client::listServicesWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->parentServiceUid)) {
     query->insert(pair<string, string>("ParentServiceUid", *request->parentServiceUid));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
+    query->insert(pair<string, string>("ResourceName", *request->resourceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceStatus)) {
+    query->insert(pair<string, string>("ServiceStatus", *request->serviceStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceType)) {
     query->insert(pair<string, string>("ServiceType", *request->serviceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceUid)) {
+    query->insert(pair<string, string>("ServiceUid", *request->serviceUid));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
@@ -1811,6 +1901,9 @@ UpdateServiceAutoScalerResponse Alibabacloud_Eas20210701::Client::updateServiceA
                                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<UpdateServiceAutoScalerRequestBehavior>(request->behavior)) {
+    body->insert(pair<string, UpdateServiceAutoScalerRequestBehavior>("behavior", *request->behavior));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->max)) {
     body->insert(pair<string, long>("max", *request->max));
   }
