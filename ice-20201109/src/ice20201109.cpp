@@ -5648,6 +5648,9 @@ SubmitMediaProducingJobResponse Alibabacloud_ICE20201109::Client::submitMediaPro
   if (!Darabonba_Util::Client::isUnset<string>(request->editingProduceConfig)) {
     query->insert(pair<string, string>("EditingProduceConfig", *request->editingProduceConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaMetadata)) {
+    query->insert(pair<string, string>("MediaMetadata", *request->mediaMetadata));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->outputMediaConfig)) {
     query->insert(pair<string, string>("OutputMediaConfig", *request->outputMediaConfig));
   }

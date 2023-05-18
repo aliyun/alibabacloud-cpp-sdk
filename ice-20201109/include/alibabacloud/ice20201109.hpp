@@ -24058,6 +24058,84 @@ public:
 
   virtual ~GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig() = default;
 };
+class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adjDarMethod{};
+  shared_ptr<string> isCheckAudioBitrate{};
+  shared_ptr<string> isCheckAudioBitrateFail{};
+  shared_ptr<string> isCheckReso{};
+  shared_ptr<string> isCheckResoFail{};
+  shared_ptr<string> isCheckVideoBitrate{};
+  shared_ptr<string> isCheckVideoBitrateFail{};
+  shared_ptr<string> transMode{};
+
+  GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() {}
+
+  explicit GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjDarMethod) {
+      res["AdjDarMethod"] = boost::any(*adjDarMethod);
+    }
+    if (isCheckAudioBitrate) {
+      res["IsCheckAudioBitrate"] = boost::any(*isCheckAudioBitrate);
+    }
+    if (isCheckAudioBitrateFail) {
+      res["IsCheckAudioBitrateFail"] = boost::any(*isCheckAudioBitrateFail);
+    }
+    if (isCheckReso) {
+      res["IsCheckReso"] = boost::any(*isCheckReso);
+    }
+    if (isCheckResoFail) {
+      res["IsCheckResoFail"] = boost::any(*isCheckResoFail);
+    }
+    if (isCheckVideoBitrate) {
+      res["IsCheckVideoBitrate"] = boost::any(*isCheckVideoBitrate);
+    }
+    if (isCheckVideoBitrateFail) {
+      res["IsCheckVideoBitrateFail"] = boost::any(*isCheckVideoBitrateFail);
+    }
+    if (transMode) {
+      res["TransMode"] = boost::any(*transMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjDarMethod") != m.end() && !m["AdjDarMethod"].empty()) {
+      adjDarMethod = make_shared<string>(boost::any_cast<string>(m["AdjDarMethod"]));
+    }
+    if (m.find("IsCheckAudioBitrate") != m.end() && !m["IsCheckAudioBitrate"].empty()) {
+      isCheckAudioBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrate"]));
+    }
+    if (m.find("IsCheckAudioBitrateFail") != m.end() && !m["IsCheckAudioBitrateFail"].empty()) {
+      isCheckAudioBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrateFail"]));
+    }
+    if (m.find("IsCheckReso") != m.end() && !m["IsCheckReso"].empty()) {
+      isCheckReso = make_shared<string>(boost::any_cast<string>(m["IsCheckReso"]));
+    }
+    if (m.find("IsCheckResoFail") != m.end() && !m["IsCheckResoFail"].empty()) {
+      isCheckResoFail = make_shared<string>(boost::any_cast<string>(m["IsCheckResoFail"]));
+    }
+    if (m.find("IsCheckVideoBitrate") != m.end() && !m["IsCheckVideoBitrate"].empty()) {
+      isCheckVideoBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrate"]));
+    }
+    if (m.find("IsCheckVideoBitrateFail") != m.end() && !m["IsCheckVideoBitrateFail"].empty()) {
+      isCheckVideoBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrateFail"]));
+    }
+    if (m.find("TransMode") != m.end() && !m["TransMode"].empty()) {
+      transMode = make_shared<string>(boost::any_cast<string>(m["TransMode"]));
+    }
+  }
+
+
+  virtual ~GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() = default;
+};
 class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo : public Darabonba::Model {
 public:
   shared_ptr<string> abrMax{};
@@ -24211,6 +24289,7 @@ public:
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio> audio{};
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer> container{};
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig> muxConfig{};
+  shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig> transConfig{};
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo> video{};
 
   GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams() {}
@@ -24231,6 +24310,9 @@ public:
     }
     if (muxConfig) {
       res["MuxConfig"] = muxConfig ? boost::any(muxConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transConfig) {
+      res["TransConfig"] = transConfig ? boost::any(transConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (video) {
       res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
@@ -24258,6 +24340,13 @@ public:
         GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MuxConfig"]));
         muxConfig = make_shared<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig>(model1);
+      }
+    }
+    if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransConfig"].type()) {
+        GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransConfig"]));
+        transConfig = make_shared<GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig>(model1);
       }
     }
     if (m.find("Video") != m.end() && !m["Video"].empty()) {
@@ -25859,6 +25948,84 @@ public:
 
   virtual ~GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig() = default;
 };
+class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adjDarMethod{};
+  shared_ptr<string> isCheckAudioBitrate{};
+  shared_ptr<string> isCheckAudioBitrateFail{};
+  shared_ptr<string> isCheckReso{};
+  shared_ptr<string> isCheckResoFail{};
+  shared_ptr<string> isCheckVideoBitrate{};
+  shared_ptr<string> isCheckVideoBitrateFail{};
+  shared_ptr<string> transMode{};
+
+  GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig() {}
+
+  explicit GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjDarMethod) {
+      res["AdjDarMethod"] = boost::any(*adjDarMethod);
+    }
+    if (isCheckAudioBitrate) {
+      res["IsCheckAudioBitrate"] = boost::any(*isCheckAudioBitrate);
+    }
+    if (isCheckAudioBitrateFail) {
+      res["IsCheckAudioBitrateFail"] = boost::any(*isCheckAudioBitrateFail);
+    }
+    if (isCheckReso) {
+      res["IsCheckReso"] = boost::any(*isCheckReso);
+    }
+    if (isCheckResoFail) {
+      res["IsCheckResoFail"] = boost::any(*isCheckResoFail);
+    }
+    if (isCheckVideoBitrate) {
+      res["IsCheckVideoBitrate"] = boost::any(*isCheckVideoBitrate);
+    }
+    if (isCheckVideoBitrateFail) {
+      res["IsCheckVideoBitrateFail"] = boost::any(*isCheckVideoBitrateFail);
+    }
+    if (transMode) {
+      res["TransMode"] = boost::any(*transMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjDarMethod") != m.end() && !m["AdjDarMethod"].empty()) {
+      adjDarMethod = make_shared<string>(boost::any_cast<string>(m["AdjDarMethod"]));
+    }
+    if (m.find("IsCheckAudioBitrate") != m.end() && !m["IsCheckAudioBitrate"].empty()) {
+      isCheckAudioBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrate"]));
+    }
+    if (m.find("IsCheckAudioBitrateFail") != m.end() && !m["IsCheckAudioBitrateFail"].empty()) {
+      isCheckAudioBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrateFail"]));
+    }
+    if (m.find("IsCheckReso") != m.end() && !m["IsCheckReso"].empty()) {
+      isCheckReso = make_shared<string>(boost::any_cast<string>(m["IsCheckReso"]));
+    }
+    if (m.find("IsCheckResoFail") != m.end() && !m["IsCheckResoFail"].empty()) {
+      isCheckResoFail = make_shared<string>(boost::any_cast<string>(m["IsCheckResoFail"]));
+    }
+    if (m.find("IsCheckVideoBitrate") != m.end() && !m["IsCheckVideoBitrate"].empty()) {
+      isCheckVideoBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrate"]));
+    }
+    if (m.find("IsCheckVideoBitrateFail") != m.end() && !m["IsCheckVideoBitrateFail"].empty()) {
+      isCheckVideoBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrateFail"]));
+    }
+    if (m.find("TransMode") != m.end() && !m["TransMode"].empty()) {
+      transMode = make_shared<string>(boost::any_cast<string>(m["TransMode"]));
+    }
+  }
+
+
+  virtual ~GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig() = default;
+};
 class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo : public Darabonba::Model {
 public:
   shared_ptr<string> abrMax{};
@@ -26013,6 +26180,7 @@ public:
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer> container{};
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig> muxConfig{};
   shared_ptr<map<string, string>> tags{};
+  shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig> transConfig{};
   shared_ptr<GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo> video{};
 
   GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams() {}
@@ -26036,6 +26204,9 @@ public:
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
+    }
+    if (transConfig) {
+      res["TransConfig"] = transConfig ? boost::any(transConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (video) {
       res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
@@ -26072,6 +26243,13 @@ public:
          toMap1[item.first] = item.second;
       }
       tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransConfig"].type()) {
+        GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransConfig"]));
+        transConfig = make_shared<GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig>(model1);
+      }
     }
     if (m.find("Video") != m.end() && !m["Video"].empty()) {
       if (typeid(map<string, boost::any>) == m["Video"].type()) {
@@ -49260,6 +49438,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> clipsParam{};
   shared_ptr<string> editingProduceConfig{};
+  shared_ptr<string> mediaMetadata{};
   shared_ptr<string> outputMediaConfig{};
   shared_ptr<string> outputMediaTarget{};
   shared_ptr<string> projectId{};
@@ -49287,6 +49466,9 @@ public:
     }
     if (editingProduceConfig) {
       res["EditingProduceConfig"] = boost::any(*editingProduceConfig);
+    }
+    if (mediaMetadata) {
+      res["MediaMetadata"] = boost::any(*mediaMetadata);
     }
     if (outputMediaConfig) {
       res["OutputMediaConfig"] = boost::any(*outputMediaConfig);
@@ -49324,6 +49506,9 @@ public:
     }
     if (m.find("EditingProduceConfig") != m.end() && !m["EditingProduceConfig"].empty()) {
       editingProduceConfig = make_shared<string>(boost::any_cast<string>(m["EditingProduceConfig"]));
+    }
+    if (m.find("MediaMetadata") != m.end() && !m["MediaMetadata"].empty()) {
+      mediaMetadata = make_shared<string>(boost::any_cast<string>(m["MediaMetadata"]));
     }
     if (m.find("OutputMediaConfig") != m.end() && !m["OutputMediaConfig"].empty()) {
       outputMediaConfig = make_shared<string>(boost::any_cast<string>(m["OutputMediaConfig"]));
@@ -52766,6 +52951,84 @@ public:
 
   virtual ~SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig() = default;
 };
+class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adjDarMethod{};
+  shared_ptr<string> isCheckAudioBitrate{};
+  shared_ptr<string> isCheckAudioBitrateFail{};
+  shared_ptr<string> isCheckReso{};
+  shared_ptr<string> isCheckResoFail{};
+  shared_ptr<string> isCheckVideoBitrate{};
+  shared_ptr<string> isCheckVideoBitrateFail{};
+  shared_ptr<string> transMode{};
+
+  SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() {}
+
+  explicit SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjDarMethod) {
+      res["AdjDarMethod"] = boost::any(*adjDarMethod);
+    }
+    if (isCheckAudioBitrate) {
+      res["IsCheckAudioBitrate"] = boost::any(*isCheckAudioBitrate);
+    }
+    if (isCheckAudioBitrateFail) {
+      res["IsCheckAudioBitrateFail"] = boost::any(*isCheckAudioBitrateFail);
+    }
+    if (isCheckReso) {
+      res["IsCheckReso"] = boost::any(*isCheckReso);
+    }
+    if (isCheckResoFail) {
+      res["IsCheckResoFail"] = boost::any(*isCheckResoFail);
+    }
+    if (isCheckVideoBitrate) {
+      res["IsCheckVideoBitrate"] = boost::any(*isCheckVideoBitrate);
+    }
+    if (isCheckVideoBitrateFail) {
+      res["IsCheckVideoBitrateFail"] = boost::any(*isCheckVideoBitrateFail);
+    }
+    if (transMode) {
+      res["TransMode"] = boost::any(*transMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjDarMethod") != m.end() && !m["AdjDarMethod"].empty()) {
+      adjDarMethod = make_shared<string>(boost::any_cast<string>(m["AdjDarMethod"]));
+    }
+    if (m.find("IsCheckAudioBitrate") != m.end() && !m["IsCheckAudioBitrate"].empty()) {
+      isCheckAudioBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrate"]));
+    }
+    if (m.find("IsCheckAudioBitrateFail") != m.end() && !m["IsCheckAudioBitrateFail"].empty()) {
+      isCheckAudioBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrateFail"]));
+    }
+    if (m.find("IsCheckReso") != m.end() && !m["IsCheckReso"].empty()) {
+      isCheckReso = make_shared<string>(boost::any_cast<string>(m["IsCheckReso"]));
+    }
+    if (m.find("IsCheckResoFail") != m.end() && !m["IsCheckResoFail"].empty()) {
+      isCheckResoFail = make_shared<string>(boost::any_cast<string>(m["IsCheckResoFail"]));
+    }
+    if (m.find("IsCheckVideoBitrate") != m.end() && !m["IsCheckVideoBitrate"].empty()) {
+      isCheckVideoBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrate"]));
+    }
+    if (m.find("IsCheckVideoBitrateFail") != m.end() && !m["IsCheckVideoBitrateFail"].empty()) {
+      isCheckVideoBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrateFail"]));
+    }
+    if (m.find("TransMode") != m.end() && !m["TransMode"].empty()) {
+      transMode = make_shared<string>(boost::any_cast<string>(m["TransMode"]));
+    }
+  }
+
+
+  virtual ~SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() = default;
+};
 class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo : public Darabonba::Model {
 public:
   shared_ptr<string> abrMax{};
@@ -52920,6 +53183,7 @@ public:
   shared_ptr<SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer> container{};
   shared_ptr<SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig> muxConfig{};
   shared_ptr<map<string, string>> tags{};
+  shared_ptr<SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig> transConfig{};
   shared_ptr<SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo> video{};
 
   SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParams() {}
@@ -52943,6 +53207,9 @@ public:
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
+    }
+    if (transConfig) {
+      res["TransConfig"] = transConfig ? boost::any(transConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (video) {
       res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
@@ -52979,6 +53246,13 @@ public:
          toMap1[item.first] = item.second;
       }
       tags = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransConfig"].type()) {
+        SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransConfig"]));
+        transConfig = make_shared<SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig>(model1);
+      }
     }
     if (m.find("Video") != m.end() && !m["Video"].empty()) {
       if (typeid(map<string, boost::any>) == m["Video"].type()) {
@@ -54227,6 +54501,84 @@ public:
 
   virtual ~SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig() = default;
 };
+class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adjDarMethod{};
+  shared_ptr<string> isCheckAudioBitrate{};
+  shared_ptr<string> isCheckAudioBitrateFail{};
+  shared_ptr<string> isCheckReso{};
+  shared_ptr<string> isCheckResoFail{};
+  shared_ptr<string> isCheckVideoBitrate{};
+  shared_ptr<string> isCheckVideoBitrateFail{};
+  shared_ptr<string> transMode{};
+
+  SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() {}
+
+  explicit SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjDarMethod) {
+      res["AdjDarMethod"] = boost::any(*adjDarMethod);
+    }
+    if (isCheckAudioBitrate) {
+      res["IsCheckAudioBitrate"] = boost::any(*isCheckAudioBitrate);
+    }
+    if (isCheckAudioBitrateFail) {
+      res["IsCheckAudioBitrateFail"] = boost::any(*isCheckAudioBitrateFail);
+    }
+    if (isCheckReso) {
+      res["IsCheckReso"] = boost::any(*isCheckReso);
+    }
+    if (isCheckResoFail) {
+      res["IsCheckResoFail"] = boost::any(*isCheckResoFail);
+    }
+    if (isCheckVideoBitrate) {
+      res["IsCheckVideoBitrate"] = boost::any(*isCheckVideoBitrate);
+    }
+    if (isCheckVideoBitrateFail) {
+      res["IsCheckVideoBitrateFail"] = boost::any(*isCheckVideoBitrateFail);
+    }
+    if (transMode) {
+      res["TransMode"] = boost::any(*transMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjDarMethod") != m.end() && !m["AdjDarMethod"].empty()) {
+      adjDarMethod = make_shared<string>(boost::any_cast<string>(m["AdjDarMethod"]));
+    }
+    if (m.find("IsCheckAudioBitrate") != m.end() && !m["IsCheckAudioBitrate"].empty()) {
+      isCheckAudioBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrate"]));
+    }
+    if (m.find("IsCheckAudioBitrateFail") != m.end() && !m["IsCheckAudioBitrateFail"].empty()) {
+      isCheckAudioBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrateFail"]));
+    }
+    if (m.find("IsCheckReso") != m.end() && !m["IsCheckReso"].empty()) {
+      isCheckReso = make_shared<string>(boost::any_cast<string>(m["IsCheckReso"]));
+    }
+    if (m.find("IsCheckResoFail") != m.end() && !m["IsCheckResoFail"].empty()) {
+      isCheckResoFail = make_shared<string>(boost::any_cast<string>(m["IsCheckResoFail"]));
+    }
+    if (m.find("IsCheckVideoBitrate") != m.end() && !m["IsCheckVideoBitrate"].empty()) {
+      isCheckVideoBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrate"]));
+    }
+    if (m.find("IsCheckVideoBitrateFail") != m.end() && !m["IsCheckVideoBitrateFail"].empty()) {
+      isCheckVideoBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrateFail"]));
+    }
+    if (m.find("TransMode") != m.end() && !m["TransMode"].empty()) {
+      transMode = make_shared<string>(boost::any_cast<string>(m["TransMode"]));
+    }
+  }
+
+
+  virtual ~SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig() = default;
+};
 class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo : public Darabonba::Model {
 public:
   shared_ptr<string> abrMax{};
@@ -54380,6 +54732,7 @@ public:
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio> audio{};
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer> container{};
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig> muxConfig{};
+  shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig> transConfig{};
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo> video{};
 
   SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams() {}
@@ -54400,6 +54753,9 @@ public:
     }
     if (muxConfig) {
       res["MuxConfig"] = muxConfig ? boost::any(muxConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transConfig) {
+      res["TransConfig"] = transConfig ? boost::any(transConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (video) {
       res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
@@ -54427,6 +54783,13 @@ public:
         SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MuxConfig"]));
         muxConfig = make_shared<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig>(model1);
+      }
+    }
+    if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransConfig"].type()) {
+        SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransConfig"]));
+        transConfig = make_shared<SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig>(model1);
       }
     }
     if (m.find("Video") != m.end() && !m["Video"].empty()) {
@@ -56028,6 +56391,84 @@ public:
 
   virtual ~SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig() = default;
 };
+class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> adjDarMethod{};
+  shared_ptr<string> isCheckAudioBitrate{};
+  shared_ptr<string> isCheckAudioBitrateFail{};
+  shared_ptr<string> isCheckReso{};
+  shared_ptr<string> isCheckResoFail{};
+  shared_ptr<string> isCheckVideoBitrate{};
+  shared_ptr<string> isCheckVideoBitrateFail{};
+  shared_ptr<string> transMode{};
+
+  SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig() {}
+
+  explicit SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjDarMethod) {
+      res["AdjDarMethod"] = boost::any(*adjDarMethod);
+    }
+    if (isCheckAudioBitrate) {
+      res["IsCheckAudioBitrate"] = boost::any(*isCheckAudioBitrate);
+    }
+    if (isCheckAudioBitrateFail) {
+      res["IsCheckAudioBitrateFail"] = boost::any(*isCheckAudioBitrateFail);
+    }
+    if (isCheckReso) {
+      res["IsCheckReso"] = boost::any(*isCheckReso);
+    }
+    if (isCheckResoFail) {
+      res["IsCheckResoFail"] = boost::any(*isCheckResoFail);
+    }
+    if (isCheckVideoBitrate) {
+      res["IsCheckVideoBitrate"] = boost::any(*isCheckVideoBitrate);
+    }
+    if (isCheckVideoBitrateFail) {
+      res["IsCheckVideoBitrateFail"] = boost::any(*isCheckVideoBitrateFail);
+    }
+    if (transMode) {
+      res["TransMode"] = boost::any(*transMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjDarMethod") != m.end() && !m["AdjDarMethod"].empty()) {
+      adjDarMethod = make_shared<string>(boost::any_cast<string>(m["AdjDarMethod"]));
+    }
+    if (m.find("IsCheckAudioBitrate") != m.end() && !m["IsCheckAudioBitrate"].empty()) {
+      isCheckAudioBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrate"]));
+    }
+    if (m.find("IsCheckAudioBitrateFail") != m.end() && !m["IsCheckAudioBitrateFail"].empty()) {
+      isCheckAudioBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckAudioBitrateFail"]));
+    }
+    if (m.find("IsCheckReso") != m.end() && !m["IsCheckReso"].empty()) {
+      isCheckReso = make_shared<string>(boost::any_cast<string>(m["IsCheckReso"]));
+    }
+    if (m.find("IsCheckResoFail") != m.end() && !m["IsCheckResoFail"].empty()) {
+      isCheckResoFail = make_shared<string>(boost::any_cast<string>(m["IsCheckResoFail"]));
+    }
+    if (m.find("IsCheckVideoBitrate") != m.end() && !m["IsCheckVideoBitrate"].empty()) {
+      isCheckVideoBitrate = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrate"]));
+    }
+    if (m.find("IsCheckVideoBitrateFail") != m.end() && !m["IsCheckVideoBitrateFail"].empty()) {
+      isCheckVideoBitrateFail = make_shared<string>(boost::any_cast<string>(m["IsCheckVideoBitrateFail"]));
+    }
+    if (m.find("TransMode") != m.end() && !m["TransMode"].empty()) {
+      transMode = make_shared<string>(boost::any_cast<string>(m["TransMode"]));
+    }
+  }
+
+
+  virtual ~SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig() = default;
+};
 class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo : public Darabonba::Model {
 public:
   shared_ptr<string> abrMax{};
@@ -56182,6 +56623,7 @@ public:
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer> container{};
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig> muxConfig{};
   shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig> transConfig{};
   shared_ptr<SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo> video{};
 
   SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams() {}
@@ -56205,6 +56647,9 @@ public:
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
+    }
+    if (transConfig) {
+      res["TransConfig"] = transConfig ? boost::any(transConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (video) {
       res["Video"] = video ? boost::any(video->toMap()) : boost::any(map<string,boost::any>({}));
@@ -56241,6 +56686,13 @@ public:
          toMap1[item.first] = item.second;
       }
       tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TransConfig"].type()) {
+        SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TransConfig"]));
+        transConfig = make_shared<SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig>(model1);
+      }
     }
     if (m.find("Video") != m.end() && !m["Video"].empty()) {
       if (typeid(map<string, boost::any>) == m["Video"].type()) {
