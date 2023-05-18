@@ -17928,6 +17928,7 @@ public:
   shared_ptr<string> encoding{};
   shared_ptr<string> envType{};
   shared_ptr<string> host{};
+  shared_ptr<string> instanceAlias{};
   shared_ptr<string> instanceId{};
   shared_ptr<GetDatabaseResponseBodyDatabaseOwnerIdList> ownerIdList{};
   shared_ptr<GetDatabaseResponseBodyDatabaseOwnerNameList> ownerNameList{};
@@ -17970,6 +17971,9 @@ public:
     }
     if (host) {
       res["Host"] = boost::any(*host);
+    }
+    if (instanceAlias) {
+      res["InstanceAlias"] = boost::any(*instanceAlias);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -18022,6 +18026,9 @@ public:
     }
     if (m.find("Host") != m.end() && !m["Host"].empty()) {
       host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("InstanceAlias") != m.end() && !m["InstanceAlias"].empty()) {
+      instanceAlias = make_shared<string>(boost::any_cast<string>(m["InstanceAlias"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -22709,6 +22716,7 @@ public:
   shared_ptr<string> encoding{};
   shared_ptr<string> envType{};
   shared_ptr<string> host{};
+  shared_ptr<string> instanceAlias{};
   shared_ptr<string> instanceId{};
   shared_ptr<GetPhysicalDatabaseResponseBodyDatabaseOwnerIdList> ownerIdList{};
   shared_ptr<GetPhysicalDatabaseResponseBodyDatabaseOwnerNameList> ownerNameList{};
@@ -22751,6 +22759,9 @@ public:
     }
     if (host) {
       res["Host"] = boost::any(*host);
+    }
+    if (instanceAlias) {
+      res["InstanceAlias"] = boost::any(*instanceAlias);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -22803,6 +22814,9 @@ public:
     }
     if (m.find("Host") != m.end() && !m["Host"].empty()) {
       host = make_shared<string>(boost::any_cast<string>(m["Host"]));
+    }
+    if (m.find("InstanceAlias") != m.end() && !m["InstanceAlias"].empty()) {
+      instanceAlias = make_shared<string>(boost::any_cast<string>(m["InstanceAlias"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
