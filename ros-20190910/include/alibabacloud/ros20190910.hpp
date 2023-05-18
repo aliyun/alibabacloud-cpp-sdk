@@ -8620,6 +8620,7 @@ public:
   shared_ptr<GetStackResponseBodyLog> log{};
   shared_ptr<vector<string>> notificationURLs{};
   shared_ptr<GetStackResponseBodyOperationInfo> operationInfo{};
+  shared_ptr<vector<string>> orderIds{};
   shared_ptr<vector<map<string, boost::any>>> outputs{};
   shared_ptr<vector<GetStackResponseBodyParameters>> parameters{};
   shared_ptr<string> parentStackId{};
@@ -8682,6 +8683,9 @@ public:
     }
     if (operationInfo) {
       res["OperationInfo"] = operationInfo ? boost::any(operationInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (orderIds) {
+      res["OrderIds"] = boost::any(*orderIds);
     }
     if (outputs) {
       res["Outputs"] = boost::any(*outputs);
@@ -8811,6 +8815,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperationInfo"]));
         operationInfo = make_shared<GetStackResponseBodyOperationInfo>(model1);
       }
+    }
+    if (m.find("OrderIds") != m.end() && !m["OrderIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OrderIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OrderIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      orderIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Outputs") != m.end() && !m["Outputs"].empty()) {
       vector<map<string, boost::any>> toVec1;
@@ -11314,6 +11328,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<vector<GetTemplateEstimateCostRequestParameters>> parameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> stackId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateScratchId{};
@@ -11343,6 +11358,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (stackId) {
+      res["StackId"] = boost::any(*stackId);
     }
     if (templateBody) {
       res["TemplateBody"] = boost::any(*templateBody);
@@ -11384,6 +11402,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StackId") != m.end() && !m["StackId"].empty()) {
+      stackId = make_shared<string>(boost::any_cast<string>(m["StackId"]));
     }
     if (m.find("TemplateBody") != m.end() && !m["TemplateBody"].empty()) {
       templateBody = make_shared<string>(boost::any_cast<string>(m["TemplateBody"]));

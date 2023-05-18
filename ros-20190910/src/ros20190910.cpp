@@ -1629,6 +1629,9 @@ GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEst
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
+    query->insert(pair<string, string>("StackId", *request->stackId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
     query->insert(pair<string, string>("TemplateBody", *request->templateBody));
   }
