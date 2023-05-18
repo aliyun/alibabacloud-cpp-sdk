@@ -7879,6 +7879,7 @@ public:
 };
 class RecognizePurchaseRecordRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> outputMultiOrders{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -7892,6 +7893,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (outputMultiOrders) {
+      res["OutputMultiOrders"] = boost::any(*outputMultiOrders);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -7902,6 +7906,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputMultiOrders") != m.end() && !m["OutputMultiOrders"].empty()) {
+      outputMultiOrders = make_shared<bool>(boost::any_cast<bool>(m["OutputMultiOrders"]));
+    }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
@@ -9084,6 +9091,7 @@ public:
 };
 class RecognizeTableOcrRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> isHandWriting{};
   shared_ptr<bool> lineLess{};
   shared_ptr<bool> needRotate{};
   shared_ptr<bool> skipDetection{};
@@ -9100,6 +9108,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (isHandWriting) {
+      res["IsHandWriting"] = boost::any(*isHandWriting);
+    }
     if (lineLess) {
       res["LineLess"] = boost::any(*lineLess);
     }
@@ -9119,6 +9130,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsHandWriting") != m.end() && !m["IsHandWriting"].empty()) {
+      isHandWriting = make_shared<string>(boost::any_cast<string>(m["IsHandWriting"]));
+    }
     if (m.find("LineLess") != m.end() && !m["LineLess"].empty()) {
       lineLess = make_shared<bool>(boost::any_cast<bool>(m["LineLess"]));
     }
@@ -10159,154 +10173,6 @@ public:
 
 
   virtual ~RecognizeTrainInvoiceResponse() = default;
-};
-class RecognizeTravelCardRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> url{};
-  shared_ptr<Darabonba::Stream> body{};
-
-  RecognizeTravelCardRequest() {}
-
-  explicit RecognizeTravelCardRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (url) {
-      res["Url"] = boost::any(*url);
-    }
-    if (body) {
-      res["body"] = boost::any(*body);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Url") != m.end() && !m["Url"].empty()) {
-      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
-    }
-  }
-
-
-  virtual ~RecognizeTravelCardRequest() = default;
-};
-class RecognizeTravelCardResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> code{};
-  shared_ptr<string> data{};
-  shared_ptr<string> message{};
-  shared_ptr<string> requestId{};
-
-  RecognizeTravelCardResponseBody() {}
-
-  explicit RecognizeTravelCardResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (code) {
-      res["Code"] = boost::any(*code);
-    }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
-    if (message) {
-      res["Message"] = boost::any(*message);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Code") != m.end() && !m["Code"].empty()) {
-      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
-    }
-    if (m.find("Message") != m.end() && !m["Message"].empty()) {
-      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~RecognizeTravelCardResponseBody() = default;
-};
-class RecognizeTravelCardResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<RecognizeTravelCardResponseBody> body{};
-
-  RecognizeTravelCardResponse() {}
-
-  explicit RecognizeTravelCardResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        RecognizeTravelCardResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<RecognizeTravelCardResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~RecognizeTravelCardResponse() = default;
 };
 class RecognizeUsedCarInvoiceRequest : public Darabonba::Model {
 public:
@@ -11484,8 +11350,6 @@ public:
   RecognizeTradeMarkCertificationResponse recognizeTradeMarkCertification(shared_ptr<RecognizeTradeMarkCertificationRequest> request);
   RecognizeTrainInvoiceResponse recognizeTrainInvoiceWithOptions(shared_ptr<RecognizeTrainInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeTrainInvoiceResponse recognizeTrainInvoice(shared_ptr<RecognizeTrainInvoiceRequest> request);
-  RecognizeTravelCardResponse recognizeTravelCardWithOptions(shared_ptr<RecognizeTravelCardRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RecognizeTravelCardResponse recognizeTravelCard(shared_ptr<RecognizeTravelCardRequest> request);
   RecognizeUsedCarInvoiceResponse recognizeUsedCarInvoiceWithOptions(shared_ptr<RecognizeUsedCarInvoiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeUsedCarInvoiceResponse recognizeUsedCarInvoice(shared_ptr<RecognizeUsedCarInvoiceRequest> request);
   RecognizeVehicleCertificationResponse recognizeVehicleCertificationWithOptions(shared_ptr<RecognizeVehicleCertificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
