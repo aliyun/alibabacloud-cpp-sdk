@@ -1494,27 +1494,6 @@ GetResourceGroupResponse Alibabacloud_ResourceManager20200331::Client::getResour
   return getResourceGroupWithOptions(request, runtime);
 }
 
-GetResourceGroupListAclModeResponse Alibabacloud_ResourceManager20200331::Client::getResourceGroupListAclModeWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetResourceGroupListAclMode"))},
-    {"version", boost::any(string("2020-03-31"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetResourceGroupListAclModeResponse(callApi(params, req, runtime));
-}
-
-GetResourceGroupListAclModeResponse Alibabacloud_ResourceManager20200331::Client::getResourceGroupListAclMode() {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getResourceGroupListAclModeWithOptions(runtime);
-}
-
 GetRoleResponse Alibabacloud_ResourceManager20200331::Client::getRoleWithOptions(shared_ptr<GetRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

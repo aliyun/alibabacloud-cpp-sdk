@@ -8641,104 +8641,6 @@ public:
 
   virtual ~GetResourceGroupResponse() = default;
 };
-class GetResourceGroupListAclModeResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> mode{};
-  shared_ptr<string> requestId{};
-
-  GetResourceGroupListAclModeResponseBody() {}
-
-  explicit GetResourceGroupListAclModeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (mode) {
-      res["Mode"] = boost::any(*mode);
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
-      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~GetResourceGroupListAclModeResponseBody() = default;
-};
-class GetResourceGroupListAclModeResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<GetResourceGroupListAclModeResponseBody> body{};
-
-  GetResourceGroupListAclModeResponse() {}
-
-  explicit GetResourceGroupListAclModeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        GetResourceGroupListAclModeResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<GetResourceGroupListAclModeResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~GetResourceGroupListAclModeResponse() = default;
-};
 class GetRoleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> language{};
@@ -19436,8 +19338,6 @@ public:
   GetResourceDirectoryResponse getResourceDirectory();
   GetResourceGroupResponse getResourceGroupWithOptions(shared_ptr<GetResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetResourceGroupResponse getResourceGroup(shared_ptr<GetResourceGroupRequest> request);
-  GetResourceGroupListAclModeResponse getResourceGroupListAclModeWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetResourceGroupListAclModeResponse getResourceGroupListAclMode();
   GetRoleResponse getRoleWithOptions(shared_ptr<GetRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetRoleResponse getRole(shared_ptr<GetRoleRequest> request);
   GetServiceLinkedRoleDeletionStatusResponse getServiceLinkedRoleDeletionStatusWithOptions(shared_ptr<GetServiceLinkedRoleDeletionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
