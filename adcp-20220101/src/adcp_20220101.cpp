@@ -690,6 +690,9 @@ GrantUserPermissionResponse Alibabacloud_Adcp20220101::Client::grantUserPermissi
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isRamRole)) {
+    query->insert(pair<string, bool>("IsRamRole", *request->isRamRole));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }

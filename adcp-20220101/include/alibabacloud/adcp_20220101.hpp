@@ -5478,6 +5478,7 @@ public:
 class GrantUserPermissionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<bool> isRamRole{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> roleName{};
   shared_ptr<string> roleType{};
@@ -5495,6 +5496,9 @@ public:
     map<string, boost::any> res;
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (isRamRole) {
+      res["IsRamRole"] = boost::any(*isRamRole);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -5514,6 +5518,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("IsRamRole") != m.end() && !m["IsRamRole"].empty()) {
+      isRamRole = make_shared<bool>(boost::any_cast<bool>(m["IsRamRole"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -5626,6 +5633,7 @@ public:
 class GrantUserPermissionsRequestPermissions : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
+  shared_ptr<bool> isRamRole{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> roleName{};
   shared_ptr<string> roleType{};
@@ -5643,6 +5651,9 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
+    if (isRamRole) {
+      res["IsRamRole"] = boost::any(*isRamRole);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -5658,6 +5669,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("IsRamRole") != m.end() && !m["IsRamRole"].empty()) {
+      isRamRole = make_shared<bool>(boost::any_cast<bool>(m["IsRamRole"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
