@@ -3746,6 +3746,12 @@ DescribeGrantRulesToCenResponse Alibabacloud_Cbn20170912::Client::describeGrantR
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->childInstanceId)) {
+    query->insert(pair<string, string>("ChildInstanceId", *request->childInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->childInstanceOwnerId)) {
+    query->insert(pair<string, long>("ChildInstanceOwnerId", *request->childInstanceOwnerId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }

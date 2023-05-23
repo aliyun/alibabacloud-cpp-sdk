@@ -17983,6 +17983,8 @@ public:
 class DescribeGrantRulesToCenRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<string> childInstanceId{};
+  shared_ptr<long> childInstanceOwnerId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
@@ -18004,6 +18006,12 @@ public:
     map<string, boost::any> res;
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
+    }
+    if (childInstanceId) {
+      res["ChildInstanceId"] = boost::any(*childInstanceId);
+    }
+    if (childInstanceOwnerId) {
+      res["ChildInstanceOwnerId"] = boost::any(*childInstanceOwnerId);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -18035,6 +18043,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("ChildInstanceId") != m.end() && !m["ChildInstanceId"].empty()) {
+      childInstanceId = make_shared<string>(boost::any_cast<string>(m["ChildInstanceId"]));
+    }
+    if (m.find("ChildInstanceOwnerId") != m.end() && !m["ChildInstanceOwnerId"].empty()) {
+      childInstanceOwnerId = make_shared<long>(boost::any_cast<long>(m["ChildInstanceOwnerId"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
