@@ -251,6 +251,9 @@ GetArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::getArtifac
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactId)) {
     query->insert(pair<string, string>("ArtifactId", *request->artifactId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->artifactName)) {
+    query->insert(pair<string, string>("ArtifactName", *request->artifactName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactVersion)) {
     query->insert(pair<string, string>("ArtifactVersion", *request->artifactVersion));
   }
@@ -421,6 +424,34 @@ GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::get
 GetServiceInstanceResponse Alibabacloud_ComputeNestSupplier20210521::Client::getServiceInstance(shared_ptr<GetServiceInstanceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getServiceInstanceWithOptions(request, runtime);
+}
+
+GetUploadCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getUploadCredentialsWithOptions(shared_ptr<GetUploadCredentialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    query->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetUploadCredentials"))},
+    {"version", boost::any(string("2021-05-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetUploadCredentialsResponse(callApi(params, req, runtime));
+}
+
+GetUploadCredentialsResponse Alibabacloud_ComputeNestSupplier20210521::Client::getUploadCredentials(shared_ptr<GetUploadCredentialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getUploadCredentialsWithOptions(request, runtime);
 }
 
 ListArtifactVersionsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArtifactVersionsWithOptions(shared_ptr<ListArtifactVersionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
