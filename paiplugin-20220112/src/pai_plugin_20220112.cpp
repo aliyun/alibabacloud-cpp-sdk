@@ -38,12 +38,6 @@ string Alibabacloud_PaiPlugin20220112::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::createCampaign(shared_ptr<CreateCampaignRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createCampaignWithOptions(request, headers, runtime);
-}
-
 CreateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::createCampaignWithOptions(shared_ptr<CreateCampaignRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -71,10 +65,10 @@ CreateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::createCampaignWit
   return CreateCampaignResponse(callApi(params, req, runtime));
 }
 
-CreateGroupResponse Alibabacloud_PaiPlugin20220112::Client::createGroup(shared_ptr<CreateGroupRequest> request) {
+CreateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::createCampaign(shared_ptr<CreateCampaignRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createGroupWithOptions(request, headers, runtime);
+  return createCampaignWithOptions(request, headers, runtime);
 }
 
 CreateGroupResponse Alibabacloud_PaiPlugin20220112::Client::createGroupWithOptions(shared_ptr<CreateGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -134,10 +128,10 @@ CreateGroupResponse Alibabacloud_PaiPlugin20220112::Client::createGroupWithOptio
   return CreateGroupResponse(callApi(params, req, runtime));
 }
 
-CreateInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::createInferenceJob(shared_ptr<CreateInferenceJobRequest> request) {
+CreateGroupResponse Alibabacloud_PaiPlugin20220112::Client::createGroup(shared_ptr<CreateGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createInferenceJobWithOptions(request, headers, runtime);
+  return createGroupWithOptions(request, headers, runtime);
 }
 
 CreateInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::createInferenceJobWithOptions(shared_ptr<CreateInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -185,15 +179,21 @@ CreateInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::createInferen
   return CreateInferenceJobResponse(callApi(params, req, runtime));
 }
 
-CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createSchedule(shared_ptr<CreateScheduleRequest> request) {
+CreateInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::createInferenceJob(shared_ptr<CreateInferenceJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createScheduleWithOptions(request, headers, runtime);
+  return createInferenceJobWithOptions(request, headers, runtime);
 }
 
 CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createScheduleWithOptions(shared_ptr<CreateScheduleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->AISendEndDate)) {
+    body->insert(pair<string, string>("AISendEndDate", *request->AISendEndDate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->AISendStartDate)) {
+    body->insert(pair<string, string>("AISendStartDate", *request->AISendStartDate));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     body->insert(pair<string, long>("EndTime", *request->endTime));
   }
@@ -205,6 +205,9 @@ CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createScheduleWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    body->insert(pair<string, string>("PaymentType", *request->paymentType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->repeatCycle)) {
     body->insert(pair<string, long>("RepeatCycle", *request->repeatCycle));
@@ -245,10 +248,10 @@ CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createScheduleWit
   return CreateScheduleResponse(callApi(params, req, runtime));
 }
 
-CreateSignatureResponse Alibabacloud_PaiPlugin20220112::Client::createSignature(shared_ptr<CreateSignatureRequest> request) {
+CreateScheduleResponse Alibabacloud_PaiPlugin20220112::Client::createSchedule(shared_ptr<CreateScheduleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createSignatureWithOptions(request, headers, runtime);
+  return createScheduleWithOptions(request, headers, runtime);
 }
 
 CreateSignatureResponse Alibabacloud_PaiPlugin20220112::Client::createSignatureWithOptions(shared_ptr<CreateSignatureRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -278,10 +281,10 @@ CreateSignatureResponse Alibabacloud_PaiPlugin20220112::Client::createSignatureW
   return CreateSignatureResponse(callApi(params, req, runtime));
 }
 
-CreateTemplateResponse Alibabacloud_PaiPlugin20220112::Client::createTemplate(shared_ptr<CreateTemplateRequest> request) {
+CreateSignatureResponse Alibabacloud_PaiPlugin20220112::Client::createSignature(shared_ptr<CreateSignatureRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTemplateWithOptions(request, headers, runtime);
+  return createSignatureWithOptions(request, headers, runtime);
 }
 
 CreateTemplateResponse Alibabacloud_PaiPlugin20220112::Client::createTemplateWithOptions(shared_ptr<CreateTemplateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -323,10 +326,10 @@ CreateTemplateResponse Alibabacloud_PaiPlugin20220112::Client::createTemplateWit
   return CreateTemplateResponse(callApi(params, req, runtime));
 }
 
-CreateTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::createTrainingJob(shared_ptr<CreateTrainingJobRequest> request) {
+CreateTemplateResponse Alibabacloud_PaiPlugin20220112::Client::createTemplate(shared_ptr<CreateTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createTrainingJobWithOptions(request, headers, runtime);
+  return createTemplateWithOptions(request, headers, runtime);
 }
 
 CreateTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::createTrainingJobWithOptions(shared_ptr<CreateTrainingJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -368,10 +371,10 @@ CreateTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::createTraining
   return CreateTrainingJobResponse(callApi(params, req, runtime));
 }
 
-DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaign(shared_ptr<string> Id) {
+CreateTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::createTrainingJob(shared_ptr<CreateTrainingJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteCampaignWithOptions(Id, headers, runtime);
+  return createTrainingJobWithOptions(request, headers, runtime);
 }
 
 DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -392,10 +395,10 @@ DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaignWit
   return DeleteCampaignResponse(callApi(params, req, runtime));
 }
 
-DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroup(shared_ptr<string> Id) {
+DeleteCampaignResponse Alibabacloud_PaiPlugin20220112::Client::deleteCampaign(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteGroupWithOptions(Id, headers, runtime);
+  return deleteCampaignWithOptions(Id, headers, runtime);
 }
 
 DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -416,10 +419,10 @@ DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroupWithOptio
   return DeleteGroupResponse(callApi(params, req, runtime));
 }
 
-DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferenceJob(shared_ptr<string> Id) {
+DeleteGroupResponse Alibabacloud_PaiPlugin20220112::Client::deleteGroup(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteInferenceJobWithOptions(Id, headers, runtime);
+  return deleteGroupWithOptions(Id, headers, runtime);
 }
 
 DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -440,10 +443,10 @@ DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferen
   return DeleteInferenceJobResponse(callApi(params, req, runtime));
 }
 
-DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteSchedule(shared_ptr<string> Id) {
+DeleteInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteInferenceJob(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteScheduleWithOptions(Id, headers, runtime);
+  return deleteInferenceJobWithOptions(Id, headers, runtime);
 }
 
 DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -464,10 +467,10 @@ DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteScheduleWit
   return DeleteScheduleResponse(callApi(params, req, runtime));
 }
 
-DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignature(shared_ptr<string> Id) {
+DeleteScheduleResponse Alibabacloud_PaiPlugin20220112::Client::deleteSchedule(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteSignatureWithOptions(Id, headers, runtime);
+  return deleteScheduleWithOptions(Id, headers, runtime);
 }
 
 DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -488,10 +491,10 @@ DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignatureW
   return DeleteSignatureResponse(callApi(params, req, runtime));
 }
 
-DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplate(shared_ptr<string> Id) {
+DeleteSignatureResponse Alibabacloud_PaiPlugin20220112::Client::deleteSignature(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTemplateWithOptions(Id, headers, runtime);
+  return deleteSignatureWithOptions(Id, headers, runtime);
 }
 
 DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -512,10 +515,10 @@ DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplateWit
   return DeleteTemplateResponse(callApi(params, req, runtime));
 }
 
-DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTrainingJob(shared_ptr<string> Id) {
+DeleteTemplateResponse Alibabacloud_PaiPlugin20220112::Client::deleteTemplate(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteTrainingJobWithOptions(Id, headers, runtime);
+  return deleteTemplateWithOptions(Id, headers, runtime);
 }
 
 DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -536,10 +539,10 @@ DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTraining
   return DeleteTrainingJobResponse(callApi(params, req, runtime));
 }
 
-GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithm(shared_ptr<string> Id) {
+DeleteTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::deleteTrainingJob(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getAlgorithmWithOptions(Id, headers, runtime);
+  return deleteTrainingJobWithOptions(Id, headers, runtime);
 }
 
 GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithmWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -560,10 +563,10 @@ GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithmWithOpt
   return GetAlgorithmResponse(callApi(params, req, runtime));
 }
 
-GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaign(shared_ptr<string> Id) {
+GetAlgorithmResponse Alibabacloud_PaiPlugin20220112::Client::getAlgorithm(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getCampaignWithOptions(Id, headers, runtime);
+  return getAlgorithmWithOptions(Id, headers, runtime);
 }
 
 GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -584,10 +587,10 @@ GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaignWithOptio
   return GetCampaignResponse(callApi(params, req, runtime));
 }
 
-GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroup(shared_ptr<string> Id) {
+GetCampaignResponse Alibabacloud_PaiPlugin20220112::Client::getCampaign(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getGroupWithOptions(Id, headers, runtime);
+  return getCampaignWithOptions(Id, headers, runtime);
 }
 
 GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -608,10 +611,10 @@ GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroupWithOptions(sha
   return GetGroupResponse(callApi(params, req, runtime));
 }
 
-GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJob(shared_ptr<string> Id) {
+GetGroupResponse Alibabacloud_PaiPlugin20220112::Client::getGroup(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getInferenceJobWithOptions(Id, headers, runtime);
+  return getGroupWithOptions(Id, headers, runtime);
 }
 
 GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -632,10 +635,10 @@ GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJobW
   return GetInferenceJobResponse(callApi(params, req, runtime));
 }
 
-GetMessageConfigResponse Alibabacloud_PaiPlugin20220112::Client::getMessageConfig() {
+GetInferenceJobResponse Alibabacloud_PaiPlugin20220112::Client::getInferenceJob(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getMessageConfigWithOptions(headers, runtime);
+  return getInferenceJobWithOptions(Id, headers, runtime);
 }
 
 GetMessageConfigResponse Alibabacloud_PaiPlugin20220112::Client::getMessageConfigWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -656,10 +659,10 @@ GetMessageConfigResponse Alibabacloud_PaiPlugin20220112::Client::getMessageConfi
   return GetMessageConfigResponse(callApi(params, req, runtime));
 }
 
-GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getSchedule(shared_ptr<string> Id) {
+GetMessageConfigResponse Alibabacloud_PaiPlugin20220112::Client::getMessageConfig() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getScheduleWithOptions(Id, headers, runtime);
+  return getMessageConfigWithOptions(headers, runtime);
 }
 
 GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -680,10 +683,10 @@ GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getScheduleWithOptio
   return GetScheduleResponse(callApi(params, req, runtime));
 }
 
-GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignature(shared_ptr<string> Id) {
+GetScheduleResponse Alibabacloud_PaiPlugin20220112::Client::getSchedule(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getSignatureWithOptions(Id, headers, runtime);
+  return getScheduleWithOptions(Id, headers, runtime);
 }
 
 GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -704,10 +707,10 @@ GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignatureWithOpt
   return GetSignatureResponse(callApi(params, req, runtime));
 }
 
-GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplate(shared_ptr<string> Id) {
+GetSignatureResponse Alibabacloud_PaiPlugin20220112::Client::getSignature(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTemplateWithOptions(Id, headers, runtime);
+  return getSignatureWithOptions(Id, headers, runtime);
 }
 
 GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -728,10 +731,10 @@ GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplateWithOptio
   return GetTemplateResponse(callApi(params, req, runtime));
 }
 
-GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJob(shared_ptr<string> Id) {
+GetTemplateResponse Alibabacloud_PaiPlugin20220112::Client::getTemplate(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getTrainingJobWithOptions(Id, headers, runtime);
+  return getTemplateWithOptions(Id, headers, runtime);
 }
 
 GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -752,10 +755,10 @@ GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJobWit
   return GetTrainingJobResponse(callApi(params, req, runtime));
 }
 
-GetUserResponse Alibabacloud_PaiPlugin20220112::Client::getUser() {
+GetTrainingJobResponse Alibabacloud_PaiPlugin20220112::Client::getTrainingJob(shared_ptr<string> Id) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getUserWithOptions(headers, runtime);
+  return getTrainingJobWithOptions(Id, headers, runtime);
 }
 
 GetUserResponse Alibabacloud_PaiPlugin20220112::Client::getUserWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -776,10 +779,10 @@ GetUserResponse Alibabacloud_PaiPlugin20220112::Client::getUserWithOptions(share
   return GetUserResponse(callApi(params, req, runtime));
 }
 
-ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithms(shared_ptr<ListAlgorithmsRequest> request) {
+GetUserResponse Alibabacloud_PaiPlugin20220112::Client::getUser() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listAlgorithmsWithOptions(request, headers, runtime);
+  return getUserWithOptions(headers, runtime);
 }
 
 ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithmsWithOptions(shared_ptr<ListAlgorithmsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -815,10 +818,10 @@ ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithmsWit
   return ListAlgorithmsResponse(callApi(params, req, runtime));
 }
 
-ListCampaignsResponse Alibabacloud_PaiPlugin20220112::Client::listCampaigns(shared_ptr<ListCampaignsRequest> request) {
+ListAlgorithmsResponse Alibabacloud_PaiPlugin20220112::Client::listAlgorithms(shared_ptr<ListAlgorithmsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listCampaignsWithOptions(request, headers, runtime);
+  return listAlgorithmsWithOptions(request, headers, runtime);
 }
 
 ListCampaignsResponse Alibabacloud_PaiPlugin20220112::Client::listCampaignsWithOptions(shared_ptr<ListCampaignsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -854,10 +857,10 @@ ListCampaignsResponse Alibabacloud_PaiPlugin20220112::Client::listCampaignsWithO
   return ListCampaignsResponse(callApi(params, req, runtime));
 }
 
-ListGroupsResponse Alibabacloud_PaiPlugin20220112::Client::listGroups(shared_ptr<ListGroupsRequest> request) {
+ListCampaignsResponse Alibabacloud_PaiPlugin20220112::Client::listCampaigns(shared_ptr<ListCampaignsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listGroupsWithOptions(request, headers, runtime);
+  return listCampaignsWithOptions(request, headers, runtime);
 }
 
 ListGroupsResponse Alibabacloud_PaiPlugin20220112::Client::listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -902,10 +905,10 @@ ListGroupsResponse Alibabacloud_PaiPlugin20220112::Client::listGroupsWithOptions
   return ListGroupsResponse(callApi(params, req, runtime));
 }
 
-ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJobs(shared_ptr<ListInferenceJobsRequest> request) {
+ListGroupsResponse Alibabacloud_PaiPlugin20220112::Client::listGroups(shared_ptr<ListGroupsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listInferenceJobsWithOptions(request, headers, runtime);
+  return listGroupsWithOptions(request, headers, runtime);
 }
 
 ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJobsWithOptions(shared_ptr<ListInferenceJobsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -953,10 +956,10 @@ ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJ
   return ListInferenceJobsResponse(callApi(params, req, runtime));
 }
 
-ListMessageMetricsResponse Alibabacloud_PaiPlugin20220112::Client::listMessageMetrics(shared_ptr<ListMessageMetricsRequest> request) {
+ListInferenceJobsResponse Alibabacloud_PaiPlugin20220112::Client::listInferenceJobs(shared_ptr<ListInferenceJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listMessageMetricsWithOptions(request, headers, runtime);
+  return listInferenceJobsWithOptions(request, headers, runtime);
 }
 
 ListMessageMetricsResponse Alibabacloud_PaiPlugin20220112::Client::listMessageMetricsWithOptions(shared_ptr<ListMessageMetricsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1013,10 +1016,10 @@ ListMessageMetricsResponse Alibabacloud_PaiPlugin20220112::Client::listMessageMe
   return ListMessageMetricsResponse(callApi(params, req, runtime));
 }
 
-ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessages(shared_ptr<ListMessagesRequest> request) {
+ListMessageMetricsResponse Alibabacloud_PaiPlugin20220112::Client::listMessageMetrics(shared_ptr<ListMessageMetricsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listMessagesWithOptions(request, headers, runtime);
+  return listMessageMetricsWithOptions(request, headers, runtime);
 }
 
 ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessagesWithOptions(shared_ptr<ListMessagesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1085,10 +1088,10 @@ ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessagesWithOpt
   return ListMessagesResponse(callApi(params, req, runtime));
 }
 
-ListSchedulesResponse Alibabacloud_PaiPlugin20220112::Client::listSchedules(shared_ptr<ListSchedulesRequest> request) {
+ListMessagesResponse Alibabacloud_PaiPlugin20220112::Client::listMessages(shared_ptr<ListMessagesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSchedulesWithOptions(request, headers, runtime);
+  return listMessagesWithOptions(request, headers, runtime);
 }
 
 ListSchedulesResponse Alibabacloud_PaiPlugin20220112::Client::listSchedulesWithOptions(shared_ptr<ListSchedulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1124,10 +1127,10 @@ ListSchedulesResponse Alibabacloud_PaiPlugin20220112::Client::listSchedulesWithO
   return ListSchedulesResponse(callApi(params, req, runtime));
 }
 
-ListSignaturesResponse Alibabacloud_PaiPlugin20220112::Client::listSignatures(shared_ptr<ListSignaturesRequest> request) {
+ListSchedulesResponse Alibabacloud_PaiPlugin20220112::Client::listSchedules(shared_ptr<ListSchedulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSignaturesWithOptions(request, headers, runtime);
+  return listSchedulesWithOptions(request, headers, runtime);
 }
 
 ListSignaturesResponse Alibabacloud_PaiPlugin20220112::Client::listSignaturesWithOptions(shared_ptr<ListSignaturesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1163,10 +1166,10 @@ ListSignaturesResponse Alibabacloud_PaiPlugin20220112::Client::listSignaturesWit
   return ListSignaturesResponse(callApi(params, req, runtime));
 }
 
-ListTemplatesResponse Alibabacloud_PaiPlugin20220112::Client::listTemplates(shared_ptr<ListTemplatesRequest> request) {
+ListSignaturesResponse Alibabacloud_PaiPlugin20220112::Client::listSignatures(shared_ptr<ListSignaturesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTemplatesWithOptions(request, headers, runtime);
+  return listSignaturesWithOptions(request, headers, runtime);
 }
 
 ListTemplatesResponse Alibabacloud_PaiPlugin20220112::Client::listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1208,10 +1211,10 @@ ListTemplatesResponse Alibabacloud_PaiPlugin20220112::Client::listTemplatesWithO
   return ListTemplatesResponse(callApi(params, req, runtime));
 }
 
-ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJobs(shared_ptr<ListTrainingJobsRequest> request) {
+ListTemplatesResponse Alibabacloud_PaiPlugin20220112::Client::listTemplates(shared_ptr<ListTemplatesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listTrainingJobsWithOptions(request, headers, runtime);
+  return listTemplatesWithOptions(request, headers, runtime);
 }
 
 ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJobsWithOptions(shared_ptr<ListTrainingJobsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1259,10 +1262,10 @@ ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJob
   return ListTrainingJobsResponse(callApi(params, req, runtime));
 }
 
-SendMessageResponse Alibabacloud_PaiPlugin20220112::Client::sendMessage(shared_ptr<SendMessageRequest> request) {
+ListTrainingJobsResponse Alibabacloud_PaiPlugin20220112::Client::listTrainingJobs(shared_ptr<ListTrainingJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return sendMessageWithOptions(request, headers, runtime);
+  return listTrainingJobsWithOptions(request, headers, runtime);
 }
 
 SendMessageResponse Alibabacloud_PaiPlugin20220112::Client::sendMessageWithOptions(shared_ptr<SendMessageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1273,6 +1276,9 @@ SendMessageResponse Alibabacloud_PaiPlugin20220112::Client::sendMessageWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->outIds)) {
     body->insert(pair<string, vector<string>>("OutIds", *request->outIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paymentType)) {
+    body->insert(pair<string, string>("PaymentType", *request->paymentType));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->phoneNumbers)) {
     body->insert(pair<string, vector<string>>("PhoneNumbers", *request->phoneNumbers));
@@ -1316,10 +1322,10 @@ SendMessageResponse Alibabacloud_PaiPlugin20220112::Client::sendMessageWithOptio
   return SendMessageResponse(callApi(params, req, runtime));
 }
 
-SmsReportResponse Alibabacloud_PaiPlugin20220112::Client::smsReport(shared_ptr<SmsReportRequest> request) {
+SendMessageResponse Alibabacloud_PaiPlugin20220112::Client::sendMessage(shared_ptr<SendMessageRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return smsReportWithOptions(request, headers, runtime);
+  return sendMessageWithOptions(request, headers, runtime);
 }
 
 SmsReportResponse Alibabacloud_PaiPlugin20220112::Client::smsReportWithOptions(shared_ptr<SmsReportRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1342,10 +1348,10 @@ SmsReportResponse Alibabacloud_PaiPlugin20220112::Client::smsReportWithOptions(s
   return SmsReportResponse(callApi(params, req, runtime));
 }
 
-SmsUpResponse Alibabacloud_PaiPlugin20220112::Client::smsUp(shared_ptr<SmsUpRequest> request) {
+SmsReportResponse Alibabacloud_PaiPlugin20220112::Client::smsReport(shared_ptr<SmsReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return smsUpWithOptions(request, headers, runtime);
+  return smsReportWithOptions(request, headers, runtime);
 }
 
 SmsUpResponse Alibabacloud_PaiPlugin20220112::Client::smsUpWithOptions(shared_ptr<SmsUpRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1368,10 +1374,10 @@ SmsUpResponse Alibabacloud_PaiPlugin20220112::Client::smsUpWithOptions(shared_pt
   return SmsUpResponse(callApi(params, req, runtime));
 }
 
-UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaign(shared_ptr<string> Id, shared_ptr<UpdateCampaignRequest> request) {
+SmsUpResponse Alibabacloud_PaiPlugin20220112::Client::smsUp(shared_ptr<SmsUpRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateCampaignWithOptions(Id, request, headers, runtime);
+  return smsUpWithOptions(request, headers, runtime);
 }
 
 UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaignWithOptions(shared_ptr<string> Id,
@@ -1404,10 +1410,10 @@ UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaignWit
   return UpdateCampaignResponse(callApi(params, req, runtime));
 }
 
-UpdateReportUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateReportUrl(shared_ptr<UpdateReportUrlRequest> request) {
+UpdateCampaignResponse Alibabacloud_PaiPlugin20220112::Client::updateCampaign(shared_ptr<string> Id, shared_ptr<UpdateCampaignRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateReportUrlWithOptions(request, headers, runtime);
+  return updateCampaignWithOptions(Id, request, headers, runtime);
 }
 
 UpdateReportUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateReportUrlWithOptions(shared_ptr<UpdateReportUrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1434,10 +1440,10 @@ UpdateReportUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateReportUrlW
   return UpdateReportUrlResponse(callApi(params, req, runtime));
 }
 
-UpdateUploadUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateUploadUrl(shared_ptr<UpdateUploadUrlRequest> request) {
+UpdateReportUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateReportUrl(shared_ptr<UpdateReportUrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return updateUploadUrlWithOptions(request, headers, runtime);
+  return updateReportUrlWithOptions(request, headers, runtime);
 }
 
 UpdateUploadUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateUploadUrlWithOptions(shared_ptr<UpdateUploadUrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1462,5 +1468,11 @@ UpdateUploadUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateUploadUrlW
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateUploadUrlResponse(callApi(params, req, runtime));
+}
+
+UpdateUploadUrlResponse Alibabacloud_PaiPlugin20220112::Client::updateUploadUrl(shared_ptr<UpdateUploadUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updateUploadUrlWithOptions(request, headers, runtime);
 }
 

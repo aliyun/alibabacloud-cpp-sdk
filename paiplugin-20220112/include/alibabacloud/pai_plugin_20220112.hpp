@@ -902,10 +902,13 @@ public:
 };
 class CreateScheduleRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> AISendEndDate{};
+  shared_ptr<string> AISendStartDate{};
   shared_ptr<long> endTime{};
   shared_ptr<string> executeTime{};
   shared_ptr<string> groupId{};
   shared_ptr<string> name{};
+  shared_ptr<string> paymentType{};
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
@@ -924,6 +927,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (AISendEndDate) {
+      res["AISendEndDate"] = boost::any(*AISendEndDate);
+    }
+    if (AISendStartDate) {
+      res["AISendStartDate"] = boost::any(*AISendStartDate);
+    }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
@@ -935,6 +944,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (repeatCycle) {
       res["RepeatCycle"] = boost::any(*repeatCycle);
@@ -961,6 +973,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AISendEndDate") != m.end() && !m["AISendEndDate"].empty()) {
+      AISendEndDate = make_shared<string>(boost::any_cast<string>(m["AISendEndDate"]));
+    }
+    if (m.find("AISendStartDate") != m.end() && !m["AISendStartDate"].empty()) {
+      AISendStartDate = make_shared<string>(boost::any_cast<string>(m["AISendStartDate"]));
+    }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
@@ -972,6 +990,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("RepeatCycle") != m.end() && !m["RepeatCycle"].empty()) {
       repeatCycle = make_shared<long>(boost::any_cast<long>(m["RepeatCycle"]));
@@ -1523,6 +1544,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> reason{};
+  shared_ptr<string> signature{};
   shared_ptr<string> signatureId{};
   shared_ptr<long> status{};
   shared_ptr<string> templateCode{};
@@ -1556,6 +1578,9 @@ public:
     }
     if (reason) {
       res["Reason"] = boost::any(*reason);
+    }
+    if (signature) {
+      res["Signature"] = boost::any(*signature);
     }
     if (signatureId) {
       res["SignatureId"] = boost::any(*signatureId);
@@ -1593,6 +1618,9 @@ public:
     }
     if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+    if (m.find("Signature") != m.end() && !m["Signature"].empty()) {
+      signature = make_shared<string>(boost::any_cast<string>(m["Signature"]));
     }
     if (m.find("SignatureId") != m.end() && !m["SignatureId"].empty()) {
       signatureId = make_shared<string>(boost::any_cast<string>(m["SignatureId"]));
@@ -1800,11 +1828,13 @@ public:
   shared_ptr<string> campaignId{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dataPath{};
+  shared_ptr<bool> hasModelInfo{};
   shared_ptr<string> history{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> trainingScheduleId{};
   shared_ptr<string> updatedTime{};
   shared_ptr<string> userConfig{};
 
@@ -1830,6 +1860,9 @@ public:
     if (dataPath) {
       res["DataPath"] = boost::any(*dataPath);
     }
+    if (hasModelInfo) {
+      res["HasModelInfo"] = boost::any(*hasModelInfo);
+    }
     if (history) {
       res["History"] = boost::any(*history);
     }
@@ -1844,6 +1877,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (trainingScheduleId) {
+      res["TrainingScheduleId"] = boost::any(*trainingScheduleId);
     }
     if (updatedTime) {
       res["UpdatedTime"] = boost::any(*updatedTime);
@@ -1867,6 +1903,9 @@ public:
     if (m.find("DataPath") != m.end() && !m["DataPath"].empty()) {
       dataPath = make_shared<string>(boost::any_cast<string>(m["DataPath"]));
     }
+    if (m.find("HasModelInfo") != m.end() && !m["HasModelInfo"].empty()) {
+      hasModelInfo = make_shared<bool>(boost::any_cast<bool>(m["HasModelInfo"]));
+    }
     if (m.find("History") != m.end() && !m["History"].empty()) {
       history = make_shared<string>(boost::any_cast<string>(m["History"]));
     }
@@ -1881,6 +1920,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TrainingScheduleId") != m.end() && !m["TrainingScheduleId"].empty()) {
+      trainingScheduleId = make_shared<string>(boost::any_cast<string>(m["TrainingScheduleId"]));
     }
     if (m.find("UpdatedTime") != m.end() && !m["UpdatedTime"].empty()) {
       updatedTime = make_shared<string>(boost::any_cast<string>(m["UpdatedTime"]));
@@ -3807,6 +3849,7 @@ public:
   shared_ptr<string> history{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
+  shared_ptr<string> paymentType{};
   shared_ptr<long> repeatCycle{};
   shared_ptr<long> repeatCycleUnit{};
   shared_ptr<long> repeatTimes{};
@@ -3847,6 +3890,9 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (repeatCycle) {
       res["RepeatCycle"] = boost::any(*repeatCycle);
@@ -3899,6 +3945,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("RepeatCycle") != m.end() && !m["RepeatCycle"].empty()) {
       repeatCycle = make_shared<long>(boost::any_cast<long>(m["RepeatCycle"]));
@@ -4456,11 +4505,13 @@ public:
   shared_ptr<string> campaignId{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dataPath{};
+  shared_ptr<bool> hasModelInfo{};
   shared_ptr<string> history{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
+  shared_ptr<string> trainingScheduleId{};
   shared_ptr<string> updatedTime{};
   shared_ptr<string> userConfig{};
 
@@ -4486,6 +4537,9 @@ public:
     if (dataPath) {
       res["DataPath"] = boost::any(*dataPath);
     }
+    if (hasModelInfo) {
+      res["HasModelInfo"] = boost::any(*hasModelInfo);
+    }
     if (history) {
       res["History"] = boost::any(*history);
     }
@@ -4500,6 +4554,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (trainingScheduleId) {
+      res["TrainingScheduleId"] = boost::any(*trainingScheduleId);
     }
     if (updatedTime) {
       res["UpdatedTime"] = boost::any(*updatedTime);
@@ -4523,6 +4580,9 @@ public:
     if (m.find("DataPath") != m.end() && !m["DataPath"].empty()) {
       dataPath = make_shared<string>(boost::any_cast<string>(m["DataPath"]));
     }
+    if (m.find("HasModelInfo") != m.end() && !m["HasModelInfo"].empty()) {
+      hasModelInfo = make_shared<bool>(boost::any_cast<bool>(m["HasModelInfo"]));
+    }
     if (m.find("History") != m.end() && !m["History"].empty()) {
       history = make_shared<string>(boost::any_cast<string>(m["History"]));
     }
@@ -4537,6 +4597,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TrainingScheduleId") != m.end() && !m["TrainingScheduleId"].empty()) {
+      trainingScheduleId = make_shared<string>(boost::any_cast<string>(m["TrainingScheduleId"]));
     }
     if (m.find("UpdatedTime") != m.end() && !m["UpdatedTime"].empty()) {
       updatedTime = make_shared<string>(boost::any_cast<string>(m["UpdatedTime"]));
@@ -7960,6 +8023,7 @@ public:
   shared_ptr<string> campaignId{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dataPath{};
+  shared_ptr<bool> hasModelInfo{};
   shared_ptr<string> history{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
@@ -7990,6 +8054,9 @@ public:
     }
     if (dataPath) {
       res["DataPath"] = boost::any(*dataPath);
+    }
+    if (hasModelInfo) {
+      res["HasModelInfo"] = boost::any(*hasModelInfo);
     }
     if (history) {
       res["History"] = boost::any(*history);
@@ -8030,6 +8097,9 @@ public:
     }
     if (m.find("DataPath") != m.end() && !m["DataPath"].empty()) {
       dataPath = make_shared<string>(boost::any_cast<string>(m["DataPath"]));
+    }
+    if (m.find("HasModelInfo") != m.end() && !m["HasModelInfo"].empty()) {
+      hasModelInfo = make_shared<bool>(boost::any_cast<bool>(m["HasModelInfo"]));
     }
     if (m.find("History") != m.end() && !m["History"].empty()) {
       history = make_shared<string>(boost::any_cast<string>(m["History"]));
@@ -8244,6 +8314,7 @@ class SendMessageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupId{};
   shared_ptr<vector<string>> outIds{};
+  shared_ptr<string> paymentType{};
   shared_ptr<vector<string>> phoneNumbers{};
   shared_ptr<string> scheduleId{};
   shared_ptr<string> signName{};
@@ -8268,6 +8339,9 @@ public:
     }
     if (outIds) {
       res["OutIds"] = boost::any(*outIds);
+    }
+    if (paymentType) {
+      res["PaymentType"] = boost::any(*paymentType);
     }
     if (phoneNumbers) {
       res["PhoneNumbers"] = boost::any(*phoneNumbers);
@@ -8309,6 +8383,9 @@ public:
         }
       }
       outIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
+      paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
     if (m.find("PhoneNumbers") != m.end() && !m["PhoneNumbers"].empty()) {
       vector<string> toVec1;
@@ -9522,89 +9599,89 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateCampaignResponse createCampaign(shared_ptr<CreateCampaignRequest> request);
   CreateCampaignResponse createCampaignWithOptions(shared_ptr<CreateCampaignRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateGroupResponse createGroup(shared_ptr<CreateGroupRequest> request);
+  CreateCampaignResponse createCampaign(shared_ptr<CreateCampaignRequest> request);
   CreateGroupResponse createGroupWithOptions(shared_ptr<CreateGroupRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateInferenceJobResponse createInferenceJob(shared_ptr<CreateInferenceJobRequest> request);
+  CreateGroupResponse createGroup(shared_ptr<CreateGroupRequest> request);
   CreateInferenceJobResponse createInferenceJobWithOptions(shared_ptr<CreateInferenceJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateScheduleResponse createSchedule(shared_ptr<CreateScheduleRequest> request);
+  CreateInferenceJobResponse createInferenceJob(shared_ptr<CreateInferenceJobRequest> request);
   CreateScheduleResponse createScheduleWithOptions(shared_ptr<CreateScheduleRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateSignatureResponse createSignature(shared_ptr<CreateSignatureRequest> request);
+  CreateScheduleResponse createSchedule(shared_ptr<CreateScheduleRequest> request);
   CreateSignatureResponse createSignatureWithOptions(shared_ptr<CreateSignatureRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTemplateResponse createTemplate(shared_ptr<CreateTemplateRequest> request);
+  CreateSignatureResponse createSignature(shared_ptr<CreateSignatureRequest> request);
   CreateTemplateResponse createTemplateWithOptions(shared_ptr<CreateTemplateRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateTrainingJobResponse createTrainingJob(shared_ptr<CreateTrainingJobRequest> request);
+  CreateTemplateResponse createTemplate(shared_ptr<CreateTemplateRequest> request);
   CreateTrainingJobResponse createTrainingJobWithOptions(shared_ptr<CreateTrainingJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteCampaignResponse deleteCampaign(shared_ptr<string> Id);
+  CreateTrainingJobResponse createTrainingJob(shared_ptr<CreateTrainingJobRequest> request);
   DeleteCampaignResponse deleteCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteGroupResponse deleteGroup(shared_ptr<string> Id);
+  DeleteCampaignResponse deleteCampaign(shared_ptr<string> Id);
   DeleteGroupResponse deleteGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteInferenceJobResponse deleteInferenceJob(shared_ptr<string> Id);
+  DeleteGroupResponse deleteGroup(shared_ptr<string> Id);
   DeleteInferenceJobResponse deleteInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteScheduleResponse deleteSchedule(shared_ptr<string> Id);
+  DeleteInferenceJobResponse deleteInferenceJob(shared_ptr<string> Id);
   DeleteScheduleResponse deleteScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteSignatureResponse deleteSignature(shared_ptr<string> Id);
+  DeleteScheduleResponse deleteSchedule(shared_ptr<string> Id);
   DeleteSignatureResponse deleteSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTemplateResponse deleteTemplate(shared_ptr<string> Id);
+  DeleteSignatureResponse deleteSignature(shared_ptr<string> Id);
   DeleteTemplateResponse deleteTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteTrainingJobResponse deleteTrainingJob(shared_ptr<string> Id);
+  DeleteTemplateResponse deleteTemplate(shared_ptr<string> Id);
   DeleteTrainingJobResponse deleteTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetAlgorithmResponse getAlgorithm(shared_ptr<string> Id);
+  DeleteTrainingJobResponse deleteTrainingJob(shared_ptr<string> Id);
   GetAlgorithmResponse getAlgorithmWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetCampaignResponse getCampaign(shared_ptr<string> Id);
+  GetAlgorithmResponse getAlgorithm(shared_ptr<string> Id);
   GetCampaignResponse getCampaignWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetGroupResponse getGroup(shared_ptr<string> Id);
+  GetCampaignResponse getCampaign(shared_ptr<string> Id);
   GetGroupResponse getGroupWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetInferenceJobResponse getInferenceJob(shared_ptr<string> Id);
+  GetGroupResponse getGroup(shared_ptr<string> Id);
   GetInferenceJobResponse getInferenceJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetMessageConfigResponse getMessageConfig();
+  GetInferenceJobResponse getInferenceJob(shared_ptr<string> Id);
   GetMessageConfigResponse getMessageConfigWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetScheduleResponse getSchedule(shared_ptr<string> Id);
+  GetMessageConfigResponse getMessageConfig();
   GetScheduleResponse getScheduleWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSignatureResponse getSignature(shared_ptr<string> Id);
+  GetScheduleResponse getSchedule(shared_ptr<string> Id);
   GetSignatureResponse getSignatureWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTemplateResponse getTemplate(shared_ptr<string> Id);
+  GetSignatureResponse getSignature(shared_ptr<string> Id);
   GetTemplateResponse getTemplateWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetTrainingJobResponse getTrainingJob(shared_ptr<string> Id);
+  GetTemplateResponse getTemplate(shared_ptr<string> Id);
   GetTrainingJobResponse getTrainingJobWithOptions(shared_ptr<string> Id, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetUserResponse getUser();
+  GetTrainingJobResponse getTrainingJob(shared_ptr<string> Id);
   GetUserResponse getUserWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListAlgorithmsResponse listAlgorithms(shared_ptr<ListAlgorithmsRequest> request);
+  GetUserResponse getUser();
   ListAlgorithmsResponse listAlgorithmsWithOptions(shared_ptr<ListAlgorithmsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListCampaignsResponse listCampaigns(shared_ptr<ListCampaignsRequest> request);
+  ListAlgorithmsResponse listAlgorithms(shared_ptr<ListAlgorithmsRequest> request);
   ListCampaignsResponse listCampaignsWithOptions(shared_ptr<ListCampaignsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
+  ListCampaignsResponse listCampaigns(shared_ptr<ListCampaignsRequest> request);
   ListGroupsResponse listGroupsWithOptions(shared_ptr<ListGroupsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListInferenceJobsResponse listInferenceJobs(shared_ptr<ListInferenceJobsRequest> request);
+  ListGroupsResponse listGroups(shared_ptr<ListGroupsRequest> request);
   ListInferenceJobsResponse listInferenceJobsWithOptions(shared_ptr<ListInferenceJobsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListMessageMetricsResponse listMessageMetrics(shared_ptr<ListMessageMetricsRequest> request);
+  ListInferenceJobsResponse listInferenceJobs(shared_ptr<ListInferenceJobsRequest> request);
   ListMessageMetricsResponse listMessageMetricsWithOptions(shared_ptr<ListMessageMetricsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListMessagesResponse listMessages(shared_ptr<ListMessagesRequest> request);
+  ListMessageMetricsResponse listMessageMetrics(shared_ptr<ListMessageMetricsRequest> request);
   ListMessagesResponse listMessagesWithOptions(shared_ptr<ListMessagesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSchedulesResponse listSchedules(shared_ptr<ListSchedulesRequest> request);
+  ListMessagesResponse listMessages(shared_ptr<ListMessagesRequest> request);
   ListSchedulesResponse listSchedulesWithOptions(shared_ptr<ListSchedulesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSignaturesResponse listSignatures(shared_ptr<ListSignaturesRequest> request);
+  ListSchedulesResponse listSchedules(shared_ptr<ListSchedulesRequest> request);
   ListSignaturesResponse listSignaturesWithOptions(shared_ptr<ListSignaturesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTemplatesResponse listTemplates(shared_ptr<ListTemplatesRequest> request);
+  ListSignaturesResponse listSignatures(shared_ptr<ListSignaturesRequest> request);
   ListTemplatesResponse listTemplatesWithOptions(shared_ptr<ListTemplatesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListTrainingJobsResponse listTrainingJobs(shared_ptr<ListTrainingJobsRequest> request);
+  ListTemplatesResponse listTemplates(shared_ptr<ListTemplatesRequest> request);
   ListTrainingJobsResponse listTrainingJobsWithOptions(shared_ptr<ListTrainingJobsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SendMessageResponse sendMessage(shared_ptr<SendMessageRequest> request);
+  ListTrainingJobsResponse listTrainingJobs(shared_ptr<ListTrainingJobsRequest> request);
   SendMessageResponse sendMessageWithOptions(shared_ptr<SendMessageRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SmsReportResponse smsReport(shared_ptr<SmsReportRequest> request);
+  SendMessageResponse sendMessage(shared_ptr<SendMessageRequest> request);
   SmsReportResponse smsReportWithOptions(shared_ptr<SmsReportRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SmsUpResponse smsUp(shared_ptr<SmsUpRequest> request);
+  SmsReportResponse smsReport(shared_ptr<SmsReportRequest> request);
   SmsUpResponse smsUpWithOptions(shared_ptr<SmsUpRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateCampaignResponse updateCampaign(shared_ptr<string> Id, shared_ptr<UpdateCampaignRequest> request);
+  SmsUpResponse smsUp(shared_ptr<SmsUpRequest> request);
   UpdateCampaignResponse updateCampaignWithOptions(shared_ptr<string> Id,
                                                    shared_ptr<UpdateCampaignRequest> request,
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateReportUrlResponse updateReportUrl(shared_ptr<UpdateReportUrlRequest> request);
+  UpdateCampaignResponse updateCampaign(shared_ptr<string> Id, shared_ptr<UpdateCampaignRequest> request);
   UpdateReportUrlResponse updateReportUrlWithOptions(shared_ptr<UpdateReportUrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateUploadUrlResponse updateUploadUrl(shared_ptr<UpdateUploadUrlRequest> request);
+  UpdateReportUrlResponse updateReportUrl(shared_ptr<UpdateReportUrlRequest> request);
   UpdateUploadUrlResponse updateUploadUrlWithOptions(shared_ptr<UpdateUploadUrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateUploadUrlResponse updateUploadUrl(shared_ptr<UpdateUploadUrlRequest> request);
 
   virtual ~Client() = default;
 };
