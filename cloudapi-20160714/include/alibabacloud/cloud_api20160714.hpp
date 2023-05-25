@@ -11329,6 +11329,8 @@ public:
   shared_ptr<string> bindStageName{};
   shared_ptr<string> certificateId{};
   shared_ptr<string> certificateName{};
+  shared_ptr<long> certificateValidEnd{};
+  shared_ptr<long> certificateValidStart{};
   shared_ptr<string> customDomainType{};
   shared_ptr<string> domainBindingStatus{};
   shared_ptr<string> domainCNAMEStatus{};
@@ -11358,6 +11360,12 @@ public:
     }
     if (certificateName) {
       res["CertificateName"] = boost::any(*certificateName);
+    }
+    if (certificateValidEnd) {
+      res["CertificateValidEnd"] = boost::any(*certificateValidEnd);
+    }
+    if (certificateValidStart) {
+      res["CertificateValidStart"] = boost::any(*certificateValidStart);
     }
     if (customDomainType) {
       res["CustomDomainType"] = boost::any(*customDomainType);
@@ -11401,6 +11409,12 @@ public:
     }
     if (m.find("CertificateName") != m.end() && !m["CertificateName"].empty()) {
       certificateName = make_shared<string>(boost::any_cast<string>(m["CertificateName"]));
+    }
+    if (m.find("CertificateValidEnd") != m.end() && !m["CertificateValidEnd"].empty()) {
+      certificateValidEnd = make_shared<long>(boost::any_cast<long>(m["CertificateValidEnd"]));
+    }
+    if (m.find("CertificateValidStart") != m.end() && !m["CertificateValidStart"].empty()) {
+      certificateValidStart = make_shared<long>(boost::any_cast<long>(m["CertificateValidStart"]));
     }
     if (m.find("CustomDomainType") != m.end() && !m["CustomDomainType"].empty()) {
       customDomainType = make_shared<string>(boost::any_cast<string>(m["CustomDomainType"]));
@@ -21041,6 +21055,7 @@ class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig : pub
 public:
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig> functionComputeConfig{};
+  shared_ptr<string> httpTargetHostName{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigMockConfig> mockConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig> ossConfig{};
   shared_ptr<string> serviceAddress{};
@@ -21062,6 +21077,9 @@ public:
     }
     if (functionComputeConfig) {
       res["FunctionComputeConfig"] = functionComputeConfig ? boost::any(functionComputeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpTargetHostName) {
+      res["HttpTargetHostName"] = boost::any(*httpTargetHostName);
     }
     if (mockConfig) {
       res["MockConfig"] = mockConfig ? boost::any(mockConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -21095,6 +21113,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FunctionComputeConfig"]));
         functionComputeConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig>(model1);
       }
+    }
+    if (m.find("HttpTargetHostName") != m.end() && !m["HttpTargetHostName"].empty()) {
+      httpTargetHostName = make_shared<string>(boost::any_cast<string>(m["HttpTargetHostName"]));
     }
     if (m.find("MockConfig") != m.end() && !m["MockConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["MockConfig"].type()) {
@@ -28346,6 +28367,7 @@ public:
   shared_ptr<string> IPV6AclType{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> instanceCidrBlock{};
+  shared_ptr<string> instanceClusterId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<long> instanceRpsLimit{};
@@ -28428,6 +28450,9 @@ public:
     }
     if (instanceCidrBlock) {
       res["InstanceCidrBlock"] = boost::any(*instanceCidrBlock);
+    }
+    if (instanceClusterId) {
+      res["InstanceClusterId"] = boost::any(*instanceClusterId);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -28546,6 +28571,9 @@ public:
     }
     if (m.find("InstanceCidrBlock") != m.end() && !m["InstanceCidrBlock"].empty()) {
       instanceCidrBlock = make_shared<string>(boost::any_cast<string>(m["InstanceCidrBlock"]));
+    }
+    if (m.find("InstanceClusterId") != m.end() && !m["InstanceClusterId"].empty()) {
+      instanceClusterId = make_shared<string>(boost::any_cast<string>(m["InstanceClusterId"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
@@ -43665,6 +43693,7 @@ public:
 class ResetAppSecretRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appKey{};
+  shared_ptr<string> newAppKey{};
   shared_ptr<string> newAppSecret{};
   shared_ptr<string> securityToken{};
 
@@ -43681,6 +43710,9 @@ public:
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
     }
+    if (newAppKey) {
+      res["NewAppKey"] = boost::any(*newAppKey);
+    }
     if (newAppSecret) {
       res["NewAppSecret"] = boost::any(*newAppSecret);
     }
@@ -43693,6 +43725,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("NewAppKey") != m.end() && !m["NewAppKey"].empty()) {
+      newAppKey = make_shared<string>(boost::any_cast<string>(m["NewAppKey"]));
     }
     if (m.find("NewAppSecret") != m.end() && !m["NewAppSecret"].empty()) {
       newAppSecret = make_shared<string>(boost::any_cast<string>(m["NewAppSecret"]));
@@ -46594,6 +46629,154 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class ValidateVpcConnectivityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> vpcAccessId{};
+
+  ValidateVpcConnectivityRequest() {}
+
+  explicit ValidateVpcConnectivityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (vpcAccessId) {
+      res["VpcAccessId"] = boost::any(*vpcAccessId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("VpcAccessId") != m.end() && !m["VpcAccessId"].empty()) {
+      vpcAccessId = make_shared<string>(boost::any_cast<string>(m["VpcAccessId"]));
+    }
+  }
+
+
+  virtual ~ValidateVpcConnectivityRequest() = default;
+};
+class ValidateVpcConnectivityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> connected{};
+  shared_ptr<string> ipType{};
+  shared_ptr<string> requestId{};
+
+  ValidateVpcConnectivityResponseBody() {}
+
+  explicit ValidateVpcConnectivityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connected) {
+      res["Connected"] = boost::any(*connected);
+    }
+    if (ipType) {
+      res["IpType"] = boost::any(*ipType);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Connected") != m.end() && !m["Connected"].empty()) {
+      connected = make_shared<bool>(boost::any_cast<bool>(m["Connected"]));
+    }
+    if (m.find("IpType") != m.end() && !m["IpType"].empty()) {
+      ipType = make_shared<string>(boost::any_cast<string>(m["IpType"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ValidateVpcConnectivityResponseBody() = default;
+};
+class ValidateVpcConnectivityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ValidateVpcConnectivityResponseBody> body{};
+
+  ValidateVpcConnectivityResponse() {}
+
+  explicit ValidateVpcConnectivityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ValidateVpcConnectivityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ValidateVpcConnectivityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ValidateVpcConnectivityResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -46960,6 +47143,8 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  ValidateVpcConnectivityResponse validateVpcConnectivityWithOptions(shared_ptr<ValidateVpcConnectivityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ValidateVpcConnectivityResponse validateVpcConnectivity(shared_ptr<ValidateVpcConnectivityRequest> request);
 
   virtual ~Client() = default;
 };
