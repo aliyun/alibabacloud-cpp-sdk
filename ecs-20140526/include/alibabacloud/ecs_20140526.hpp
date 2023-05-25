@@ -35983,6 +35983,7 @@ public:
 class DescribeDemandsResponseBodyDemandsDemandSupplyInfosSupplyInfo : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<string> privatePoolId{};
   shared_ptr<string> supplyEndTime{};
   shared_ptr<string> supplyStartTime{};
   shared_ptr<string> supplyStatus{};
@@ -36000,6 +36001,9 @@ public:
     if (amount) {
       res["Amount"] = boost::any(*amount);
     }
+    if (privatePoolId) {
+      res["PrivatePoolId"] = boost::any(*privatePoolId);
+    }
     if (supplyEndTime) {
       res["SupplyEndTime"] = boost::any(*supplyEndTime);
     }
@@ -36015,6 +36019,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
+    if (m.find("PrivatePoolId") != m.end() && !m["PrivatePoolId"].empty()) {
+      privatePoolId = make_shared<string>(boost::any_cast<string>(m["PrivatePoolId"]));
     }
     if (m.find("SupplyEndTime") != m.end() && !m["SupplyEndTime"].empty()) {
       supplyEndTime = make_shared<string>(boost::any_cast<string>(m["SupplyEndTime"]));
@@ -36412,6 +36419,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> strategy{};
 
   DescribeDeploymentSetSupportedInstanceTypeFamilyRequest() {}
 
@@ -36438,6 +36446,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (strategy) {
+      res["Strategy"] = boost::any(*strategy);
+    }
     return res;
   }
 
@@ -36456,6 +36467,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Strategy") != m.end() && !m["Strategy"].empty()) {
+      strategy = make_shared<string>(boost::any_cast<string>(m["Strategy"]));
     }
   }
 
@@ -46170,6 +46184,7 @@ public:
 class DescribeImageSharePermissionResponseBodyAccountsAccount : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunId{};
+  shared_ptr<string> sharedTime{};
 
   DescribeImageSharePermissionResponseBodyAccountsAccount() {}
 
@@ -46184,12 +46199,18 @@ public:
     if (aliyunId) {
       res["AliyunId"] = boost::any(*aliyunId);
     }
+    if (sharedTime) {
+      res["SharedTime"] = boost::any(*sharedTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AliyunId") != m.end() && !m["AliyunId"].empty()) {
       aliyunId = make_shared<string>(boost::any_cast<string>(m["AliyunId"]));
+    }
+    if (m.find("SharedTime") != m.end() && !m["SharedTime"].empty()) {
+      sharedTime = make_shared<string>(boost::any_cast<string>(m["SharedTime"]));
     }
   }
 
@@ -86044,6 +86065,7 @@ public:
 };
 class InvokeCommandRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> commandId{};
   shared_ptr<string> containerId{};
   shared_ptr<string> containerName{};
@@ -86073,6 +86095,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (commandId) {
       res["CommandId"] = boost::any(*commandId);
     }
@@ -86135,6 +86160,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("CommandId") != m.end() && !m["CommandId"].empty()) {
       commandId = make_shared<string>(boost::any_cast<string>(m["CommandId"]));
     }
@@ -86254,6 +86282,7 @@ public:
 };
 class InvokeCommandShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> commandId{};
   shared_ptr<string> containerId{};
   shared_ptr<string> containerName{};
@@ -86283,6 +86312,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (commandId) {
       res["CommandId"] = boost::any(*commandId);
     }
@@ -86345,6 +86377,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("CommandId") != m.end() && !m["CommandId"].empty()) {
       commandId = make_shared<string>(boost::any_cast<string>(m["CommandId"]));
     }
@@ -106510,6 +106545,7 @@ public:
 };
 class RunCommandRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> commandContent{};
   shared_ptr<string> containerId{};
   shared_ptr<string> containerName{};
@@ -106546,6 +106582,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
     }
@@ -106629,6 +106668,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
     }
@@ -106769,6 +106811,7 @@ public:
 };
 class RunCommandShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<string> commandContent{};
   shared_ptr<string> containerId{};
   shared_ptr<string> containerName{};
@@ -106805,6 +106848,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (commandContent) {
       res["CommandContent"] = boost::any(*commandContent);
     }
@@ -106888,6 +106934,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("CommandContent") != m.end() && !m["CommandContent"].empty()) {
       commandContent = make_shared<string>(boost::any_cast<string>(m["CommandContent"]));
     }
