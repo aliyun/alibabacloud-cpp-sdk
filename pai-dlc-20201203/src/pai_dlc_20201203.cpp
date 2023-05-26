@@ -304,9 +304,18 @@ DeleteTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::deleteTensorboar
   return deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
-GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_ptr<string> JobId,
+                                                                       shared_ptr<GetJobRequest> request,
+                                                                       shared_ptr<map<string, string>> headers,
+                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needDetail)) {
+    query->insert(pair<string, bool>("NeedDetail", *request->needDetail));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetJob"))},
@@ -322,10 +331,10 @@ GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJobWithOptions(shared_pt
   return GetJobResponse(callApi(params, req, runtime));
 }
 
-GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJob(shared_ptr<string> JobId) {
+GetJobResponse Alibabacloud_Pai-dlc20201203::Client::getJob(shared_ptr<string> JobId, shared_ptr<GetJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getJobWithOptions(JobId, headers, runtime);
+  return getJobWithOptions(JobId, request, headers, runtime);
 }
 
 GetJobEventsResponse Alibabacloud_Pai-dlc20201203::Client::getJobEventsWithOptions(shared_ptr<string> JobId,

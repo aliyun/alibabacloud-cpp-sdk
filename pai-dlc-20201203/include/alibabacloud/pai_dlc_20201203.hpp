@@ -1364,11 +1364,19 @@ class JobElasticSpec : public Darabonba::Model {
 public:
   shared_ptr<string> AIMasterDockerImage{};
   shared_ptr<string> AIMasterType{};
+  shared_ptr<long> EDPMaxParallelism{};
+  shared_ptr<long> EDPMinParallelism{};
+  shared_ptr<string> elasticStrategy{};
   shared_ptr<bool> enableAIMaster{};
+  shared_ptr<bool> enableEDP{};
   shared_ptr<bool> enableElasticTraining{};
+  shared_ptr<bool> enablePsJobElasticPS{};
   shared_ptr<bool> enablePsJobElasticWorker{};
+  shared_ptr<bool> enablePsResourceEstimate{};
   shared_ptr<long> maxParallelism{};
   shared_ptr<long> minParallelism{};
+  shared_ptr<long> PSMaxParallelism{};
+  shared_ptr<long> PSMinParallelism{};
 
   JobElasticSpec() {}
 
@@ -1386,20 +1394,44 @@ public:
     if (AIMasterType) {
       res["AIMasterType"] = boost::any(*AIMasterType);
     }
+    if (EDPMaxParallelism) {
+      res["EDPMaxParallelism"] = boost::any(*EDPMaxParallelism);
+    }
+    if (EDPMinParallelism) {
+      res["EDPMinParallelism"] = boost::any(*EDPMinParallelism);
+    }
+    if (elasticStrategy) {
+      res["ElasticStrategy"] = boost::any(*elasticStrategy);
+    }
     if (enableAIMaster) {
       res["EnableAIMaster"] = boost::any(*enableAIMaster);
+    }
+    if (enableEDP) {
+      res["EnableEDP"] = boost::any(*enableEDP);
     }
     if (enableElasticTraining) {
       res["EnableElasticTraining"] = boost::any(*enableElasticTraining);
     }
+    if (enablePsJobElasticPS) {
+      res["EnablePsJobElasticPS"] = boost::any(*enablePsJobElasticPS);
+    }
     if (enablePsJobElasticWorker) {
       res["EnablePsJobElasticWorker"] = boost::any(*enablePsJobElasticWorker);
+    }
+    if (enablePsResourceEstimate) {
+      res["EnablePsResourceEstimate"] = boost::any(*enablePsResourceEstimate);
     }
     if (maxParallelism) {
       res["MaxParallelism"] = boost::any(*maxParallelism);
     }
     if (minParallelism) {
       res["MinParallelism"] = boost::any(*minParallelism);
+    }
+    if (PSMaxParallelism) {
+      res["PSMaxParallelism"] = boost::any(*PSMaxParallelism);
+    }
+    if (PSMinParallelism) {
+      res["PSMinParallelism"] = boost::any(*PSMinParallelism);
     }
     return res;
   }
@@ -1411,20 +1443,44 @@ public:
     if (m.find("AIMasterType") != m.end() && !m["AIMasterType"].empty()) {
       AIMasterType = make_shared<string>(boost::any_cast<string>(m["AIMasterType"]));
     }
+    if (m.find("EDPMaxParallelism") != m.end() && !m["EDPMaxParallelism"].empty()) {
+      EDPMaxParallelism = make_shared<long>(boost::any_cast<long>(m["EDPMaxParallelism"]));
+    }
+    if (m.find("EDPMinParallelism") != m.end() && !m["EDPMinParallelism"].empty()) {
+      EDPMinParallelism = make_shared<long>(boost::any_cast<long>(m["EDPMinParallelism"]));
+    }
+    if (m.find("ElasticStrategy") != m.end() && !m["ElasticStrategy"].empty()) {
+      elasticStrategy = make_shared<string>(boost::any_cast<string>(m["ElasticStrategy"]));
+    }
     if (m.find("EnableAIMaster") != m.end() && !m["EnableAIMaster"].empty()) {
       enableAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableAIMaster"]));
+    }
+    if (m.find("EnableEDP") != m.end() && !m["EnableEDP"].empty()) {
+      enableEDP = make_shared<bool>(boost::any_cast<bool>(m["EnableEDP"]));
     }
     if (m.find("EnableElasticTraining") != m.end() && !m["EnableElasticTraining"].empty()) {
       enableElasticTraining = make_shared<bool>(boost::any_cast<bool>(m["EnableElasticTraining"]));
     }
+    if (m.find("EnablePsJobElasticPS") != m.end() && !m["EnablePsJobElasticPS"].empty()) {
+      enablePsJobElasticPS = make_shared<bool>(boost::any_cast<bool>(m["EnablePsJobElasticPS"]));
+    }
     if (m.find("EnablePsJobElasticWorker") != m.end() && !m["EnablePsJobElasticWorker"].empty()) {
       enablePsJobElasticWorker = make_shared<bool>(boost::any_cast<bool>(m["EnablePsJobElasticWorker"]));
+    }
+    if (m.find("EnablePsResourceEstimate") != m.end() && !m["EnablePsResourceEstimate"].empty()) {
+      enablePsResourceEstimate = make_shared<bool>(boost::any_cast<bool>(m["EnablePsResourceEstimate"]));
     }
     if (m.find("MaxParallelism") != m.end() && !m["MaxParallelism"].empty()) {
       maxParallelism = make_shared<long>(boost::any_cast<long>(m["MaxParallelism"]));
     }
     if (m.find("MinParallelism") != m.end() && !m["MinParallelism"].empty()) {
       minParallelism = make_shared<long>(boost::any_cast<long>(m["MinParallelism"]));
+    }
+    if (m.find("PSMaxParallelism") != m.end() && !m["PSMaxParallelism"].empty()) {
+      PSMaxParallelism = make_shared<long>(boost::any_cast<long>(m["PSMaxParallelism"]));
+    }
+    if (m.find("PSMinParallelism") != m.end() && !m["PSMinParallelism"].empty()) {
+      PSMinParallelism = make_shared<long>(boost::any_cast<long>(m["PSMinParallelism"]));
     }
   }
 
@@ -2181,6 +2237,105 @@ public:
 
 
   virtual ~NodeMetric() = default;
+};
+class PodItem : public Darabonba::Model {
+public:
+  shared_ptr<string> gmtCreateTime{};
+  shared_ptr<string> gmtFinishTime{};
+  shared_ptr<string> gmtStartTime{};
+  shared_ptr<vector<PodItem>> historyPods{};
+  shared_ptr<string> ip{};
+  shared_ptr<string> podId{};
+  shared_ptr<string> podUid{};
+  shared_ptr<string> status{};
+  shared_ptr<string> type{};
+
+  PodItem() {}
+
+  explicit PodItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gmtCreateTime) {
+      res["GmtCreateTime"] = boost::any(*gmtCreateTime);
+    }
+    if (gmtFinishTime) {
+      res["GmtFinishTime"] = boost::any(*gmtFinishTime);
+    }
+    if (gmtStartTime) {
+      res["GmtStartTime"] = boost::any(*gmtStartTime);
+    }
+    if (historyPods) {
+      vector<boost::any> temp1;
+      for(auto item1:*historyPods){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HistoryPods"] = boost::any(temp1);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (podId) {
+      res["PodId"] = boost::any(*podId);
+    }
+    if (podUid) {
+      res["PodUid"] = boost::any(*podUid);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
+      gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
+    }
+    if (m.find("GmtFinishTime") != m.end() && !m["GmtFinishTime"].empty()) {
+      gmtFinishTime = make_shared<string>(boost::any_cast<string>(m["GmtFinishTime"]));
+    }
+    if (m.find("GmtStartTime") != m.end() && !m["GmtStartTime"].empty()) {
+      gmtStartTime = make_shared<string>(boost::any_cast<string>(m["GmtStartTime"]));
+    }
+    if (m.find("HistoryPods") != m.end() && !m["HistoryPods"].empty()) {
+      if (typeid(vector<boost::any>) == m["HistoryPods"].type()) {
+        vector<PodItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HistoryPods"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PodItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        historyPods = make_shared<vector<PodItem>>(expect1);
+      }
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
+      podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
+    }
+    if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
+      podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~PodItem() = default;
 };
 class PodMetric : public Darabonba::Model {
 public:
@@ -3836,6 +3991,35 @@ public:
 
 
   virtual ~DeleteTensorboardResponse() = default;
+};
+class GetJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> needDetail{};
+
+  GetJobRequest() {}
+
+  explicit GetJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (needDetail) {
+      res["NeedDetail"] = boost::any(*needDetail);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NeedDetail") != m.end() && !m["NeedDetail"].empty()) {
+      needDetail = make_shared<bool>(boost::any_cast<bool>(m["NeedDetail"]));
+    }
+  }
+
+
+  virtual ~GetJobRequest() = default;
 };
 class GetJobResponseBodyCodeSource : public Darabonba::Model {
 public:
@@ -6780,8 +6964,11 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTensorboardResponse deleteTensorboard(shared_ptr<string> TensorboardId, shared_ptr<DeleteTensorboardRequest> request);
-  GetJobResponse getJobWithOptions(shared_ptr<string> JobId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobResponse getJob(shared_ptr<string> JobId);
+  GetJobResponse getJobWithOptions(shared_ptr<string> JobId,
+                                   shared_ptr<GetJobRequest> request,
+                                   shared_ptr<map<string, string>> headers,
+                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetJobResponse getJob(shared_ptr<string> JobId, shared_ptr<GetJobRequest> request);
   GetJobEventsResponse getJobEventsWithOptions(shared_ptr<string> JobId,
                                                shared_ptr<GetJobEventsRequest> request,
                                                shared_ptr<map<string, string>> headers,
