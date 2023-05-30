@@ -10081,6 +10081,7 @@ public:
   shared_ptr<string> xFcDate{};
   shared_ptr<string> xFcInvocationType{};
   shared_ptr<string> xFcLogType{};
+  shared_ptr<string> xFcStatefulAsyncInvocationEnable{};
   shared_ptr<string> xFcStatefulAsyncInvocationId{};
   shared_ptr<string> xFcTraceId{};
 
@@ -10108,6 +10109,9 @@ public:
     }
     if (xFcLogType) {
       res["X-Fc-Log-Type"] = boost::any(*xFcLogType);
+    }
+    if (xFcStatefulAsyncInvocationEnable) {
+      res["X-Fc-Stateful-Async-Invocation-Enable"] = boost::any(*xFcStatefulAsyncInvocationEnable);
     }
     if (xFcStatefulAsyncInvocationId) {
       res["X-Fc-Stateful-Async-Invocation-Id"] = boost::any(*xFcStatefulAsyncInvocationId);
@@ -10138,6 +10142,9 @@ public:
     }
     if (m.find("X-Fc-Log-Type") != m.end() && !m["X-Fc-Log-Type"].empty()) {
       xFcLogType = make_shared<string>(boost::any_cast<string>(m["X-Fc-Log-Type"]));
+    }
+    if (m.find("X-Fc-Stateful-Async-Invocation-Enable") != m.end() && !m["X-Fc-Stateful-Async-Invocation-Enable"].empty()) {
+      xFcStatefulAsyncInvocationEnable = make_shared<string>(boost::any_cast<string>(m["X-Fc-Stateful-Async-Invocation-Enable"]));
     }
     if (m.find("X-Fc-Stateful-Async-Invocation-Id") != m.end() && !m["X-Fc-Stateful-Async-Invocation-Id"].empty()) {
       xFcStatefulAsyncInvocationId = make_shared<string>(boost::any_cast<string>(m["X-Fc-Stateful-Async-Invocation-Id"]));

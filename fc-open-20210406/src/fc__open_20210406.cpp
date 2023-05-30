@@ -1689,6 +1689,9 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcLogType)) {
     realHeaders->insert(pair<string, string>("X-Fc-Log-Type", Darabonba_Util::Client::toJSONString(headers->xFcLogType)));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xFcStatefulAsyncInvocationEnable)) {
+    realHeaders->insert(pair<string, string>("X-Fc-Stateful-Async-Invocation-Enable", Darabonba_Util::Client::toJSONString(headers->xFcStatefulAsyncInvocationEnable)));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(headers->xFcStatefulAsyncInvocationId)) {
     realHeaders->insert(pair<string, string>("X-Fc-Stateful-Async-Invocation-Id", Darabonba_Util::Client::toJSONString(headers->xFcStatefulAsyncInvocationId)));
   }
