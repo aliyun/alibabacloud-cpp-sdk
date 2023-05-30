@@ -50916,9 +50916,46 @@ public:
 
   virtual ~IsvRuleSaveHeaders() = default;
 };
+class IsvRuleSaveRequestBookuserList : public Darabonba::Model {
+public:
+  shared_ptr<string> entityId{};
+  shared_ptr<long> entityType{};
+
+  IsvRuleSaveRequestBookuserList() {}
+
+  explicit IsvRuleSaveRequestBookuserList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (entityId) {
+      res["entity_id"] = boost::any(*entityId);
+    }
+    if (entityType) {
+      res["entity_type"] = boost::any(*entityType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("entity_id") != m.end() && !m["entity_id"].empty()) {
+      entityId = make_shared<string>(boost::any_cast<string>(m["entity_id"]));
+    }
+    if (m.find("entity_type") != m.end() && !m["entity_type"].empty()) {
+      entityType = make_shared<long>(boost::any_cast<long>(m["entity_type"]));
+    }
+  }
+
+
+  virtual ~IsvRuleSaveRequestBookuserList() = default;
+};
 class IsvRuleSaveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bookType{};
+  shared_ptr<vector<IsvRuleSaveRequestBookuserList>> bookuserList{};
   shared_ptr<long> status{};
   shared_ptr<string> userId{};
 
@@ -50935,6 +50972,13 @@ public:
     if (bookType) {
       res["book_type"] = boost::any(*bookType);
     }
+    if (bookuserList) {
+      vector<boost::any> temp1;
+      for(auto item1:*bookuserList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["bookuser_list"] = boost::any(temp1);
+    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -50948,6 +50992,19 @@ public:
     if (m.find("book_type") != m.end() && !m["book_type"].empty()) {
       bookType = make_shared<string>(boost::any_cast<string>(m["book_type"]));
     }
+    if (m.find("bookuser_list") != m.end() && !m["bookuser_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["bookuser_list"].type()) {
+        vector<IsvRuleSaveRequestBookuserList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["bookuser_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            IsvRuleSaveRequestBookuserList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        bookuserList = make_shared<vector<IsvRuleSaveRequestBookuserList>>(expect1);
+      }
+    }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
     }
@@ -50958,6 +51015,56 @@ public:
 
 
   virtual ~IsvRuleSaveRequest() = default;
+};
+class IsvRuleSaveShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bookType{};
+  shared_ptr<string> bookuserListShrink{};
+  shared_ptr<long> status{};
+  shared_ptr<string> userId{};
+
+  IsvRuleSaveShrinkRequest() {}
+
+  explicit IsvRuleSaveShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bookType) {
+      res["book_type"] = boost::any(*bookType);
+    }
+    if (bookuserListShrink) {
+      res["bookuser_list"] = boost::any(*bookuserListShrink);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("book_type") != m.end() && !m["book_type"].empty()) {
+      bookType = make_shared<string>(boost::any_cast<string>(m["book_type"]));
+    }
+    if (m.find("bookuser_list") != m.end() && !m["bookuser_list"].empty()) {
+      bookuserListShrink = make_shared<string>(boost::any_cast<string>(m["bookuser_list"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~IsvRuleSaveShrinkRequest() = default;
 };
 class IsvRuleSaveResponseBody : public Darabonba::Model {
 public:
@@ -65766,7 +65873,7 @@ public:
   InvoiceRuleSaveResponse invoiceRuleSave(shared_ptr<InvoiceRuleSaveRequest> request);
   InvoiceSearchResponse invoiceSearchWithOptions(shared_ptr<InvoiceSearchRequest> request, shared_ptr<InvoiceSearchHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InvoiceSearchResponse invoiceSearch(shared_ptr<InvoiceSearchRequest> request);
-  IsvRuleSaveResponse isvRuleSaveWithOptions(shared_ptr<IsvRuleSaveRequest> request, shared_ptr<IsvRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  IsvRuleSaveResponse isvRuleSaveWithOptions(shared_ptr<IsvRuleSaveRequest> tmpReq, shared_ptr<IsvRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsvRuleSaveResponse isvRuleSave(shared_ptr<IsvRuleSaveRequest> request);
   IsvUserSaveResponse isvUserSaveWithOptions(shared_ptr<IsvUserSaveRequest> tmpReq, shared_ptr<IsvUserSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsvUserSaveResponse isvUserSave(shared_ptr<IsvUserSaveRequest> request);

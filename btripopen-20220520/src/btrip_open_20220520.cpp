@@ -4283,11 +4283,19 @@ InvoiceSearchResponse Alibabacloud_BtripOpen20220520::Client::invoiceSearch(shar
   return invoiceSearchWithOptions(request, headers, runtime);
 }
 
-IsvRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::isvRuleSaveWithOptions(shared_ptr<IsvRuleSaveRequest> request, shared_ptr<IsvRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+IsvRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::isvRuleSaveWithOptions(shared_ptr<IsvRuleSaveRequest> tmpReq, shared_ptr<IsvRuleSaveHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<IsvRuleSaveShrinkRequest> request = make_shared<IsvRuleSaveShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<IsvRuleSaveRequestBookuserList>>(tmpReq->bookuserList)) {
+    request->bookuserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bookuserList, make_shared<string>("bookuser_list"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->bookType)) {
     body->insert(pair<string, string>("book_type", *request->bookType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bookuserListShrink)) {
+    body->insert(pair<string, string>("bookuser_list", *request->bookuserListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("status", *request->status));
