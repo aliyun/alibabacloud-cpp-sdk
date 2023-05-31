@@ -826,6 +826,7 @@ public:
   shared_ptr<long> groupId{};
   shared_ptr<bool> onlyImage{};
   shared_ptr<string> os{};
+  shared_ptr<string> proxyCluster{};
   shared_ptr<string> vendorName{};
 
   AddInstallCodeRequest() {}
@@ -850,6 +851,9 @@ public:
     if (os) {
       res["Os"] = boost::any(*os);
     }
+    if (proxyCluster) {
+      res["ProxyCluster"] = boost::any(*proxyCluster);
+    }
     if (vendorName) {
       res["VendorName"] = boost::any(*vendorName);
     }
@@ -868,6 +872,9 @@ public:
     }
     if (m.find("Os") != m.end() && !m["Os"].empty()) {
       os = make_shared<string>(boost::any_cast<string>(m["Os"]));
+    }
+    if (m.find("ProxyCluster") != m.end() && !m["ProxyCluster"].empty()) {
+      proxyCluster = make_shared<string>(boost::any_cast<string>(m["ProxyCluster"]));
     }
     if (m.find("VendorName") != m.end() && !m["VendorName"].empty()) {
       vendorName = make_shared<string>(boost::any_cast<string>(m["VendorName"]));
@@ -31873,6 +31880,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> nntfCount{};
   shared_ptr<long> raspDefend{};
+  shared_ptr<string> related{};
   shared_ptr<string> tags{};
   shared_ptr<long> totalFixCount{};
   shared_ptr<string> type{};
@@ -31911,6 +31919,9 @@ public:
     if (raspDefend) {
       res["RaspDefend"] = boost::any(*raspDefend);
     }
+    if (related) {
+      res["Related"] = boost::any(*related);
+    }
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
@@ -31947,6 +31958,9 @@ public:
     }
     if (m.find("RaspDefend") != m.end() && !m["RaspDefend"].empty()) {
       raspDefend = make_shared<long>(boost::any_cast<long>(m["RaspDefend"]));
+    }
+    if (m.find("Related") != m.end() && !m["Related"].empty()) {
+      related = make_shared<string>(boost::any_cast<string>(m["Related"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
@@ -40481,6 +40495,7 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<bool> onlyImage{};
   shared_ptr<string> os{};
+  shared_ptr<string> proxyCluster{};
   shared_ptr<string> vendorName{};
 
   DescribeInstallCodesResponseBodyInstallCodes() {}
@@ -40511,6 +40526,9 @@ public:
     if (os) {
       res["Os"] = boost::any(*os);
     }
+    if (proxyCluster) {
+      res["ProxyCluster"] = boost::any(*proxyCluster);
+    }
     if (vendorName) {
       res["VendorName"] = boost::any(*vendorName);
     }
@@ -40535,6 +40553,9 @@ public:
     }
     if (m.find("Os") != m.end() && !m["Os"].empty()) {
       os = make_shared<string>(boost::any_cast<string>(m["Os"]));
+    }
+    if (m.find("ProxyCluster") != m.end() && !m["ProxyCluster"].empty()) {
+      proxyCluster = make_shared<string>(boost::any_cast<string>(m["ProxyCluster"]));
     }
     if (m.find("VendorName") != m.end() && !m["VendorName"].empty()) {
       vendorName = make_shared<string>(boost::any_cast<string>(m["VendorName"]));

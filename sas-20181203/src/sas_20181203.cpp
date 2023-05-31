@@ -285,6 +285,9 @@ AddInstallCodeResponse Alibabacloud_Sas20181203::Client::addInstallCodeWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->os)) {
     query->insert(pair<string, string>("Os", *request->os));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyCluster)) {
+    query->insert(pair<string, string>("ProxyCluster", *request->proxyCluster));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vendorName)) {
     query->insert(pair<string, string>("VendorName", *request->vendorName));
   }
