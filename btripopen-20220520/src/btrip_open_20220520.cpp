@@ -3315,6 +3315,9 @@ HotelOrderCreateResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderCreat
   if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
     body->insert(pair<string, string>("dis_order_id", *request->disOrderId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extra)) {
+    body->insert(pair<string, string>("extra", *request->extra));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->invoiceInfoShrink)) {
     body->insert(pair<string, string>("invoice_info", *request->invoiceInfoShrink));
   }

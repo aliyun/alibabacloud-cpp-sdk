@@ -40546,6 +40546,7 @@ class HotelOrderCreateRequestPromotionInfoPromotionDetailInfoList : public Darab
 public:
   shared_ptr<bool> checkStatus{};
   shared_ptr<bool> needCheck{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> promotionName{};
   shared_ptr<long> promotionPrice{};
@@ -40566,6 +40567,9 @@ public:
     }
     if (needCheck) {
       res["need_check"] = boost::any(*needCheck);
+    }
+    if (promotionCode) {
+      res["promotion_code"] = boost::any(*promotionCode);
     }
     if (promotionId) {
       res["promotion_id"] = boost::any(*promotionId);
@@ -40588,6 +40592,9 @@ public:
     }
     if (m.find("need_check") != m.end() && !m["need_check"].empty()) {
       needCheck = make_shared<bool>(boost::any_cast<bool>(m["need_check"]));
+    }
+    if (m.find("promotion_code") != m.end() && !m["promotion_code"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["promotion_code"]));
     }
     if (m.find("promotion_id") != m.end() && !m["promotion_id"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["promotion_id"]));
@@ -40666,6 +40673,7 @@ public:
   shared_ptr<string> contractPhone{};
   shared_ptr<long> corpPayPrice{};
   shared_ptr<string> disOrderId{};
+  shared_ptr<string> extra{};
   shared_ptr<HotelOrderCreateRequestInvoiceInfo> invoiceInfo{};
   shared_ptr<long> itemId{};
   shared_ptr<string> itineraryNo{};
@@ -40713,6 +40721,9 @@ public:
     }
     if (disOrderId) {
       res["dis_order_id"] = boost::any(*disOrderId);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
     }
     if (invoiceInfo) {
       res["invoice_info"] = invoiceInfo ? boost::any(invoiceInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -40784,6 +40795,9 @@ public:
     }
     if (m.find("dis_order_id") != m.end() && !m["dis_order_id"].empty()) {
       disOrderId = make_shared<string>(boost::any_cast<string>(m["dis_order_id"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["extra"]));
     }
     if (m.find("invoice_info") != m.end() && !m["invoice_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["invoice_info"].type()) {
@@ -40857,6 +40871,7 @@ public:
   shared_ptr<string> contractPhone{};
   shared_ptr<long> corpPayPrice{};
   shared_ptr<string> disOrderId{};
+  shared_ptr<string> extra{};
   shared_ptr<string> invoiceInfoShrink{};
   shared_ptr<long> itemId{};
   shared_ptr<string> itineraryNo{};
@@ -40904,6 +40919,9 @@ public:
     }
     if (disOrderId) {
       res["dis_order_id"] = boost::any(*disOrderId);
+    }
+    if (extra) {
+      res["extra"] = boost::any(*extra);
     }
     if (invoiceInfoShrink) {
       res["invoice_info"] = boost::any(*invoiceInfoShrink);
@@ -40971,6 +40989,9 @@ public:
     }
     if (m.find("dis_order_id") != m.end() && !m["dis_order_id"].empty()) {
       disOrderId = make_shared<string>(boost::any_cast<string>(m["dis_order_id"]));
+    }
+    if (m.find("extra") != m.end() && !m["extra"].empty()) {
+      extra = make_shared<string>(boost::any_cast<string>(m["extra"]));
     }
     if (m.find("invoice_info") != m.end() && !m["invoice_info"].empty()) {
       invoiceInfoShrink = make_shared<string>(boost::any_cast<string>(m["invoice_info"]));
@@ -43861,6 +43882,7 @@ class HotelOrderPreValidateResponseBodyModulePromotionInfoPromotionDetailInfoLis
 public:
   shared_ptr<bool> checkStatus{};
   shared_ptr<bool> needCheck{};
+  shared_ptr<string> promotionCode{};
   shared_ptr<string> promotionId{};
   shared_ptr<string> promotionName{};
   shared_ptr<long> promotionPrice{};
@@ -43881,6 +43903,9 @@ public:
     }
     if (needCheck) {
       res["need_check"] = boost::any(*needCheck);
+    }
+    if (promotionCode) {
+      res["promotion_code"] = boost::any(*promotionCode);
     }
     if (promotionId) {
       res["promotion_id"] = boost::any(*promotionId);
@@ -43903,6 +43928,9 @@ public:
     }
     if (m.find("need_check") != m.end() && !m["need_check"].empty()) {
       needCheck = make_shared<bool>(boost::any_cast<bool>(m["need_check"]));
+    }
+    if (m.find("promotion_code") != m.end() && !m["promotion_code"].empty()) {
+      promotionCode = make_shared<string>(boost::any_cast<string>(m["promotion_code"]));
     }
     if (m.find("promotion_id") != m.end() && !m["promotion_id"].empty()) {
       promotionId = make_shared<string>(boost::any_cast<string>(m["promotion_id"]));
@@ -43986,9 +44014,12 @@ public:
 class HotelOrderPreValidateResponseBodyModuleRatePlanDaily : public Darabonba::Model {
 public:
   shared_ptr<string> board{};
+  shared_ptr<string> discountPrice{};
   shared_ptr<long> price{};
   shared_ptr<string> rateStartTime{};
   shared_ptr<long> roomCount{};
+  shared_ptr<string> roundingDiscountPrice{};
+  shared_ptr<string> roundingPrice{};
   shared_ptr<long> serviceFee{};
 
   HotelOrderPreValidateResponseBodyModuleRatePlanDaily() {}
@@ -44004,6 +44035,9 @@ public:
     if (board) {
       res["board"] = boost::any(*board);
     }
+    if (discountPrice) {
+      res["discount_price"] = boost::any(*discountPrice);
+    }
     if (price) {
       res["price"] = boost::any(*price);
     }
@@ -44012,6 +44046,12 @@ public:
     }
     if (roomCount) {
       res["room_count"] = boost::any(*roomCount);
+    }
+    if (roundingDiscountPrice) {
+      res["rounding_discount_price"] = boost::any(*roundingDiscountPrice);
+    }
+    if (roundingPrice) {
+      res["rounding_price"] = boost::any(*roundingPrice);
     }
     if (serviceFee) {
       res["service_fee"] = boost::any(*serviceFee);
@@ -44023,6 +44063,9 @@ public:
     if (m.find("board") != m.end() && !m["board"].empty()) {
       board = make_shared<string>(boost::any_cast<string>(m["board"]));
     }
+    if (m.find("discount_price") != m.end() && !m["discount_price"].empty()) {
+      discountPrice = make_shared<string>(boost::any_cast<string>(m["discount_price"]));
+    }
     if (m.find("price") != m.end() && !m["price"].empty()) {
       price = make_shared<long>(boost::any_cast<long>(m["price"]));
     }
@@ -44031,6 +44074,12 @@ public:
     }
     if (m.find("room_count") != m.end() && !m["room_count"].empty()) {
       roomCount = make_shared<long>(boost::any_cast<long>(m["room_count"]));
+    }
+    if (m.find("rounding_discount_price") != m.end() && !m["rounding_discount_price"].empty()) {
+      roundingDiscountPrice = make_shared<string>(boost::any_cast<string>(m["rounding_discount_price"]));
+    }
+    if (m.find("rounding_price") != m.end() && !m["rounding_price"].empty()) {
+      roundingPrice = make_shared<string>(boost::any_cast<string>(m["rounding_price"]));
     }
     if (m.find("service_fee") != m.end() && !m["service_fee"].empty()) {
       serviceFee = make_shared<long>(boost::any_cast<long>(m["service_fee"]));
@@ -46119,6 +46168,7 @@ public:
   shared_ptr<bool> isProtocol{};
   shared_ptr<string> location{};
   shared_ptr<double> minPrice{};
+  shared_ptr<double> originalMinPrice{};
   shared_ptr<string> score{};
   shared_ptr<long> status{};
   shared_ptr<string> tel{};
@@ -46175,6 +46225,9 @@ public:
     if (minPrice) {
       res["min_price"] = boost::any(*minPrice);
     }
+    if (originalMinPrice) {
+      res["original_min_price"] = boost::any(*originalMinPrice);
+    }
     if (score) {
       res["score"] = boost::any(*score);
     }
@@ -46229,6 +46282,9 @@ public:
     }
     if (m.find("min_price") != m.end() && !m["min_price"].empty()) {
       minPrice = make_shared<double>(boost::any_cast<double>(m["min_price"]));
+    }
+    if (m.find("original_min_price") != m.end() && !m["original_min_price"].empty()) {
+      originalMinPrice = make_shared<double>(boost::any_cast<double>(m["original_min_price"]));
     }
     if (m.find("score") != m.end() && !m["score"].empty()) {
       score = make_shared<string>(boost::any_cast<string>(m["score"]));
