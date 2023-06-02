@@ -2125,6 +2125,9 @@ QuerySpaceUsageResponse Alibabacloud_MPServerless20190615::Client::querySpaceUsa
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     body->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    body->insert(pair<string, long>("Interval", *request->interval));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
     body->insert(pair<string, string>("SpaceId", *request->spaceId));
   }
@@ -2464,6 +2467,9 @@ SaveWebHostingCustomDomainCorsConfigResponse Alibabacloud_MPServerless20190615::
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->accessControlAllowOrigin)) {
     body->insert(pair<string, string>("AccessControlAllowOrigin", *request->accessControlAllowOrigin));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->accessOriginControl)) {
+    body->insert(pair<string, bool>("AccessOriginControl", *request->accessOriginControl));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     body->insert(pair<string, string>("DomainName", *request->domainName));

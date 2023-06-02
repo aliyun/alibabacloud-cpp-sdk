@@ -3597,6 +3597,7 @@ class DescribeFileUploadSignedUrlResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
   shared_ptr<string> ossCallbackUrl{};
+  shared_ptr<bool> overwrite{};
   shared_ptr<string> requestId{};
   shared_ptr<string> signUrl{};
 
@@ -3616,6 +3617,9 @@ public:
     if (ossCallbackUrl) {
       res["OssCallbackUrl"] = boost::any(*ossCallbackUrl);
     }
+    if (overwrite) {
+      res["Overwrite"] = boost::any(*overwrite);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -3631,6 +3635,9 @@ public:
     }
     if (m.find("OssCallbackUrl") != m.end() && !m["OssCallbackUrl"].empty()) {
       ossCallbackUrl = make_shared<string>(boost::any_cast<string>(m["OssCallbackUrl"]));
+    }
+    if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
+      overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -9545,6 +9552,7 @@ public:
 class ListWebHostingCustomDomainsResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> accessControlAllowOrigin{};
+  shared_ptr<bool> accessOriginControl{};
   shared_ptr<string> cname{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
@@ -9567,6 +9575,9 @@ public:
     map<string, boost::any> res;
     if (accessControlAllowOrigin) {
       res["AccessControlAllowOrigin"] = boost::any(*accessControlAllowOrigin);
+    }
+    if (accessOriginControl) {
+      res["AccessOriginControl"] = boost::any(*accessOriginControl);
     }
     if (cname) {
       res["Cname"] = boost::any(*cname);
@@ -9601,6 +9612,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccessControlAllowOrigin") != m.end() && !m["AccessControlAllowOrigin"].empty()) {
       accessControlAllowOrigin = make_shared<string>(boost::any_cast<string>(m["AccessControlAllowOrigin"]));
+    }
+    if (m.find("AccessOriginControl") != m.end() && !m["AccessOriginControl"].empty()) {
+      accessOriginControl = make_shared<bool>(boost::any_cast<bool>(m["AccessOriginControl"]));
     }
     if (m.find("Cname") != m.end() && !m["Cname"].empty()) {
       cname = make_shared<string>(boost::any_cast<string>(m["Cname"]));
@@ -11944,6 +11958,7 @@ public:
 class QuerySpaceUsageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
+  shared_ptr<long> interval{};
   shared_ptr<string> spaceId{};
   shared_ptr<string> startTime{};
 
@@ -11960,6 +11975,9 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
     if (spaceId) {
       res["SpaceId"] = boost::any(*spaceId);
     }
@@ -11972,6 +11990,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
     }
     if (m.find("SpaceId") != m.end() && !m["SpaceId"].empty()) {
       spaceId = make_shared<string>(boost::any_cast<string>(m["SpaceId"]));
@@ -13660,6 +13681,7 @@ public:
 class SaveWebHostingCustomDomainCorsConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessControlAllowOrigin{};
+  shared_ptr<bool> accessOriginControl{};
   shared_ptr<string> domainName{};
   shared_ptr<bool> enableCors{};
   shared_ptr<string> spaceId{};
@@ -13677,6 +13699,9 @@ public:
     if (accessControlAllowOrigin) {
       res["AccessControlAllowOrigin"] = boost::any(*accessControlAllowOrigin);
     }
+    if (accessOriginControl) {
+      res["AccessOriginControl"] = boost::any(*accessOriginControl);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
@@ -13692,6 +13717,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccessControlAllowOrigin") != m.end() && !m["AccessControlAllowOrigin"].empty()) {
       accessControlAllowOrigin = make_shared<string>(boost::any_cast<string>(m["AccessControlAllowOrigin"]));
+    }
+    if (m.find("AccessOriginControl") != m.end() && !m["AccessOriginControl"].empty()) {
+      accessOriginControl = make_shared<bool>(boost::any_cast<bool>(m["AccessOriginControl"]));
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
