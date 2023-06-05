@@ -40442,6 +40442,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> name{};
   shared_ptr<string> phone{};
+  shared_ptr<string> roomNo{};
   shared_ptr<string> staffNo{};
   shared_ptr<long> userType{};
 
@@ -40488,6 +40489,9 @@ public:
     if (phone) {
       res["phone"] = boost::any(*phone);
     }
+    if (roomNo) {
+      res["room_no"] = boost::any(*roomNo);
+    }
     if (staffNo) {
       res["staff_no"] = boost::any(*staffNo);
     }
@@ -40530,6 +40534,9 @@ public:
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("room_no") != m.end() && !m["room_no"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["room_no"]));
     }
     if (m.find("staff_no") != m.end() && !m["staff_no"].empty()) {
       staffNo = make_shared<string>(boost::any_cast<string>(m["staff_no"]));
@@ -41714,6 +41721,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> name{};
   shared_ptr<string> phone{};
+  shared_ptr<string> roomNo{};
   shared_ptr<bool> selected{};
   shared_ptr<string> staffNo{};
   shared_ptr<long> userType{};
@@ -41770,6 +41778,9 @@ public:
     }
     if (phone) {
       res["phone"] = boost::any(*phone);
+    }
+    if (roomNo) {
+      res["room_no"] = boost::any(*roomNo);
     }
     if (selected) {
       res["selected"] = boost::any(*selected);
@@ -41832,6 +41843,9 @@ public:
     }
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("room_no") != m.end() && !m["room_no"].empty()) {
+      roomNo = make_shared<string>(boost::any_cast<string>(m["room_no"]));
     }
     if (m.find("selected") != m.end() && !m["selected"].empty()) {
       selected = make_shared<bool>(boost::any_cast<bool>(m["selected"]));
@@ -44015,6 +44029,7 @@ class HotelOrderPreValidateResponseBodyModuleRatePlanDaily : public Darabonba::M
 public:
   shared_ptr<string> board{};
   shared_ptr<string> discountPrice{};
+  shared_ptr<string> maxBookingNum{};
   shared_ptr<long> price{};
   shared_ptr<string> rateStartTime{};
   shared_ptr<long> roomCount{};
@@ -44037,6 +44052,9 @@ public:
     }
     if (discountPrice) {
       res["discount_price"] = boost::any(*discountPrice);
+    }
+    if (maxBookingNum) {
+      res["max_booking_num"] = boost::any(*maxBookingNum);
     }
     if (price) {
       res["price"] = boost::any(*price);
@@ -44065,6 +44083,9 @@ public:
     }
     if (m.find("discount_price") != m.end() && !m["discount_price"].empty()) {
       discountPrice = make_shared<string>(boost::any_cast<string>(m["discount_price"]));
+    }
+    if (m.find("max_booking_num") != m.end() && !m["max_booking_num"].empty()) {
+      maxBookingNum = make_shared<string>(boost::any_cast<string>(m["max_booking_num"]));
     }
     if (m.find("price") != m.end() && !m["price"].empty()) {
       price = make_shared<long>(boost::any_cast<long>(m["price"]));
