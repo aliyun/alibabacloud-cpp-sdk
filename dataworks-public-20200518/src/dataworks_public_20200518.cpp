@@ -1005,6 +1005,9 @@ CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWith
   if (!Darabonba_Util::Client::isUnset<long>(request->fileType)) {
     body->insert(pair<string, long>("FileType", *request->fileType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreParentSkipRunningProperty)) {
+    body->insert(pair<string, bool>("IgnoreParentSkipRunningProperty", *request->ignoreParentSkipRunningProperty));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));
   }
@@ -7875,6 +7878,9 @@ RunManualDagNodesResponse Alibabacloud_Dataworks-public20200518::Client::runManu
   if (!Darabonba_Util::Client::isUnset<string>(request->dagParameters)) {
     body->insert(pair<string, string>("DagParameters", *request->dagParameters));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endBizDate)) {
+    body->insert(pair<string, string>("EndBizDate", *request->endBizDate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeNodeIds)) {
     body->insert(pair<string, string>("ExcludeNodeIds", *request->excludeNodeIds));
   }
@@ -7895,6 +7901,9 @@ RunManualDagNodesResponse Alibabacloud_Dataworks-public20200518::Client::runManu
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectName)) {
     body->insert(pair<string, string>("ProjectName", *request->projectName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startBizDate)) {
+    body->insert(pair<string, string>("StartBizDate", *request->startBizDate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -9041,6 +9050,9 @@ UpdateFileResponse Alibabacloud_Dataworks-public20200518::Client::updateFileWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
     body->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreParentSkipRunningProperty)) {
+    body->insert(pair<string, bool>("IgnoreParentSkipRunningProperty", *request->ignoreParentSkipRunningProperty));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->inputList)) {
     body->insert(pair<string, string>("InputList", *request->inputList));

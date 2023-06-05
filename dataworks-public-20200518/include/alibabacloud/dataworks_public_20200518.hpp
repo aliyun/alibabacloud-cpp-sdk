@@ -1688,8 +1688,6 @@ public:
 class CreateBaselineResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> data{};
-  shared_ptr<string> dynamicErrorCode{};
-  shared_ptr<string> dynamicErrorMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -1708,12 +1706,6 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["Data"] = boost::any(*data);
-    }
-    if (dynamicErrorCode) {
-      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
-    }
-    if (dynamicErrorMessage) {
-      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -1736,12 +1728,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<long>(boost::any_cast<long>(m["Data"]));
-    }
-    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
-      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
-    }
-    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
-      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -3944,6 +3930,7 @@ public:
   shared_ptr<string> fileFolderPath{};
   shared_ptr<string> fileName{};
   shared_ptr<long> fileType{};
+  shared_ptr<bool> ignoreParentSkipRunningProperty{};
   shared_ptr<string> inputList{};
   shared_ptr<string> inputParameters{};
   shared_ptr<string> outputParameters{};
@@ -4013,6 +4000,9 @@ public:
     }
     if (fileType) {
       res["FileType"] = boost::any(*fileType);
+    }
+    if (ignoreParentSkipRunningProperty) {
+      res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
     }
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
@@ -4104,6 +4094,9 @@ public:
     }
     if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
       fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
+    if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
+      ignoreParentSkipRunningProperty = make_shared<bool>(boost::any_cast<bool>(m["IgnoreParentSkipRunningProperty"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));
@@ -7911,8 +7904,6 @@ public:
 class DeleteBaselineResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> data{};
-  shared_ptr<string> dynamicErrorCode{};
-  shared_ptr<string> dynamicErrorMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -7931,12 +7922,6 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["Data"] = boost::any(*data);
-    }
-    if (dynamicErrorCode) {
-      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
-    }
-    if (dynamicErrorMessage) {
-      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -7959,12 +7944,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
-    }
-    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
-      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
-    }
-    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
-      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -13216,11 +13195,11 @@ public:
   shared_ptr<string> baselineName{};
   shared_ptr<string> baselineType{};
   shared_ptr<bool> enabled{};
+  shared_ptr<vector<long>> nodeIds{};
   shared_ptr<vector<GetBaselineResponseBodyDataOverTimeSettings>> overTimeSettings{};
   shared_ptr<string> owner{};
   shared_ptr<long> priority{};
   shared_ptr<long> projectId{};
-  shared_ptr<vector<long>> taskIds{};
 
   GetBaselineResponseBodyData() {}
 
@@ -13257,6 +13236,9 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
+    }
     if (overTimeSettings) {
       vector<boost::any> temp1;
       for(auto item1:*overTimeSettings){
@@ -13272,9 +13254,6 @@ public:
     }
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
-    }
-    if (taskIds) {
-      res["TaskIds"] = boost::any(*taskIds);
     }
     return res;
   }
@@ -13311,6 +13290,16 @@ public:
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      nodeIds = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("OverTimeSettings") != m.end() && !m["OverTimeSettings"].empty()) {
       if (typeid(vector<boost::any>) == m["OverTimeSettings"].type()) {
         vector<GetBaselineResponseBodyDataOverTimeSettings> expect1;
@@ -13333,16 +13322,6 @@ public:
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
     }
-    if (m.find("TaskIds") != m.end() && !m["TaskIds"].empty()) {
-      vector<long> toVec1;
-      if (typeid(vector<boost::any>) == m["TaskIds"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TaskIds"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<long>(item));
-        }
-      }
-      taskIds = make_shared<vector<long>>(toVec1);
-    }
   }
 
 
@@ -13351,8 +13330,6 @@ public:
 class GetBaselineResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GetBaselineResponseBodyData> data{};
-  shared_ptr<string> dynamicErrorCode{};
-  shared_ptr<string> dynamicErrorMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -13371,12 +13348,6 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (dynamicErrorCode) {
-      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
-    }
-    if (dynamicErrorMessage) {
-      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -13403,12 +13374,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<GetBaselineResponseBodyData>(model1);
       }
-    }
-    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
-      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
-    }
-    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
-      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -38009,8 +37974,6 @@ public:
 class ListBaselinesResponseBody : public Darabonba::Model {
 public:
   shared_ptr<ListBaselinesResponseBodyData> data{};
-  shared_ptr<string> dynamicErrorCode{};
-  shared_ptr<string> dynamicErrorMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -38029,12 +37992,6 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (dynamicErrorCode) {
-      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
-    }
-    if (dynamicErrorMessage) {
-      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -38061,12 +38018,6 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
         data = make_shared<ListBaselinesResponseBodyData>(model1);
       }
-    }
-    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
-      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
-    }
-    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
-      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -59732,6 +59683,7 @@ class RunManualDagNodesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizDate{};
   shared_ptr<string> dagParameters{};
+  shared_ptr<string> endBizDate{};
   shared_ptr<string> excludeNodeIds{};
   shared_ptr<string> flowName{};
   shared_ptr<string> includeNodeIds{};
@@ -59739,6 +59691,7 @@ public:
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
   shared_ptr<string> projectName{};
+  shared_ptr<string> startBizDate{};
 
   RunManualDagNodesRequest() {}
 
@@ -59755,6 +59708,9 @@ public:
     }
     if (dagParameters) {
       res["DagParameters"] = boost::any(*dagParameters);
+    }
+    if (endBizDate) {
+      res["EndBizDate"] = boost::any(*endBizDate);
     }
     if (excludeNodeIds) {
       res["ExcludeNodeIds"] = boost::any(*excludeNodeIds);
@@ -59777,6 +59733,9 @@ public:
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
+    if (startBizDate) {
+      res["StartBizDate"] = boost::any(*startBizDate);
+    }
     return res;
   }
 
@@ -59786,6 +59745,9 @@ public:
     }
     if (m.find("DagParameters") != m.end() && !m["DagParameters"].empty()) {
       dagParameters = make_shared<string>(boost::any_cast<string>(m["DagParameters"]));
+    }
+    if (m.find("EndBizDate") != m.end() && !m["EndBizDate"].empty()) {
+      endBizDate = make_shared<string>(boost::any_cast<string>(m["EndBizDate"]));
     }
     if (m.find("ExcludeNodeIds") != m.end() && !m["ExcludeNodeIds"].empty()) {
       excludeNodeIds = make_shared<string>(boost::any_cast<string>(m["ExcludeNodeIds"]));
@@ -59807,6 +59769,9 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("StartBizDate") != m.end() && !m["StartBizDate"].empty()) {
+      startBizDate = make_shared<string>(boost::any_cast<string>(m["StartBizDate"]));
     }
   }
 
@@ -64573,8 +64538,6 @@ public:
 class UpdateBaselineResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> data{};
-  shared_ptr<string> dynamicErrorCode{};
-  shared_ptr<string> dynamicErrorMessage{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMessage{};
   shared_ptr<long> httpStatusCode{};
@@ -64593,12 +64556,6 @@ public:
     map<string, boost::any> res;
     if (data) {
       res["Data"] = boost::any(*data);
-    }
-    if (dynamicErrorCode) {
-      res["DynamicErrorCode"] = boost::any(*dynamicErrorCode);
-    }
-    if (dynamicErrorMessage) {
-      res["DynamicErrorMessage"] = boost::any(*dynamicErrorMessage);
     }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
@@ -64621,12 +64578,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
-    }
-    if (m.find("DynamicErrorCode") != m.end() && !m["DynamicErrorCode"].empty()) {
-      dynamicErrorCode = make_shared<string>(boost::any_cast<string>(m["DynamicErrorCode"]));
-    }
-    if (m.find("DynamicErrorMessage") != m.end() && !m["DynamicErrorMessage"].empty()) {
-      dynamicErrorMessage = make_shared<string>(boost::any_cast<string>(m["DynamicErrorMessage"]));
     }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
@@ -65884,6 +65835,7 @@ public:
   shared_ptr<string> fileFolderPath{};
   shared_ptr<long> fileId{};
   shared_ptr<string> fileName{};
+  shared_ptr<bool> ignoreParentSkipRunningProperty{};
   shared_ptr<string> inputList{};
   shared_ptr<string> inputParameters{};
   shared_ptr<string> outputList{};
@@ -65953,6 +65905,9 @@ public:
     }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
+    }
+    if (ignoreParentSkipRunningProperty) {
+      res["IgnoreParentSkipRunningProperty"] = boost::any(*ignoreParentSkipRunningProperty);
     }
     if (inputList) {
       res["InputList"] = boost::any(*inputList);
@@ -66044,6 +65999,9 @@ public:
     }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("IgnoreParentSkipRunningProperty") != m.end() && !m["IgnoreParentSkipRunningProperty"].empty()) {
+      ignoreParentSkipRunningProperty = make_shared<bool>(boost::any_cast<bool>(m["IgnoreParentSkipRunningProperty"]));
     }
     if (m.find("InputList") != m.end() && !m["InputList"].empty()) {
       inputList = make_shared<string>(boost::any_cast<string>(m["InputList"]));
