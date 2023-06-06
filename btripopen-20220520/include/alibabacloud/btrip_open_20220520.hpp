@@ -40442,7 +40442,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> name{};
   shared_ptr<string> phone{};
-  shared_ptr<string> roomNo{};
+  shared_ptr<long> roomNo{};
   shared_ptr<string> staffNo{};
   shared_ptr<long> userType{};
 
@@ -40536,7 +40536,7 @@ public:
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
     }
     if (m.find("room_no") != m.end() && !m["room_no"].empty()) {
-      roomNo = make_shared<string>(boost::any_cast<string>(m["room_no"]));
+      roomNo = make_shared<long>(boost::any_cast<long>(m["room_no"]));
     }
     if (m.find("staff_no") != m.end() && !m["staff_no"].empty()) {
       staffNo = make_shared<string>(boost::any_cast<string>(m["staff_no"]));
@@ -41721,7 +41721,7 @@ public:
   shared_ptr<string> lastName{};
   shared_ptr<string> name{};
   shared_ptr<string> phone{};
-  shared_ptr<string> roomNo{};
+  shared_ptr<long> roomNo{};
   shared_ptr<bool> selected{};
   shared_ptr<string> staffNo{};
   shared_ptr<long> userType{};
@@ -41845,7 +41845,7 @@ public:
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
     }
     if (m.find("room_no") != m.end() && !m["room_no"].empty()) {
-      roomNo = make_shared<string>(boost::any_cast<string>(m["room_no"]));
+      roomNo = make_shared<long>(boost::any_cast<long>(m["room_no"]));
     }
     if (m.find("selected") != m.end() && !m["selected"].empty()) {
       selected = make_shared<bool>(boost::any_cast<bool>(m["selected"]));
