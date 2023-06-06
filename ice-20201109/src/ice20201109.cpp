@@ -771,6 +771,34 @@ CreateUploadStreamResponse Alibabacloud_ICE20201109::Client::createUploadStream(
   return createUploadStreamWithOptions(request, runtime);
 }
 
+DecryptKMSDataKeyResponse Alibabacloud_ICE20201109::Client::decryptKMSDataKeyWithOptions(shared_ptr<DecryptKMSDataKeyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ciphertextBlob)) {
+    query->insert(pair<string, string>("CiphertextBlob", *request->ciphertextBlob));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DecryptKMSDataKey"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DecryptKMSDataKeyResponse(callApi(params, req, runtime));
+}
+
+DecryptKMSDataKeyResponse Alibabacloud_ICE20201109::Client::decryptKMSDataKey(shared_ptr<DecryptKMSDataKeyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return decryptKMSDataKeyWithOptions(request, runtime);
+}
+
 DeleteCategoryResponse Alibabacloud_ICE20201109::Client::deleteCategoryWithOptions(shared_ptr<DeleteCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2253,6 +2281,27 @@ DescribeQueryConfigsResponse Alibabacloud_ICE20201109::Client::describeQueryConf
 DescribeQueryConfigsResponse Alibabacloud_ICE20201109::Client::describeQueryConfigs(shared_ptr<DescribeQueryConfigsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeQueryConfigsWithOptions(request, runtime);
+}
+
+GenerateKMSDataKeyResponse Alibabacloud_ICE20201109::Client::generateKMSDataKeyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GenerateKMSDataKey"))},
+    {"version", boost::any(string("2020-11-09"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GenerateKMSDataKeyResponse(callApi(params, req, runtime));
+}
+
+GenerateKMSDataKeyResponse Alibabacloud_ICE20201109::Client::generateKMSDataKey() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return generateKMSDataKeyWithOptions(runtime);
 }
 
 GetCategoriesResponse Alibabacloud_ICE20201109::Client::getCategoriesWithOptions(shared_ptr<GetCategoriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
