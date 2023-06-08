@@ -780,6 +780,9 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->argoServerEnabled)) {
     query->insert(pair<string, bool>("ArgoServerEnabled", *request->argoServerEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->armsEnabled)) {
+    query->insert(pair<string, bool>("ArmsEnabled", *request->armsEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
     query->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
   }

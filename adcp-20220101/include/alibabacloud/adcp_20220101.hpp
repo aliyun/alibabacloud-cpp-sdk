@@ -5869,6 +5869,7 @@ public:
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
   shared_ptr<bool> argoServerEnabled{};
+  shared_ptr<bool> armsEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
@@ -5897,6 +5898,9 @@ public:
     }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
+    }
+    if (armsEnabled) {
+      res["ArmsEnabled"] = boost::any(*armsEnabled);
     }
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
@@ -5937,6 +5941,9 @@ public:
     }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
+    }
+    if (m.find("ArmsEnabled") != m.end() && !m["ArmsEnabled"].empty()) {
+      armsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArmsEnabled"]));
     }
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
@@ -5982,6 +5989,7 @@ public:
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
   shared_ptr<bool> argoServerEnabled{};
+  shared_ptr<bool> armsEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
@@ -6010,6 +6018,9 @@ public:
     }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
+    }
+    if (armsEnabled) {
+      res["ArmsEnabled"] = boost::any(*armsEnabled);
     }
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
@@ -6050,6 +6061,9 @@ public:
     }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
+    }
+    if (m.find("ArmsEnabled") != m.end() && !m["ArmsEnabled"].empty()) {
+      armsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArmsEnabled"]));
     }
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
