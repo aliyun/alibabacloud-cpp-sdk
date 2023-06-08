@@ -235,6 +235,68 @@ LicenseAuthResponse Alibabacloud_Avatar20220130::Client::licenseAuth(shared_ptr<
   return licenseAuthWithOptions(request, runtime);
 }
 
+QueryAvatarResponse Alibabacloud_Avatar20220130::Client::queryAvatarWithOptions(shared_ptr<QueryAvatarRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryAvatar"))},
+    {"version", boost::any(string("2022-01-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryAvatarResponse(callApi(params, req, runtime));
+}
+
+QueryAvatarResponse Alibabacloud_Avatar20220130::Client::queryAvatar(shared_ptr<QueryAvatarRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryAvatarWithOptions(request, runtime);
+}
+
+QueryAvatarListResponse Alibabacloud_Avatar20220130::Client::queryAvatarListWithOptions(shared_ptr<QueryAvatarListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelType)) {
+    query->insert(pair<string, string>("ModelType", *request->modelType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
+    query->insert(pair<string, long>("TenantId", *request->tenantId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryAvatarList"))},
+    {"version", boost::any(string("2022-01-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryAvatarListResponse(callApi(params, req, runtime));
+}
+
+QueryAvatarListResponse Alibabacloud_Avatar20220130::Client::queryAvatarList(shared_ptr<QueryAvatarListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryAvatarListWithOptions(request, runtime);
+}
+
 QueryRunningInstanceResponse Alibabacloud_Avatar20220130::Client::queryRunningInstanceWithOptions(shared_ptr<QueryRunningInstanceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryRunningInstanceShrinkRequest> request = make_shared<QueryRunningInstanceShrinkRequest>();
@@ -469,6 +531,60 @@ StopInstanceResponse Alibabacloud_Avatar20220130::Client::stopInstance(shared_pt
   return stopInstanceWithOptions(request, runtime);
 }
 
+SubmitAudioTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitAudioTo2DAvatarVideoTaskWithOptions(shared_ptr<SubmitAudioTo2DAvatarVideoTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitAudioTo2DAvatarVideoTaskShrinkRequest> request = make_shared<SubmitAudioTo2DAvatarVideoTaskShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestApp>(tmpReq->app)) {
+    request->appShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->app, make_shared<string>("App"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo>(tmpReq->avatarInfo)) {
+    request->avatarInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->avatarInfo, make_shared<string>("AvatarInfo"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitAudioTo2DAvatarVideoTaskRequestVideoInfo>(tmpReq->videoInfo)) {
+    request->videoInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoInfo, make_shared<string>("VideoInfo"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
+    query->insert(pair<string, string>("App", *request->appShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
+    query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
+    query->insert(pair<string, long>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
+    query->insert(pair<string, string>("Title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoInfoShrink)) {
+    query->insert(pair<string, string>("VideoInfo", *request->videoInfoShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitAudioTo2DAvatarVideoTask"))},
+    {"version", boost::any(string("2022-01-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitAudioTo2DAvatarVideoTaskResponse(callApi(params, req, runtime));
+}
+
+SubmitAudioTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitAudioTo2DAvatarVideoTask(shared_ptr<SubmitAudioTo2DAvatarVideoTaskRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitAudioTo2DAvatarVideoTaskWithOptions(request, runtime);
+}
+
 SubmitTextTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitTextTo2DAvatarVideoTaskWithOptions(shared_ptr<SubmitTextTo2DAvatarVideoTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SubmitTextTo2DAvatarVideoTaskShrinkRequest> request = make_shared<SubmitTextTo2DAvatarVideoTaskShrinkRequest>();
@@ -581,53 +697,5 @@ SubmitTextTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submi
 SubmitTextTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitTextTo3DAvatarVideoTask(shared_ptr<SubmitTextTo3DAvatarVideoTaskRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitTextTo3DAvatarVideoTaskWithOptions(request, runtime);
-}
-
-SubmitTextToSignVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitTextToSignVideoTaskWithOptions(shared_ptr<SubmitTextToSignVideoTaskRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<SubmitTextToSignVideoTaskShrinkRequest> request = make_shared<SubmitTextToSignVideoTaskShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<SubmitTextToSignVideoTaskRequestApp>(tmpReq->app)) {
-    request->appShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->app, make_shared<string>("App"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<SubmitTextToSignVideoTaskRequestVideoInfo>(tmpReq->videoInfo)) {
-    request->videoInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->videoInfo, make_shared<string>("VideoInfo"), make_shared<string>("json")));
-  }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
-    query->insert(pair<string, string>("App", *request->appShrink));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
-    query->insert(pair<string, long>("TenantId", *request->tenantId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->text)) {
-    query->insert(pair<string, string>("Text", *request->text));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
-    query->insert(pair<string, string>("Title", *request->title));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->videoInfoShrink)) {
-    query->insert(pair<string, string>("VideoInfo", *request->videoInfoShrink));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("SubmitTextToSignVideoTask"))},
-    {"version", boost::any(string("2022-01-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return SubmitTextToSignVideoTaskResponse(callApi(params, req, runtime));
-}
-
-SubmitTextToSignVideoTaskResponse Alibabacloud_Avatar20220130::Client::submitTextToSignVideoTask(shared_ptr<SubmitTextToSignVideoTaskRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return submitTextToSignVideoTaskWithOptions(request, runtime);
 }
 
