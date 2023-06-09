@@ -44029,7 +44029,7 @@ class HotelOrderPreValidateResponseBodyModuleRatePlanDaily : public Darabonba::M
 public:
   shared_ptr<string> board{};
   shared_ptr<string> discountPrice{};
-  shared_ptr<string> maxBookingNum{};
+  shared_ptr<long> maxBookingNum{};
   shared_ptr<long> price{};
   shared_ptr<string> rateStartTime{};
   shared_ptr<long> roomCount{};
@@ -44085,7 +44085,7 @@ public:
       discountPrice = make_shared<string>(boost::any_cast<string>(m["discount_price"]));
     }
     if (m.find("max_booking_num") != m.end() && !m["max_booking_num"].empty()) {
-      maxBookingNum = make_shared<string>(boost::any_cast<string>(m["max_booking_num"]));
+      maxBookingNum = make_shared<long>(boost::any_cast<long>(m["max_booking_num"]));
     }
     if (m.find("price") != m.end() && !m["price"].empty()) {
       price = make_shared<long>(boost::any_cast<long>(m["price"]));
