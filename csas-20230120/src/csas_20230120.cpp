@@ -234,16 +234,12 @@ CreatePrivateAccessTagResponse Alibabacloud_Csas20230120::Client::createPrivateA
   return createPrivateAccessTagWithOptions(request, runtime);
 }
 
-CreateUserGroupResponse Alibabacloud_Csas20230120::Client::createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreateUserGroupShrinkRequest> request = make_shared<CreateUserGroupShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<CreateUserGroupRequestAttributes>>(tmpReq->attributes)) {
-    request->attributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->attributes, make_shared<string>("Attributes"), make_shared<string>("json")));
-  }
+CreateUserGroupResponse Alibabacloud_Csas20230120::Client::createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->attributesShrink)) {
-    body->insert(pair<string, string>("Attributes", *request->attributesShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreateUserGroupRequestAttributes>>(request->attributes)) {
+    bodyFlat->insert(pair<string, vector<CreateUserGroupRequestAttributes>>("Attributes", *request->attributes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -251,6 +247,7 @@ CreateUserGroupResponse Alibabacloud_Csas20230120::Client::createUserGroupWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -496,13 +493,8 @@ GetUserGroupResponse Alibabacloud_Csas20230120::Client::getUserGroup(shared_ptr<
   return getUserGroupWithOptions(request, runtime);
 }
 
-ListApplicationsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listApplicationsForPrivateAccessPolicyWithOptions(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListApplicationsForPrivateAccessPolicyShrinkRequest> request = make_shared<ListApplicationsForPrivateAccessPolicyShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->policyIds)) {
-    request->policyIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policyIds, make_shared<string>("PolicyIds"), make_shared<string>("json")));
-  }
+ListApplicationsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listApplicationsForPrivateAccessPolicyWithOptions(shared_ptr<ListApplicationsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -526,13 +518,8 @@ ListApplicationsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client
   return listApplicationsForPrivateAccessPolicyWithOptions(request, runtime);
 }
 
-ListApplicationsForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::listApplicationsForPrivateAccessTagWithOptions(shared_ptr<ListApplicationsForPrivateAccessTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListApplicationsForPrivateAccessTagShrinkRequest> request = make_shared<ListApplicationsForPrivateAccessTagShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
+ListApplicationsForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::listApplicationsForPrivateAccessTagWithOptions(shared_ptr<ListApplicationsForPrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -556,13 +543,8 @@ ListApplicationsForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::l
   return listApplicationsForPrivateAccessTagWithOptions(request, runtime);
 }
 
-ListConnectorsResponse Alibabacloud_Csas20230120::Client::listConnectorsWithOptions(shared_ptr<ListConnectorsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListConnectorsShrinkRequest> request = make_shared<ListConnectorsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->connectorIds)) {
-    request->connectorIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->connectorIds, make_shared<string>("ConnectorIds"), make_shared<string>("json")));
-  }
+ListConnectorsResponse Alibabacloud_Csas20230120::Client::listConnectorsWithOptions(shared_ptr<ListConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -586,13 +568,8 @@ ListConnectorsResponse Alibabacloud_Csas20230120::Client::listConnectors(shared_
   return listConnectorsWithOptions(request, runtime);
 }
 
-ListPolicesForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::listPolicesForPrivateAccessApplicationWithOptions(shared_ptr<ListPolicesForPrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPolicesForPrivateAccessApplicationShrinkRequest> request = make_shared<ListPolicesForPrivateAccessApplicationShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->applicationIds)) {
-    request->applicationIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationIds, make_shared<string>("ApplicationIds"), make_shared<string>("json")));
-  }
+ListPolicesForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::listPolicesForPrivateAccessApplicationWithOptions(shared_ptr<ListPolicesForPrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -616,13 +593,8 @@ ListPolicesForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client
   return listPolicesForPrivateAccessApplicationWithOptions(request, runtime);
 }
 
-ListPolicesForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::listPolicesForPrivateAccessTagWithOptions(shared_ptr<ListPolicesForPrivateAccessTagRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPolicesForPrivateAccessTagShrinkRequest> request = make_shared<ListPolicesForPrivateAccessTagShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
+ListPolicesForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::listPolicesForPrivateAccessTagWithOptions(shared_ptr<ListPolicesForPrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -646,13 +618,8 @@ ListPolicesForPrivateAccessTagResponse Alibabacloud_Csas20230120::Client::listPo
   return listPolicesForPrivateAccessTagWithOptions(request, runtime);
 }
 
-ListPolicesForUserGroupResponse Alibabacloud_Csas20230120::Client::listPolicesForUserGroupWithOptions(shared_ptr<ListPolicesForUserGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPolicesForUserGroupShrinkRequest> request = make_shared<ListPolicesForUserGroupShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userGroupIds)) {
-    request->userGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userGroupIds, make_shared<string>("UserGroupIds"), make_shared<string>("json")));
-  }
+ListPolicesForUserGroupResponse Alibabacloud_Csas20230120::Client::listPolicesForUserGroupWithOptions(shared_ptr<ListPolicesForUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -676,13 +643,8 @@ ListPolicesForUserGroupResponse Alibabacloud_Csas20230120::Client::listPolicesFo
   return listPolicesForUserGroupWithOptions(request, runtime);
 }
 
-ListPrivateAccessApplicationsResponse Alibabacloud_Csas20230120::Client::listPrivateAccessApplicationsWithOptions(shared_ptr<ListPrivateAccessApplicationsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPrivateAccessApplicationsShrinkRequest> request = make_shared<ListPrivateAccessApplicationsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->applicationIds)) {
-    request->applicationIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationIds, make_shared<string>("ApplicationIds"), make_shared<string>("json")));
-  }
+ListPrivateAccessApplicationsResponse Alibabacloud_Csas20230120::Client::listPrivateAccessApplicationsWithOptions(shared_ptr<ListPrivateAccessApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -706,13 +668,8 @@ ListPrivateAccessApplicationsResponse Alibabacloud_Csas20230120::Client::listPri
   return listPrivateAccessApplicationsWithOptions(request, runtime);
 }
 
-ListPrivateAccessPolicesResponse Alibabacloud_Csas20230120::Client::listPrivateAccessPolicesWithOptions(shared_ptr<ListPrivateAccessPolicesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPrivateAccessPolicesShrinkRequest> request = make_shared<ListPrivateAccessPolicesShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->policyIds)) {
-    request->policyIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policyIds, make_shared<string>("PolicyIds"), make_shared<string>("json")));
-  }
+ListPrivateAccessPolicesResponse Alibabacloud_Csas20230120::Client::listPrivateAccessPolicesWithOptions(shared_ptr<ListPrivateAccessPolicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -736,13 +693,8 @@ ListPrivateAccessPolicesResponse Alibabacloud_Csas20230120::Client::listPrivateA
   return listPrivateAccessPolicesWithOptions(request, runtime);
 }
 
-ListPrivateAccessTagsResponse Alibabacloud_Csas20230120::Client::listPrivateAccessTagsWithOptions(shared_ptr<ListPrivateAccessTagsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListPrivateAccessTagsShrinkRequest> request = make_shared<ListPrivateAccessTagsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
+ListPrivateAccessTagsResponse Alibabacloud_Csas20230120::Client::listPrivateAccessTagsWithOptions(shared_ptr<ListPrivateAccessTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -766,13 +718,8 @@ ListPrivateAccessTagsResponse Alibabacloud_Csas20230120::Client::listPrivateAcce
   return listPrivateAccessTagsWithOptions(request, runtime);
 }
 
-ListTagsForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::listTagsForPrivateAccessApplicationWithOptions(shared_ptr<ListTagsForPrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListTagsForPrivateAccessApplicationShrinkRequest> request = make_shared<ListTagsForPrivateAccessApplicationShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->applicationIds)) {
-    request->applicationIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationIds, make_shared<string>("ApplicationIds"), make_shared<string>("json")));
-  }
+ListTagsForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::listTagsForPrivateAccessApplicationWithOptions(shared_ptr<ListTagsForPrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -796,13 +743,8 @@ ListTagsForPrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::l
   return listTagsForPrivateAccessApplicationWithOptions(request, runtime);
 }
 
-ListTagsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listTagsForPrivateAccessPolicyWithOptions(shared_ptr<ListTagsForPrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListTagsForPrivateAccessPolicyShrinkRequest> request = make_shared<ListTagsForPrivateAccessPolicyShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->policyIds)) {
-    request->policyIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policyIds, make_shared<string>("PolicyIds"), make_shared<string>("json")));
-  }
+ListTagsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listTagsForPrivateAccessPolicyWithOptions(shared_ptr<ListTagsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -826,13 +768,8 @@ ListTagsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listTa
   return listTagsForPrivateAccessPolicyWithOptions(request, runtime);
 }
 
-ListUserGroupsResponse Alibabacloud_Csas20230120::Client::listUserGroupsWithOptions(shared_ptr<ListUserGroupsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListUserGroupsShrinkRequest> request = make_shared<ListUserGroupsShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userGroupIds)) {
-    request->userGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userGroupIds, make_shared<string>("UserGroupIds"), make_shared<string>("json")));
-  }
+ListUserGroupsResponse Alibabacloud_Csas20230120::Client::listUserGroupsWithOptions(shared_ptr<ListUserGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -856,13 +793,8 @@ ListUserGroupsResponse Alibabacloud_Csas20230120::Client::listUserGroups(shared_
   return listUserGroupsWithOptions(request, runtime);
 }
 
-ListUserGroupsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listUserGroupsForPrivateAccessPolicyWithOptions(shared_ptr<ListUserGroupsForPrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<ListUserGroupsForPrivateAccessPolicyShrinkRequest> request = make_shared<ListUserGroupsForPrivateAccessPolicyShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->policyIds)) {
-    request->policyIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->policyIds, make_shared<string>("PolicyIds"), make_shared<string>("json")));
-  }
+ListUserGroupsForPrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::listUserGroupsForPrivateAccessPolicyWithOptions(shared_ptr<ListUserGroupsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1021,16 +953,12 @@ UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePriva
   return updatePrivateAccessPolicyWithOptions(request, runtime);
 }
 
-UpdateUserGroupResponse Alibabacloud_Csas20230120::Client::updateUserGroupWithOptions(shared_ptr<UpdateUserGroupRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<UpdateUserGroupShrinkRequest> request = make_shared<UpdateUserGroupShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<UpdateUserGroupRequestAttributes>>(tmpReq->attributes)) {
-    request->attributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->attributes, make_shared<string>("Attributes"), make_shared<string>("json")));
-  }
+UpdateUserGroupResponse Alibabacloud_Csas20230120::Client::updateUserGroupWithOptions(shared_ptr<UpdateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->attributesShrink)) {
-    body->insert(pair<string, string>("Attributes", *request->attributesShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateUserGroupRequestAttributes>>(request->attributes)) {
+    bodyFlat->insert(pair<string, vector<UpdateUserGroupRequestAttributes>>("Attributes", *request->attributes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -1041,6 +969,7 @@ UpdateUserGroupResponse Alibabacloud_Csas20230120::Client::updateUserGroupWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->userGroupId)) {
     body->insert(pair<string, string>("UserGroupId", *request->userGroupId));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
