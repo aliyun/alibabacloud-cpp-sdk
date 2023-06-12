@@ -35911,6 +35911,7 @@ public:
   shared_ptr<string> outerDeptPid{};
   shared_ptr<long> status{};
   shared_ptr<vector<string>> subCorpIdList{};
+  shared_ptr<bool> syncGroup{};
 
   GroupDepartSaveRequest() {}
 
@@ -35939,6 +35940,9 @@ public:
     }
     if (subCorpIdList) {
       res["sub_corp_id_list"] = boost::any(*subCorpIdList);
+    }
+    if (syncGroup) {
+      res["sync_group"] = boost::any(*syncGroup);
     }
     return res;
   }
@@ -35969,6 +35973,9 @@ public:
       }
       subCorpIdList = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("sync_group") != m.end() && !m["sync_group"].empty()) {
+      syncGroup = make_shared<bool>(boost::any_cast<bool>(m["sync_group"]));
+    }
   }
 
 
@@ -35982,6 +35989,7 @@ public:
   shared_ptr<string> outerDeptPid{};
   shared_ptr<long> status{};
   shared_ptr<string> subCorpIdListShrink{};
+  shared_ptr<bool> syncGroup{};
 
   GroupDepartSaveShrinkRequest() {}
 
@@ -36011,6 +36019,9 @@ public:
     if (subCorpIdListShrink) {
       res["sub_corp_id_list"] = boost::any(*subCorpIdListShrink);
     }
+    if (syncGroup) {
+      res["sync_group"] = boost::any(*syncGroup);
+    }
     return res;
   }
 
@@ -36032,6 +36043,9 @@ public:
     }
     if (m.find("sub_corp_id_list") != m.end() && !m["sub_corp_id_list"].empty()) {
       subCorpIdListShrink = make_shared<string>(boost::any_cast<string>(m["sub_corp_id_list"]));
+    }
+    if (m.find("sync_group") != m.end() && !m["sync_group"].empty()) {
+      syncGroup = make_shared<bool>(boost::any_cast<bool>(m["sync_group"]));
     }
   }
 

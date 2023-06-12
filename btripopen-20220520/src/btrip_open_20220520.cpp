@@ -2841,6 +2841,9 @@ GroupDepartSaveResponse Alibabacloud_BtripOpen20220520::Client::groupDepartSaveW
   if (!Darabonba_Util::Client::isUnset<string>(request->subCorpIdListShrink)) {
     body->insert(pair<string, string>("sub_corp_id_list", *request->subCorpIdListShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->syncGroup)) {
+    body->insert(pair<string, bool>("sync_group", *request->syncGroup));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
