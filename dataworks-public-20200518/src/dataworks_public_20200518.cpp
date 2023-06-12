@@ -2269,6 +2269,40 @@ DeleteFromMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::de
   return deleteFromMetaCategoryWithOptions(request, runtime);
 }
 
+DeleteLineageRelationResponse Alibabacloud_Dataworks-public20200518::Client::deleteLineageRelationWithOptions(shared_ptr<DeleteLineageRelationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->destEntityQualifiedName)) {
+    query->insert(pair<string, string>("DestEntityQualifiedName", *request->destEntityQualifiedName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->relationshipGuid)) {
+    query->insert(pair<string, string>("RelationshipGuid", *request->relationshipGuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcEntityQualifiedName)) {
+    query->insert(pair<string, string>("SrcEntityQualifiedName", *request->srcEntityQualifiedName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteLineageRelation"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteLineageRelationResponse(callApi(params, req, runtime));
+}
+
+DeleteLineageRelationResponse Alibabacloud_Dataworks-public20200518::Client::deleteLineageRelation(shared_ptr<DeleteLineageRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteLineageRelationWithOptions(request, runtime);
+}
+
 DeleteMetaCategoryResponse Alibabacloud_Dataworks-public20200518::Client::deleteMetaCategoryWithOptions(shared_ptr<DeleteMetaCategoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -6401,6 +6435,46 @@ ListInstancesResponse Alibabacloud_Dataworks-public20200518::Client::listInstanc
   return listInstancesWithOptions(request, runtime);
 }
 
+ListLineageResponse Alibabacloud_Dataworks-public20200518::Client::listLineageWithOptions(shared_ptr<ListLineageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->entityQualifiedName)) {
+    query->insert(pair<string, string>("EntityQualifiedName", *request->entityQualifiedName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
+    query->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListLineage"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListLineageResponse(callApi(params, req, runtime));
+}
+
+ListLineageResponse Alibabacloud_Dataworks-public20200518::Client::listLineage(shared_ptr<ListLineageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listLineageWithOptions(request, runtime);
+}
+
 ListManualDagInstancesResponse Alibabacloud_Dataworks-public20200518::Client::listManualDagInstancesWithOptions(shared_ptr<ListManualDagInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -7624,6 +7698,39 @@ QueryPublicModelEngineResponse Alibabacloud_Dataworks-public20200518::Client::qu
 QueryPublicModelEngineResponse Alibabacloud_Dataworks-public20200518::Client::queryPublicModelEngine(shared_ptr<QueryPublicModelEngineRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryPublicModelEngineWithOptions(request, runtime);
+}
+
+RegisterLineageRelationResponse Alibabacloud_Dataworks-public20200518::Client::registerLineageRelationWithOptions(shared_ptr<RegisterLineageRelationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RegisterLineageRelationShrinkRequest> request = make_shared<RegisterLineageRelationShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<LineageRelationRegisterVO>(tmpReq->lineageRelationRegisterVO)) {
+    request->lineageRelationRegisterVOShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->lineageRelationRegisterVO, make_shared<string>("LineageRelationRegisterVO"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lineageRelationRegisterVOShrink)) {
+    body->insert(pair<string, string>("LineageRelationRegisterVO", *request->lineageRelationRegisterVOShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RegisterLineageRelation"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RegisterLineageRelationResponse(callApi(params, req, runtime));
+}
+
+RegisterLineageRelationResponse Alibabacloud_Dataworks-public20200518::Client::registerLineageRelation(shared_ptr<RegisterLineageRelationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return registerLineageRelationWithOptions(request, runtime);
 }
 
 RemoveProjectMemberFromRoleResponse Alibabacloud_Dataworks-public20200518::Client::removeProjectMemberFromRoleWithOptions(shared_ptr<RemoveProjectMemberFromRoleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
