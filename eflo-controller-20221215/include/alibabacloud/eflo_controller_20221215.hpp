@@ -2410,6 +2410,7 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> createTime{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> nodeIds{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeTaskResponseBodySteps>> steps{};
   shared_ptr<string> taskState{};
@@ -2437,6 +2438,9 @@ public:
     }
     if (message) {
       res["Message"] = boost::any(*message);
+    }
+    if (nodeIds) {
+      res["NodeIds"] = boost::any(*nodeIds);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2472,6 +2476,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("NodeIds") != m.end() && !m["NodeIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NodeIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NodeIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nodeIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
