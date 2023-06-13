@@ -371,6 +371,9 @@ SendMessageResponse Alibabacloud_Avatar20220130::Client::sendMessageWithOptions(
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SendMessageShrinkRequest> request = make_shared<SendMessageShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SendMessageRequestStreamExtension>(tmpReq->streamExtension)) {
+    request->streamExtensionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->streamExtension, make_shared<string>("StreamExtension"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<SendMessageRequestTextRequest>(tmpReq->textRequest)) {
     request->textRequestShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->textRequest, make_shared<string>("TextRequest"), make_shared<string>("json")));
   }
@@ -383,6 +386,9 @@ SendMessageResponse Alibabacloud_Avatar20220130::Client::sendMessageWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
     query->insert(pair<string, string>("SessionId", *request->sessionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->streamExtensionShrink)) {
+    query->insert(pair<string, string>("StreamExtension", *request->streamExtensionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));

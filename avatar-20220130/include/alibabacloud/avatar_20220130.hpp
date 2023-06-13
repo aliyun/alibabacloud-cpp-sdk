@@ -3004,6 +3004,49 @@ public:
 
   virtual ~QueryTimedResetOperateStatusResponse() = default;
 };
+class SendMessageRequestStreamExtension : public Darabonba::Model {
+public:
+  shared_ptr<long> index{};
+  shared_ptr<bool> isStream{};
+  shared_ptr<string> position{};
+
+  SendMessageRequestStreamExtension() {}
+
+  explicit SendMessageRequestStreamExtension(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (isStream) {
+      res["IsStream"] = boost::any(*isStream);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("IsStream") != m.end() && !m["IsStream"].empty()) {
+      isStream = make_shared<bool>(boost::any_cast<bool>(m["IsStream"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<string>(boost::any_cast<string>(m["Position"]));
+    }
+  }
+
+
+  virtual ~SendMessageRequestStreamExtension() = default;
+};
 class SendMessageRequestTextRequest : public Darabonba::Model {
 public:
   shared_ptr<string> commandType{};
@@ -3094,6 +3137,7 @@ class SendMessageRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> feedback{};
   shared_ptr<string> sessionId{};
+  shared_ptr<SendMessageRequestStreamExtension> streamExtension{};
   shared_ptr<long> tenantId{};
   shared_ptr<SendMessageRequestTextRequest> textRequest{};
   shared_ptr<SendMessageRequestVAMLRequest> VAMLRequest{};
@@ -3114,6 +3158,9 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (streamExtension) {
+      res["StreamExtension"] = streamExtension ? boost::any(streamExtension->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
     }
@@ -3132,6 +3179,13 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("StreamExtension") != m.end() && !m["StreamExtension"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StreamExtension"].type()) {
+        SendMessageRequestStreamExtension model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StreamExtension"]));
+        streamExtension = make_shared<SendMessageRequestStreamExtension>(model1);
+      }
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
@@ -3159,6 +3213,7 @@ class SendMessageShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> feedback{};
   shared_ptr<string> sessionId{};
+  shared_ptr<string> streamExtensionShrink{};
   shared_ptr<long> tenantId{};
   shared_ptr<string> textRequestShrink{};
   shared_ptr<string> VAMLRequestShrink{};
@@ -3179,6 +3234,9 @@ public:
     if (sessionId) {
       res["SessionId"] = boost::any(*sessionId);
     }
+    if (streamExtensionShrink) {
+      res["StreamExtension"] = boost::any(*streamExtensionShrink);
+    }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
     }
@@ -3197,6 +3255,9 @@ public:
     }
     if (m.find("SessionId") != m.end() && !m["SessionId"].empty()) {
       sessionId = make_shared<string>(boost::any_cast<string>(m["SessionId"]));
+    }
+    if (m.find("StreamExtension") != m.end() && !m["StreamExtension"].empty()) {
+      streamExtensionShrink = make_shared<string>(boost::any_cast<string>(m["StreamExtension"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
