@@ -697,6 +697,9 @@ SubmitDocStructureJobResponse Alibabacloud_Docmind-api20220711::Client::submitDo
   if (!Darabonba_Util::Client::isUnset<string>(request->fileUrl)) {
     query->insert(pair<string, string>("FileUrl", *request->fileUrl));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->structureType)) {
+    query->insert(pair<string, string>("StructureType", *request->structureType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

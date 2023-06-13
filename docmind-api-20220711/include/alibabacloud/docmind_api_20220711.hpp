@@ -2316,6 +2316,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<string> fileUrl{};
+  shared_ptr<string> structureType{};
 
   SubmitDocStructureJobRequest() {}
 
@@ -2336,6 +2337,9 @@ public:
     if (fileUrl) {
       res["FileUrl"] = boost::any(*fileUrl);
     }
+    if (structureType) {
+      res["StructureType"] = boost::any(*structureType);
+    }
     return res;
   }
 
@@ -2349,6 +2353,9 @@ public:
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
     }
+    if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
+      structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
+    }
   }
 
 
@@ -2359,6 +2366,7 @@ public:
   shared_ptr<string> fileName{};
   shared_ptr<string> fileNameExtension{};
   shared_ptr<Darabonba::Stream> fileUrlObject{};
+  shared_ptr<string> structureType{};
 
   SubmitDocStructureJobAdvanceRequest() {}
 
@@ -2379,6 +2387,9 @@ public:
     if (fileUrlObject) {
       res["FileUrl"] = boost::any(*fileUrlObject);
     }
+    if (structureType) {
+      res["StructureType"] = boost::any(*structureType);
+    }
     return res;
   }
 
@@ -2391,6 +2402,9 @@ public:
     }
     if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
       fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+    if (m.find("StructureType") != m.end() && !m["StructureType"].empty()) {
+      structureType = make_shared<string>(boost::any_cast<string>(m["StructureType"]));
     }
   }
 
