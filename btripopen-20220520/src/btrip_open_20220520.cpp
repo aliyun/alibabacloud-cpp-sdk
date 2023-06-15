@@ -3982,6 +3982,9 @@ InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAddWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
     body->insert(pair<string, long>("type", *request->type));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->unitType)) {
+    body->insert(pair<string, long>("unit_type", *request->unitType));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
@@ -4076,6 +4079,9 @@ InvoiceModifyResponse Alibabacloud_BtripOpen20220520::Client::invoiceModifyWithO
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->type)) {
     body->insert(pair<string, long>("type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->unitType)) {
+    body->insert(pair<string, long>("unit_type", *request->unitType));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {

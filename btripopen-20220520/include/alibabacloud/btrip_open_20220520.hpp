@@ -49063,6 +49063,7 @@ public:
   shared_ptr<string> thirdPartId{};
   shared_ptr<string> title{};
   shared_ptr<long> type{};
+  shared_ptr<long> unitType{};
 
   InvoiceAddRequest() {}
 
@@ -49098,6 +49099,9 @@ public:
     if (type) {
       res["type"] = boost::any(*type);
     }
+    if (unitType) {
+      res["unit_type"] = boost::any(*unitType);
+    }
     return res;
   }
 
@@ -49125,6 +49129,9 @@ public:
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+    if (m.find("unit_type") != m.end() && !m["unit_type"].empty()) {
+      unitType = make_shared<long>(boost::any_cast<long>(m["unit_type"]));
     }
   }
 
@@ -49490,6 +49497,7 @@ public:
   shared_ptr<string> thirdPartId{};
   shared_ptr<string> title{};
   shared_ptr<long> type{};
+  shared_ptr<long> unitType{};
 
   InvoiceModifyRequest() {}
 
@@ -49525,6 +49533,9 @@ public:
     if (type) {
       res["type"] = boost::any(*type);
     }
+    if (unitType) {
+      res["unit_type"] = boost::any(*unitType);
+    }
     return res;
   }
 
@@ -49552,6 +49563,9 @@ public:
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+    if (m.find("unit_type") != m.end() && !m["unit_type"].empty()) {
+      unitType = make_shared<long>(boost::any_cast<long>(m["unit_type"]));
     }
   }
 
