@@ -52929,11 +52929,90 @@ public:
 
   virtual ~QueryReimbursementOrderRequest() = default;
 };
+class QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions : public Darabonba::Model {
+public:
+  shared_ptr<long> billSettlementId{};
+  shared_ptr<string> feeType{};
+  shared_ptr<string> remark{};
+  shared_ptr<vector<string>> remindTagList{};
+  shared_ptr<string> settlementAmount{};
+  shared_ptr<string> settlementTime{};
+  shared_ptr<long> voucherType{};
+
+  QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions() {}
+
+  explicit QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billSettlementId) {
+      res["bill_settlement_id"] = boost::any(*billSettlementId);
+    }
+    if (feeType) {
+      res["fee_type"] = boost::any(*feeType);
+    }
+    if (remark) {
+      res["remark"] = boost::any(*remark);
+    }
+    if (remindTagList) {
+      res["remind_tag_list"] = boost::any(*remindTagList);
+    }
+    if (settlementAmount) {
+      res["settlement_amount"] = boost::any(*settlementAmount);
+    }
+    if (settlementTime) {
+      res["settlement_time"] = boost::any(*settlementTime);
+    }
+    if (voucherType) {
+      res["voucher_type"] = boost::any(*voucherType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bill_settlement_id") != m.end() && !m["bill_settlement_id"].empty()) {
+      billSettlementId = make_shared<long>(boost::any_cast<long>(m["bill_settlement_id"]));
+    }
+    if (m.find("fee_type") != m.end() && !m["fee_type"].empty()) {
+      feeType = make_shared<string>(boost::any_cast<string>(m["fee_type"]));
+    }
+    if (m.find("remark") != m.end() && !m["remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
+    }
+    if (m.find("remind_tag_list") != m.end() && !m["remind_tag_list"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["remind_tag_list"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["remind_tag_list"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      remindTagList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("settlement_amount") != m.end() && !m["settlement_amount"].empty()) {
+      settlementAmount = make_shared<string>(boost::any_cast<string>(m["settlement_amount"]));
+    }
+    if (m.find("settlement_time") != m.end() && !m["settlement_time"].empty()) {
+      settlementTime = make_shared<string>(boost::any_cast<string>(m["settlement_time"]));
+    }
+    if (m.find("voucher_type") != m.end() && !m["voucher_type"].empty()) {
+      voucherType = make_shared<long>(boost::any_cast<long>(m["voucher_type"]));
+    }
+  }
+
+
+  virtual ~QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions() = default;
+};
 class QueryReimbursementOrderResponseBodyModuleExpenses : public Darabonba::Model {
 public:
   shared_ptr<string> amount{};
   shared_ptr<string> currency{};
   shared_ptr<string> expenseCity{};
+  shared_ptr<vector<QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions>> expenseCompositions{};
   shared_ptr<string> expenseTime{};
   shared_ptr<string> expenseType{};
   shared_ptr<string> expenseTypeCode{};
@@ -52959,6 +53038,13 @@ public:
     }
     if (expenseCity) {
       res["expense_city"] = boost::any(*expenseCity);
+    }
+    if (expenseCompositions) {
+      vector<boost::any> temp1;
+      for(auto item1:*expenseCompositions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["expense_compositions"] = boost::any(temp1);
     }
     if (expenseTime) {
       res["expense_time"] = boost::any(*expenseTime);
@@ -52990,6 +53076,19 @@ public:
     }
     if (m.find("expense_city") != m.end() && !m["expense_city"].empty()) {
       expenseCity = make_shared<string>(boost::any_cast<string>(m["expense_city"]));
+    }
+    if (m.find("expense_compositions") != m.end() && !m["expense_compositions"].empty()) {
+      if (typeid(vector<boost::any>) == m["expense_compositions"].type()) {
+        vector<QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["expense_compositions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        expenseCompositions = make_shared<vector<QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions>>(expect1);
+      }
     }
     if (m.find("expense_time") != m.end() && !m["expense_time"].empty()) {
       expenseTime = make_shared<string>(boost::any_cast<string>(m["expense_time"]));
