@@ -5373,6 +5373,9 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupWith
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supportSSE)) {
+    query->insert(pair<string, string>("SupportSSE", *request->supportSSE));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ModifyApiGroupRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<ModifyApiGroupRequestTag>>("Tag", *request->tag));
   }

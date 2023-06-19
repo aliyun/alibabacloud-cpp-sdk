@@ -11603,6 +11603,8 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> instanceVipList{};
   shared_ptr<string> ipv6Status{};
+  shared_ptr<string> migrationError{};
+  shared_ptr<string> migrationStatus{};
   shared_ptr<string> modifiedTime{};
   shared_ptr<string> passthroughHeaders{};
   shared_ptr<string> regionId{};
@@ -11688,6 +11690,12 @@ public:
     }
     if (ipv6Status) {
       res["Ipv6Status"] = boost::any(*ipv6Status);
+    }
+    if (migrationError) {
+      res["MigrationError"] = boost::any(*migrationError);
+    }
+    if (migrationStatus) {
+      res["MigrationStatus"] = boost::any(*migrationStatus);
     }
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
@@ -11795,6 +11803,12 @@ public:
     }
     if (m.find("Ipv6Status") != m.end() && !m["Ipv6Status"].empty()) {
       ipv6Status = make_shared<string>(boost::any_cast<string>(m["Ipv6Status"]));
+    }
+    if (m.find("MigrationError") != m.end() && !m["MigrationError"].empty()) {
+      migrationError = make_shared<string>(boost::any_cast<string>(m["MigrationError"]));
+    }
+    if (m.find("MigrationStatus") != m.end() && !m["MigrationStatus"].empty()) {
+      migrationStatus = make_shared<string>(boost::any_cast<string>(m["MigrationStatus"]));
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
@@ -20723,6 +20737,138 @@ public:
 
   virtual ~DescribeBackendInfoRequest() = default;
 };
+class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKey{};
+  shared_ptr<string> authType{};
+  shared_ptr<string> clusters{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> password{};
+  shared_ptr<string> secretKey{};
+  shared_ptr<string> serverAddress{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> userName{};
+
+  DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig() {}
+
+  explicit DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKey) {
+      res["AccessKey"] = boost::any(*accessKey);
+    }
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
+    if (clusters) {
+      res["Clusters"] = boost::any(*clusters);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (secretKey) {
+      res["SecretKey"] = boost::any(*secretKey);
+    }
+    if (serverAddress) {
+      res["ServerAddress"] = boost::any(*serverAddress);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (userName) {
+      res["UserName"] = boost::any(*userName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKey") != m.end() && !m["AccessKey"].empty()) {
+      accessKey = make_shared<string>(boost::any_cast<string>(m["AccessKey"]));
+    }
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
+    if (m.find("Clusters") != m.end() && !m["Clusters"].empty()) {
+      clusters = make_shared<string>(boost::any_cast<string>(m["Clusters"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("SecretKey") != m.end() && !m["SecretKey"].empty()) {
+      secretKey = make_shared<string>(boost::any_cast<string>(m["SecretKey"]));
+    }
+    if (m.find("ServerAddress") != m.end() && !m["ServerAddress"].empty()) {
+      serverAddress = make_shared<string>(boost::any_cast<string>(m["ServerAddress"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("UserName") != m.end() && !m["UserName"].empty()) {
+      userName = make_shared<string>(boost::any_cast<string>(m["UserName"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig() = default;
+};
+class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig : public Darabonba::Model {
+public:
+  shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig> nacosConfig{};
+  shared_ptr<string> rcType{};
+
+  DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig() {}
+
+  explicit DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nacosConfig) {
+      res["NacosConfig"] = nacosConfig ? boost::any(nacosConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rcType) {
+      res["RcType"] = boost::any(*rcType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NacosConfig") != m.end() && !m["NacosConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NacosConfig"].type()) {
+        DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NacosConfig"]));
+        nacosConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig>(model1);
+      }
+    }
+    if (m.find("RcType") != m.end() && !m["RcType"].empty()) {
+      rcType = make_shared<string>(boost::any_cast<string>(m["RcType"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig() = default;
+};
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig : public Darabonba::Model {
 public:
   shared_ptr<string> eventBridgeRegionId{};
@@ -21053,6 +21199,7 @@ public:
 };
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig : public Darabonba::Model {
 public:
+  shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig> discoveryConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig> functionComputeConfig{};
   shared_ptr<string> httpTargetHostName{};
@@ -21072,6 +21219,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (discoveryConfig) {
+      res["DiscoveryConfig"] = discoveryConfig ? boost::any(discoveryConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (eventBridgeConfig) {
       res["EventBridgeConfig"] = eventBridgeConfig ? boost::any(eventBridgeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -21100,6 +21250,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DiscoveryConfig") != m.end() && !m["DiscoveryConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DiscoveryConfig"].type()) {
+        DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiscoveryConfig"]));
+        discoveryConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig>(model1);
+      }
+    }
     if (m.find("EventBridgeConfig") != m.end() && !m["EventBridgeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["EventBridgeConfig"].type()) {
         DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig model1;
@@ -28355,6 +28512,7 @@ public:
   shared_ptr<string> aclStatus{};
   shared_ptr<string> aclType{};
   shared_ptr<string> classicEgressAddress{};
+  shared_ptr<string> connectCidrBlocks{};
   shared_ptr<string> connectVpcId{};
   shared_ptr<string> createdTime{};
   shared_ptr<string> dedicatedInstanceType{};
@@ -28376,6 +28534,8 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> internetEgressAddress{};
   shared_ptr<string> intranetSegments{};
+  shared_ptr<string> maintainEndTime{};
+  shared_ptr<string> maintainStartTime{};
   shared_ptr<DescribeInstancesResponseBodyInstancesInstanceAttributeNetworkInterfaceAttributes> networkInterfaceAttributes{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
@@ -28414,6 +28574,9 @@ public:
     }
     if (classicEgressAddress) {
       res["ClassicEgressAddress"] = boost::any(*classicEgressAddress);
+    }
+    if (connectCidrBlocks) {
+      res["ConnectCidrBlocks"] = boost::any(*connectCidrBlocks);
     }
     if (connectVpcId) {
       res["ConnectVpcId"] = boost::any(*connectVpcId);
@@ -28478,6 +28641,12 @@ public:
     if (intranetSegments) {
       res["IntranetSegments"] = boost::any(*intranetSegments);
     }
+    if (maintainEndTime) {
+      res["MaintainEndTime"] = boost::any(*maintainEndTime);
+    }
+    if (maintainStartTime) {
+      res["MaintainStartTime"] = boost::any(*maintainStartTime);
+    }
     if (networkInterfaceAttributes) {
       res["NetworkInterfaceAttributes"] = networkInterfaceAttributes ? boost::any(networkInterfaceAttributes->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -28535,6 +28704,9 @@ public:
     }
     if (m.find("ClassicEgressAddress") != m.end() && !m["ClassicEgressAddress"].empty()) {
       classicEgressAddress = make_shared<string>(boost::any_cast<string>(m["ClassicEgressAddress"]));
+    }
+    if (m.find("ConnectCidrBlocks") != m.end() && !m["ConnectCidrBlocks"].empty()) {
+      connectCidrBlocks = make_shared<string>(boost::any_cast<string>(m["ConnectCidrBlocks"]));
     }
     if (m.find("ConnectVpcId") != m.end() && !m["ConnectVpcId"].empty()) {
       connectVpcId = make_shared<string>(boost::any_cast<string>(m["ConnectVpcId"]));
@@ -28602,6 +28774,12 @@ public:
     }
     if (m.find("IntranetSegments") != m.end() && !m["IntranetSegments"].empty()) {
       intranetSegments = make_shared<string>(boost::any_cast<string>(m["IntranetSegments"]));
+    }
+    if (m.find("MaintainEndTime") != m.end() && !m["MaintainEndTime"].empty()) {
+      maintainEndTime = make_shared<string>(boost::any_cast<string>(m["MaintainEndTime"]));
+    }
+    if (m.find("MaintainStartTime") != m.end() && !m["MaintainStartTime"].empty()) {
+      maintainStartTime = make_shared<string>(boost::any_cast<string>(m["MaintainStartTime"]));
     }
     if (m.find("NetworkInterfaceAttributes") != m.end() && !m["NetworkInterfaceAttributes"].empty()) {
       if (typeid(map<string, boost::any>) == m["NetworkInterfaceAttributes"].type()) {
@@ -38775,6 +38953,7 @@ public:
   shared_ptr<string> passthroughHeaders{};
   shared_ptr<string> rpcPattern{};
   shared_ptr<string> securityToken{};
+  shared_ptr<string> supportSSE{};
   shared_ptr<vector<ModifyApiGroupRequestTag>> tag{};
   shared_ptr<string> userLogConfig{};
 
@@ -38820,6 +38999,9 @@ public:
     }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (supportSSE) {
+      res["SupportSSE"] = boost::any(*supportSSE);
     }
     if (tag) {
       vector<boost::any> temp1;
@@ -38867,6 +39049,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("SupportSSE") != m.end() && !m["SupportSSE"].empty()) {
+      supportSSE = make_shared<string>(boost::any_cast<string>(m["SupportSSE"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
