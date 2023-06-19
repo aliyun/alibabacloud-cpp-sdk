@@ -3937,6 +3937,7 @@ public:
   shared_ptr<string> netLinkId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> status{};
+  shared_ptr<string> type{};
   shared_ptr<vector<string>> vSwitchs{};
   shared_ptr<string> vpcId{};
 
@@ -3977,6 +3978,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
     if (vSwitchs) {
       res["VSwitchs"] = boost::any(*vSwitchs);
     }
@@ -4013,6 +4017,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
     if (m.find("VSwitchs") != m.end() && !m["VSwitchs"].empty()) {
       vector<string> toVec1;
@@ -5397,6 +5404,311 @@ public:
 
 
   virtual ~ListBatchOperateCardsTasksResponse() = default;
+};
+class ListCardDayUsagesRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> iccids{};
+  shared_ptr<long> latestMonthNum{};
+  shared_ptr<string> wirelessCloudConnectorId{};
+
+  ListCardDayUsagesRequest() {}
+
+  explicit ListCardDayUsagesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccids) {
+      res["Iccids"] = boost::any(*iccids);
+    }
+    if (latestMonthNum) {
+      res["LatestMonthNum"] = boost::any(*latestMonthNum);
+    }
+    if (wirelessCloudConnectorId) {
+      res["WirelessCloudConnectorId"] = boost::any(*wirelessCloudConnectorId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccids") != m.end() && !m["Iccids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Iccids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Iccids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iccids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("LatestMonthNum") != m.end() && !m["LatestMonthNum"].empty()) {
+      latestMonthNum = make_shared<long>(boost::any_cast<long>(m["LatestMonthNum"]));
+    }
+    if (m.find("WirelessCloudConnectorId") != m.end() && !m["WirelessCloudConnectorId"].empty()) {
+      wirelessCloudConnectorId = make_shared<string>(boost::any_cast<string>(m["WirelessCloudConnectorId"]));
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesRequest() = default;
+};
+class ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages : public Darabonba::Model {
+public:
+  shared_ptr<string> day{};
+  shared_ptr<string> usageData{};
+
+  ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages() {}
+
+  explicit ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (day) {
+      res["Day"] = boost::any(*day);
+    }
+    if (usageData) {
+      res["UsageData"] = boost::any(*usageData);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Day") != m.end() && !m["Day"].empty()) {
+      day = make_shared<string>(boost::any_cast<string>(m["Day"]));
+    }
+    if (m.find("UsageData") != m.end() && !m["UsageData"].empty()) {
+      usageData = make_shared<string>(boost::any_cast<string>(m["UsageData"]));
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages() = default;
+};
+class ListCardDayUsagesResponseBodyCardsUsageDataMonths : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages>> cardDayUsages{};
+  shared_ptr<string> month{};
+  shared_ptr<string> usageDataMonth{};
+
+  ListCardDayUsagesResponseBodyCardsUsageDataMonths() {}
+
+  explicit ListCardDayUsagesResponseBodyCardsUsageDataMonths(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cardDayUsages) {
+      vector<boost::any> temp1;
+      for(auto item1:*cardDayUsages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CardDayUsages"] = boost::any(temp1);
+    }
+    if (month) {
+      res["Month"] = boost::any(*month);
+    }
+    if (usageDataMonth) {
+      res["UsageDataMonth"] = boost::any(*usageDataMonth);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CardDayUsages") != m.end() && !m["CardDayUsages"].empty()) {
+      if (typeid(vector<boost::any>) == m["CardDayUsages"].type()) {
+        vector<ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CardDayUsages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cardDayUsages = make_shared<vector<ListCardDayUsagesResponseBodyCardsUsageDataMonthsCardDayUsages>>(expect1);
+      }
+    }
+    if (m.find("Month") != m.end() && !m["Month"].empty()) {
+      month = make_shared<string>(boost::any_cast<string>(m["Month"]));
+    }
+    if (m.find("UsageDataMonth") != m.end() && !m["UsageDataMonth"].empty()) {
+      usageDataMonth = make_shared<string>(boost::any_cast<string>(m["UsageDataMonth"]));
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesResponseBodyCardsUsageDataMonths() = default;
+};
+class ListCardDayUsagesResponseBodyCards : public Darabonba::Model {
+public:
+  shared_ptr<string> iccid{};
+  shared_ptr<vector<ListCardDayUsagesResponseBodyCardsUsageDataMonths>> usageDataMonths{};
+
+  ListCardDayUsagesResponseBodyCards() {}
+
+  explicit ListCardDayUsagesResponseBodyCards(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (iccid) {
+      res["Iccid"] = boost::any(*iccid);
+    }
+    if (usageDataMonths) {
+      vector<boost::any> temp1;
+      for(auto item1:*usageDataMonths){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UsageDataMonths"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
+      iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
+    }
+    if (m.find("UsageDataMonths") != m.end() && !m["UsageDataMonths"].empty()) {
+      if (typeid(vector<boost::any>) == m["UsageDataMonths"].type()) {
+        vector<ListCardDayUsagesResponseBodyCardsUsageDataMonths> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UsageDataMonths"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCardDayUsagesResponseBodyCardsUsageDataMonths model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        usageDataMonths = make_shared<vector<ListCardDayUsagesResponseBodyCardsUsageDataMonths>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesResponseBodyCards() = default;
+};
+class ListCardDayUsagesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListCardDayUsagesResponseBodyCards>> cards{};
+  shared_ptr<string> requestId{};
+
+  ListCardDayUsagesResponseBody() {}
+
+  explicit ListCardDayUsagesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cards) {
+      vector<boost::any> temp1;
+      for(auto item1:*cards){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Cards"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Cards") != m.end() && !m["Cards"].empty()) {
+      if (typeid(vector<boost::any>) == m["Cards"].type()) {
+        vector<ListCardDayUsagesResponseBodyCards> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Cards"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCardDayUsagesResponseBodyCards model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cards = make_shared<vector<ListCardDayUsagesResponseBodyCards>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesResponseBody() = default;
+};
+class ListCardDayUsagesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCardDayUsagesResponseBody> body{};
+
+  ListCardDayUsagesResponse() {}
+
+  explicit ListCardDayUsagesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCardDayUsagesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCardDayUsagesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCardDayUsagesResponse() = default;
 };
 class ListCardUsagesRequest : public Darabonba::Model {
 public:
@@ -11727,6 +12039,8 @@ public:
   ListAuthorizationRulesResponse listAuthorizationRules(shared_ptr<ListAuthorizationRulesRequest> request);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasksWithOptions(shared_ptr<ListBatchOperateCardsTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasks(shared_ptr<ListBatchOperateCardsTasksRequest> request);
+  ListCardDayUsagesResponse listCardDayUsagesWithOptions(shared_ptr<ListCardDayUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCardDayUsagesResponse listCardDayUsages(shared_ptr<ListCardDayUsagesRequest> request);
   ListCardUsagesResponse listCardUsagesWithOptions(shared_ptr<ListCardUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCardUsagesResponse listCardUsages(shared_ptr<ListCardUsagesRequest> request);
   ListCardsResponse listCardsWithOptions(shared_ptr<ListCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
