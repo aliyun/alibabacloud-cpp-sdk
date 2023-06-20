@@ -126,6 +126,7 @@ public:
 class DescribeImageResultExtResponseBodyDataTextInImage : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> ocrDatas{};
+  shared_ptr<vector<string>> riskWords{};
 
   DescribeImageResultExtResponseBodyDataTextInImage() {}
 
@@ -140,6 +141,9 @@ public:
     if (ocrDatas) {
       res["OcrDatas"] = boost::any(*ocrDatas);
     }
+    if (riskWords) {
+      res["RiskWords"] = boost::any(*riskWords);
+    }
     return res;
   }
 
@@ -153,6 +157,16 @@ public:
         }
       }
       ocrDatas = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RiskWords") != m.end() && !m["RiskWords"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RiskWords"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RiskWords"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      riskWords = make_shared<vector<string>>(toVec1);
     }
   }
 
