@@ -1080,6 +1080,9 @@ GenerateTemplateByScratchResponse Alibabacloud_ROS20190910::Client::generateTemp
   if (!Darabonba_Util::Client::isUnset<string>(request->templateScratchId)) {
     query->insert(pair<string, string>("TemplateScratchId", *request->templateScratchId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateType)) {
+    query->insert(pair<string, string>("TemplateType", *request->templateType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1632,9 +1635,6 @@ GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEst
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -1650,8 +1650,13 @@ GetTemplateEstimateCostResponse Alibabacloud_ROS20190910::Client::getTemplateEst
   if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
     query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetTemplateEstimateCost"))},
@@ -1701,9 +1706,6 @@ GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTem
   if (!Darabonba_Util::Client::isUnset<string>(request->stackId)) {
     query->insert(pair<string, string>("StackId", *request->stackId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
-    query->insert(pair<string, string>("TemplateBody", *request->templateBody));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     query->insert(pair<string, string>("TemplateId", *request->templateId));
   }
@@ -1713,8 +1715,13 @@ GetTemplateParameterConstraintsResponse Alibabacloud_ROS20190910::Client::getTem
   if (!Darabonba_Util::Client::isUnset<string>(request->templateVersion)) {
     query->insert(pair<string, string>("TemplateVersion", *request->templateVersion));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateBody)) {
+    body->insert(pair<string, string>("TemplateBody", *request->templateBody));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetTemplateParameterConstraints"))},

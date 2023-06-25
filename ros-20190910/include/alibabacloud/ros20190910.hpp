@@ -5406,6 +5406,7 @@ public:
   shared_ptr<string> provisionRegionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateScratchId{};
+  shared_ptr<string> templateType{};
 
   GenerateTemplateByScratchRequest() {}
 
@@ -5426,6 +5427,9 @@ public:
     if (templateScratchId) {
       res["TemplateScratchId"] = boost::any(*templateScratchId);
     }
+    if (templateType) {
+      res["TemplateType"] = boost::any(*templateType);
+    }
     return res;
   }
 
@@ -5438,6 +5442,9 @@ public:
     }
     if (m.find("TemplateScratchId") != m.end() && !m["TemplateScratchId"].empty()) {
       templateScratchId = make_shared<string>(boost::any_cast<string>(m["TemplateScratchId"]));
+    }
+    if (m.find("TemplateType") != m.end() && !m["TemplateType"].empty()) {
+      templateType = make_shared<string>(boost::any_cast<string>(m["TemplateType"]));
     }
   }
 
@@ -5678,6 +5685,7 @@ public:
 class GenerateTemplatePolicyResponseBodyPolicyStatement : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> action{};
+  shared_ptr<map<string, boost::any>> condition{};
   shared_ptr<string> effect{};
   shared_ptr<string> resource{};
 
@@ -5693,6 +5701,9 @@ public:
     map<string, boost::any> res;
     if (action) {
       res["Action"] = boost::any(*action);
+    }
+    if (condition) {
+      res["Condition"] = boost::any(*condition);
     }
     if (effect) {
       res["Effect"] = boost::any(*effect);
@@ -5713,6 +5724,14 @@ public:
         }
       }
       action = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Condition") != m.end() && !m["Condition"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Condition"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      condition = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Effect") != m.end() && !m["Effect"].empty()) {
       effect = make_shared<string>(boost::any_cast<string>(m["Effect"]));
@@ -11866,6 +11885,63 @@ public:
 
   virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources() = default;
 };
+class GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints : public Darabonba::Model {
+public:
+  shared_ptr<vector<boost::any>> allowedValues{};
+  shared_ptr<string> propertyName{};
+  shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
+
+  GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints() {}
+
+  explicit GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowedValues) {
+      res["AllowedValues"] = boost::any(*allowedValues);
+    }
+    if (propertyName) {
+      res["PropertyName"] = boost::any(*propertyName);
+    }
+    if (resourceName) {
+      res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowedValues") != m.end() && !m["AllowedValues"].empty()) {
+      vector<boost::any> toVec1;
+      if (typeid(vector<boost::any>) == m["AllowedValues"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AllowedValues"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<boost::any>(item));
+        }
+      }
+      allowedValues = make_shared<vector<boost::any>>(toVec1);
+    }
+    if (m.find("PropertyName") != m.end() && !m["PropertyName"].empty()) {
+      propertyName = make_shared<string>(boost::any_cast<string>(m["PropertyName"]));
+    }
+    if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
+      resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints() = default;
+};
 class GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors : public Darabonba::Model {
 public:
   shared_ptr<string> errorMessage{};
@@ -11918,6 +11994,7 @@ public:
   shared_ptr<vector<boost::any>> illegalValueByParameterConstraints{};
   shared_ptr<vector<boost::any>> illegalValueByRules{};
   shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources>> notSupportResources{};
+  shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints>> originalConstraints{};
   shared_ptr<string> parameterKey{};
   shared_ptr<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors>> queryErrors{};
   shared_ptr<string> type{};
@@ -11956,6 +12033,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NotSupportResources"] = boost::any(temp1);
+    }
+    if (originalConstraints) {
+      vector<boost::any> temp1;
+      for(auto item1:*originalConstraints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["OriginalConstraints"] = boost::any(temp1);
     }
     if (parameterKey) {
       res["ParameterKey"] = boost::any(*parameterKey);
@@ -12031,6 +12115,19 @@ public:
           }
         }
         notSupportResources = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsNotSupportResources>>(expect1);
+      }
+    }
+    if (m.find("OriginalConstraints") != m.end() && !m["OriginalConstraints"].empty()) {
+      if (typeid(vector<boost::any>) == m["OriginalConstraints"].type()) {
+        vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["OriginalConstraints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        originalConstraints = make_shared<vector<GetTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints>>(expect1);
       }
     }
     if (m.find("ParameterKey") != m.end() && !m["ParameterKey"].empty()) {
