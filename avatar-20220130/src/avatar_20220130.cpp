@@ -557,6 +557,15 @@ SubmitAudioTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->callback)) {
+    query->insert(pair<string, bool>("Callback", *request->callback));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    query->insert(pair<string, string>("CallbackParams", *request->callbackParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extParams)) {
+    query->insert(pair<string, string>("ExtParams", *request->extParams));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));
   }
@@ -610,6 +619,15 @@ SubmitAudioTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::subm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->callback)) {
+    query->insert(pair<string, bool>("Callback", *request->callback));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    query->insert(pair<string, string>("CallbackParams", *request->callbackParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extParams)) {
+    query->insert(pair<string, string>("ExtParams", *request->extParams));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));
@@ -670,6 +688,15 @@ SubmitTextTo2DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->callback)) {
+    query->insert(pair<string, bool>("Callback", *request->callback));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    query->insert(pair<string, string>("CallbackParams", *request->callbackParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extParams)) {
+    query->insert(pair<string, string>("ExtParams", *request->extParams));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));
