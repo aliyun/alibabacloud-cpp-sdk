@@ -40098,6 +40098,8 @@ public:
 class HotelOrderCancelResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<bool> cancelSuccess{};
+  shared_ptr<string> code{};
+  shared_ptr<string> desc{};
   shared_ptr<long> forfeitFee{};
 
   HotelOrderCancelResponseBodyModule() {}
@@ -40113,6 +40115,12 @@ public:
     if (cancelSuccess) {
       res["cancel_success"] = boost::any(*cancelSuccess);
     }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (desc) {
+      res["desc"] = boost::any(*desc);
+    }
     if (forfeitFee) {
       res["forfeit_fee"] = boost::any(*forfeitFee);
     }
@@ -40122,6 +40130,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("cancel_success") != m.end() && !m["cancel_success"].empty()) {
       cancelSuccess = make_shared<bool>(boost::any_cast<bool>(m["cancel_success"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("desc") != m.end() && !m["desc"].empty()) {
+      desc = make_shared<string>(boost::any_cast<string>(m["desc"]));
     }
     if (m.find("forfeit_fee") != m.end() && !m["forfeit_fee"].empty()) {
       forfeitFee = make_shared<long>(boost::any_cast<long>(m["forfeit_fee"]));
