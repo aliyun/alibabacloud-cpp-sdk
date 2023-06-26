@@ -5032,8 +5032,14 @@ DescribeDBInstancesResponse Alibabacloud_Rds20140815::Client::describeDBInstance
 DescribeDBInstancesAsCsvResponse Alibabacloud_Rds20140815::Client::describeDBInstancesAsCsvWithOptions(shared_ptr<DescribeDBInstancesAsCsvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cachedAsync)) {
+    query->insert(pair<string, bool>("CachedAsync", *request->cachedAsync));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->exportKey)) {
+    query->insert(pair<string, string>("ExportKey", *request->exportKey));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
