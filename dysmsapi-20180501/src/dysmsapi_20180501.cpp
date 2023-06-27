@@ -19,9 +19,11 @@ Alibabacloud_Dysmsapi20180501::Client::Client(const shared_ptr<Alibabacloud_Open
   _endpointRule = make_shared<string>("central");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-southeast-1", "dysmsapi.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-5", "dysmsapi-xman.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-5", "dysmsapi.ap-southeast-5.aliyuncs.com"},
     {"cn-beijing", "dysmsapi-proxy.cn-beijing.aliyuncs.com"},
-    {"cn-hongkong", "dysmsapi-xman.cn-hongkong.aliyuncs.com"}
+    {"cn-hongkong", "dysmsapi-xman.cn-hongkong.aliyuncs.com"},
+    {"eu-central-1", "dysmsapi.eu-central-1.aliyuncs.com"},
+    {"us-east-1", "dysmsapi.us-east-1.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -61,6 +63,9 @@ BatchSendMessageToGlobeResponse Alibabacloud_Dysmsapi20180501::Client::batchSend
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->validityPeriod)) {
+    query->insert(pair<string, long>("ValidityPeriod", *request->validityPeriod));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -158,6 +163,9 @@ SendMessageToGlobeResponse Alibabacloud_Dysmsapi20180501::Client::sendMessageToG
   if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
     query->insert(pair<string, string>("To", *request->to));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->validityPeriod)) {
+    query->insert(pair<string, long>("ValidityPeriod", *request->validityPeriod));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -197,6 +205,9 @@ SendMessageWithTemplateResponse Alibabacloud_Dysmsapi20180501::Client::sendMessa
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->to)) {
     query->insert(pair<string, string>("To", *request->to));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->validityPeriod)) {
+    query->insert(pair<string, long>("ValidityPeriod", *request->validityPeriod));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
