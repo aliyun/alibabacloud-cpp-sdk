@@ -110,6 +110,9 @@ AddDirectionalAddressResponse Alibabacloud_Linkcard20210520::Client::addDirectio
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->urlInsecurityForce)) {
+    query->insert(pair<string, bool>("UrlInsecurityForce", *request->urlInsecurityForce));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

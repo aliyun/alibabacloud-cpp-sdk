@@ -323,6 +323,7 @@ public:
   shared_ptr<bool> msgNotify{};
   shared_ptr<string> serialNo{};
   shared_ptr<string> source{};
+  shared_ptr<bool> urlInsecurityForce{};
 
   AddDirectionalAddressRequest() {}
 
@@ -352,6 +353,9 @@ public:
     if (source) {
       res["Source"] = boost::any(*source);
     }
+    if (urlInsecurityForce) {
+      res["UrlInsecurityForce"] = boost::any(*urlInsecurityForce);
+    }
     return res;
   }
 
@@ -373,6 +377,9 @@ public:
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("UrlInsecurityForce") != m.end() && !m["UrlInsecurityForce"].empty()) {
+      urlInsecurityForce = make_shared<bool>(boost::any_cast<bool>(m["UrlInsecurityForce"]));
     }
   }
 
@@ -4317,6 +4324,7 @@ public:
   shared_ptr<string> credentialType{};
   shared_ptr<string> effectiveAvailableFlow{};
   shared_ptr<string> effectiveTotalFlow{};
+  shared_ptr<long> monthExceedFee{};
   shared_ptr<long> monthFeatureFee{};
   shared_ptr<long> monthUsedAmount{};
   shared_ptr<string> poolAvaiable{};
@@ -4356,6 +4364,9 @@ public:
     }
     if (effectiveTotalFlow) {
       res["EffectiveTotalFlow"] = boost::any(*effectiveTotalFlow);
+    }
+    if (monthExceedFee) {
+      res["MonthExceedFee"] = boost::any(*monthExceedFee);
     }
     if (monthFeatureFee) {
       res["MonthFeatureFee"] = boost::any(*monthFeatureFee);
@@ -4405,6 +4416,9 @@ public:
     }
     if (m.find("EffectiveTotalFlow") != m.end() && !m["EffectiveTotalFlow"].empty()) {
       effectiveTotalFlow = make_shared<string>(boost::any_cast<string>(m["EffectiveTotalFlow"]));
+    }
+    if (m.find("MonthExceedFee") != m.end() && !m["MonthExceedFee"].empty()) {
+      monthExceedFee = make_shared<long>(boost::any_cast<long>(m["MonthExceedFee"]));
     }
     if (m.find("MonthFeatureFee") != m.end() && !m["MonthFeatureFee"].empty()) {
       monthFeatureFee = make_shared<long>(boost::any_cast<long>(m["MonthFeatureFee"]));
