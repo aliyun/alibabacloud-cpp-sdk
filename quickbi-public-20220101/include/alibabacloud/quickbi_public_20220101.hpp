@@ -7803,6 +7803,1095 @@ public:
 
   virtual ~ModifyApiDatasourceParametersResponse() = default;
 };
+class QueryComponentPerformanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> costTimeAvgMin{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> workspaceId{};
+
+  QueryComponentPerformanceRequest() {}
+
+  explicit QueryComponentPerformanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (costTimeAvgMin) {
+      res["CostTimeAvgMin"] = boost::any(*costTimeAvgMin);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CostTimeAvgMin") != m.end() && !m["CostTimeAvgMin"].empty()) {
+      costTimeAvgMin = make_shared<long>(boost::any_cast<long>(m["CostTimeAvgMin"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~QueryComponentPerformanceRequest() = default;
+};
+class QueryComponentPerformanceResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<double> cacheCostTimeAvg{};
+  shared_ptr<long> cacheQueryCount{};
+  shared_ptr<string> componentId{};
+  shared_ptr<string> componentName{};
+  shared_ptr<double> costTimeAvg{};
+  shared_ptr<long> queryCount{};
+  shared_ptr<double> queryCountAvg{};
+  shared_ptr<double> queryOverFivePercentNum{};
+  shared_ptr<string> queryOverFiveSecPercent{};
+  shared_ptr<string> queryOverTenSecPercent{};
+  shared_ptr<double> queryOverTenSecPercentNum{};
+  shared_ptr<long> queryTimeoutCount{};
+  shared_ptr<double> queryTimeoutCountPercent{};
+  shared_ptr<double> quickIndexCostTimeAvg{};
+  shared_ptr<long> quickIndexQueryCount{};
+  shared_ptr<string> repeatQueryPercent{};
+  shared_ptr<double> repeatQueryPercentNum{};
+  shared_ptr<long> repeatSqlQueryCount{};
+  shared_ptr<string> repeatSqlQueryPercent{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> reportName{};
+  shared_ptr<string> reportType{};
+  shared_ptr<string> workspaceId{};
+  shared_ptr<string> workspaceName{};
+
+  QueryComponentPerformanceResponseBodyResult() {}
+
+  explicit QueryComponentPerformanceResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheCostTimeAvg) {
+      res["CacheCostTimeAvg"] = boost::any(*cacheCostTimeAvg);
+    }
+    if (cacheQueryCount) {
+      res["CacheQueryCount"] = boost::any(*cacheQueryCount);
+    }
+    if (componentId) {
+      res["ComponentId"] = boost::any(*componentId);
+    }
+    if (componentName) {
+      res["ComponentName"] = boost::any(*componentName);
+    }
+    if (costTimeAvg) {
+      res["CostTimeAvg"] = boost::any(*costTimeAvg);
+    }
+    if (queryCount) {
+      res["QueryCount"] = boost::any(*queryCount);
+    }
+    if (queryCountAvg) {
+      res["QueryCountAvg"] = boost::any(*queryCountAvg);
+    }
+    if (queryOverFivePercentNum) {
+      res["QueryOverFivePercentNum"] = boost::any(*queryOverFivePercentNum);
+    }
+    if (queryOverFiveSecPercent) {
+      res["QueryOverFiveSecPercent"] = boost::any(*queryOverFiveSecPercent);
+    }
+    if (queryOverTenSecPercent) {
+      res["QueryOverTenSecPercent"] = boost::any(*queryOverTenSecPercent);
+    }
+    if (queryOverTenSecPercentNum) {
+      res["QueryOverTenSecPercentNum"] = boost::any(*queryOverTenSecPercentNum);
+    }
+    if (queryTimeoutCount) {
+      res["QueryTimeoutCount"] = boost::any(*queryTimeoutCount);
+    }
+    if (queryTimeoutCountPercent) {
+      res["QueryTimeoutCountPercent"] = boost::any(*queryTimeoutCountPercent);
+    }
+    if (quickIndexCostTimeAvg) {
+      res["QuickIndexCostTimeAvg"] = boost::any(*quickIndexCostTimeAvg);
+    }
+    if (quickIndexQueryCount) {
+      res["QuickIndexQueryCount"] = boost::any(*quickIndexQueryCount);
+    }
+    if (repeatQueryPercent) {
+      res["RepeatQueryPercent"] = boost::any(*repeatQueryPercent);
+    }
+    if (repeatQueryPercentNum) {
+      res["RepeatQueryPercentNum"] = boost::any(*repeatQueryPercentNum);
+    }
+    if (repeatSqlQueryCount) {
+      res["RepeatSqlQueryCount"] = boost::any(*repeatSqlQueryCount);
+    }
+    if (repeatSqlQueryPercent) {
+      res["RepeatSqlQueryPercent"] = boost::any(*repeatSqlQueryPercent);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (reportName) {
+      res["ReportName"] = boost::any(*reportName);
+    }
+    if (reportType) {
+      res["ReportType"] = boost::any(*reportType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (workspaceName) {
+      res["WorkspaceName"] = boost::any(*workspaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheCostTimeAvg") != m.end() && !m["CacheCostTimeAvg"].empty()) {
+      cacheCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["CacheCostTimeAvg"]));
+    }
+    if (m.find("CacheQueryCount") != m.end() && !m["CacheQueryCount"].empty()) {
+      cacheQueryCount = make_shared<long>(boost::any_cast<long>(m["CacheQueryCount"]));
+    }
+    if (m.find("ComponentId") != m.end() && !m["ComponentId"].empty()) {
+      componentId = make_shared<string>(boost::any_cast<string>(m["ComponentId"]));
+    }
+    if (m.find("ComponentName") != m.end() && !m["ComponentName"].empty()) {
+      componentName = make_shared<string>(boost::any_cast<string>(m["ComponentName"]));
+    }
+    if (m.find("CostTimeAvg") != m.end() && !m["CostTimeAvg"].empty()) {
+      costTimeAvg = make_shared<double>(boost::any_cast<double>(m["CostTimeAvg"]));
+    }
+    if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
+      queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
+    }
+    if (m.find("QueryCountAvg") != m.end() && !m["QueryCountAvg"].empty()) {
+      queryCountAvg = make_shared<double>(boost::any_cast<double>(m["QueryCountAvg"]));
+    }
+    if (m.find("QueryOverFivePercentNum") != m.end() && !m["QueryOverFivePercentNum"].empty()) {
+      queryOverFivePercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverFivePercentNum"]));
+    }
+    if (m.find("QueryOverFiveSecPercent") != m.end() && !m["QueryOverFiveSecPercent"].empty()) {
+      queryOverFiveSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverFiveSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercent") != m.end() && !m["QueryOverTenSecPercent"].empty()) {
+      queryOverTenSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverTenSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercentNum") != m.end() && !m["QueryOverTenSecPercentNum"].empty()) {
+      queryOverTenSecPercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverTenSecPercentNum"]));
+    }
+    if (m.find("QueryTimeoutCount") != m.end() && !m["QueryTimeoutCount"].empty()) {
+      queryTimeoutCount = make_shared<long>(boost::any_cast<long>(m["QueryTimeoutCount"]));
+    }
+    if (m.find("QueryTimeoutCountPercent") != m.end() && !m["QueryTimeoutCountPercent"].empty()) {
+      queryTimeoutCountPercent = make_shared<double>(boost::any_cast<double>(m["QueryTimeoutCountPercent"]));
+    }
+    if (m.find("QuickIndexCostTimeAvg") != m.end() && !m["QuickIndexCostTimeAvg"].empty()) {
+      quickIndexCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["QuickIndexCostTimeAvg"]));
+    }
+    if (m.find("QuickIndexQueryCount") != m.end() && !m["QuickIndexQueryCount"].empty()) {
+      quickIndexQueryCount = make_shared<long>(boost::any_cast<long>(m["QuickIndexQueryCount"]));
+    }
+    if (m.find("RepeatQueryPercent") != m.end() && !m["RepeatQueryPercent"].empty()) {
+      repeatQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatQueryPercent"]));
+    }
+    if (m.find("RepeatQueryPercentNum") != m.end() && !m["RepeatQueryPercentNum"].empty()) {
+      repeatQueryPercentNum = make_shared<double>(boost::any_cast<double>(m["RepeatQueryPercentNum"]));
+    }
+    if (m.find("RepeatSqlQueryCount") != m.end() && !m["RepeatSqlQueryCount"].empty()) {
+      repeatSqlQueryCount = make_shared<long>(boost::any_cast<long>(m["RepeatSqlQueryCount"]));
+    }
+    if (m.find("RepeatSqlQueryPercent") != m.end() && !m["RepeatSqlQueryPercent"].empty()) {
+      repeatSqlQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatSqlQueryPercent"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ReportName") != m.end() && !m["ReportName"].empty()) {
+      reportName = make_shared<string>(boost::any_cast<string>(m["ReportName"]));
+    }
+    if (m.find("ReportType") != m.end() && !m["ReportType"].empty()) {
+      reportType = make_shared<string>(boost::any_cast<string>(m["ReportType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("WorkspaceName") != m.end() && !m["WorkspaceName"].empty()) {
+      workspaceName = make_shared<string>(boost::any_cast<string>(m["WorkspaceName"]));
+    }
+  }
+
+
+  virtual ~QueryComponentPerformanceResponseBodyResult() = default;
+};
+class QueryComponentPerformanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryComponentPerformanceResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  QueryComponentPerformanceResponseBody() {}
+
+  explicit QueryComponentPerformanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<QueryComponentPerformanceResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryComponentPerformanceResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<QueryComponentPerformanceResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryComponentPerformanceResponseBody() = default;
+};
+class QueryComponentPerformanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryComponentPerformanceResponseBody> body{};
+
+  QueryComponentPerformanceResponse() {}
+
+  explicit QueryComponentPerformanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryComponentPerformanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryComponentPerformanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryComponentPerformanceResponse() = default;
+};
+class QueryCubeOptimizationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> workspaceId{};
+
+  QueryCubeOptimizationRequest() {}
+
+  explicit QueryCubeOptimizationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~QueryCubeOptimizationRequest() = default;
+};
+class QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel : public Darabonba::Model {
+public:
+  shared_ptr<double> cacheCostTimeAvg{};
+  shared_ptr<long> cacheQueryCount{};
+  shared_ptr<double> costTimeAvg{};
+  shared_ptr<string> cubeId{};
+  shared_ptr<string> cubeName{};
+  shared_ptr<long> queryCount{};
+  shared_ptr<double> queryCountAvg{};
+  shared_ptr<double> queryOverFivePercentNum{};
+  shared_ptr<string> queryOverFiveSecPercent{};
+  shared_ptr<string> queryOverTenSecPercent{};
+  shared_ptr<double> queryOverTenSecPercentNum{};
+  shared_ptr<long> queryTimeoutCount{};
+  shared_ptr<double> queryTimeoutCountPercent{};
+  shared_ptr<double> quickIndexCostTimeAvg{};
+  shared_ptr<long> quickIndexQueryCount{};
+  shared_ptr<string> repeatQueryPercent{};
+  shared_ptr<double> repeatQueryPercentNum{};
+  shared_ptr<long> repeatSqlQueryCount{};
+  shared_ptr<string> repeatSqlQueryPercent{};
+  shared_ptr<string> workspaceId{};
+  shared_ptr<string> workspaceName{};
+
+  QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel() {}
+
+  explicit QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheCostTimeAvg) {
+      res["CacheCostTimeAvg"] = boost::any(*cacheCostTimeAvg);
+    }
+    if (cacheQueryCount) {
+      res["CacheQueryCount"] = boost::any(*cacheQueryCount);
+    }
+    if (costTimeAvg) {
+      res["CostTimeAvg"] = boost::any(*costTimeAvg);
+    }
+    if (cubeId) {
+      res["CubeId"] = boost::any(*cubeId);
+    }
+    if (cubeName) {
+      res["CubeName"] = boost::any(*cubeName);
+    }
+    if (queryCount) {
+      res["QueryCount"] = boost::any(*queryCount);
+    }
+    if (queryCountAvg) {
+      res["QueryCountAvg"] = boost::any(*queryCountAvg);
+    }
+    if (queryOverFivePercentNum) {
+      res["QueryOverFivePercentNum"] = boost::any(*queryOverFivePercentNum);
+    }
+    if (queryOverFiveSecPercent) {
+      res["QueryOverFiveSecPercent"] = boost::any(*queryOverFiveSecPercent);
+    }
+    if (queryOverTenSecPercent) {
+      res["QueryOverTenSecPercent"] = boost::any(*queryOverTenSecPercent);
+    }
+    if (queryOverTenSecPercentNum) {
+      res["QueryOverTenSecPercentNum"] = boost::any(*queryOverTenSecPercentNum);
+    }
+    if (queryTimeoutCount) {
+      res["QueryTimeoutCount"] = boost::any(*queryTimeoutCount);
+    }
+    if (queryTimeoutCountPercent) {
+      res["QueryTimeoutCountPercent"] = boost::any(*queryTimeoutCountPercent);
+    }
+    if (quickIndexCostTimeAvg) {
+      res["QuickIndexCostTimeAvg"] = boost::any(*quickIndexCostTimeAvg);
+    }
+    if (quickIndexQueryCount) {
+      res["QuickIndexQueryCount"] = boost::any(*quickIndexQueryCount);
+    }
+    if (repeatQueryPercent) {
+      res["RepeatQueryPercent"] = boost::any(*repeatQueryPercent);
+    }
+    if (repeatQueryPercentNum) {
+      res["RepeatQueryPercentNum"] = boost::any(*repeatQueryPercentNum);
+    }
+    if (repeatSqlQueryCount) {
+      res["RepeatSqlQueryCount"] = boost::any(*repeatSqlQueryCount);
+    }
+    if (repeatSqlQueryPercent) {
+      res["RepeatSqlQueryPercent"] = boost::any(*repeatSqlQueryPercent);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (workspaceName) {
+      res["WorkspaceName"] = boost::any(*workspaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheCostTimeAvg") != m.end() && !m["CacheCostTimeAvg"].empty()) {
+      cacheCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["CacheCostTimeAvg"]));
+    }
+    if (m.find("CacheQueryCount") != m.end() && !m["CacheQueryCount"].empty()) {
+      cacheQueryCount = make_shared<long>(boost::any_cast<long>(m["CacheQueryCount"]));
+    }
+    if (m.find("CostTimeAvg") != m.end() && !m["CostTimeAvg"].empty()) {
+      costTimeAvg = make_shared<double>(boost::any_cast<double>(m["CostTimeAvg"]));
+    }
+    if (m.find("CubeId") != m.end() && !m["CubeId"].empty()) {
+      cubeId = make_shared<string>(boost::any_cast<string>(m["CubeId"]));
+    }
+    if (m.find("CubeName") != m.end() && !m["CubeName"].empty()) {
+      cubeName = make_shared<string>(boost::any_cast<string>(m["CubeName"]));
+    }
+    if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
+      queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
+    }
+    if (m.find("QueryCountAvg") != m.end() && !m["QueryCountAvg"].empty()) {
+      queryCountAvg = make_shared<double>(boost::any_cast<double>(m["QueryCountAvg"]));
+    }
+    if (m.find("QueryOverFivePercentNum") != m.end() && !m["QueryOverFivePercentNum"].empty()) {
+      queryOverFivePercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverFivePercentNum"]));
+    }
+    if (m.find("QueryOverFiveSecPercent") != m.end() && !m["QueryOverFiveSecPercent"].empty()) {
+      queryOverFiveSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverFiveSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercent") != m.end() && !m["QueryOverTenSecPercent"].empty()) {
+      queryOverTenSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverTenSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercentNum") != m.end() && !m["QueryOverTenSecPercentNum"].empty()) {
+      queryOverTenSecPercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverTenSecPercentNum"]));
+    }
+    if (m.find("QueryTimeoutCount") != m.end() && !m["QueryTimeoutCount"].empty()) {
+      queryTimeoutCount = make_shared<long>(boost::any_cast<long>(m["QueryTimeoutCount"]));
+    }
+    if (m.find("QueryTimeoutCountPercent") != m.end() && !m["QueryTimeoutCountPercent"].empty()) {
+      queryTimeoutCountPercent = make_shared<double>(boost::any_cast<double>(m["QueryTimeoutCountPercent"]));
+    }
+    if (m.find("QuickIndexCostTimeAvg") != m.end() && !m["QuickIndexCostTimeAvg"].empty()) {
+      quickIndexCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["QuickIndexCostTimeAvg"]));
+    }
+    if (m.find("QuickIndexQueryCount") != m.end() && !m["QuickIndexQueryCount"].empty()) {
+      quickIndexQueryCount = make_shared<long>(boost::any_cast<long>(m["QuickIndexQueryCount"]));
+    }
+    if (m.find("RepeatQueryPercent") != m.end() && !m["RepeatQueryPercent"].empty()) {
+      repeatQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatQueryPercent"]));
+    }
+    if (m.find("RepeatQueryPercentNum") != m.end() && !m["RepeatQueryPercentNum"].empty()) {
+      repeatQueryPercentNum = make_shared<double>(boost::any_cast<double>(m["RepeatQueryPercentNum"]));
+    }
+    if (m.find("RepeatSqlQueryCount") != m.end() && !m["RepeatSqlQueryCount"].empty()) {
+      repeatSqlQueryCount = make_shared<long>(boost::any_cast<long>(m["RepeatSqlQueryCount"]));
+    }
+    if (m.find("RepeatSqlQueryPercent") != m.end() && !m["RepeatSqlQueryPercent"].empty()) {
+      repeatSqlQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatSqlQueryPercent"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("WorkspaceName") != m.end() && !m["WorkspaceName"].empty()) {
+      workspaceName = make_shared<string>(boost::any_cast<string>(m["WorkspaceName"]));
+    }
+  }
+
+
+  virtual ~QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel() = default;
+};
+class QueryCubeOptimizationResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> adviceType{};
+  shared_ptr<QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel> cubePerformanceDiagnoseModel{};
+
+  QueryCubeOptimizationResponseBodyResult() {}
+
+  explicit QueryCubeOptimizationResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adviceType) {
+      res["AdviceType"] = boost::any(*adviceType);
+    }
+    if (cubePerformanceDiagnoseModel) {
+      res["CubePerformanceDiagnoseModel"] = cubePerformanceDiagnoseModel ? boost::any(cubePerformanceDiagnoseModel->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdviceType") != m.end() && !m["AdviceType"].empty()) {
+      adviceType = make_shared<string>(boost::any_cast<string>(m["AdviceType"]));
+    }
+    if (m.find("CubePerformanceDiagnoseModel") != m.end() && !m["CubePerformanceDiagnoseModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CubePerformanceDiagnoseModel"].type()) {
+        QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CubePerformanceDiagnoseModel"]));
+        cubePerformanceDiagnoseModel = make_shared<QueryCubeOptimizationResponseBodyResultCubePerformanceDiagnoseModel>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCubeOptimizationResponseBodyResult() = default;
+};
+class QueryCubeOptimizationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryCubeOptimizationResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  QueryCubeOptimizationResponseBody() {}
+
+  explicit QueryCubeOptimizationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<QueryCubeOptimizationResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryCubeOptimizationResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<QueryCubeOptimizationResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryCubeOptimizationResponseBody() = default;
+};
+class QueryCubeOptimizationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryCubeOptimizationResponseBody> body{};
+
+  QueryCubeOptimizationResponse() {}
+
+  explicit QueryCubeOptimizationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryCubeOptimizationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryCubeOptimizationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCubeOptimizationResponse() = default;
+};
+class QueryCubePerformanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> costTimeAvgMin{};
+  shared_ptr<string> cubeId{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> workspaceId{};
+
+  QueryCubePerformanceRequest() {}
+
+  explicit QueryCubePerformanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (costTimeAvgMin) {
+      res["CostTimeAvgMin"] = boost::any(*costTimeAvgMin);
+    }
+    if (cubeId) {
+      res["CubeId"] = boost::any(*cubeId);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CostTimeAvgMin") != m.end() && !m["CostTimeAvgMin"].empty()) {
+      costTimeAvgMin = make_shared<long>(boost::any_cast<long>(m["CostTimeAvgMin"]));
+    }
+    if (m.find("CubeId") != m.end() && !m["CubeId"].empty()) {
+      cubeId = make_shared<string>(boost::any_cast<string>(m["CubeId"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~QueryCubePerformanceRequest() = default;
+};
+class QueryCubePerformanceResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<double> cacheCostTimeAvg{};
+  shared_ptr<long> cacheQueryCount{};
+  shared_ptr<double> costTimeAvg{};
+  shared_ptr<string> cubeId{};
+  shared_ptr<string> cubeName{};
+  shared_ptr<long> queryCount{};
+  shared_ptr<double> queryCountAvg{};
+  shared_ptr<double> queryOverFivePercentNum{};
+  shared_ptr<string> queryOverFiveSecPercent{};
+  shared_ptr<string> queryOverTenSecPercent{};
+  shared_ptr<double> queryOverTenSecPercentNum{};
+  shared_ptr<long> queryTimeoutCount{};
+  shared_ptr<double> queryTimeoutCountPercent{};
+  shared_ptr<double> quickIndexCostTimeAvg{};
+  shared_ptr<long> quickIndexQueryCount{};
+  shared_ptr<string> repeatQueryPercent{};
+  shared_ptr<double> repeatQueryPercentNum{};
+  shared_ptr<long> repeatSqlQueryCount{};
+  shared_ptr<string> repeatSqlQueryPercent{};
+  shared_ptr<string> workspaceId{};
+  shared_ptr<string> workspaceName{};
+
+  QueryCubePerformanceResponseBodyResult() {}
+
+  explicit QueryCubePerformanceResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheCostTimeAvg) {
+      res["CacheCostTimeAvg"] = boost::any(*cacheCostTimeAvg);
+    }
+    if (cacheQueryCount) {
+      res["CacheQueryCount"] = boost::any(*cacheQueryCount);
+    }
+    if (costTimeAvg) {
+      res["CostTimeAvg"] = boost::any(*costTimeAvg);
+    }
+    if (cubeId) {
+      res["CubeId"] = boost::any(*cubeId);
+    }
+    if (cubeName) {
+      res["CubeName"] = boost::any(*cubeName);
+    }
+    if (queryCount) {
+      res["QueryCount"] = boost::any(*queryCount);
+    }
+    if (queryCountAvg) {
+      res["QueryCountAvg"] = boost::any(*queryCountAvg);
+    }
+    if (queryOverFivePercentNum) {
+      res["QueryOverFivePercentNum"] = boost::any(*queryOverFivePercentNum);
+    }
+    if (queryOverFiveSecPercent) {
+      res["QueryOverFiveSecPercent"] = boost::any(*queryOverFiveSecPercent);
+    }
+    if (queryOverTenSecPercent) {
+      res["QueryOverTenSecPercent"] = boost::any(*queryOverTenSecPercent);
+    }
+    if (queryOverTenSecPercentNum) {
+      res["QueryOverTenSecPercentNum"] = boost::any(*queryOverTenSecPercentNum);
+    }
+    if (queryTimeoutCount) {
+      res["QueryTimeoutCount"] = boost::any(*queryTimeoutCount);
+    }
+    if (queryTimeoutCountPercent) {
+      res["QueryTimeoutCountPercent"] = boost::any(*queryTimeoutCountPercent);
+    }
+    if (quickIndexCostTimeAvg) {
+      res["QuickIndexCostTimeAvg"] = boost::any(*quickIndexCostTimeAvg);
+    }
+    if (quickIndexQueryCount) {
+      res["QuickIndexQueryCount"] = boost::any(*quickIndexQueryCount);
+    }
+    if (repeatQueryPercent) {
+      res["RepeatQueryPercent"] = boost::any(*repeatQueryPercent);
+    }
+    if (repeatQueryPercentNum) {
+      res["RepeatQueryPercentNum"] = boost::any(*repeatQueryPercentNum);
+    }
+    if (repeatSqlQueryCount) {
+      res["RepeatSqlQueryCount"] = boost::any(*repeatSqlQueryCount);
+    }
+    if (repeatSqlQueryPercent) {
+      res["RepeatSqlQueryPercent"] = boost::any(*repeatSqlQueryPercent);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (workspaceName) {
+      res["WorkspaceName"] = boost::any(*workspaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheCostTimeAvg") != m.end() && !m["CacheCostTimeAvg"].empty()) {
+      cacheCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["CacheCostTimeAvg"]));
+    }
+    if (m.find("CacheQueryCount") != m.end() && !m["CacheQueryCount"].empty()) {
+      cacheQueryCount = make_shared<long>(boost::any_cast<long>(m["CacheQueryCount"]));
+    }
+    if (m.find("CostTimeAvg") != m.end() && !m["CostTimeAvg"].empty()) {
+      costTimeAvg = make_shared<double>(boost::any_cast<double>(m["CostTimeAvg"]));
+    }
+    if (m.find("CubeId") != m.end() && !m["CubeId"].empty()) {
+      cubeId = make_shared<string>(boost::any_cast<string>(m["CubeId"]));
+    }
+    if (m.find("CubeName") != m.end() && !m["CubeName"].empty()) {
+      cubeName = make_shared<string>(boost::any_cast<string>(m["CubeName"]));
+    }
+    if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
+      queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
+    }
+    if (m.find("QueryCountAvg") != m.end() && !m["QueryCountAvg"].empty()) {
+      queryCountAvg = make_shared<double>(boost::any_cast<double>(m["QueryCountAvg"]));
+    }
+    if (m.find("QueryOverFivePercentNum") != m.end() && !m["QueryOverFivePercentNum"].empty()) {
+      queryOverFivePercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverFivePercentNum"]));
+    }
+    if (m.find("QueryOverFiveSecPercent") != m.end() && !m["QueryOverFiveSecPercent"].empty()) {
+      queryOverFiveSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverFiveSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercent") != m.end() && !m["QueryOverTenSecPercent"].empty()) {
+      queryOverTenSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverTenSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercentNum") != m.end() && !m["QueryOverTenSecPercentNum"].empty()) {
+      queryOverTenSecPercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverTenSecPercentNum"]));
+    }
+    if (m.find("QueryTimeoutCount") != m.end() && !m["QueryTimeoutCount"].empty()) {
+      queryTimeoutCount = make_shared<long>(boost::any_cast<long>(m["QueryTimeoutCount"]));
+    }
+    if (m.find("QueryTimeoutCountPercent") != m.end() && !m["QueryTimeoutCountPercent"].empty()) {
+      queryTimeoutCountPercent = make_shared<double>(boost::any_cast<double>(m["QueryTimeoutCountPercent"]));
+    }
+    if (m.find("QuickIndexCostTimeAvg") != m.end() && !m["QuickIndexCostTimeAvg"].empty()) {
+      quickIndexCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["QuickIndexCostTimeAvg"]));
+    }
+    if (m.find("QuickIndexQueryCount") != m.end() && !m["QuickIndexQueryCount"].empty()) {
+      quickIndexQueryCount = make_shared<long>(boost::any_cast<long>(m["QuickIndexQueryCount"]));
+    }
+    if (m.find("RepeatQueryPercent") != m.end() && !m["RepeatQueryPercent"].empty()) {
+      repeatQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatQueryPercent"]));
+    }
+    if (m.find("RepeatQueryPercentNum") != m.end() && !m["RepeatQueryPercentNum"].empty()) {
+      repeatQueryPercentNum = make_shared<double>(boost::any_cast<double>(m["RepeatQueryPercentNum"]));
+    }
+    if (m.find("RepeatSqlQueryCount") != m.end() && !m["RepeatSqlQueryCount"].empty()) {
+      repeatSqlQueryCount = make_shared<long>(boost::any_cast<long>(m["RepeatSqlQueryCount"]));
+    }
+    if (m.find("RepeatSqlQueryPercent") != m.end() && !m["RepeatSqlQueryPercent"].empty()) {
+      repeatSqlQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatSqlQueryPercent"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("WorkspaceName") != m.end() && !m["WorkspaceName"].empty()) {
+      workspaceName = make_shared<string>(boost::any_cast<string>(m["WorkspaceName"]));
+    }
+  }
+
+
+  virtual ~QueryCubePerformanceResponseBodyResult() = default;
+};
+class QueryCubePerformanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryCubePerformanceResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  QueryCubePerformanceResponseBody() {}
+
+  explicit QueryCubePerformanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<QueryCubePerformanceResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryCubePerformanceResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<QueryCubePerformanceResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryCubePerformanceResponseBody() = default;
+};
+class QueryCubePerformanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryCubePerformanceResponseBody> body{};
+
+  QueryCubePerformanceResponse() {}
+
+  explicit QueryCubePerformanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryCubePerformanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryCubePerformanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryCubePerformanceResponse() = default;
+};
 class QueryDataServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -10474,6 +11563,386 @@ public:
 
 
   virtual ~QueryReadableResourcesListByUserIdResponse() = default;
+};
+class QueryReportPerformanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> costTimeAvgMin{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> queryType{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> workspaceId{};
+
+  QueryReportPerformanceRequest() {}
+
+  explicit QueryReportPerformanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (costTimeAvgMin) {
+      res["CostTimeAvgMin"] = boost::any(*costTimeAvgMin);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (queryType) {
+      res["QueryType"] = boost::any(*queryType);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CostTimeAvgMin") != m.end() && !m["CostTimeAvgMin"].empty()) {
+      costTimeAvgMin = make_shared<long>(boost::any_cast<long>(m["CostTimeAvgMin"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("QueryType") != m.end() && !m["QueryType"].empty()) {
+      queryType = make_shared<string>(boost::any_cast<string>(m["QueryType"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~QueryReportPerformanceRequest() = default;
+};
+class QueryReportPerformanceResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<double> cacheCostTimeAvg{};
+  shared_ptr<long> cacheQueryCount{};
+  shared_ptr<long> componentQueryCount{};
+  shared_ptr<double> componentQueryCountAvg{};
+  shared_ptr<double> costTimeAvg{};
+  shared_ptr<long> queryCount{};
+  shared_ptr<double> queryCountAvg{};
+  shared_ptr<double> queryOverFivePercentNum{};
+  shared_ptr<string> queryOverFiveSecPercent{};
+  shared_ptr<string> queryOverTenSecPercent{};
+  shared_ptr<double> queryOverTenSecPercentNum{};
+  shared_ptr<long> queryTimeoutCount{};
+  shared_ptr<double> queryTimeoutCountPercent{};
+  shared_ptr<double> quickIndexCostTimeAvg{};
+  shared_ptr<long> quickIndexQueryCount{};
+  shared_ptr<string> repeatQueryPercent{};
+  shared_ptr<double> repeatQueryPercentNum{};
+  shared_ptr<long> repeatSqlQueryCount{};
+  shared_ptr<string> repeatSqlQueryPercent{};
+  shared_ptr<string> reportId{};
+  shared_ptr<string> reportName{};
+  shared_ptr<string> reportType{};
+  shared_ptr<string> workspaceId{};
+  shared_ptr<string> workspaceName{};
+
+  QueryReportPerformanceResponseBodyResult() {}
+
+  explicit QueryReportPerformanceResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cacheCostTimeAvg) {
+      res["CacheCostTimeAvg"] = boost::any(*cacheCostTimeAvg);
+    }
+    if (cacheQueryCount) {
+      res["CacheQueryCount"] = boost::any(*cacheQueryCount);
+    }
+    if (componentQueryCount) {
+      res["ComponentQueryCount"] = boost::any(*componentQueryCount);
+    }
+    if (componentQueryCountAvg) {
+      res["ComponentQueryCountAvg"] = boost::any(*componentQueryCountAvg);
+    }
+    if (costTimeAvg) {
+      res["CostTimeAvg"] = boost::any(*costTimeAvg);
+    }
+    if (queryCount) {
+      res["QueryCount"] = boost::any(*queryCount);
+    }
+    if (queryCountAvg) {
+      res["QueryCountAvg"] = boost::any(*queryCountAvg);
+    }
+    if (queryOverFivePercentNum) {
+      res["QueryOverFivePercentNum"] = boost::any(*queryOverFivePercentNum);
+    }
+    if (queryOverFiveSecPercent) {
+      res["QueryOverFiveSecPercent"] = boost::any(*queryOverFiveSecPercent);
+    }
+    if (queryOverTenSecPercent) {
+      res["QueryOverTenSecPercent"] = boost::any(*queryOverTenSecPercent);
+    }
+    if (queryOverTenSecPercentNum) {
+      res["QueryOverTenSecPercentNum"] = boost::any(*queryOverTenSecPercentNum);
+    }
+    if (queryTimeoutCount) {
+      res["QueryTimeoutCount"] = boost::any(*queryTimeoutCount);
+    }
+    if (queryTimeoutCountPercent) {
+      res["QueryTimeoutCountPercent"] = boost::any(*queryTimeoutCountPercent);
+    }
+    if (quickIndexCostTimeAvg) {
+      res["QuickIndexCostTimeAvg"] = boost::any(*quickIndexCostTimeAvg);
+    }
+    if (quickIndexQueryCount) {
+      res["QuickIndexQueryCount"] = boost::any(*quickIndexQueryCount);
+    }
+    if (repeatQueryPercent) {
+      res["RepeatQueryPercent"] = boost::any(*repeatQueryPercent);
+    }
+    if (repeatQueryPercentNum) {
+      res["RepeatQueryPercentNum"] = boost::any(*repeatQueryPercentNum);
+    }
+    if (repeatSqlQueryCount) {
+      res["RepeatSqlQueryCount"] = boost::any(*repeatSqlQueryCount);
+    }
+    if (repeatSqlQueryPercent) {
+      res["RepeatSqlQueryPercent"] = boost::any(*repeatSqlQueryPercent);
+    }
+    if (reportId) {
+      res["ReportId"] = boost::any(*reportId);
+    }
+    if (reportName) {
+      res["ReportName"] = boost::any(*reportName);
+    }
+    if (reportType) {
+      res["ReportType"] = boost::any(*reportType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    if (workspaceName) {
+      res["WorkspaceName"] = boost::any(*workspaceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CacheCostTimeAvg") != m.end() && !m["CacheCostTimeAvg"].empty()) {
+      cacheCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["CacheCostTimeAvg"]));
+    }
+    if (m.find("CacheQueryCount") != m.end() && !m["CacheQueryCount"].empty()) {
+      cacheQueryCount = make_shared<long>(boost::any_cast<long>(m["CacheQueryCount"]));
+    }
+    if (m.find("ComponentQueryCount") != m.end() && !m["ComponentQueryCount"].empty()) {
+      componentQueryCount = make_shared<long>(boost::any_cast<long>(m["ComponentQueryCount"]));
+    }
+    if (m.find("ComponentQueryCountAvg") != m.end() && !m["ComponentQueryCountAvg"].empty()) {
+      componentQueryCountAvg = make_shared<double>(boost::any_cast<double>(m["ComponentQueryCountAvg"]));
+    }
+    if (m.find("CostTimeAvg") != m.end() && !m["CostTimeAvg"].empty()) {
+      costTimeAvg = make_shared<double>(boost::any_cast<double>(m["CostTimeAvg"]));
+    }
+    if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
+      queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
+    }
+    if (m.find("QueryCountAvg") != m.end() && !m["QueryCountAvg"].empty()) {
+      queryCountAvg = make_shared<double>(boost::any_cast<double>(m["QueryCountAvg"]));
+    }
+    if (m.find("QueryOverFivePercentNum") != m.end() && !m["QueryOverFivePercentNum"].empty()) {
+      queryOverFivePercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverFivePercentNum"]));
+    }
+    if (m.find("QueryOverFiveSecPercent") != m.end() && !m["QueryOverFiveSecPercent"].empty()) {
+      queryOverFiveSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverFiveSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercent") != m.end() && !m["QueryOverTenSecPercent"].empty()) {
+      queryOverTenSecPercent = make_shared<string>(boost::any_cast<string>(m["QueryOverTenSecPercent"]));
+    }
+    if (m.find("QueryOverTenSecPercentNum") != m.end() && !m["QueryOverTenSecPercentNum"].empty()) {
+      queryOverTenSecPercentNum = make_shared<double>(boost::any_cast<double>(m["QueryOverTenSecPercentNum"]));
+    }
+    if (m.find("QueryTimeoutCount") != m.end() && !m["QueryTimeoutCount"].empty()) {
+      queryTimeoutCount = make_shared<long>(boost::any_cast<long>(m["QueryTimeoutCount"]));
+    }
+    if (m.find("QueryTimeoutCountPercent") != m.end() && !m["QueryTimeoutCountPercent"].empty()) {
+      queryTimeoutCountPercent = make_shared<double>(boost::any_cast<double>(m["QueryTimeoutCountPercent"]));
+    }
+    if (m.find("QuickIndexCostTimeAvg") != m.end() && !m["QuickIndexCostTimeAvg"].empty()) {
+      quickIndexCostTimeAvg = make_shared<double>(boost::any_cast<double>(m["QuickIndexCostTimeAvg"]));
+    }
+    if (m.find("QuickIndexQueryCount") != m.end() && !m["QuickIndexQueryCount"].empty()) {
+      quickIndexQueryCount = make_shared<long>(boost::any_cast<long>(m["QuickIndexQueryCount"]));
+    }
+    if (m.find("RepeatQueryPercent") != m.end() && !m["RepeatQueryPercent"].empty()) {
+      repeatQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatQueryPercent"]));
+    }
+    if (m.find("RepeatQueryPercentNum") != m.end() && !m["RepeatQueryPercentNum"].empty()) {
+      repeatQueryPercentNum = make_shared<double>(boost::any_cast<double>(m["RepeatQueryPercentNum"]));
+    }
+    if (m.find("RepeatSqlQueryCount") != m.end() && !m["RepeatSqlQueryCount"].empty()) {
+      repeatSqlQueryCount = make_shared<long>(boost::any_cast<long>(m["RepeatSqlQueryCount"]));
+    }
+    if (m.find("RepeatSqlQueryPercent") != m.end() && !m["RepeatSqlQueryPercent"].empty()) {
+      repeatSqlQueryPercent = make_shared<string>(boost::any_cast<string>(m["RepeatSqlQueryPercent"]));
+    }
+    if (m.find("ReportId") != m.end() && !m["ReportId"].empty()) {
+      reportId = make_shared<string>(boost::any_cast<string>(m["ReportId"]));
+    }
+    if (m.find("ReportName") != m.end() && !m["ReportName"].empty()) {
+      reportName = make_shared<string>(boost::any_cast<string>(m["ReportName"]));
+    }
+    if (m.find("ReportType") != m.end() && !m["ReportType"].empty()) {
+      reportType = make_shared<string>(boost::any_cast<string>(m["ReportType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+    if (m.find("WorkspaceName") != m.end() && !m["WorkspaceName"].empty()) {
+      workspaceName = make_shared<string>(boost::any_cast<string>(m["WorkspaceName"]));
+    }
+  }
+
+
+  virtual ~QueryReportPerformanceResponseBodyResult() = default;
+};
+class QueryReportPerformanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<QueryReportPerformanceResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  QueryReportPerformanceResponseBody() {}
+
+  explicit QueryReportPerformanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(vector<boost::any>) == m["Result"].type()) {
+        vector<QueryReportPerformanceResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryReportPerformanceResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<QueryReportPerformanceResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryReportPerformanceResponseBody() = default;
+};
+class QueryReportPerformanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryReportPerformanceResponseBody> body{};
+
+  QueryReportPerformanceResponse() {}
+
+  explicit QueryReportPerformanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryReportPerformanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryReportPerformanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryReportPerformanceResponse() = default;
 };
 class QueryShareListRequest : public Darabonba::Model {
 public:
@@ -17110,6 +18579,12 @@ public:
   ListUserGroupsByUserIdResponse listUserGroupsByUserId(shared_ptr<ListUserGroupsByUserIdRequest> request);
   ModifyApiDatasourceParametersResponse modifyApiDatasourceParametersWithOptions(shared_ptr<ModifyApiDatasourceParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiDatasourceParametersResponse modifyApiDatasourceParameters(shared_ptr<ModifyApiDatasourceParametersRequest> request);
+  QueryComponentPerformanceResponse queryComponentPerformanceWithOptions(shared_ptr<QueryComponentPerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryComponentPerformanceResponse queryComponentPerformance(shared_ptr<QueryComponentPerformanceRequest> request);
+  QueryCubeOptimizationResponse queryCubeOptimizationWithOptions(shared_ptr<QueryCubeOptimizationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCubeOptimizationResponse queryCubeOptimization(shared_ptr<QueryCubeOptimizationRequest> request);
+  QueryCubePerformanceResponse queryCubePerformanceWithOptions(shared_ptr<QueryCubePerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryCubePerformanceResponse queryCubePerformance(shared_ptr<QueryCubePerformanceRequest> request);
   QueryDataServiceResponse queryDataServiceWithOptions(shared_ptr<QueryDataServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryDataServiceResponse queryDataService(shared_ptr<QueryDataServiceRequest> request);
   QueryDatasetDetailInfoResponse queryDatasetDetailInfoWithOptions(shared_ptr<QueryDatasetDetailInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -17128,6 +18603,8 @@ public:
   QueryOrganizationWorkspaceListResponse queryOrganizationWorkspaceList(shared_ptr<QueryOrganizationWorkspaceListRequest> request);
   QueryReadableResourcesListByUserIdResponse queryReadableResourcesListByUserIdWithOptions(shared_ptr<QueryReadableResourcesListByUserIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryReadableResourcesListByUserIdResponse queryReadableResourcesListByUserId(shared_ptr<QueryReadableResourcesListByUserIdRequest> request);
+  QueryReportPerformanceResponse queryReportPerformanceWithOptions(shared_ptr<QueryReportPerformanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryReportPerformanceResponse queryReportPerformance(shared_ptr<QueryReportPerformanceRequest> request);
   QueryShareListResponse queryShareListWithOptions(shared_ptr<QueryShareListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryShareListResponse queryShareList(shared_ptr<QueryShareListRequest> request);
   QuerySharesToUserListResponse querySharesToUserListWithOptions(shared_ptr<QuerySharesToUserListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
