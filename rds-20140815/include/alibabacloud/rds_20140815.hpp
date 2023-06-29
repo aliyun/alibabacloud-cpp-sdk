@@ -432,6 +432,7 @@ public:
   shared_ptr<string> generalGroupName{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> PGBouncerPort{};
   shared_ptr<string> port{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -464,6 +465,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (PGBouncerPort) {
+      res["PGBouncerPort"] = boost::any(*PGBouncerPort);
+    }
     if (port) {
       res["Port"] = boost::any(*port);
     }
@@ -494,6 +498,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PGBouncerPort") != m.end() && !m["PGBouncerPort"].empty()) {
+      PGBouncerPort = make_shared<string>(boost::any_cast<string>(m["PGBouncerPort"]));
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
@@ -5355,6 +5362,7 @@ public:
   shared_ptr<vector<CreateDBInstanceEndpointRequestNodeItems>> nodeItems{};
   shared_ptr<string> port{};
   shared_ptr<string> privateIpAddress{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -5396,6 +5404,9 @@ public:
     }
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
@@ -5444,6 +5455,9 @@ public:
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
@@ -5468,6 +5482,7 @@ public:
   shared_ptr<string> nodeItemsShrink{};
   shared_ptr<string> port{};
   shared_ptr<string> privateIpAddress{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -5506,6 +5521,9 @@ public:
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
@@ -5542,6 +5560,9 @@ public:
     }
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
@@ -5710,6 +5731,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> ipType{};
   shared_ptr<string> port{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<long> resourceOwnerId{};
 
   CreateDBInstanceEndpointAddressRequest() {}
@@ -5740,6 +5762,9 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
@@ -5764,6 +5789,9 @@ public:
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
@@ -6249,6 +6277,7 @@ public:
   shared_ptr<vector<CreateDBNodesRequestDBNode>> DBNode{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -6280,6 +6309,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -6316,6 +6348,9 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -6334,6 +6369,7 @@ public:
   shared_ptr<string> DBNodeShrink{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -6362,6 +6398,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -6386,6 +6425,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -20170,6 +20212,7 @@ public:
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOMBPS{};
   shared_ptr<long> maxIOPS{};
+  shared_ptr<string> PGBouncerEnabled{};
   shared_ptr<string> payType{};
   shared_ptr<string> port{};
   shared_ptr<long> proxyType{};
@@ -20345,6 +20388,9 @@ public:
     }
     if (maxIOPS) {
       res["MaxIOPS"] = boost::any(*maxIOPS);
+    }
+    if (PGBouncerEnabled) {
+      res["PGBouncerEnabled"] = boost::any(*PGBouncerEnabled);
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
@@ -20568,6 +20614,9 @@ public:
     }
     if (m.find("MaxIOPS") != m.end() && !m["MaxIOPS"].empty()) {
       maxIOPS = make_shared<long>(boost::any_cast<long>(m["MaxIOPS"]));
+    }
+    if (m.find("PGBouncerEnabled") != m.end() && !m["PGBouncerEnabled"].empty()) {
+      PGBouncerEnabled = make_shared<string>(boost::any_cast<string>(m["PGBouncerEnabled"]));
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
@@ -23612,6 +23661,7 @@ public:
   shared_ptr<string> IPAddress{};
   shared_ptr<string> IPType{};
   shared_ptr<string> maxDelayTime{};
+  shared_ptr<string> PGBouncerPort{};
   shared_ptr<string> port{};
   shared_ptr<DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosDBInstanceNetInfoSecurityIPGroups> securityIPGroups{};
   shared_ptr<string> upgradeable{};
@@ -23654,6 +23704,9 @@ public:
     }
     if (maxDelayTime) {
       res["MaxDelayTime"] = boost::any(*maxDelayTime);
+    }
+    if (PGBouncerPort) {
+      res["PGBouncerPort"] = boost::any(*PGBouncerPort);
     }
     if (port) {
       res["Port"] = boost::any(*port);
@@ -23704,6 +23757,9 @@ public:
     }
     if (m.find("MaxDelayTime") != m.end() && !m["MaxDelayTime"].empty()) {
       maxDelayTime = make_shared<string>(boost::any_cast<string>(m["MaxDelayTime"]));
+    }
+    if (m.find("PGBouncerPort") != m.end() && !m["PGBouncerPort"].empty()) {
+      PGBouncerPort = make_shared<string>(boost::any_cast<string>(m["PGBouncerPort"]));
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
@@ -52955,6 +53011,7 @@ public:
   shared_ptr<string> generalGroupName{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> PGBouncerPort{};
   shared_ptr<string> port{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -52990,6 +53047,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (PGBouncerPort) {
+      res["PGBouncerPort"] = boost::any(*PGBouncerPort);
+    }
     if (port) {
       res["Port"] = boost::any(*port);
     }
@@ -53023,6 +53083,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PGBouncerPort") != m.end() && !m["PGBouncerPort"].empty()) {
+      PGBouncerPort = make_shared<string>(boost::any_cast<string>(m["PGBouncerPort"]));
     }
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));

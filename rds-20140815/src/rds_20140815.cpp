@@ -202,6 +202,9 @@ AllocateInstancePublicConnectionResponse Alibabacloud_Rds20140815::Client::alloc
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->PGBouncerPort)) {
+    query->insert(pair<string, string>("PGBouncerPort", *request->PGBouncerPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->port)) {
     query->insert(pair<string, string>("Port", *request->port));
   }
@@ -1349,6 +1352,9 @@ CreateDBInstanceEndpointResponse Alibabacloud_Rds20140815::Client::createDBInsta
   if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
     query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
@@ -1400,6 +1406,9 @@ CreateDBInstanceEndpointAddressResponse Alibabacloud_Rds20140815::Client::create
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->port)) {
     query->insert(pair<string, string>("Port", *request->port));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
@@ -1536,6 +1545,9 @@ CreateDBNodesResponse Alibabacloud_Rds20140815::Client::createDBNodesWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
@@ -9324,6 +9336,9 @@ ModifyDBInstanceConnectionStringResponse Alibabacloud_Rds20140815::Client::modif
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->PGBouncerPort)) {
+    query->insert(pair<string, string>("PGBouncerPort", *request->PGBouncerPort));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->port)) {
     query->insert(pair<string, string>("Port", *request->port));
