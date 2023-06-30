@@ -44379,11 +44379,13 @@ class ListTaskFlowsByPageResponseBodyTaskFlowListTaskFlow : public Darabonba::Mo
 public:
   shared_ptr<string> creatorId{};
   shared_ptr<string> creatorNickName{};
-  shared_ptr<string> cronParam{};
+  shared_ptr<string> cronBeginDate{};
+  shared_ptr<string> cronEndDate{};
   shared_ptr<string> cronStr{};
   shared_ptr<bool> cronSwitch{};
   shared_ptr<long> cronType{};
   shared_ptr<string> dagName{};
+  shared_ptr<string> dagOwnerId{};
   shared_ptr<string> dagOwnerNickName{};
   shared_ptr<long> deployId{};
   shared_ptr<string> description{};
@@ -44391,6 +44393,7 @@ public:
   shared_ptr<long> latestInstanceStatus{};
   shared_ptr<string> latestInstanceTime{};
   shared_ptr<string> scenarioId{};
+  shared_ptr<string> scheduleParam{};
   shared_ptr<long> status{};
   shared_ptr<string> timeZoneId{};
   shared_ptr<long> triggerType{};
@@ -44411,8 +44414,11 @@ public:
     if (creatorNickName) {
       res["CreatorNickName"] = boost::any(*creatorNickName);
     }
-    if (cronParam) {
-      res["CronParam"] = boost::any(*cronParam);
+    if (cronBeginDate) {
+      res["CronBeginDate"] = boost::any(*cronBeginDate);
+    }
+    if (cronEndDate) {
+      res["CronEndDate"] = boost::any(*cronEndDate);
     }
     if (cronStr) {
       res["CronStr"] = boost::any(*cronStr);
@@ -44425,6 +44431,9 @@ public:
     }
     if (dagName) {
       res["DagName"] = boost::any(*dagName);
+    }
+    if (dagOwnerId) {
+      res["DagOwnerId"] = boost::any(*dagOwnerId);
     }
     if (dagOwnerNickName) {
       res["DagOwnerNickName"] = boost::any(*dagOwnerNickName);
@@ -44447,6 +44456,9 @@ public:
     if (scenarioId) {
       res["ScenarioId"] = boost::any(*scenarioId);
     }
+    if (scheduleParam) {
+      res["ScheduleParam"] = boost::any(*scheduleParam);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -44466,8 +44478,11 @@ public:
     if (m.find("CreatorNickName") != m.end() && !m["CreatorNickName"].empty()) {
       creatorNickName = make_shared<string>(boost::any_cast<string>(m["CreatorNickName"]));
     }
-    if (m.find("CronParam") != m.end() && !m["CronParam"].empty()) {
-      cronParam = make_shared<string>(boost::any_cast<string>(m["CronParam"]));
+    if (m.find("CronBeginDate") != m.end() && !m["CronBeginDate"].empty()) {
+      cronBeginDate = make_shared<string>(boost::any_cast<string>(m["CronBeginDate"]));
+    }
+    if (m.find("CronEndDate") != m.end() && !m["CronEndDate"].empty()) {
+      cronEndDate = make_shared<string>(boost::any_cast<string>(m["CronEndDate"]));
     }
     if (m.find("CronStr") != m.end() && !m["CronStr"].empty()) {
       cronStr = make_shared<string>(boost::any_cast<string>(m["CronStr"]));
@@ -44480,6 +44495,9 @@ public:
     }
     if (m.find("DagName") != m.end() && !m["DagName"].empty()) {
       dagName = make_shared<string>(boost::any_cast<string>(m["DagName"]));
+    }
+    if (m.find("DagOwnerId") != m.end() && !m["DagOwnerId"].empty()) {
+      dagOwnerId = make_shared<string>(boost::any_cast<string>(m["DagOwnerId"]));
     }
     if (m.find("DagOwnerNickName") != m.end() && !m["DagOwnerNickName"].empty()) {
       dagOwnerNickName = make_shared<string>(boost::any_cast<string>(m["DagOwnerNickName"]));
@@ -44501,6 +44519,9 @@ public:
     }
     if (m.find("ScenarioId") != m.end() && !m["ScenarioId"].empty()) {
       scenarioId = make_shared<string>(boost::any_cast<string>(m["ScenarioId"]));
+    }
+    if (m.find("ScheduleParam") != m.end() && !m["ScheduleParam"].empty()) {
+      scheduleParam = make_shared<string>(boost::any_cast<string>(m["ScheduleParam"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
