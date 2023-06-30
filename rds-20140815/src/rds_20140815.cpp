@@ -9059,6 +9059,9 @@ ModifyBackupPolicyResponse Alibabacloud_Rds20140815::Client::modifyBackupPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->backupPolicyMode)) {
     query->insert(pair<string, string>("BackupPolicyMode", *request->backupPolicyMode));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->backupPriority)) {
+    query->insert(pair<string, long>("BackupPriority", *request->backupPriority));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->backupRetentionPeriod)) {
     query->insert(pair<string, string>("BackupRetentionPeriod", *request->backupRetentionPeriod));
   }

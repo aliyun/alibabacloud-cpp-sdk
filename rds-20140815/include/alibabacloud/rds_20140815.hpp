@@ -15612,6 +15612,7 @@ public:
   shared_ptr<string> backupInterval{};
   shared_ptr<string> backupLog{};
   shared_ptr<string> backupMethod{};
+  shared_ptr<long> backupPriority{};
   shared_ptr<long> backupRetentionPeriod{};
   shared_ptr<string> category{};
   shared_ptr<string> compressType{};
@@ -15628,6 +15629,7 @@ public:
   shared_ptr<string> preferredNextBackupTime{};
   shared_ptr<string> releasedKeepPolicy{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> supportModifyBackupPriority{};
   shared_ptr<long> supportReleasedKeep{};
   shared_ptr<long> supportVolumeShadowCopy{};
 
@@ -15658,6 +15660,9 @@ public:
     }
     if (backupMethod) {
       res["BackupMethod"] = boost::any(*backupMethod);
+    }
+    if (backupPriority) {
+      res["BackupPriority"] = boost::any(*backupPriority);
     }
     if (backupRetentionPeriod) {
       res["BackupRetentionPeriod"] = boost::any(*backupRetentionPeriod);
@@ -15707,6 +15712,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (supportModifyBackupPriority) {
+      res["SupportModifyBackupPriority"] = boost::any(*supportModifyBackupPriority);
+    }
     if (supportReleasedKeep) {
       res["SupportReleasedKeep"] = boost::any(*supportReleasedKeep);
     }
@@ -15734,6 +15742,9 @@ public:
     }
     if (m.find("BackupMethod") != m.end() && !m["BackupMethod"].empty()) {
       backupMethod = make_shared<string>(boost::any_cast<string>(m["BackupMethod"]));
+    }
+    if (m.find("BackupPriority") != m.end() && !m["BackupPriority"].empty()) {
+      backupPriority = make_shared<long>(boost::any_cast<long>(m["BackupPriority"]));
     }
     if (m.find("BackupRetentionPeriod") != m.end() && !m["BackupRetentionPeriod"].empty()) {
       backupRetentionPeriod = make_shared<long>(boost::any_cast<long>(m["BackupRetentionPeriod"]));
@@ -15782,6 +15793,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SupportModifyBackupPriority") != m.end() && !m["SupportModifyBackupPriority"].empty()) {
+      supportModifyBackupPriority = make_shared<bool>(boost::any_cast<bool>(m["SupportModifyBackupPriority"]));
     }
     if (m.find("SupportReleasedKeep") != m.end() && !m["SupportReleasedKeep"].empty()) {
       supportReleasedKeep = make_shared<long>(boost::any_cast<long>(m["SupportReleasedKeep"]));
@@ -52012,6 +52026,7 @@ public:
   shared_ptr<string> backupLog{};
   shared_ptr<string> backupMethod{};
   shared_ptr<string> backupPolicyMode{};
+  shared_ptr<long> backupPriority{};
   shared_ptr<string> backupRetentionPeriod{};
   shared_ptr<string> category{};
   shared_ptr<string> compressType{};
@@ -52062,6 +52077,9 @@ public:
     }
     if (backupPolicyMode) {
       res["BackupPolicyMode"] = boost::any(*backupPolicyMode);
+    }
+    if (backupPriority) {
+      res["BackupPriority"] = boost::any(*backupPriority);
     }
     if (backupRetentionPeriod) {
       res["BackupRetentionPeriod"] = boost::any(*backupRetentionPeriod);
@@ -52144,6 +52162,9 @@ public:
     }
     if (m.find("BackupPolicyMode") != m.end() && !m["BackupPolicyMode"].empty()) {
       backupPolicyMode = make_shared<string>(boost::any_cast<string>(m["BackupPolicyMode"]));
+    }
+    if (m.find("BackupPriority") != m.end() && !m["BackupPriority"].empty()) {
+      backupPriority = make_shared<long>(boost::any_cast<long>(m["BackupPriority"]));
     }
     if (m.find("BackupRetentionPeriod") != m.end() && !m["BackupRetentionPeriod"].empty()) {
       backupRetentionPeriod = make_shared<string>(boost::any_cast<string>(m["BackupRetentionPeriod"]));
