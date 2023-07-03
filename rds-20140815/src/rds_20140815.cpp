@@ -6933,6 +6933,9 @@ DescribePriceResponse Alibabacloud_Rds20140815::Client::describePriceWithOptions
   if (!Darabonba_Util::Client::isUnset<vector<DescribePriceRequestDBNode>>(tmpReq->DBNode)) {
     request->DBNodeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->DBNode, make_shared<string>("DBNode"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<DescribePriceRequestServerlessConfig>(tmpReq->serverlessConfig)) {
+    request->serverlessConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serverlessConfig, make_shared<string>("ServerlessConfig"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -6987,6 +6990,9 @@ DescribePriceResponse Alibabacloud_Rds20140815::Client::describePriceWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serverlessConfigShrink)) {
+    query->insert(pair<string, string>("ServerlessConfig", *request->serverlessConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeType)) {
     query->insert(pair<string, string>("TimeType", *request->timeType));

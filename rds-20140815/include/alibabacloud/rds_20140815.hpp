@@ -39852,6 +39852,42 @@ public:
 
   virtual ~DescribePriceRequestDBNode() = default;
 };
+class DescribePriceRequestServerlessConfig : public Darabonba::Model {
+public:
+  shared_ptr<double> maxCapacity{};
+  shared_ptr<double> minCapacity{};
+
+  DescribePriceRequestServerlessConfig() {}
+
+  explicit DescribePriceRequestServerlessConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxCapacity) {
+      res["MaxCapacity"] = boost::any(*maxCapacity);
+    }
+    if (minCapacity) {
+      res["MinCapacity"] = boost::any(*minCapacity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxCapacity") != m.end() && !m["MaxCapacity"].empty()) {
+      maxCapacity = make_shared<double>(boost::any_cast<double>(m["MaxCapacity"]));
+    }
+    if (m.find("MinCapacity") != m.end() && !m["MinCapacity"].empty()) {
+      minCapacity = make_shared<double>(boost::any_cast<double>(m["MinCapacity"]));
+    }
+  }
+
+
+  virtual ~DescribePriceRequestServerlessConfig() = default;
+};
 class DescribePriceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -39872,6 +39908,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<DescribePriceRequestServerlessConfig> serverlessConfig{};
   shared_ptr<string> timeType{};
   shared_ptr<long> usedTime{};
   shared_ptr<string> zoneId{};
@@ -39943,6 +39980,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (serverlessConfig) {
+      res["ServerlessConfig"] = serverlessConfig ? boost::any(serverlessConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (timeType) {
       res["TimeType"] = boost::any(*timeType);
@@ -40021,6 +40061,13 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("ServerlessConfig") != m.end() && !m["ServerlessConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServerlessConfig"].type()) {
+        DescribePriceRequestServerlessConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServerlessConfig"]));
+        serverlessConfig = make_shared<DescribePriceRequestServerlessConfig>(model1);
+      }
+    }
     if (m.find("TimeType") != m.end() && !m["TimeType"].empty()) {
       timeType = make_shared<string>(boost::any_cast<string>(m["TimeType"]));
     }
@@ -40055,6 +40102,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> serverlessConfigShrink{};
   shared_ptr<string> timeType{};
   shared_ptr<long> usedTime{};
   shared_ptr<string> zoneId{};
@@ -40123,6 +40171,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (serverlessConfigShrink) {
+      res["ServerlessConfig"] = boost::any(*serverlessConfigShrink);
+    }
     if (timeType) {
       res["TimeType"] = boost::any(*timeType);
     }
@@ -40189,6 +40240,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ServerlessConfig") != m.end() && !m["ServerlessConfig"].empty()) {
+      serverlessConfigShrink = make_shared<string>(boost::any_cast<string>(m["ServerlessConfig"]));
     }
     if (m.find("TimeType") != m.end() && !m["TimeType"].empty()) {
       timeType = make_shared<string>(boost::any_cast<string>(m["TimeType"]));
@@ -40551,6 +40605,8 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<DescribePriceResponseBodyRules> rules{};
   shared_ptr<bool> showDiscount{};
+  shared_ptr<double> tradeMaxRCUAmount{};
+  shared_ptr<double> tradeMinRCUAmount{};
 
   DescribePriceResponseBody() {}
 
@@ -40573,6 +40629,12 @@ public:
     }
     if (showDiscount) {
       res["ShowDiscount"] = boost::any(*showDiscount);
+    }
+    if (tradeMaxRCUAmount) {
+      res["TradeMaxRCUAmount"] = boost::any(*tradeMaxRCUAmount);
+    }
+    if (tradeMinRCUAmount) {
+      res["TradeMinRCUAmount"] = boost::any(*tradeMinRCUAmount);
     }
     return res;
   }
@@ -40597,6 +40659,12 @@ public:
     }
     if (m.find("ShowDiscount") != m.end() && !m["ShowDiscount"].empty()) {
       showDiscount = make_shared<bool>(boost::any_cast<bool>(m["ShowDiscount"]));
+    }
+    if (m.find("TradeMaxRCUAmount") != m.end() && !m["TradeMaxRCUAmount"].empty()) {
+      tradeMaxRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMaxRCUAmount"]));
+    }
+    if (m.find("TradeMinRCUAmount") != m.end() && !m["TradeMinRCUAmount"].empty()) {
+      tradeMinRCUAmount = make_shared<double>(boost::any_cast<double>(m["TradeMinRCUAmount"]));
     }
   }
 
