@@ -9,6 +9,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -209,6 +210,239 @@ public:
 
 
   virtual ~CreateAsyncPredictResponse() = default;
+};
+class FindUserReport4AlinlpRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> beginTime{};
+  shared_ptr<long> customerUserParentId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> modelType{};
+  shared_ptr<string> type{};
+
+  FindUserReport4AlinlpRequest() {}
+
+  explicit FindUserReport4AlinlpRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (customerUserParentId) {
+      res["CustomerUserParentId"] = boost::any(*customerUserParentId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (modelType) {
+      res["ModelType"] = boost::any(*modelType);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
+    }
+    if (m.find("CustomerUserParentId") != m.end() && !m["CustomerUserParentId"].empty()) {
+      customerUserParentId = make_shared<long>(boost::any_cast<long>(m["CustomerUserParentId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ModelType") != m.end() && !m["ModelType"].empty()) {
+      modelType = make_shared<string>(boost::any_cast<string>(m["ModelType"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~FindUserReport4AlinlpRequest() = default;
+};
+class FindUserReport4AlinlpResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> failCount{};
+  shared_ptr<long> qpsMax{};
+  shared_ptr<string> rptTime{};
+  shared_ptr<long> successCount{};
+  shared_ptr<long> totalCount{};
+
+  FindUserReport4AlinlpResponseBodyData() {}
+
+  explicit FindUserReport4AlinlpResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failCount) {
+      res["FailCount"] = boost::any(*failCount);
+    }
+    if (qpsMax) {
+      res["QpsMax"] = boost::any(*qpsMax);
+    }
+    if (rptTime) {
+      res["RptTime"] = boost::any(*rptTime);
+    }
+    if (successCount) {
+      res["SuccessCount"] = boost::any(*successCount);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
+    }
+    if (m.find("QpsMax") != m.end() && !m["QpsMax"].empty()) {
+      qpsMax = make_shared<long>(boost::any_cast<long>(m["QpsMax"]));
+    }
+    if (m.find("RptTime") != m.end() && !m["RptTime"].empty()) {
+      rptTime = make_shared<string>(boost::any_cast<string>(m["RptTime"]));
+    }
+    if (m.find("SuccessCount") != m.end() && !m["SuccessCount"].empty()) {
+      successCount = make_shared<long>(boost::any_cast<long>(m["SuccessCount"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~FindUserReport4AlinlpResponseBodyData() = default;
+};
+class FindUserReport4AlinlpResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<vector<FindUserReport4AlinlpResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  FindUserReport4AlinlpResponseBody() {}
+
+  explicit FindUserReport4AlinlpResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<FindUserReport4AlinlpResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FindUserReport4AlinlpResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<FindUserReport4AlinlpResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~FindUserReport4AlinlpResponseBody() = default;
+};
+class FindUserReport4AlinlpResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FindUserReport4AlinlpResponseBody> body{};
+
+  FindUserReport4AlinlpResponse() {}
+
+  explicit FindUserReport4AlinlpResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FindUserReport4AlinlpResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FindUserReport4AlinlpResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FindUserReport4AlinlpResponse() = default;
 };
 class GetAsyncPredictRequest : public Darabonba::Model {
 public:
@@ -551,6 +785,7 @@ public:
 };
 class RunPreTrainServiceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> billingCount{};
   shared_ptr<string> predictResult{};
   shared_ptr<string> requestId{};
 
@@ -564,6 +799,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (billingCount) {
+      res["BillingCount"] = boost::any(*billingCount);
+    }
     if (predictResult) {
       res["PredictResult"] = boost::any(*predictResult);
     }
@@ -574,6 +812,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillingCount") != m.end() && !m["BillingCount"].empty()) {
+      billingCount = make_shared<long>(boost::any_cast<long>(m["BillingCount"]));
+    }
     if (m.find("PredictResult") != m.end() && !m["PredictResult"].empty()) {
       predictResult = make_shared<string>(boost::any_cast<string>(m["PredictResult"]));
     }
@@ -647,6 +888,154 @@ public:
 
   virtual ~RunPreTrainServiceResponse() = default;
 };
+class RunPreTrainServiceNewRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> predictContent{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> serviceVersion{};
+
+  RunPreTrainServiceNewRequest() {}
+
+  explicit RunPreTrainServiceNewRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (predictContent) {
+      res["PredictContent"] = boost::any(*predictContent);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (serviceVersion) {
+      res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PredictContent") != m.end() && !m["PredictContent"].empty()) {
+      predictContent = make_shared<string>(boost::any_cast<string>(m["PredictContent"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
+      serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+  }
+
+
+  virtual ~RunPreTrainServiceNewRequest() = default;
+};
+class RunPreTrainServiceNewResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> billingCount{};
+  shared_ptr<string> predictResult{};
+  shared_ptr<string> requestId{};
+
+  RunPreTrainServiceNewResponseBody() {}
+
+  explicit RunPreTrainServiceNewResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (billingCount) {
+      res["BillingCount"] = boost::any(*billingCount);
+    }
+    if (predictResult) {
+      res["PredictResult"] = boost::any(*predictResult);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BillingCount") != m.end() && !m["BillingCount"].empty()) {
+      billingCount = make_shared<long>(boost::any_cast<long>(m["BillingCount"]));
+    }
+    if (m.find("PredictResult") != m.end() && !m["PredictResult"].empty()) {
+      predictResult = make_shared<string>(boost::any_cast<string>(m["PredictResult"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RunPreTrainServiceNewResponseBody() = default;
+};
+class RunPreTrainServiceNewResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RunPreTrainServiceNewResponseBody> body{};
+
+  RunPreTrainServiceNewResponse() {}
+
+  explicit RunPreTrainServiceNewResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RunPreTrainServiceNewResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RunPreTrainServiceNewResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RunPreTrainServiceNewResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -659,12 +1048,16 @@ public:
                      shared_ptr<string> endpoint);
   CreateAsyncPredictResponse createAsyncPredictWithOptions(shared_ptr<CreateAsyncPredictRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAsyncPredictResponse createAsyncPredict(shared_ptr<CreateAsyncPredictRequest> request);
+  FindUserReport4AlinlpResponse findUserReport4AlinlpWithOptions(shared_ptr<FindUserReport4AlinlpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FindUserReport4AlinlpResponse findUserReport4Alinlp(shared_ptr<FindUserReport4AlinlpRequest> request);
   GetAsyncPredictResponse getAsyncPredictWithOptions(shared_ptr<GetAsyncPredictRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncPredictResponse getAsyncPredict(shared_ptr<GetAsyncPredictRequest> request);
   GetPredictResultResponse getPredictResultWithOptions(shared_ptr<GetPredictResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPredictResultResponse getPredictResult(shared_ptr<GetPredictResultRequest> request);
   RunPreTrainServiceResponse runPreTrainServiceWithOptions(shared_ptr<RunPreTrainServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RunPreTrainServiceResponse runPreTrainService(shared_ptr<RunPreTrainServiceRequest> request);
+  RunPreTrainServiceNewResponse runPreTrainServiceNewWithOptions(shared_ptr<RunPreTrainServiceNewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RunPreTrainServiceNewResponse runPreTrainServiceNew(shared_ptr<RunPreTrainServiceNewRequest> request);
 
   virtual ~Client() = default;
 };

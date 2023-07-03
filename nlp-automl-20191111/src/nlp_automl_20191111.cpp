@@ -10,6 +10,7 @@
 #include <darabonba/util.hpp>
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -93,6 +94,46 @@ CreateAsyncPredictResponse Alibabacloud_Nlp-automl20191111::Client::createAsyncP
 CreateAsyncPredictResponse Alibabacloud_Nlp-automl20191111::Client::createAsyncPredict(shared_ptr<CreateAsyncPredictRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createAsyncPredictWithOptions(request, runtime);
+}
+
+FindUserReport4AlinlpResponse Alibabacloud_Nlp-automl20191111::Client::findUserReport4AlinlpWithOptions(shared_ptr<FindUserReport4AlinlpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->beginTime)) {
+    body->insert(pair<string, string>("BeginTime", *request->beginTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->customerUserParentId)) {
+    body->insert(pair<string, long>("CustomerUserParentId", *request->customerUserParentId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    body->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelType)) {
+    body->insert(pair<string, string>("ModelType", *request->modelType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("FindUserReport4Alinlp"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return FindUserReport4AlinlpResponse(callApi(params, req, runtime));
+}
+
+FindUserReport4AlinlpResponse Alibabacloud_Nlp-automl20191111::Client::findUserReport4Alinlp(shared_ptr<FindUserReport4AlinlpRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return findUserReport4AlinlpWithOptions(request, runtime);
 }
 
 GetAsyncPredictResponse Alibabacloud_Nlp-automl20191111::Client::getAsyncPredictWithOptions(shared_ptr<GetAsyncPredictRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -192,5 +233,39 @@ RunPreTrainServiceResponse Alibabacloud_Nlp-automl20191111::Client::runPreTrainS
 RunPreTrainServiceResponse Alibabacloud_Nlp-automl20191111::Client::runPreTrainService(shared_ptr<RunPreTrainServiceRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return runPreTrainServiceWithOptions(request, runtime);
+}
+
+RunPreTrainServiceNewResponse Alibabacloud_Nlp-automl20191111::Client::runPreTrainServiceNewWithOptions(shared_ptr<RunPreTrainServiceNewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->predictContent)) {
+    body->insert(pair<string, string>("PredictContent", *request->predictContent));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    body->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
+    body->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunPreTrainServiceNew"))},
+    {"version", boost::any(string("2019-11-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunPreTrainServiceNewResponse(callApi(params, req, runtime));
+}
+
+RunPreTrainServiceNewResponse Alibabacloud_Nlp-automl20191111::Client::runPreTrainServiceNew(shared_ptr<RunPreTrainServiceNewRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return runPreTrainServiceNewWithOptions(request, runtime);
 }
 
