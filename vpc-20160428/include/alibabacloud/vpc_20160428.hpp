@@ -1572,7 +1572,9 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> ISP{};
   shared_ptr<string> instanceChargeType{};
+  shared_ptr<string> instanceId{};
   shared_ptr<string> internetChargeType{};
+  shared_ptr<string> ipAddress{};
   shared_ptr<string> name{};
   shared_ptr<string> netmode{};
   shared_ptr<string> ownerAccount{};
@@ -1585,6 +1587,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<string>> securityProtectionTypes{};
+  shared_ptr<string> zone{};
 
   AllocateEipAddressRequest() {}
 
@@ -1617,8 +1620,14 @@ public:
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
     }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (internetChargeType) {
       res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -1656,6 +1665,9 @@ public:
     if (securityProtectionTypes) {
       res["SecurityProtectionTypes"] = boost::any(*securityProtectionTypes);
     }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
     return res;
   }
 
@@ -1681,8 +1693,14 @@ public:
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
     }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
     if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
       internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -1726,6 +1744,9 @@ public:
         }
       }
       securityProtectionTypes = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
     }
   }
 
@@ -2146,6 +2167,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> zone{};
 
   AllocateEipSegmentAddressRequest() {}
 
@@ -2193,6 +2215,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
     return res;
   }
 
@@ -2233,6 +2258,9 @@ public:
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
+    }
   }
 
 
@@ -2241,7 +2269,6 @@ public:
 class AllocateEipSegmentAddressResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> eipSegmentInstanceId{};
-  shared_ptr<long> orderId{};
   shared_ptr<string> requestId{};
 
   AllocateEipSegmentAddressResponseBody() {}
@@ -2257,9 +2284,6 @@ public:
     if (eipSegmentInstanceId) {
       res["EipSegmentInstanceId"] = boost::any(*eipSegmentInstanceId);
     }
-    if (orderId) {
-      res["OrderId"] = boost::any(*orderId);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -2269,9 +2293,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("EipSegmentInstanceId") != m.end() && !m["EipSegmentInstanceId"].empty()) {
       eipSegmentInstanceId = make_shared<string>(boost::any_cast<string>(m["EipSegmentInstanceId"]));
-    }
-    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
-      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -4720,6 +4741,7 @@ class AssociateVpcCidrBlockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> IPv6CidrBlock{};
   shared_ptr<string> ipVersion{};
+  shared_ptr<string> ipamPoolId{};
   shared_ptr<string> ipv6Isp{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -4744,6 +4766,9 @@ public:
     }
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
+    }
+    if (ipamPoolId) {
+      res["IpamPoolId"] = boost::any(*ipamPoolId);
     }
     if (ipv6Isp) {
       res["Ipv6Isp"] = boost::any(*ipv6Isp);
@@ -4778,6 +4803,9 @@ public:
     }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
+    if (m.find("IpamPoolId") != m.end() && !m["IpamPoolId"].empty()) {
+      ipamPoolId = make_shared<string>(boost::any_cast<string>(m["IpamPoolId"]));
     }
     if (m.find("Ipv6Isp") != m.end() && !m["Ipv6Isp"].empty()) {
       ipv6Isp = make_shared<string>(boost::any_cast<string>(m["Ipv6Isp"]));
@@ -8320,6 +8348,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -8366,6 +8395,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -8409,6 +8441,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -8424,6 +8459,7 @@ class CreateDhcpOptionsSetResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
 
   CreateDhcpOptionsSetResponseBody() {}
 
@@ -8441,6 +8477,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -8450,6 +8489,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -11789,7 +11831,6 @@ public:
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> natIp{};
   shared_ptr<string> natIpCidr{};
-  shared_ptr<string> natIpCidrId{};
   shared_ptr<string> natIpDescription{};
   shared_ptr<string> natIpName{};
   shared_ptr<string> ownerAccount{};
@@ -11822,9 +11863,6 @@ public:
     }
     if (natIpCidr) {
       res["NatIpCidr"] = boost::any(*natIpCidr);
-    }
-    if (natIpCidrId) {
-      res["NatIpCidrId"] = boost::any(*natIpCidrId);
     }
     if (natIpDescription) {
       res["NatIpDescription"] = boost::any(*natIpDescription);
@@ -11865,9 +11903,6 @@ public:
     }
     if (m.find("NatIpCidr") != m.end() && !m["NatIpCidr"].empty()) {
       natIpCidr = make_shared<string>(boost::any_cast<string>(m["NatIpCidr"]));
-    }
-    if (m.find("NatIpCidrId") != m.end() && !m["NatIpCidrId"].empty()) {
-      natIpCidrId = make_shared<string>(boost::any_cast<string>(m["NatIpCidrId"]));
     }
     if (m.find("NatIpDescription") != m.end() && !m["NatIpDescription"].empty()) {
       natIpDescription = make_shared<string>(boost::any_cast<string>(m["NatIpDescription"]));
@@ -12802,6 +12837,42 @@ public:
 
   virtual ~CreateNetworkAclResponse() = default;
 };
+class CreatePhysicalConnectionRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreatePhysicalConnectionRequestTag() {}
+
+  explicit CreatePhysicalConnectionRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreatePhysicalConnectionRequestTag() = default;
+};
 class CreatePhysicalConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessPointId{};
@@ -12819,6 +12890,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreatePhysicalConnectionRequestTag>> tag{};
   shared_ptr<string> type{};
   shared_ptr<long> bandwidth{};
 
@@ -12877,6 +12949,13 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -12931,6 +13010,19 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreatePhysicalConnectionRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePhysicalConnectionRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreatePhysicalConnectionRequestTag>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -13681,7 +13773,7 @@ public:
 };
 class CreateRouteEntriesRequestRouteEntries : public Darabonba::Model {
 public:
-  shared_ptr<string> describption{};
+  shared_ptr<string> description{};
   shared_ptr<string> dstCidrBlock{};
   shared_ptr<long> ipVersion{};
   shared_ptr<string> name{};
@@ -13699,8 +13791,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (describption) {
-      res["Describption"] = boost::any(*describption);
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (dstCidrBlock) {
       res["DstCidrBlock"] = boost::any(*dstCidrBlock);
@@ -13724,8 +13816,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Describption") != m.end() && !m["Describption"].empty()) {
-      describption = make_shared<string>(boost::any_cast<string>(m["Describption"]));
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("DstCidrBlock") != m.end() && !m["DstCidrBlock"].empty()) {
       dstCidrBlock = make_shared<string>(boost::any_cast<string>(m["DstCidrBlock"]));
@@ -14380,7 +14472,6 @@ public:
 };
 class CreateRouteTableResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> associateType{};
   shared_ptr<string> requestId{};
   shared_ptr<string> routeTableId{};
 
@@ -14394,9 +14485,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (associateType) {
-      res["AssociateType"] = boost::any(*associateType);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -14407,9 +14495,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AssociateType") != m.end() && !m["AssociateType"].empty()) {
-      associateType = make_shared<string>(boost::any_cast<string>(m["AssociateType"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -14487,6 +14572,7 @@ class CreateRouterInterfaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessPointId{};
   shared_ptr<bool> autoPay{};
+  shared_ptr<bool> autoRenew{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> fastLinkMode{};
@@ -14527,6 +14613,9 @@ public:
     }
     if (autoPay) {
       res["AutoPay"] = boost::any(*autoPay);
+    }
+    if (autoRenew) {
+      res["AutoRenew"] = boost::any(*autoRenew);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -14609,6 +14698,9 @@ public:
     }
     if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
       autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
+    if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
+      autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -17433,6 +17525,42 @@ public:
 
   virtual ~CreateVirtualBorderRouterResponse() = default;
 };
+class CreateVirtualPhysicalConnectionRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateVirtualPhysicalConnectionRequestTag() {}
+
+  explicit CreateVirtualPhysicalConnectionRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateVirtualPhysicalConnectionRequestTag() = default;
+};
 class CreateVirtualPhysicalConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -17443,6 +17571,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
+  shared_ptr<vector<CreateVirtualPhysicalConnectionRequestTag>> tag{};
   shared_ptr<string> token{};
   shared_ptr<long> vlanId{};
   shared_ptr<long> vpconnAliUid{};
@@ -17481,6 +17610,13 @@ public:
     if (spec) {
       res["Spec"] = boost::any(*spec);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     if (token) {
       res["Token"] = boost::any(*token);
     }
@@ -17517,6 +17653,19 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateVirtualPhysicalConnectionRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateVirtualPhysicalConnectionRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateVirtualPhysicalConnectionRequestTag>>(expect1);
+      }
     }
     if (m.find("Token") != m.end() && !m["Token"].empty()) {
       token = make_shared<string>(boost::any_cast<string>(m["Token"]));
@@ -17637,6 +17786,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
   shared_ptr<bool> enableIpv6{};
+  shared_ptr<string> ipv4IpamPoolId{};
   shared_ptr<string> ipv6CidrBlock{};
   shared_ptr<string> ipv6Isp{};
   shared_ptr<string> ownerAccount{};
@@ -17672,6 +17822,9 @@ public:
     }
     if (enableIpv6) {
       res["EnableIpv6"] = boost::any(*enableIpv6);
+    }
+    if (ipv4IpamPoolId) {
+      res["Ipv4IpamPoolId"] = boost::any(*ipv4IpamPoolId);
     }
     if (ipv6CidrBlock) {
       res["Ipv6CidrBlock"] = boost::any(*ipv6CidrBlock);
@@ -17721,6 +17874,9 @@ public:
     }
     if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
       enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
+    }
+    if (m.find("Ipv4IpamPoolId") != m.end() && !m["Ipv4IpamPoolId"].empty()) {
+      ipv4IpamPoolId = make_shared<string>(boost::any_cast<string>(m["Ipv4IpamPoolId"]));
     }
     if (m.find("Ipv6CidrBlock") != m.end() && !m["Ipv6CidrBlock"].empty()) {
       ipv6CidrBlock = make_shared<string>(boost::any_cast<string>(m["Ipv6CidrBlock"]));
@@ -17886,6 +18042,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> policyDocument{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> serviceName{};
@@ -17924,6 +18081,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -17965,6 +18125,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -17988,6 +18151,7 @@ public:
   shared_ptr<string> endpointId{};
   shared_ptr<string> endpointName{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceName{};
 
   CreateVpcGatewayEndpointResponseBody() {}
@@ -18012,6 +18176,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
     }
@@ -18030,6 +18197,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
@@ -18905,6 +19075,274 @@ public:
 
   virtual ~CreateVpnConnectionRequestTags() = default;
 };
+class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> localAsn{};
+  shared_ptr<string> localBgpIp{};
+  shared_ptr<string> tunnelCidr{};
+
+  CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig() {}
+
+  explicit CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
+    if (localBgpIp) {
+      res["LocalBgpIp"] = boost::any(*localBgpIp);
+    }
+    if (tunnelCidr) {
+      res["TunnelCidr"] = boost::any(*tunnelCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<long>(boost::any_cast<long>(m["LocalAsn"]));
+    }
+    if (m.find("LocalBgpIp") != m.end() && !m["LocalBgpIp"].empty()) {
+      localBgpIp = make_shared<string>(boost::any_cast<string>(m["LocalBgpIp"]));
+    }
+    if (m.find("TunnelCidr") != m.end() && !m["TunnelCidr"].empty()) {
+      tunnelCidr = make_shared<string>(boost::any_cast<string>(m["TunnelCidr"]));
+    }
+  }
+
+
+  virtual ~CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig() = default;
+};
+class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<long> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig() {}
+
+  explicit CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<long>(boost::any_cast<long>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig() = default;
+};
+class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<long> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig() {}
+
+  explicit CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<long>(boost::any_cast<long>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig() = default;
+};
+class CreateVpnConnectionRequestTunnelOptionsSpecification : public Darabonba::Model {
+public:
+  shared_ptr<string> customerGatewayId{};
+  shared_ptr<bool> enableDpd{};
+  shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<string> role{};
+  shared_ptr<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig> tunnelBgpConfig{};
+  shared_ptr<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig> tunnelIkeConfig{};
+  shared_ptr<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig> tunnelIpsecConfig{};
+
+  CreateVpnConnectionRequestTunnelOptionsSpecification() {}
+
+  explicit CreateVpnConnectionRequestTunnelOptionsSpecification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customerGatewayId) {
+      res["CustomerGatewayId"] = boost::any(*customerGatewayId);
+    }
+    if (enableDpd) {
+      res["EnableDpd"] = boost::any(*enableDpd);
+    }
+    if (enableNatTraversal) {
+      res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (remoteCaCertificate) {
+      res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    if (tunnelBgpConfig) {
+      res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIkeConfig) {
+      res["TunnelIkeConfig"] = tunnelIkeConfig ? boost::any(tunnelIkeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIpsecConfig) {
+      res["TunnelIpsecConfig"] = tunnelIpsecConfig ? boost::any(tunnelIpsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomerGatewayId") != m.end() && !m["CustomerGatewayId"].empty()) {
+      customerGatewayId = make_shared<string>(boost::any_cast<string>(m["CustomerGatewayId"]));
+    }
+    if (m.find("EnableDpd") != m.end() && !m["EnableDpd"].empty()) {
+      enableDpd = make_shared<bool>(boost::any_cast<bool>(m["EnableDpd"]));
+    }
+    if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
+      enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
+      remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
+        CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelBgpConfig"]));
+        tunnelBgpConfig = make_shared<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIkeConfig") != m.end() && !m["TunnelIkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIkeConfig"].type()) {
+        CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIkeConfig"]));
+        tunnelIkeConfig = make_shared<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIpsecConfig") != m.end() && !m["TunnelIpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIpsecConfig"].type()) {
+        CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIpsecConfig"]));
+        tunnelIpsecConfig = make_shared<CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateVpnConnectionRequestTunnelOptionsSpecification() = default;
+};
 class CreateVpnConnectionRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoConfigRoute{};
@@ -18914,6 +19352,7 @@ public:
   shared_ptr<bool> effectImmediately{};
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<bool> enableTunnelsBgp{};
   shared_ptr<string> healthCheckConfig{};
   shared_ptr<string> ikeConfig{};
   shared_ptr<string> ipsecConfig{};
@@ -18927,6 +19366,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<CreateVpnConnectionRequestTags>> tags{};
+  shared_ptr<vector<CreateVpnConnectionRequestTunnelOptionsSpecification>> tunnelOptionsSpecification{};
   shared_ptr<string> vpnGatewayId{};
 
   CreateVpnConnectionRequest() {}
@@ -18959,6 +19399,9 @@ public:
     }
     if (enableNatTraversal) {
       res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (enableTunnelsBgp) {
+      res["EnableTunnelsBgp"] = boost::any(*enableTunnelsBgp);
     }
     if (healthCheckConfig) {
       res["HealthCheckConfig"] = boost::any(*healthCheckConfig);
@@ -19003,6 +19446,13 @@ public:
       }
       res["Tags"] = boost::any(temp1);
     }
+    if (tunnelOptionsSpecification) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelOptionsSpecification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelOptionsSpecification"] = boost::any(temp1);
+    }
     if (vpnGatewayId) {
       res["VpnGatewayId"] = boost::any(*vpnGatewayId);
     }
@@ -19030,6 +19480,9 @@ public:
     }
     if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
       enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("EnableTunnelsBgp") != m.end() && !m["EnableTunnelsBgp"].empty()) {
+      enableTunnelsBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableTunnelsBgp"]));
     }
     if (m.find("HealthCheckConfig") != m.end() && !m["HealthCheckConfig"].empty()) {
       healthCheckConfig = make_shared<string>(boost::any_cast<string>(m["HealthCheckConfig"]));
@@ -19078,6 +19531,19 @@ public:
           }
         }
         tags = make_shared<vector<CreateVpnConnectionRequestTags>>(expect1);
+      }
+    }
+    if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelOptionsSpecification"].type()) {
+        vector<CreateVpnConnectionRequestTunnelOptionsSpecification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelOptionsSpecification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateVpnConnectionRequestTunnelOptionsSpecification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelOptionsSpecification = make_shared<vector<CreateVpnConnectionRequestTunnelOptionsSpecification>>(expect1);
       }
     }
     if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
@@ -19205,6 +19671,7 @@ public:
   shared_ptr<bool> autoPay{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableIpsec{};
   shared_ptr<bool> enableSsl{};
   shared_ptr<string> instanceChargeType{};
@@ -19239,6 +19706,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (disasterRecoveryVSwitchId) {
+      res["DisasterRecoveryVSwitchId"] = boost::any(*disasterRecoveryVSwitchId);
     }
     if (enableIpsec) {
       res["EnableIpsec"] = boost::any(*enableIpsec);
@@ -19297,6 +19767,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DisasterRecoveryVSwitchId") != m.end() && !m["DisasterRecoveryVSwitchId"].empty()) {
+      disasterRecoveryVSwitchId = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryVSwitchId"]));
     }
     if (m.find("EnableIpsec") != m.end() && !m["EnableIpsec"].empty()) {
       enableIpsec = make_shared<bool>(boost::any_cast<bool>(m["EnableIpsec"]));
@@ -28688,6 +29161,7 @@ public:
 };
 class DescribeAccessPointsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acceptLanguage{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -28705,6 +29179,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
@@ -28727,6 +29204,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -30197,6 +30677,42 @@ public:
 
   virtual ~DescribeBgpPeersResponse() = default;
 };
+class DescribeCommonBandwidthPackagesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeCommonBandwidthPackagesRequestTag() {}
+
+  explicit DescribeCommonBandwidthPackagesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeCommonBandwidthPackagesRequestTag() = default;
+};
 class DescribeCommonBandwidthPackagesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bandwidthPackageId{};
@@ -30212,6 +30728,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<bool> securityProtectionEnabled{};
+  shared_ptr<vector<DescribeCommonBandwidthPackagesRequestTag>> tag{};
 
   DescribeCommonBandwidthPackagesRequest() {}
 
@@ -30262,6 +30779,13 @@ public:
     if (securityProtectionEnabled) {
       res["SecurityProtectionEnabled"] = boost::any(*securityProtectionEnabled);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -30304,6 +30828,19 @@ public:
     }
     if (m.find("SecurityProtectionEnabled") != m.end() && !m["SecurityProtectionEnabled"].empty()) {
       securityProtectionEnabled = make_shared<bool>(boost::any_cast<bool>(m["SecurityProtectionEnabled"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeCommonBandwidthPackagesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCommonBandwidthPackagesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeCommonBandwidthPackagesRequestTag>>(expect1);
+      }
     }
   }
 
@@ -30432,6 +30969,85 @@ public:
 
   virtual ~DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageSecurityProtectionTypes() = default;
 };
+class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag() {}
+
+  explicit DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag() = default;
+};
+class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag>> tag{};
+
+  DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags() {}
+
+  explicit DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags() = default;
+};
 class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackage : public Darabonba::Model {
 public:
   shared_ptr<string> bandwidth{};
@@ -30457,6 +31073,7 @@ public:
   shared_ptr<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageSecurityProtectionTypes> securityProtectionTypes{};
   shared_ptr<long> serviceManaged{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags> tags{};
 
   DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackage() {}
 
@@ -30536,6 +31153,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -30617,6 +31237,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags>(model1);
+      }
     }
   }
 
@@ -33382,6 +34009,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> segment{};
   shared_ptr<string> status{};
+  shared_ptr<string> zone{};
 
   DescribeEipSegmentResponseBodyEipSegmentsEipSegment() {}
 
@@ -33417,6 +34045,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
     return res;
   }
 
@@ -33444,6 +34075,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
     }
   }
 
@@ -37917,6 +38551,7 @@ class DescribeIpv6AddressesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> associatedInstanceId{};
   shared_ptr<string> associatedInstanceType{};
+  shared_ptr<bool> includeReservationData{};
   shared_ptr<string> ipv6Address{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> ipv6InternetBandwidthId{};
@@ -37947,6 +38582,9 @@ public:
     }
     if (associatedInstanceType) {
       res["AssociatedInstanceType"] = boost::any(*associatedInstanceType);
+    }
+    if (includeReservationData) {
+      res["IncludeReservationData"] = boost::any(*includeReservationData);
     }
     if (ipv6Address) {
       res["Ipv6Address"] = boost::any(*ipv6Address);
@@ -38000,6 +38638,9 @@ public:
     if (m.find("AssociatedInstanceType") != m.end() && !m["AssociatedInstanceType"].empty()) {
       associatedInstanceType = make_shared<string>(boost::any_cast<string>(m["AssociatedInstanceType"]));
     }
+    if (m.find("IncludeReservationData") != m.end() && !m["IncludeReservationData"].empty()) {
+      includeReservationData = make_shared<bool>(boost::any_cast<bool>(m["IncludeReservationData"]));
+    }
     if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
       ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
     }
@@ -38051,9 +38692,14 @@ class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandw
 public:
   shared_ptr<long> bandwidth{};
   shared_ptr<string> businessStatus{};
+  shared_ptr<bool> hasReservationData{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<string> ipv6InternetBandwidthId{};
+  shared_ptr<string> reservationActiveTime{};
+  shared_ptr<long> reservationBandwidth{};
+  shared_ptr<string> reservationInternetChargeType{};
+  shared_ptr<string> reservationOrderType{};
 
   DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth() {}
 
@@ -38071,6 +38717,9 @@ public:
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
     }
+    if (hasReservationData) {
+      res["HasReservationData"] = boost::any(*hasReservationData);
+    }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
     }
@@ -38079,6 +38728,18 @@ public:
     }
     if (ipv6InternetBandwidthId) {
       res["Ipv6InternetBandwidthId"] = boost::any(*ipv6InternetBandwidthId);
+    }
+    if (reservationActiveTime) {
+      res["ReservationActiveTime"] = boost::any(*reservationActiveTime);
+    }
+    if (reservationBandwidth) {
+      res["ReservationBandwidth"] = boost::any(*reservationBandwidth);
+    }
+    if (reservationInternetChargeType) {
+      res["ReservationInternetChargeType"] = boost::any(*reservationInternetChargeType);
+    }
+    if (reservationOrderType) {
+      res["ReservationOrderType"] = boost::any(*reservationOrderType);
     }
     return res;
   }
@@ -38090,6 +38751,9 @@ public:
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
     }
+    if (m.find("HasReservationData") != m.end() && !m["HasReservationData"].empty()) {
+      hasReservationData = make_shared<bool>(boost::any_cast<bool>(m["HasReservationData"]));
+    }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
     }
@@ -38098,6 +38762,18 @@ public:
     }
     if (m.find("Ipv6InternetBandwidthId") != m.end() && !m["Ipv6InternetBandwidthId"].empty()) {
       ipv6InternetBandwidthId = make_shared<string>(boost::any_cast<string>(m["Ipv6InternetBandwidthId"]));
+    }
+    if (m.find("ReservationActiveTime") != m.end() && !m["ReservationActiveTime"].empty()) {
+      reservationActiveTime = make_shared<string>(boost::any_cast<string>(m["ReservationActiveTime"]));
+    }
+    if (m.find("ReservationBandwidth") != m.end() && !m["ReservationBandwidth"].empty()) {
+      reservationBandwidth = make_shared<long>(boost::any_cast<long>(m["ReservationBandwidth"]));
+    }
+    if (m.find("ReservationInternetChargeType") != m.end() && !m["ReservationInternetChargeType"].empty()) {
+      reservationInternetChargeType = make_shared<string>(boost::any_cast<string>(m["ReservationInternetChargeType"]));
+    }
+    if (m.find("ReservationOrderType") != m.end() && !m["ReservationOrderType"].empty()) {
+      reservationOrderType = make_shared<string>(boost::any_cast<string>(m["ReservationOrderType"]));
     }
   }
 
@@ -42666,6 +43342,7 @@ class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnec
 public:
   shared_ptr<string> accessPointId{};
   shared_ptr<string> accessPointType{};
+  shared_ptr<string> adDetailLocation{};
   shared_ptr<string> adLocation{};
   shared_ptr<long> bandwidth{};
   shared_ptr<string> businessStatus{};
@@ -42715,6 +43392,9 @@ public:
     }
     if (accessPointType) {
       res["AccessPointType"] = boost::any(*accessPointType);
+    }
+    if (adDetailLocation) {
+      res["AdDetailLocation"] = boost::any(*adDetailLocation);
     }
     if (adLocation) {
       res["AdLocation"] = boost::any(*adLocation);
@@ -42824,6 +43504,9 @@ public:
     }
     if (m.find("AccessPointType") != m.end() && !m["AccessPointType"].empty()) {
       accessPointType = make_shared<string>(boost::any_cast<string>(m["AccessPointType"]));
+    }
+    if (m.find("AdDetailLocation") != m.end() && !m["AdDetailLocation"].empty()) {
+      adDetailLocation = make_shared<string>(boost::any_cast<string>(m["AdDetailLocation"]));
     }
     if (m.find("AdLocation") != m.end() && !m["AdLocation"].empty()) {
       adLocation = make_shared<string>(boost::any_cast<string>(m["AdLocation"]));
@@ -47560,6 +48243,309 @@ public:
 
   virtual ~DescribeSslVpnClientCertsResponse() = default;
 };
+class DescribeSslVpnClientsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> vpnGatewayId{};
+
+  DescribeSslVpnClientsRequest() {}
+
+  explicit DescribeSslVpnClientsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (vpnGatewayId) {
+      res["VpnGatewayId"] = boost::any(*vpnGatewayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
+      vpnGatewayId = make_shared<string>(boost::any_cast<string>(m["VpnGatewayId"]));
+    }
+  }
+
+
+  virtual ~DescribeSslVpnClientsRequest() = default;
+};
+class DescribeSslVpnClientsResponseBodyClientInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> commonName{};
+  shared_ptr<long> connectedTime{};
+  shared_ptr<string> ip{};
+  shared_ptr<string> port{};
+  shared_ptr<string> privateIp{};
+  shared_ptr<long> receiveBytes{};
+  shared_ptr<long> sendBytes{};
+  shared_ptr<string> status{};
+
+  DescribeSslVpnClientsResponseBodyClientInfoList() {}
+
+  explicit DescribeSslVpnClientsResponseBodyClientInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonName) {
+      res["CommonName"] = boost::any(*commonName);
+    }
+    if (connectedTime) {
+      res["ConnectedTime"] = boost::any(*connectedTime);
+    }
+    if (ip) {
+      res["Ip"] = boost::any(*ip);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (privateIp) {
+      res["PrivateIp"] = boost::any(*privateIp);
+    }
+    if (receiveBytes) {
+      res["ReceiveBytes"] = boost::any(*receiveBytes);
+    }
+    if (sendBytes) {
+      res["SendBytes"] = boost::any(*sendBytes);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
+      commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));
+    }
+    if (m.find("ConnectedTime") != m.end() && !m["ConnectedTime"].empty()) {
+      connectedTime = make_shared<long>(boost::any_cast<long>(m["ConnectedTime"]));
+    }
+    if (m.find("Ip") != m.end() && !m["Ip"].empty()) {
+      ip = make_shared<string>(boost::any_cast<string>(m["Ip"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("PrivateIp") != m.end() && !m["PrivateIp"].empty()) {
+      privateIp = make_shared<string>(boost::any_cast<string>(m["PrivateIp"]));
+    }
+    if (m.find("ReceiveBytes") != m.end() && !m["ReceiveBytes"].empty()) {
+      receiveBytes = make_shared<long>(boost::any_cast<long>(m["ReceiveBytes"]));
+    }
+    if (m.find("SendBytes") != m.end() && !m["SendBytes"].empty()) {
+      sendBytes = make_shared<long>(boost::any_cast<long>(m["SendBytes"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeSslVpnClientsResponseBodyClientInfoList() = default;
+};
+class DescribeSslVpnClientsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeSslVpnClientsResponseBodyClientInfoList>> clientInfoList{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<string> vpnGatewayId{};
+
+  DescribeSslVpnClientsResponseBody() {}
+
+  explicit DescribeSslVpnClientsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*clientInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ClientInfoList"] = boost::any(temp1);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (vpnGatewayId) {
+      res["VpnGatewayId"] = boost::any(*vpnGatewayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientInfoList") != m.end() && !m["ClientInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ClientInfoList"].type()) {
+        vector<DescribeSslVpnClientsResponseBodyClientInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ClientInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeSslVpnClientsResponseBodyClientInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        clientInfoList = make_shared<vector<DescribeSslVpnClientsResponseBodyClientInfoList>>(expect1);
+      }
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
+      vpnGatewayId = make_shared<string>(boost::any_cast<string>(m["VpnGatewayId"]));
+    }
+  }
+
+
+  virtual ~DescribeSslVpnClientsResponseBody() = default;
+};
+class DescribeSslVpnClientsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeSslVpnClientsResponseBody> body{};
+
+  DescribeSslVpnClientsResponse() {}
+
+  explicit DescribeSslVpnClientsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeSslVpnClientsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeSslVpnClientsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeSslVpnClientsResponse() = default;
+};
 class DescribeSslVpnServersRequest : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -49424,6 +50410,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeVSwitchAttributesResponseBodyRouteTable> routeTable{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> status{};
   shared_ptr<DescribeVSwitchAttributesResponseBodyTags> tags{};
   shared_ptr<string> vSwitchId{};
@@ -49473,6 +50460,9 @@ public:
     }
     if (routeTable) {
       res["RouteTable"] = routeTable ? boost::any(routeTable->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -49532,6 +50522,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTable"]));
         routeTable = make_shared<DescribeVSwitchAttributesResponseBodyRouteTable>(model1);
       }
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -49883,6 +50876,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeVSwitchesResponseBodyVSwitchesVSwitchRouteTable> routeTable{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> status{};
   shared_ptr<DescribeVSwitchesResponseBodyVSwitchesVSwitchTags> tags{};
   shared_ptr<string> vSwitchId{};
@@ -49929,6 +50923,9 @@ public:
     }
     if (routeTable) {
       res["RouteTable"] = routeTable ? boost::any(routeTable->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -49985,6 +50982,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RouteTable"]));
         routeTable = make_shared<DescribeVSwitchesResponseBodyVSwitchesVSwitchRouteTable>(model1);
       }
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -52395,6 +53395,85 @@ public:
 
   virtual ~DescribeVpcAttributeResponseBodySecondaryCidrBlocks() = default;
 };
+class DescribeVpcAttributeResponseBodyTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeVpcAttributeResponseBodyTagsTag() {}
+
+  explicit DescribeVpcAttributeResponseBodyTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeVpcAttributeResponseBodyTagsTag() = default;
+};
+class DescribeVpcAttributeResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVpcAttributeResponseBodyTagsTag>> tag{};
+
+  DescribeVpcAttributeResponseBodyTags() {}
+
+  explicit DescribeVpcAttributeResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeVpcAttributeResponseBodyTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVpcAttributeResponseBodyTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeVpcAttributeResponseBodyTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVpcAttributeResponseBodyTags() = default;
+};
 class DescribeVpcAttributeResponseBodyUserCidrs : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> userCidr{};
@@ -52488,6 +53567,7 @@ public:
   shared_ptr<DescribeVpcAttributeResponseBodySecondaryCidrBlocks> secondaryCidrBlocks{};
   shared_ptr<string> status{};
   shared_ptr<bool> supportIpv4Gateway{};
+  shared_ptr<DescribeVpcAttributeResponseBodyTags> tags{};
   shared_ptr<DescribeVpcAttributeResponseBodyUserCidrs> userCidrs{};
   shared_ptr<string> VRouterId{};
   shared_ptr<DescribeVpcAttributeResponseBodyVSwitchIds> vSwitchIds{};
@@ -52560,6 +53640,9 @@ public:
     }
     if (supportIpv4Gateway) {
       res["SupportIpv4Gateway"] = boost::any(*supportIpv4Gateway);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userCidrs) {
       res["UserCidrs"] = userCidrs ? boost::any(userCidrs->toMap()) : boost::any(map<string,boost::any>({}));
@@ -52652,6 +53735,13 @@ public:
     }
     if (m.find("SupportIpv4Gateway") != m.end() && !m["SupportIpv4Gateway"].empty()) {
       supportIpv4Gateway = make_shared<bool>(boost::any_cast<bool>(m["SupportIpv4Gateway"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeVpcAttributeResponseBodyTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeVpcAttributeResponseBodyTags>(model1);
+      }
     }
     if (m.find("UserCidrs") != m.end() && !m["UserCidrs"].empty()) {
       if (typeid(map<string, boost::any>) == m["UserCidrs"].type()) {
@@ -54138,6 +55228,380 @@ public:
 
   virtual ~DescribeVpnConnectionResponseBodyTags() = default;
 };
+class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bgpStatus{};
+  shared_ptr<string> enableBgp{};
+  shared_ptr<string> localAsn{};
+  shared_ptr<string> localBgpIp{};
+  shared_ptr<string> peerAsn{};
+  shared_ptr<string> peerBgpIp{};
+  shared_ptr<string> tunnelCidr{};
+
+  DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() {}
+
+  explicit DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bgpStatus) {
+      res["BgpStatus"] = boost::any(*bgpStatus);
+    }
+    if (enableBgp) {
+      res["EnableBgp"] = boost::any(*enableBgp);
+    }
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
+    if (localBgpIp) {
+      res["LocalBgpIp"] = boost::any(*localBgpIp);
+    }
+    if (peerAsn) {
+      res["PeerAsn"] = boost::any(*peerAsn);
+    }
+    if (peerBgpIp) {
+      res["PeerBgpIp"] = boost::any(*peerBgpIp);
+    }
+    if (tunnelCidr) {
+      res["TunnelCidr"] = boost::any(*tunnelCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BgpStatus") != m.end() && !m["BgpStatus"].empty()) {
+      bgpStatus = make_shared<string>(boost::any_cast<string>(m["BgpStatus"]));
+    }
+    if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
+      enableBgp = make_shared<string>(boost::any_cast<string>(m["EnableBgp"]));
+    }
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<string>(boost::any_cast<string>(m["LocalAsn"]));
+    }
+    if (m.find("LocalBgpIp") != m.end() && !m["LocalBgpIp"].empty()) {
+      localBgpIp = make_shared<string>(boost::any_cast<string>(m["LocalBgpIp"]));
+    }
+    if (m.find("PeerAsn") != m.end() && !m["PeerAsn"].empty()) {
+      peerAsn = make_shared<string>(boost::any_cast<string>(m["PeerAsn"]));
+    }
+    if (m.find("PeerBgpIp") != m.end() && !m["PeerBgpIp"].empty()) {
+      peerBgpIp = make_shared<string>(boost::any_cast<string>(m["PeerBgpIp"]));
+    }
+    if (m.find("TunnelCidr") != m.end() && !m["TunnelCidr"].empty()) {
+      tunnelCidr = make_shared<string>(boost::any_cast<string>(m["TunnelCidr"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() = default;
+};
+class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<string> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() {}
+
+  explicit DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<string>(boost::any_cast<string>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() = default;
+};
+class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<string> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() {}
+
+  explicit DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<string>(boost::any_cast<string>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() = default;
+};
+class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> customerGatewayId{};
+  shared_ptr<string> enableDpd{};
+  shared_ptr<string> enableNatTraversal{};
+  shared_ptr<string> internetIp{};
+  shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<string> role{};
+  shared_ptr<string> state{};
+  shared_ptr<string> status{};
+  shared_ptr<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig> tunnelBgpConfig{};
+  shared_ptr<string> tunnelId{};
+  shared_ptr<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig> tunnelIkeConfig{};
+  shared_ptr<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig> tunnelIpsecConfig{};
+  shared_ptr<string> zoneNo{};
+
+  DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions() {}
+
+  explicit DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customerGatewayId) {
+      res["CustomerGatewayId"] = boost::any(*customerGatewayId);
+    }
+    if (enableDpd) {
+      res["EnableDpd"] = boost::any(*enableDpd);
+    }
+    if (enableNatTraversal) {
+      res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (internetIp) {
+      res["InternetIp"] = boost::any(*internetIp);
+    }
+    if (remoteCaCertificate) {
+      res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tunnelBgpConfig) {
+      res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    if (tunnelIkeConfig) {
+      res["TunnelIkeConfig"] = tunnelIkeConfig ? boost::any(tunnelIkeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIpsecConfig) {
+      res["TunnelIpsecConfig"] = tunnelIpsecConfig ? boost::any(tunnelIpsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zoneNo) {
+      res["ZoneNo"] = boost::any(*zoneNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomerGatewayId") != m.end() && !m["CustomerGatewayId"].empty()) {
+      customerGatewayId = make_shared<string>(boost::any_cast<string>(m["CustomerGatewayId"]));
+    }
+    if (m.find("EnableDpd") != m.end() && !m["EnableDpd"].empty()) {
+      enableDpd = make_shared<string>(boost::any_cast<string>(m["EnableDpd"]));
+    }
+    if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
+      enableNatTraversal = make_shared<string>(boost::any_cast<string>(m["EnableNatTraversal"]));
+    }
+    if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
+      internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
+    }
+    if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
+      remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
+        DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelBgpConfig"]));
+        tunnelBgpConfig = make_shared<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig>(model1);
+      }
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+    if (m.find("TunnelIkeConfig") != m.end() && !m["TunnelIkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIkeConfig"].type()) {
+        DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIkeConfig"]));
+        tunnelIkeConfig = make_shared<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIpsecConfig") != m.end() && !m["TunnelIpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIpsecConfig"].type()) {
+        DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIpsecConfig"]));
+        tunnelIpsecConfig = make_shared<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig>(model1);
+      }
+    }
+    if (m.find("ZoneNo") != m.end() && !m["ZoneNo"].empty()) {
+      zoneNo = make_shared<string>(boost::any_cast<string>(m["ZoneNo"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions() = default;
+};
+class DescribeVpnConnectionResponseBodyTunnelOptionsSpecification : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions>> tunnelOptions{};
+
+  DescribeVpnConnectionResponseBodyTunnelOptionsSpecification() {}
+
+  explicit DescribeVpnConnectionResponseBodyTunnelOptionsSpecification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tunnelOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelOptions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TunnelOptions") != m.end() && !m["TunnelOptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelOptions"].type()) {
+        vector<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelOptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelOptions = make_shared<vector<DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionResponseBodyTunnelOptionsSpecification() = default;
+};
 class DescribeVpnConnectionResponseBodyVcoHealthCheck : public Darabonba::Model {
 public:
   shared_ptr<string> dip{};
@@ -54297,6 +55761,7 @@ public:
   shared_ptr<bool> effectImmediately{};
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<bool> enableTunnelsBgp{};
   shared_ptr<DescribeVpnConnectionResponseBodyIkeConfig> ikeConfig{};
   shared_ptr<string> internetIp{};
   shared_ptr<DescribeVpnConnectionResponseBodyIpsecConfig> ipsecConfig{};
@@ -54312,6 +55777,7 @@ public:
   shared_ptr<DescribeVpnConnectionResponseBodyTags> tags{};
   shared_ptr<string> transitRouterId{};
   shared_ptr<string> transitRouterName{};
+  shared_ptr<DescribeVpnConnectionResponseBodyTunnelOptionsSpecification> tunnelOptionsSpecification{};
   shared_ptr<DescribeVpnConnectionResponseBodyVcoHealthCheck> vcoHealthCheck{};
   shared_ptr<DescribeVpnConnectionResponseBodyVpnBgpConfig> vpnBgpConfig{};
   shared_ptr<string> vpnConnectionId{};
@@ -54351,6 +55817,9 @@ public:
     }
     if (enableNatTraversal) {
       res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (enableTunnelsBgp) {
+      res["EnableTunnelsBgp"] = boost::any(*enableTunnelsBgp);
     }
     if (ikeConfig) {
       res["IkeConfig"] = ikeConfig ? boost::any(ikeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -54397,6 +55866,9 @@ public:
     if (transitRouterName) {
       res["TransitRouterName"] = boost::any(*transitRouterName);
     }
+    if (tunnelOptionsSpecification) {
+      res["TunnelOptionsSpecification"] = tunnelOptionsSpecification ? boost::any(tunnelOptionsSpecification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (vcoHealthCheck) {
       res["VcoHealthCheck"] = vcoHealthCheck ? boost::any(vcoHealthCheck->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -54439,6 +55911,9 @@ public:
     }
     if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
       enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("EnableTunnelsBgp") != m.end() && !m["EnableTunnelsBgp"].empty()) {
+      enableTunnelsBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableTunnelsBgp"]));
     }
     if (m.find("IkeConfig") != m.end() && !m["IkeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["IkeConfig"].type()) {
@@ -54496,6 +55971,13 @@ public:
     }
     if (m.find("TransitRouterName") != m.end() && !m["TransitRouterName"].empty()) {
       transitRouterName = make_shared<string>(boost::any_cast<string>(m["TransitRouterName"]));
+    }
+    if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelOptionsSpecification"].type()) {
+        DescribeVpnConnectionResponseBodyTunnelOptionsSpecification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelOptionsSpecification"]));
+        tunnelOptionsSpecification = make_shared<DescribeVpnConnectionResponseBodyTunnelOptionsSpecification>(model1);
+      }
     }
     if (m.find("VcoHealthCheck") != m.end() && !m["VcoHealthCheck"].empty()) {
       if (typeid(map<string, boost::any>) == m["VcoHealthCheck"].type()) {
@@ -54599,6 +56081,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<long> to{};
+  shared_ptr<string> tunnelId{};
   shared_ptr<string> vpnConnectionId{};
 
   DescribeVpnConnectionLogsRequest() {}
@@ -54641,6 +56124,9 @@ public:
     if (to) {
       res["To"] = boost::any(*to);
     }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
     if (vpnConnectionId) {
       res["VpnConnectionId"] = boost::any(*vpnConnectionId);
     }
@@ -54677,6 +56163,9 @@ public:
     }
     if (m.find("To") != m.end() && !m["To"].empty()) {
       to = make_shared<long>(boost::any_cast<long>(m["To"]));
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
     }
     if (m.find("VpnConnectionId") != m.end() && !m["VpnConnectionId"].empty()) {
       vpnConnectionId = make_shared<string>(boost::any_cast<string>(m["VpnConnectionId"]));
@@ -55215,6 +56704,380 @@ public:
 
   virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag() = default;
 };
+class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bgpStatus{};
+  shared_ptr<string> enableBgp{};
+  shared_ptr<string> localAsn{};
+  shared_ptr<string> localBgpIp{};
+  shared_ptr<string> peerAsn{};
+  shared_ptr<string> peerBgpIp{};
+  shared_ptr<string> tunnelCidr{};
+
+  DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() {}
+
+  explicit DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bgpStatus) {
+      res["BgpStatus"] = boost::any(*bgpStatus);
+    }
+    if (enableBgp) {
+      res["EnableBgp"] = boost::any(*enableBgp);
+    }
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
+    if (localBgpIp) {
+      res["LocalBgpIp"] = boost::any(*localBgpIp);
+    }
+    if (peerAsn) {
+      res["PeerAsn"] = boost::any(*peerAsn);
+    }
+    if (peerBgpIp) {
+      res["PeerBgpIp"] = boost::any(*peerBgpIp);
+    }
+    if (tunnelCidr) {
+      res["TunnelCidr"] = boost::any(*tunnelCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BgpStatus") != m.end() && !m["BgpStatus"].empty()) {
+      bgpStatus = make_shared<string>(boost::any_cast<string>(m["BgpStatus"]));
+    }
+    if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
+      enableBgp = make_shared<string>(boost::any_cast<string>(m["EnableBgp"]));
+    }
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<string>(boost::any_cast<string>(m["LocalAsn"]));
+    }
+    if (m.find("LocalBgpIp") != m.end() && !m["LocalBgpIp"].empty()) {
+      localBgpIp = make_shared<string>(boost::any_cast<string>(m["LocalBgpIp"]));
+    }
+    if (m.find("PeerAsn") != m.end() && !m["PeerAsn"].empty()) {
+      peerAsn = make_shared<string>(boost::any_cast<string>(m["PeerAsn"]));
+    }
+    if (m.find("PeerBgpIp") != m.end() && !m["PeerBgpIp"].empty()) {
+      peerBgpIp = make_shared<string>(boost::any_cast<string>(m["PeerBgpIp"]));
+    }
+    if (m.find("TunnelCidr") != m.end() && !m["TunnelCidr"].empty()) {
+      tunnelCidr = make_shared<string>(boost::any_cast<string>(m["TunnelCidr"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() = default;
+};
+class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<string> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() {}
+
+  explicit DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<string>(boost::any_cast<string>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() = default;
+};
+class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<string> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() {}
+
+  explicit DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<string>(boost::any_cast<string>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() = default;
+};
+class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> customerGatewayId{};
+  shared_ptr<string> enableDpd{};
+  shared_ptr<string> enableNatTraversal{};
+  shared_ptr<string> internetIp{};
+  shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<string> role{};
+  shared_ptr<string> state{};
+  shared_ptr<string> status{};
+  shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig> tunnelBgpConfig{};
+  shared_ptr<string> tunnelId{};
+  shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig> tunnelIkeConfig{};
+  shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig> tunnelIpsecConfig{};
+  shared_ptr<string> zoneNo{};
+
+  DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions() {}
+
+  explicit DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customerGatewayId) {
+      res["CustomerGatewayId"] = boost::any(*customerGatewayId);
+    }
+    if (enableDpd) {
+      res["EnableDpd"] = boost::any(*enableDpd);
+    }
+    if (enableNatTraversal) {
+      res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (internetIp) {
+      res["InternetIp"] = boost::any(*internetIp);
+    }
+    if (remoteCaCertificate) {
+      res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tunnelBgpConfig) {
+      res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    if (tunnelIkeConfig) {
+      res["TunnelIkeConfig"] = tunnelIkeConfig ? boost::any(tunnelIkeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIpsecConfig) {
+      res["TunnelIpsecConfig"] = tunnelIpsecConfig ? boost::any(tunnelIpsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zoneNo) {
+      res["ZoneNo"] = boost::any(*zoneNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomerGatewayId") != m.end() && !m["CustomerGatewayId"].empty()) {
+      customerGatewayId = make_shared<string>(boost::any_cast<string>(m["CustomerGatewayId"]));
+    }
+    if (m.find("EnableDpd") != m.end() && !m["EnableDpd"].empty()) {
+      enableDpd = make_shared<string>(boost::any_cast<string>(m["EnableDpd"]));
+    }
+    if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
+      enableNatTraversal = make_shared<string>(boost::any_cast<string>(m["EnableNatTraversal"]));
+    }
+    if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
+      internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
+    }
+    if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
+      remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
+        DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelBgpConfig"]));
+        tunnelBgpConfig = make_shared<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig>(model1);
+      }
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+    if (m.find("TunnelIkeConfig") != m.end() && !m["TunnelIkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIkeConfig"].type()) {
+        DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIkeConfig"]));
+        tunnelIkeConfig = make_shared<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIpsecConfig") != m.end() && !m["TunnelIpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIpsecConfig"].type()) {
+        DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIpsecConfig"]));
+        tunnelIpsecConfig = make_shared<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig>(model1);
+      }
+    }
+    if (m.find("ZoneNo") != m.end() && !m["ZoneNo"].empty()) {
+      zoneNo = make_shared<string>(boost::any_cast<string>(m["ZoneNo"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions() = default;
+};
+class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions>> tunnelOptions{};
+
+  DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification() {}
+
+  explicit DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tunnelOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelOptions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TunnelOptions") != m.end() && !m["TunnelOptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelOptions"].type()) {
+        vector<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelOptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelOptions = make_shared<vector<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification() = default;
+};
 class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck : public Darabonba::Model {
 public:
   shared_ptr<string> dip{};
@@ -55367,6 +57230,7 @@ public:
   shared_ptr<bool> effectImmediately{};
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<bool> enableTunnelsBgp{};
   shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIkeConfig> ikeConfig{};
   shared_ptr<string> internetIp{};
   shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionIpsecConfig> ipsecConfig{};
@@ -55381,6 +57245,7 @@ public:
   shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTag> tag{};
   shared_ptr<string> transitRouterId{};
   shared_ptr<string> transitRouterName{};
+  shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification> tunnelOptionsSpecification{};
   shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVcoHealthCheck> vcoHealthCheck{};
   shared_ptr<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionVpnBgpConfig> vpnBgpConfig{};
   shared_ptr<string> vpnConnectionId{};
@@ -55419,6 +57284,9 @@ public:
     }
     if (enableNatTraversal) {
       res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (enableTunnelsBgp) {
+      res["EnableTunnelsBgp"] = boost::any(*enableTunnelsBgp);
     }
     if (ikeConfig) {
       res["IkeConfig"] = ikeConfig ? boost::any(ikeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -55462,6 +57330,9 @@ public:
     if (transitRouterName) {
       res["TransitRouterName"] = boost::any(*transitRouterName);
     }
+    if (tunnelOptionsSpecification) {
+      res["TunnelOptionsSpecification"] = tunnelOptionsSpecification ? boost::any(tunnelOptionsSpecification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (vcoHealthCheck) {
       res["VcoHealthCheck"] = vcoHealthCheck ? boost::any(vcoHealthCheck->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -55501,6 +57372,9 @@ public:
     }
     if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
       enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("EnableTunnelsBgp") != m.end() && !m["EnableTunnelsBgp"].empty()) {
+      enableTunnelsBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableTunnelsBgp"]));
     }
     if (m.find("IkeConfig") != m.end() && !m["IkeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["IkeConfig"].type()) {
@@ -55555,6 +57429,13 @@ public:
     }
     if (m.find("TransitRouterName") != m.end() && !m["TransitRouterName"].empty()) {
       transitRouterName = make_shared<string>(boost::any_cast<string>(m["TransitRouterName"]));
+    }
+    if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelOptionsSpecification"].type()) {
+        DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelOptionsSpecification"]));
+        tunnelOptionsSpecification = make_shared<DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecification>(model1);
+      }
     }
     if (m.find("VcoHealthCheck") != m.end() && !m["VcoHealthCheck"].empty()) {
       if (typeid(map<string, boost::any>) == m["VcoHealthCheck"].type()) {
@@ -56250,6 +58131,8 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> disasterRecoveryInternetIp{};
+  shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableBgp{};
   shared_ptr<long> endTime{};
   shared_ptr<string> internetIp{};
@@ -56261,6 +58144,7 @@ public:
   shared_ptr<string> spec{};
   shared_ptr<long> sslMaxConnections{};
   shared_ptr<string> sslVpn{};
+  shared_ptr<string> sslVpnInternetIp{};
   shared_ptr<string> status{};
   shared_ptr<string> tag{};
   shared_ptr<DescribeVpnGatewayResponseBodyTags> tags{};
@@ -56294,6 +58178,12 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (disasterRecoveryInternetIp) {
+      res["DisasterRecoveryInternetIp"] = boost::any(*disasterRecoveryInternetIp);
+    }
+    if (disasterRecoveryVSwitchId) {
+      res["DisasterRecoveryVSwitchId"] = boost::any(*disasterRecoveryVSwitchId);
+    }
     if (enableBgp) {
       res["EnableBgp"] = boost::any(*enableBgp);
     }
@@ -56326,6 +58216,9 @@ public:
     }
     if (sslVpn) {
       res["SslVpn"] = boost::any(*sslVpn);
+    }
+    if (sslVpnInternetIp) {
+      res["SslVpnInternetIp"] = boost::any(*sslVpnInternetIp);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -56367,6 +58260,12 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DisasterRecoveryInternetIp") != m.end() && !m["DisasterRecoveryInternetIp"].empty()) {
+      disasterRecoveryInternetIp = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryInternetIp"]));
+    }
+    if (m.find("DisasterRecoveryVSwitchId") != m.end() && !m["DisasterRecoveryVSwitchId"].empty()) {
+      disasterRecoveryVSwitchId = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryVSwitchId"]));
+    }
     if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
       enableBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableBgp"]));
     }
@@ -56403,6 +58302,9 @@ public:
     }
     if (m.find("SslVpn") != m.end() && !m["SslVpn"].empty()) {
       sslVpn = make_shared<string>(boost::any_cast<string>(m["SslVpn"]));
+    }
+    if (m.find("SslVpnInternetIp") != m.end() && !m["SslVpnInternetIp"].empty()) {
+      sslVpnInternetIp = make_shared<string>(boost::any_cast<string>(m["SslVpnInternetIp"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -56816,6 +58718,8 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> disasterRecoveryInternetIp{};
+  shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableBgp{};
   shared_ptr<long> endTime{};
   shared_ptr<string> internetIp{};
@@ -56826,6 +58730,7 @@ public:
   shared_ptr<string> spec{};
   shared_ptr<long> sslMaxConnections{};
   shared_ptr<string> sslVpn{};
+  shared_ptr<string> sslVpnInternetIp{};
   shared_ptr<string> status{};
   shared_ptr<string> tag{};
   shared_ptr<DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayTags> tags{};
@@ -56859,6 +58764,12 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (disasterRecoveryInternetIp) {
+      res["DisasterRecoveryInternetIp"] = boost::any(*disasterRecoveryInternetIp);
+    }
+    if (disasterRecoveryVSwitchId) {
+      res["DisasterRecoveryVSwitchId"] = boost::any(*disasterRecoveryVSwitchId);
+    }
     if (enableBgp) {
       res["EnableBgp"] = boost::any(*enableBgp);
     }
@@ -56888,6 +58799,9 @@ public:
     }
     if (sslVpn) {
       res["SslVpn"] = boost::any(*sslVpn);
+    }
+    if (sslVpnInternetIp) {
+      res["SslVpnInternetIp"] = boost::any(*sslVpnInternetIp);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -56929,6 +58843,12 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DisasterRecoveryInternetIp") != m.end() && !m["DisasterRecoveryInternetIp"].empty()) {
+      disasterRecoveryInternetIp = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryInternetIp"]));
+    }
+    if (m.find("DisasterRecoveryVSwitchId") != m.end() && !m["DisasterRecoveryVSwitchId"].empty()) {
+      disasterRecoveryVSwitchId = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryVSwitchId"]));
+    }
     if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
       enableBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableBgp"]));
     }
@@ -56962,6 +58882,9 @@ public:
     }
     if (m.find("SslVpn") != m.end() && !m["SslVpn"].empty()) {
       sslVpn = make_shared<string>(boost::any_cast<string>(m["SslVpn"]));
+    }
+    if (m.find("SslVpnInternetIp") != m.end() && !m["SslVpnInternetIp"].empty()) {
+      sslVpnInternetIp = make_shared<string>(boost::any_cast<string>(m["SslVpnInternetIp"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -57241,6 +59164,7 @@ class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRouteEntry :
 public:
   shared_ptr<long> createTime{};
   shared_ptr<string> nextHop{};
+  shared_ptr<string> nextHopTunnelId{};
   shared_ptr<long> priority{};
   shared_ptr<string> routeDest{};
   shared_ptr<string> routeSource{};
@@ -57263,6 +59187,9 @@ public:
     }
     if (nextHop) {
       res["NextHop"] = boost::any(*nextHop);
+    }
+    if (nextHopTunnelId) {
+      res["NextHopTunnelId"] = boost::any(*nextHopTunnelId);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -57291,6 +59218,9 @@ public:
     }
     if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
       nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("NextHopTunnelId") != m.end() && !m["NextHopTunnelId"].empty()) {
+      nextHopTunnelId = make_shared<string>(boost::any_cast<string>(m["NextHopTunnelId"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -57572,6 +59502,7 @@ public:
   shared_ptr<string> community{};
   shared_ptr<long> createTime{};
   shared_ptr<string> nextHop{};
+  shared_ptr<string> nextHopTunnelId{};
   shared_ptr<string> routeDest{};
   shared_ptr<string> routeEntryType{};
   shared_ptr<string> source{};
@@ -57600,6 +59531,9 @@ public:
     }
     if (nextHop) {
       res["NextHop"] = boost::any(*nextHop);
+    }
+    if (nextHopTunnelId) {
+      res["NextHopTunnelId"] = boost::any(*nextHopTunnelId);
     }
     if (routeDest) {
       res["RouteDest"] = boost::any(*routeDest);
@@ -57634,6 +59568,9 @@ public:
     }
     if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
       nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("NextHopTunnelId") != m.end() && !m["NextHopTunnelId"].empty()) {
+      nextHopTunnelId = make_shared<string>(boost::any_cast<string>(m["NextHopTunnelId"]));
     }
     if (m.find("RouteDest") != m.end() && !m["RouteDest"].empty()) {
       routeDest = make_shared<string>(boost::any_cast<string>(m["RouteDest"]));
@@ -59702,6 +61639,256 @@ public:
 
   virtual ~DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIpsecConfig() = default;
 };
+class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<long> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig() {}
+
+  explicit DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<long>(boost::any_cast<long>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig() = default;
+};
+class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<long> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig() {}
+
+  explicit DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<long>(boost::any_cast<long>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig() = default;
+};
+class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig : public Darabonba::Model {
+public:
+  shared_ptr<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig> ikeConfig{};
+  shared_ptr<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig> ipsecConfig{};
+  shared_ptr<string> local{};
+  shared_ptr<string> remote{};
+  shared_ptr<string> rightCaCert{};
+  shared_ptr<string> tunnelId{};
+
+  DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig() {}
+
+  explicit DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeConfig) {
+      res["IkeConfig"] = ikeConfig ? boost::any(ikeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (ipsecConfig) {
+      res["IpsecConfig"] = ipsecConfig ? boost::any(ipsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (local) {
+      res["Local"] = boost::any(*local);
+    }
+    if (remote) {
+      res["Remote"] = boost::any(*remote);
+    }
+    if (rightCaCert) {
+      res["RightCaCert"] = boost::any(*rightCaCert);
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeConfig") != m.end() && !m["IkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IkeConfig"].type()) {
+        DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IkeConfig"]));
+        ikeConfig = make_shared<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIkeConfig>(model1);
+      }
+    }
+    if (m.find("IpsecConfig") != m.end() && !m["IpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IpsecConfig"].type()) {
+        DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IpsecConfig"]));
+        ipsecConfig = make_shared<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfigIpsecConfig>(model1);
+      }
+    }
+    if (m.find("Local") != m.end() && !m["Local"].empty()) {
+      local = make_shared<string>(boost::any_cast<string>(m["Local"]));
+    }
+    if (m.find("Remote") != m.end() && !m["Remote"].empty()) {
+      remote = make_shared<string>(boost::any_cast<string>(m["Remote"]));
+    }
+    if (m.find("RightCaCert") != m.end() && !m["RightCaCert"].empty()) {
+      rightCaCert = make_shared<string>(boost::any_cast<string>(m["RightCaCert"]));
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+  }
+
+
+  virtual ~DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig() = default;
+};
+class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig>> tunnelConfig{};
+
+  DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig() {}
+
+  explicit DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tunnelConfig) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelConfig){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelConfig"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TunnelConfig") != m.end() && !m["TunnelConfig"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelConfig"].type()) {
+        vector<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelConfig"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelConfig = make_shared<vector<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfigTunnelConfig>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig() = default;
+};
 class DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig : public Darabonba::Model {
 public:
   shared_ptr<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigIkeConfig> ikeConfig{};
@@ -59710,6 +61897,7 @@ public:
   shared_ptr<string> localSubnet{};
   shared_ptr<string> remote{};
   shared_ptr<string> remoteSubnet{};
+  shared_ptr<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig> tunnelsConfig{};
 
   DownloadVpnConnectionConfigResponseBodyVpnConnectionConfig() {}
 
@@ -59738,6 +61926,9 @@ public:
     }
     if (remoteSubnet) {
       res["RemoteSubnet"] = boost::any(*remoteSubnet);
+    }
+    if (tunnelsConfig) {
+      res["TunnelsConfig"] = tunnelsConfig ? boost::any(tunnelsConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -59768,6 +61959,13 @@ public:
     }
     if (m.find("RemoteSubnet") != m.end() && !m["RemoteSubnet"].empty()) {
       remoteSubnet = make_shared<string>(boost::any_cast<string>(m["RemoteSubnet"]));
+    }
+    if (m.find("TunnelsConfig") != m.end() && !m["TunnelsConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelsConfig"].type()) {
+        DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelsConfig"]));
+        tunnelsConfig = make_shared<DownloadVpnConnectionConfigResponseBodyVpnConnectionConfigTunnelsConfig>(model1);
+      }
     }
   }
 
@@ -60667,6 +62865,42 @@ public:
 
   virtual ~GetDhcpOptionsSetResponseBodyDhcpOptions() = default;
 };
+class GetDhcpOptionsSetResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetDhcpOptionsSetResponseBodyTags() {}
+
+  explicit GetDhcpOptionsSetResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetDhcpOptionsSetResponseBodyTags() = default;
+};
 class GetDhcpOptionsSetResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<GetDhcpOptionsSetResponseBodyAssociateVpcs>> associateVpcs{};
@@ -60676,7 +62910,9 @@ public:
   shared_ptr<string> dhcpOptionsSetName{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetDhcpOptionsSetResponseBodyTags>> tags{};
 
   GetDhcpOptionsSetResponseBody() {}
 
@@ -60713,8 +62949,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -60755,8 +63001,24 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetDhcpOptionsSetResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDhcpOptionsSetResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetDhcpOptionsSetResponseBodyTags>>(expect1);
+      }
     }
   }
 
@@ -62286,7 +64548,12 @@ public:
 };
 class GetTrafficMirrorServiceStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   GetTrafficMirrorServiceStatusRequest() {}
 
@@ -62298,15 +64565,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -62475,6 +64772,42 @@ public:
 
   virtual ~GetVpcGatewayEndpointAttributeRequest() = default;
 };
+class GetVpcGatewayEndpointAttributeResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetVpcGatewayEndpointAttributeResponseBodyTags() {}
+
+  explicit GetVpcGatewayEndpointAttributeResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetVpcGatewayEndpointAttributeResponseBodyTags() = default;
+};
 class GetVpcGatewayEndpointAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> creationTime{};
@@ -62484,8 +64817,10 @@ public:
   shared_ptr<string> endpointStatus{};
   shared_ptr<string> policyDocument{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> routeTables{};
   shared_ptr<string> serviceName{};
+  shared_ptr<vector<GetVpcGatewayEndpointAttributeResponseBodyTags>> tags{};
   shared_ptr<string> vpcId{};
 
   GetVpcGatewayEndpointAttributeResponseBody() {}
@@ -62519,11 +64854,21 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (routeTables) {
       res["RouteTables"] = boost::any(*routeTables);
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -62553,6 +64898,9 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("RouteTables") != m.end() && !m["RouteTables"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["RouteTables"].type()) {
@@ -62565,6 +64913,19 @@ public:
     }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetVpcGatewayEndpointAttributeResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetVpcGatewayEndpointAttributeResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetVpcGatewayEndpointAttributeResponseBodyTags>>(expect1);
+      }
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -64344,6 +66705,42 @@ public:
 
   virtual ~ListBusinessAccessPointsResponse() = default;
 };
+class ListDhcpOptionsSetsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListDhcpOptionsSetsRequestTags() {}
+
+  explicit ListDhcpOptionsSetsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListDhcpOptionsSetsRequestTags() = default;
+};
 class ListDhcpOptionsSetsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> dhcpOptionsSetId{};
@@ -64354,8 +66751,10 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<ListDhcpOptionsSetsRequestTags>> tags{};
 
   ListDhcpOptionsSetsRequest() {}
 
@@ -64391,11 +66790,21 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -64432,11 +66841,27 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListDhcpOptionsSetsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDhcpOptionsSetsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListDhcpOptionsSetsRequestTags>>(expect1);
+      }
     }
   }
 
@@ -64493,6 +66918,42 @@ public:
 
   virtual ~ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsDhcpOptions() = default;
 };
+class ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags() {}
+
+  explicit ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags() = default;
+};
 class ListDhcpOptionsSetsResponseBodyDhcpOptionsSets : public Darabonba::Model {
 public:
   shared_ptr<long> associateVpcCount{};
@@ -64501,7 +66962,9 @@ public:
   shared_ptr<string> dhcpOptionsSetId{};
   shared_ptr<string> dhcpOptionsSetName{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags>> tags{};
 
   ListDhcpOptionsSetsResponseBodyDhcpOptionsSets() {}
 
@@ -64531,8 +66994,18 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -64560,8 +67033,24 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListDhcpOptionsSetsResponseBodyDhcpOptionsSetsTags>>(expect1);
+      }
     }
   }
 
@@ -64573,6 +67062,7 @@ public:
   shared_ptr<vector<ListDhcpOptionsSetsResponseBodyDhcpOptionsSets>> dhcpOptionsSets{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> totalCount{};
 
   ListDhcpOptionsSetsResponseBody() {}
 
@@ -64597,6 +67087,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -64619,6 +67112,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
     }
   }
 
@@ -68160,7 +70656,6 @@ public:
 };
 class ListPublicIpAddressPoolCidrBlocksResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<vector<ListPublicIpAddressPoolCidrBlocksResponseBodyPublicIpPoolCidrBlockList>> publicIpPoolCidrBlockList{};
   shared_ptr<string> requestId{};
@@ -68176,9 +70671,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (maxResults) {
-      res["MaxResults"] = boost::any(*maxResults);
-    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -68199,9 +70691,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
-      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
-    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -68520,6 +71009,7 @@ public:
   shared_ptr<vector<ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolListTags>> tags{};
   shared_ptr<long> totalIpNum{};
   shared_ptr<long> usedIpNum{};
+  shared_ptr<bool> userType{};
 
   ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList() {}
 
@@ -68577,6 +71067,9 @@ public:
     if (usedIpNum) {
       res["UsedIpNum"] = boost::any(*usedIpNum);
     }
+    if (userType) {
+      res["UserType"] = boost::any(*userType);
+    }
     return res;
   }
 
@@ -68633,6 +71126,9 @@ public:
     if (m.find("UsedIpNum") != m.end() && !m["UsedIpNum"].empty()) {
       usedIpNum = make_shared<long>(boost::any_cast<long>(m["UsedIpNum"]));
     }
+    if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
+      userType = make_shared<bool>(boost::any_cast<bool>(m["UserType"]));
+    }
   }
 
 
@@ -68640,7 +71136,6 @@ public:
 };
 class ListPublicIpAddressPoolsResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<vector<ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList>> publicIpAddressPoolList{};
   shared_ptr<string> requestId{};
@@ -68656,9 +71151,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (maxResults) {
-      res["MaxResults"] = boost::any(*maxResults);
-    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -68679,9 +71171,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
-      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
-    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -69985,6 +72474,8 @@ public:
 };
 class ListTrafficMirrorFiltersResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> count{};
+  shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<string> totalCount{};
@@ -70000,6 +72491,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -70020,6 +72517,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -71427,6 +73930,42 @@ public:
 
   virtual ~ListVpcEndpointServicesByEndUserResponse() = default;
 };
+class ListVpcGatewayEndpointsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListVpcGatewayEndpointsRequestTags() {}
+
+  explicit ListVpcGatewayEndpointsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListVpcGatewayEndpointsRequestTags() = default;
+};
 class ListVpcGatewayEndpointsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endpointId{};
@@ -71436,9 +73975,11 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<vector<ListVpcGatewayEndpointsRequestTags>> tags{};
 
   ListVpcGatewayEndpointsRequest() {}
 
@@ -71471,6 +74012,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -71479,6 +74023,13 @@ public:
     }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -71505,6 +74056,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -71514,10 +74068,59 @@ public:
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListVpcGatewayEndpointsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVpcGatewayEndpointsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListVpcGatewayEndpointsRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListVpcGatewayEndpointsRequest() = default;
+};
+class ListVpcGatewayEndpointsResponseBodyEndpointsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListVpcGatewayEndpointsResponseBodyEndpointsTags() {}
+
+  explicit ListVpcGatewayEndpointsResponseBodyEndpointsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListVpcGatewayEndpointsResponseBodyEndpointsTags() = default;
 };
 class ListVpcGatewayEndpointsResponseBodyEndpoints : public Darabonba::Model {
 public:
@@ -71528,7 +74131,9 @@ public:
   shared_ptr<string> endpointName{};
   shared_ptr<string> endpointStatus{};
   shared_ptr<string> policyDocument{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceName{};
+  shared_ptr<vector<ListVpcGatewayEndpointsResponseBodyEndpointsTags>> tags{};
   shared_ptr<string> vpcId{};
 
   ListVpcGatewayEndpointsResponseBodyEndpoints() {}
@@ -71562,8 +74167,18 @@ public:
     if (policyDocument) {
       res["PolicyDocument"] = boost::any(*policyDocument);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (serviceName) {
       res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -71600,8 +74215,24 @@ public:
     if (m.find("PolicyDocument") != m.end() && !m["PolicyDocument"].empty()) {
       policyDocument = make_shared<string>(boost::any_cast<string>(m["PolicyDocument"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListVpcGatewayEndpointsResponseBodyEndpointsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVpcGatewayEndpointsResponseBodyEndpointsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListVpcGatewayEndpointsResponseBodyEndpointsTags>>(expect1);
+      }
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -80989,6 +83620,267 @@ public:
 
   virtual ~ModifyVpnAttachmentAttributeResponse() = default;
 };
+class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig : public Darabonba::Model {
+public:
+  shared_ptr<long> localAsn{};
+  shared_ptr<string> localBgpIp{};
+  shared_ptr<string> tunnelCidr{};
+
+  ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig() {}
+
+  explicit ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
+    if (localBgpIp) {
+      res["LocalBgpIp"] = boost::any(*localBgpIp);
+    }
+    if (tunnelCidr) {
+      res["TunnelCidr"] = boost::any(*tunnelCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<long>(boost::any_cast<long>(m["LocalAsn"]));
+    }
+    if (m.find("LocalBgpIp") != m.end() && !m["LocalBgpIp"].empty()) {
+      localBgpIp = make_shared<string>(boost::any_cast<string>(m["LocalBgpIp"]));
+    }
+    if (m.find("TunnelCidr") != m.end() && !m["TunnelCidr"].empty()) {
+      tunnelCidr = make_shared<string>(boost::any_cast<string>(m["TunnelCidr"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig() = default;
+};
+class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<long> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig() {}
+
+  explicit ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<long>(boost::any_cast<long>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig() = default;
+};
+class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<long> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig() {}
+
+  explicit ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<long>(boost::any_cast<long>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig() = default;
+};
+class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableDpd{};
+  shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig> tunnelBgpConfig{};
+  shared_ptr<string> tunnelId{};
+  shared_ptr<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig> tunnelIkeConfig{};
+  shared_ptr<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig> tunnelIpsecConfig{};
+
+  ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification() {}
+
+  explicit ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableDpd) {
+      res["EnableDpd"] = boost::any(*enableDpd);
+    }
+    if (enableNatTraversal) {
+      res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (remoteCaCertificate) {
+      res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (tunnelBgpConfig) {
+      res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    if (tunnelIkeConfig) {
+      res["TunnelIkeConfig"] = tunnelIkeConfig ? boost::any(tunnelIkeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIpsecConfig) {
+      res["TunnelIpsecConfig"] = tunnelIpsecConfig ? boost::any(tunnelIpsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableDpd") != m.end() && !m["EnableDpd"].empty()) {
+      enableDpd = make_shared<bool>(boost::any_cast<bool>(m["EnableDpd"]));
+    }
+    if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
+      enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
+      remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
+        ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelBgpConfig"]));
+        tunnelBgpConfig = make_shared<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig>(model1);
+      }
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+    if (m.find("TunnelIkeConfig") != m.end() && !m["TunnelIkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIkeConfig"].type()) {
+        ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIkeConfig"]));
+        tunnelIkeConfig = make_shared<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIpsecConfig") != m.end() && !m["TunnelIpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIpsecConfig"].type()) {
+        ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIpsecConfig"]));
+        tunnelIpsecConfig = make_shared<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification() = default;
+};
 class ModifyVpnConnectionAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoConfigRoute{};
@@ -80997,6 +83889,7 @@ public:
   shared_ptr<bool> effectImmediately{};
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<bool> enableTunnelsBgp{};
   shared_ptr<string> healthCheckConfig{};
   shared_ptr<string> ikeConfig{};
   shared_ptr<string> ipsecConfig{};
@@ -81009,6 +83902,7 @@ public:
   shared_ptr<string> remoteSubnet{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification>> tunnelOptionsSpecification{};
   shared_ptr<string> vpnConnectionId{};
 
   ModifyVpnConnectionAttributeRequest() {}
@@ -81038,6 +83932,9 @@ public:
     }
     if (enableNatTraversal) {
       res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (enableTunnelsBgp) {
+      res["EnableTunnelsBgp"] = boost::any(*enableTunnelsBgp);
     }
     if (healthCheckConfig) {
       res["HealthCheckConfig"] = boost::any(*healthCheckConfig);
@@ -81075,6 +83972,13 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tunnelOptionsSpecification) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelOptionsSpecification){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelOptionsSpecification"] = boost::any(temp1);
+    }
     if (vpnConnectionId) {
       res["VpnConnectionId"] = boost::any(*vpnConnectionId);
     }
@@ -81099,6 +84003,9 @@ public:
     }
     if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
       enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("EnableTunnelsBgp") != m.end() && !m["EnableTunnelsBgp"].empty()) {
+      enableTunnelsBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableTunnelsBgp"]));
     }
     if (m.find("HealthCheckConfig") != m.end() && !m["HealthCheckConfig"].empty()) {
       healthCheckConfig = make_shared<string>(boost::any_cast<string>(m["HealthCheckConfig"]));
@@ -81135,6 +84042,19 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelOptionsSpecification"].type()) {
+        vector<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelOptionsSpecification"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelOptionsSpecification = make_shared<vector<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification>>(expect1);
+      }
     }
     if (m.find("VpnConnectionId") != m.end() && !m["VpnConnectionId"].empty()) {
       vpnConnectionId = make_shared<string>(boost::any_cast<string>(m["VpnConnectionId"]));
@@ -81279,6 +84199,380 @@ public:
 
   virtual ~ModifyVpnConnectionAttributeResponseBodyIpsecConfig() = default;
 };
+class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> bgpStatus{};
+  shared_ptr<bool> enableBgp{};
+  shared_ptr<long> localAsn{};
+  shared_ptr<string> localBgpIp{};
+  shared_ptr<long> peerAsn{};
+  shared_ptr<string> peerBgpIp{};
+  shared_ptr<string> tunnelCidr{};
+
+  ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() {}
+
+  explicit ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bgpStatus) {
+      res["BgpStatus"] = boost::any(*bgpStatus);
+    }
+    if (enableBgp) {
+      res["EnableBgp"] = boost::any(*enableBgp);
+    }
+    if (localAsn) {
+      res["LocalAsn"] = boost::any(*localAsn);
+    }
+    if (localBgpIp) {
+      res["LocalBgpIp"] = boost::any(*localBgpIp);
+    }
+    if (peerAsn) {
+      res["PeerAsn"] = boost::any(*peerAsn);
+    }
+    if (peerBgpIp) {
+      res["PeerBgpIp"] = boost::any(*peerBgpIp);
+    }
+    if (tunnelCidr) {
+      res["TunnelCidr"] = boost::any(*tunnelCidr);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BgpStatus") != m.end() && !m["BgpStatus"].empty()) {
+      bgpStatus = make_shared<string>(boost::any_cast<string>(m["BgpStatus"]));
+    }
+    if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
+      enableBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableBgp"]));
+    }
+    if (m.find("LocalAsn") != m.end() && !m["LocalAsn"].empty()) {
+      localAsn = make_shared<long>(boost::any_cast<long>(m["LocalAsn"]));
+    }
+    if (m.find("LocalBgpIp") != m.end() && !m["LocalBgpIp"].empty()) {
+      localBgpIp = make_shared<string>(boost::any_cast<string>(m["LocalBgpIp"]));
+    }
+    if (m.find("PeerAsn") != m.end() && !m["PeerAsn"].empty()) {
+      peerAsn = make_shared<long>(boost::any_cast<long>(m["PeerAsn"]));
+    }
+    if (m.find("PeerBgpIp") != m.end() && !m["PeerBgpIp"].empty()) {
+      peerBgpIp = make_shared<string>(boost::any_cast<string>(m["PeerBgpIp"]));
+    }
+    if (m.find("TunnelCidr") != m.end() && !m["TunnelCidr"].empty()) {
+      tunnelCidr = make_shared<string>(boost::any_cast<string>(m["TunnelCidr"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig() = default;
+};
+class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ikeAuthAlg{};
+  shared_ptr<string> ikeEncAlg{};
+  shared_ptr<long> ikeLifetime{};
+  shared_ptr<string> ikeMode{};
+  shared_ptr<string> ikePfs{};
+  shared_ptr<string> ikeVersion{};
+  shared_ptr<string> localId{};
+  shared_ptr<string> psk{};
+  shared_ptr<string> remoteId{};
+
+  ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() {}
+
+  explicit ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ikeAuthAlg) {
+      res["IkeAuthAlg"] = boost::any(*ikeAuthAlg);
+    }
+    if (ikeEncAlg) {
+      res["IkeEncAlg"] = boost::any(*ikeEncAlg);
+    }
+    if (ikeLifetime) {
+      res["IkeLifetime"] = boost::any(*ikeLifetime);
+    }
+    if (ikeMode) {
+      res["IkeMode"] = boost::any(*ikeMode);
+    }
+    if (ikePfs) {
+      res["IkePfs"] = boost::any(*ikePfs);
+    }
+    if (ikeVersion) {
+      res["IkeVersion"] = boost::any(*ikeVersion);
+    }
+    if (localId) {
+      res["LocalId"] = boost::any(*localId);
+    }
+    if (psk) {
+      res["Psk"] = boost::any(*psk);
+    }
+    if (remoteId) {
+      res["RemoteId"] = boost::any(*remoteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IkeAuthAlg") != m.end() && !m["IkeAuthAlg"].empty()) {
+      ikeAuthAlg = make_shared<string>(boost::any_cast<string>(m["IkeAuthAlg"]));
+    }
+    if (m.find("IkeEncAlg") != m.end() && !m["IkeEncAlg"].empty()) {
+      ikeEncAlg = make_shared<string>(boost::any_cast<string>(m["IkeEncAlg"]));
+    }
+    if (m.find("IkeLifetime") != m.end() && !m["IkeLifetime"].empty()) {
+      ikeLifetime = make_shared<long>(boost::any_cast<long>(m["IkeLifetime"]));
+    }
+    if (m.find("IkeMode") != m.end() && !m["IkeMode"].empty()) {
+      ikeMode = make_shared<string>(boost::any_cast<string>(m["IkeMode"]));
+    }
+    if (m.find("IkePfs") != m.end() && !m["IkePfs"].empty()) {
+      ikePfs = make_shared<string>(boost::any_cast<string>(m["IkePfs"]));
+    }
+    if (m.find("IkeVersion") != m.end() && !m["IkeVersion"].empty()) {
+      ikeVersion = make_shared<string>(boost::any_cast<string>(m["IkeVersion"]));
+    }
+    if (m.find("LocalId") != m.end() && !m["LocalId"].empty()) {
+      localId = make_shared<string>(boost::any_cast<string>(m["LocalId"]));
+    }
+    if (m.find("Psk") != m.end() && !m["Psk"].empty()) {
+      psk = make_shared<string>(boost::any_cast<string>(m["Psk"]));
+    }
+    if (m.find("RemoteId") != m.end() && !m["RemoteId"].empty()) {
+      remoteId = make_shared<string>(boost::any_cast<string>(m["RemoteId"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig() = default;
+};
+class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> ipsecAuthAlg{};
+  shared_ptr<string> ipsecEncAlg{};
+  shared_ptr<long> ipsecLifetime{};
+  shared_ptr<string> ipsecPfs{};
+
+  ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() {}
+
+  explicit ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipsecAuthAlg) {
+      res["IpsecAuthAlg"] = boost::any(*ipsecAuthAlg);
+    }
+    if (ipsecEncAlg) {
+      res["IpsecEncAlg"] = boost::any(*ipsecEncAlg);
+    }
+    if (ipsecLifetime) {
+      res["IpsecLifetime"] = boost::any(*ipsecLifetime);
+    }
+    if (ipsecPfs) {
+      res["IpsecPfs"] = boost::any(*ipsecPfs);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpsecAuthAlg") != m.end() && !m["IpsecAuthAlg"].empty()) {
+      ipsecAuthAlg = make_shared<string>(boost::any_cast<string>(m["IpsecAuthAlg"]));
+    }
+    if (m.find("IpsecEncAlg") != m.end() && !m["IpsecEncAlg"].empty()) {
+      ipsecEncAlg = make_shared<string>(boost::any_cast<string>(m["IpsecEncAlg"]));
+    }
+    if (m.find("IpsecLifetime") != m.end() && !m["IpsecLifetime"].empty()) {
+      ipsecLifetime = make_shared<long>(boost::any_cast<long>(m["IpsecLifetime"]));
+    }
+    if (m.find("IpsecPfs") != m.end() && !m["IpsecPfs"].empty()) {
+      ipsecPfs = make_shared<string>(boost::any_cast<string>(m["IpsecPfs"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig() = default;
+};
+class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions : public Darabonba::Model {
+public:
+  shared_ptr<string> customerGatewayId{};
+  shared_ptr<bool> enableDpd{};
+  shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<string> internetIp{};
+  shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<string> role{};
+  shared_ptr<string> state{};
+  shared_ptr<string> status{};
+  shared_ptr<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig> tunnelBgpConfig{};
+  shared_ptr<string> tunnelId{};
+  shared_ptr<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig> tunnelIkeConfig{};
+  shared_ptr<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig> tunnelIpsecConfig{};
+  shared_ptr<string> zoneNo{};
+
+  ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions() {}
+
+  explicit ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customerGatewayId) {
+      res["CustomerGatewayId"] = boost::any(*customerGatewayId);
+    }
+    if (enableDpd) {
+      res["EnableDpd"] = boost::any(*enableDpd);
+    }
+    if (enableNatTraversal) {
+      res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
+    }
+    if (internetIp) {
+      res["InternetIp"] = boost::any(*internetIp);
+    }
+    if (remoteCaCertificate) {
+      res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tunnelBgpConfig) {
+      res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    if (tunnelIkeConfig) {
+      res["TunnelIkeConfig"] = tunnelIkeConfig ? boost::any(tunnelIkeConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tunnelIpsecConfig) {
+      res["TunnelIpsecConfig"] = tunnelIpsecConfig ? boost::any(tunnelIpsecConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (zoneNo) {
+      res["ZoneNo"] = boost::any(*zoneNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomerGatewayId") != m.end() && !m["CustomerGatewayId"].empty()) {
+      customerGatewayId = make_shared<string>(boost::any_cast<string>(m["CustomerGatewayId"]));
+    }
+    if (m.find("EnableDpd") != m.end() && !m["EnableDpd"].empty()) {
+      enableDpd = make_shared<bool>(boost::any_cast<bool>(m["EnableDpd"]));
+    }
+    if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
+      enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
+    }
+    if (m.find("InternetIp") != m.end() && !m["InternetIp"].empty()) {
+      internetIp = make_shared<string>(boost::any_cast<string>(m["InternetIp"]));
+    }
+    if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
+      remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
+        ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelBgpConfig"]));
+        tunnelBgpConfig = make_shared<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig>(model1);
+      }
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+    if (m.find("TunnelIkeConfig") != m.end() && !m["TunnelIkeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIkeConfig"].type()) {
+        ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIkeConfig"]));
+        tunnelIkeConfig = make_shared<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig>(model1);
+      }
+    }
+    if (m.find("TunnelIpsecConfig") != m.end() && !m["TunnelIpsecConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelIpsecConfig"].type()) {
+        ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelIpsecConfig"]));
+        tunnelIpsecConfig = make_shared<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig>(model1);
+      }
+    }
+    if (m.find("ZoneNo") != m.end() && !m["ZoneNo"].empty()) {
+      zoneNo = make_shared<string>(boost::any_cast<string>(m["ZoneNo"]));
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions() = default;
+};
+class ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions>> tunnelOptions{};
+
+  ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification() {}
+
+  explicit ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tunnelOptions) {
+      vector<boost::any> temp1;
+      for(auto item1:*tunnelOptions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TunnelOptions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TunnelOptions") != m.end() && !m["TunnelOptions"].empty()) {
+      if (typeid(vector<boost::any>) == m["TunnelOptions"].type()) {
+        vector<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TunnelOptions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tunnelOptions = make_shared<vector<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecificationTunnelOptions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification() = default;
+};
 class ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck : public Darabonba::Model {
 public:
   shared_ptr<string> dip{};
@@ -81415,12 +84709,14 @@ public:
   shared_ptr<bool> effectImmediately{};
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
+  shared_ptr<bool> enableTunnelsBgp{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyIkeConfig> ikeConfig{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyIpsecConfig> ipsecConfig{};
   shared_ptr<string> localSubnet{};
   shared_ptr<string> name{};
   shared_ptr<string> remoteSubnet{};
   shared_ptr<string> requestId{};
+  shared_ptr<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification> tunnelOptionsSpecification{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck> vcoHealthCheck{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig> vpnBgpConfig{};
   shared_ptr<string> vpnConnectionId{};
@@ -81454,6 +84750,9 @@ public:
     if (enableNatTraversal) {
       res["EnableNatTraversal"] = boost::any(*enableNatTraversal);
     }
+    if (enableTunnelsBgp) {
+      res["EnableTunnelsBgp"] = boost::any(*enableTunnelsBgp);
+    }
     if (ikeConfig) {
       res["IkeConfig"] = ikeConfig ? boost::any(ikeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -81471,6 +84770,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (tunnelOptionsSpecification) {
+      res["TunnelOptionsSpecification"] = tunnelOptionsSpecification ? boost::any(tunnelOptionsSpecification->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vcoHealthCheck) {
       res["VcoHealthCheck"] = vcoHealthCheck ? boost::any(vcoHealthCheck->toMap()) : boost::any(map<string,boost::any>({}));
@@ -81506,6 +84808,9 @@ public:
     if (m.find("EnableNatTraversal") != m.end() && !m["EnableNatTraversal"].empty()) {
       enableNatTraversal = make_shared<bool>(boost::any_cast<bool>(m["EnableNatTraversal"]));
     }
+    if (m.find("EnableTunnelsBgp") != m.end() && !m["EnableTunnelsBgp"].empty()) {
+      enableTunnelsBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableTunnelsBgp"]));
+    }
     if (m.find("IkeConfig") != m.end() && !m["IkeConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["IkeConfig"].type()) {
         ModifyVpnConnectionAttributeResponseBodyIkeConfig model1;
@@ -81531,6 +84836,13 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TunnelOptionsSpecification"].type()) {
+        ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TunnelOptionsSpecification"]));
+        tunnelOptionsSpecification = make_shared<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification>(model1);
+      }
     }
     if (m.find("VcoHealthCheck") != m.end() && !m["VcoHealthCheck"].empty()) {
       if (typeid(map<string, boost::any>) == m["VcoHealthCheck"].type()) {
@@ -81717,6 +85029,8 @@ public:
   shared_ptr<string> businessStatus{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<string> disasterRecoveryInternetIp{};
+  shared_ptr<string> disasterRecoveryVSwitchId{};
   shared_ptr<bool> enableBgp{};
   shared_ptr<long> endTime{};
   shared_ptr<string> internetIp{};
@@ -81724,6 +85038,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
   shared_ptr<string> spec{};
+  shared_ptr<string> sslVpnInternetIp{};
   shared_ptr<string> status{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -81751,6 +85066,12 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (disasterRecoveryInternetIp) {
+      res["DisasterRecoveryInternetIp"] = boost::any(*disasterRecoveryInternetIp);
+    }
+    if (disasterRecoveryVSwitchId) {
+      res["DisasterRecoveryVSwitchId"] = boost::any(*disasterRecoveryVSwitchId);
+    }
     if (enableBgp) {
       res["EnableBgp"] = boost::any(*enableBgp);
     }
@@ -81771,6 +85092,9 @@ public:
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
+    }
+    if (sslVpnInternetIp) {
+      res["SslVpnInternetIp"] = boost::any(*sslVpnInternetIp);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -81800,6 +85124,12 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DisasterRecoveryInternetIp") != m.end() && !m["DisasterRecoveryInternetIp"].empty()) {
+      disasterRecoveryInternetIp = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryInternetIp"]));
+    }
+    if (m.find("DisasterRecoveryVSwitchId") != m.end() && !m["DisasterRecoveryVSwitchId"].empty()) {
+      disasterRecoveryVSwitchId = make_shared<string>(boost::any_cast<string>(m["DisasterRecoveryVSwitchId"]));
+    }
     if (m.find("EnableBgp") != m.end() && !m["EnableBgp"].empty()) {
       enableBgp = make_shared<bool>(boost::any_cast<bool>(m["EnableBgp"]));
     }
@@ -81820,6 +85150,9 @@ public:
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+    if (m.find("SslVpnInternetIp") != m.end() && !m["SslVpnInternetIp"].empty()) {
+      sslVpnInternetIp = make_shared<string>(boost::any_cast<string>(m["SslVpnInternetIp"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -83211,7 +86544,12 @@ public:
 };
 class OpenTrafficMirrorServiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   OpenTrafficMirrorServiceRequest() {}
 
@@ -83223,15 +86561,45 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -83240,7 +86608,8 @@ public:
 };
 class OpenTrafficMirrorServiceResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> orderId{};
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
   OpenTrafficMirrorServiceResponseBody() {}
@@ -83253,8 +86622,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (orderId) {
-      res["OrderId"] = boost::any(*orderId);
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -83263,8 +86635,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
-      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -90133,6 +93508,7 @@ public:
   shared_ptr<bool> enabled{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<long> packetLength{};
   shared_ptr<long> priority{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -90169,6 +93545,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (packetLength) {
+      res["PacketLength"] = boost::any(*packetLength);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -90221,6 +93600,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PacketLength") != m.end() && !m["PacketLength"].empty()) {
+      packetLength = make_shared<long>(boost::any_cast<long>(m["PacketLength"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -91452,6 +94834,8 @@ public:
   DescribeSslVpnClientCertResponse describeSslVpnClientCert(shared_ptr<DescribeSslVpnClientCertRequest> request);
   DescribeSslVpnClientCertsResponse describeSslVpnClientCertsWithOptions(shared_ptr<DescribeSslVpnClientCertsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSslVpnClientCertsResponse describeSslVpnClientCerts(shared_ptr<DescribeSslVpnClientCertsRequest> request);
+  DescribeSslVpnClientsResponse describeSslVpnClientsWithOptions(shared_ptr<DescribeSslVpnClientsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeSslVpnClientsResponse describeSslVpnClients(shared_ptr<DescribeSslVpnClientsRequest> request);
   DescribeSslVpnServersResponse describeSslVpnServersWithOptions(shared_ptr<DescribeSslVpnServersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSslVpnServersResponse describeSslVpnServers(shared_ptr<DescribeSslVpnServersRequest> request);
   DescribeTagKeysResponse describeTagKeysWithOptions(shared_ptr<DescribeTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
