@@ -52946,6 +52946,7 @@ public:
 class QueryReimbursementOrderResponseBodyModuleExpensesExpenseCompositions : public Darabonba::Model {
 public:
   shared_ptr<long> billSettlementId{};
+  shared_ptr<string> capitalDirection{};
   shared_ptr<string> feeType{};
   shared_ptr<string> remark{};
   shared_ptr<vector<string>> remindTagList{};
@@ -52965,6 +52966,9 @@ public:
     map<string, boost::any> res;
     if (billSettlementId) {
       res["bill_settlement_id"] = boost::any(*billSettlementId);
+    }
+    if (capitalDirection) {
+      res["capital_direction"] = boost::any(*capitalDirection);
     }
     if (feeType) {
       res["fee_type"] = boost::any(*feeType);
@@ -52990,6 +52994,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("bill_settlement_id") != m.end() && !m["bill_settlement_id"].empty()) {
       billSettlementId = make_shared<long>(boost::any_cast<long>(m["bill_settlement_id"]));
+    }
+    if (m.find("capital_direction") != m.end() && !m["capital_direction"].empty()) {
+      capitalDirection = make_shared<string>(boost::any_cast<string>(m["capital_direction"]));
     }
     if (m.find("fee_type") != m.end() && !m["fee_type"].empty()) {
       feeType = make_shared<string>(boost::any_cast<string>(m["fee_type"]));
