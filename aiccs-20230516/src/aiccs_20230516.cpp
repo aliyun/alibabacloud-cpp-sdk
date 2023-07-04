@@ -469,6 +469,9 @@ ImportNumberResponse Alibabacloud_Aiccs20230516::Client::importNumberWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->failReturn)) {
     query->insert(pair<string, long>("FailReturn", *request->failReturn));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }

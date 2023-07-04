@@ -2753,6 +2753,7 @@ class ImportNumberRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<ImportNumberRequestCustomers>> customers{};
   shared_ptr<long> failReturn{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -2777,6 +2778,9 @@ public:
     }
     if (failReturn) {
       res["FailReturn"] = boost::any(*failReturn);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -2810,6 +2814,9 @@ public:
     if (m.find("FailReturn") != m.end() && !m["FailReturn"].empty()) {
       failReturn = make_shared<long>(boost::any_cast<long>(m["FailReturn"]));
     }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -2831,6 +2838,7 @@ class ImportNumberShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> customersShrink{};
   shared_ptr<long> failReturn{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
@@ -2851,6 +2859,9 @@ public:
     }
     if (failReturn) {
       res["FailReturn"] = boost::any(*failReturn);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -2873,6 +2884,9 @@ public:
     }
     if (m.find("FailReturn") != m.end() && !m["FailReturn"].empty()) {
       failReturn = make_shared<long>(boost::any_cast<long>(m["FailReturn"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
