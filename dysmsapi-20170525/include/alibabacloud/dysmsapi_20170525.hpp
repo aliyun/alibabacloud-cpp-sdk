@@ -904,6 +904,168 @@ public:
 
   virtual ~CheckMobilesCardSupportResponse() = default;
 };
+class ConversionDataIntlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> conversionRate{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> reportTime{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  ConversionDataIntlRequest() {}
+
+  explicit ConversionDataIntlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conversionRate) {
+      res["ConversionRate"] = boost::any(*conversionRate);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (reportTime) {
+      res["ReportTime"] = boost::any(*reportTime);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConversionRate") != m.end() && !m["ConversionRate"].empty()) {
+      conversionRate = make_shared<string>(boost::any_cast<string>(m["ConversionRate"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ReportTime") != m.end() && !m["ReportTime"].empty()) {
+      reportTime = make_shared<long>(boost::any_cast<long>(m["ReportTime"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~ConversionDataIntlRequest() = default;
+};
+class ConversionDataIntlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  ConversionDataIntlResponseBody() {}
+
+  explicit ConversionDataIntlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ConversionDataIntlResponseBody() = default;
+};
+class ConversionDataIntlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ConversionDataIntlResponseBody> body{};
+
+  ConversionDataIntlResponse() {}
+
+  explicit ConversionDataIntlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ConversionDataIntlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ConversionDataIntlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ConversionDataIntlResponse() = default;
+};
 class CreateCardSmsTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> factorys{};
@@ -1153,6 +1315,260 @@ public:
 
 
   virtual ~CreateCardSmsTemplateResponse() = default;
+};
+class CreateSmartShortUrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> expiration{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> phoneNumbers{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sourceName{};
+  shared_ptr<string> sourceUrl{};
+
+  CreateSmartShortUrlRequest() {}
+
+  explicit CreateSmartShortUrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (phoneNumbers) {
+      res["PhoneNumbers"] = boost::any(*phoneNumbers);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sourceName) {
+      res["SourceName"] = boost::any(*sourceName);
+    }
+    if (sourceUrl) {
+      res["SourceUrl"] = boost::any(*sourceUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PhoneNumbers") != m.end() && !m["PhoneNumbers"].empty()) {
+      phoneNumbers = make_shared<string>(boost::any_cast<string>(m["PhoneNumbers"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SourceName") != m.end() && !m["SourceName"].empty()) {
+      sourceName = make_shared<string>(boost::any_cast<string>(m["SourceName"]));
+    }
+    if (m.find("SourceUrl") != m.end() && !m["SourceUrl"].empty()) {
+      sourceUrl = make_shared<string>(boost::any_cast<string>(m["SourceUrl"]));
+    }
+  }
+
+
+  virtual ~CreateSmartShortUrlRequest() = default;
+};
+class CreateSmartShortUrlResponseBodyModel : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<long> expiration{};
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> shortName{};
+  shared_ptr<string> shortUrl{};
+
+  CreateSmartShortUrlResponseBodyModel() {}
+
+  explicit CreateSmartShortUrlResponseBodyModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (shortName) {
+      res["ShortName"] = boost::any(*shortName);
+    }
+    if (shortUrl) {
+      res["ShortUrl"] = boost::any(*shortUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    }
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
+      shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
+    }
+    if (m.find("ShortUrl") != m.end() && !m["ShortUrl"].empty()) {
+      shortUrl = make_shared<string>(boost::any_cast<string>(m["ShortUrl"]));
+    }
+  }
+
+
+  virtual ~CreateSmartShortUrlResponseBodyModel() = default;
+};
+class CreateSmartShortUrlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<vector<CreateSmartShortUrlResponseBodyModel>> model{};
+  shared_ptr<string> requestId{};
+
+  CreateSmartShortUrlResponseBody() {}
+
+  explicit CreateSmartShortUrlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (model) {
+      vector<boost::any> temp1;
+      for(auto item1:*model){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Model"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      if (typeid(vector<boost::any>) == m["Model"].type()) {
+        vector<CreateSmartShortUrlResponseBodyModel> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Model"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateSmartShortUrlResponseBodyModel model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        model = make_shared<vector<CreateSmartShortUrlResponseBodyModel>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateSmartShortUrlResponseBody() = default;
+};
+class CreateSmartShortUrlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateSmartShortUrlResponseBody> body{};
+
+  CreateSmartShortUrlResponse() {}
+
+  explicit CreateSmartShortUrlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateSmartShortUrlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateSmartShortUrlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateSmartShortUrlResponse() = default;
 };
 class DeleteShortUrlRequest : public Darabonba::Model {
 public:
@@ -3753,6 +4169,377 @@ public:
 
 
   virtual ~QueryMobilesCardSupportResponse() = default;
+};
+class QueryPageSmartShortUrlLogRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> clickState{};
+  shared_ptr<long> createDateEnd{};
+  shared_ptr<long> createDateStart{};
+  shared_ptr<long> endId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> shortName{};
+  shared_ptr<string> shortUrl{};
+  shared_ptr<long> startId{};
+
+  QueryPageSmartShortUrlLogRequest() {}
+
+  explicit QueryPageSmartShortUrlLogRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clickState) {
+      res["ClickState"] = boost::any(*clickState);
+    }
+    if (createDateEnd) {
+      res["CreateDateEnd"] = boost::any(*createDateEnd);
+    }
+    if (createDateStart) {
+      res["CreateDateStart"] = boost::any(*createDateStart);
+    }
+    if (endId) {
+      res["EndId"] = boost::any(*endId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (shortName) {
+      res["ShortName"] = boost::any(*shortName);
+    }
+    if (shortUrl) {
+      res["ShortUrl"] = boost::any(*shortUrl);
+    }
+    if (startId) {
+      res["StartId"] = boost::any(*startId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClickState") != m.end() && !m["ClickState"].empty()) {
+      clickState = make_shared<long>(boost::any_cast<long>(m["ClickState"]));
+    }
+    if (m.find("CreateDateEnd") != m.end() && !m["CreateDateEnd"].empty()) {
+      createDateEnd = make_shared<long>(boost::any_cast<long>(m["CreateDateEnd"]));
+    }
+    if (m.find("CreateDateStart") != m.end() && !m["CreateDateStart"].empty()) {
+      createDateStart = make_shared<long>(boost::any_cast<long>(m["CreateDateStart"]));
+    }
+    if (m.find("EndId") != m.end() && !m["EndId"].empty()) {
+      endId = make_shared<long>(boost::any_cast<long>(m["EndId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
+      shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
+    }
+    if (m.find("ShortUrl") != m.end() && !m["ShortUrl"].empty()) {
+      shortUrl = make_shared<string>(boost::any_cast<string>(m["ShortUrl"]));
+    }
+    if (m.find("StartId") != m.end() && !m["StartId"].empty()) {
+      startId = make_shared<long>(boost::any_cast<long>(m["StartId"]));
+    }
+  }
+
+
+  virtual ~QueryPageSmartShortUrlLogRequest() = default;
+};
+class QueryPageSmartShortUrlLogResponseBodyModelList : public Darabonba::Model {
+public:
+  shared_ptr<long> clickState{};
+  shared_ptr<long> clickTime{};
+  shared_ptr<long> createTime{};
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> shortName{};
+  shared_ptr<string> shortUrl{};
+
+  QueryPageSmartShortUrlLogResponseBodyModelList() {}
+
+  explicit QueryPageSmartShortUrlLogResponseBodyModelList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clickState) {
+      res["ClickState"] = boost::any(*clickState);
+    }
+    if (clickTime) {
+      res["ClickTime"] = boost::any(*clickTime);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (shortName) {
+      res["ShortName"] = boost::any(*shortName);
+    }
+    if (shortUrl) {
+      res["ShortUrl"] = boost::any(*shortUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClickState") != m.end() && !m["ClickState"].empty()) {
+      clickState = make_shared<long>(boost::any_cast<long>(m["ClickState"]));
+    }
+    if (m.find("ClickTime") != m.end() && !m["ClickTime"].empty()) {
+      clickTime = make_shared<long>(boost::any_cast<long>(m["ClickTime"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("ShortName") != m.end() && !m["ShortName"].empty()) {
+      shortName = make_shared<string>(boost::any_cast<string>(m["ShortName"]));
+    }
+    if (m.find("ShortUrl") != m.end() && !m["ShortUrl"].empty()) {
+      shortUrl = make_shared<string>(boost::any_cast<string>(m["ShortUrl"]));
+    }
+  }
+
+
+  virtual ~QueryPageSmartShortUrlLogResponseBodyModelList() = default;
+};
+class QueryPageSmartShortUrlLogResponseBodyModel : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryPageSmartShortUrlLogResponseBodyModelList>> list{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<long> totalPage{};
+
+  QueryPageSmartShortUrlLogResponseBodyModel() {}
+
+  explicit QueryPageSmartShortUrlLogResponseBodyModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (totalPage) {
+      res["TotalPage"] = boost::any(*totalPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<QueryPageSmartShortUrlLogResponseBodyModelList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryPageSmartShortUrlLogResponseBodyModelList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<QueryPageSmartShortUrlLogResponseBodyModelList>>(expect1);
+      }
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("TotalPage") != m.end() && !m["TotalPage"].empty()) {
+      totalPage = make_shared<long>(boost::any_cast<long>(m["TotalPage"]));
+    }
+  }
+
+
+  virtual ~QueryPageSmartShortUrlLogResponseBodyModel() = default;
+};
+class QueryPageSmartShortUrlLogResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<QueryPageSmartShortUrlLogResponseBodyModel> model{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  QueryPageSmartShortUrlLogResponseBody() {}
+
+  explicit QueryPageSmartShortUrlLogResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (model) {
+      res["Model"] = model ? boost::any(model->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Model"].type()) {
+        QueryPageSmartShortUrlLogResponseBodyModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Model"]));
+        model = make_shared<QueryPageSmartShortUrlLogResponseBodyModel>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~QueryPageSmartShortUrlLogResponseBody() = default;
+};
+class QueryPageSmartShortUrlLogResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<QueryPageSmartShortUrlLogResponseBody> body{};
+
+  QueryPageSmartShortUrlLogResponse() {}
+
+  explicit QueryPageSmartShortUrlLogResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        QueryPageSmartShortUrlLogResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<QueryPageSmartShortUrlLogResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~QueryPageSmartShortUrlLogResponse() = default;
 };
 class QuerySendDetailsRequest : public Darabonba::Model {
 public:
@@ -6703,6 +7490,175 @@ public:
 
   virtual ~SendSmsResponse() = default;
 };
+class SmsConversionIntlRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> conversionTime{};
+  shared_ptr<bool> delivered{};
+  shared_ptr<string> messageId{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  SmsConversionIntlRequest() {}
+
+  explicit SmsConversionIntlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (conversionTime) {
+      res["ConversionTime"] = boost::any(*conversionTime);
+    }
+    if (delivered) {
+      res["Delivered"] = boost::any(*delivered);
+    }
+    if (messageId) {
+      res["MessageId"] = boost::any(*messageId);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConversionTime") != m.end() && !m["ConversionTime"].empty()) {
+      conversionTime = make_shared<long>(boost::any_cast<long>(m["ConversionTime"]));
+    }
+    if (m.find("Delivered") != m.end() && !m["Delivered"].empty()) {
+      delivered = make_shared<bool>(boost::any_cast<bool>(m["Delivered"]));
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<string>(boost::any_cast<string>(m["MessageId"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~SmsConversionIntlRequest() = default;
+};
+class SmsConversionIntlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  SmsConversionIntlResponseBody() {}
+
+  explicit SmsConversionIntlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SmsConversionIntlResponseBody() = default;
+};
+class SmsConversionIntlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SmsConversionIntlResponseBody> body{};
+
+  SmsConversionIntlResponse() {}
+
+  explicit SmsConversionIntlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SmsConversionIntlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SmsConversionIntlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SmsConversionIntlResponse() = default;
+};
 class TagResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -7165,8 +8121,12 @@ public:
   AddSmsTemplateResponse addSmsTemplate(shared_ptr<AddSmsTemplateRequest> request);
   CheckMobilesCardSupportResponse checkMobilesCardSupportWithOptions(shared_ptr<CheckMobilesCardSupportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckMobilesCardSupportResponse checkMobilesCardSupport(shared_ptr<CheckMobilesCardSupportRequest> request);
+  ConversionDataIntlResponse conversionDataIntlWithOptions(shared_ptr<ConversionDataIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ConversionDataIntlResponse conversionDataIntl(shared_ptr<ConversionDataIntlRequest> request);
   CreateCardSmsTemplateResponse createCardSmsTemplateWithOptions(shared_ptr<CreateCardSmsTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateCardSmsTemplateResponse createCardSmsTemplate(shared_ptr<CreateCardSmsTemplateRequest> request);
+  CreateSmartShortUrlResponse createSmartShortUrlWithOptions(shared_ptr<CreateSmartShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateSmartShortUrlResponse createSmartShortUrl(shared_ptr<CreateSmartShortUrlRequest> request);
   DeleteShortUrlResponse deleteShortUrlWithOptions(shared_ptr<DeleteShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteShortUrlResponse deleteShortUrl(shared_ptr<DeleteShortUrlRequest> request);
   DeleteSmsSignResponse deleteSmsSignWithOptions(shared_ptr<DeleteSmsSignRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7191,6 +8151,8 @@ public:
   QueryCardSmsTemplateReportResponse queryCardSmsTemplateReport(shared_ptr<QueryCardSmsTemplateReportRequest> request);
   QueryMobilesCardSupportResponse queryMobilesCardSupportWithOptions(shared_ptr<QueryMobilesCardSupportRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryMobilesCardSupportResponse queryMobilesCardSupport(shared_ptr<QueryMobilesCardSupportRequest> request);
+  QueryPageSmartShortUrlLogResponse queryPageSmartShortUrlLogWithOptions(shared_ptr<QueryPageSmartShortUrlLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryPageSmartShortUrlLogResponse queryPageSmartShortUrlLog(shared_ptr<QueryPageSmartShortUrlLogRequest> request);
   QuerySendDetailsResponse querySendDetailsWithOptions(shared_ptr<QuerySendDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QuerySendDetailsResponse querySendDetails(shared_ptr<QuerySendDetailsRequest> request);
   QuerySendStatisticsResponse querySendStatisticsWithOptions(shared_ptr<QuerySendStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7213,6 +8175,8 @@ public:
   SendCardSmsResponse sendCardSms(shared_ptr<SendCardSmsRequest> request);
   SendSmsResponse sendSmsWithOptions(shared_ptr<SendSmsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SendSmsResponse sendSms(shared_ptr<SendSmsRequest> request);
+  SmsConversionIntlResponse smsConversionIntlWithOptions(shared_ptr<SmsConversionIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SmsConversionIntlResponse smsConversionIntl(shared_ptr<SmsConversionIntlRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

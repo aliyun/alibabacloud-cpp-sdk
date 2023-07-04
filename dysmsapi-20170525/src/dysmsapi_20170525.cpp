@@ -20,9 +20,11 @@ Alibabacloud_Dysmsapi20170525::Client::Client(const shared_ptr<Alibabacloud_Open
   _endpointRule = make_shared<string>("central");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"ap-southeast-1", "dysmsapi.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-5", "dysmsapi-xman.ap-southeast-5.aliyuncs.com"},
+    {"ap-southeast-5", "dysmsapi.ap-southeast-5.aliyuncs.com"},
     {"cn-beijing", "dysmsapi-proxy.cn-beijing.aliyuncs.com"},
-    {"cn-hongkong", "dysmsapi-xman.cn-hongkong.aliyuncs.com"}
+    {"cn-hongkong", "dysmsapi-xman.cn-hongkong.aliyuncs.com"},
+    {"eu-central-1", "dysmsapi.eu-central-1.aliyuncs.com"},
+    {"us-east-1", "dysmsapi.us-east-1.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -190,8 +192,8 @@ AddSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::addSmsTemplate(sha
 CheckMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::checkMobilesCardSupportWithOptions(shared_ptr<CheckMobilesCardSupportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<undefined>>(request->mobiles)) {
-    query->insert(pair<string, vector<undefined>>("Mobiles", *request->mobiles));
+  if (!Darabonba_Util::Client::isUnset<vector<map<string, boost::any>>>(request->mobiles)) {
+    query->insert(pair<string, vector<map<string, boost::any>>>("Mobiles", *request->mobiles));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     query->insert(pair<string, string>("TemplateCode", *request->templateCode));
@@ -216,6 +218,46 @@ CheckMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::checkMobi
 CheckMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::checkMobilesCardSupport(shared_ptr<CheckMobilesCardSupportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return checkMobilesCardSupportWithOptions(request, runtime);
+}
+
+ConversionDataIntlResponse Alibabacloud_Dysmsapi20170525::Client::conversionDataIntlWithOptions(shared_ptr<ConversionDataIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->conversionRate)) {
+    query->insert(pair<string, string>("ConversionRate", *request->conversionRate));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->reportTime)) {
+    query->insert(pair<string, long>("ReportTime", *request->reportTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ConversionDataIntl"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ConversionDataIntlResponse(callApi(params, req, runtime));
+}
+
+ConversionDataIntlResponse Alibabacloud_Dysmsapi20170525::Client::conversionDataIntl(shared_ptr<ConversionDataIntlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return conversionDataIntlWithOptions(request, runtime);
 }
 
 CreateCardSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::createCardSmsTemplateWithOptions(shared_ptr<CreateCardSmsTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -258,6 +300,52 @@ CreateCardSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::createCardS
 CreateCardSmsTemplateResponse Alibabacloud_Dysmsapi20170525::Client::createCardSmsTemplate(shared_ptr<CreateCardSmsTemplateRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createCardSmsTemplateWithOptions(request, runtime);
+}
+
+CreateSmartShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::createSmartShortUrlWithOptions(shared_ptr<CreateSmartShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->expiration)) {
+    query->insert(pair<string, long>("Expiration", *request->expiration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumbers)) {
+    query->insert(pair<string, string>("PhoneNumbers", *request->phoneNumbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceName)) {
+    query->insert(pair<string, string>("SourceName", *request->sourceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceUrl)) {
+    query->insert(pair<string, string>("SourceUrl", *request->sourceUrl));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSmartShortUrl"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSmartShortUrlResponse(callApi(params, req, runtime));
+}
+
+CreateSmartShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::createSmartShortUrl(shared_ptr<CreateSmartShortUrlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSmartShortUrlWithOptions(request, runtime);
 }
 
 DeleteShortUrlResponse Alibabacloud_Dysmsapi20170525::Client::deleteShortUrlWithOptions(shared_ptr<DeleteShortUrlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -707,7 +795,7 @@ QueryMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::queryMobi
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<QueryMobilesCardSupportShrinkRequest> request = make_shared<QueryMobilesCardSupportShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<undefined>>(tmpReq->mobiles)) {
+  if (!Darabonba_Util::Client::isUnset<vector<map<string, boost::any>>>(tmpReq->mobiles)) {
     request->mobilesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->mobiles, make_shared<string>("Mobiles"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -737,6 +825,70 @@ QueryMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::queryMobi
 QueryMobilesCardSupportResponse Alibabacloud_Dysmsapi20170525::Client::queryMobilesCardSupport(shared_ptr<QueryMobilesCardSupportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryMobilesCardSupportWithOptions(request, runtime);
+}
+
+QueryPageSmartShortUrlLogResponse Alibabacloud_Dysmsapi20170525::Client::queryPageSmartShortUrlLogWithOptions(shared_ptr<QueryPageSmartShortUrlLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->clickState)) {
+    query->insert(pair<string, long>("ClickState", *request->clickState));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createDateEnd)) {
+    query->insert(pair<string, long>("CreateDateEnd", *request->createDateEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createDateStart)) {
+    query->insert(pair<string, long>("CreateDateStart", *request->createDateStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endId)) {
+    query->insert(pair<string, long>("EndId", *request->endId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shortName)) {
+    query->insert(pair<string, string>("ShortName", *request->shortName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shortUrl)) {
+    query->insert(pair<string, string>("ShortUrl", *request->shortUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startId)) {
+    query->insert(pair<string, long>("StartId", *request->startId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryPageSmartShortUrlLog"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryPageSmartShortUrlLogResponse(callApi(params, req, runtime));
+}
+
+QueryPageSmartShortUrlLogResponse Alibabacloud_Dysmsapi20170525::Client::queryPageSmartShortUrlLog(shared_ptr<QueryPageSmartShortUrlLogRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryPageSmartShortUrlLogWithOptions(request, runtime);
 }
 
 QuerySendDetailsResponse Alibabacloud_Dysmsapi20170525::Client::querySendDetailsWithOptions(shared_ptr<QuerySendDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1265,6 +1417,49 @@ SendSmsResponse Alibabacloud_Dysmsapi20170525::Client::sendSmsWithOptions(shared
 SendSmsResponse Alibabacloud_Dysmsapi20170525::Client::sendSms(shared_ptr<SendSmsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return sendSmsWithOptions(request, runtime);
+}
+
+SmsConversionIntlResponse Alibabacloud_Dysmsapi20170525::Client::smsConversionIntlWithOptions(shared_ptr<SmsConversionIntlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->conversionTime)) {
+    query->insert(pair<string, long>("ConversionTime", *request->conversionTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->delivered)) {
+    query->insert(pair<string, bool>("Delivered", *request->delivered));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageId)) {
+    query->insert(pair<string, string>("MessageId", *request->messageId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SmsConversionIntl"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SmsConversionIntlResponse(callApi(params, req, runtime));
+}
+
+SmsConversionIntlResponse Alibabacloud_Dysmsapi20170525::Client::smsConversionIntl(shared_ptr<SmsConversionIntlRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return smsConversionIntlWithOptions(request, runtime);
 }
 
 TagResourcesResponse Alibabacloud_Dysmsapi20170525::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
