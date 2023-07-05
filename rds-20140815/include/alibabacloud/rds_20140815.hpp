@@ -56097,6 +56097,7 @@ public:
 };
 class ModifyDBInstanceSpecRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoUseCoupon{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
   shared_ptr<string> DBInstanceClass{};
@@ -56129,6 +56130,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoUseCoupon) {
+      res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
     if (burstingEnabled) {
       res["BurstingEnabled"] = boost::any(*burstingEnabled);
     }
@@ -56196,6 +56200,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
+      autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
+    }
     if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
       burstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["BurstingEnabled"]));
     }
@@ -56270,6 +56277,7 @@ public:
 };
 class ModifyDBInstanceSpecShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoUseCoupon{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
   shared_ptr<string> DBInstanceClass{};
@@ -56302,6 +56310,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoUseCoupon) {
+      res["AutoUseCoupon"] = boost::any(*autoUseCoupon);
+    }
     if (burstingEnabled) {
       res["BurstingEnabled"] = boost::any(*burstingEnabled);
     }
@@ -56369,6 +56380,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoUseCoupon") != m.end() && !m["AutoUseCoupon"].empty()) {
+      autoUseCoupon = make_shared<bool>(boost::any_cast<bool>(m["AutoUseCoupon"]));
+    }
     if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
       burstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["BurstingEnabled"]));
     }

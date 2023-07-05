@@ -10113,6 +10113,9 @@ ModifyDBInstanceSpecResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceS
     request->serverlessConfigurationShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->serverlessConfiguration, make_shared<string>("ServerlessConfiguration"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoUseCoupon)) {
+    query->insert(pair<string, bool>("AutoUseCoupon", *request->autoUseCoupon));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->burstingEnabled)) {
     query->insert(pair<string, bool>("BurstingEnabled", *request->burstingEnabled));
   }
