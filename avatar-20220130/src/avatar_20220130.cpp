@@ -739,6 +739,9 @@ SubmitTextTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submi
   if (!Darabonba_Util::Client::isUnset<SubmitTextTo3DAvatarVideoTaskRequestApp>(tmpReq->app)) {
     request->appShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->app, make_shared<string>("App"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SubmitTextTo3DAvatarVideoTaskRequestAudioInfo>(tmpReq->audioInfo)) {
+    request->audioInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->audioInfo, make_shared<string>("AudioInfo"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo>(tmpReq->avatarInfo)) {
     request->avatarInfoShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->avatarInfo, make_shared<string>("AvatarInfo"), make_shared<string>("json")));
   }
@@ -749,8 +752,20 @@ SubmitTextTo3DAvatarVideoTaskResponse Alibabacloud_Avatar20220130::Client::submi
   if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
     query->insert(pair<string, string>("App", *request->appShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->audioInfoShrink)) {
+    query->insert(pair<string, string>("AudioInfo", *request->audioInfoShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->avatarInfoShrink)) {
     query->insert(pair<string, string>("AvatarInfo", *request->avatarInfoShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->callback)) {
+    query->insert(pair<string, bool>("Callback", *request->callback));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->callbackParams)) {
+    query->insert(pair<string, string>("CallbackParams", *request->callbackParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extParams)) {
+    query->insert(pair<string, string>("ExtParams", *request->extParams));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tenantId)) {
     query->insert(pair<string, long>("TenantId", *request->tenantId));

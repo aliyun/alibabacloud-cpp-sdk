@@ -4810,6 +4810,7 @@ class SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model 
 public:
   shared_ptr<long> angle{};
   shared_ptr<string> code{};
+  shared_ptr<string> industryCode{};
   shared_ptr<long> locate{};
 
   SubmitAudioTo3DAvatarVideoTaskRequestAvatarInfo() {}
@@ -4828,6 +4829,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (industryCode) {
+      res["IndustryCode"] = boost::any(*industryCode);
+    }
     if (locate) {
       res["Locate"] = boost::any(*locate);
     }
@@ -4840,6 +4844,9 @@ public:
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IndustryCode") != m.end() && !m["IndustryCode"].empty()) {
+      industryCode = make_shared<string>(boost::any_cast<string>(m["IndustryCode"]));
     }
     if (m.find("Locate") != m.end() && !m["Locate"].empty()) {
       locate = make_shared<long>(boost::any_cast<long>(m["Locate"]));
@@ -5779,10 +5786,61 @@ public:
 
   virtual ~SubmitTextTo3DAvatarVideoTaskRequestApp() = default;
 };
+class SubmitTextTo3DAvatarVideoTaskRequestAudioInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> pitchRate{};
+  shared_ptr<long> speechRate{};
+  shared_ptr<string> voice{};
+  shared_ptr<long> volume{};
+
+  SubmitTextTo3DAvatarVideoTaskRequestAudioInfo() {}
+
+  explicit SubmitTextTo3DAvatarVideoTaskRequestAudioInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pitchRate) {
+      res["PitchRate"] = boost::any(*pitchRate);
+    }
+    if (speechRate) {
+      res["SpeechRate"] = boost::any(*speechRate);
+    }
+    if (voice) {
+      res["Voice"] = boost::any(*voice);
+    }
+    if (volume) {
+      res["Volume"] = boost::any(*volume);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PitchRate") != m.end() && !m["PitchRate"].empty()) {
+      pitchRate = make_shared<long>(boost::any_cast<long>(m["PitchRate"]));
+    }
+    if (m.find("SpeechRate") != m.end() && !m["SpeechRate"].empty()) {
+      speechRate = make_shared<long>(boost::any_cast<long>(m["SpeechRate"]));
+    }
+    if (m.find("Voice") != m.end() && !m["Voice"].empty()) {
+      voice = make_shared<string>(boost::any_cast<string>(m["Voice"]));
+    }
+    if (m.find("Volume") != m.end() && !m["Volume"].empty()) {
+      volume = make_shared<long>(boost::any_cast<long>(m["Volume"]));
+    }
+  }
+
+
+  virtual ~SubmitTextTo3DAvatarVideoTaskRequestAudioInfo() = default;
+};
 class SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model {
 public:
   shared_ptr<long> angle{};
   shared_ptr<string> code{};
+  shared_ptr<string> industryCode{};
   shared_ptr<long> locate{};
 
   SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo() {}
@@ -5801,6 +5859,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (industryCode) {
+      res["IndustryCode"] = boost::any(*industryCode);
+    }
     if (locate) {
       res["Locate"] = boost::any(*locate);
     }
@@ -5813,6 +5874,9 @@ public:
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IndustryCode") != m.end() && !m["IndustryCode"].empty()) {
+      industryCode = make_shared<string>(boost::any_cast<string>(m["IndustryCode"]));
     }
     if (m.find("Locate") != m.end() && !m["Locate"].empty()) {
       locate = make_shared<long>(boost::any_cast<long>(m["Locate"]));
@@ -5882,7 +5946,11 @@ public:
 class SubmitTextTo3DAvatarVideoTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<SubmitTextTo3DAvatarVideoTaskRequestApp> app{};
+  shared_ptr<SubmitTextTo3DAvatarVideoTaskRequestAudioInfo> audioInfo{};
   shared_ptr<SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo> avatarInfo{};
+  shared_ptr<bool> callback{};
+  shared_ptr<string> callbackParams{};
+  shared_ptr<string> extParams{};
   shared_ptr<long> tenantId{};
   shared_ptr<string> text{};
   shared_ptr<string> title{};
@@ -5901,8 +5969,20 @@ public:
     if (app) {
       res["App"] = app ? boost::any(app->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (audioInfo) {
+      res["AudioInfo"] = audioInfo ? boost::any(audioInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (avatarInfo) {
       res["AvatarInfo"] = avatarInfo ? boost::any(avatarInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callbackParams) {
+      res["CallbackParams"] = boost::any(*callbackParams);
+    }
+    if (extParams) {
+      res["ExtParams"] = boost::any(*extParams);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
@@ -5927,12 +6007,28 @@ public:
         app = make_shared<SubmitTextTo3DAvatarVideoTaskRequestApp>(model1);
       }
     }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AudioInfo"].type()) {
+        SubmitTextTo3DAvatarVideoTaskRequestAudioInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AudioInfo"]));
+        audioInfo = make_shared<SubmitTextTo3DAvatarVideoTaskRequestAudioInfo>(model1);
+      }
+    }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["AvatarInfo"].type()) {
         SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AvatarInfo"]));
         avatarInfo = make_shared<SubmitTextTo3DAvatarVideoTaskRequestAvatarInfo>(model1);
       }
+    }
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<bool>(boost::any_cast<bool>(m["Callback"]));
+    }
+    if (m.find("CallbackParams") != m.end() && !m["CallbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["CallbackParams"]));
+    }
+    if (m.find("ExtParams") != m.end() && !m["ExtParams"].empty()) {
+      extParams = make_shared<string>(boost::any_cast<string>(m["ExtParams"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
@@ -5958,7 +6054,11 @@ public:
 class SubmitTextTo3DAvatarVideoTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appShrink{};
+  shared_ptr<string> audioInfoShrink{};
   shared_ptr<string> avatarInfoShrink{};
+  shared_ptr<bool> callback{};
+  shared_ptr<string> callbackParams{};
+  shared_ptr<string> extParams{};
   shared_ptr<long> tenantId{};
   shared_ptr<string> text{};
   shared_ptr<string> title{};
@@ -5977,8 +6077,20 @@ public:
     if (appShrink) {
       res["App"] = boost::any(*appShrink);
     }
+    if (audioInfoShrink) {
+      res["AudioInfo"] = boost::any(*audioInfoShrink);
+    }
     if (avatarInfoShrink) {
       res["AvatarInfo"] = boost::any(*avatarInfoShrink);
+    }
+    if (callback) {
+      res["Callback"] = boost::any(*callback);
+    }
+    if (callbackParams) {
+      res["CallbackParams"] = boost::any(*callbackParams);
+    }
+    if (extParams) {
+      res["ExtParams"] = boost::any(*extParams);
     }
     if (tenantId) {
       res["TenantId"] = boost::any(*tenantId);
@@ -5999,8 +6111,20 @@ public:
     if (m.find("App") != m.end() && !m["App"].empty()) {
       appShrink = make_shared<string>(boost::any_cast<string>(m["App"]));
     }
+    if (m.find("AudioInfo") != m.end() && !m["AudioInfo"].empty()) {
+      audioInfoShrink = make_shared<string>(boost::any_cast<string>(m["AudioInfo"]));
+    }
     if (m.find("AvatarInfo") != m.end() && !m["AvatarInfo"].empty()) {
       avatarInfoShrink = make_shared<string>(boost::any_cast<string>(m["AvatarInfo"]));
+    }
+    if (m.find("Callback") != m.end() && !m["Callback"].empty()) {
+      callback = make_shared<bool>(boost::any_cast<bool>(m["Callback"]));
+    }
+    if (m.find("CallbackParams") != m.end() && !m["CallbackParams"].empty()) {
+      callbackParams = make_shared<string>(boost::any_cast<string>(m["CallbackParams"]));
+    }
+    if (m.find("ExtParams") != m.end() && !m["ExtParams"].empty()) {
+      extParams = make_shared<string>(boost::any_cast<string>(m["ExtParams"]));
     }
     if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
       tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
