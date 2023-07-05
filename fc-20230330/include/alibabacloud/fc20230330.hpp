@@ -4919,7 +4919,7 @@ public:
 };
 class CreateAliasRequest : public Darabonba::Model {
 public:
-  shared_ptr<CreateAliasInput> request{};
+  shared_ptr<CreateAliasInput> body{};
 
   CreateAliasRequest() {}
 
@@ -4931,18 +4931,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         CreateAliasInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<CreateAliasInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAliasInput>(model1);
       }
     }
   }
@@ -5014,7 +5014,7 @@ public:
 };
 class CreateCustomDomainRequest : public Darabonba::Model {
 public:
-  shared_ptr<CreateCustomDomainInput> request{};
+  shared_ptr<CreateCustomDomainInput> body{};
 
   CreateCustomDomainRequest() {}
 
@@ -5026,18 +5026,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         CreateCustomDomainInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<CreateCustomDomainInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCustomDomainInput>(model1);
       }
     }
   }
@@ -5109,7 +5109,7 @@ public:
 };
 class CreateFunctionRequest : public Darabonba::Model {
 public:
-  shared_ptr<CreateFunctionInput> request{};
+  shared_ptr<CreateFunctionInput> body{};
 
   CreateFunctionRequest() {}
 
@@ -5121,18 +5121,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         CreateFunctionInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<CreateFunctionInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFunctionInput>(model1);
       }
     }
   }
@@ -5204,7 +5204,7 @@ public:
 };
 class CreateLayerVersionRequest : public Darabonba::Model {
 public:
-  shared_ptr<CreateLayerVersionInput> request{};
+  shared_ptr<CreateLayerVersionInput> body{};
 
   CreateLayerVersionRequest() {}
 
@@ -5216,18 +5216,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         CreateLayerVersionInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<CreateLayerVersionInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateLayerVersionInput>(model1);
       }
     }
   }
@@ -5299,7 +5299,7 @@ public:
 };
 class CreateTriggerRequest : public Darabonba::Model {
 public:
-  shared_ptr<CreateTriggerInput> request{};
+  shared_ptr<CreateTriggerInput> body{};
 
   CreateTriggerRequest() {}
 
@@ -5311,18 +5311,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         CreateTriggerInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<CreateTriggerInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateTriggerInput>(model1);
       }
     }
   }
@@ -6759,8 +6759,8 @@ public:
 };
 class InvokeFunctionRequest : public Darabonba::Model {
 public:
+  shared_ptr<Darabonba::Stream> body{};
   shared_ptr<string> qualifier{};
-  shared_ptr<Darabonba::Stream> request{};
 
   InvokeFunctionRequest() {}
 
@@ -6772,21 +6772,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
-    }
-    if (request) {
-      res["request"] = boost::any(*request);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
-    }
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      request = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["request"]));
     }
   }
 
@@ -8106,7 +8106,7 @@ public:
 };
 class PublishFunctionVersionRequest : public Darabonba::Model {
 public:
-  shared_ptr<PublishVersionInput> request{};
+  shared_ptr<PublishVersionInput> body{};
 
   PublishFunctionVersionRequest() {}
 
@@ -8118,18 +8118,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         PublishVersionInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<PublishVersionInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PublishVersionInput>(model1);
       }
     }
   }
@@ -8201,8 +8201,8 @@ public:
 };
 class PutAsyncInvokeConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<PutAsyncInvokeConfigInput> body{};
   shared_ptr<string> qualifier{};
-  shared_ptr<PutAsyncInvokeConfigInput> request{};
 
   PutAsyncInvokeConfigRequest() {}
 
@@ -8214,25 +8214,25 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
-    }
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PutAsyncInvokeConfigInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PutAsyncInvokeConfigInput>(model1);
+      }
+    }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
-    }
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
-        PutAsyncInvokeConfigInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<PutAsyncInvokeConfigInput>(model1);
-      }
     }
   }
 
@@ -8303,7 +8303,7 @@ public:
 };
 class PutConcurrencyConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<PutConcurrencyInput> request{};
+  shared_ptr<PutConcurrencyInput> body{};
 
   PutConcurrencyConfigRequest() {}
 
@@ -8315,18 +8315,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         PutConcurrencyInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<PutConcurrencyInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PutConcurrencyInput>(model1);
       }
     }
   }
@@ -8475,8 +8475,8 @@ public:
 };
 class PutProvisionConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<PutProvisionConfigInput> body{};
   shared_ptr<string> qualifier{};
-  shared_ptr<PutProvisionConfigInput> request{};
 
   PutProvisionConfigRequest() {}
 
@@ -8488,25 +8488,25 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (qualifier) {
       res["qualifier"] = boost::any(*qualifier);
-    }
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PutProvisionConfigInput model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PutProvisionConfigInput>(model1);
+      }
+    }
     if (m.find("qualifier") != m.end() && !m["qualifier"].empty()) {
       qualifier = make_shared<string>(boost::any_cast<string>(m["qualifier"]));
-    }
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
-        PutProvisionConfigInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<PutProvisionConfigInput>(model1);
-      }
     }
   }
 
@@ -8577,7 +8577,7 @@ public:
 };
 class TagResourceRequest : public Darabonba::Model {
 public:
-  shared_ptr<TagResourceInput> request{};
+  shared_ptr<TagResourceInput> body{};
 
   TagResourceRequest() {}
 
@@ -8589,18 +8589,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         TagResourceInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<TagResourceInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<TagResourceInput>(model1);
       }
     }
   }
@@ -8763,7 +8763,7 @@ public:
 };
 class UpdateAliasRequest : public Darabonba::Model {
 public:
-  shared_ptr<UpdateAliasInput> request{};
+  shared_ptr<UpdateAliasInput> body{};
 
   UpdateAliasRequest() {}
 
@@ -8775,18 +8775,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         UpdateAliasInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<UpdateAliasInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAliasInput>(model1);
       }
     }
   }
@@ -8858,7 +8858,7 @@ public:
 };
 class UpdateCustomDomainRequest : public Darabonba::Model {
 public:
-  shared_ptr<UpdateCustomDomainInput> request{};
+  shared_ptr<UpdateCustomDomainInput> body{};
 
   UpdateCustomDomainRequest() {}
 
@@ -8870,18 +8870,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         UpdateCustomDomainInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<UpdateCustomDomainInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateCustomDomainInput>(model1);
       }
     }
   }
@@ -8953,7 +8953,7 @@ public:
 };
 class UpdateFunctionRequest : public Darabonba::Model {
 public:
-  shared_ptr<UpdateFunctionInput> request{};
+  shared_ptr<UpdateFunctionInput> body{};
 
   UpdateFunctionRequest() {}
 
@@ -8965,18 +8965,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         UpdateFunctionInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<UpdateFunctionInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateFunctionInput>(model1);
       }
     }
   }
@@ -9048,7 +9048,7 @@ public:
 };
 class UpdateTriggerRequest : public Darabonba::Model {
 public:
-  shared_ptr<UpdateTriggerInput> request{};
+  shared_ptr<UpdateTriggerInput> body{};
 
   UpdateTriggerRequest() {}
 
@@ -9060,18 +9060,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (request) {
-      res["request"] = request ? boost::any(request->toMap()) : boost::any(map<string,boost::any>({}));
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("request") != m.end() && !m["request"].empty()) {
-      if (typeid(map<string, boost::any>) == m["request"].type()) {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
         UpdateTriggerInput model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["request"]));
-        request = make_shared<UpdateTriggerInput>(model1);
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateTriggerInput>(model1);
       }
     }
   }
