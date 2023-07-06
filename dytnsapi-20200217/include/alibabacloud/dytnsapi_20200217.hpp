@@ -308,14 +308,14 @@ public:
 
   virtual ~DescribePhoneNumberAnalysisRequest() = default;
 };
-class DescribePhoneNumberAnalysisResponseBodyData : public Darabonba::Model {
+class DescribePhoneNumberAnalysisResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> number{};
 
-  DescribePhoneNumberAnalysisResponseBodyData() {}
+  DescribePhoneNumberAnalysisResponseBodyDataList() {}
 
-  explicit DescribePhoneNumberAnalysisResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+  explicit DescribePhoneNumberAnalysisResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
     fromMap(config);
   };
 
@@ -342,12 +342,55 @@ public:
   }
 
 
+  virtual ~DescribePhoneNumberAnalysisResponseBodyDataList() = default;
+};
+class DescribePhoneNumberAnalysisResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePhoneNumberAnalysisResponseBodyDataList>> list{};
+
+  DescribePhoneNumberAnalysisResponseBodyData() {}
+
+  explicit DescribePhoneNumberAnalysisResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (list) {
+      vector<boost::any> temp1;
+      for(auto item1:*list){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["List"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("List") != m.end() && !m["List"].empty()) {
+      if (typeid(vector<boost::any>) == m["List"].type()) {
+        vector<DescribePhoneNumberAnalysisResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["List"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePhoneNumberAnalysisResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        list = make_shared<vector<DescribePhoneNumberAnalysisResponseBodyDataList>>(expect1);
+      }
+    }
+  }
+
+
   virtual ~DescribePhoneNumberAnalysisResponseBodyData() = default;
 };
 class DescribePhoneNumberAnalysisResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<vector<DescribePhoneNumberAnalysisResponseBodyData>> data{};
+  shared_ptr<DescribePhoneNumberAnalysisResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -365,11 +408,7 @@ public:
       res["Code"] = boost::any(*code);
     }
     if (data) {
-      vector<boost::any> temp1;
-      for(auto item1:*data){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Data"] = boost::any(temp1);
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -385,16 +424,10 @@ public:
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(vector<boost::any>) == m["Data"].type()) {
-        vector<DescribePhoneNumberAnalysisResponseBodyData> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            DescribePhoneNumberAnalysisResponseBodyData model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        data = make_shared<vector<DescribePhoneNumberAnalysisResponseBodyData>>(expect1);
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribePhoneNumberAnalysisResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribePhoneNumberAnalysisResponseBodyData>(model1);
       }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
