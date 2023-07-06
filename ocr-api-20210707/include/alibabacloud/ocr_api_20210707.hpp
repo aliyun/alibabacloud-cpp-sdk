@@ -6223,6 +6223,7 @@ public:
 };
 class RecognizeInvoiceRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> pageNo{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -6236,6 +6237,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -6246,6 +6250,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }
@@ -7174,6 +7181,7 @@ public:
 };
 class RecognizeMixedInvoicesRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> pageNo{};
   shared_ptr<string> url{};
   shared_ptr<Darabonba::Stream> body{};
 
@@ -7187,6 +7195,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -7197,6 +7208,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
     }

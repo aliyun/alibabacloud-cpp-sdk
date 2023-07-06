@@ -1,3 +1,6 @@
+2023-07-06 Version: 1.1.15
+- PdfPageNumber.
+
 2023-05-23 Version: 1.1.14
 - RecognizeHkIdcard.
 
