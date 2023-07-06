@@ -240,11 +240,23 @@ AnalyzeSQLLineageResponse Alibabacloud_Dms-enterprise20181101::Client::analyzeSQ
 ApproveOrderResponse Alibabacloud_Dms-enterprise20181101::Client::approveOrderWithOptions(shared_ptr<ApproveOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->approvalNodeId)) {
+    query->insert(pair<string, long>("ApprovalNodeId", *request->approvalNodeId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvalNodePos)) {
+    query->insert(pair<string, string>("ApprovalNodePos", *request->approvalNodePos));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalType)) {
     query->insert(pair<string, string>("ApprovalType", *request->approvalType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->comment)) {
     query->insert(pair<string, string>("Comment", *request->comment));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->newApprover)) {
+    query->insert(pair<string, long>("NewApprover", *request->newApprover));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->oldApprover)) {
+    query->insert(pair<string, long>("OldApprover", *request->oldApprover));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
     query->insert(pair<string, long>("Tid", *request->tid));

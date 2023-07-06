@@ -2046,8 +2046,12 @@ public:
 };
 class ApproveOrderRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> approvalNodeId{};
+  shared_ptr<string> approvalNodePos{};
   shared_ptr<string> approvalType{};
   shared_ptr<string> comment{};
+  shared_ptr<long> newApprover{};
+  shared_ptr<long> oldApprover{};
   shared_ptr<long> tid{};
   shared_ptr<long> workflowInstanceId{};
 
@@ -2061,11 +2065,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvalNodeId) {
+      res["ApprovalNodeId"] = boost::any(*approvalNodeId);
+    }
+    if (approvalNodePos) {
+      res["ApprovalNodePos"] = boost::any(*approvalNodePos);
+    }
     if (approvalType) {
       res["ApprovalType"] = boost::any(*approvalType);
     }
     if (comment) {
       res["Comment"] = boost::any(*comment);
+    }
+    if (newApprover) {
+      res["NewApprover"] = boost::any(*newApprover);
+    }
+    if (oldApprover) {
+      res["OldApprover"] = boost::any(*oldApprover);
     }
     if (tid) {
       res["Tid"] = boost::any(*tid);
@@ -2077,11 +2093,23 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovalNodeId") != m.end() && !m["ApprovalNodeId"].empty()) {
+      approvalNodeId = make_shared<long>(boost::any_cast<long>(m["ApprovalNodeId"]));
+    }
+    if (m.find("ApprovalNodePos") != m.end() && !m["ApprovalNodePos"].empty()) {
+      approvalNodePos = make_shared<string>(boost::any_cast<string>(m["ApprovalNodePos"]));
+    }
     if (m.find("ApprovalType") != m.end() && !m["ApprovalType"].empty()) {
       approvalType = make_shared<string>(boost::any_cast<string>(m["ApprovalType"]));
     }
     if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
       comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("NewApprover") != m.end() && !m["NewApprover"].empty()) {
+      newApprover = make_shared<long>(boost::any_cast<long>(m["NewApprover"]));
+    }
+    if (m.find("OldApprover") != m.end() && !m["OldApprover"].empty()) {
+      oldApprover = make_shared<long>(boost::any_cast<long>(m["OldApprover"]));
     }
     if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
       tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
@@ -15392,6 +15420,7 @@ public:
   shared_ptr<GetDataArchiveOrderDetailResponseBodyDataArchiveOrderDetailPluginExtraDataNextFireTimeResult> nextFireTimeResult{};
   shared_ptr<long> pageIndex{};
   shared_ptr<long> pageSize{};
+  shared_ptr<map<string, boost::any>> tempTableNameMap{};
 
   GetDataArchiveOrderDetailResponseBodyDataArchiveOrderDetailPluginExtraData() {}
 
@@ -15427,6 +15456,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (tempTableNameMap) {
+      res["TempTableNameMap"] = boost::any(*tempTableNameMap);
     }
     return res;
   }
@@ -15474,6 +15506,14 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TempTableNameMap") != m.end() && !m["TempTableNameMap"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TempTableNameMap"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tempTableNameMap = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 
