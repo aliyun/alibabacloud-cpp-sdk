@@ -22056,8 +22056,11 @@ public:
 };
 class ListAvailableAccelerateAreasResponseBodyAreasRegionList : public Darabonba::Model {
 public:
+  shared_ptr<bool> chinaMainland{};
+  shared_ptr<vector<string>> ispTypeList{};
   shared_ptr<string> localName{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> supportIpv6{};
 
   ListAvailableAccelerateAreasResponseBodyAreasRegionList() {}
 
@@ -22069,21 +22072,46 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chinaMainland) {
+      res["ChinaMainland"] = boost::any(*chinaMainland);
+    }
+    if (ispTypeList) {
+      res["IspTypeList"] = boost::any(*ispTypeList);
+    }
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (supportIpv6) {
+      res["SupportIpv6"] = boost::any(*supportIpv6);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChinaMainland") != m.end() && !m["ChinaMainland"].empty()) {
+      chinaMainland = make_shared<bool>(boost::any_cast<bool>(m["ChinaMainland"]));
+    }
+    if (m.find("IspTypeList") != m.end() && !m["IspTypeList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["IspTypeList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IspTypeList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ispTypeList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SupportIpv6") != m.end() && !m["SupportIpv6"].empty()) {
+      supportIpv6 = make_shared<bool>(boost::any_cast<bool>(m["SupportIpv6"]));
     }
   }
 
@@ -22297,6 +22325,7 @@ public:
 };
 class ListAvailableBusiRegionsResponseBodyRegions : public Darabonba::Model {
 public:
+  shared_ptr<bool> chinaMainland{};
   shared_ptr<string> localName{};
   shared_ptr<bool> pop{};
   shared_ptr<string> regionId{};
@@ -22311,6 +22340,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (chinaMainland) {
+      res["ChinaMainland"] = boost::any(*chinaMainland);
+    }
     if (localName) {
       res["LocalName"] = boost::any(*localName);
     }
@@ -22324,6 +22356,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ChinaMainland") != m.end() && !m["ChinaMainland"].empty()) {
+      chinaMainland = make_shared<bool>(boost::any_cast<bool>(m["ChinaMainland"]));
+    }
     if (m.find("LocalName") != m.end() && !m["LocalName"].empty()) {
       localName = make_shared<string>(boost::any_cast<string>(m["LocalName"]));
     }
