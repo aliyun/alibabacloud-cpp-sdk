@@ -3457,6 +3457,434 @@ public:
 
   virtual ~CreateAuthorityTemplateResponse() = default;
 };
+class CreateDataArchiveOrderRequestParamTableIncludes : public Darabonba::Model {
+public:
+  shared_ptr<string> tableName{};
+  shared_ptr<string> tableWhere{};
+
+  CreateDataArchiveOrderRequestParamTableIncludes() {}
+
+  explicit CreateDataArchiveOrderRequestParamTableIncludes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tableName) {
+      res["TableName"] = boost::any(*tableName);
+    }
+    if (tableWhere) {
+      res["TableWhere"] = boost::any(*tableWhere);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TableName") != m.end() && !m["TableName"].empty()) {
+      tableName = make_shared<string>(boost::any_cast<string>(m["TableName"]));
+    }
+    if (m.find("TableWhere") != m.end() && !m["TableWhere"].empty()) {
+      tableWhere = make_shared<string>(boost::any_cast<string>(m["TableWhere"]));
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderRequestParamTableIncludes() = default;
+};
+class CreateDataArchiveOrderRequestParam : public Darabonba::Model {
+public:
+  shared_ptr<string> archiveMethod{};
+  shared_ptr<string> dbSchema{};
+  shared_ptr<bool> logic{};
+  shared_ptr<vector<string>> orderAfter{};
+  shared_ptr<string> runMethod{};
+  shared_ptr<long> sourceDatabaseId{};
+  shared_ptr<vector<CreateDataArchiveOrderRequestParamTableIncludes>> tableIncludes{};
+  shared_ptr<vector<string>> tableMapping{};
+  shared_ptr<string> targetInstanceId{};
+  shared_ptr<vector<string>> variables{};
+
+  CreateDataArchiveOrderRequestParam() {}
+
+  explicit CreateDataArchiveOrderRequestParam(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (archiveMethod) {
+      res["ArchiveMethod"] = boost::any(*archiveMethod);
+    }
+    if (dbSchema) {
+      res["DbSchema"] = boost::any(*dbSchema);
+    }
+    if (logic) {
+      res["Logic"] = boost::any(*logic);
+    }
+    if (orderAfter) {
+      res["OrderAfter"] = boost::any(*orderAfter);
+    }
+    if (runMethod) {
+      res["RunMethod"] = boost::any(*runMethod);
+    }
+    if (sourceDatabaseId) {
+      res["SourceDatabaseId"] = boost::any(*sourceDatabaseId);
+    }
+    if (tableIncludes) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableIncludes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableIncludes"] = boost::any(temp1);
+    }
+    if (tableMapping) {
+      res["TableMapping"] = boost::any(*tableMapping);
+    }
+    if (targetInstanceId) {
+      res["TargetInstanceId"] = boost::any(*targetInstanceId);
+    }
+    if (variables) {
+      res["Variables"] = boost::any(*variables);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArchiveMethod") != m.end() && !m["ArchiveMethod"].empty()) {
+      archiveMethod = make_shared<string>(boost::any_cast<string>(m["ArchiveMethod"]));
+    }
+    if (m.find("DbSchema") != m.end() && !m["DbSchema"].empty()) {
+      dbSchema = make_shared<string>(boost::any_cast<string>(m["DbSchema"]));
+    }
+    if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
+      logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
+    }
+    if (m.find("OrderAfter") != m.end() && !m["OrderAfter"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["OrderAfter"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["OrderAfter"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      orderAfter = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RunMethod") != m.end() && !m["RunMethod"].empty()) {
+      runMethod = make_shared<string>(boost::any_cast<string>(m["RunMethod"]));
+    }
+    if (m.find("SourceDatabaseId") != m.end() && !m["SourceDatabaseId"].empty()) {
+      sourceDatabaseId = make_shared<long>(boost::any_cast<long>(m["SourceDatabaseId"]));
+    }
+    if (m.find("TableIncludes") != m.end() && !m["TableIncludes"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableIncludes"].type()) {
+        vector<CreateDataArchiveOrderRequestParamTableIncludes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableIncludes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDataArchiveOrderRequestParamTableIncludes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableIncludes = make_shared<vector<CreateDataArchiveOrderRequestParamTableIncludes>>(expect1);
+      }
+    }
+    if (m.find("TableMapping") != m.end() && !m["TableMapping"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TableMapping"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TableMapping"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tableMapping = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TargetInstanceId") != m.end() && !m["TargetInstanceId"].empty()) {
+      targetInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetInstanceId"]));
+    }
+    if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Variables"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Variables"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      variables = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderRequestParam() = default;
+};
+class CreateDataArchiveOrderRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<CreateDataArchiveOrderRequestParam> param{};
+  shared_ptr<long> parentId{};
+  shared_ptr<string> pluginType{};
+  shared_ptr<vector<string>> relatedUserList{};
+  shared_ptr<long> tid{};
+
+  CreateDataArchiveOrderRequest() {}
+
+  explicit CreateDataArchiveOrderRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (param) {
+      res["Param"] = param ? boost::any(param->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (parentId) {
+      res["ParentId"] = boost::any(*parentId);
+    }
+    if (pluginType) {
+      res["PluginType"] = boost::any(*pluginType);
+    }
+    if (relatedUserList) {
+      res["RelatedUserList"] = boost::any(*relatedUserList);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Param"].type()) {
+        CreateDataArchiveOrderRequestParam model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Param"]));
+        param = make_shared<CreateDataArchiveOrderRequestParam>(model1);
+      }
+    }
+    if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
+      parentId = make_shared<long>(boost::any_cast<long>(m["ParentId"]));
+    }
+    if (m.find("PluginType") != m.end() && !m["PluginType"].empty()) {
+      pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedUserList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedUserList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedUserList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderRequest() = default;
+};
+class CreateDataArchiveOrderShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> paramShrink{};
+  shared_ptr<long> parentId{};
+  shared_ptr<string> pluginType{};
+  shared_ptr<string> relatedUserListShrink{};
+  shared_ptr<long> tid{};
+
+  CreateDataArchiveOrderShrinkRequest() {}
+
+  explicit CreateDataArchiveOrderShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (paramShrink) {
+      res["Param"] = boost::any(*paramShrink);
+    }
+    if (parentId) {
+      res["ParentId"] = boost::any(*parentId);
+    }
+    if (pluginType) {
+      res["PluginType"] = boost::any(*pluginType);
+    }
+    if (relatedUserListShrink) {
+      res["RelatedUserList"] = boost::any(*relatedUserListShrink);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("Param") != m.end() && !m["Param"].empty()) {
+      paramShrink = make_shared<string>(boost::any_cast<string>(m["Param"]));
+    }
+    if (m.find("ParentId") != m.end() && !m["ParentId"].empty()) {
+      parentId = make_shared<long>(boost::any_cast<long>(m["ParentId"]));
+    }
+    if (m.find("PluginType") != m.end() && !m["PluginType"].empty()) {
+      pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
+    }
+    if (m.find("RelatedUserList") != m.end() && !m["RelatedUserList"].empty()) {
+      relatedUserListShrink = make_shared<string>(boost::any_cast<string>(m["RelatedUserList"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderShrinkRequest() = default;
+};
+class CreateDataArchiveOrderResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> createOrderResult{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  CreateDataArchiveOrderResponseBody() {}
+
+  explicit CreateDataArchiveOrderResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createOrderResult) {
+      res["CreateOrderResult"] = boost::any(*createOrderResult);
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateOrderResult") != m.end() && !m["CreateOrderResult"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["CreateOrderResult"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CreateOrderResult"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      createOrderResult = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderResponseBody() = default;
+};
+class CreateDataArchiveOrderResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDataArchiveOrderResponseBody> body{};
+
+  CreateDataArchiveOrderResponse() {}
+
+  explicit CreateDataArchiveOrderResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDataArchiveOrderResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDataArchiveOrderResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderResponse() = default;
+};
 class CreateDataCorrectOrderRequestParamDbItemList : public Darabonba::Model {
 public:
   shared_ptr<long> dbId{};
@@ -14742,6 +15170,215 @@ public:
 
 
   virtual ~GetDBTopologyResponse() = default;
+};
+class GetDataArchiveCountRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> orderResultType{};
+  shared_ptr<string> pluginType{};
+  shared_ptr<string> searchDateType{};
+  shared_ptr<long> tid{};
+
+  GetDataArchiveCountRequest() {}
+
+  explicit GetDataArchiveCountRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderResultType) {
+      res["OrderResultType"] = boost::any(*orderResultType);
+    }
+    if (pluginType) {
+      res["PluginType"] = boost::any(*pluginType);
+    }
+    if (searchDateType) {
+      res["SearchDateType"] = boost::any(*searchDateType);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderResultType") != m.end() && !m["OrderResultType"].empty()) {
+      orderResultType = make_shared<string>(boost::any_cast<string>(m["OrderResultType"]));
+    }
+    if (m.find("PluginType") != m.end() && !m["PluginType"].empty()) {
+      pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
+    }
+    if (m.find("SearchDateType") != m.end() && !m["SearchDateType"].empty()) {
+      searchDateType = make_shared<string>(boost::any_cast<string>(m["SearchDateType"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDataArchiveCountRequest() = default;
+};
+class GetDataArchiveCountResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> failCount{};
+  shared_ptr<long> processingCount{};
+  shared_ptr<long> successCount{};
+  shared_ptr<long> totalCount{};
+
+  GetDataArchiveCountResponseBodyData() {}
+
+  explicit GetDataArchiveCountResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failCount) {
+      res["FailCount"] = boost::any(*failCount);
+    }
+    if (processingCount) {
+      res["ProcessingCount"] = boost::any(*processingCount);
+    }
+    if (successCount) {
+      res["SuccessCount"] = boost::any(*successCount);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailCount") != m.end() && !m["FailCount"].empty()) {
+      failCount = make_shared<long>(boost::any_cast<long>(m["FailCount"]));
+    }
+    if (m.find("ProcessingCount") != m.end() && !m["ProcessingCount"].empty()) {
+      processingCount = make_shared<long>(boost::any_cast<long>(m["ProcessingCount"]));
+    }
+    if (m.find("SuccessCount") != m.end() && !m["SuccessCount"].empty()) {
+      successCount = make_shared<long>(boost::any_cast<long>(m["SuccessCount"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~GetDataArchiveCountResponseBodyData() = default;
+};
+class GetDataArchiveCountResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetDataArchiveCountResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDataArchiveCountResponseBody() {}
+
+  explicit GetDataArchiveCountResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetDataArchiveCountResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetDataArchiveCountResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDataArchiveCountResponseBody() = default;
+};
+class GetDataArchiveCountResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDataArchiveCountResponseBody> body{};
+
+  GetDataArchiveCountResponse() {}
+
+  explicit GetDataArchiveCountResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDataArchiveCountResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDataArchiveCountResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDataArchiveCountResponse() = default;
 };
 class GetDataArchiveOrderDetailRequest : public Darabonba::Model {
 public:
@@ -56659,6 +57296,8 @@ public:
   CloseOrderResponse closeOrder(shared_ptr<CloseOrderRequest> request);
   CreateAuthorityTemplateResponse createAuthorityTemplateWithOptions(shared_ptr<CreateAuthorityTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateAuthorityTemplateResponse createAuthorityTemplate(shared_ptr<CreateAuthorityTemplateRequest> request);
+  CreateDataArchiveOrderResponse createDataArchiveOrderWithOptions(shared_ptr<CreateDataArchiveOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDataArchiveOrderResponse createDataArchiveOrder(shared_ptr<CreateDataArchiveOrderRequest> request);
   CreateDataCorrectOrderResponse createDataCorrectOrderWithOptions(shared_ptr<CreateDataCorrectOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDataCorrectOrderResponse createDataCorrectOrder(shared_ptr<CreateDataCorrectOrderRequest> request);
   CreateDataCronClearOrderResponse createDataCronClearOrderWithOptions(shared_ptr<CreateDataCronClearOrderRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -56751,6 +57390,8 @@ public:
   GetDBTaskSQLJobLogResponse getDBTaskSQLJobLog(shared_ptr<GetDBTaskSQLJobLogRequest> request);
   GetDBTopologyResponse getDBTopologyWithOptions(shared_ptr<GetDBTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDBTopologyResponse getDBTopology(shared_ptr<GetDBTopologyRequest> request);
+  GetDataArchiveCountResponse getDataArchiveCountWithOptions(shared_ptr<GetDataArchiveCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDataArchiveCountResponse getDataArchiveCount(shared_ptr<GetDataArchiveCountRequest> request);
   GetDataArchiveOrderDetailResponse getDataArchiveOrderDetailWithOptions(shared_ptr<GetDataArchiveOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDataArchiveOrderDetailResponse getDataArchiveOrderDetail(shared_ptr<GetDataArchiveOrderDetailRequest> request);
   GetDataCorrectBackupFilesResponse getDataCorrectBackupFilesWithOptions(shared_ptr<GetDataCorrectBackupFilesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
