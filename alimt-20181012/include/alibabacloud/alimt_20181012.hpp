@@ -2802,6 +2802,7 @@ public:
 };
 class TranslateResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> detectedLanguage{};
   shared_ptr<string> translated{};
   shared_ptr<string> wordCount{};
 
@@ -2815,6 +2816,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (detectedLanguage) {
+      res["DetectedLanguage"] = boost::any(*detectedLanguage);
+    }
     if (translated) {
       res["Translated"] = boost::any(*translated);
     }
@@ -2825,6 +2829,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetectedLanguage") != m.end() && !m["DetectedLanguage"].empty()) {
+      detectedLanguage = make_shared<string>(boost::any_cast<string>(m["DetectedLanguage"]));
+    }
     if (m.find("Translated") != m.end() && !m["Translated"].empty()) {
       translated = make_shared<string>(boost::any_cast<string>(m["Translated"]));
     }
@@ -3543,6 +3550,7 @@ public:
 };
 class TranslateGeneralResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> detectedLanguage{};
   shared_ptr<string> translated{};
   shared_ptr<string> wordCount{};
 
@@ -3556,6 +3564,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (detectedLanguage) {
+      res["DetectedLanguage"] = boost::any(*detectedLanguage);
+    }
     if (translated) {
       res["Translated"] = boost::any(*translated);
     }
@@ -3566,6 +3577,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetectedLanguage") != m.end() && !m["DetectedLanguage"].empty()) {
+      detectedLanguage = make_shared<string>(boost::any_cast<string>(m["DetectedLanguage"]));
+    }
     if (m.find("Translated") != m.end() && !m["Translated"].empty()) {
       translated = make_shared<string>(boost::any_cast<string>(m["Translated"]));
     }
