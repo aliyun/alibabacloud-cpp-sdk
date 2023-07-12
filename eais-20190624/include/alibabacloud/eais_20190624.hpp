@@ -162,6 +162,161 @@ public:
 
   virtual ~AttachEaiResponse() = default;
 };
+class AttachEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientInstanceId{};
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> eiInstanceType{};
+  shared_ptr<string> regionId{};
+
+  AttachEaisEiRequest() {}
+
+  explicit AttachEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientInstanceId) {
+      res["ClientInstanceId"] = boost::any(*clientInstanceId);
+    }
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (eiInstanceType) {
+      res["EiInstanceType"] = boost::any(*eiInstanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientInstanceId") != m.end() && !m["ClientInstanceId"].empty()) {
+      clientInstanceId = make_shared<string>(boost::any_cast<string>(m["ClientInstanceId"]));
+    }
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("EiInstanceType") != m.end() && !m["EiInstanceType"].empty()) {
+      eiInstanceType = make_shared<string>(boost::any_cast<string>(m["EiInstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~AttachEaisEiRequest() = default;
+};
+class AttachEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> clientInstanceId{};
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> requestId{};
+
+  AttachEaisEiResponseBody() {}
+
+  explicit AttachEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientInstanceId) {
+      res["ClientInstanceId"] = boost::any(*clientInstanceId);
+    }
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientInstanceId") != m.end() && !m["ClientInstanceId"].empty()) {
+      clientInstanceId = make_shared<string>(boost::any_cast<string>(m["ClientInstanceId"]));
+    }
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AttachEaisEiResponseBody() = default;
+};
+class AttachEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AttachEaisEiResponseBody> body{};
+
+  AttachEaisEiResponse() {}
+
+  explicit AttachEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AttachEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AttachEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AttachEaisEiResponse() = default;
+};
 class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> resourceGroupId{};
@@ -299,6 +454,7 @@ public:
 class CreateEaiRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> image{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> regionId{};
@@ -318,6 +474,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (image) {
+      res["Image"] = boost::any(*image);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -343,6 +502,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Image") != m.end() && !m["Image"].empty()) {
+      image = make_shared<string>(boost::any_cast<string>(m["Image"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -1476,6 +1638,7 @@ public:
 class CreateEaiJupyterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> eaisName{};
   shared_ptr<string> eaisType{};
   shared_ptr<vector<CreateEaiJupyterRequestEnvironmentVar>> environmentVar{};
   shared_ptr<string> regionId{};
@@ -1495,6 +1658,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (eaisName) {
+      res["EaisName"] = boost::any(*eaisName);
     }
     if (eaisType) {
       res["EaisType"] = boost::any(*eaisType);
@@ -1524,6 +1690,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EaisName") != m.end() && !m["EaisName"].empty()) {
+      eaisName = make_shared<string>(boost::any_cast<string>(m["EaisName"]));
     }
     if (m.find("EaisType") != m.end() && !m["EaisType"].empty()) {
       eaisType = make_shared<string>(boost::any_cast<string>(m["EaisType"]));
@@ -1561,6 +1730,7 @@ public:
 class CreateEaiJupyterShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> eaisName{};
   shared_ptr<string> eaisType{};
   shared_ptr<string> environmentVarShrink{};
   shared_ptr<string> regionId{};
@@ -1580,6 +1750,9 @@ public:
     map<string, boost::any> res;
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (eaisName) {
+      res["EaisName"] = boost::any(*eaisName);
     }
     if (eaisType) {
       res["EaisType"] = boost::any(*eaisType);
@@ -1605,6 +1778,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("EaisName") != m.end() && !m["EaisName"].empty()) {
+      eaisName = make_shared<string>(boost::any_cast<string>(m["EaisName"]));
     }
     if (m.find("EaisType") != m.end() && !m["EaisType"].empty()) {
       eaisType = make_shared<string>(boost::any_cast<string>(m["EaisType"]));
@@ -1726,6 +1902,175 @@ public:
 
 
   virtual ~CreateEaiJupyterResponse() = default;
+};
+class CreateEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchId{};
+
+  CreateEaisEiRequest() {}
+
+  explicit CreateEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+  }
+
+
+  virtual ~CreateEaisEiRequest() = default;
+};
+class CreateEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> requestId{};
+
+  CreateEaisEiResponseBody() {}
+
+  explicit CreateEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateEaisEiResponseBody() = default;
+};
+class CreateEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateEaisEiResponseBody> body{};
+
+  CreateEaisEiResponse() {}
+
+  explicit CreateEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateEaisEiResponse() = default;
 };
 class DeleteEaiRequest : public Darabonba::Model {
 public:
@@ -1994,6 +2339,140 @@ public:
 
 
   virtual ~DeleteEaiAllResponse() = default;
+};
+class DeleteEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<bool> force{};
+  shared_ptr<string> regionId{};
+
+  DeleteEaisEiRequest() {}
+
+  explicit DeleteEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteEaisEiRequest() = default;
+};
+class DeleteEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteEaisEiResponseBody() {}
+
+  explicit DeleteEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteEaisEiResponseBody() = default;
+};
+class DeleteEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteEaisEiResponseBody> body{};
+
+  DeleteEaisEiResponse() {}
+
+  explicit DeleteEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteEaisEiResponse() = default;
 };
 class DescribeEaisRequest : public Darabonba::Model {
 public:
@@ -2785,11 +3264,139 @@ public:
 
   virtual ~DetachEaiResponse() = default;
 };
+class DetachEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> regionId{};
+
+  DetachEaisEiRequest() {}
+
+  explicit DetachEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DetachEaisEiRequest() = default;
+};
+class DetachEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DetachEaisEiResponseBody() {}
+
+  explicit DetachEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DetachEaisEiResponseBody() = default;
+};
+class DetachEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetachEaisEiResponseBody> body{};
+
+  DetachEaisEiResponse() {}
+
+  explicit DetachEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetachEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetachEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetachEaisEiResponse() = default;
+};
 class GetInstanceMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> metricType{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> startTime{};
   shared_ptr<string> timeStep{};
 
@@ -2812,6 +3419,9 @@ public:
     if (metricType) {
       res["MetricType"] = boost::any(*metricType);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -2830,6 +3440,9 @@ public:
     }
     if (m.find("MetricType") != m.end() && !m["MetricType"].empty()) {
       metricType = make_shared<string>(boost::any_cast<string>(m["MetricType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -3047,6 +3660,260 @@ public:
 
   virtual ~GetInstanceMetricsResponse() = default;
 };
+class StartEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> regionId{};
+
+  StartEaisEiRequest() {}
+
+  explicit StartEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StartEaisEiRequest() = default;
+};
+class StartEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StartEaisEiResponseBody() {}
+
+  explicit StartEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartEaisEiResponseBody() = default;
+};
+class StartEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartEaisEiResponseBody> body{};
+
+  StartEaisEiResponse() {}
+
+  explicit StartEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartEaisEiResponse() = default;
+};
+class StopEaisEiRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> eiInstanceId{};
+  shared_ptr<string> regionId{};
+
+  StopEaisEiRequest() {}
+
+  explicit StopEaisEiRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (eiInstanceId) {
+      res["EiInstanceId"] = boost::any(*eiInstanceId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EiInstanceId") != m.end() && !m["EiInstanceId"].empty()) {
+      eiInstanceId = make_shared<string>(boost::any_cast<string>(m["EiInstanceId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StopEaisEiRequest() = default;
+};
+class StopEaisEiResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  StopEaisEiResponseBody() {}
+
+  explicit StopEaisEiResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StopEaisEiResponseBody() = default;
+};
+class StopEaisEiResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StopEaisEiResponseBody> body{};
+
+  StopEaisEiResponse() {}
+
+  explicit StopEaisEiResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StopEaisEiResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StopEaisEiResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StopEaisEiResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -3059,6 +3926,8 @@ public:
                      shared_ptr<string> endpoint);
   AttachEaiResponse attachEaiWithOptions(shared_ptr<AttachEaiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachEaiResponse attachEai(shared_ptr<AttachEaiRequest> request);
+  AttachEaisEiResponse attachEaisEiWithOptions(shared_ptr<AttachEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AttachEaisEiResponse attachEaisEi(shared_ptr<AttachEaisEiRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateEaiResponse createEaiWithOptions(shared_ptr<CreateEaiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3071,18 +3940,28 @@ public:
   CreateEaiEcsResponse createEaiEcs(shared_ptr<CreateEaiEcsRequest> request);
   CreateEaiJupyterResponse createEaiJupyterWithOptions(shared_ptr<CreateEaiJupyterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateEaiJupyterResponse createEaiJupyter(shared_ptr<CreateEaiJupyterRequest> request);
+  CreateEaisEiResponse createEaisEiWithOptions(shared_ptr<CreateEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateEaisEiResponse createEaisEi(shared_ptr<CreateEaisEiRequest> request);
   DeleteEaiResponse deleteEaiWithOptions(shared_ptr<DeleteEaiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEaiResponse deleteEai(shared_ptr<DeleteEaiRequest> request);
   DeleteEaiAllResponse deleteEaiAllWithOptions(shared_ptr<DeleteEaiAllRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteEaiAllResponse deleteEaiAll(shared_ptr<DeleteEaiAllRequest> request);
+  DeleteEaisEiResponse deleteEaisEiWithOptions(shared_ptr<DeleteEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteEaisEiResponse deleteEaisEi(shared_ptr<DeleteEaisEiRequest> request);
   DescribeEaisResponse describeEaisWithOptions(shared_ptr<DescribeEaisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeEaisResponse describeEais(shared_ptr<DescribeEaisRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions();
   DetachEaiResponse detachEaiWithOptions(shared_ptr<DetachEaiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachEaiResponse detachEai(shared_ptr<DetachEaiRequest> request);
+  DetachEaisEiResponse detachEaisEiWithOptions(shared_ptr<DetachEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetachEaisEiResponse detachEaisEi(shared_ptr<DetachEaisEiRequest> request);
   GetInstanceMetricsResponse getInstanceMetricsWithOptions(shared_ptr<GetInstanceMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceMetricsResponse getInstanceMetrics(shared_ptr<GetInstanceMetricsRequest> request);
+  StartEaisEiResponse startEaisEiWithOptions(shared_ptr<StartEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartEaisEiResponse startEaisEi(shared_ptr<StartEaisEiRequest> request);
+  StopEaisEiResponse stopEaisEiWithOptions(shared_ptr<StopEaisEiRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopEaisEiResponse stopEaisEi(shared_ptr<StopEaisEiRequest> request);
 
   virtual ~Client() = default;
 };
