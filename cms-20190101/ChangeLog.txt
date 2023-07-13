@@ -1,3 +1,6 @@
+2023-07-13 Version: 1.0.0
+- Add batch create once task.
+
 2022-02-18 Version: 7.0.36
 - CreateContact API Add ContactGroupName.
 
