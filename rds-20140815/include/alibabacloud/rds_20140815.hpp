@@ -13532,6 +13532,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<vector<string>> subInsNames{};
   shared_ptr<string> switchTime{};
+  shared_ptr<string> taskParams{};
   shared_ptr<string> taskType{};
   shared_ptr<string> taskTypeEn{};
   shared_ptr<string> taskTypeZh{};
@@ -13617,6 +13618,9 @@ public:
     }
     if (switchTime) {
       res["SwitchTime"] = boost::any(*switchTime);
+    }
+    if (taskParams) {
+      res["TaskParams"] = boost::any(*taskParams);
     }
     if (taskType) {
       res["TaskType"] = boost::any(*taskType);
@@ -13709,6 +13713,9 @@ public:
     }
     if (m.find("SwitchTime") != m.end() && !m["SwitchTime"].empty()) {
       switchTime = make_shared<string>(boost::any_cast<string>(m["SwitchTime"]));
+    }
+    if (m.find("TaskParams") != m.end() && !m["TaskParams"].empty()) {
+      taskParams = make_shared<string>(boost::any_cast<string>(m["TaskParams"]));
     }
     if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
       taskType = make_shared<string>(boost::any_cast<string>(m["TaskType"]));
@@ -63231,6 +63238,7 @@ class RestartDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> nodeId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -63251,6 +63259,9 @@ public:
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (nodeId) {
+      res["NodeId"] = boost::any(*nodeId);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -63273,6 +63284,9 @@ public:
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
+      nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
