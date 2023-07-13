@@ -3293,6 +3293,9 @@ DescribeCenInterRegionBandwidthLimitsResponse Alibabacloud_Cbn20170912::Client::
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trRegionId)) {
+    query->insert(pair<string, string>("TrRegionId", *request->trRegionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
