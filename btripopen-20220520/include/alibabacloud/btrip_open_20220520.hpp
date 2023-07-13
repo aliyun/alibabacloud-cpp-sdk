@@ -44230,6 +44230,7 @@ public:
   shared_ptr<HotelOrderPreValidateResponseBodyModuleRatePlanInfoBtripHotelCancelPolicyDTO> btripHotelCancelPolicyDTO{};
   shared_ptr<string> earliestCheckInTime{};
   shared_ptr<string> latestCheckOutTime{};
+  shared_ptr<long> maxBookingNum{};
   shared_ptr<long> maxOccupancyNum{};
   shared_ptr<bool> needCertificate{};
   shared_ptr<bool> needEmail{};
@@ -44258,6 +44259,9 @@ public:
     }
     if (latestCheckOutTime) {
       res["latest_check_out_time"] = boost::any(*latestCheckOutTime);
+    }
+    if (maxBookingNum) {
+      res["max_booking_num"] = boost::any(*maxBookingNum);
     }
     if (maxOccupancyNum) {
       res["max_occupancy_num"] = boost::any(*maxOccupancyNum);
@@ -44296,6 +44300,9 @@ public:
     }
     if (m.find("latest_check_out_time") != m.end() && !m["latest_check_out_time"].empty()) {
       latestCheckOutTime = make_shared<string>(boost::any_cast<string>(m["latest_check_out_time"]));
+    }
+    if (m.find("max_booking_num") != m.end() && !m["max_booking_num"].empty()) {
+      maxBookingNum = make_shared<long>(boost::any_cast<long>(m["max_booking_num"]));
     }
     if (m.find("max_occupancy_num") != m.end() && !m["max_occupancy_num"].empty()) {
       maxOccupancyNum = make_shared<long>(boost::any_cast<long>(m["max_occupancy_num"]));
