@@ -1072,6 +1072,37 @@ DescribePriceResponse Alibabacloud_EHPC20180412::Client::describePrice(shared_pt
   return describePriceWithOptions(request, runtime);
 }
 
+DescribeServerlessJobsResponse Alibabacloud_EHPC20180412::Client::describeServerlessJobsWithOptions(shared_ptr<DescribeServerlessJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->jobIds)) {
+    query->insert(pair<string, vector<string>>("JobIds", *request->jobIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeServerlessJobs"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeServerlessJobsResponse(callApi(params, req, runtime));
+}
+
+DescribeServerlessJobsResponse Alibabacloud_EHPC20180412::Client::describeServerlessJobs(shared_ptr<DescribeServerlessJobsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeServerlessJobsWithOptions(request, runtime);
+}
+
 EditJobTemplateResponse Alibabacloud_EHPC20180412::Client::editJobTemplateWithOptions(shared_ptr<EditJobTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -2214,6 +2245,70 @@ ListSecurityGroupsResponse Alibabacloud_EHPC20180412::Client::listSecurityGroups
   return listSecurityGroupsWithOptions(request, runtime);
 }
 
+ListServerlessJobsResponse Alibabacloud_EHPC20180412::Client::listServerlessJobsWithOptions(shared_ptr<ListServerlessJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->jobIds)) {
+    query->insert(pair<string, vector<string>>("JobIds", *request->jobIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->jobNames)) {
+    query->insert(pair<string, vector<string>>("JobNames", *request->jobNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->queues)) {
+    query->insert(pair<string, vector<string>>("Queues", *request->queues));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startOrder)) {
+    query->insert(pair<string, string>("StartOrder", *request->startOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->state)) {
+    query->insert(pair<string, string>("State", *request->state));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->submitOrder)) {
+    query->insert(pair<string, string>("SubmitOrder", *request->submitOrder));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->submitTimeEnd)) {
+    query->insert(pair<string, string>("SubmitTimeEnd", *request->submitTimeEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->submitTimeStart)) {
+    query->insert(pair<string, string>("SubmitTimeStart", *request->submitTimeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->users)) {
+    query->insert(pair<string, vector<string>>("Users", *request->users));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServerlessJobs"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServerlessJobsResponse(callApi(params, req, runtime));
+}
+
+ListServerlessJobsResponse Alibabacloud_EHPC20180412::Client::listServerlessJobs(shared_ptr<ListServerlessJobsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listServerlessJobsWithOptions(request, runtime);
+}
+
 ListSoftwaresResponse Alibabacloud_EHPC20180412::Client::listSoftwaresWithOptions(shared_ptr<ListSoftwaresRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -3121,6 +3216,37 @@ StopNodesResponse Alibabacloud_EHPC20180412::Client::stopNodes(shared_ptr<StopNo
   return stopNodesWithOptions(request, runtime);
 }
 
+StopServerlessJobsResponse Alibabacloud_EHPC20180412::Client::stopServerlessJobsWithOptions(shared_ptr<StopServerlessJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->jobIds)) {
+    query->insert(pair<string, vector<string>>("JobIds", *request->jobIds));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StopServerlessJobs"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StopServerlessJobsResponse(callApi(params, req, runtime));
+}
+
+StopServerlessJobsResponse Alibabacloud_EHPC20180412::Client::stopServerlessJobs(shared_ptr<StopServerlessJobsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return stopServerlessJobsWithOptions(request, runtime);
+}
+
 StopVisualServiceResponse Alibabacloud_EHPC20180412::Client::stopVisualServiceWithOptions(shared_ptr<StopVisualServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -3169,6 +3295,93 @@ SubmitJobResponse Alibabacloud_EHPC20180412::Client::submitJobWithOptions(shared
 SubmitJobResponse Alibabacloud_EHPC20180412::Client::submitJob(shared_ptr<SubmitJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitJobWithOptions(request, runtime);
+}
+
+SubmitServerlessJobResponse Alibabacloud_EHPC20180412::Client::submitServerlessJobWithOptions(shared_ptr<SubmitServerlessJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitServerlessJobShrinkRequest> request = make_shared<SubmitServerlessJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SubmitServerlessJobRequestArrayProperties>(tmpReq->arrayProperties)) {
+    request->arrayPropertiesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->arrayProperties, make_shared<string>("ArrayProperties"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitServerlessJobRequestContainer>(tmpReq->container)) {
+    request->containerShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->container, make_shared<string>("Container"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SubmitServerlessJobRequestDependsOn>>(tmpReq->dependsOn)) {
+    request->dependsOnShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dependsOn, make_shared<string>("DependsOn"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceType)) {
+    request->instanceTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceType, make_shared<string>("InstanceType"), make_shared<string>("simple")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitchId)) {
+    request->vSwitchIdShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchId, make_shared<string>("VSwitchId"), make_shared<string>("simple")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->arrayPropertiesShrink)) {
+    query->insert(pair<string, string>("ArrayProperties", *request->arrayPropertiesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerShrink)) {
+    query->insert(pair<string, string>("Container", *request->containerShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->cpu)) {
+    query->insert(pair<string, double>("Cpu", *request->cpu));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dependsOnShrink)) {
+    query->insert(pair<string, string>("DependsOn", *request->dependsOnShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ephemeralStorage)) {
+    query->insert(pair<string, long>("EphemeralStorage", *request->ephemeralStorage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceTypeShrink)) {
+    query->insert(pair<string, string>("InstanceType", *request->instanceTypeShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobName)) {
+    query->insert(pair<string, string>("JobName", *request->jobName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->jobPriority)) {
+    query->insert(pair<string, long>("JobPriority", *request->jobPriority));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->memory)) {
+    query->insert(pair<string, double>("Memory", *request->memory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ramRoleName)) {
+    query->insert(pair<string, string>("RamRoleName", *request->ramRoleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<double>(request->spotPriceLimit)) {
+    query->insert(pair<string, double>("SpotPriceLimit", *request->spotPriceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spotStrategy)) {
+    query->insert(pair<string, string>("SpotStrategy", *request->spotStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchIdShrink)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchIdShrink));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitServerlessJob"))},
+    {"version", boost::any(string("2018-04-12"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitServerlessJobResponse(callApi(params, req, runtime));
+}
+
+SubmitServerlessJobResponse Alibabacloud_EHPC20180412::Client::submitServerlessJob(shared_ptr<SubmitServerlessJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitServerlessJobWithOptions(request, runtime);
 }
 
 SummaryImagesResponse Alibabacloud_EHPC20180412::Client::summaryImagesWithOptions(shared_ptr<SummaryImagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
