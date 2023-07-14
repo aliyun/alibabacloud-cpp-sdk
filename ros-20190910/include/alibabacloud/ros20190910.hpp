@@ -8520,6 +8520,8 @@ public:
   shared_ptr<long> inProgressResourceCount{};
   shared_ptr<vector<GetStackResponseBodyResourceProgressInProgressResourceDetails>> inProgressResourceDetails{};
   shared_ptr<long> pendingResourceCount{};
+  shared_ptr<double> stackActionProgress{};
+  shared_ptr<double> stackOperationProgress{};
   shared_ptr<long> successResourceCount{};
   shared_ptr<long> totalResourceCount{};
 
@@ -8548,6 +8550,12 @@ public:
     }
     if (pendingResourceCount) {
       res["PendingResourceCount"] = boost::any(*pendingResourceCount);
+    }
+    if (stackActionProgress) {
+      res["StackActionProgress"] = boost::any(*stackActionProgress);
+    }
+    if (stackOperationProgress) {
+      res["StackOperationProgress"] = boost::any(*stackOperationProgress);
     }
     if (successResourceCount) {
       res["SuccessResourceCount"] = boost::any(*successResourceCount);
@@ -8580,6 +8588,12 @@ public:
     }
     if (m.find("PendingResourceCount") != m.end() && !m["PendingResourceCount"].empty()) {
       pendingResourceCount = make_shared<long>(boost::any_cast<long>(m["PendingResourceCount"]));
+    }
+    if (m.find("StackActionProgress") != m.end() && !m["StackActionProgress"].empty()) {
+      stackActionProgress = make_shared<double>(boost::any_cast<double>(m["StackActionProgress"]));
+    }
+    if (m.find("StackOperationProgress") != m.end() && !m["StackOperationProgress"].empty()) {
+      stackOperationProgress = make_shared<double>(boost::any_cast<double>(m["StackOperationProgress"]));
     }
     if (m.find("SuccessResourceCount") != m.end() && !m["SuccessResourceCount"].empty()) {
       successResourceCount = make_shared<long>(boost::any_cast<long>(m["SuccessResourceCount"]));
