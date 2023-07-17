@@ -364,6 +364,200 @@ public:
 
   virtual ~DescribeImageResultExtResponse() = default;
 };
+class DescribeUploadTokenResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> accessKeyId{};
+  shared_ptr<string> accessKeySecret{};
+  shared_ptr<string> bucketName{};
+  shared_ptr<long> expiration{};
+  shared_ptr<string> fileNamePrefix{};
+  shared_ptr<string> ossInternalEndPoint{};
+  shared_ptr<string> ossInternetEndPoint{};
+  shared_ptr<string> securityToken{};
+
+  DescribeUploadTokenResponseBodyData() {}
+
+  explicit DescribeUploadTokenResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessKeyId) {
+      res["AccessKeyId"] = boost::any(*accessKeyId);
+    }
+    if (accessKeySecret) {
+      res["AccessKeySecret"] = boost::any(*accessKeySecret);
+    }
+    if (bucketName) {
+      res["BucketName"] = boost::any(*bucketName);
+    }
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (fileNamePrefix) {
+      res["FileNamePrefix"] = boost::any(*fileNamePrefix);
+    }
+    if (ossInternalEndPoint) {
+      res["OssInternalEndPoint"] = boost::any(*ossInternalEndPoint);
+    }
+    if (ossInternetEndPoint) {
+      res["OssInternetEndPoint"] = boost::any(*ossInternetEndPoint);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessKeyId") != m.end() && !m["AccessKeyId"].empty()) {
+      accessKeyId = make_shared<string>(boost::any_cast<string>(m["AccessKeyId"]));
+    }
+    if (m.find("AccessKeySecret") != m.end() && !m["AccessKeySecret"].empty()) {
+      accessKeySecret = make_shared<string>(boost::any_cast<string>(m["AccessKeySecret"]));
+    }
+    if (m.find("BucketName") != m.end() && !m["BucketName"].empty()) {
+      bucketName = make_shared<string>(boost::any_cast<string>(m["BucketName"]));
+    }
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    }
+    if (m.find("FileNamePrefix") != m.end() && !m["FileNamePrefix"].empty()) {
+      fileNamePrefix = make_shared<string>(boost::any_cast<string>(m["FileNamePrefix"]));
+    }
+    if (m.find("OssInternalEndPoint") != m.end() && !m["OssInternalEndPoint"].empty()) {
+      ossInternalEndPoint = make_shared<string>(boost::any_cast<string>(m["OssInternalEndPoint"]));
+    }
+    if (m.find("OssInternetEndPoint") != m.end() && !m["OssInternetEndPoint"].empty()) {
+      ossInternetEndPoint = make_shared<string>(boost::any_cast<string>(m["OssInternetEndPoint"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~DescribeUploadTokenResponseBodyData() = default;
+};
+class DescribeUploadTokenResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeUploadTokenResponseBodyData> data{};
+  shared_ptr<string> msg{};
+  shared_ptr<string> requestId{};
+
+  DescribeUploadTokenResponseBody() {}
+
+  explicit DescribeUploadTokenResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeUploadTokenResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeUploadTokenResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeUploadTokenResponseBody() = default;
+};
+class DescribeUploadTokenResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeUploadTokenResponseBody> body{};
+
+  DescribeUploadTokenResponse() {}
+
+  explicit DescribeUploadTokenResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeUploadTokenResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeUploadTokenResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeUploadTokenResponse() = default;
+};
 class ImageModerationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> service{};
@@ -1465,6 +1659,8 @@ public:
                      shared_ptr<string> endpoint);
   DescribeImageResultExtResponse describeImageResultExtWithOptions(shared_ptr<DescribeImageResultExtRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeImageResultExtResponse describeImageResultExt(shared_ptr<DescribeImageResultExtRequest> request);
+  DescribeUploadTokenResponse describeUploadTokenWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeUploadTokenResponse describeUploadToken();
   ImageModerationResponse imageModerationWithOptions(shared_ptr<ImageModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ImageModerationResponse imageModeration(shared_ptr<ImageModerationRequest> request);
   TextModerationResponse textModerationWithOptions(shared_ptr<TextModerationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
