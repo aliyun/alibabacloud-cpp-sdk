@@ -978,6 +978,9 @@ CreateFileResponse Alibabacloud_Dataworks-public20200518::Client::createFileWith
   if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
     body->insert(pair<string, string>("Content", *request->content));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createFolderIfNotExists)) {
+    body->insert(pair<string, bool>("CreateFolderIfNotExists", *request->createFolderIfNotExists));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cronExpress)) {
     body->insert(pair<string, string>("CronExpress", *request->cronExpress));
   }
@@ -1722,6 +1725,67 @@ CreateRemindResponse Alibabacloud_Dataworks-public20200518::Client::createRemind
   return createRemindWithOptions(request, runtime);
 }
 
+CreateResourceFileResponse Alibabacloud_Dataworks-public20200518::Client::createResourceFileWithOptions(shared_ptr<CreateResourceFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->content)) {
+    body->insert(pair<string, string>("Content", *request->content));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileDescription)) {
+    body->insert(pair<string, string>("FileDescription", *request->fileDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileFolderPath)) {
+    body->insert(pair<string, string>("FileFolderPath", *request->fileFolderPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileName)) {
+    body->insert(pair<string, string>("FileName", *request->fileName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->fileType)) {
+    body->insert(pair<string, long>("FileType", *request->fileType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->originResourceName)) {
+    body->insert(pair<string, string>("OriginResourceName", *request->originResourceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
+    body->insert(pair<string, string>("Owner", *request->owner));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
+    body->insert(pair<string, long>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->registerToCalcEngine)) {
+    body->insert(pair<string, bool>("RegisterToCalcEngine", *request->registerToCalcEngine));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceFile)) {
+    body->insert(pair<string, string>("ResourceFile", *request->resourceFile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageURL)) {
+    body->insert(pair<string, string>("StorageURL", *request->storageURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->uploadMode)) {
+    body->insert(pair<string, bool>("UploadMode", *request->uploadMode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateResourceFile"))},
+    {"version", boost::any(string("2020-05-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateResourceFileResponse(callApi(params, req, runtime));
+}
+
+CreateResourceFileResponse Alibabacloud_Dataworks-public20200518::Client::createResourceFile(shared_ptr<CreateResourceFileRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createResourceFileWithOptions(request, runtime);
+}
+
 CreateTableResponse Alibabacloud_Dataworks-public20200518::Client::createTableWithOptions(shared_ptr<CreateTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1891,6 +1955,9 @@ CreateUdfFileResponse Alibabacloud_Dataworks-public20200518::Client::createUdfFi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->cmdDescription)) {
     body->insert(pair<string, string>("CmdDescription", *request->cmdDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->createFolderIfNotExists)) {
+    body->insert(pair<string, bool>("CreateFolderIfNotExists", *request->createFolderIfNotExists));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->example)) {
     body->insert(pair<string, string>("Example", *request->example));
@@ -6165,14 +6232,26 @@ ListFileVersionsResponse Alibabacloud_Dataworks-public20200518::Client::listFile
 ListFilesResponse Alibabacloud_Dataworks-public20200518::Client::listFilesWithOptions(shared_ptr<ListFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->exactFileName)) {
+    body->insert(pair<string, string>("ExactFileName", *request->exactFileName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileFolderPath)) {
     body->insert(pair<string, string>("FileFolderPath", *request->fileFolderPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fileIdIn)) {
+    body->insert(pair<string, string>("FileIdIn", *request->fileIdIn));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileTypes)) {
     body->insert(pair<string, string>("FileTypes", *request->fileTypes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyword)) {
     body->insert(pair<string, string>("Keyword", *request->keyword));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needAbsoluteFolderPath)) {
+    body->insert(pair<string, bool>("NeedAbsoluteFolderPath", *request->needAbsoluteFolderPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needContent)) {
+    body->insert(pair<string, bool>("NeedContent", *request->needContent));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->nodeId)) {
     body->insert(pair<string, long>("NodeId", *request->nodeId));

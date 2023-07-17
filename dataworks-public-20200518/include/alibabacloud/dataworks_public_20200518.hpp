@@ -4062,6 +4062,7 @@ public:
   shared_ptr<long> autoRerunTimes{};
   shared_ptr<string> connectionName{};
   shared_ptr<string> content{};
+  shared_ptr<bool> createFolderIfNotExists{};
   shared_ptr<string> cronExpress{};
   shared_ptr<string> cycleType{};
   shared_ptr<string> dependentNodeIdList{};
@@ -4114,6 +4115,9 @@ public:
     }
     if (content) {
       res["Content"] = boost::any(*content);
+    }
+    if (createFolderIfNotExists) {
+      res["CreateFolderIfNotExists"] = boost::any(*createFolderIfNotExists);
     }
     if (cronExpress) {
       res["CronExpress"] = boost::any(*cronExpress);
@@ -4208,6 +4212,9 @@ public:
     }
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("CreateFolderIfNotExists") != m.end() && !m["CreateFolderIfNotExists"].empty()) {
+      createFolderIfNotExists = make_shared<bool>(boost::any_cast<bool>(m["CreateFolderIfNotExists"]));
     }
     if (m.find("CronExpress") != m.end() && !m["CronExpress"].empty()) {
       cronExpress = make_shared<string>(boost::any_cast<string>(m["CronExpress"]));
@@ -6973,6 +6980,210 @@ public:
 
   virtual ~CreateRemindResponse() = default;
 };
+class CreateResourceFileRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> fileDescription{};
+  shared_ptr<string> fileFolderPath{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> fileType{};
+  shared_ptr<string> originResourceName{};
+  shared_ptr<string> owner{};
+  shared_ptr<long> projectId{};
+  shared_ptr<bool> registerToCalcEngine{};
+  shared_ptr<string> resourceFile{};
+  shared_ptr<string> storageURL{};
+  shared_ptr<bool> uploadMode{};
+
+  CreateResourceFileRequest() {}
+
+  explicit CreateResourceFileRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (fileDescription) {
+      res["FileDescription"] = boost::any(*fileDescription);
+    }
+    if (fileFolderPath) {
+      res["FileFolderPath"] = boost::any(*fileFolderPath);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (originResourceName) {
+      res["OriginResourceName"] = boost::any(*originResourceName);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (registerToCalcEngine) {
+      res["RegisterToCalcEngine"] = boost::any(*registerToCalcEngine);
+    }
+    if (resourceFile) {
+      res["ResourceFile"] = boost::any(*resourceFile);
+    }
+    if (storageURL) {
+      res["StorageURL"] = boost::any(*storageURL);
+    }
+    if (uploadMode) {
+      res["UploadMode"] = boost::any(*uploadMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("FileDescription") != m.end() && !m["FileDescription"].empty()) {
+      fileDescription = make_shared<string>(boost::any_cast<string>(m["FileDescription"]));
+    }
+    if (m.find("FileFolderPath") != m.end() && !m["FileFolderPath"].empty()) {
+      fileFolderPath = make_shared<string>(boost::any_cast<string>(m["FileFolderPath"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
+    if (m.find("OriginResourceName") != m.end() && !m["OriginResourceName"].empty()) {
+      originResourceName = make_shared<string>(boost::any_cast<string>(m["OriginResourceName"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("RegisterToCalcEngine") != m.end() && !m["RegisterToCalcEngine"].empty()) {
+      registerToCalcEngine = make_shared<bool>(boost::any_cast<bool>(m["RegisterToCalcEngine"]));
+    }
+    if (m.find("ResourceFile") != m.end() && !m["ResourceFile"].empty()) {
+      resourceFile = make_shared<string>(boost::any_cast<string>(m["ResourceFile"]));
+    }
+    if (m.find("StorageURL") != m.end() && !m["StorageURL"].empty()) {
+      storageURL = make_shared<string>(boost::any_cast<string>(m["StorageURL"]));
+    }
+    if (m.find("UploadMode") != m.end() && !m["UploadMode"].empty()) {
+      uploadMode = make_shared<bool>(boost::any_cast<bool>(m["UploadMode"]));
+    }
+  }
+
+
+  virtual ~CreateResourceFileRequest() = default;
+};
+class CreateResourceFileResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> data{};
+  shared_ptr<string> requestId{};
+
+  CreateResourceFileResponseBody() {}
+
+  explicit CreateResourceFileResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateResourceFileResponseBody() = default;
+};
+class CreateResourceFileResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateResourceFileResponseBody> body{};
+
+  CreateResourceFileResponse() {}
+
+  explicit CreateResourceFileResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateResourceFileResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateResourceFileResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateResourceFileResponse() = default;
+};
 class CreateTableRequestColumns : public Darabonba::Model {
 public:
   shared_ptr<string> columnName{};
@@ -7778,6 +7989,7 @@ class CreateUdfFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> className{};
   shared_ptr<string> cmdDescription{};
+  shared_ptr<bool> createFolderIfNotExists{};
   shared_ptr<string> example{};
   shared_ptr<string> fileFolderPath{};
   shared_ptr<string> fileName{};
@@ -7804,6 +8016,9 @@ public:
     }
     if (cmdDescription) {
       res["CmdDescription"] = boost::any(*cmdDescription);
+    }
+    if (createFolderIfNotExists) {
+      res["CreateFolderIfNotExists"] = boost::any(*createFolderIfNotExists);
     }
     if (example) {
       res["Example"] = boost::any(*example);
@@ -7844,6 +8059,9 @@ public:
     }
     if (m.find("CmdDescription") != m.end() && !m["CmdDescription"].empty()) {
       cmdDescription = make_shared<string>(boost::any_cast<string>(m["CmdDescription"]));
+    }
+    if (m.find("CreateFolderIfNotExists") != m.end() && !m["CreateFolderIfNotExists"].empty()) {
+      createFolderIfNotExists = make_shared<bool>(boost::any_cast<bool>(m["CreateFolderIfNotExists"]));
     }
     if (m.find("Example") != m.end() && !m["Example"].empty()) {
       example = make_shared<string>(boost::any_cast<string>(m["Example"]));
@@ -46397,9 +46615,13 @@ public:
 };
 class ListFilesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> exactFileName{};
   shared_ptr<string> fileFolderPath{};
+  shared_ptr<string> fileIdIn{};
   shared_ptr<string> fileTypes{};
   shared_ptr<string> keyword{};
+  shared_ptr<bool> needAbsoluteFolderPath{};
+  shared_ptr<bool> needContent{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
@@ -46418,14 +46640,26 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (exactFileName) {
+      res["ExactFileName"] = boost::any(*exactFileName);
+    }
     if (fileFolderPath) {
       res["FileFolderPath"] = boost::any(*fileFolderPath);
+    }
+    if (fileIdIn) {
+      res["FileIdIn"] = boost::any(*fileIdIn);
     }
     if (fileTypes) {
       res["FileTypes"] = boost::any(*fileTypes);
     }
     if (keyword) {
       res["Keyword"] = boost::any(*keyword);
+    }
+    if (needAbsoluteFolderPath) {
+      res["NeedAbsoluteFolderPath"] = boost::any(*needAbsoluteFolderPath);
+    }
+    if (needContent) {
+      res["NeedContent"] = boost::any(*needContent);
     }
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
@@ -46452,14 +46686,26 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExactFileName") != m.end() && !m["ExactFileName"].empty()) {
+      exactFileName = make_shared<string>(boost::any_cast<string>(m["ExactFileName"]));
+    }
     if (m.find("FileFolderPath") != m.end() && !m["FileFolderPath"].empty()) {
       fileFolderPath = make_shared<string>(boost::any_cast<string>(m["FileFolderPath"]));
+    }
+    if (m.find("FileIdIn") != m.end() && !m["FileIdIn"].empty()) {
+      fileIdIn = make_shared<string>(boost::any_cast<string>(m["FileIdIn"]));
     }
     if (m.find("FileTypes") != m.end() && !m["FileTypes"].empty()) {
       fileTypes = make_shared<string>(boost::any_cast<string>(m["FileTypes"]));
     }
     if (m.find("Keyword") != m.end() && !m["Keyword"].empty()) {
       keyword = make_shared<string>(boost::any_cast<string>(m["Keyword"]));
+    }
+    if (m.find("NeedAbsoluteFolderPath") != m.end() && !m["NeedAbsoluteFolderPath"].empty()) {
+      needAbsoluteFolderPath = make_shared<bool>(boost::any_cast<bool>(m["NeedAbsoluteFolderPath"]));
+    }
+    if (m.find("NeedContent") != m.end() && !m["NeedContent"].empty()) {
+      needContent = make_shared<bool>(boost::any_cast<bool>(m["NeedContent"]));
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<long>(boost::any_cast<long>(m["NodeId"]));
@@ -46489,6 +46735,7 @@ public:
 };
 class ListFilesResponseBodyDataFiles : public Darabonba::Model {
 public:
+  shared_ptr<string> absoluteFolderPath{};
   shared_ptr<bool> autoParsing{};
   shared_ptr<long> bizId{};
   shared_ptr<long> businessId{};
@@ -46521,6 +46768,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (absoluteFolderPath) {
+      res["AbsoluteFolderPath"] = boost::any(*absoluteFolderPath);
+    }
     if (autoParsing) {
       res["AutoParsing"] = boost::any(*autoParsing);
     }
@@ -46588,6 +46838,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbsoluteFolderPath") != m.end() && !m["AbsoluteFolderPath"].empty()) {
+      absoluteFolderPath = make_shared<string>(boost::any_cast<string>(m["AbsoluteFolderPath"]));
+    }
     if (m.find("AutoParsing") != m.end() && !m["AutoParsing"].empty()) {
       autoParsing = make_shared<bool>(boost::any_cast<bool>(m["AutoParsing"]));
     }
@@ -70735,6 +70988,8 @@ public:
   CreateQualityRuleResponse createQualityRule(shared_ptr<CreateQualityRuleRequest> request);
   CreateRemindResponse createRemindWithOptions(shared_ptr<CreateRemindRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateRemindResponse createRemind(shared_ptr<CreateRemindRequest> request);
+  CreateResourceFileResponse createResourceFileWithOptions(shared_ptr<CreateResourceFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateResourceFileResponse createResourceFile(shared_ptr<CreateResourceFileRequest> request);
   CreateTableResponse createTableWithOptions(shared_ptr<CreateTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTableResponse createTable(shared_ptr<CreateTableRequest> request);
   CreateTableLevelResponse createTableLevelWithOptions(shared_ptr<CreateTableLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
