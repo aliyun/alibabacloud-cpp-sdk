@@ -19,6 +19,7 @@ public:
   shared_ptr<vector<string>> calledNumber{};
   shared_ptr<string> callerIdNumber{};
   shared_ptr<string> countryId{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> playTimes{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -49,6 +50,9 @@ public:
     }
     if (countryId) {
       res["CountryId"] = boost::any(*countryId);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -103,6 +107,9 @@ public:
     if (m.find("CountryId") != m.end() && !m["CountryId"].empty()) {
       countryId = make_shared<string>(boost::any_cast<string>(m["CountryId"]));
     }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -146,6 +153,7 @@ public:
   shared_ptr<string> calledNumberShrink{};
   shared_ptr<string> callerIdNumber{};
   shared_ptr<string> countryId{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> playTimes{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -176,6 +184,9 @@ public:
     }
     if (countryId) {
       res["CountryId"] = boost::any(*countryId);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -222,6 +233,9 @@ public:
     }
     if (m.find("CountryId") != m.end() && !m["CountryId"].empty()) {
       countryId = make_shared<string>(boost::any_cast<string>(m["CountryId"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -378,6 +392,7 @@ public:
   shared_ptr<string> calledNumber{};
   shared_ptr<string> callerIdNumber{};
   shared_ptr<string> countryId{};
+  shared_ptr<string> outId{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> playTimes{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -405,6 +420,9 @@ public:
     }
     if (countryId) {
       res["CountryId"] = boost::any(*countryId);
+    }
+    if (outId) {
+      res["OutId"] = boost::any(*outId);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -442,6 +460,9 @@ public:
     }
     if (m.find("CountryId") != m.end() && !m["CountryId"].empty()) {
       countryId = make_shared<string>(boost::any_cast<string>(m["CountryId"]));
+    }
+    if (m.find("OutId") != m.end() && !m["OutId"].empty()) {
+      outId = make_shared<string>(boost::any_cast<string>(m["OutId"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -7331,7 +7352,6 @@ class QueryRecordingEnableRequest : public Darabonba::Model {
 public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
 
   QueryRecordingEnableRequest() {}
 
@@ -7349,9 +7369,6 @@ public:
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
     return res;
   }
 
@@ -7361,9 +7378,6 @@ public:
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 

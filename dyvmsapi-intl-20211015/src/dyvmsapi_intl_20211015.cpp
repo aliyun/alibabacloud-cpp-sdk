@@ -55,6 +55,9 @@ BackendCallGroupResponse Alibabacloud_Dyvmsapi-intl20211015::Client::backendCall
   if (!Darabonba_Util::Client::isUnset<string>(request->countryId)) {
     query->insert(pair<string, string>("CountryId", *request->countryId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -121,6 +124,9 @@ BackendCallSignalResponse Alibabacloud_Dyvmsapi-intl20211015::Client::backendCal
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->countryId)) {
     query->insert(pair<string, string>("CountryId", *request->countryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -1340,9 +1346,6 @@ QueryRecordingEnableResponse Alibabacloud_Dyvmsapi-intl20211015::Client::queryRe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
