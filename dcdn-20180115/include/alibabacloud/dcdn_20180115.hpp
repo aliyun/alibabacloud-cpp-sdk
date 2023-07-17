@@ -37394,6 +37394,189 @@ public:
 
   virtual ~SetDcdnDomainSMCertificateResponse() = default;
 };
+class SetDcdnDomainSSLCertificateRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> certId{};
+  shared_ptr<string> certName{};
+  shared_ptr<string> certRegion{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> domainName{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> SSLPri{};
+  shared_ptr<string> SSLProtocol{};
+  shared_ptr<string> SSLPub{};
+  shared_ptr<string> securityToken{};
+
+  SetDcdnDomainSSLCertificateRequest() {}
+
+  explicit SetDcdnDomainSSLCertificateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certId) {
+      res["CertId"] = boost::any(*certId);
+    }
+    if (certName) {
+      res["CertName"] = boost::any(*certName);
+    }
+    if (certRegion) {
+      res["CertRegion"] = boost::any(*certRegion);
+    }
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (SSLPri) {
+      res["SSLPri"] = boost::any(*SSLPri);
+    }
+    if (SSLProtocol) {
+      res["SSLProtocol"] = boost::any(*SSLProtocol);
+    }
+    if (SSLPub) {
+      res["SSLPub"] = boost::any(*SSLPub);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
+      certId = make_shared<long>(boost::any_cast<long>(m["CertId"]));
+    }
+    if (m.find("CertName") != m.end() && !m["CertName"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["CertName"]));
+    }
+    if (m.find("CertRegion") != m.end() && !m["CertRegion"].empty()) {
+      certRegion = make_shared<string>(boost::any_cast<string>(m["CertRegion"]));
+    }
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("SSLPri") != m.end() && !m["SSLPri"].empty()) {
+      SSLPri = make_shared<string>(boost::any_cast<string>(m["SSLPri"]));
+    }
+    if (m.find("SSLProtocol") != m.end() && !m["SSLProtocol"].empty()) {
+      SSLProtocol = make_shared<string>(boost::any_cast<string>(m["SSLProtocol"]));
+    }
+    if (m.find("SSLPub") != m.end() && !m["SSLPub"].empty()) {
+      SSLPub = make_shared<string>(boost::any_cast<string>(m["SSLPub"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~SetDcdnDomainSSLCertificateRequest() = default;
+};
+class SetDcdnDomainSSLCertificateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetDcdnDomainSSLCertificateResponseBody() {}
+
+  explicit SetDcdnDomainSSLCertificateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetDcdnDomainSSLCertificateResponseBody() = default;
+};
+class SetDcdnDomainSSLCertificateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetDcdnDomainSSLCertificateResponseBody> body{};
+
+  SetDcdnDomainSSLCertificateResponse() {}
+
+  explicit SetDcdnDomainSSLCertificateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetDcdnDomainSSLCertificateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetDcdnDomainSSLCertificateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetDcdnDomainSSLCertificateResponse() = default;
+};
 class SetDcdnDomainStagingConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -40627,6 +40810,8 @@ public:
   SetDcdnDomainCertificateResponse setDcdnDomainCertificate(shared_ptr<SetDcdnDomainCertificateRequest> request);
   SetDcdnDomainSMCertificateResponse setDcdnDomainSMCertificateWithOptions(shared_ptr<SetDcdnDomainSMCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDcdnDomainSMCertificateResponse setDcdnDomainSMCertificate(shared_ptr<SetDcdnDomainSMCertificateRequest> request);
+  SetDcdnDomainSSLCertificateResponse setDcdnDomainSSLCertificateWithOptions(shared_ptr<SetDcdnDomainSSLCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetDcdnDomainSSLCertificateResponse setDcdnDomainSSLCertificate(shared_ptr<SetDcdnDomainSSLCertificateRequest> request);
   SetDcdnDomainStagingConfigResponse setDcdnDomainStagingConfigWithOptions(shared_ptr<SetDcdnDomainStagingConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetDcdnDomainStagingConfigResponse setDcdnDomainStagingConfig(shared_ptr<SetDcdnDomainStagingConfigRequest> request);
   SetDcdnFullDomainsBlockIPResponse setDcdnFullDomainsBlockIPWithOptions(shared_ptr<SetDcdnFullDomainsBlockIPRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
