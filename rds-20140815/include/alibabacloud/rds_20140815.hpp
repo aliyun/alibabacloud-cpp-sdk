@@ -8765,6 +8765,196 @@ public:
 
   virtual ~CreateParameterGroupResponse() = default;
 };
+class CreatePostgresExtensionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBNames{};
+  shared_ptr<string> extensions{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> sourceDatabase{};
+
+  CreatePostgresExtensionsRequest() {}
+
+  explicit CreatePostgresExtensionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBNames) {
+      res["DBNames"] = boost::any(*DBNames);
+    }
+    if (extensions) {
+      res["Extensions"] = boost::any(*extensions);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (sourceDatabase) {
+      res["SourceDatabase"] = boost::any(*sourceDatabase);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBNames") != m.end() && !m["DBNames"].empty()) {
+      DBNames = make_shared<string>(boost::any_cast<string>(m["DBNames"]));
+    }
+    if (m.find("Extensions") != m.end() && !m["Extensions"].empty()) {
+      extensions = make_shared<string>(boost::any_cast<string>(m["Extensions"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SourceDatabase") != m.end() && !m["SourceDatabase"].empty()) {
+      sourceDatabase = make_shared<string>(boost::any_cast<string>(m["SourceDatabase"]));
+    }
+  }
+
+
+  virtual ~CreatePostgresExtensionsRequest() = default;
+};
+class CreatePostgresExtensionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreatePostgresExtensionsResponseBody() {}
+
+  explicit CreatePostgresExtensionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreatePostgresExtensionsResponseBody() = default;
+};
+class CreatePostgresExtensionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreatePostgresExtensionsResponseBody> body{};
+
+  CreatePostgresExtensionsResponse() {}
+
+  explicit CreatePostgresExtensionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreatePostgresExtensionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreatePostgresExtensionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreatePostgresExtensionsResponse() = default;
+};
 class CreateReadOnlyDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -11729,6 +11919,182 @@ public:
 
 
   virtual ~DeleteParameterGroupResponse() = default;
+};
+class DeletePostgresExtensionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBNames{};
+  shared_ptr<string> extensions{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DeletePostgresExtensionsRequest() {}
+
+  explicit DeletePostgresExtensionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBNames) {
+      res["DBNames"] = boost::any(*DBNames);
+    }
+    if (extensions) {
+      res["Extensions"] = boost::any(*extensions);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBNames") != m.end() && !m["DBNames"].empty()) {
+      DBNames = make_shared<string>(boost::any_cast<string>(m["DBNames"]));
+    }
+    if (m.find("Extensions") != m.end() && !m["Extensions"].empty()) {
+      extensions = make_shared<string>(boost::any_cast<string>(m["Extensions"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DeletePostgresExtensionsRequest() = default;
+};
+class DeletePostgresExtensionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeletePostgresExtensionsResponseBody() {}
+
+  explicit DeletePostgresExtensionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeletePostgresExtensionsResponseBody() = default;
+};
+class DeletePostgresExtensionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeletePostgresExtensionsResponseBody> body{};
+
+  DeletePostgresExtensionsResponse() {}
+
+  explicit DeletePostgresExtensionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeletePostgresExtensionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeletePostgresExtensionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeletePostgresExtensionsResponse() = default;
 };
 class DeleteSecretRequest : public Darabonba::Model {
 public:
@@ -40076,6 +40442,385 @@ public:
 
   virtual ~DescribeParametersResponse() = default;
 };
+class DescribePostgresExtensionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBName{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DescribePostgresExtensionsRequest() {}
+
+  explicit DescribePostgresExtensionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBName) {
+      res["DBName"] = boost::any(*DBName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBName") != m.end() && !m["DBName"].empty()) {
+      DBName = make_shared<string>(boost::any_cast<string>(m["DBName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DescribePostgresExtensionsRequest() = default;
+};
+class DescribePostgresExtensionsResponseBodyInstalledExtensions : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> comment{};
+  shared_ptr<string> defaultVersion{};
+  shared_ptr<string> installedVersion{};
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> requires_{};
+
+  DescribePostgresExtensionsResponseBodyInstalledExtensions() {}
+
+  explicit DescribePostgresExtensionsResponseBodyInstalledExtensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (defaultVersion) {
+      res["DefaultVersion"] = boost::any(*defaultVersion);
+    }
+    if (installedVersion) {
+      res["InstalledVersion"] = boost::any(*installedVersion);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (requires_) {
+      res["Requires"] = boost::any(*requires_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("DefaultVersion") != m.end() && !m["DefaultVersion"].empty()) {
+      defaultVersion = make_shared<string>(boost::any_cast<string>(m["DefaultVersion"]));
+    }
+    if (m.find("InstalledVersion") != m.end() && !m["InstalledVersion"].empty()) {
+      installedVersion = make_shared<string>(boost::any_cast<string>(m["InstalledVersion"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Requires") != m.end() && !m["Requires"].empty()) {
+      requires_ = make_shared<string>(boost::any_cast<string>(m["Requires"]));
+    }
+  }
+
+
+  virtual ~DescribePostgresExtensionsResponseBodyInstalledExtensions() = default;
+};
+class DescribePostgresExtensionsResponseBodyUninstalledExtensions : public Darabonba::Model {
+public:
+  shared_ptr<string> category{};
+  shared_ptr<string> comment{};
+  shared_ptr<string> defaultVersion{};
+  shared_ptr<string> installedVersion{};
+  shared_ptr<string> name{};
+  shared_ptr<string> owner{};
+  shared_ptr<string> priority{};
+  shared_ptr<string> requires_{};
+
+  DescribePostgresExtensionsResponseBodyUninstalledExtensions() {}
+
+  explicit DescribePostgresExtensionsResponseBodyUninstalledExtensions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (defaultVersion) {
+      res["DefaultVersion"] = boost::any(*defaultVersion);
+    }
+    if (installedVersion) {
+      res["InstalledVersion"] = boost::any(*installedVersion);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (requires_) {
+      res["Requires"] = boost::any(*requires_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("DefaultVersion") != m.end() && !m["DefaultVersion"].empty()) {
+      defaultVersion = make_shared<string>(boost::any_cast<string>(m["DefaultVersion"]));
+    }
+    if (m.find("InstalledVersion") != m.end() && !m["InstalledVersion"].empty()) {
+      installedVersion = make_shared<string>(boost::any_cast<string>(m["InstalledVersion"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
+    }
+    if (m.find("Requires") != m.end() && !m["Requires"].empty()) {
+      requires_ = make_shared<string>(boost::any_cast<string>(m["Requires"]));
+    }
+  }
+
+
+  virtual ~DescribePostgresExtensionsResponseBodyUninstalledExtensions() = default;
+};
+class DescribePostgresExtensionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePostgresExtensionsResponseBodyInstalledExtensions>> installedExtensions{};
+  shared_ptr<map<string, boost::any>> overview{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<DescribePostgresExtensionsResponseBodyUninstalledExtensions>> uninstalledExtensions{};
+
+  DescribePostgresExtensionsResponseBody() {}
+
+  explicit DescribePostgresExtensionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (installedExtensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*installedExtensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InstalledExtensions"] = boost::any(temp1);
+    }
+    if (overview) {
+      res["Overview"] = boost::any(*overview);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (uninstalledExtensions) {
+      vector<boost::any> temp1;
+      for(auto item1:*uninstalledExtensions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["UninstalledExtensions"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstalledExtensions") != m.end() && !m["InstalledExtensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["InstalledExtensions"].type()) {
+        vector<DescribePostgresExtensionsResponseBodyInstalledExtensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InstalledExtensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePostgresExtensionsResponseBodyInstalledExtensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        installedExtensions = make_shared<vector<DescribePostgresExtensionsResponseBodyInstalledExtensions>>(expect1);
+      }
+    }
+    if (m.find("Overview") != m.end() && !m["Overview"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Overview"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      overview = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UninstalledExtensions") != m.end() && !m["UninstalledExtensions"].empty()) {
+      if (typeid(vector<boost::any>) == m["UninstalledExtensions"].type()) {
+        vector<DescribePostgresExtensionsResponseBodyUninstalledExtensions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["UninstalledExtensions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePostgresExtensionsResponseBodyUninstalledExtensions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        uninstalledExtensions = make_shared<vector<DescribePostgresExtensionsResponseBodyUninstalledExtensions>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePostgresExtensionsResponseBody() = default;
+};
+class DescribePostgresExtensionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePostgresExtensionsResponseBody> body{};
+
+  DescribePostgresExtensionsResponse() {}
+
+  explicit DescribePostgresExtensionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePostgresExtensionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePostgresExtensionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePostgresExtensionsResponse() = default;
+};
 class DescribePriceRequestDBNode : public Darabonba::Model {
 public:
   shared_ptr<string> classCode{};
@@ -66072,6 +66817,182 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdatePostgresExtensionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> DBNames{};
+  shared_ptr<string> extensions{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  UpdatePostgresExtensionsRequest() {}
+
+  explicit UpdatePostgresExtensionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (DBNames) {
+      res["DBNames"] = boost::any(*DBNames);
+    }
+    if (extensions) {
+      res["Extensions"] = boost::any(*extensions);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("DBNames") != m.end() && !m["DBNames"].empty()) {
+      DBNames = make_shared<string>(boost::any_cast<string>(m["DBNames"]));
+    }
+    if (m.find("Extensions") != m.end() && !m["Extensions"].empty()) {
+      extensions = make_shared<string>(boost::any_cast<string>(m["Extensions"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~UpdatePostgresExtensionsRequest() = default;
+};
+class UpdatePostgresExtensionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdatePostgresExtensionsResponseBody() {}
+
+  explicit UpdatePostgresExtensionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdatePostgresExtensionsResponseBody() = default;
+};
+class UpdatePostgresExtensionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdatePostgresExtensionsResponseBody> body{};
+
+  UpdatePostgresExtensionsResponse() {}
+
+  explicit UpdatePostgresExtensionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdatePostgresExtensionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdatePostgresExtensionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdatePostgresExtensionsResponse() = default;
+};
 class UpdateUserBackupFileRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backupId{};
@@ -67285,6 +68206,8 @@ public:
   CreateOnlineDatabaseTaskResponse createOnlineDatabaseTask(shared_ptr<CreateOnlineDatabaseTaskRequest> request);
   CreateParameterGroupResponse createParameterGroupWithOptions(shared_ptr<CreateParameterGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateParameterGroupResponse createParameterGroup(shared_ptr<CreateParameterGroupRequest> request);
+  CreatePostgresExtensionsResponse createPostgresExtensionsWithOptions(shared_ptr<CreatePostgresExtensionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePostgresExtensionsResponse createPostgresExtensions(shared_ptr<CreatePostgresExtensionsRequest> request);
   CreateReadOnlyDBInstanceResponse createReadOnlyDBInstanceWithOptions(shared_ptr<CreateReadOnlyDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateReadOnlyDBInstanceResponse createReadOnlyDBInstance(shared_ptr<CreateReadOnlyDBInstanceRequest> request);
   CreateSecretResponse createSecretWithOptions(shared_ptr<CreateSecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -67317,6 +68240,8 @@ public:
   DeleteGadInstanceResponse deleteGadInstance(shared_ptr<DeleteGadInstanceRequest> request);
   DeleteParameterGroupResponse deleteParameterGroupWithOptions(shared_ptr<DeleteParameterGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteParameterGroupResponse deleteParameterGroup(shared_ptr<DeleteParameterGroupRequest> request);
+  DeletePostgresExtensionsResponse deletePostgresExtensionsWithOptions(shared_ptr<DeletePostgresExtensionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeletePostgresExtensionsResponse deletePostgresExtensions(shared_ptr<DeletePostgresExtensionsRequest> request);
   DeleteSecretResponse deleteSecretWithOptions(shared_ptr<DeleteSecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSecretResponse deleteSecret(shared_ptr<DeleteSecretRequest> request);
   DeleteSlotResponse deleteSlotWithOptions(shared_ptr<DeleteSlotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -67483,6 +68408,8 @@ public:
   DescribeParameterTemplatesResponse describeParameterTemplates(shared_ptr<DescribeParameterTemplatesRequest> request);
   DescribeParametersResponse describeParametersWithOptions(shared_ptr<DescribeParametersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeParametersResponse describeParameters(shared_ptr<DescribeParametersRequest> request);
+  DescribePostgresExtensionsResponse describePostgresExtensionsWithOptions(shared_ptr<DescribePostgresExtensionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePostgresExtensionsResponse describePostgresExtensions(shared_ptr<DescribePostgresExtensionsRequest> request);
   DescribePriceResponse describePriceWithOptions(shared_ptr<DescribePriceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribePriceResponse describePrice(shared_ptr<DescribePriceRequest> request);
   DescribeRdsResourceSettingsResponse describeRdsResourceSettingsWithOptions(shared_ptr<DescribeRdsResourceSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -67713,6 +68640,8 @@ public:
   UnlockAccountResponse unlockAccount(shared_ptr<UnlockAccountRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
+  UpdatePostgresExtensionsResponse updatePostgresExtensionsWithOptions(shared_ptr<UpdatePostgresExtensionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePostgresExtensionsResponse updatePostgresExtensions(shared_ptr<UpdatePostgresExtensionsRequest> request);
   UpdateUserBackupFileResponse updateUserBackupFileWithOptions(shared_ptr<UpdateUserBackupFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUserBackupFileResponse updateUserBackupFile(shared_ptr<UpdateUserBackupFileRequest> request);
   UpgradeDBInstanceEngineVersionResponse upgradeDBInstanceEngineVersionWithOptions(shared_ptr<UpgradeDBInstanceEngineVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
