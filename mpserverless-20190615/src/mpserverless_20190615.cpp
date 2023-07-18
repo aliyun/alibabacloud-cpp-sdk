@@ -836,6 +836,40 @@ DeployFunctionResponse Alibabacloud_MPServerless20190615::Client::deployFunction
   return deployFunctionWithOptions(request, runtime);
 }
 
+DescribeCdnDomainResponse Alibabacloud_MPServerless20190615::Client::describeCdnDomainWithOptions(shared_ptr<DescribeCdnDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
+    body->insert(pair<string, string>("SpaceId", *request->spaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCdnDomain"))},
+    {"version", boost::any(string("2019-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCdnDomainResponse(callApi(params, req, runtime));
+}
+
+DescribeCdnDomainResponse Alibabacloud_MPServerless20190615::Client::describeCdnDomain(shared_ptr<DescribeCdnDomainRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCdnDomainWithOptions(request, runtime);
+}
+
 DescribeFCOpenStatusResponse Alibabacloud_MPServerless20190615::Client::describeFCOpenStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1476,6 +1510,9 @@ ListFileResponse Alibabacloud_MPServerless20190615::Client::listFileWithOptions(
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->authDelta)) {
+    body->insert(pair<string, long>("AuthDelta", *request->authDelta));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileId)) {
     body->insert(pair<string, string>("FileId", *request->fileId));
   }
@@ -2426,6 +2463,55 @@ SaveAppAuthTokenResponse Alibabacloud_MPServerless20190615::Client::saveAppAuthT
 SaveAppAuthTokenResponse Alibabacloud_MPServerless20190615::Client::saveAppAuthToken(shared_ptr<SaveAppAuthTokenRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return saveAppAuthTokenWithOptions(request, runtime);
+}
+
+SaveCdnDomainConfigResponse Alibabacloud_MPServerless20190615::Client::saveCdnDomainConfigWithOptions(shared_ptr<SaveCdnDomainConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authConfig)) {
+    body->insert(pair<string, string>("AuthConfig", *request->authConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->corsConfig)) {
+    body->insert(pair<string, string>("CorsConfig", *request->corsConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipConfig)) {
+    body->insert(pair<string, string>("IpConfig", *request->ipConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->refererConfig)) {
+    body->insert(pair<string, string>("RefererConfig", *request->refererConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->spaceId)) {
+    body->insert(pair<string, string>("SpaceId", *request->spaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantId)) {
+    body->insert(pair<string, string>("TenantId", *request->tenantId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uaConfig)) {
+    body->insert(pair<string, string>("UaConfig", *request->uaConfig));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SaveCdnDomainConfig"))},
+    {"version", boost::any(string("2019-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SaveCdnDomainConfigResponse(callApi(params, req, runtime));
+}
+
+SaveCdnDomainConfigResponse Alibabacloud_MPServerless20190615::Client::saveCdnDomainConfig(shared_ptr<SaveCdnDomainConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return saveCdnDomainConfigWithOptions(request, runtime);
 }
 
 SaveWebHostingCustomDomainConfigResponse Alibabacloud_MPServerless20190615::Client::saveWebHostingCustomDomainConfigWithOptions(shared_ptr<SaveWebHostingCustomDomainConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
