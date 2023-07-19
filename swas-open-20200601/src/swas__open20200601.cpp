@@ -1445,6 +1445,9 @@ ListInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::listInstancesWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2280,6 +2283,37 @@ StartInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::startInstancesWit
 StartInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::startInstances(shared_ptr<StartInstancesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startInstancesWithOptions(request, runtime);
+}
+
+StartTerminalSessionResponse Alibabacloud_SWAS-OPEN20200601::Client::startTerminalSessionWithOptions(shared_ptr<StartTerminalSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartTerminalSession"))},
+    {"version", boost::any(string("2020-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartTerminalSessionResponse(callApi(params, req, runtime));
+}
+
+StartTerminalSessionResponse Alibabacloud_SWAS-OPEN20200601::Client::startTerminalSession(shared_ptr<StartTerminalSessionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startTerminalSessionWithOptions(request, runtime);
 }
 
 StopDatabaseInstanceResponse Alibabacloud_SWAS-OPEN20200601::Client::stopDatabaseInstanceWithOptions(shared_ptr<StopDatabaseInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
