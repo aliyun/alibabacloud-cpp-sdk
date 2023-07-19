@@ -811,6 +811,215 @@ public:
 
   virtual ~AllocateReadWriteSplittingConnectionResponse() = default;
 };
+class AttachWhitelistTemplateToInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> insName{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> templateId{};
+
+  AttachWhitelistTemplateToInstanceRequest() {}
+
+  explicit AttachWhitelistTemplateToInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~AttachWhitelistTemplateToInstanceRequest() = default;
+};
+class AttachWhitelistTemplateToInstanceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  AttachWhitelistTemplateToInstanceResponseBodyData() {}
+
+  explicit AttachWhitelistTemplateToInstanceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~AttachWhitelistTemplateToInstanceResponseBodyData() = default;
+};
+class AttachWhitelistTemplateToInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<AttachWhitelistTemplateToInstanceResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  AttachWhitelistTemplateToInstanceResponseBody() {}
+
+  explicit AttachWhitelistTemplateToInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        AttachWhitelistTemplateToInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<AttachWhitelistTemplateToInstanceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AttachWhitelistTemplateToInstanceResponseBody() = default;
+};
+class AttachWhitelistTemplateToInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AttachWhitelistTemplateToInstanceResponseBody> body{};
+
+  AttachWhitelistTemplateToInstanceResponse() {}
+
+  explicit AttachWhitelistTemplateToInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AttachWhitelistTemplateToInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AttachWhitelistTemplateToInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AttachWhitelistTemplateToInstanceResponse() = default;
+};
 class CalculateDBInstanceWeightRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -14229,6 +14438,342 @@ public:
 
 
   virtual ~DescribeActiveOperationTasksResponse() = default;
+};
+class DescribeAllWhitelistTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> fuzzySearch{};
+  shared_ptr<long> maxRecordsPerPage{};
+  shared_ptr<long> pageNumbers{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> templateName{};
+
+  DescribeAllWhitelistTemplateRequest() {}
+
+  explicit DescribeAllWhitelistTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fuzzySearch) {
+      res["FuzzySearch"] = boost::any(*fuzzySearch);
+    }
+    if (maxRecordsPerPage) {
+      res["MaxRecordsPerPage"] = boost::any(*maxRecordsPerPage);
+    }
+    if (pageNumbers) {
+      res["PageNumbers"] = boost::any(*pageNumbers);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FuzzySearch") != m.end() && !m["FuzzySearch"].empty()) {
+      fuzzySearch = make_shared<bool>(boost::any_cast<bool>(m["FuzzySearch"]));
+    }
+    if (m.find("MaxRecordsPerPage") != m.end() && !m["MaxRecordsPerPage"].empty()) {
+      maxRecordsPerPage = make_shared<long>(boost::any_cast<long>(m["MaxRecordsPerPage"]));
+    }
+    if (m.find("PageNumbers") != m.end() && !m["PageNumbers"].empty()) {
+      pageNumbers = make_shared<long>(boost::any_cast<long>(m["PageNumbers"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~DescribeAllWhitelistTemplateRequest() = default;
+};
+class DescribeAllWhitelistTemplateResponseBodyDataTemplates : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> ips{};
+  shared_ptr<long> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<long> userId{};
+
+  DescribeAllWhitelistTemplateResponseBodyDataTemplates() {}
+
+  explicit DescribeAllWhitelistTemplateResponseBodyDataTemplates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      ips = make_shared<string>(boost::any_cast<string>(m["Ips"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAllWhitelistTemplateResponseBodyDataTemplates() = default;
+};
+class DescribeAllWhitelistTemplateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> currPageNumbers{};
+  shared_ptr<bool> hasNext{};
+  shared_ptr<bool> hasPrev{};
+  shared_ptr<long> maxRecordsPerPage{};
+  shared_ptr<vector<DescribeAllWhitelistTemplateResponseBodyDataTemplates>> templates{};
+  shared_ptr<long> totalPageNumbers{};
+  shared_ptr<long> totalRecords{};
+
+  DescribeAllWhitelistTemplateResponseBodyData() {}
+
+  explicit DescribeAllWhitelistTemplateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currPageNumbers) {
+      res["CurrPageNumbers"] = boost::any(*currPageNumbers);
+    }
+    if (hasNext) {
+      res["HasNext"] = boost::any(*hasNext);
+    }
+    if (hasPrev) {
+      res["HasPrev"] = boost::any(*hasPrev);
+    }
+    if (maxRecordsPerPage) {
+      res["MaxRecordsPerPage"] = boost::any(*maxRecordsPerPage);
+    }
+    if (templates) {
+      vector<boost::any> temp1;
+      for(auto item1:*templates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Templates"] = boost::any(temp1);
+    }
+    if (totalPageNumbers) {
+      res["TotalPageNumbers"] = boost::any(*totalPageNumbers);
+    }
+    if (totalRecords) {
+      res["TotalRecords"] = boost::any(*totalRecords);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrPageNumbers") != m.end() && !m["CurrPageNumbers"].empty()) {
+      currPageNumbers = make_shared<long>(boost::any_cast<long>(m["CurrPageNumbers"]));
+    }
+    if (m.find("HasNext") != m.end() && !m["HasNext"].empty()) {
+      hasNext = make_shared<bool>(boost::any_cast<bool>(m["HasNext"]));
+    }
+    if (m.find("HasPrev") != m.end() && !m["HasPrev"].empty()) {
+      hasPrev = make_shared<bool>(boost::any_cast<bool>(m["HasPrev"]));
+    }
+    if (m.find("MaxRecordsPerPage") != m.end() && !m["MaxRecordsPerPage"].empty()) {
+      maxRecordsPerPage = make_shared<long>(boost::any_cast<long>(m["MaxRecordsPerPage"]));
+    }
+    if (m.find("Templates") != m.end() && !m["Templates"].empty()) {
+      if (typeid(vector<boost::any>) == m["Templates"].type()) {
+        vector<DescribeAllWhitelistTemplateResponseBodyDataTemplates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Templates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAllWhitelistTemplateResponseBodyDataTemplates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        templates = make_shared<vector<DescribeAllWhitelistTemplateResponseBodyDataTemplates>>(expect1);
+      }
+    }
+    if (m.find("TotalPageNumbers") != m.end() && !m["TotalPageNumbers"].empty()) {
+      totalPageNumbers = make_shared<long>(boost::any_cast<long>(m["TotalPageNumbers"]));
+    }
+    if (m.find("TotalRecords") != m.end() && !m["TotalRecords"].empty()) {
+      totalRecords = make_shared<long>(boost::any_cast<long>(m["TotalRecords"]));
+    }
+  }
+
+
+  virtual ~DescribeAllWhitelistTemplateResponseBodyData() = default;
+};
+class DescribeAllWhitelistTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeAllWhitelistTemplateResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeAllWhitelistTemplateResponseBody() {}
+
+  explicit DescribeAllWhitelistTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeAllWhitelistTemplateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeAllWhitelistTemplateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeAllWhitelistTemplateResponseBody() = default;
+};
+class DescribeAllWhitelistTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAllWhitelistTemplateResponseBody> body{};
+
+  DescribeAllWhitelistTemplateResponse() {}
+
+  explicit DescribeAllWhitelistTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAllWhitelistTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAllWhitelistTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAllWhitelistTemplateResponse() = default;
 };
 class DescribeAnalyticdbByPrimaryDBInstanceRequest : public Darabonba::Model {
 public:
@@ -35898,6 +36443,286 @@ public:
 
   virtual ~DescribeInstanceKeywordsResponse() = default;
 };
+class DescribeInstanceLinkedWhitelistTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> insName{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  DescribeInstanceLinkedWhitelistTemplateRequest() {}
+
+  explicit DescribeInstanceLinkedWhitelistTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceLinkedWhitelistTemplateRequest() = default;
+};
+class DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> ips{};
+  shared_ptr<long> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<long> userId{};
+
+  DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates() {}
+
+  explicit DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      ips = make_shared<string>(boost::any_cast<string>(m["Ips"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates() = default;
+};
+class DescribeInstanceLinkedWhitelistTemplateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> insName{};
+  shared_ptr<vector<DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates>> templates{};
+
+  DescribeInstanceLinkedWhitelistTemplateResponseBodyData() {}
+
+  explicit DescribeInstanceLinkedWhitelistTemplateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (templates) {
+      vector<boost::any> temp1;
+      for(auto item1:*templates){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Templates"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("Templates") != m.end() && !m["Templates"].empty()) {
+      if (typeid(vector<boost::any>) == m["Templates"].type()) {
+        vector<DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Templates"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        templates = make_shared<vector<DescribeInstanceLinkedWhitelistTemplateResponseBodyDataTemplates>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInstanceLinkedWhitelistTemplateResponseBodyData() = default;
+};
+class DescribeInstanceLinkedWhitelistTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeInstanceLinkedWhitelistTemplateResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeInstanceLinkedWhitelistTemplateResponseBody() {}
+
+  explicit DescribeInstanceLinkedWhitelistTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeInstanceLinkedWhitelistTemplateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeInstanceLinkedWhitelistTemplateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeInstanceLinkedWhitelistTemplateResponseBody() = default;
+};
+class DescribeInstanceLinkedWhitelistTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeInstanceLinkedWhitelistTemplateResponseBody> body{};
+
+  DescribeInstanceLinkedWhitelistTemplateResponse() {}
+
+  explicit DescribeInstanceLinkedWhitelistTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeInstanceLinkedWhitelistTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeInstanceLinkedWhitelistTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInstanceLinkedWhitelistTemplateResponse() = default;
+};
 class DescribeLocalAvailableRecoveryTimeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -48981,6 +49806,485 @@ public:
 
   virtual ~DescribeVSwitchesResponse() = default;
 };
+class DescribeWhitelistTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> templateId{};
+
+  DescribeWhitelistTemplateRequest() {}
+
+  explicit DescribeWhitelistTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateRequest() = default;
+};
+class DescribeWhitelistTemplateResponseBodyDataTemplate : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> ips{};
+  shared_ptr<long> templateId{};
+  shared_ptr<string> templateName{};
+  shared_ptr<long> userId{};
+
+  DescribeWhitelistTemplateResponseBodyDataTemplate() {}
+
+  explicit DescribeWhitelistTemplateResponseBodyDataTemplate(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (ips) {
+      res["Ips"] = boost::any(*ips);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Ips") != m.end() && !m["Ips"].empty()) {
+      ips = make_shared<string>(boost::any_cast<string>(m["Ips"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateResponseBodyDataTemplate() = default;
+};
+class DescribeWhitelistTemplateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeWhitelistTemplateResponseBodyDataTemplate> template_{};
+
+  DescribeWhitelistTemplateResponseBodyData() {}
+
+  explicit DescribeWhitelistTemplateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (template_) {
+      res["Template"] = template_ ? boost::any(template_->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Template") != m.end() && !m["Template"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Template"].type()) {
+        DescribeWhitelistTemplateResponseBodyDataTemplate model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Template"]));
+        template_ = make_shared<DescribeWhitelistTemplateResponseBodyDataTemplate>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateResponseBodyData() = default;
+};
+class DescribeWhitelistTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeWhitelistTemplateResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeWhitelistTemplateResponseBody() {}
+
+  explicit DescribeWhitelistTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeWhitelistTemplateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeWhitelistTemplateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateResponseBody() = default;
+};
+class DescribeWhitelistTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWhitelistTemplateResponseBody> body{};
+
+  DescribeWhitelistTemplateResponse() {}
+
+  explicit DescribeWhitelistTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWhitelistTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWhitelistTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateResponse() = default;
+};
+class DescribeWhitelistTemplateLinkedInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> templateId{};
+
+  DescribeWhitelistTemplateLinkedInstanceRequest() {}
+
+  explicit DescribeWhitelistTemplateLinkedInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateLinkedInstanceRequest() = default;
+};
+class DescribeWhitelistTemplateLinkedInstanceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> insName{};
+  shared_ptr<long> templateId{};
+
+  DescribeWhitelistTemplateLinkedInstanceResponseBodyData() {}
+
+  explicit DescribeWhitelistTemplateLinkedInstanceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InsName"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InsName"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      insName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateLinkedInstanceResponseBodyData() = default;
+};
+class DescribeWhitelistTemplateLinkedInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DescribeWhitelistTemplateLinkedInstanceResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeWhitelistTemplateLinkedInstanceResponseBody() {}
+
+  explicit DescribeWhitelistTemplateLinkedInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeWhitelistTemplateLinkedInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeWhitelistTemplateLinkedInstanceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateLinkedInstanceResponseBody() = default;
+};
+class DescribeWhitelistTemplateLinkedInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeWhitelistTemplateLinkedInstanceResponseBody> body{};
+
+  DescribeWhitelistTemplateLinkedInstanceResponse() {}
+
+  explicit DescribeWhitelistTemplateLinkedInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeWhitelistTemplateLinkedInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeWhitelistTemplateLinkedInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeWhitelistTemplateLinkedInstanceResponse() = default;
+};
 class DestroyDBInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -49269,6 +50573,215 @@ public:
 
 
   virtual ~DetachGadInstanceMemberResponse() = default;
+};
+class DetachWhitelistTemplateToInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> insName{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> templateId{};
+
+  DetachWhitelistTemplateToInstanceRequest() {}
+
+  explicit DetachWhitelistTemplateToInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (insName) {
+      res["InsName"] = boost::any(*insName);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InsName") != m.end() && !m["InsName"].empty()) {
+      insName = make_shared<string>(boost::any_cast<string>(m["InsName"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+  }
+
+
+  virtual ~DetachWhitelistTemplateToInstanceRequest() = default;
+};
+class DetachWhitelistTemplateToInstanceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  DetachWhitelistTemplateToInstanceResponseBodyData() {}
+
+  explicit DetachWhitelistTemplateToInstanceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DetachWhitelistTemplateToInstanceResponseBodyData() = default;
+};
+class DetachWhitelistTemplateToInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<DetachWhitelistTemplateToInstanceResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DetachWhitelistTemplateToInstanceResponseBody() {}
+
+  explicit DetachWhitelistTemplateToInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DetachWhitelistTemplateToInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DetachWhitelistTemplateToInstanceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DetachWhitelistTemplateToInstanceResponseBody() = default;
+};
+class DetachWhitelistTemplateToInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DetachWhitelistTemplateToInstanceResponseBody> body{};
+
+  DetachWhitelistTemplateToInstanceResponse() {}
+
+  explicit DetachWhitelistTemplateToInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DetachWhitelistTemplateToInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DetachWhitelistTemplateToInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DetachWhitelistTemplateToInstanceResponse() = default;
 };
 class GetDBInstanceTopologyRequest : public Darabonba::Model {
 public:
@@ -61713,6 +63226,222 @@ public:
 
   virtual ~ModifySecurityIpsResponse() = default;
 };
+class ModifyWhitelistTemplateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ipWhitelist{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> templateId{};
+  shared_ptr<string> templateName{};
+
+  ModifyWhitelistTemplateRequest() {}
+
+  explicit ModifyWhitelistTemplateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipWhitelist) {
+      res["IpWhitelist"] = boost::any(*ipWhitelist);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (templateId) {
+      res["TemplateId"] = boost::any(*templateId);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpWhitelist") != m.end() && !m["IpWhitelist"].empty()) {
+      ipWhitelist = make_shared<string>(boost::any_cast<string>(m["IpWhitelist"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
+      templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~ModifyWhitelistTemplateRequest() = default;
+};
+class ModifyWhitelistTemplateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> status{};
+
+  ModifyWhitelistTemplateResponseBodyData() {}
+
+  explicit ModifyWhitelistTemplateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ModifyWhitelistTemplateResponseBodyData() = default;
+};
+class ModifyWhitelistTemplateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<ModifyWhitelistTemplateResponseBodyData> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyWhitelistTemplateResponseBody() {}
+
+  explicit ModifyWhitelistTemplateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        ModifyWhitelistTemplateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<ModifyWhitelistTemplateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyWhitelistTemplateResponseBody() = default;
+};
+class ModifyWhitelistTemplateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyWhitelistTemplateResponseBody> body{};
+
+  ModifyWhitelistTemplateResponse() {}
+
+  explicit ModifyWhitelistTemplateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyWhitelistTemplateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyWhitelistTemplateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyWhitelistTemplateResponse() = default;
+};
 class PurgeDBInstanceLogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -68144,6 +69873,8 @@ public:
   AllocateInstancePublicConnectionResponse allocateInstancePublicConnection(shared_ptr<AllocateInstancePublicConnectionRequest> request);
   AllocateReadWriteSplittingConnectionResponse allocateReadWriteSplittingConnectionWithOptions(shared_ptr<AllocateReadWriteSplittingConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AllocateReadWriteSplittingConnectionResponse allocateReadWriteSplittingConnection(shared_ptr<AllocateReadWriteSplittingConnectionRequest> request);
+  AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstanceWithOptions(shared_ptr<AttachWhitelistTemplateToInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AttachWhitelistTemplateToInstanceResponse attachWhitelistTemplateToInstance(shared_ptr<AttachWhitelistTemplateToInstanceRequest> request);
   CalculateDBInstanceWeightResponse calculateDBInstanceWeightWithOptions(shared_ptr<CalculateDBInstanceWeightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CalculateDBInstanceWeightResponse calculateDBInstanceWeight(shared_ptr<CalculateDBInstanceWeightRequest> request);
   CancelImportResponse cancelImportWithOptions(shared_ptr<CancelImportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -68258,6 +69989,8 @@ public:
   DescribeActionEventPolicyResponse describeActionEventPolicy(shared_ptr<DescribeActionEventPolicyRequest> request);
   DescribeActiveOperationTasksResponse describeActiveOperationTasksWithOptions(shared_ptr<DescribeActiveOperationTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeActiveOperationTasksResponse describeActiveOperationTasks(shared_ptr<DescribeActiveOperationTasksRequest> request);
+  DescribeAllWhitelistTemplateResponse describeAllWhitelistTemplateWithOptions(shared_ptr<DescribeAllWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAllWhitelistTemplateResponse describeAllWhitelistTemplate(shared_ptr<DescribeAllWhitelistTemplateRequest> request);
   DescribeAnalyticdbByPrimaryDBInstanceResponse describeAnalyticdbByPrimaryDBInstanceWithOptions(shared_ptr<DescribeAnalyticdbByPrimaryDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAnalyticdbByPrimaryDBInstanceResponse describeAnalyticdbByPrimaryDBInstance(shared_ptr<DescribeAnalyticdbByPrimaryDBInstanceRequest> request);
   DescribeAvailableClassesResponse describeAvailableClassesWithOptions(shared_ptr<DescribeAvailableClassesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -68382,6 +70115,8 @@ public:
   DescribeInstanceCrossBackupPolicyResponse describeInstanceCrossBackupPolicy(shared_ptr<DescribeInstanceCrossBackupPolicyRequest> request);
   DescribeInstanceKeywordsResponse describeInstanceKeywordsWithOptions(shared_ptr<DescribeInstanceKeywordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceKeywordsResponse describeInstanceKeywords(shared_ptr<DescribeInstanceKeywordsRequest> request);
+  DescribeInstanceLinkedWhitelistTemplateResponse describeInstanceLinkedWhitelistTemplateWithOptions(shared_ptr<DescribeInstanceLinkedWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeInstanceLinkedWhitelistTemplateResponse describeInstanceLinkedWhitelistTemplate(shared_ptr<DescribeInstanceLinkedWhitelistTemplateRequest> request);
   DescribeLocalAvailableRecoveryTimeResponse describeLocalAvailableRecoveryTimeWithOptions(shared_ptr<DescribeLocalAvailableRecoveryTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLocalAvailableRecoveryTimeResponse describeLocalAvailableRecoveryTime(shared_ptr<DescribeLocalAvailableRecoveryTimeRequest> request);
   DescribeLogBackupFilesResponse describeLogBackupFilesWithOptions(shared_ptr<DescribeLogBackupFilesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -68456,10 +70191,16 @@ public:
   DescribeUpgradeMajorVersionTasksResponse describeUpgradeMajorVersionTasks(shared_ptr<DescribeUpgradeMajorVersionTasksRequest> request);
   DescribeVSwitchesResponse describeVSwitchesWithOptions(shared_ptr<DescribeVSwitchesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVSwitchesResponse describeVSwitches(shared_ptr<DescribeVSwitchesRequest> request);
+  DescribeWhitelistTemplateResponse describeWhitelistTemplateWithOptions(shared_ptr<DescribeWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWhitelistTemplateResponse describeWhitelistTemplate(shared_ptr<DescribeWhitelistTemplateRequest> request);
+  DescribeWhitelistTemplateLinkedInstanceResponse describeWhitelistTemplateLinkedInstanceWithOptions(shared_ptr<DescribeWhitelistTemplateLinkedInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeWhitelistTemplateLinkedInstanceResponse describeWhitelistTemplateLinkedInstance(shared_ptr<DescribeWhitelistTemplateLinkedInstanceRequest> request);
   DestroyDBInstanceResponse destroyDBInstanceWithOptions(shared_ptr<DestroyDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DestroyDBInstanceResponse destroyDBInstance(shared_ptr<DestroyDBInstanceRequest> request);
   DetachGadInstanceMemberResponse detachGadInstanceMemberWithOptions(shared_ptr<DetachGadInstanceMemberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachGadInstanceMemberResponse detachGadInstanceMember(shared_ptr<DetachGadInstanceMemberRequest> request);
+  DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstanceWithOptions(shared_ptr<DetachWhitelistTemplateToInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DetachWhitelistTemplateToInstanceResponse detachWhitelistTemplateToInstance(shared_ptr<DetachWhitelistTemplateToInstanceRequest> request);
   GetDBInstanceTopologyResponse getDBInstanceTopologyWithOptions(shared_ptr<GetDBInstanceTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDBInstanceTopologyResponse getDBInstanceTopology(shared_ptr<GetDBInstanceTopologyRequest> request);
   GetDbProxyInstanceSslResponse getDbProxyInstanceSslWithOptions(shared_ptr<GetDbProxyInstanceSslRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -68584,6 +70325,8 @@ public:
   ModifySecurityGroupConfigurationResponse modifySecurityGroupConfiguration(shared_ptr<ModifySecurityGroupConfigurationRequest> request);
   ModifySecurityIpsResponse modifySecurityIpsWithOptions(shared_ptr<ModifySecurityIpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifySecurityIpsResponse modifySecurityIps(shared_ptr<ModifySecurityIpsRequest> request);
+  ModifyWhitelistTemplateResponse modifyWhitelistTemplateWithOptions(shared_ptr<ModifyWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyWhitelistTemplateResponse modifyWhitelistTemplate(shared_ptr<ModifyWhitelistTemplateRequest> request);
   PurgeDBInstanceLogResponse purgeDBInstanceLogWithOptions(shared_ptr<PurgeDBInstanceLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PurgeDBInstanceLogResponse purgeDBInstanceLog(shared_ptr<PurgeDBInstanceLogRequest> request);
   QueryNotifyResponse queryNotifyWithOptions(shared_ptr<QueryNotifyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -294,6 +294,43 @@ AllocateReadWriteSplittingConnectionResponse Alibabacloud_Rds20140815::Client::a
   return allocateReadWriteSplittingConnectionWithOptions(request, runtime);
 }
 
+AttachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::attachWhitelistTemplateToInstanceWithOptions(shared_ptr<AttachWhitelistTemplateToInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
+    query->insert(pair<string, string>("InsName", *request->insName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AttachWhitelistTemplateToInstance"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AttachWhitelistTemplateToInstanceResponse(callApi(params, req, runtime));
+}
+
+AttachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::attachWhitelistTemplateToInstance(shared_ptr<AttachWhitelistTemplateToInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return attachWhitelistTemplateToInstanceWithOptions(request, runtime);
+}
+
 CalculateDBInstanceWeightResponse Alibabacloud_Rds20140815::Client::calculateDBInstanceWeightWithOptions(shared_ptr<CalculateDBInstanceWeightRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3383,6 +3420,49 @@ DescribeActiveOperationTasksResponse Alibabacloud_Rds20140815::Client::describeA
   return describeActiveOperationTasksWithOptions(request, runtime);
 }
 
+DescribeAllWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeAllWhitelistTemplateWithOptions(shared_ptr<DescribeAllWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fuzzySearch)) {
+    query->insert(pair<string, bool>("FuzzySearch", *request->fuzzySearch));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxRecordsPerPage)) {
+    query->insert(pair<string, long>("MaxRecordsPerPage", *request->maxRecordsPerPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumbers)) {
+    query->insert(pair<string, long>("PageNumbers", *request->pageNumbers));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeAllWhitelistTemplate"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeAllWhitelistTemplateResponse(callApi(params, req, runtime));
+}
+
+DescribeAllWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeAllWhitelistTemplate(shared_ptr<DescribeAllWhitelistTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeAllWhitelistTemplateWithOptions(request, runtime);
+}
+
 DescribeAnalyticdbByPrimaryDBInstanceResponse Alibabacloud_Rds20140815::Client::describeAnalyticdbByPrimaryDBInstanceWithOptions(shared_ptr<DescribeAnalyticdbByPrimaryDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -6463,6 +6543,40 @@ DescribeInstanceKeywordsResponse Alibabacloud_Rds20140815::Client::describeInsta
   return describeInstanceKeywordsWithOptions(request, runtime);
 }
 
+DescribeInstanceLinkedWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeInstanceLinkedWhitelistTemplateWithOptions(shared_ptr<DescribeInstanceLinkedWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
+    query->insert(pair<string, string>("InsName", *request->insName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceLinkedWhitelistTemplate"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceLinkedWhitelistTemplateResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceLinkedWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeInstanceLinkedWhitelistTemplate(shared_ptr<DescribeInstanceLinkedWhitelistTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceLinkedWhitelistTemplateWithOptions(request, runtime);
+}
+
 DescribeLocalAvailableRecoveryTimeResponse Alibabacloud_Rds20140815::Client::describeLocalAvailableRecoveryTimeWithOptions(shared_ptr<DescribeLocalAvailableRecoveryTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8335,6 +8449,76 @@ DescribeVSwitchesResponse Alibabacloud_Rds20140815::Client::describeVSwitches(sh
   return describeVSwitchesWithOptions(request, runtime);
 }
 
+DescribeWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplateWithOptions(shared_ptr<DescribeWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeWhitelistTemplate"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeWhitelistTemplateResponse(callApi(params, req, runtime));
+}
+
+DescribeWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplate(shared_ptr<DescribeWhitelistTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeWhitelistTemplateWithOptions(request, runtime);
+}
+
+DescribeWhitelistTemplateLinkedInstanceResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplateLinkedInstanceWithOptions(shared_ptr<DescribeWhitelistTemplateLinkedInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    body->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeWhitelistTemplateLinkedInstance"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeWhitelistTemplateLinkedInstanceResponse(callApi(params, req, runtime));
+}
+
+DescribeWhitelistTemplateLinkedInstanceResponse Alibabacloud_Rds20140815::Client::describeWhitelistTemplateLinkedInstance(shared_ptr<DescribeWhitelistTemplateLinkedInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeWhitelistTemplateLinkedInstanceWithOptions(request, runtime);
+}
+
 DestroyDBInstanceResponse Alibabacloud_Rds20140815::Client::destroyDBInstanceWithOptions(shared_ptr<DestroyDBInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -8410,6 +8594,43 @@ DetachGadInstanceMemberResponse Alibabacloud_Rds20140815::Client::detachGadInsta
 DetachGadInstanceMemberResponse Alibabacloud_Rds20140815::Client::detachGadInstanceMember(shared_ptr<DetachGadInstanceMemberRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detachGadInstanceMemberWithOptions(request, runtime);
+}
+
+DetachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::detachWhitelistTemplateToInstanceWithOptions(shared_ptr<DetachWhitelistTemplateToInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->insName)) {
+    query->insert(pair<string, string>("InsName", *request->insName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DetachWhitelistTemplateToInstance"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DetachWhitelistTemplateToInstanceResponse(callApi(params, req, runtime));
+}
+
+DetachWhitelistTemplateToInstanceResponse Alibabacloud_Rds20140815::Client::detachWhitelistTemplateToInstance(shared_ptr<DetachWhitelistTemplateToInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return detachWhitelistTemplateToInstanceWithOptions(request, runtime);
 }
 
 GetDBInstanceTopologyResponse Alibabacloud_Rds20140815::Client::getDBInstanceTopologyWithOptions(shared_ptr<GetDBInstanceTopologyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -11557,6 +11778,46 @@ ModifySecurityIpsResponse Alibabacloud_Rds20140815::Client::modifySecurityIpsWit
 ModifySecurityIpsResponse Alibabacloud_Rds20140815::Client::modifySecurityIps(shared_ptr<ModifySecurityIpsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifySecurityIpsWithOptions(request, runtime);
+}
+
+ModifyWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::modifyWhitelistTemplateWithOptions(shared_ptr<ModifyWhitelistTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipWhitelist)) {
+    query->insert(pair<string, string>("IpWhitelist", *request->ipWhitelist));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
+    query->insert(pair<string, long>("TemplateId", *request->templateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
+    query->insert(pair<string, string>("TemplateName", *request->templateName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyWhitelistTemplate"))},
+    {"version", boost::any(string("2014-08-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyWhitelistTemplateResponse(callApi(params, req, runtime));
+}
+
+ModifyWhitelistTemplateResponse Alibabacloud_Rds20140815::Client::modifyWhitelistTemplate(shared_ptr<ModifyWhitelistTemplateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyWhitelistTemplateWithOptions(request, runtime);
 }
 
 PurgeDBInstanceLogResponse Alibabacloud_Rds20140815::Client::purgeDBInstanceLogWithOptions(shared_ptr<PurgeDBInstanceLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
