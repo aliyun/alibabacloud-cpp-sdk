@@ -546,6 +546,40 @@ GetTensorboardResponse Alibabacloud_Pai-dlc20201203::Client::getTensorboard(shar
   return getTensorboardWithOptions(TensorboardId, request, headers, runtime);
 }
 
+GetWebTerminalResponse Alibabacloud_Pai-dlc20201203::Client::getWebTerminalWithOptions(shared_ptr<string> JobId,
+                                                                                       shared_ptr<string> PodId,
+                                                                                       shared_ptr<GetWebTerminalRequest> request,
+                                                                                       shared_ptr<map<string, string>> headers,
+                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->podUid)) {
+    query->insert(pair<string, string>("PodUid", *request->podUid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetWebTerminal"))},
+    {"version", boost::any(string("2020-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v1/jobs/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(JobId)) + string("/pods/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(PodId)) + string("/webterminal"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetWebTerminalResponse(callApi(params, req, runtime));
+}
+
+GetWebTerminalResponse Alibabacloud_Pai-dlc20201203::Client::getWebTerminal(shared_ptr<string> JobId, shared_ptr<string> PodId, shared_ptr<GetWebTerminalRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getWebTerminalWithOptions(JobId, PodId, request, headers, runtime);
+}
+
 ListEcsSpecsResponse Alibabacloud_Pai-dlc20201203::Client::listEcsSpecsWithOptions(shared_ptr<ListEcsSpecsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
