@@ -238,6 +238,9 @@ AssociateEnsEipAddressResponse Alibabacloud_Ens20171110::Client::associateEnsEip
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceType)) {
     query->insert(pair<string, string>("InstanceType", *request->instanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->standby)) {
+    query->insert(pair<string, bool>("Standby", *request->standby));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -890,6 +893,9 @@ CreateForwardEntryResponse Alibabacloud_Ens20171110::Client::createForwardEntryW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
     query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbyExternalIp)) {
+    query->insert(pair<string, string>("StandbyExternalIp", *request->standbyExternalIp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1715,6 +1721,9 @@ CreateSnatEntryResponse Alibabacloud_Ens20171110::Client::createSnatEntryWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceVSwitchId)) {
     query->insert(pair<string, string>("SourceVSwitchId", *request->sourceVSwitchId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standbySnatIp)) {
+    query->insert(pair<string, string>("StandbySnatIp", *request->standbySnatIp));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3132,6 +3141,9 @@ DescribeEnsEipAddressesResponse Alibabacloud_Ens20171110::Client::describeEnsEip
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->standby)) {
+    query->insert(pair<string, string>("Standby", *request->standby));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -3438,6 +3450,9 @@ DescribeEnsSaleControlResponse Alibabacloud_Ens20171110::Client::describeEnsSale
   if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
     query->insert(pair<string, string>("CommodityCode", *request->commodityCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAccount)) {
+    query->insert(pair<string, string>("CustomAccount", *request->customAccount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->moduleCode)) {
     query->insert(pair<string, string>("ModuleCode", *request->moduleCode));
   }
@@ -3472,6 +3487,9 @@ DescribeEnsSaleControlAvailableResourceResponse Alibabacloud_Ens20171110::Client
   if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
     query->insert(pair<string, string>("CommodityCode", *request->commodityCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAccount)) {
+    query->insert(pair<string, string>("CustomAccount", *request->customAccount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderType)) {
     query->insert(pair<string, string>("OrderType", *request->orderType));
   }
@@ -3505,6 +3523,9 @@ DescribeEnsSaleControlStockResponse Alibabacloud_Ens20171110::Client::describeEn
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
     query->insert(pair<string, string>("CommodityCode", *request->commodityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customAccount)) {
+    query->insert(pair<string, string>("CustomAccount", *request->customAccount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->moduleCode)) {
     query->insert(pair<string, string>("ModuleCode", *request->moduleCode));
@@ -5080,7 +5101,10 @@ DescribeServcieScheduleResponse Alibabacloud_Ens20171110::Client::describeServci
 
 DescribeSnatAttributeResponse Alibabacloud_Ens20171110::Client::describeSnatAttributeWithOptions(shared_ptr<DescribeSnatAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->snatEntryId)) {
+    query->insert(pair<string, string>("SnatEntryId", *request->snatEntryId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5089,7 +5113,7 @@ DescribeSnatAttributeResponse Alibabacloud_Ens20171110::Client::describeSnatAttr
     {"version", boost::any(string("2017-11-10"))},
     {"protocol", boost::any(string("HTTPS"))},
     {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
+    {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("RPC"))},
     {"reqBodyType", boost::any(string("formData"))},

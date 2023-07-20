@@ -1807,6 +1807,7 @@ public:
   shared_ptr<string> allocationId{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceType{};
+  shared_ptr<bool> standby{};
 
   AssociateEnsEipAddressRequest() {}
 
@@ -1827,6 +1828,9 @@ public:
     if (instanceType) {
       res["InstanceType"] = boost::any(*instanceType);
     }
+    if (standby) {
+      res["Standby"] = boost::any(*standby);
+    }
     return res;
   }
 
@@ -1839,6 +1843,9 @@ public:
     }
     if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
       instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Standby") != m.end() && !m["Standby"].empty()) {
+      standby = make_shared<bool>(boost::any_cast<bool>(m["Standby"]));
     }
   }
 
@@ -4631,6 +4638,7 @@ public:
   shared_ptr<string> internalPort{};
   shared_ptr<string> ipProtocol{};
   shared_ptr<string> natGatewayId{};
+  shared_ptr<string> standbyExternalIp{};
 
   CreateForwardEntryRequest() {}
 
@@ -4666,6 +4674,9 @@ public:
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
     }
+    if (standbyExternalIp) {
+      res["StandbyExternalIp"] = boost::any(*standbyExternalIp);
+    }
     return res;
   }
 
@@ -4693,6 +4704,9 @@ public:
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("StandbyExternalIp") != m.end() && !m["StandbyExternalIp"].empty()) {
+      standbyExternalIp = make_shared<string>(boost::any_cast<string>(m["StandbyExternalIp"]));
     }
   }
 
@@ -7727,6 +7741,7 @@ public:
   shared_ptr<string> sourceCIDR{};
   shared_ptr<string> sourceNetworkId{};
   shared_ptr<string> sourceVSwitchId{};
+  shared_ptr<string> standbySnatIp{};
 
   CreateSnatEntryRequest() {}
 
@@ -7756,6 +7771,9 @@ public:
     if (sourceVSwitchId) {
       res["SourceVSwitchId"] = boost::any(*sourceVSwitchId);
     }
+    if (standbySnatIp) {
+      res["StandbySnatIp"] = boost::any(*standbySnatIp);
+    }
     return res;
   }
 
@@ -7777,6 +7795,9 @@ public:
     }
     if (m.find("SourceVSwitchId") != m.end() && !m["SourceVSwitchId"].empty()) {
       sourceVSwitchId = make_shared<string>(boost::any_cast<string>(m["SourceVSwitchId"]));
+    }
+    if (m.find("StandbySnatIp") != m.end() && !m["StandbySnatIp"].empty()) {
+      standbySnatIp = make_shared<string>(boost::any_cast<string>(m["StandbySnatIp"]));
     }
   }
 
@@ -16148,6 +16169,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<bool> portable{};
+  shared_ptr<string> serialId{};
   shared_ptr<long> size{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> status{};
@@ -16189,6 +16211,9 @@ public:
     }
     if (portable) {
       res["Portable"] = boost::any(*portable);
+    }
+    if (serialId) {
+      res["SerialId"] = boost::any(*serialId);
     }
     if (size) {
       res["Size"] = boost::any(*size);
@@ -16232,6 +16257,9 @@ public:
     }
     if (m.find("Portable") != m.end() && !m["Portable"].empty()) {
       portable = make_shared<bool>(boost::any_cast<bool>(m["Portable"]));
+    }
+    if (m.find("SerialId") != m.end() && !m["SerialId"].empty()) {
+      serialId = make_shared<string>(boost::any_cast<string>(m["SerialId"]));
     }
     if (m.find("Size") != m.end() && !m["Size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["Size"]));
@@ -17258,6 +17286,7 @@ public:
   shared_ptr<string> ensRegionId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> standby{};
 
   DescribeEnsEipAddressesRequest() {}
 
@@ -17293,6 +17322,9 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (standby) {
+      res["Standby"] = boost::any(*standby);
+    }
     return res;
   }
 
@@ -17321,6 +17353,9 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
+    if (m.find("Standby") != m.end() && !m["Standby"].empty()) {
+      standby = make_shared<string>(boost::any_cast<string>(m["Standby"]));
+    }
   }
 
 
@@ -17338,8 +17373,10 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<string> ipAddress{};
+  shared_ptr<string> ipStatus{};
   shared_ptr<string> isp{};
   shared_ptr<string> name{};
+  shared_ptr<bool> standby{};
   shared_ptr<string> status{};
 
   DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress() {}
@@ -17382,11 +17419,17 @@ public:
     if (ipAddress) {
       res["IpAddress"] = boost::any(*ipAddress);
     }
+    if (ipStatus) {
+      res["IpStatus"] = boost::any(*ipStatus);
+    }
     if (isp) {
       res["Isp"] = boost::any(*isp);
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (standby) {
+      res["Standby"] = boost::any(*standby);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -17425,11 +17468,17 @@ public:
     if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
       ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
     }
+    if (m.find("IpStatus") != m.end() && !m["IpStatus"].empty()) {
+      ipStatus = make_shared<string>(boost::any_cast<string>(m["IpStatus"]));
+    }
     if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
       isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Standby") != m.end() && !m["Standby"].empty()) {
+      standby = make_shared<bool>(boost::any_cast<bool>(m["Standby"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -19664,6 +19713,7 @@ class DescribeEnsSaleControlRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliUidAccount{};
   shared_ptr<string> commodityCode{};
+  shared_ptr<string> customAccount{};
   shared_ptr<string> moduleCode{};
   shared_ptr<string> orderType{};
 
@@ -19683,6 +19733,9 @@ public:
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
     }
+    if (customAccount) {
+      res["CustomAccount"] = boost::any(*customAccount);
+    }
     if (moduleCode) {
       res["ModuleCode"] = boost::any(*moduleCode);
     }
@@ -19698,6 +19751,9 @@ public:
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("CustomAccount") != m.end() && !m["CustomAccount"].empty()) {
+      customAccount = make_shared<string>(boost::any_cast<string>(m["CustomAccount"]));
     }
     if (m.find("ModuleCode") != m.end() && !m["ModuleCode"].empty()) {
       moduleCode = make_shared<string>(boost::any_cast<string>(m["ModuleCode"]));
@@ -20217,6 +20273,7 @@ public:
 class DescribeEnsSaleControlAvailableResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> commodityCode{};
+  shared_ptr<string> customAccount{};
   shared_ptr<string> orderType{};
 
   DescribeEnsSaleControlAvailableResourceRequest() {}
@@ -20232,6 +20289,9 @@ public:
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
     }
+    if (customAccount) {
+      res["CustomAccount"] = boost::any(*customAccount);
+    }
     if (orderType) {
       res["OrderType"] = boost::any(*orderType);
     }
@@ -20241,6 +20301,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("CustomAccount") != m.end() && !m["CustomAccount"].empty()) {
+      customAccount = make_shared<string>(boost::any_cast<string>(m["CustomAccount"]));
     }
     if (m.find("OrderType") != m.end() && !m["OrderType"].empty()) {
       orderType = make_shared<string>(boost::any_cast<string>(m["OrderType"]));
@@ -20289,8 +20352,11 @@ public:
 class DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion : public Darabonba::Model {
 public:
   shared_ptr<string> area{};
+  shared_ptr<string> city{};
+  shared_ptr<string> country{};
   shared_ptr<string> ensRegionId{};
   shared_ptr<string> ensRegionName{};
+  shared_ptr<string> isp{};
   shared_ptr<string> province{};
 
   DescribeEnsSaleControlAvailableResourceResponseBodySaleControlAvailableResourceAvailableRegion() {}
@@ -20306,11 +20372,20 @@ public:
     if (area) {
       res["Area"] = boost::any(*area);
     }
+    if (city) {
+      res["City"] = boost::any(*city);
+    }
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
     if (ensRegionId) {
       res["EnsRegionId"] = boost::any(*ensRegionId);
     }
     if (ensRegionName) {
       res["EnsRegionName"] = boost::any(*ensRegionName);
+    }
+    if (isp) {
+      res["Isp"] = boost::any(*isp);
     }
     if (province) {
       res["Province"] = boost::any(*province);
@@ -20322,11 +20397,20 @@ public:
     if (m.find("Area") != m.end() && !m["Area"].empty()) {
       area = make_shared<string>(boost::any_cast<string>(m["Area"]));
     }
+    if (m.find("City") != m.end() && !m["City"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["City"]));
+    }
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
     if (m.find("EnsRegionId") != m.end() && !m["EnsRegionId"].empty()) {
       ensRegionId = make_shared<string>(boost::any_cast<string>(m["EnsRegionId"]));
     }
     if (m.find("EnsRegionName") != m.end() && !m["EnsRegionName"].empty()) {
       ensRegionName = make_shared<string>(boost::any_cast<string>(m["EnsRegionName"]));
+    }
+    if (m.find("Isp") != m.end() && !m["Isp"].empty()) {
+      isp = make_shared<string>(boost::any_cast<string>(m["Isp"]));
     }
     if (m.find("Province") != m.end() && !m["Province"].empty()) {
       province = make_shared<string>(boost::any_cast<string>(m["Province"]));
@@ -20765,6 +20849,7 @@ class DescribeEnsSaleControlStockRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aliUidAccount{};
   shared_ptr<string> commodityCode{};
+  shared_ptr<string> customAccount{};
   shared_ptr<string> moduleCode{};
   shared_ptr<string> orderType{};
 
@@ -20784,6 +20869,9 @@ public:
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
     }
+    if (customAccount) {
+      res["CustomAccount"] = boost::any(*customAccount);
+    }
     if (moduleCode) {
       res["ModuleCode"] = boost::any(*moduleCode);
     }
@@ -20799,6 +20887,9 @@ public:
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
+    }
+    if (m.find("CustomAccount") != m.end() && !m["CustomAccount"].empty()) {
+      customAccount = make_shared<string>(boost::any_cast<string>(m["CustomAccount"]));
     }
     if (m.find("ModuleCode") != m.end() && !m["ModuleCode"].empty()) {
       moduleCode = make_shared<string>(boost::any_cast<string>(m["ModuleCode"]));
@@ -23638,6 +23729,8 @@ public:
   shared_ptr<string> internalPort{};
   shared_ptr<string> ipProtocol{};
   shared_ptr<string> natGatewayId{};
+  shared_ptr<string> standbyExternalIp{};
+  shared_ptr<string> standbyStatus{};
   shared_ptr<string> status{};
 
   DescribeForwardTableEntriesResponseBodyForwardTableEntries() {}
@@ -23677,6 +23770,12 @@ public:
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
     }
+    if (standbyExternalIp) {
+      res["StandbyExternalIp"] = boost::any(*standbyExternalIp);
+    }
+    if (standbyStatus) {
+      res["StandbyStatus"] = boost::any(*standbyStatus);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -23710,6 +23809,12 @@ public:
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("StandbyExternalIp") != m.end() && !m["StandbyExternalIp"].empty()) {
+      standbyExternalIp = make_shared<string>(boost::any_cast<string>(m["StandbyExternalIp"]));
+    }
+    if (m.find("StandbyStatus") != m.end() && !m["StandbyStatus"].empty()) {
+      standbyStatus = make_shared<string>(boost::any_cast<string>(m["StandbyStatus"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -38188,6 +38293,8 @@ public:
   shared_ptr<string> snatIp{};
   shared_ptr<vector<DescribeSnatAttributeResponseBodySnatIps>> snatIps{};
   shared_ptr<string> sourceCIDR{};
+  shared_ptr<string> standbySnatIp{};
+  shared_ptr<string> standbyStatus{};
   shared_ptr<string> status{};
 
   DescribeSnatAttributeResponseBody() {}
@@ -38227,6 +38334,12 @@ public:
     }
     if (sourceCIDR) {
       res["SourceCIDR"] = boost::any(*sourceCIDR);
+    }
+    if (standbySnatIp) {
+      res["StandbySnatIp"] = boost::any(*standbySnatIp);
+    }
+    if (standbyStatus) {
+      res["StandbyStatus"] = boost::any(*standbyStatus);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -38268,6 +38381,12 @@ public:
     }
     if (m.find("SourceCIDR") != m.end() && !m["SourceCIDR"].empty()) {
       sourceCIDR = make_shared<string>(boost::any_cast<string>(m["SourceCIDR"]));
+    }
+    if (m.find("StandbySnatIp") != m.end() && !m["StandbySnatIp"].empty()) {
+      standbySnatIp = make_shared<string>(boost::any_cast<string>(m["StandbySnatIp"]));
+    }
+    if (m.find("StandbyStatus") != m.end() && !m["StandbyStatus"].empty()) {
+      standbyStatus = make_shared<string>(boost::any_cast<string>(m["StandbyStatus"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -38417,6 +38536,8 @@ public:
   shared_ptr<string> snatEntryName{};
   shared_ptr<string> snatIp{};
   shared_ptr<string> sourceCIDR{};
+  shared_ptr<string> standbySnatIp{};
+  shared_ptr<string> standbyStatus{};
   shared_ptr<string> status{};
 
   DescribeSnatTableEntriesResponseBodySnatTableEntries() {}
@@ -38444,6 +38565,12 @@ public:
     if (sourceCIDR) {
       res["SourceCIDR"] = boost::any(*sourceCIDR);
     }
+    if (standbySnatIp) {
+      res["StandbySnatIp"] = boost::any(*standbySnatIp);
+    }
+    if (standbyStatus) {
+      res["StandbyStatus"] = boost::any(*standbyStatus);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -38465,6 +38592,12 @@ public:
     }
     if (m.find("SourceCIDR") != m.end() && !m["SourceCIDR"].empty()) {
       sourceCIDR = make_shared<string>(boost::any_cast<string>(m["SourceCIDR"]));
+    }
+    if (m.find("StandbySnatIp") != m.end() && !m["StandbySnatIp"].empty()) {
+      standbySnatIp = make_shared<string>(boost::any_cast<string>(m["StandbySnatIp"]));
+    }
+    if (m.find("StandbyStatus") != m.end() && !m["StandbyStatus"].empty()) {
+      standbyStatus = make_shared<string>(boost::any_cast<string>(m["StandbyStatus"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
