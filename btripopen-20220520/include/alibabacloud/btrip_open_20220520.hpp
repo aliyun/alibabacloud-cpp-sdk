@@ -9992,7 +9992,9 @@ public:
   shared_ptr<long> cancelTime{};
   shared_ptr<string> carInfo{};
   shared_ptr<long> carLevel{};
+  shared_ptr<string> driverCard{};
   shared_ptr<long> driverConfirmTime{};
+  shared_ptr<string> driverName{};
   shared_ptr<long> estimatePrice{};
   shared_ptr<string> fromAddress{};
   shared_ptr<string> fromCityName{};
@@ -10033,8 +10035,14 @@ public:
     if (carLevel) {
       res["car_level"] = boost::any(*carLevel);
     }
+    if (driverCard) {
+      res["driver_card"] = boost::any(*driverCard);
+    }
     if (driverConfirmTime) {
       res["driver_confirm_time"] = boost::any(*driverConfirmTime);
+    }
+    if (driverName) {
+      res["driver_name"] = boost::any(*driverName);
     }
     if (estimatePrice) {
       res["estimate_price"] = boost::any(*estimatePrice);
@@ -10103,8 +10111,14 @@ public:
     if (m.find("car_level") != m.end() && !m["car_level"].empty()) {
       carLevel = make_shared<long>(boost::any_cast<long>(m["car_level"]));
     }
+    if (m.find("driver_card") != m.end() && !m["driver_card"].empty()) {
+      driverCard = make_shared<string>(boost::any_cast<string>(m["driver_card"]));
+    }
     if (m.find("driver_confirm_time") != m.end() && !m["driver_confirm_time"].empty()) {
       driverConfirmTime = make_shared<long>(boost::any_cast<long>(m["driver_confirm_time"]));
+    }
+    if (m.find("driver_name") != m.end() && !m["driver_name"].empty()) {
+      driverName = make_shared<string>(boost::any_cast<string>(m["driver_name"]));
     }
     if (m.find("estimate_price") != m.end() && !m["estimate_price"].empty()) {
       estimatePrice = make_shared<long>(boost::any_cast<long>(m["estimate_price"]));
@@ -51945,6 +51959,7 @@ public:
 };
 class MonthBillGetResponseBodyModuleMonthAccountBillDetail : public Darabonba::Model {
 public:
+  shared_ptr<long> billConfirmed{};
   shared_ptr<double> carAmount{};
   shared_ptr<double> damageAmount{};
   shared_ptr<double> flightAmount{};
@@ -51965,6 +51980,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (billConfirmed) {
+      res["billConfirmed"] = boost::any(*billConfirmed);
+    }
     if (carAmount) {
       res["carAmount"] = boost::any(*carAmount);
     }
@@ -51996,6 +52014,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("billConfirmed") != m.end() && !m["billConfirmed"].empty()) {
+      billConfirmed = make_shared<long>(boost::any_cast<long>(m["billConfirmed"]));
+    }
     if (m.find("carAmount") != m.end() && !m["carAmount"].empty()) {
       carAmount = make_shared<double>(boost::any_cast<double>(m["carAmount"]));
     }
