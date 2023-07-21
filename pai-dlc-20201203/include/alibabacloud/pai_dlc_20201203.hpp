@@ -5526,8 +5526,8 @@ public:
 };
 class GetWebTerminalResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<string> URL{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> webTerminalUrl{};
 
   GetWebTerminalResponseBody() {}
 
@@ -5539,21 +5539,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (URL) {
-      res["URL"] = boost::any(*URL);
-    }
     if (requestId) {
-      res["requestId"] = boost::any(*requestId);
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (webTerminalUrl) {
+      res["WebTerminalUrl"] = boost::any(*webTerminalUrl);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("URL") != m.end() && !m["URL"].empty()) {
-      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
-    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    if (m.find("WebTerminalUrl") != m.end() && !m["WebTerminalUrl"].empty()) {
+      webTerminalUrl = make_shared<string>(boost::any_cast<string>(m["WebTerminalUrl"]));
     }
   }
 
