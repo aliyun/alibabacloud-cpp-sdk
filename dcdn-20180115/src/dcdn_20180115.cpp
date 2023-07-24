@@ -5664,6 +5664,12 @@ PublishRoutineCodeRevisionResponse Alibabacloud_Dcdn20180115::Client::publishRou
 PutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::putDcdnKvWithOptions(shared_ptr<PutDcdnKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->expiration)) {
+    query->insert(pair<string, long>("Expiration", *request->expiration));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->expirationTtl)) {
+    query->insert(pair<string, long>("ExpirationTtl", *request->expirationTtl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->key)) {
     query->insert(pair<string, string>("Key", *request->key));
   }

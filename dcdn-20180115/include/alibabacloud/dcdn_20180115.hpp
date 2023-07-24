@@ -36649,6 +36649,8 @@ public:
 };
 class PutDcdnKvRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> expiration{};
+  shared_ptr<long> expirationTtl{};
   shared_ptr<string> key{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> value{};
@@ -36663,6 +36665,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (expirationTtl) {
+      res["ExpirationTtl"] = boost::any(*expirationTtl);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -36676,6 +36684,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    }
+    if (m.find("ExpirationTtl") != m.end() && !m["ExpirationTtl"].empty()) {
+      expirationTtl = make_shared<long>(boost::any_cast<long>(m["ExpirationTtl"]));
+    }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
