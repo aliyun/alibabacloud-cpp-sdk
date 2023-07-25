@@ -2263,9 +2263,6 @@ ListServerlessJobsResponse Alibabacloud_EHPC20180412::Client::listServerlessJobs
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->queues)) {
-    query->insert(pair<string, vector<string>>("Queues", *request->queues));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2283,9 +2280,6 @@ ListServerlessJobsResponse Alibabacloud_EHPC20180412::Client::listServerlessJobs
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->submitTimeStart)) {
     query->insert(pair<string, string>("SubmitTimeStart", *request->submitTimeStart));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->users)) {
-    query->insert(pair<string, vector<string>>("Users", *request->users));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

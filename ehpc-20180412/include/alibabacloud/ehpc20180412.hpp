@@ -13765,16 +13765,16 @@ public:
   shared_ptr<DescribeServerlessJobsResponseBodyJobInfosArrayProperties> arrayProperties{};
   shared_ptr<vector<DescribeServerlessJobsResponseBodyJobInfosContainerGroups>> containerGroups{};
   shared_ptr<long> endTime{};
-  shared_ptr<string> id{};
   shared_ptr<bool> isArrayJob{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> jobName{};
   shared_ptr<long> lastModifyTime{};
-  shared_ptr<string> name{};
-  shared_ptr<string> owner{};
   shared_ptr<long> priority{};
   shared_ptr<string> queue{};
   shared_ptr<long> startTime{};
   shared_ptr<string> state{};
   shared_ptr<long> submitTime{};
+  shared_ptr<string> user{};
 
   DescribeServerlessJobsResponseBodyJobInfos() {}
 
@@ -13799,20 +13799,17 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
-    if (id) {
-      res["Id"] = boost::any(*id);
-    }
     if (isArrayJob) {
       res["IsArrayJob"] = boost::any(*isArrayJob);
     }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
+    }
     if (lastModifyTime) {
       res["LastModifyTime"] = boost::any(*lastModifyTime);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (owner) {
-      res["Owner"] = boost::any(*owner);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -13828,6 +13825,9 @@ public:
     }
     if (submitTime) {
       res["SubmitTime"] = boost::any(*submitTime);
+    }
+    if (user) {
+      res["User"] = boost::any(*user);
     }
     return res;
   }
@@ -13856,20 +13856,17 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
     }
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
     if (m.find("IsArrayJob") != m.end() && !m["IsArrayJob"].empty()) {
       isArrayJob = make_shared<bool>(boost::any_cast<bool>(m["IsArrayJob"]));
     }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
+    }
     if (m.find("LastModifyTime") != m.end() && !m["LastModifyTime"].empty()) {
       lastModifyTime = make_shared<long>(boost::any_cast<long>(m["LastModifyTime"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
-      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
@@ -13885,6 +13882,9 @@ public:
     }
     if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
       submitTime = make_shared<long>(boost::any_cast<long>(m["SubmitTime"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
     }
   }
 
@@ -27769,14 +27769,12 @@ public:
   shared_ptr<vector<string>> jobNames{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
-  shared_ptr<vector<string>> queues{};
   shared_ptr<string> regionId{};
   shared_ptr<string> startOrder{};
   shared_ptr<string> state{};
   shared_ptr<string> submitOrder{};
   shared_ptr<string> submitTimeEnd{};
   shared_ptr<string> submitTimeStart{};
-  shared_ptr<vector<string>> users{};
 
   ListServerlessJobsRequest() {}
 
@@ -27803,9 +27801,6 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
-    if (queues) {
-      res["Queues"] = boost::any(*queues);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -27823,9 +27818,6 @@ public:
     }
     if (submitTimeStart) {
       res["SubmitTimeStart"] = boost::any(*submitTimeStart);
-    }
-    if (users) {
-      res["Users"] = boost::any(*users);
     }
     return res;
   }
@@ -27860,16 +27852,6 @@ public:
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
-    if (m.find("Queues") != m.end() && !m["Queues"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Queues"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Queues"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      queues = make_shared<vector<string>>(toVec1);
-    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -27888,16 +27870,6 @@ public:
     if (m.find("SubmitTimeStart") != m.end() && !m["SubmitTimeStart"].empty()) {
       submitTimeStart = make_shared<string>(boost::any_cast<string>(m["SubmitTimeStart"]));
     }
-    if (m.find("Users") != m.end() && !m["Users"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["Users"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Users"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      users = make_shared<vector<string>>(toVec1);
-    }
   }
 
 
@@ -27906,15 +27878,15 @@ public:
 class ListServerlessJobsResponseBodyJobs : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
-  shared_ptr<string> id{};
   shared_ptr<bool> isArrayJob{};
-  shared_ptr<string> name{};
-  shared_ptr<string> owner{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> jobName{};
   shared_ptr<string> priority{};
   shared_ptr<string> queue{};
   shared_ptr<string> startTime{};
   shared_ptr<string> state{};
   shared_ptr<string> submitTime{};
+  shared_ptr<string> user{};
 
   ListServerlessJobsResponseBodyJobs() {}
 
@@ -27929,17 +27901,14 @@ public:
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
     }
-    if (id) {
-      res["Id"] = boost::any(*id);
-    }
     if (isArrayJob) {
       res["IsArrayJob"] = boost::any(*isArrayJob);
     }
-    if (name) {
-      res["Name"] = boost::any(*name);
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
     }
-    if (owner) {
-      res["Owner"] = boost::any(*owner);
+    if (jobName) {
+      res["JobName"] = boost::any(*jobName);
     }
     if (priority) {
       res["Priority"] = boost::any(*priority);
@@ -27956,6 +27925,9 @@ public:
     if (submitTime) {
       res["SubmitTime"] = boost::any(*submitTime);
     }
+    if (user) {
+      res["User"] = boost::any(*user);
+    }
     return res;
   }
 
@@ -27963,17 +27935,14 @@ public:
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
     }
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
     if (m.find("IsArrayJob") != m.end() && !m["IsArrayJob"].empty()) {
       isArrayJob = make_shared<bool>(boost::any_cast<bool>(m["IsArrayJob"]));
     }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
     }
-    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
-      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    if (m.find("JobName") != m.end() && !m["JobName"].empty()) {
+      jobName = make_shared<string>(boost::any_cast<string>(m["JobName"]));
     }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<string>(boost::any_cast<string>(m["Priority"]));
@@ -27989,6 +27958,9 @@ public:
     }
     if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
       submitTime = make_shared<string>(boost::any_cast<string>(m["SubmitTime"]));
+    }
+    if (m.find("User") != m.end() && !m["User"].empty()) {
+      user = make_shared<string>(boost::any_cast<string>(m["User"]));
     }
   }
 
@@ -36134,7 +36106,7 @@ public:
 };
 class SubmitServerlessJobRequestContainerEnvironmentVar : public Darabonba::Model {
 public:
-  shared_ptr<string> name{};
+  shared_ptr<string> key{};
   shared_ptr<string> value{};
 
   SubmitServerlessJobRequestContainerEnvironmentVar() {}
@@ -36147,8 +36119,8 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (name) {
-      res["Name"] = boost::any(*name);
+    if (key) {
+      res["Key"] = boost::any(*key);
     }
     if (value) {
       res["Value"] = boost::any(*value);
@@ -36157,8 +36129,8 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
@@ -36168,89 +36140,10 @@ public:
 
   virtual ~SubmitServerlessJobRequestContainerEnvironmentVar() = default;
 };
-class SubmitServerlessJobRequestContainerVolumeMountFlexVolume : public Darabonba::Model {
-public:
-  shared_ptr<string> driver{};
-  shared_ptr<string> options{};
-
-  SubmitServerlessJobRequestContainerVolumeMountFlexVolume() {}
-
-  explicit SubmitServerlessJobRequestContainerVolumeMountFlexVolume(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (driver) {
-      res["Driver"] = boost::any(*driver);
-    }
-    if (options) {
-      res["Options"] = boost::any(*options);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
-      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
-    }
-    if (m.find("Options") != m.end() && !m["Options"].empty()) {
-      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
-    }
-  }
-
-
-  virtual ~SubmitServerlessJobRequestContainerVolumeMountFlexVolume() = default;
-};
-class SubmitServerlessJobRequestContainerVolumeMountNFSVolume : public Darabonba::Model {
-public:
-  shared_ptr<string> path{};
-  shared_ptr<bool> readOnly{};
-  shared_ptr<string> server{};
-
-  SubmitServerlessJobRequestContainerVolumeMountNFSVolume() {}
-
-  explicit SubmitServerlessJobRequestContainerVolumeMountNFSVolume(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (path) {
-      res["Path"] = boost::any(*path);
-    }
-    if (readOnly) {
-      res["ReadOnly"] = boost::any(*readOnly);
-    }
-    if (server) {
-      res["Server"] = boost::any(*server);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Path") != m.end() && !m["Path"].empty()) {
-      path = make_shared<string>(boost::any_cast<string>(m["Path"]));
-    }
-    if (m.find("ReadOnly") != m.end() && !m["ReadOnly"].empty()) {
-      readOnly = make_shared<bool>(boost::any_cast<bool>(m["ReadOnly"]));
-    }
-    if (m.find("Server") != m.end() && !m["Server"].empty()) {
-      server = make_shared<string>(boost::any_cast<string>(m["Server"]));
-    }
-  }
-
-
-  virtual ~SubmitServerlessJobRequestContainerVolumeMountNFSVolume() = default;
-};
 class SubmitServerlessJobRequestContainerVolumeMount : public Darabonba::Model {
 public:
-  shared_ptr<SubmitServerlessJobRequestContainerVolumeMountFlexVolume> flexVolume{};
-  shared_ptr<SubmitServerlessJobRequestContainerVolumeMountNFSVolume> NFSVolume{};
+  shared_ptr<string> flexVolumeDriver{};
+  shared_ptr<string> flexVolumeOptions{};
   shared_ptr<string> mountPath{};
 
   SubmitServerlessJobRequestContainerVolumeMount() {}
@@ -36263,11 +36156,11 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (flexVolume) {
-      res["FlexVolume"] = flexVolume ? boost::any(flexVolume->toMap()) : boost::any(map<string,boost::any>({}));
+    if (flexVolumeDriver) {
+      res["FlexVolumeDriver"] = boost::any(*flexVolumeDriver);
     }
-    if (NFSVolume) {
-      res["NFSVolume"] = NFSVolume ? boost::any(NFSVolume->toMap()) : boost::any(map<string,boost::any>({}));
+    if (flexVolumeOptions) {
+      res["FlexVolumeOptions"] = boost::any(*flexVolumeOptions);
     }
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
@@ -36276,19 +36169,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("FlexVolume") != m.end() && !m["FlexVolume"].empty()) {
-      if (typeid(map<string, boost::any>) == m["FlexVolume"].type()) {
-        SubmitServerlessJobRequestContainerVolumeMountFlexVolume model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FlexVolume"]));
-        flexVolume = make_shared<SubmitServerlessJobRequestContainerVolumeMountFlexVolume>(model1);
-      }
+    if (m.find("FlexVolumeDriver") != m.end() && !m["FlexVolumeDriver"].empty()) {
+      flexVolumeDriver = make_shared<string>(boost::any_cast<string>(m["FlexVolumeDriver"]));
     }
-    if (m.find("NFSVolume") != m.end() && !m["NFSVolume"].empty()) {
-      if (typeid(map<string, boost::any>) == m["NFSVolume"].type()) {
-        SubmitServerlessJobRequestContainerVolumeMountNFSVolume model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NFSVolume"]));
-        NFSVolume = make_shared<SubmitServerlessJobRequestContainerVolumeMountNFSVolume>(model1);
-      }
+    if (m.find("FlexVolumeOptions") != m.end() && !m["FlexVolumeOptions"].empty()) {
+      flexVolumeOptions = make_shared<string>(boost::any_cast<string>(m["FlexVolumeOptions"]));
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
