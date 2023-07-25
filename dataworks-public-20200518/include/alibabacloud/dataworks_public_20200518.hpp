@@ -7086,6 +7086,112 @@ public:
 
   virtual ~CreateResourceFileRequest() = default;
 };
+class CreateResourceFileAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> fileDescription{};
+  shared_ptr<string> fileFolderPath{};
+  shared_ptr<string> fileName{};
+  shared_ptr<long> fileType{};
+  shared_ptr<string> originResourceName{};
+  shared_ptr<string> owner{};
+  shared_ptr<long> projectId{};
+  shared_ptr<bool> registerToCalcEngine{};
+  shared_ptr<Darabonba::Stream> resourceFileObject{};
+  shared_ptr<string> storageURL{};
+  shared_ptr<bool> uploadMode{};
+
+  CreateResourceFileAdvanceRequest() {}
+
+  explicit CreateResourceFileAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (fileDescription) {
+      res["FileDescription"] = boost::any(*fileDescription);
+    }
+    if (fileFolderPath) {
+      res["FileFolderPath"] = boost::any(*fileFolderPath);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileType) {
+      res["FileType"] = boost::any(*fileType);
+    }
+    if (originResourceName) {
+      res["OriginResourceName"] = boost::any(*originResourceName);
+    }
+    if (owner) {
+      res["Owner"] = boost::any(*owner);
+    }
+    if (projectId) {
+      res["ProjectId"] = boost::any(*projectId);
+    }
+    if (registerToCalcEngine) {
+      res["RegisterToCalcEngine"] = boost::any(*registerToCalcEngine);
+    }
+    if (resourceFileObject) {
+      res["ResourceFile"] = boost::any(*resourceFileObject);
+    }
+    if (storageURL) {
+      res["StorageURL"] = boost::any(*storageURL);
+    }
+    if (uploadMode) {
+      res["UploadMode"] = boost::any(*uploadMode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("FileDescription") != m.end() && !m["FileDescription"].empty()) {
+      fileDescription = make_shared<string>(boost::any_cast<string>(m["FileDescription"]));
+    }
+    if (m.find("FileFolderPath") != m.end() && !m["FileFolderPath"].empty()) {
+      fileFolderPath = make_shared<string>(boost::any_cast<string>(m["FileFolderPath"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileType") != m.end() && !m["FileType"].empty()) {
+      fileType = make_shared<long>(boost::any_cast<long>(m["FileType"]));
+    }
+    if (m.find("OriginResourceName") != m.end() && !m["OriginResourceName"].empty()) {
+      originResourceName = make_shared<string>(boost::any_cast<string>(m["OriginResourceName"]));
+    }
+    if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
+      owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
+    }
+    if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
+      projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("RegisterToCalcEngine") != m.end() && !m["RegisterToCalcEngine"].empty()) {
+      registerToCalcEngine = make_shared<bool>(boost::any_cast<bool>(m["RegisterToCalcEngine"]));
+    }
+    if (m.find("ResourceFile") != m.end() && !m["ResourceFile"].empty()) {
+      resourceFileObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ResourceFile"]));
+    }
+    if (m.find("StorageURL") != m.end() && !m["StorageURL"].empty()) {
+      storageURL = make_shared<string>(boost::any_cast<string>(m["StorageURL"]));
+    }
+    if (m.find("UploadMode") != m.end() && !m["UploadMode"].empty()) {
+      uploadMode = make_shared<bool>(boost::any_cast<bool>(m["UploadMode"]));
+    }
+  }
+
+
+  virtual ~CreateResourceFileAdvanceRequest() = default;
+};
 class CreateResourceFileResponseBody : public Darabonba::Model {
 public:
   shared_ptr<long> data{};
@@ -70990,6 +71096,7 @@ public:
   CreateRemindResponse createRemind(shared_ptr<CreateRemindRequest> request);
   CreateResourceFileResponse createResourceFileWithOptions(shared_ptr<CreateResourceFileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateResourceFileResponse createResourceFile(shared_ptr<CreateResourceFileRequest> request);
+  CreateResourceFileResponse createResourceFileAdvance(shared_ptr<CreateResourceFileAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTableResponse createTableWithOptions(shared_ptr<CreateTableRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateTableResponse createTable(shared_ptr<CreateTableRequest> request);
   CreateTableLevelResponse createTableLevelWithOptions(shared_ptr<CreateTableLevelRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
