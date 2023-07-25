@@ -3418,6 +3418,27 @@ DescribeDcdnIpaUserDomainsResponse Alibabacloud_Dcdn20180115::Client::describeDc
   return describeDcdnIpaUserDomainsWithOptions(request, runtime);
 }
 
+DescribeDcdnL2IpsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnL2IpsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDcdnL2Ips"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDcdnL2IpsResponse(callApi(params, req, runtime));
+}
+
+DescribeDcdnL2IpsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnL2Ips() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDcdnL2IpsWithOptions(runtime);
+}
+
 DescribeDcdnL2VipsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnL2VipsWithOptions(shared_ptr<DescribeDcdnL2VipsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
