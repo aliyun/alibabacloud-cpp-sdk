@@ -38824,6 +38824,7 @@ public:
   shared_ptr<string> breakfast{};
   shared_ptr<long> discountPrice{};
   shared_ptr<long> lastDiscountsPrice{};
+  shared_ptr<long> lastDiscountsRoundingPrice{};
   shared_ptr<long> lastNum{};
   shared_ptr<string> rateStartTime{};
   shared_ptr<long> status{};
@@ -38850,6 +38851,9 @@ public:
     if (lastDiscountsPrice) {
       res["last_discounts_price"] = boost::any(*lastDiscountsPrice);
     }
+    if (lastDiscountsRoundingPrice) {
+      res["last_discounts_rounding_price"] = boost::any(*lastDiscountsRoundingPrice);
+    }
     if (lastNum) {
       res["last_num"] = boost::any(*lastNum);
     }
@@ -38874,6 +38878,9 @@ public:
     }
     if (m.find("last_discounts_price") != m.end() && !m["last_discounts_price"].empty()) {
       lastDiscountsPrice = make_shared<long>(boost::any_cast<long>(m["last_discounts_price"]));
+    }
+    if (m.find("last_discounts_rounding_price") != m.end() && !m["last_discounts_rounding_price"].empty()) {
+      lastDiscountsRoundingPrice = make_shared<long>(boost::any_cast<long>(m["last_discounts_rounding_price"]));
     }
     if (m.find("last_num") != m.end() && !m["last_num"].empty()) {
       lastNum = make_shared<long>(boost::any_cast<long>(m["last_num"]));
