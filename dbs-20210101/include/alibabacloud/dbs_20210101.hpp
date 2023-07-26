@@ -984,7 +984,6 @@ class DescribeDBTablesRecoveryBackupSetRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionCode{};
-  shared_ptr<string> regionId{};
 
   DescribeDBTablesRecoveryBackupSetRequest() {}
 
@@ -1002,9 +1001,6 @@ public:
     if (regionCode) {
       res["RegionCode"] = boost::any(*regionCode);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
@@ -1014,9 +1010,6 @@ public:
     }
     if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
       regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -1160,7 +1153,6 @@ class DescribeDBTablesRecoveryStateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionCode{};
-  shared_ptr<string> regionId{};
 
   DescribeDBTablesRecoveryStateRequest() {}
 
@@ -1178,9 +1170,6 @@ public:
     if (regionCode) {
       res["RegionCode"] = boost::any(*regionCode);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
@@ -1190,9 +1179,6 @@ public:
     }
     if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
       regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -1336,7 +1322,6 @@ class DescribeDBTablesRecoveryTimeRangeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionCode{};
-  shared_ptr<string> regionId{};
 
   DescribeDBTablesRecoveryTimeRangeRequest() {}
 
@@ -1354,9 +1339,6 @@ public:
     if (regionCode) {
       res["RegionCode"] = boost::any(*regionCode);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
@@ -1366,9 +1348,6 @@ public:
     }
     if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
       regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -2961,7 +2940,6 @@ public:
   shared_ptr<string> category{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionCode{};
-  shared_ptr<string> regionId{};
   shared_ptr<string> retention{};
 
   ModifyDBTablesRecoveryStateRequest() {}
@@ -2983,9 +2961,6 @@ public:
     if (regionCode) {
       res["RegionCode"] = boost::any(*regionCode);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     if (retention) {
       res["Retention"] = boost::any(*retention);
     }
@@ -3001,9 +2976,6 @@ public:
     }
     if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
       regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Retention") != m.end() && !m["Retention"].empty()) {
       retention = make_shared<string>(boost::any_cast<string>(m["Retention"]));
@@ -3150,7 +3122,6 @@ class SupportDBTableRecoveryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> regionCode{};
-  shared_ptr<string> regionId{};
 
   SupportDBTableRecoveryRequest() {}
 
@@ -3168,9 +3139,6 @@ public:
     if (regionCode) {
       res["RegionCode"] = boost::any(*regionCode);
     }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
     return res;
   }
 
@@ -3180,9 +3148,6 @@ public:
     }
     if (m.find("RegionCode") != m.end() && !m["RegionCode"].empty()) {
       regionCode = make_shared<string>(boost::any_cast<string>(m["RegionCode"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 

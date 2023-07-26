@@ -254,9 +254,6 @@ DescribeDBTablesRecoveryBackupSetResponse Alibabacloud_Dbs20210101::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
     query->insert(pair<string, string>("RegionCode", *request->regionCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -288,9 +285,6 @@ DescribeDBTablesRecoveryStateResponse Alibabacloud_Dbs20210101::Client::describe
   if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
     query->insert(pair<string, string>("RegionCode", *request->regionCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -321,9 +315,6 @@ DescribeDBTablesRecoveryTimeRangeResponse Alibabacloud_Dbs20210101::Client::desc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
     query->insert(pair<string, string>("RegionCode", *request->regionCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -593,9 +584,6 @@ ModifyDBTablesRecoveryStateResponse Alibabacloud_Dbs20210101::Client::modifyDBTa
   if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
     query->insert(pair<string, string>("RegionCode", *request->regionCode));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->retention)) {
     query->insert(pair<string, string>("Retention", *request->retention));
   }
@@ -629,9 +617,6 @@ SupportDBTableRecoveryResponse Alibabacloud_Dbs20210101::Client::supportDBTableR
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
     query->insert(pair<string, string>("RegionCode", *request->regionCode));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
