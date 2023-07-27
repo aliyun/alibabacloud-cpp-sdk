@@ -13966,6 +13966,42 @@ public:
 
   virtual ~ListResourceGroupsResponse() = default;
 };
+class ListResourcesRequestResourceTypes : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> service{};
+
+  ListResourcesRequestResourceTypes() {}
+
+  explicit ListResourcesRequestResourceTypes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (service) {
+      res["Service"] = boost::any(*service);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Service") != m.end() && !m["Service"].empty()) {
+      service = make_shared<string>(boost::any_cast<string>(m["Service"]));
+    }
+  }
+
+
+  virtual ~ListResourcesRequestResourceTypes() = default;
+};
 class ListResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -13974,6 +14010,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
+  shared_ptr<vector<ListResourcesRequestResourceTypes>> resourceTypes{};
   shared_ptr<string> service{};
 
   ListResourcesRequest() {}
@@ -14004,6 +14041,13 @@ public:
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
     }
+    if (resourceTypes) {
+      vector<boost::any> temp1;
+      for(auto item1:*resourceTypes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResourceTypes"] = boost::any(temp1);
+    }
     if (service) {
       res["Service"] = boost::any(*service);
     }
@@ -14028,6 +14072,19 @@ public:
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ResourceTypes") != m.end() && !m["ResourceTypes"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResourceTypes"].type()) {
+        vector<ListResourcesRequestResourceTypes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResourceTypes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourcesRequestResourceTypes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        resourceTypes = make_shared<vector<ListResourcesRequestResourceTypes>>(expect1);
+      }
     }
     if (m.find("Service") != m.end() && !m["Service"].empty()) {
       service = make_shared<string>(boost::any_cast<string>(m["Service"]));

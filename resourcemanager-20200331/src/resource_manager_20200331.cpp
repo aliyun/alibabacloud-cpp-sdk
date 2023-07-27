@@ -2112,6 +2112,9 @@ ListResourcesResponse Alibabacloud_ResourceManager20200331::Client::listResource
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListResourcesRequestResourceTypes>>(request->resourceTypes)) {
+    query->insert(pair<string, vector<ListResourcesRequestResourceTypes>>("ResourceTypes", *request->resourceTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->service)) {
     query->insert(pair<string, string>("Service", *request->service));
   }
