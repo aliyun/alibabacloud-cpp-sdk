@@ -1564,6 +1564,147 @@ public:
 
   virtual ~DeleteDomainResponse() = default;
 };
+class DeleteInvalidAddressRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> toAddress{};
+
+  DeleteInvalidAddressRequest() {}
+
+  explicit DeleteInvalidAddressRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (toAddress) {
+      res["ToAddress"] = boost::any(*toAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
+      toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
+    }
+  }
+
+
+  virtual ~DeleteInvalidAddressRequest() = default;
+};
+class DeleteInvalidAddressResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteInvalidAddressResponseBody() {}
+
+  explicit DeleteInvalidAddressResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteInvalidAddressResponseBody() = default;
+};
+class DeleteInvalidAddressResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteInvalidAddressResponseBody> body{};
+
+  DeleteInvalidAddressResponse() {}
+
+  explicit DeleteInvalidAddressResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteInvalidAddressResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteInvalidAddressResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteInvalidAddressResponse() = default;
+};
 class DeleteIpfilterByEdmIdRequest : public Darabonba::Model {
 public:
   shared_ptr<long> fromType{};
@@ -2579,6 +2720,9 @@ public:
   shared_ptr<string> cnameRecord{};
   shared_ptr<string> createTime{};
   shared_ptr<string> defaultDomain{};
+  shared_ptr<string> dkimAuthStatus{};
+  shared_ptr<string> dkimPublicKey{};
+  shared_ptr<string> dkimRR{};
   shared_ptr<string> dnsMx{};
   shared_ptr<string> dnsSpf{};
   shared_ptr<string> dnsTxt{};
@@ -2592,6 +2736,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> spfAuthStatus{};
   shared_ptr<string> spfRecord{};
+  shared_ptr<string> spfRecordV2{};
   shared_ptr<string> tlDomainName{};
   shared_ptr<string> tracefRecord{};
 
@@ -2619,6 +2764,15 @@ public:
     }
     if (defaultDomain) {
       res["DefaultDomain"] = boost::any(*defaultDomain);
+    }
+    if (dkimAuthStatus) {
+      res["DkimAuthStatus"] = boost::any(*dkimAuthStatus);
+    }
+    if (dkimPublicKey) {
+      res["DkimPublicKey"] = boost::any(*dkimPublicKey);
+    }
+    if (dkimRR) {
+      res["DkimRR"] = boost::any(*dkimRR);
     }
     if (dnsMx) {
       res["DnsMx"] = boost::any(*dnsMx);
@@ -2659,6 +2813,9 @@ public:
     if (spfRecord) {
       res["SpfRecord"] = boost::any(*spfRecord);
     }
+    if (spfRecordV2) {
+      res["SpfRecordV2"] = boost::any(*spfRecordV2);
+    }
     if (tlDomainName) {
       res["TlDomainName"] = boost::any(*tlDomainName);
     }
@@ -2683,6 +2840,15 @@ public:
     }
     if (m.find("DefaultDomain") != m.end() && !m["DefaultDomain"].empty()) {
       defaultDomain = make_shared<string>(boost::any_cast<string>(m["DefaultDomain"]));
+    }
+    if (m.find("DkimAuthStatus") != m.end() && !m["DkimAuthStatus"].empty()) {
+      dkimAuthStatus = make_shared<string>(boost::any_cast<string>(m["DkimAuthStatus"]));
+    }
+    if (m.find("DkimPublicKey") != m.end() && !m["DkimPublicKey"].empty()) {
+      dkimPublicKey = make_shared<string>(boost::any_cast<string>(m["DkimPublicKey"]));
+    }
+    if (m.find("DkimRR") != m.end() && !m["DkimRR"].empty()) {
+      dkimRR = make_shared<string>(boost::any_cast<string>(m["DkimRR"]));
     }
     if (m.find("DnsMx") != m.end() && !m["DnsMx"].empty()) {
       dnsMx = make_shared<string>(boost::any_cast<string>(m["DnsMx"]));
@@ -2722,6 +2888,9 @@ public:
     }
     if (m.find("SpfRecord") != m.end() && !m["SpfRecord"].empty()) {
       spfRecord = make_shared<string>(boost::any_cast<string>(m["SpfRecord"]));
+    }
+    if (m.find("SpfRecordV2") != m.end() && !m["SpfRecordV2"].empty()) {
+      spfRecordV2 = make_shared<string>(boost::any_cast<string>(m["SpfRecordV2"]));
     }
     if (m.find("TlDomainName") != m.end() && !m["TlDomainName"].empty()) {
       tlDomainName = make_shared<string>(boost::any_cast<string>(m["TlDomainName"]));
@@ -4103,8 +4272,10 @@ public:
 class ModifyPWByDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
+  shared_ptr<long> ownerId{};
   shared_ptr<string> password{};
-  shared_ptr<string> resourceOwnerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
 
   ModifyPWByDomainRequest() {}
 
@@ -4119,8 +4290,14 @@ public:
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
     if (password) {
       res["Password"] = boost::any(*password);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
@@ -4132,11 +4309,17 @@ public:
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerId"]));
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
     }
   }
 
@@ -7992,6 +8175,8 @@ public:
   CreateTagResponse createTag(shared_ptr<CreateTagRequest> request);
   DeleteDomainResponse deleteDomainWithOptions(shared_ptr<DeleteDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteDomainResponse deleteDomain(shared_ptr<DeleteDomainRequest> request);
+  DeleteInvalidAddressResponse deleteInvalidAddressWithOptions(shared_ptr<DeleteInvalidAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteInvalidAddressResponse deleteInvalidAddress(shared_ptr<DeleteInvalidAddressRequest> request);
   DeleteIpfilterByEdmIdResponse deleteIpfilterByEdmIdWithOptions(shared_ptr<DeleteIpfilterByEdmIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteIpfilterByEdmIdResponse deleteIpfilterByEdmId(shared_ptr<DeleteIpfilterByEdmIdRequest> request);
   DeleteMailAddressResponse deleteMailAddressWithOptions(shared_ptr<DeleteMailAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
