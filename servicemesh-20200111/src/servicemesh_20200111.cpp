@@ -1221,31 +1221,6 @@ DescribeImportedServicesDetailResponse Alibabacloud_Servicemesh20200111::Client:
   return describeImportedServicesDetailWithOptions(request, runtime);
 }
 
-DescribeIngressGatewaysResponse Alibabacloud_Servicemesh20200111::Client::describeIngressGatewaysWithOptions(shared_ptr<DescribeIngressGatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("DescribeIngressGateways"))},
-    {"version", boost::any(string("2020-01-11"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return DescribeIngressGatewaysResponse(callApi(params, req, runtime));
-}
-
-DescribeIngressGatewaysResponse Alibabacloud_Servicemesh20200111::Client::describeIngressGateways(shared_ptr<DescribeIngressGatewaysRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return describeIngressGatewaysWithOptions(request, runtime);
-}
-
 DescribeIstioGatewayDomainsResponse Alibabacloud_Servicemesh20200111::Client::describeIstioGatewayDomainsWithOptions(shared_ptr<DescribeIstioGatewayDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2239,14 +2214,22 @@ GetVmMetaResponse Alibabacloud_Servicemesh20200111::Client::getVmMeta(shared_ptr
   return getVmMetaWithOptions(request, runtime);
 }
 
-GrantUserPermissionsResponse Alibabacloud_Servicemesh20200111::Client::grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+GrantUserPermissionsResponse Alibabacloud_Servicemesh20200111::Client::grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<GrantUserPermissionsShrinkRequest> request = make_shared<GrantUserPermissionsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->subAccountUserIds)) {
+    request->subAccountUserIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->subAccountUserIds, make_shared<string>("SubAccountUserIds"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->permissions)) {
     body->insert(pair<string, string>("Permissions", *request->permissions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->subAccountUserId)) {
     body->insert(pair<string, string>("SubAccountUserId", *request->subAccountUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subAccountUserIdsShrink)) {
+    body->insert(pair<string, string>("SubAccountUserIds", *request->subAccountUserIdsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -2621,6 +2604,9 @@ UpdateIstioInjectionConfigResponse Alibabacloud_Servicemesh20200111::Client::upd
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableSidecarSetInjection)) {
     body->insert(pair<string, bool>("EnableSidecarSetInjection", *request->enableSidecarSetInjection));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->istioRev)) {
+    body->insert(pair<string, string>("IstioRev", *request->istioRev));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     body->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
@@ -2874,6 +2860,9 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->kialiEnabled)) {
     body->insert(pair<string, bool>("KialiEnabled", *request->kialiEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->kialiServiceAnnotations)) {
+    body->insert(pair<string, string>("KialiServiceAnnotations", *request->kialiServiceAnnotations));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecycle)) {
     body->insert(pair<string, string>("Lifecycle", *request->lifecycle));
@@ -3272,6 +3261,9 @@ UpgradeMeshEditionPartiallyResponse Alibabacloud_Servicemesh20200111::Client::up
   if (!Darabonba_Util::Client::isUnset<string>(request->expectedVersion)) {
     body->insert(pair<string, string>("ExpectedVersion", *request->expectedVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->preCheck)) {
+    body->insert(pair<string, bool>("PreCheck", *request->preCheck));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
@@ -3306,6 +3298,9 @@ UpgradeMeshEditionPartiallyResponse Alibabacloud_Servicemesh20200111::Client::up
 UpgradeMeshVersionResponse Alibabacloud_Servicemesh20200111::Client::upgradeMeshVersionWithOptions(shared_ptr<UpgradeMeshVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->preCheck)) {
+    query->insert(pair<string, bool>("PreCheck", *request->preCheck));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     query->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
