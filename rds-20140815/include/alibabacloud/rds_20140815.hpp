@@ -58768,6 +58768,7 @@ public:
   shared_ptr<ModifyDBInstanceSpecRequestServerlessConfiguration> serverlessConfiguration{};
   shared_ptr<string> sourceBiz{};
   shared_ptr<string> switchTime{};
+  shared_ptr<string> targetMinorVersion{};
   shared_ptr<long> usedTime{};
   shared_ptr<string> zoneId{};
 
@@ -58840,6 +58841,9 @@ public:
     }
     if (switchTime) {
       res["SwitchTime"] = boost::any(*switchTime);
+    }
+    if (targetMinorVersion) {
+      res["TargetMinorVersion"] = boost::any(*targetMinorVersion);
     }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
@@ -58915,6 +58919,9 @@ public:
     if (m.find("SwitchTime") != m.end() && !m["SwitchTime"].empty()) {
       switchTime = make_shared<string>(boost::any_cast<string>(m["SwitchTime"]));
     }
+    if (m.find("TargetMinorVersion") != m.end() && !m["TargetMinorVersion"].empty()) {
+      targetMinorVersion = make_shared<string>(boost::any_cast<string>(m["TargetMinorVersion"]));
+    }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<long>(boost::any_cast<long>(m["UsedTime"]));
     }
@@ -58948,6 +58955,7 @@ public:
   shared_ptr<string> serverlessConfigurationShrink{};
   shared_ptr<string> sourceBiz{};
   shared_ptr<string> switchTime{};
+  shared_ptr<string> targetMinorVersion{};
   shared_ptr<long> usedTime{};
   shared_ptr<string> zoneId{};
 
@@ -59021,6 +59029,9 @@ public:
     if (switchTime) {
       res["SwitchTime"] = boost::any(*switchTime);
     }
+    if (targetMinorVersion) {
+      res["TargetMinorVersion"] = boost::any(*targetMinorVersion);
+    }
     if (usedTime) {
       res["UsedTime"] = boost::any(*usedTime);
     }
@@ -59090,6 +59101,9 @@ public:
     }
     if (m.find("SwitchTime") != m.end() && !m["SwitchTime"].empty()) {
       switchTime = make_shared<string>(boost::any_cast<string>(m["SwitchTime"]));
+    }
+    if (m.find("TargetMinorVersion") != m.end() && !m["TargetMinorVersion"].empty()) {
+      targetMinorVersion = make_shared<string>(boost::any_cast<string>(m["TargetMinorVersion"]));
     }
     if (m.find("UsedTime") != m.end() && !m["UsedTime"].empty()) {
       usedTime = make_shared<long>(boost::any_cast<long>(m["UsedTime"]));

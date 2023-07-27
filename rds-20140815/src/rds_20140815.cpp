@@ -10659,6 +10659,9 @@ ModifyDBInstanceSpecResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceS
   if (!Darabonba_Util::Client::isUnset<string>(request->switchTime)) {
     query->insert(pair<string, string>("SwitchTime", *request->switchTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetMinorVersion)) {
+    query->insert(pair<string, string>("TargetMinorVersion", *request->targetMinorVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->usedTime)) {
     query->insert(pair<string, long>("UsedTime", *request->usedTime));
   }
