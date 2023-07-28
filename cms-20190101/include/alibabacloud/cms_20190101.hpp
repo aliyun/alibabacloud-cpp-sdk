@@ -15092,6 +15092,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> sendStatus{};
+  shared_ptr<string> sourceType{};
   shared_ptr<long> startTime{};
 
   DescribeAlertLogCountRequest() {}
@@ -15149,6 +15150,9 @@ public:
     if (sendStatus) {
       res["SendStatus"] = boost::any(*sendStatus);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -15200,6 +15204,9 @@ public:
     }
     if (m.find("SendStatus") != m.end() && !m["SendStatus"].empty()) {
       sendStatus = make_shared<string>(boost::any_cast<string>(m["SendStatus"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -15445,6 +15452,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> sendStatus{};
+  shared_ptr<string> sourceType{};
   shared_ptr<long> startTime{};
 
   DescribeAlertLogHistogramRequest() {}
@@ -15502,6 +15510,9 @@ public:
     if (sendStatus) {
       res["SendStatus"] = boost::any(*sendStatus);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -15553,6 +15564,9 @@ public:
     }
     if (m.find("SendStatus") != m.end() && !m["SendStatus"].empty()) {
       sendStatus = make_shared<string>(boost::any_cast<string>(m["SendStatus"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -15756,6 +15770,7 @@ public:
   shared_ptr<string> ruleName{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> sendStatus{};
+  shared_ptr<string> sourceType{};
   shared_ptr<long> startTime{};
 
   DescribeAlertLogListRequest() {}
@@ -15816,6 +15831,9 @@ public:
     if (sendStatus) {
       res["SendStatus"] = boost::any(*sendStatus);
     }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -15870,6 +15888,9 @@ public:
     }
     if (m.find("SendStatus") != m.end() && !m["SendStatus"].empty()) {
       sendStatus = make_shared<string>(boost::any_cast<string>(m["SendStatus"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -35254,6 +35275,7 @@ class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus : publ
 public:
   shared_ptr<bool> autoInstall{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> osMonitorConfig{};
   shared_ptr<string> osMonitorErrorCode{};
   shared_ptr<string> osMonitorErrorDetail{};
   shared_ptr<string> osMonitorStatus{};
@@ -35275,6 +35297,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (osMonitorConfig) {
+      res["OsMonitorConfig"] = boost::any(*osMonitorConfig);
     }
     if (osMonitorErrorCode) {
       res["OsMonitorErrorCode"] = boost::any(*osMonitorErrorCode);
@@ -35300,6 +35325,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OsMonitorConfig") != m.end() && !m["OsMonitorConfig"].empty()) {
+      osMonitorConfig = make_shared<string>(boost::any_cast<string>(m["OsMonitorConfig"]));
     }
     if (m.find("OsMonitorErrorCode") != m.end() && !m["OsMonitorErrorCode"].empty()) {
       osMonitorErrorCode = make_shared<string>(boost::any_cast<string>(m["OsMonitorErrorCode"]));

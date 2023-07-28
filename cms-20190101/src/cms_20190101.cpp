@@ -2034,6 +2034,9 @@ DescribeAlertLogCountResponse Alibabacloud_Cms20190101::Client::describeAlertLog
   if (!Darabonba_Util::Client::isUnset<string>(request->sendStatus)) {
     query->insert(pair<string, string>("SendStatus", *request->sendStatus));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -2103,6 +2106,9 @@ DescribeAlertLogHistogramResponse Alibabacloud_Cms20190101::Client::describeAler
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sendStatus)) {
     query->insert(pair<string, string>("SendStatus", *request->sendStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
@@ -2176,6 +2182,9 @@ DescribeAlertLogListResponse Alibabacloud_Cms20190101::Client::describeAlertLogL
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sendStatus)) {
     query->insert(pair<string, string>("SendStatus", *request->sendStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
+    query->insert(pair<string, string>("SourceType", *request->sourceType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
