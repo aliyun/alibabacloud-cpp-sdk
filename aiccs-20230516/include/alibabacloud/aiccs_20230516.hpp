@@ -398,6 +398,7 @@ public:
 class AddTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<AddTaskRequestCallTimeList>> callTimeList{};
+  shared_ptr<string> callbackUrl{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -433,6 +434,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CallTimeList"] = boost::any(temp1);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -508,6 +512,9 @@ public:
         }
         callTimeList = make_shared<vector<AddTaskRequestCallTimeList>>(expect1);
       }
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -595,6 +602,7 @@ public:
 class AddTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callTimeListShrink{};
+  shared_ptr<string> callbackUrl{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -626,6 +634,9 @@ public:
     map<string, boost::any> res;
     if (callTimeListShrink) {
       res["CallTimeList"] = boost::any(*callTimeListShrink);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -687,6 +698,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CallTimeList") != m.end() && !m["CallTimeList"].empty()) {
       callTimeListShrink = make_shared<string>(boost::any_cast<string>(m["CallTimeList"]));
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -2179,6 +2193,7 @@ public:
 class EditTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<EditTaskRequestCallTimeList>> callTimeList{};
+  shared_ptr<string> callbackUrl{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -2214,6 +2229,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["CallTimeList"] = boost::any(temp1);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -2289,6 +2307,9 @@ public:
         }
         callTimeList = make_shared<vector<EditTaskRequestCallTimeList>>(expect1);
       }
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
@@ -2376,6 +2397,7 @@ public:
 class EditTaskShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callTimeListShrink{};
+  shared_ptr<string> callbackUrl{};
   shared_ptr<long> maxConcurrency{};
   shared_ptr<string> name{};
   shared_ptr<long> ownerId{};
@@ -2407,6 +2429,9 @@ public:
     map<string, boost::any> res;
     if (callTimeListShrink) {
       res["CallTimeList"] = boost::any(*callTimeListShrink);
+    }
+    if (callbackUrl) {
+      res["CallbackUrl"] = boost::any(*callbackUrl);
     }
     if (maxConcurrency) {
       res["MaxConcurrency"] = boost::any(*maxConcurrency);
@@ -2468,6 +2493,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CallTimeList") != m.end() && !m["CallTimeList"].empty()) {
       callTimeListShrink = make_shared<string>(boost::any_cast<string>(m["CallTimeList"]));
+    }
+    if (m.find("CallbackUrl") != m.end() && !m["CallbackUrl"].empty()) {
+      callbackUrl = make_shared<string>(boost::any_cast<string>(m["CallbackUrl"]));
     }
     if (m.find("MaxConcurrency") != m.end() && !m["MaxConcurrency"].empty()) {
       maxConcurrency = make_shared<long>(boost::any_cast<long>(m["MaxConcurrency"]));
