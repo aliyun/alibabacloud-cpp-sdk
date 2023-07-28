@@ -10135,8 +10135,12 @@ public:
 };
 class CreateRetcodeAppResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<CreateRetcodeAppResponseBodyRetcodeAppDataBean> retcodeAppDataBean{};
+  shared_ptr<bool> success{};
 
   CreateRetcodeAppResponseBody() {}
 
@@ -10148,16 +10152,37 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
     if (retcodeAppDataBean) {
       res["RetcodeAppDataBean"] = retcodeAppDataBean ? boost::any(retcodeAppDataBean->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -10167,6 +10192,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetcodeAppDataBean"]));
         retcodeAppDataBean = make_shared<CreateRetcodeAppResponseBodyRetcodeAppDataBean>(model1);
       }
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -14735,8 +14763,11 @@ public:
 };
 class DeleteRetcodeAppResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
   shared_ptr<string> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   DeleteRetcodeAppResponseBody() {}
 
@@ -14748,21 +14779,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (data) {
       res["Data"] = boost::any(*data);
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
     }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
