@@ -424,8 +424,66 @@ public:
 
   virtual ~ContinueDeployApplicationGroupResponse() = default;
 };
+class CreateApplicationRequestAlarmConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> contactGroups{};
+  shared_ptr<string> healthCheckUrl{};
+  shared_ptr<vector<string>> templateIds{};
+
+  CreateApplicationRequestAlarmConfig() {}
+
+  explicit CreateApplicationRequestAlarmConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactGroups) {
+      res["ContactGroups"] = boost::any(*contactGroups);
+    }
+    if (healthCheckUrl) {
+      res["HealthCheckUrl"] = boost::any(*healthCheckUrl);
+    }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContactGroups") != m.end() && !m["ContactGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ContactGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ContactGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contactGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckUrl") != m.end() && !m["HealthCheckUrl"].empty()) {
+      healthCheckUrl = make_shared<string>(boost::any_cast<string>(m["HealthCheckUrl"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateApplicationRequestAlarmConfig() = default;
+};
 class CreateApplicationRequest : public Darabonba::Model {
 public:
+  shared_ptr<CreateApplicationRequestAlarmConfig> alarmConfig{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -443,6 +501,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmConfig) {
+      res["AlarmConfig"] = alarmConfig ? boost::any(alarmConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -465,6 +526,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlarmConfig"].type()) {
+        CreateApplicationRequestAlarmConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmConfig"]));
+        alarmConfig = make_shared<CreateApplicationRequestAlarmConfig>(model1);
+      }
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -495,6 +563,7 @@ public:
 };
 class CreateApplicationShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> alarmConfigShrink{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -512,6 +581,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmConfigShrink) {
+      res["AlarmConfig"] = boost::any(*alarmConfigShrink);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -534,6 +606,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
+      alarmConfigShrink = make_shared<string>(boost::any_cast<string>(m["AlarmConfig"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -1867,14 +1942,56 @@ public:
 
   virtual ~CreateParameterResponse() = default;
 };
+class CreatePatchBaselineRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreatePatchBaselineRequestTags() {}
+
+  explicit CreatePatchBaselineRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreatePatchBaselineRequestTags() = default;
+};
 class CreatePatchBaselineRequest : public Darabonba::Model {
 public:
   shared_ptr<string> approvalRules{};
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> rejectedPatches{};
+  shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<CreatePatchBaselineRequestTags>> tags{};
 
   CreatePatchBaselineRequest() {}
 
@@ -1888,6 +2005,12 @@ public:
     map<string, boost::any> res;
     if (approvalRules) {
       res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -1904,12 +2027,41 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (rejectedPatches) {
+      res["RejectedPatches"] = boost::any(*rejectedPatches);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
       approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -1926,21 +2078,205 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RejectedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RejectedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rejectedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreatePatchBaselineRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePatchBaselineRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreatePatchBaselineRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~CreatePatchBaselineRequest() = default;
 };
+class CreatePatchBaselineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> approvalRules{};
+  shared_ptr<string> approvedPatchesShrink{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> operationSystem{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> rejectedPatchesShrink{};
+  shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> sourcesShrink{};
+  shared_ptr<string> tagsShrink{};
+
+  CreatePatchBaselineShrinkRequest() {}
+
+  explicit CreatePatchBaselineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (approvalRules) {
+      res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatchesShrink) {
+      res["ApprovedPatches"] = boost::any(*approvedPatchesShrink);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (operationSystem) {
+      res["OperationSystem"] = boost::any(*operationSystem);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (rejectedPatchesShrink) {
+      res["RejectedPatches"] = boost::any(*rejectedPatchesShrink);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (sourcesShrink) {
+      res["Sources"] = boost::any(*sourcesShrink);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
+      approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      approvedPatchesShrink = make_shared<string>(boost::any_cast<string>(m["ApprovedPatches"]));
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
+      operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      rejectedPatchesShrink = make_shared<string>(boost::any_cast<string>(m["RejectedPatches"]));
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~CreatePatchBaselineShrinkRequest() = default;
+};
+class CreatePatchBaselineResponseBodyPatchBaselineTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreatePatchBaselineResponseBodyPatchBaselineTags() {}
+
+  explicit CreatePatchBaselineResponseBodyPatchBaselineTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~CreatePatchBaselineResponseBodyPatchBaselineTags() = default;
+};
 class CreatePatchBaselineResponseBodyPatchBaseline : public Darabonba::Model {
 public:
   shared_ptr<string> approvalRules{};
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
+  shared_ptr<vector<string>> rejectedPatches{};
+  shared_ptr<string> rejectedPatchesAction{};
   shared_ptr<string> shareType{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<CreatePatchBaselineResponseBodyPatchBaselineTags>> tags{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
 
@@ -1956,6 +2292,12 @@ public:
     map<string, boost::any> res;
     if (approvalRules) {
       res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
     }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
@@ -1975,8 +2317,24 @@ public:
     if (operationSystem) {
       res["OperationSystem"] = boost::any(*operationSystem);
     }
+    if (rejectedPatches) {
+      res["RejectedPatches"] = boost::any(*rejectedPatches);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
+    }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updatedBy) {
       res["UpdatedBy"] = boost::any(*updatedBy);
@@ -1990,6 +2348,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
       approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
     }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
@@ -2009,8 +2380,44 @@ public:
     if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
       operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
     }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RejectedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RejectedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rejectedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreatePatchBaselineResponseBodyPatchBaselineTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreatePatchBaselineResponseBodyPatchBaselineTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreatePatchBaselineResponseBodyPatchBaselineTags>>(expect1);
+      }
     }
     if (m.find("UpdatedBy") != m.end() && !m["UpdatedBy"].empty()) {
       updatedBy = make_shared<string>(boost::any_cast<string>(m["UpdatedBy"]));
@@ -4862,6 +5269,7 @@ public:
 };
 class GenerateExecutionPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> ramRole{};
   shared_ptr<string> regionId{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateVersion{};
@@ -4876,6 +5284,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (ramRole) {
+      res["RamRole"] = boost::any(*ramRole);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -4889,6 +5300,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
+      ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -4905,6 +5319,7 @@ public:
 };
 class GenerateExecutionPolicyResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> missingPolicy{};
   shared_ptr<string> policy{};
   shared_ptr<string> requestId{};
 
@@ -4918,6 +5333,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (missingPolicy) {
+      res["MissingPolicy"] = boost::any(*missingPolicy);
+    }
     if (policy) {
       res["Policy"] = boost::any(*policy);
     }
@@ -4928,6 +5346,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MissingPolicy") != m.end() && !m["MissingPolicy"].empty()) {
+      missingPolicy = make_shared<string>(boost::any_cast<string>(m["MissingPolicy"]));
+    }
     if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
       policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
     }
@@ -5037,8 +5458,67 @@ public:
 
   virtual ~GetApplicationRequest() = default;
 };
+class GetApplicationResponseBodyApplicationAlarmConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> contactGroups{};
+  shared_ptr<string> healthCheckUrl{};
+  shared_ptr<vector<string>> templateIds{};
+
+  GetApplicationResponseBodyApplicationAlarmConfig() {}
+
+  explicit GetApplicationResponseBodyApplicationAlarmConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactGroups) {
+      res["ContactGroups"] = boost::any(*contactGroups);
+    }
+    if (healthCheckUrl) {
+      res["HealthCheckUrl"] = boost::any(*healthCheckUrl);
+    }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContactGroups") != m.end() && !m["ContactGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ContactGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ContactGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contactGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckUrl") != m.end() && !m["HealthCheckUrl"].empty()) {
+      healthCheckUrl = make_shared<string>(boost::any_cast<string>(m["HealthCheckUrl"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetApplicationResponseBodyApplicationAlarmConfig() = default;
+};
 class GetApplicationResponseBodyApplication : public Darabonba::Model {
 public:
+  shared_ptr<GetApplicationResponseBodyApplicationAlarmConfig> alarmConfig{};
+  shared_ptr<string> applicationType{};
   shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -5056,6 +5536,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmConfig) {
+      res["AlarmConfig"] = alarmConfig ? boost::any(alarmConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
     }
@@ -5078,6 +5564,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlarmConfig"].type()) {
+        GetApplicationResponseBodyApplicationAlarmConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmConfig"]));
+        alarmConfig = make_shared<GetApplicationResponseBodyApplicationAlarmConfig>(model1);
+      }
+    }
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
@@ -6951,6 +7447,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> parameterVersion{};
   shared_ptr<string> shareType{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
@@ -6989,6 +7486,9 @@ public:
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -7029,6 +7529,14 @@ public:
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -7216,9 +7724,47 @@ public:
 
   virtual ~GetPatchBaselineRequest() = default;
 };
+class GetPatchBaselineResponseBodyPatchBaselineTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  GetPatchBaselineResponseBodyPatchBaselineTags() {}
+
+  explicit GetPatchBaselineResponseBodyPatchBaselineTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~GetPatchBaselineResponseBodyPatchBaselineTags() = default;
+};
 class GetPatchBaselineResponseBodyPatchBaseline : public Darabonba::Model {
 public:
   shared_ptr<string> approvalRules{};
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
@@ -7226,7 +7772,11 @@ public:
   shared_ptr<bool> isDefault{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
+  shared_ptr<vector<string>> rejectedPatches{};
+  shared_ptr<string> rejectedPatchesAction{};
   shared_ptr<string> shareType{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<GetPatchBaselineResponseBodyPatchBaselineTags>> tags{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
 
@@ -7242,6 +7792,12 @@ public:
     map<string, boost::any> res;
     if (approvalRules) {
       res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
     }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
@@ -7264,8 +7820,24 @@ public:
     if (operationSystem) {
       res["OperationSystem"] = boost::any(*operationSystem);
     }
+    if (rejectedPatches) {
+      res["RejectedPatches"] = boost::any(*rejectedPatches);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
+    }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updatedBy) {
       res["UpdatedBy"] = boost::any(*updatedBy);
@@ -7279,6 +7851,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
       approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
     }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
@@ -7301,8 +7886,44 @@ public:
     if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
       operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
     }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RejectedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RejectedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rejectedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetPatchBaselineResponseBodyPatchBaselineTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPatchBaselineResponseBodyPatchBaselineTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetPatchBaselineResponseBodyPatchBaselineTags>>(expect1);
+      }
     }
     if (m.find("UpdatedBy") != m.end() && !m["UpdatedBy"].empty()) {
       updatedBy = make_shared<string>(boost::any_cast<string>(m["UpdatedBy"]));
@@ -9061,7 +9682,6 @@ public:
   shared_ptr<string> deployRegionId{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
-  shared_ptr<string> product{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceProduct{};
@@ -9088,9 +9708,6 @@ public:
     }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
-    }
-    if (product) {
-      res["Product"] = boost::any(*product);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -9119,9 +9736,6 @@ public:
     }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
-    if (m.find("Product") != m.end() && !m["Product"].empty()) {
-      product = make_shared<string>(boost::any_cast<string>(m["Product"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -9374,6 +9988,7 @@ public:
 };
 class ListApplicationsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> applicationType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> name{};
   shared_ptr<string> names{};
@@ -9391,6 +10006,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -9413,6 +10031,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -9443,6 +10064,7 @@ public:
 };
 class ListApplicationsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> applicationType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> name{};
   shared_ptr<string> names{};
@@ -9460,6 +10082,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -9482,6 +10107,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -9507,6 +10135,7 @@ public:
 };
 class ListApplicationsResponseBodyApplications : public Darabonba::Model {
 public:
+  shared_ptr<string> applicationType{};
   shared_ptr<string> createDate{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -9524,6 +10153,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
     if (createDate) {
       res["CreateDate"] = boost::any(*createDate);
     }
@@ -9546,6 +10178,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
     if (m.find("CreateDate") != m.end() && !m["CreateDate"].empty()) {
       createDate = make_shared<string>(boost::any_cast<string>(m["CreateDate"]));
     }
@@ -10161,7 +10796,10 @@ public:
 };
 class ListExecutionsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> categories{};
   shared_ptr<string> category{};
+  shared_ptr<string> depth{};
+  shared_ptr<string> description{};
   shared_ptr<string> endDateAfter{};
   shared_ptr<string> endDateBefore{};
   shared_ptr<string> executedBy{};
@@ -10194,8 +10832,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categories) {
+      res["Categories"] = boost::any(*categories);
+    }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (depth) {
+      res["Depth"] = boost::any(*depth);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (endDateAfter) {
       res["EndDateAfter"] = boost::any(*endDateAfter);
@@ -10264,8 +10911,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Categories") != m.end() && !m["Categories"].empty()) {
+      categories = make_shared<string>(boost::any_cast<string>(m["Categories"]));
+    }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Depth") != m.end() && !m["Depth"].empty()) {
+      depth = make_shared<string>(boost::any_cast<string>(m["Depth"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EndDateAfter") != m.end() && !m["EndDateAfter"].empty()) {
       endDateAfter = make_shared<string>(boost::any_cast<string>(m["EndDateAfter"]));
@@ -10342,7 +10998,10 @@ public:
 };
 class ListExecutionsShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> categories{};
   shared_ptr<string> category{};
+  shared_ptr<string> depth{};
+  shared_ptr<string> description{};
   shared_ptr<string> endDateAfter{};
   shared_ptr<string> endDateBefore{};
   shared_ptr<string> executedBy{};
@@ -10375,8 +11034,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (categories) {
+      res["Categories"] = boost::any(*categories);
+    }
     if (category) {
       res["Category"] = boost::any(*category);
+    }
+    if (depth) {
+      res["Depth"] = boost::any(*depth);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
     }
     if (endDateAfter) {
       res["EndDateAfter"] = boost::any(*endDateAfter);
@@ -10445,8 +11113,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Categories") != m.end() && !m["Categories"].empty()) {
+      categories = make_shared<string>(boost::any_cast<string>(m["Categories"]));
+    }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
+    if (m.find("Depth") != m.end() && !m["Depth"].empty()) {
+      depth = make_shared<string>(boost::any_cast<string>(m["Depth"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("EndDateAfter") != m.end() && !m["EndDateAfter"].empty()) {
       endDateAfter = make_shared<string>(boost::any_cast<string>(m["EndDateAfter"]));
@@ -10571,7 +11248,9 @@ public:
   shared_ptr<string> executionId{};
   shared_ptr<bool> isParent{};
   shared_ptr<string> lastSuccessfulTriggerTime{};
+  shared_ptr<string> lastTriggerOutputs{};
   shared_ptr<string> lastTriggerStatus{};
+  shared_ptr<string> lastTriggerStatusMessage{};
   shared_ptr<string> lastTriggerTime{};
   shared_ptr<string> mode{};
   shared_ptr<string> outputs{};
@@ -10637,8 +11316,14 @@ public:
     if (lastSuccessfulTriggerTime) {
       res["LastSuccessfulTriggerTime"] = boost::any(*lastSuccessfulTriggerTime);
     }
+    if (lastTriggerOutputs) {
+      res["LastTriggerOutputs"] = boost::any(*lastTriggerOutputs);
+    }
     if (lastTriggerStatus) {
       res["LastTriggerStatus"] = boost::any(*lastTriggerStatus);
+    }
+    if (lastTriggerStatusMessage) {
+      res["LastTriggerStatusMessage"] = boost::any(*lastTriggerStatusMessage);
     }
     if (lastTriggerTime) {
       res["LastTriggerTime"] = boost::any(*lastTriggerTime);
@@ -10749,8 +11434,14 @@ public:
     if (m.find("LastSuccessfulTriggerTime") != m.end() && !m["LastSuccessfulTriggerTime"].empty()) {
       lastSuccessfulTriggerTime = make_shared<string>(boost::any_cast<string>(m["LastSuccessfulTriggerTime"]));
     }
+    if (m.find("LastTriggerOutputs") != m.end() && !m["LastTriggerOutputs"].empty()) {
+      lastTriggerOutputs = make_shared<string>(boost::any_cast<string>(m["LastTriggerOutputs"]));
+    }
     if (m.find("LastTriggerStatus") != m.end() && !m["LastTriggerStatus"].empty()) {
       lastTriggerStatus = make_shared<string>(boost::any_cast<string>(m["LastTriggerStatus"]));
+    }
+    if (m.find("LastTriggerStatusMessage") != m.end() && !m["LastTriggerStatusMessage"].empty()) {
+      lastTriggerStatusMessage = make_shared<string>(boost::any_cast<string>(m["LastTriggerStatusMessage"]));
     }
     if (m.find("LastTriggerTime") != m.end() && !m["LastTriggerTime"].empty()) {
       lastTriggerTime = make_shared<string>(boost::any_cast<string>(m["LastTriggerTime"]));
@@ -12570,6 +13261,7 @@ public:
   shared_ptr<bool> recursive{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> sortField{};
   shared_ptr<string> sortOrder{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -12605,6 +13297,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
     }
     if (sortField) {
       res["SortField"] = boost::any(*sortField);
@@ -12643,6 +13338,9 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
     if (m.find("SortField") != m.end() && !m["SortField"].empty()) {
       sortField = make_shared<string>(boost::any_cast<string>(m["SortField"]));
     }
@@ -12674,6 +13372,7 @@ public:
   shared_ptr<bool> recursive{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> shareType{};
   shared_ptr<string> sortField{};
   shared_ptr<string> sortOrder{};
   shared_ptr<string> tagsShrink{};
@@ -12709,6 +13408,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
     }
     if (sortField) {
       res["SortField"] = boost::any(*sortField);
@@ -12746,6 +13448,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
     if (m.find("SortField") != m.end() && !m["SortField"].empty()) {
       sortField = make_shared<string>(boost::any_cast<string>(m["SortField"]));
@@ -13008,14 +13713,54 @@ public:
 
   virtual ~ListParametersResponse() = default;
 };
+class ListPatchBaselinesRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListPatchBaselinesRequestTags() {}
+
+  explicit ListPatchBaselinesRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListPatchBaselinesRequestTags() = default;
+};
 class ListPatchBaselinesRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> name{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> operationSystem{};
   shared_ptr<string> regionId{};
   shared_ptr<string> shareType{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<ListPatchBaselinesRequestTags>> tags{};
 
   ListPatchBaselinesRequest() {}
 
@@ -13027,6 +13772,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
@@ -13045,10 +13796,33 @@ public:
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
     }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -13067,13 +13841,166 @@ public:
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListPatchBaselinesRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPatchBaselinesRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListPatchBaselinesRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListPatchBaselinesRequest() = default;
 };
+class ListPatchBaselinesShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> approvedPatchesShrink{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> operationSystem{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> shareType{};
+  shared_ptr<string> sourcesShrink{};
+  shared_ptr<string> tagsShrink{};
+
+  ListPatchBaselinesShrinkRequest() {}
+
+  explicit ListPatchBaselinesShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (approvedPatchesShrink) {
+      res["ApprovedPatches"] = boost::any(*approvedPatchesShrink);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (operationSystem) {
+      res["OperationSystem"] = boost::any(*operationSystem);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (shareType) {
+      res["ShareType"] = boost::any(*shareType);
+    }
+    if (sourcesShrink) {
+      res["Sources"] = boost::any(*sourcesShrink);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      approvedPatchesShrink = make_shared<string>(boost::any_cast<string>(m["ApprovedPatches"]));
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
+      operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
+      shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~ListPatchBaselinesShrinkRequest() = default;
+};
+class ListPatchBaselinesResponseBodyPatchBaselinesTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListPatchBaselinesResponseBodyPatchBaselinesTags() {}
+
+  explicit ListPatchBaselinesResponseBodyPatchBaselinesTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListPatchBaselinesResponseBodyPatchBaselinesTags() = default;
+};
 class ListPatchBaselinesResponseBodyPatchBaselines : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
@@ -13082,6 +14009,8 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
   shared_ptr<string> shareType{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<ListPatchBaselinesResponseBodyPatchBaselinesTags>> tags{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
 
@@ -13095,6 +14024,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
     }
@@ -13119,6 +14054,16 @@ public:
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
     }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (updatedBy) {
       res["UpdatedBy"] = boost::any(*updatedBy);
     }
@@ -13129,6 +14074,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
+    }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
     }
@@ -13152,6 +14110,29 @@ public:
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListPatchBaselinesResponseBodyPatchBaselinesTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPatchBaselinesResponseBodyPatchBaselinesTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListPatchBaselinesResponseBodyPatchBaselinesTags>>(expect1);
+      }
     }
     if (m.find("UpdatedBy") != m.end() && !m["UpdatedBy"].empty()) {
       updatedBy = make_shared<string>(boost::any_cast<string>(m["UpdatedBy"]));
@@ -18625,8 +19606,67 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdateApplicationRequestAlarmConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> contactGroups{};
+  shared_ptr<string> healthCheckUrl{};
+  shared_ptr<vector<string>> templateIds{};
+
+  UpdateApplicationRequestAlarmConfig() {}
+
+  explicit UpdateApplicationRequestAlarmConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactGroups) {
+      res["ContactGroups"] = boost::any(*contactGroups);
+    }
+    if (healthCheckUrl) {
+      res["HealthCheckUrl"] = boost::any(*healthCheckUrl);
+    }
+    if (templateIds) {
+      res["TemplateIds"] = boost::any(*templateIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContactGroups") != m.end() && !m["ContactGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ContactGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ContactGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contactGroups = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("HealthCheckUrl") != m.end() && !m["HealthCheckUrl"].empty()) {
+      healthCheckUrl = make_shared<string>(boost::any_cast<string>(m["HealthCheckUrl"]));
+    }
+    if (m.find("TemplateIds") != m.end() && !m["TemplateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TemplateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TemplateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      templateIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateApplicationRequestAlarmConfig() = default;
+};
 class UpdateApplicationRequest : public Darabonba::Model {
 public:
+  shared_ptr<UpdateApplicationRequestAlarmConfig> alarmConfig{};
+  shared_ptr<bool> deleteAlarmRulesBeforeUpdate{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
@@ -18642,6 +19682,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmConfig) {
+      res["AlarmConfig"] = alarmConfig ? boost::any(alarmConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deleteAlarmRulesBeforeUpdate) {
+      res["DeleteAlarmRulesBeforeUpdate"] = boost::any(*deleteAlarmRulesBeforeUpdate);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -18658,6 +19704,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AlarmConfig"].type()) {
+        UpdateApplicationRequestAlarmConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AlarmConfig"]));
+        alarmConfig = make_shared<UpdateApplicationRequestAlarmConfig>(model1);
+      }
+    }
+    if (m.find("DeleteAlarmRulesBeforeUpdate") != m.end() && !m["DeleteAlarmRulesBeforeUpdate"].empty()) {
+      deleteAlarmRulesBeforeUpdate = make_shared<bool>(boost::any_cast<bool>(m["DeleteAlarmRulesBeforeUpdate"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -18682,6 +19738,8 @@ public:
 };
 class UpdateApplicationShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> alarmConfigShrink{};
+  shared_ptr<bool> deleteAlarmRulesBeforeUpdate{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
@@ -18697,6 +19755,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alarmConfigShrink) {
+      res["AlarmConfig"] = boost::any(*alarmConfigShrink);
+    }
+    if (deleteAlarmRulesBeforeUpdate) {
+      res["DeleteAlarmRulesBeforeUpdate"] = boost::any(*deleteAlarmRulesBeforeUpdate);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -18713,6 +19777,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmConfig") != m.end() && !m["AlarmConfig"].empty()) {
+      alarmConfigShrink = make_shared<string>(boost::any_cast<string>(m["AlarmConfig"]));
+    }
+    if (m.find("DeleteAlarmRulesBeforeUpdate") != m.end() && !m["DeleteAlarmRulesBeforeUpdate"].empty()) {
+      deleteAlarmRulesBeforeUpdate = make_shared<bool>(boost::any_cast<bool>(m["DeleteAlarmRulesBeforeUpdate"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -19134,6 +20204,7 @@ public:
 class UpdateExecutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
   shared_ptr<string> executionId{};
   shared_ptr<string> parameters{};
   shared_ptr<string> regionId{};
@@ -19151,6 +20222,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (executionId) {
       res["ExecutionId"] = boost::any(*executionId);
     }
@@ -19166,6 +20240,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("ExecutionId") != m.end() && !m["ExecutionId"].empty()) {
       executionId = make_shared<string>(boost::any_cast<string>(m["ExecutionId"]));
@@ -20072,13 +21149,55 @@ public:
 
   virtual ~UpdateParameterResponse() = default;
 };
+class UpdatePatchBaselineRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdatePatchBaselineRequestTags() {}
+
+  explicit UpdatePatchBaselineRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdatePatchBaselineRequestTags() = default;
+};
 class UpdatePatchBaselineRequest : public Darabonba::Model {
 public:
   shared_ptr<string> approvalRules{};
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> rejectedPatches{};
+  shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<UpdatePatchBaselineRequestTags>> tags{};
 
   UpdatePatchBaselineRequest() {}
 
@@ -20093,6 +21212,12 @@ public:
     if (approvalRules) {
       res["ApprovalRules"] = boost::any(*approvalRules);
     }
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -20105,12 +21230,41 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (rejectedPatches) {
+      res["RejectedPatches"] = boost::any(*rejectedPatches);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
       approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
@@ -20124,21 +21278,198 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RejectedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RejectedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rejectedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<UpdatePatchBaselineRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdatePatchBaselineRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<UpdatePatchBaselineRequestTags>>(expect1);
+      }
+    }
   }
 
 
   virtual ~UpdatePatchBaselineRequest() = default;
 };
+class UpdatePatchBaselineShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> approvalRules{};
+  shared_ptr<string> approvedPatchesShrink{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> rejectedPatchesShrink{};
+  shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> sourcesShrink{};
+  shared_ptr<string> tagsShrink{};
+
+  UpdatePatchBaselineShrinkRequest() {}
+
+  explicit UpdatePatchBaselineShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (approvalRules) {
+      res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatchesShrink) {
+      res["ApprovedPatches"] = boost::any(*approvedPatchesShrink);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (rejectedPatchesShrink) {
+      res["RejectedPatches"] = boost::any(*rejectedPatchesShrink);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (sourcesShrink) {
+      res["Sources"] = boost::any(*sourcesShrink);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
+      approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      approvedPatchesShrink = make_shared<string>(boost::any_cast<string>(m["ApprovedPatches"]));
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      rejectedPatchesShrink = make_shared<string>(boost::any_cast<string>(m["RejectedPatches"]));
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+  }
+
+
+  virtual ~UpdatePatchBaselineShrinkRequest() = default;
+};
+class UpdatePatchBaselineResponseBodyPatchBaselineTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  UpdatePatchBaselineResponseBodyPatchBaselineTags() {}
+
+  explicit UpdatePatchBaselineResponseBodyPatchBaselineTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~UpdatePatchBaselineResponseBodyPatchBaselineTags() = default;
+};
 class UpdatePatchBaselineResponseBodyPatchBaseline : public Darabonba::Model {
 public:
   shared_ptr<string> approvalRules{};
+  shared_ptr<vector<string>> approvedPatches{};
+  shared_ptr<bool> approvedPatchesEnableNonSecurity{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
+  shared_ptr<vector<string>> rejectedPatches{};
+  shared_ptr<string> rejectedPatchesAction{};
   shared_ptr<string> shareType{};
+  shared_ptr<vector<string>> sources{};
+  shared_ptr<vector<UpdatePatchBaselineResponseBodyPatchBaselineTags>> tags{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
 
@@ -20154,6 +21485,12 @@ public:
     map<string, boost::any> res;
     if (approvalRules) {
       res["ApprovalRules"] = boost::any(*approvalRules);
+    }
+    if (approvedPatches) {
+      res["ApprovedPatches"] = boost::any(*approvedPatches);
+    }
+    if (approvedPatchesEnableNonSecurity) {
+      res["ApprovedPatchesEnableNonSecurity"] = boost::any(*approvedPatchesEnableNonSecurity);
     }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
@@ -20173,8 +21510,24 @@ public:
     if (operationSystem) {
       res["OperationSystem"] = boost::any(*operationSystem);
     }
+    if (rejectedPatches) {
+      res["RejectedPatches"] = boost::any(*rejectedPatches);
+    }
+    if (rejectedPatchesAction) {
+      res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
+    }
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (updatedBy) {
       res["UpdatedBy"] = boost::any(*updatedBy);
@@ -20188,6 +21541,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ApprovalRules") != m.end() && !m["ApprovalRules"].empty()) {
       approvalRules = make_shared<string>(boost::any_cast<string>(m["ApprovalRules"]));
+    }
+    if (m.find("ApprovedPatches") != m.end() && !m["ApprovedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApprovedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApprovedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      approvedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApprovedPatchesEnableNonSecurity") != m.end() && !m["ApprovedPatchesEnableNonSecurity"].empty()) {
+      approvedPatchesEnableNonSecurity = make_shared<bool>(boost::any_cast<bool>(m["ApprovedPatchesEnableNonSecurity"]));
     }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
@@ -20207,8 +21573,44 @@ public:
     if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
       operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
     }
+    if (m.find("RejectedPatches") != m.end() && !m["RejectedPatches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RejectedPatches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RejectedPatches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      rejectedPatches = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
+      rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
+    }
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Sources"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Sources"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sources = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<UpdatePatchBaselineResponseBodyPatchBaselineTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdatePatchBaselineResponseBodyPatchBaselineTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<UpdatePatchBaselineResponseBodyPatchBaselineTags>>(expect1);
+      }
     }
     if (m.find("UpdatedBy") != m.end() && !m["UpdatedBy"].empty()) {
       updatedBy = make_shared<string>(boost::any_cast<string>(m["UpdatedBy"]));
@@ -21740,7 +23142,7 @@ public:
   CreateOpsItemResponse createOpsItem(shared_ptr<CreateOpsItemRequest> request);
   CreateParameterResponse createParameterWithOptions(shared_ptr<CreateParameterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateParameterResponse createParameter(shared_ptr<CreateParameterRequest> request);
-  CreatePatchBaselineResponse createPatchBaselineWithOptions(shared_ptr<CreatePatchBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePatchBaselineResponse createPatchBaselineWithOptions(shared_ptr<CreatePatchBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePatchBaselineResponse createPatchBaseline(shared_ptr<CreatePatchBaselineRequest> request);
   CreateSecretParameterResponse createSecretParameterWithOptions(shared_ptr<CreateSecretParameterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSecretParameterResponse createSecretParameter(shared_ptr<CreateSecretParameterRequest> request);
@@ -21824,7 +23226,7 @@ public:
   ListParameterVersionsResponse listParameterVersions(shared_ptr<ListParameterVersionsRequest> request);
   ListParametersResponse listParametersWithOptions(shared_ptr<ListParametersRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListParametersResponse listParameters(shared_ptr<ListParametersRequest> request);
-  ListPatchBaselinesResponse listPatchBaselinesWithOptions(shared_ptr<ListPatchBaselinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPatchBaselinesResponse listPatchBaselinesWithOptions(shared_ptr<ListPatchBaselinesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPatchBaselinesResponse listPatchBaselines(shared_ptr<ListPatchBaselinesRequest> request);
   ListResourceExecutionStatusResponse listResourceExecutionStatusWithOptions(shared_ptr<ListResourceExecutionStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListResourceExecutionStatusResponse listResourceExecutionStatus(shared_ptr<ListResourceExecutionStatusRequest> request);
@@ -21872,7 +23274,7 @@ public:
   UpdateOpsItemResponse updateOpsItem(shared_ptr<UpdateOpsItemRequest> request);
   UpdateParameterResponse updateParameterWithOptions(shared_ptr<UpdateParameterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateParameterResponse updateParameter(shared_ptr<UpdateParameterRequest> request);
-  UpdatePatchBaselineResponse updatePatchBaselineWithOptions(shared_ptr<UpdatePatchBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePatchBaselineResponse updatePatchBaselineWithOptions(shared_ptr<UpdatePatchBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePatchBaselineResponse updatePatchBaseline(shared_ptr<UpdatePatchBaselineRequest> request);
   UpdateSecretParameterResponse updateSecretParameterWithOptions(shared_ptr<UpdateSecretParameterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSecretParameterResponse updateSecretParameter(shared_ptr<UpdateSecretParameterRequest> request);

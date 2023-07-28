@@ -147,10 +147,16 @@ CreateApplicationResponse Alibabacloud_Oos20190601::Client::createApplicationWit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<CreateApplicationShrinkRequest> request = make_shared<CreateApplicationShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateApplicationRequestAlarmConfig>(tmpReq->alarmConfig)) {
+    request->alarmConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alarmConfig, make_shared<string>("AlarmConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alarmConfigShrink)) {
+    query->insert(pair<string, string>("AlarmConfig", *request->alarmConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -369,11 +375,31 @@ CreateParameterResponse Alibabacloud_Oos20190601::Client::createParameter(shared
   return createParameterWithOptions(request, runtime);
 }
 
-CreatePatchBaselineResponse Alibabacloud_Oos20190601::Client::createPatchBaselineWithOptions(shared_ptr<CreatePatchBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreatePatchBaselineResponse Alibabacloud_Oos20190601::Client::createPatchBaselineWithOptions(shared_ptr<CreatePatchBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreatePatchBaselineShrinkRequest> request = make_shared<CreatePatchBaselineShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->approvedPatches)) {
+    request->approvedPatchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->approvedPatches, make_shared<string>("ApprovedPatches"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->rejectedPatches)) {
+    request->rejectedPatchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rejectedPatches, make_shared<string>("RejectedPatches"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sources)) {
+    request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePatchBaselineRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalRules)) {
     query->insert(pair<string, string>("ApprovalRules", *request->approvalRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvedPatchesShrink)) {
+    query->insert(pair<string, string>("ApprovedPatches", *request->approvedPatchesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->approvedPatchesEnableNonSecurity)) {
+    query->insert(pair<string, bool>("ApprovedPatchesEnableNonSecurity", *request->approvedPatchesEnableNonSecurity));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -389,6 +415,18 @@ CreatePatchBaselineResponse Alibabacloud_Oos20190601::Client::createPatchBaselin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesShrink)) {
+    query->insert(pair<string, string>("RejectedPatches", *request->rejectedPatchesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesAction)) {
+    query->insert(pair<string, string>("RejectedPatchesAction", *request->rejectedPatchesAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
+    query->insert(pair<string, string>("Sources", *request->sourcesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -951,6 +989,9 @@ DescribeRegionsResponse Alibabacloud_Oos20190601::Client::describeRegions(shared
 GenerateExecutionPolicyResponse Alibabacloud_Oos20190601::Client::generateExecutionPolicyWithOptions(shared_ptr<GenerateExecutionPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ramRole)) {
+    query->insert(pair<string, string>("RamRole", *request->ramRole));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1516,9 +1557,6 @@ ListApplicationGroupsResponse Alibabacloud_Oos20190601::Client::listApplicationG
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
-    query->insert(pair<string, string>("Product", *request->product));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -1561,6 +1599,9 @@ ListApplicationsResponse Alibabacloud_Oos20190601::Client::listApplicationsWithO
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationType)) {
+    query->insert(pair<string, string>("ApplicationType", *request->applicationType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -1683,8 +1724,17 @@ ListExecutionsResponse Alibabacloud_Oos20190601::Client::listExecutionsWithOptio
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->categories)) {
+    query->insert(pair<string, string>("Categories", *request->categories));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
     query->insert(pair<string, string>("Category", *request->category));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->depth)) {
+    query->insert(pair<string, string>("Depth", *request->depth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endDateAfter)) {
     query->insert(pair<string, string>("EndDateAfter", *request->endDateAfter));
@@ -2011,6 +2061,9 @@ ListParametersResponse Alibabacloud_Oos20190601::Client::listParametersWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shareType)) {
+    query->insert(pair<string, string>("ShareType", *request->shareType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortField)) {
     query->insert(pair<string, string>("SortField", *request->sortField));
   }
@@ -2045,9 +2098,26 @@ ListParametersResponse Alibabacloud_Oos20190601::Client::listParameters(shared_p
   return listParametersWithOptions(request, runtime);
 }
 
-ListPatchBaselinesResponse Alibabacloud_Oos20190601::Client::listPatchBaselinesWithOptions(shared_ptr<ListPatchBaselinesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ListPatchBaselinesResponse Alibabacloud_Oos20190601::Client::listPatchBaselinesWithOptions(shared_ptr<ListPatchBaselinesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ListPatchBaselinesShrinkRequest> request = make_shared<ListPatchBaselinesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->approvedPatches)) {
+    request->approvedPatchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->approvedPatches, make_shared<string>("ApprovedPatches"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sources)) {
+    request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListPatchBaselinesRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvedPatchesShrink)) {
+    query->insert(pair<string, string>("ApprovedPatches", *request->approvedPatchesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->approvedPatchesEnableNonSecurity)) {
+    query->insert(pair<string, bool>("ApprovedPatchesEnableNonSecurity", *request->approvedPatchesEnableNonSecurity));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
@@ -2065,6 +2135,12 @@ ListPatchBaselinesResponse Alibabacloud_Oos20190601::Client::listPatchBaselinesW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->shareType)) {
     query->insert(pair<string, string>("ShareType", *request->shareType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
+    query->insert(pair<string, string>("Sources", *request->sourcesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2979,10 +3055,19 @@ UpdateApplicationResponse Alibabacloud_Oos20190601::Client::updateApplicationWit
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateApplicationShrinkRequest> request = make_shared<UpdateApplicationShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateApplicationRequestAlarmConfig>(tmpReq->alarmConfig)) {
+    request->alarmConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alarmConfig, make_shared<string>("AlarmConfig"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->tags)) {
     request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alarmConfigShrink)) {
+    query->insert(pair<string, string>("AlarmConfig", *request->alarmConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deleteAlarmRulesBeforeUpdate)) {
+    query->insert(pair<string, bool>("DeleteAlarmRulesBeforeUpdate", *request->deleteAlarmRulesBeforeUpdate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -3059,6 +3144,9 @@ UpdateExecutionResponse Alibabacloud_Oos20190601::Client::updateExecutionWithOpt
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->executionId)) {
     query->insert(pair<string, string>("ExecutionId", *request->executionId));
@@ -3209,11 +3297,31 @@ UpdateParameterResponse Alibabacloud_Oos20190601::Client::updateParameter(shared
   return updateParameterWithOptions(request, runtime);
 }
 
-UpdatePatchBaselineResponse Alibabacloud_Oos20190601::Client::updatePatchBaselineWithOptions(shared_ptr<UpdatePatchBaselineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdatePatchBaselineResponse Alibabacloud_Oos20190601::Client::updatePatchBaselineWithOptions(shared_ptr<UpdatePatchBaselineRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdatePatchBaselineShrinkRequest> request = make_shared<UpdatePatchBaselineShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->approvedPatches)) {
+    request->approvedPatchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->approvedPatches, make_shared<string>("ApprovedPatches"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->rejectedPatches)) {
+    request->rejectedPatchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rejectedPatches, make_shared<string>("RejectedPatches"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->sources)) {
+    request->sourcesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->sources, make_shared<string>("Sources"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdatePatchBaselineRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalRules)) {
     query->insert(pair<string, string>("ApprovalRules", *request->approvalRules));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->approvedPatchesShrink)) {
+    query->insert(pair<string, string>("ApprovedPatches", *request->approvedPatchesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->approvedPatchesEnableNonSecurity)) {
+    query->insert(pair<string, bool>("ApprovedPatchesEnableNonSecurity", *request->approvedPatchesEnableNonSecurity));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
@@ -3226,6 +3334,18 @@ UpdatePatchBaselineResponse Alibabacloud_Oos20190601::Client::updatePatchBaselin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesShrink)) {
+    query->insert(pair<string, string>("RejectedPatches", *request->rejectedPatchesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesAction)) {
+    query->insert(pair<string, string>("RejectedPatchesAction", *request->rejectedPatchesAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
+    query->insert(pair<string, string>("Sources", *request->sourcesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
