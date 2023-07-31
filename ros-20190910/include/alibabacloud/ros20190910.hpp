@@ -21771,6 +21771,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<vector<string>> dryRunOptions{};
   shared_ptr<long> parallelism{};
   shared_ptr<vector<UpdateStackRequestParameters>> parameters{};
   shared_ptr<string> ramRoleName{};
@@ -21808,6 +21809,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (dryRunOptions) {
+      res["DryRunOptions"] = boost::any(*dryRunOptions);
     }
     if (parallelism) {
       res["Parallelism"] = boost::any(*parallelism);
@@ -21883,6 +21887,16 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("DryRunOptions") != m.end() && !m["DryRunOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DryRunOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DryRunOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dryRunOptions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Parallelism") != m.end() && !m["Parallelism"].empty()) {
       parallelism = make_shared<long>(boost::any_cast<long>(m["Parallelism"]));
@@ -21967,11 +21981,14 @@ class UpdateStackResponseBodyDryRunResult : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> parametersAllowedToBeModified{};
   shared_ptr<vector<string>> parametersCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersCauseReplacementIfModified{};
   shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified{};
   shared_ptr<vector<string>> parametersConditionallyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersConditionallyCauseReplacementIfModified{};
   shared_ptr<vector<string>> parametersNotAllowedToBeModified{};
   shared_ptr<vector<string>> parametersUncertainlyAllowedToBeModified{};
   shared_ptr<vector<string>> parametersUncertainlyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersUncertainlyCauseReplacementIfModified{};
 
   UpdateStackResponseBodyDryRunResult() {}
 
@@ -21989,11 +22006,17 @@ public:
     if (parametersCauseInterruptionIfModified) {
       res["ParametersCauseInterruptionIfModified"] = boost::any(*parametersCauseInterruptionIfModified);
     }
+    if (parametersCauseReplacementIfModified) {
+      res["ParametersCauseReplacementIfModified"] = boost::any(*parametersCauseReplacementIfModified);
+    }
     if (parametersConditionallyAllowedToBeModified) {
       res["ParametersConditionallyAllowedToBeModified"] = boost::any(*parametersConditionallyAllowedToBeModified);
     }
     if (parametersConditionallyCauseInterruptionIfModified) {
       res["ParametersConditionallyCauseInterruptionIfModified"] = boost::any(*parametersConditionallyCauseInterruptionIfModified);
+    }
+    if (parametersConditionallyCauseReplacementIfModified) {
+      res["ParametersConditionallyCauseReplacementIfModified"] = boost::any(*parametersConditionallyCauseReplacementIfModified);
     }
     if (parametersNotAllowedToBeModified) {
       res["ParametersNotAllowedToBeModified"] = boost::any(*parametersNotAllowedToBeModified);
@@ -22003,6 +22026,9 @@ public:
     }
     if (parametersUncertainlyCauseInterruptionIfModified) {
       res["ParametersUncertainlyCauseInterruptionIfModified"] = boost::any(*parametersUncertainlyCauseInterruptionIfModified);
+    }
+    if (parametersUncertainlyCauseReplacementIfModified) {
+      res["ParametersUncertainlyCauseReplacementIfModified"] = boost::any(*parametersUncertainlyCauseReplacementIfModified);
     }
     return res;
   }
@@ -22028,6 +22054,16 @@ public:
       }
       parametersCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ParametersCauseReplacementIfModified") != m.end() && !m["ParametersCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ParametersConditionallyAllowedToBeModified") != m.end() && !m["ParametersConditionallyAllowedToBeModified"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ParametersConditionallyAllowedToBeModified"].type()) {
@@ -22047,6 +22083,16 @@ public:
         }
       }
       parametersConditionallyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyCauseReplacementIfModified") != m.end() && !m["ParametersConditionallyCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ParametersNotAllowedToBeModified") != m.end() && !m["ParametersNotAllowedToBeModified"].empty()) {
       vector<string> toVec1;
@@ -22077,6 +22123,16 @@ public:
         }
       }
       parametersUncertainlyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyCauseReplacementIfModified") != m.end() && !m["ParametersUncertainlyCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -24100,6 +24156,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> templateBody{};
   shared_ptr<string> templateURL{};
+  shared_ptr<vector<string>> updateInfoOptions{};
   shared_ptr<string> validationOption{};
 
   ValidateTemplateRequest() {}
@@ -24124,6 +24181,9 @@ public:
     if (templateURL) {
       res["TemplateURL"] = boost::any(*templateURL);
     }
+    if (updateInfoOptions) {
+      res["UpdateInfoOptions"] = boost::any(*updateInfoOptions);
+    }
     if (validationOption) {
       res["ValidationOption"] = boost::any(*validationOption);
     }
@@ -24142,6 +24202,16 @@ public:
     }
     if (m.find("TemplateURL") != m.end() && !m["TemplateURL"].empty()) {
       templateURL = make_shared<string>(boost::any_cast<string>(m["TemplateURL"]));
+    }
+    if (m.find("UpdateInfoOptions") != m.end() && !m["UpdateInfoOptions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["UpdateInfoOptions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["UpdateInfoOptions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      updateInfoOptions = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ValidationOption") != m.end() && !m["ValidationOption"].empty()) {
       validationOption = make_shared<string>(boost::any_cast<string>(m["ValidationOption"]));
@@ -24291,11 +24361,14 @@ class ValidateTemplateResponseBodyUpdateInfo : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> parametersAllowedToBeModified{};
   shared_ptr<vector<string>> parametersCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersCauseReplacementIfModified{};
   shared_ptr<vector<string>> parametersConditionallyAllowedToBeModified{};
   shared_ptr<vector<string>> parametersConditionallyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersConditionallyCauseReplacementIfModified{};
   shared_ptr<vector<string>> parametersNotAllowedToBeModified{};
   shared_ptr<vector<string>> parametersUncertainlyAllowedToBeModified{};
   shared_ptr<vector<string>> parametersUncertainlyCauseInterruptionIfModified{};
+  shared_ptr<vector<string>> parametersUncertainlyCauseReplacementIfModified{};
 
   ValidateTemplateResponseBodyUpdateInfo() {}
 
@@ -24313,11 +24386,17 @@ public:
     if (parametersCauseInterruptionIfModified) {
       res["ParametersCauseInterruptionIfModified"] = boost::any(*parametersCauseInterruptionIfModified);
     }
+    if (parametersCauseReplacementIfModified) {
+      res["ParametersCauseReplacementIfModified"] = boost::any(*parametersCauseReplacementIfModified);
+    }
     if (parametersConditionallyAllowedToBeModified) {
       res["ParametersConditionallyAllowedToBeModified"] = boost::any(*parametersConditionallyAllowedToBeModified);
     }
     if (parametersConditionallyCauseInterruptionIfModified) {
       res["ParametersConditionallyCauseInterruptionIfModified"] = boost::any(*parametersConditionallyCauseInterruptionIfModified);
+    }
+    if (parametersConditionallyCauseReplacementIfModified) {
+      res["ParametersConditionallyCauseReplacementIfModified"] = boost::any(*parametersConditionallyCauseReplacementIfModified);
     }
     if (parametersNotAllowedToBeModified) {
       res["ParametersNotAllowedToBeModified"] = boost::any(*parametersNotAllowedToBeModified);
@@ -24327,6 +24406,9 @@ public:
     }
     if (parametersUncertainlyCauseInterruptionIfModified) {
       res["ParametersUncertainlyCauseInterruptionIfModified"] = boost::any(*parametersUncertainlyCauseInterruptionIfModified);
+    }
+    if (parametersUncertainlyCauseReplacementIfModified) {
+      res["ParametersUncertainlyCauseReplacementIfModified"] = boost::any(*parametersUncertainlyCauseReplacementIfModified);
     }
     return res;
   }
@@ -24352,6 +24434,16 @@ public:
       }
       parametersCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ParametersCauseReplacementIfModified") != m.end() && !m["ParametersCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ParametersConditionallyAllowedToBeModified") != m.end() && !m["ParametersConditionallyAllowedToBeModified"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ParametersConditionallyAllowedToBeModified"].type()) {
@@ -24371,6 +24463,16 @@ public:
         }
       }
       parametersConditionallyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersConditionallyCauseReplacementIfModified") != m.end() && !m["ParametersConditionallyCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersConditionallyCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersConditionallyCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersConditionallyCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ParametersNotAllowedToBeModified") != m.end() && !m["ParametersNotAllowedToBeModified"].empty()) {
       vector<string> toVec1;
@@ -24401,6 +24503,16 @@ public:
         }
       }
       parametersUncertainlyCauseInterruptionIfModified = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ParametersUncertainlyCauseReplacementIfModified") != m.end() && !m["ParametersUncertainlyCauseReplacementIfModified"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ParametersUncertainlyCauseReplacementIfModified"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ParametersUncertainlyCauseReplacementIfModified"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      parametersUncertainlyCauseReplacementIfModified = make_shared<vector<string>>(toVec1);
     }
   }
 

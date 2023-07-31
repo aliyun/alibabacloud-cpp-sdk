@@ -3136,6 +3136,9 @@ UpdateStackResponse Alibabacloud_ROS20190910::Client::updateStackWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->dryRunOptions)) {
+    query->insert(pair<string, vector<string>>("DryRunOptions", *request->dryRunOptions));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->parallelism)) {
     query->insert(pair<string, long>("Parallelism", *request->parallelism));
   }
@@ -3543,6 +3546,9 @@ ValidateTemplateResponse Alibabacloud_ROS20190910::Client::validateTemplateWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateURL)) {
     query->insert(pair<string, string>("TemplateURL", *request->templateURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->updateInfoOptions)) {
+    query->insert(pair<string, vector<string>>("UpdateInfoOptions", *request->updateInfoOptions));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->validationOption)) {
     query->insert(pair<string, string>("ValidationOption", *request->validationOption));
