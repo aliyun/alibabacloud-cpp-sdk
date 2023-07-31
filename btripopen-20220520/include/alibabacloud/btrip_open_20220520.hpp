@@ -60819,6 +60819,7 @@ class TrainOrderListQueryResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<long> applyId{};
   shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityAdCode{};
   shared_ptr<string> arrStation{};
   shared_ptr<string> arrTime{};
   shared_ptr<string> btripTitle{};
@@ -60827,6 +60828,7 @@ public:
   shared_ptr<string> corpName{};
   shared_ptr<TrainOrderListQueryResponseBodyModuleCostCenter> costCenter{};
   shared_ptr<string> depCity{};
+  shared_ptr<string> depCityAdCode{};
   shared_ptr<string> depStation{};
   shared_ptr<string> depTime{};
   shared_ptr<string> departId{};
@@ -60870,6 +60872,9 @@ public:
     if (arrCity) {
       res["arr_city"] = boost::any(*arrCity);
     }
+    if (arrCityAdCode) {
+      res["arr_city_ad_code"] = boost::any(*arrCityAdCode);
+    }
     if (arrStation) {
       res["arr_station"] = boost::any(*arrStation);
     }
@@ -60893,6 +60898,9 @@ public:
     }
     if (depCity) {
       res["dep_city"] = boost::any(*depCity);
+    }
+    if (depCityAdCode) {
+      res["dep_city_ad_code"] = boost::any(*depCityAdCode);
     }
     if (depStation) {
       res["dep_station"] = boost::any(*depStation);
@@ -60990,6 +60998,9 @@ public:
     if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
       arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
     }
+    if (m.find("arr_city_ad_code") != m.end() && !m["arr_city_ad_code"].empty()) {
+      arrCityAdCode = make_shared<string>(boost::any_cast<string>(m["arr_city_ad_code"]));
+    }
     if (m.find("arr_station") != m.end() && !m["arr_station"].empty()) {
       arrStation = make_shared<string>(boost::any_cast<string>(m["arr_station"]));
     }
@@ -61017,6 +61028,9 @@ public:
     }
     if (m.find("dep_city") != m.end() && !m["dep_city"].empty()) {
       depCity = make_shared<string>(boost::any_cast<string>(m["dep_city"]));
+    }
+    if (m.find("dep_city_ad_code") != m.end() && !m["dep_city_ad_code"].empty()) {
+      depCityAdCode = make_shared<string>(boost::any_cast<string>(m["dep_city_ad_code"]));
     }
     if (m.find("dep_station") != m.end() && !m["dep_station"].empty()) {
       depStation = make_shared<string>(boost::any_cast<string>(m["dep_station"]));
