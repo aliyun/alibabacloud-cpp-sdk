@@ -573,6 +573,9 @@ CreateAppResponse Alibabacloud_CloudAPI20160714::Client::createAppWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
@@ -2855,6 +2858,9 @@ DescribeAppAttributesResponse Alibabacloud_CloudAPI20160714::Client::describeApp
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableTagAuth)) {
     query->insert(pair<string, bool>("EnableTagAuth", *request->enableTagAuth));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -5477,6 +5483,9 @@ ModifyAppResponse Alibabacloud_CloudAPI20160714::Client::modifyAppWithOptions(sh
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->extend)) {
+    query->insert(pair<string, string>("Extend", *request->extend));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
