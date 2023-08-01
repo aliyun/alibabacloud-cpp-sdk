@@ -1513,6 +1513,34 @@ GenerateUserAccessTokenResponse Alibabacloud_Chatbot20220408::Client::generateUs
   return generateUserAccessTokenWithOptions(request, runtime);
 }
 
+GetAgentInfoResponse Alibabacloud_Chatbot20220408::Client::getAgentInfoWithOptions(shared_ptr<GetAgentInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetAgentInfo"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetAgentInfoResponse(callApi(params, req, runtime));
+}
+
+GetAgentInfoResponse Alibabacloud_Chatbot20220408::Client::getAgentInfo(shared_ptr<GetAgentInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getAgentInfoWithOptions(request, runtime);
+}
+
 GetAsyncResultResponse Alibabacloud_Chatbot20220408::Client::getAsyncResultWithOptions(shared_ptr<GetAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1994,6 +2022,68 @@ ListLgfResponse Alibabacloud_Chatbot20220408::Client::listLgfWithOptions(shared_
 ListLgfResponse Alibabacloud_Chatbot20220408::Client::listLgf(shared_ptr<ListLgfRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listLgfWithOptions(request, runtime);
+}
+
+ListSaasInfoResponse Alibabacloud_Chatbot20220408::Client::listSaasInfoWithOptions(shared_ptr<ListSaasInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saasGroupCodes)) {
+    query->insert(pair<string, string>("SaasGroupCodes", *request->saasGroupCodes));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->saasName)) {
+    query->insert(pair<string, string>("SaasName", *request->saasName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSaasInfo"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSaasInfoResponse(callApi(params, req, runtime));
+}
+
+ListSaasInfoResponse Alibabacloud_Chatbot20220408::Client::listSaasInfo(shared_ptr<ListSaasInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSaasInfoWithOptions(request, runtime);
+}
+
+ListSaasPermissionGroupInfosResponse Alibabacloud_Chatbot20220408::Client::listSaasPermissionGroupInfosWithOptions(shared_ptr<ListSaasPermissionGroupInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentKey)) {
+    query->insert(pair<string, string>("AgentKey", *request->agentKey));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSaasPermissionGroupInfos"))},
+    {"version", boost::any(string("2022-04-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSaasPermissionGroupInfosResponse(callApi(params, req, runtime));
+}
+
+ListSaasPermissionGroupInfosResponse Alibabacloud_Chatbot20220408::Client::listSaasPermissionGroupInfos(shared_ptr<ListSaasPermissionGroupInfosRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listSaasPermissionGroupInfosWithOptions(request, runtime);
 }
 
 ListSimQuestionResponse Alibabacloud_Chatbot20220408::Client::listSimQuestionWithOptions(shared_ptr<ListSimQuestionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

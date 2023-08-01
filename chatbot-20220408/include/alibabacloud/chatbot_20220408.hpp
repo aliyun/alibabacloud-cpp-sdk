@@ -8205,6 +8205,187 @@ public:
 
   virtual ~GenerateUserAccessTokenResponse() = default;
 };
+class GetAgentInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+
+  GetAgentInfoRequest() {}
+
+  explicit GetAgentInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~GetAgentInfoRequest() = default;
+};
+class GetAgentInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> agentName{};
+
+  GetAgentInfoResponseBodyData() {}
+
+  explicit GetAgentInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (agentName) {
+      res["AgentName"] = boost::any(*agentName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
+      agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
+    }
+  }
+
+
+  virtual ~GetAgentInfoResponseBodyData() = default;
+};
+class GetAgentInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetAgentInfoResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetAgentInfoResponseBody() {}
+
+  explicit GetAgentInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAgentInfoResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAgentInfoResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetAgentInfoResponseBody() = default;
+};
+class GetAgentInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAgentInfoResponseBody> body{};
+
+  GetAgentInfoResponse() {}
+
+  explicit GetAgentInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAgentInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAgentInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAgentInfoResponse() = default;
+};
 class GetAsyncResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
@@ -11142,6 +11323,473 @@ public:
 
 
   virtual ~ListLgfResponse() = default;
+};
+class ListSaasInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+  shared_ptr<string> saasGroupCodes{};
+  shared_ptr<string> saasName{};
+
+  ListSaasInfoRequest() {}
+
+  explicit ListSaasInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    if (saasGroupCodes) {
+      res["SaasGroupCodes"] = boost::any(*saasGroupCodes);
+    }
+    if (saasName) {
+      res["SaasName"] = boost::any(*saasName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+    if (m.find("SaasGroupCodes") != m.end() && !m["SaasGroupCodes"].empty()) {
+      saasGroupCodes = make_shared<string>(boost::any_cast<string>(m["SaasGroupCodes"]));
+    }
+    if (m.find("SaasName") != m.end() && !m["SaasName"].empty()) {
+      saasName = make_shared<string>(boost::any_cast<string>(m["SaasName"]));
+    }
+  }
+
+
+  virtual ~ListSaasInfoRequest() = default;
+};
+class ListSaasInfoResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> enName{};
+  shared_ptr<string> name{};
+  shared_ptr<string> serviceUrl{};
+  shared_ptr<string> url{};
+
+  ListSaasInfoResponseBodyData() {}
+
+  explicit ListSaasInfoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (enName) {
+      res["EnName"] = boost::any(*enName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (serviceUrl) {
+      res["ServiceUrl"] = boost::any(*serviceUrl);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("EnName") != m.end() && !m["EnName"].empty()) {
+      enName = make_shared<string>(boost::any_cast<string>(m["EnName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ServiceUrl") != m.end() && !m["ServiceUrl"].empty()) {
+      serviceUrl = make_shared<string>(boost::any_cast<string>(m["ServiceUrl"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+  }
+
+
+  virtual ~ListSaasInfoResponseBodyData() = default;
+};
+class ListSaasInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSaasInfoResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> saasToken{};
+
+  ListSaasInfoResponseBody() {}
+
+  explicit ListSaasInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (saasToken) {
+      res["SaasToken"] = boost::any(*saasToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListSaasInfoResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSaasInfoResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListSaasInfoResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SaasToken") != m.end() && !m["SaasToken"].empty()) {
+      saasToken = make_shared<string>(boost::any_cast<string>(m["SaasToken"]));
+    }
+  }
+
+
+  virtual ~ListSaasInfoResponseBody() = default;
+};
+class ListSaasInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSaasInfoResponseBody> body{};
+
+  ListSaasInfoResponse() {}
+
+  explicit ListSaasInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSaasInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSaasInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSaasInfoResponse() = default;
+};
+class ListSaasPermissionGroupInfosRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> agentKey{};
+
+  ListSaasPermissionGroupInfosRequest() {}
+
+  explicit ListSaasPermissionGroupInfosRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentKey) {
+      res["AgentKey"] = boost::any(*agentKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
+      agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
+    }
+  }
+
+
+  virtual ~ListSaasPermissionGroupInfosRequest() = default;
+};
+class ListSaasPermissionGroupInfosResponseBodyDataPgInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> pgCode{};
+  shared_ptr<string> pgEnName{};
+  shared_ptr<string> pgName{};
+
+  ListSaasPermissionGroupInfosResponseBodyDataPgInfos() {}
+
+  explicit ListSaasPermissionGroupInfosResponseBodyDataPgInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pgCode) {
+      res["PgCode"] = boost::any(*pgCode);
+    }
+    if (pgEnName) {
+      res["PgEnName"] = boost::any(*pgEnName);
+    }
+    if (pgName) {
+      res["PgName"] = boost::any(*pgName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PgCode") != m.end() && !m["PgCode"].empty()) {
+      pgCode = make_shared<string>(boost::any_cast<string>(m["PgCode"]));
+    }
+    if (m.find("PgEnName") != m.end() && !m["PgEnName"].empty()) {
+      pgEnName = make_shared<string>(boost::any_cast<string>(m["PgEnName"]));
+    }
+    if (m.find("PgName") != m.end() && !m["PgName"].empty()) {
+      pgName = make_shared<string>(boost::any_cast<string>(m["PgName"]));
+    }
+  }
+
+
+  virtual ~ListSaasPermissionGroupInfosResponseBodyDataPgInfos() = default;
+};
+class ListSaasPermissionGroupInfosResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> enName{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<ListSaasPermissionGroupInfosResponseBodyDataPgInfos>> pgInfos{};
+  shared_ptr<string> saasCode{};
+
+  ListSaasPermissionGroupInfosResponseBodyData() {}
+
+  explicit ListSaasPermissionGroupInfosResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enName) {
+      res["EnName"] = boost::any(*enName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pgInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*pgInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PgInfos"] = boost::any(temp1);
+    }
+    if (saasCode) {
+      res["SaasCode"] = boost::any(*saasCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnName") != m.end() && !m["EnName"].empty()) {
+      enName = make_shared<string>(boost::any_cast<string>(m["EnName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PgInfos") != m.end() && !m["PgInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["PgInfos"].type()) {
+        vector<ListSaasPermissionGroupInfosResponseBodyDataPgInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PgInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSaasPermissionGroupInfosResponseBodyDataPgInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pgInfos = make_shared<vector<ListSaasPermissionGroupInfosResponseBodyDataPgInfos>>(expect1);
+      }
+    }
+    if (m.find("SaasCode") != m.end() && !m["SaasCode"].empty()) {
+      saasCode = make_shared<string>(boost::any_cast<string>(m["SaasCode"]));
+    }
+  }
+
+
+  virtual ~ListSaasPermissionGroupInfosResponseBodyData() = default;
+};
+class ListSaasPermissionGroupInfosResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListSaasPermissionGroupInfosResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  ListSaasPermissionGroupInfosResponseBody() {}
+
+  explicit ListSaasPermissionGroupInfosResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<ListSaasPermissionGroupInfosResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListSaasPermissionGroupInfosResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<ListSaasPermissionGroupInfosResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListSaasPermissionGroupInfosResponseBody() = default;
+};
+class ListSaasPermissionGroupInfosResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListSaasPermissionGroupInfosResponseBody> body{};
+
+  ListSaasPermissionGroupInfosResponse() {}
+
+  explicit ListSaasPermissionGroupInfosResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListSaasPermissionGroupInfosResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListSaasPermissionGroupInfosResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListSaasPermissionGroupInfosResponse() = default;
 };
 class ListSimQuestionRequest : public Darabonba::Model {
 public:
@@ -15558,6 +16206,8 @@ public:
   FeedbackResponse feedback(shared_ptr<FeedbackRequest> request);
   GenerateUserAccessTokenResponse generateUserAccessTokenWithOptions(shared_ptr<GenerateUserAccessTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateUserAccessTokenResponse generateUserAccessToken(shared_ptr<GenerateUserAccessTokenRequest> request);
+  GetAgentInfoResponse getAgentInfoWithOptions(shared_ptr<GetAgentInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAgentInfoResponse getAgentInfo(shared_ptr<GetAgentInfoRequest> request);
   GetAsyncResultResponse getAsyncResultWithOptions(shared_ptr<GetAsyncResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetAsyncResultResponse getAsyncResult(shared_ptr<GetAsyncResultRequest> request);
   GetInstancePublishTaskStateResponse getInstancePublishTaskStateWithOptions(shared_ptr<GetInstancePublishTaskStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -15584,6 +16234,10 @@ public:
   ListIntentResponse listIntent(shared_ptr<ListIntentRequest> request);
   ListLgfResponse listLgfWithOptions(shared_ptr<ListLgfRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListLgfResponse listLgf(shared_ptr<ListLgfRequest> request);
+  ListSaasInfoResponse listSaasInfoWithOptions(shared_ptr<ListSaasInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSaasInfoResponse listSaasInfo(shared_ptr<ListSaasInfoRequest> request);
+  ListSaasPermissionGroupInfosResponse listSaasPermissionGroupInfosWithOptions(shared_ptr<ListSaasPermissionGroupInfosRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListSaasPermissionGroupInfosResponse listSaasPermissionGroupInfos(shared_ptr<ListSaasPermissionGroupInfosRequest> request);
   ListSimQuestionResponse listSimQuestionWithOptions(shared_ptr<ListSimQuestionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListSimQuestionResponse listSimQuestion(shared_ptr<ListSimQuestionRequest> request);
   ListSolutionResponse listSolutionWithOptions(shared_ptr<ListSolutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
