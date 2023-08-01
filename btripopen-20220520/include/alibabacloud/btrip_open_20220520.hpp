@@ -3972,6 +3972,7 @@ public:
 };
 class ApplyListQueryResponseBodyModuleListTravelerList : public Darabonba::Model {
 public:
+  shared_ptr<string> jobNo{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
 
@@ -3985,6 +3986,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (jobNo) {
+      res["job_no"] = boost::any(*jobNo);
+    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -3995,6 +3999,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
+      jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
+    }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
     }
@@ -9327,6 +9334,7 @@ public:
   shared_ptr<string> driverConfirmTime{};
   shared_ptr<double> estimatePrice{};
   shared_ptr<string> fromAddress{};
+  shared_ptr<string> fromCityAdCode{};
   shared_ptr<string> fromCityName{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
@@ -9345,8 +9353,10 @@ public:
   shared_ptr<long> provider{};
   shared_ptr<string> publishTime{};
   shared_ptr<string> realFromAddress{};
+  shared_ptr<string> realFromCityAdCode{};
   shared_ptr<string> realFromCityName{};
   shared_ptr<string> realToAddress{};
+  shared_ptr<string> realToCityAdCode{};
   shared_ptr<string> realToCityName{};
   shared_ptr<long> serviceType{};
   shared_ptr<vector<string>> specialTypes{};
@@ -9354,6 +9364,7 @@ public:
   shared_ptr<string> thirdpartApplyId{};
   shared_ptr<string> thirdpartItineraryId{};
   shared_ptr<string> toAddress{};
+  shared_ptr<string> toCityAdCode{};
   shared_ptr<string> toCityName{};
   shared_ptr<double> travelDistance{};
   shared_ptr<vector<CarOrderListQueryResponseBodyModuleUserAffiliateList>> userAffiliateList{};
@@ -9422,6 +9433,9 @@ public:
     if (fromAddress) {
       res["from_address"] = boost::any(*fromAddress);
     }
+    if (fromCityAdCode) {
+      res["from_city_ad_code"] = boost::any(*fromCityAdCode);
+    }
     if (fromCityName) {
       res["from_city_name"] = boost::any(*fromCityName);
     }
@@ -9480,11 +9494,17 @@ public:
     if (realFromAddress) {
       res["real_from_address"] = boost::any(*realFromAddress);
     }
+    if (realFromCityAdCode) {
+      res["real_from_city_ad_code"] = boost::any(*realFromCityAdCode);
+    }
     if (realFromCityName) {
       res["real_from_city_name"] = boost::any(*realFromCityName);
     }
     if (realToAddress) {
       res["real_to_address"] = boost::any(*realToAddress);
+    }
+    if (realToCityAdCode) {
+      res["real_to_city_ad_code"] = boost::any(*realToCityAdCode);
     }
     if (realToCityName) {
       res["real_to_city_name"] = boost::any(*realToCityName);
@@ -9506,6 +9526,9 @@ public:
     }
     if (toAddress) {
       res["to_address"] = boost::any(*toAddress);
+    }
+    if (toCityAdCode) {
+      res["to_city_ad_code"] = boost::any(*toCityAdCode);
     }
     if (toCityName) {
       res["to_city_name"] = boost::any(*toCityName);
@@ -9584,6 +9607,9 @@ public:
     if (m.find("from_address") != m.end() && !m["from_address"].empty()) {
       fromAddress = make_shared<string>(boost::any_cast<string>(m["from_address"]));
     }
+    if (m.find("from_city_ad_code") != m.end() && !m["from_city_ad_code"].empty()) {
+      fromCityAdCode = make_shared<string>(boost::any_cast<string>(m["from_city_ad_code"]));
+    }
     if (m.find("from_city_name") != m.end() && !m["from_city_name"].empty()) {
       fromCityName = make_shared<string>(boost::any_cast<string>(m["from_city_name"]));
     }
@@ -9648,11 +9674,17 @@ public:
     if (m.find("real_from_address") != m.end() && !m["real_from_address"].empty()) {
       realFromAddress = make_shared<string>(boost::any_cast<string>(m["real_from_address"]));
     }
+    if (m.find("real_from_city_ad_code") != m.end() && !m["real_from_city_ad_code"].empty()) {
+      realFromCityAdCode = make_shared<string>(boost::any_cast<string>(m["real_from_city_ad_code"]));
+    }
     if (m.find("real_from_city_name") != m.end() && !m["real_from_city_name"].empty()) {
       realFromCityName = make_shared<string>(boost::any_cast<string>(m["real_from_city_name"]));
     }
     if (m.find("real_to_address") != m.end() && !m["real_to_address"].empty()) {
       realToAddress = make_shared<string>(boost::any_cast<string>(m["real_to_address"]));
+    }
+    if (m.find("real_to_city_ad_code") != m.end() && !m["real_to_city_ad_code"].empty()) {
+      realToCityAdCode = make_shared<string>(boost::any_cast<string>(m["real_to_city_ad_code"]));
     }
     if (m.find("real_to_city_name") != m.end() && !m["real_to_city_name"].empty()) {
       realToCityName = make_shared<string>(boost::any_cast<string>(m["real_to_city_name"]));
@@ -9681,6 +9713,9 @@ public:
     }
     if (m.find("to_address") != m.end() && !m["to_address"].empty()) {
       toAddress = make_shared<string>(boost::any_cast<string>(m["to_address"]));
+    }
+    if (m.find("to_city_ad_code") != m.end() && !m["to_city_ad_code"].empty()) {
+      toCityAdCode = make_shared<string>(boost::any_cast<string>(m["to_city_ad_code"]));
     }
     if (m.find("to_city_name") != m.end() && !m["to_city_name"].empty()) {
       toCityName = make_shared<string>(boost::any_cast<string>(m["to_city_name"]));
@@ -9997,19 +10032,23 @@ public:
   shared_ptr<string> driverName{};
   shared_ptr<long> estimatePrice{};
   shared_ptr<string> fromAddress{};
+  shared_ptr<string> fromCityAdCode{};
   shared_ptr<string> fromCityName{};
   shared_ptr<bool> isSpecial{};
   shared_ptr<string> memo{};
   shared_ptr<long> payTime{};
   shared_ptr<long> publishTime{};
   shared_ptr<string> realFromAddress{};
+  shared_ptr<string> realFromCityAdCode{};
   shared_ptr<string> realFromCityName{};
   shared_ptr<string> realToAddress{};
+  shared_ptr<string> realToCityAdCode{};
   shared_ptr<string> realToCityName{};
   shared_ptr<long> serviceType{};
   shared_ptr<string> specialTypes{};
   shared_ptr<long> takenTime{};
   shared_ptr<string> toAddress{};
+  shared_ptr<string> toCityAdCode{};
   shared_ptr<string> toCityName{};
   shared_ptr<string> travelDistance{};
 
@@ -10050,6 +10089,9 @@ public:
     if (fromAddress) {
       res["from_address"] = boost::any(*fromAddress);
     }
+    if (fromCityAdCode) {
+      res["from_city_ad_code"] = boost::any(*fromCityAdCode);
+    }
     if (fromCityName) {
       res["from_city_name"] = boost::any(*fromCityName);
     }
@@ -10068,11 +10110,17 @@ public:
     if (realFromAddress) {
       res["real_from_address"] = boost::any(*realFromAddress);
     }
+    if (realFromCityAdCode) {
+      res["real_from_city_ad_code"] = boost::any(*realFromCityAdCode);
+    }
     if (realFromCityName) {
       res["real_from_city_name"] = boost::any(*realFromCityName);
     }
     if (realToAddress) {
       res["real_to_address"] = boost::any(*realToAddress);
+    }
+    if (realToCityAdCode) {
+      res["real_to_city_ad_code"] = boost::any(*realToCityAdCode);
     }
     if (realToCityName) {
       res["real_to_city_name"] = boost::any(*realToCityName);
@@ -10088,6 +10136,9 @@ public:
     }
     if (toAddress) {
       res["to_address"] = boost::any(*toAddress);
+    }
+    if (toCityAdCode) {
+      res["to_city_ad_code"] = boost::any(*toCityAdCode);
     }
     if (toCityName) {
       res["to_city_name"] = boost::any(*toCityName);
@@ -10126,6 +10177,9 @@ public:
     if (m.find("from_address") != m.end() && !m["from_address"].empty()) {
       fromAddress = make_shared<string>(boost::any_cast<string>(m["from_address"]));
     }
+    if (m.find("from_city_ad_code") != m.end() && !m["from_city_ad_code"].empty()) {
+      fromCityAdCode = make_shared<string>(boost::any_cast<string>(m["from_city_ad_code"]));
+    }
     if (m.find("from_city_name") != m.end() && !m["from_city_name"].empty()) {
       fromCityName = make_shared<string>(boost::any_cast<string>(m["from_city_name"]));
     }
@@ -10144,11 +10198,17 @@ public:
     if (m.find("real_from_address") != m.end() && !m["real_from_address"].empty()) {
       realFromAddress = make_shared<string>(boost::any_cast<string>(m["real_from_address"]));
     }
+    if (m.find("real_from_city_ad_code") != m.end() && !m["real_from_city_ad_code"].empty()) {
+      realFromCityAdCode = make_shared<string>(boost::any_cast<string>(m["real_from_city_ad_code"]));
+    }
     if (m.find("real_from_city_name") != m.end() && !m["real_from_city_name"].empty()) {
       realFromCityName = make_shared<string>(boost::any_cast<string>(m["real_from_city_name"]));
     }
     if (m.find("real_to_address") != m.end() && !m["real_to_address"].empty()) {
       realToAddress = make_shared<string>(boost::any_cast<string>(m["real_to_address"]));
+    }
+    if (m.find("real_to_city_ad_code") != m.end() && !m["real_to_city_ad_code"].empty()) {
+      realToCityAdCode = make_shared<string>(boost::any_cast<string>(m["real_to_city_ad_code"]));
     }
     if (m.find("real_to_city_name") != m.end() && !m["real_to_city_name"].empty()) {
       realToCityName = make_shared<string>(boost::any_cast<string>(m["real_to_city_name"]));
@@ -10164,6 +10224,9 @@ public:
     }
     if (m.find("to_address") != m.end() && !m["to_address"].empty()) {
       toAddress = make_shared<string>(boost::any_cast<string>(m["to_address"]));
+    }
+    if (m.find("to_city_ad_code") != m.end() && !m["to_city_ad_code"].empty()) {
+      toCityAdCode = make_shared<string>(boost::any_cast<string>(m["to_city_ad_code"]));
     }
     if (m.find("to_city_name") != m.end() && !m["to_city_name"].empty()) {
       toCityName = make_shared<string>(boost::any_cast<string>(m["to_city_name"]));
@@ -22501,6 +22564,7 @@ public:
   shared_ptr<long> applyId{};
   shared_ptr<string> arrAirport{};
   shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityAdCode{};
   shared_ptr<string> btripTitle{};
   shared_ptr<string> cabinClass{};
   shared_ptr<string> contactName{};
@@ -22509,6 +22573,7 @@ public:
   shared_ptr<FlightOrderListQueryResponseBodyModuleCostCenter> costCenter{};
   shared_ptr<string> depAirport{};
   shared_ptr<string> depCity{};
+  shared_ptr<string> depCityAdCode{};
   shared_ptr<string> depDate{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
@@ -22554,6 +22619,9 @@ public:
     if (arrCity) {
       res["arr_city"] = boost::any(*arrCity);
     }
+    if (arrCityAdCode) {
+      res["arr_city_ad_code"] = boost::any(*arrCityAdCode);
+    }
     if (btripTitle) {
       res["btrip_title"] = boost::any(*btripTitle);
     }
@@ -22577,6 +22645,9 @@ public:
     }
     if (depCity) {
       res["dep_city"] = boost::any(*depCity);
+    }
+    if (depCityAdCode) {
+      res["dep_city_ad_code"] = boost::any(*depCityAdCode);
     }
     if (depDate) {
       res["dep_date"] = boost::any(*depDate);
@@ -22678,6 +22749,9 @@ public:
     if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
       arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
     }
+    if (m.find("arr_city_ad_code") != m.end() && !m["arr_city_ad_code"].empty()) {
+      arrCityAdCode = make_shared<string>(boost::any_cast<string>(m["arr_city_ad_code"]));
+    }
     if (m.find("btrip_title") != m.end() && !m["btrip_title"].empty()) {
       btripTitle = make_shared<string>(boost::any_cast<string>(m["btrip_title"]));
     }
@@ -22705,6 +22779,9 @@ public:
     }
     if (m.find("dep_city") != m.end() && !m["dep_city"].empty()) {
       depCity = make_shared<string>(boost::any_cast<string>(m["dep_city"]));
+    }
+    if (m.find("dep_city_ad_code") != m.end() && !m["dep_city_ad_code"].empty()) {
+      depCityAdCode = make_shared<string>(boost::any_cast<string>(m["dep_city_ad_code"]));
     }
     if (m.find("dep_date") != m.end() && !m["dep_date"].empty()) {
       depDate = make_shared<string>(boost::any_cast<string>(m["dep_date"]));
@@ -23217,6 +23294,7 @@ public:
   shared_ptr<string> airlineName{};
   shared_ptr<string> arrAirportCode{};
   shared_ptr<string> arrAirportName{};
+  shared_ptr<string> arrCityAdCode{};
   shared_ptr<string> arrCityCode{};
   shared_ptr<string> arrCityName{};
   shared_ptr<string> arrTime{};
@@ -23224,6 +23302,7 @@ public:
   shared_ptr<string> cabinLevel{};
   shared_ptr<string> depAirportCode{};
   shared_ptr<string> depAirportName{};
+  shared_ptr<string> depCityAdCode{};
   shared_ptr<string> depCityCode{};
   shared_ptr<string> depCityName{};
   shared_ptr<string> depTime{};
@@ -23252,6 +23331,9 @@ public:
     if (arrAirportName) {
       res["arr_airport_name"] = boost::any(*arrAirportName);
     }
+    if (arrCityAdCode) {
+      res["arr_city_ad_code"] = boost::any(*arrCityAdCode);
+    }
     if (arrCityCode) {
       res["arr_city_code"] = boost::any(*arrCityCode);
     }
@@ -23272,6 +23354,9 @@ public:
     }
     if (depAirportName) {
       res["dep_airport_name"] = boost::any(*depAirportName);
+    }
+    if (depCityAdCode) {
+      res["dep_city_ad_code"] = boost::any(*depCityAdCode);
     }
     if (depCityCode) {
       res["dep_city_code"] = boost::any(*depCityCode);
@@ -23304,6 +23389,9 @@ public:
     if (m.find("arr_airport_name") != m.end() && !m["arr_airport_name"].empty()) {
       arrAirportName = make_shared<string>(boost::any_cast<string>(m["arr_airport_name"]));
     }
+    if (m.find("arr_city_ad_code") != m.end() && !m["arr_city_ad_code"].empty()) {
+      arrCityAdCode = make_shared<string>(boost::any_cast<string>(m["arr_city_ad_code"]));
+    }
     if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
       arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
     }
@@ -23324,6 +23412,9 @@ public:
     }
     if (m.find("dep_airport_name") != m.end() && !m["dep_airport_name"].empty()) {
       depAirportName = make_shared<string>(boost::any_cast<string>(m["dep_airport_name"]));
+    }
+    if (m.find("dep_city_ad_code") != m.end() && !m["dep_city_ad_code"].empty()) {
+      depCityAdCode = make_shared<string>(boost::any_cast<string>(m["dep_city_ad_code"]));
     }
     if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
       depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
@@ -42797,6 +42888,7 @@ public:
   shared_ptr<string> checkIn{};
   shared_ptr<string> checkOut{};
   shared_ptr<string> city{};
+  shared_ptr<string> cityAdCode{};
   shared_ptr<string> contactName{};
   shared_ptr<string> corpId{};
   shared_ptr<string> corpName{};
@@ -42853,6 +42945,9 @@ public:
     }
     if (city) {
       res["city"] = boost::any(*city);
+    }
+    if (cityAdCode) {
+      res["city_ad_code"] = boost::any(*cityAdCode);
     }
     if (contactName) {
       res["contact_name"] = boost::any(*contactName);
@@ -42973,6 +43068,9 @@ public:
     }
     if (m.find("city") != m.end() && !m["city"].empty()) {
       city = make_shared<string>(boost::any_cast<string>(m["city"]));
+    }
+    if (m.find("city_ad_code") != m.end() && !m["city_ad_code"].empty()) {
+      cityAdCode = make_shared<string>(boost::any_cast<string>(m["city_ad_code"]));
     }
     if (m.find("contact_name") != m.end() && !m["contact_name"].empty()) {
       contactName = make_shared<string>(boost::any_cast<string>(m["contact_name"]));
@@ -44646,6 +44744,7 @@ public:
   shared_ptr<long> checkIn{};
   shared_ptr<long> checkOut{};
   shared_ptr<string> city{};
+  shared_ptr<string> cityAdCode{};
   shared_ptr<string> hotelName{};
   shared_ptr<long> hotelSupportVatInvoiceType{};
   shared_ptr<long> night{};
@@ -44670,6 +44769,9 @@ public:
     }
     if (city) {
       res["city"] = boost::any(*city);
+    }
+    if (cityAdCode) {
+      res["city_ad_code"] = boost::any(*cityAdCode);
     }
     if (hotelName) {
       res["hotel_name"] = boost::any(*hotelName);
@@ -44698,6 +44800,9 @@ public:
     }
     if (m.find("city") != m.end() && !m["city"].empty()) {
       city = make_shared<string>(boost::any_cast<string>(m["city"]));
+    }
+    if (m.find("city_ad_code") != m.end() && !m["city_ad_code"].empty()) {
+      cityAdCode = make_shared<string>(boost::any_cast<string>(m["city_ad_code"]));
     }
     if (m.find("hotel_name") != m.end() && !m["hotel_name"].empty()) {
       hotelName = make_shared<string>(boost::any_cast<string>(m["hotel_name"]));
@@ -62128,8 +62233,10 @@ class TrainOrderQueryResponseBodyModuleTrainInfo : public Darabonba::Model {
 public:
   shared_ptr<string> arrTime{};
   shared_ptr<string> depTime{};
+  shared_ptr<string> fromCityAdCode{};
   shared_ptr<string> fromStationName{};
   shared_ptr<long> runTime{};
+  shared_ptr<string> toCityAdCode{};
   shared_ptr<string> toStationName{};
   shared_ptr<string> trainNo{};
 
@@ -62149,11 +62256,17 @@ public:
     if (depTime) {
       res["dep_time"] = boost::any(*depTime);
     }
+    if (fromCityAdCode) {
+      res["from_city_ad_code"] = boost::any(*fromCityAdCode);
+    }
     if (fromStationName) {
       res["from_station_name"] = boost::any(*fromStationName);
     }
     if (runTime) {
       res["run_time"] = boost::any(*runTime);
+    }
+    if (toCityAdCode) {
+      res["to_city_ad_code"] = boost::any(*toCityAdCode);
     }
     if (toStationName) {
       res["to_station_name"] = boost::any(*toStationName);
@@ -62171,11 +62284,17 @@ public:
     if (m.find("dep_time") != m.end() && !m["dep_time"].empty()) {
       depTime = make_shared<string>(boost::any_cast<string>(m["dep_time"]));
     }
+    if (m.find("from_city_ad_code") != m.end() && !m["from_city_ad_code"].empty()) {
+      fromCityAdCode = make_shared<string>(boost::any_cast<string>(m["from_city_ad_code"]));
+    }
     if (m.find("from_station_name") != m.end() && !m["from_station_name"].empty()) {
       fromStationName = make_shared<string>(boost::any_cast<string>(m["from_station_name"]));
     }
     if (m.find("run_time") != m.end() && !m["run_time"].empty()) {
       runTime = make_shared<long>(boost::any_cast<long>(m["run_time"]));
+    }
+    if (m.find("to_city_ad_code") != m.end() && !m["to_city_ad_code"].empty()) {
+      toCityAdCode = make_shared<string>(boost::any_cast<string>(m["to_city_ad_code"]));
     }
     if (m.find("to_station_name") != m.end() && !m["to_station_name"].empty()) {
       toStationName = make_shared<string>(boost::any_cast<string>(m["to_station_name"]));
@@ -63350,10 +63469,12 @@ class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainInfoList : public Da
 public:
   shared_ptr<string> arrTime{};
   shared_ptr<string> depTime{};
+  shared_ptr<string> fromCityAdCode{};
   shared_ptr<string> fromCityName{};
   shared_ptr<string> fromStationName{};
   shared_ptr<long> itemId{};
   shared_ptr<long> runTime{};
+  shared_ptr<string> toCityAdCode{};
   shared_ptr<string> toCityName{};
   shared_ptr<string> toStationName{};
   shared_ptr<string> trainNo{};
@@ -63375,6 +63496,9 @@ public:
     if (depTime) {
       res["dep_time"] = boost::any(*depTime);
     }
+    if (fromCityAdCode) {
+      res["from_city_ad_code"] = boost::any(*fromCityAdCode);
+    }
     if (fromCityName) {
       res["from_city_name"] = boost::any(*fromCityName);
     }
@@ -63386,6 +63510,9 @@ public:
     }
     if (runTime) {
       res["run_time"] = boost::any(*runTime);
+    }
+    if (toCityAdCode) {
+      res["to_city_ad_code"] = boost::any(*toCityAdCode);
     }
     if (toCityName) {
       res["to_city_name"] = boost::any(*toCityName);
@@ -63413,6 +63540,9 @@ public:
     if (m.find("dep_time") != m.end() && !m["dep_time"].empty()) {
       depTime = make_shared<string>(boost::any_cast<string>(m["dep_time"]));
     }
+    if (m.find("from_city_ad_code") != m.end() && !m["from_city_ad_code"].empty()) {
+      fromCityAdCode = make_shared<string>(boost::any_cast<string>(m["from_city_ad_code"]));
+    }
     if (m.find("from_city_name") != m.end() && !m["from_city_name"].empty()) {
       fromCityName = make_shared<string>(boost::any_cast<string>(m["from_city_name"]));
     }
@@ -63424,6 +63554,9 @@ public:
     }
     if (m.find("run_time") != m.end() && !m["run_time"].empty()) {
       runTime = make_shared<long>(boost::any_cast<long>(m["run_time"]));
+    }
+    if (m.find("to_city_ad_code") != m.end() && !m["to_city_ad_code"].empty()) {
+      toCityAdCode = make_shared<string>(boost::any_cast<string>(m["to_city_ad_code"]));
     }
     if (m.find("to_city_name") != m.end() && !m["to_city_name"].empty()) {
       toCityName = make_shared<string>(boost::any_cast<string>(m["to_city_name"]));
@@ -63456,13 +63589,16 @@ class TrainOrderQueryV2ResponseBodyModuleTrainOrderInfoTrainTransferInfo : publi
 public:
   shared_ptr<string> costTime{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> fromCityAdCode{};
   shared_ptr<string> fromCityName{};
   shared_ptr<string> fromStationName{};
   shared_ptr<string> middleCity{};
+  shared_ptr<string> middleCityAdCode{};
   shared_ptr<string> middleDate{};
   shared_ptr<string> middleStation{};
   shared_ptr<string> middleType{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> toCityAdCode{};
   shared_ptr<string> toCityName{};
   shared_ptr<string> toStationName{};
   shared_ptr<string> waitTime{};
@@ -63483,6 +63619,9 @@ public:
     if (endTime) {
       res["end_time"] = boost::any(*endTime);
     }
+    if (fromCityAdCode) {
+      res["from_city_ad_code"] = boost::any(*fromCityAdCode);
+    }
     if (fromCityName) {
       res["from_city_name"] = boost::any(*fromCityName);
     }
@@ -63491,6 +63630,9 @@ public:
     }
     if (middleCity) {
       res["middle_city"] = boost::any(*middleCity);
+    }
+    if (middleCityAdCode) {
+      res["middle_city_ad_code"] = boost::any(*middleCityAdCode);
     }
     if (middleDate) {
       res["middle_date"] = boost::any(*middleDate);
@@ -63503,6 +63645,9 @@ public:
     }
     if (startTime) {
       res["start_time"] = boost::any(*startTime);
+    }
+    if (toCityAdCode) {
+      res["to_city_ad_code"] = boost::any(*toCityAdCode);
     }
     if (toCityName) {
       res["to_city_name"] = boost::any(*toCityName);
@@ -63523,6 +63668,9 @@ public:
     if (m.find("end_time") != m.end() && !m["end_time"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["end_time"]));
     }
+    if (m.find("from_city_ad_code") != m.end() && !m["from_city_ad_code"].empty()) {
+      fromCityAdCode = make_shared<string>(boost::any_cast<string>(m["from_city_ad_code"]));
+    }
     if (m.find("from_city_name") != m.end() && !m["from_city_name"].empty()) {
       fromCityName = make_shared<string>(boost::any_cast<string>(m["from_city_name"]));
     }
@@ -63531,6 +63679,9 @@ public:
     }
     if (m.find("middle_city") != m.end() && !m["middle_city"].empty()) {
       middleCity = make_shared<string>(boost::any_cast<string>(m["middle_city"]));
+    }
+    if (m.find("middle_city_ad_code") != m.end() && !m["middle_city_ad_code"].empty()) {
+      middleCityAdCode = make_shared<string>(boost::any_cast<string>(m["middle_city_ad_code"]));
     }
     if (m.find("middle_date") != m.end() && !m["middle_date"].empty()) {
       middleDate = make_shared<string>(boost::any_cast<string>(m["middle_date"]));
@@ -63543,6 +63694,9 @@ public:
     }
     if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["start_time"]));
+    }
+    if (m.find("to_city_ad_code") != m.end() && !m["to_city_ad_code"].empty()) {
+      toCityAdCode = make_shared<string>(boost::any_cast<string>(m["to_city_ad_code"]));
     }
     if (m.find("to_city_name") != m.end() && !m["to_city_name"].empty()) {
       toCityName = make_shared<string>(boost::any_cast<string>(m["to_city_name"]));
