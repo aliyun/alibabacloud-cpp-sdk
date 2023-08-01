@@ -252,6 +252,8 @@ public:
   shared_ptr<string> ntmId{};
   shared_ptr<string> personalDomain{};
   shared_ptr<string> personalDomainPrefix{};
+  shared_ptr<string> privateDomain{};
+  shared_ptr<string> privateIp{};
   shared_ptr<string> protocol{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -316,6 +318,12 @@ public:
     }
     if (personalDomainPrefix) {
       res["personalDomainPrefix"] = boost::any(*personalDomainPrefix);
+    }
+    if (privateDomain) {
+      res["privateDomain"] = boost::any(*privateDomain);
+    }
+    if (privateIp) {
+      res["privateIp"] = boost::any(*privateIp);
     }
     if (protocol) {
       res["protocol"] = boost::any(*protocol);
@@ -396,6 +404,12 @@ public:
     }
     if (m.find("personalDomainPrefix") != m.end() && !m["personalDomainPrefix"].empty()) {
       personalDomainPrefix = make_shared<string>(boost::any_cast<string>(m["personalDomainPrefix"]));
+    }
+    if (m.find("privateDomain") != m.end() && !m["privateDomain"].empty()) {
+      privateDomain = make_shared<string>(boost::any_cast<string>(m["privateDomain"]));
+    }
+    if (m.find("privateIp") != m.end() && !m["privateIp"].empty()) {
+      privateIp = make_shared<string>(boost::any_cast<string>(m["privateIp"]));
     }
     if (m.find("protocol") != m.end() && !m["protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["protocol"]));
@@ -9356,8 +9370,11 @@ public:
 };
 class CreatePrometheusAlertRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule> prometheusAlertRule{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   CreatePrometheusAlertRuleResponseBody() {}
 
@@ -9369,16 +9386,31 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (prometheusAlertRule) {
       res["PrometheusAlertRule"] = prometheusAlertRule ? boost::any(prometheusAlertRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("PrometheusAlertRule") != m.end() && !m["PrometheusAlertRule"].empty()) {
       if (typeid(map<string, boost::any>) == m["PrometheusAlertRule"].type()) {
         CreatePrometheusAlertRuleResponseBodyPrometheusAlertRule model1;
@@ -9388,6 +9420,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -13981,6 +14016,8 @@ public:
 };
 class DeletePrometheusAlertRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
 
@@ -13994,6 +14031,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -14004,6 +14047,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -17557,8 +17606,11 @@ public:
 };
 class DescribePrometheusAlertRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<DescribePrometheusAlertRuleResponseBodyPrometheusAlertRule> prometheusAlertRule{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   DescribePrometheusAlertRuleResponseBody() {}
 
@@ -17570,16 +17622,31 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (prometheusAlertRule) {
       res["PrometheusAlertRule"] = prometheusAlertRule ? boost::any(prometheusAlertRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("PrometheusAlertRule") != m.end() && !m["PrometheusAlertRule"].empty()) {
       if (typeid(map<string, boost::any>) == m["PrometheusAlertRule"].type()) {
         DescribePrometheusAlertRuleResponseBodyPrometheusAlertRule model1;
@@ -17589,6 +17656,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -33488,8 +33558,11 @@ public:
 };
 class ListPrometheusAlertRulesResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<vector<ListPrometheusAlertRulesResponseBodyPrometheusAlertRules>> prometheusAlertRules{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   ListPrometheusAlertRulesResponseBody() {}
 
@@ -33501,6 +33574,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (prometheusAlertRules) {
       vector<boost::any> temp1;
       for(auto item1:*prometheusAlertRules){
@@ -33511,10 +33590,19 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("PrometheusAlertRules") != m.end() && !m["PrometheusAlertRules"].empty()) {
       if (typeid(vector<boost::any>) == m["PrometheusAlertRules"].type()) {
         vector<ListPrometheusAlertRulesResponseBodyPrometheusAlertRules> expect1;
@@ -33530,6 +33618,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -46167,8 +46258,11 @@ public:
 };
 class UpdatePrometheusAlertRuleResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
   shared_ptr<UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule> prometheusAlertRule{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   UpdatePrometheusAlertRuleResponseBody() {}
 
@@ -46180,16 +46274,31 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (prometheusAlertRule) {
       res["PrometheusAlertRule"] = prometheusAlertRule ? boost::any(prometheusAlertRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("PrometheusAlertRule") != m.end() && !m["PrometheusAlertRule"].empty()) {
       if (typeid(map<string, boost::any>) == m["PrometheusAlertRule"].type()) {
         UpdatePrometheusAlertRuleResponseBodyPrometheusAlertRule model1;
@@ -46199,6 +46308,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
