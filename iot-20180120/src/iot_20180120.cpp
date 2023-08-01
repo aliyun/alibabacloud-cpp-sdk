@@ -312,19 +312,14 @@ AttachParserDataSourceResponse Alibabacloud_Iot20180120::Client::attachParserDat
   return attachParserDataSourceWithOptions(request, runtime);
 }
 
-BatchAddDataForApiSourceResponse Alibabacloud_Iot20180120::Client::batchAddDataForApiSourceWithOptions(shared_ptr<BatchAddDataForApiSourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<BatchAddDataForApiSourceShrinkRequest> request = make_shared<BatchAddDataForApiSourceShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->contentList)) {
-    request->contentListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->contentList, make_shared<string>("ContentList"), make_shared<string>("json")));
-  }
+BatchAddDataForApiSourceResponse Alibabacloud_Iot20180120::Client::batchAddDataForApiSourceWithOptions(shared_ptr<BatchAddDataForApiSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->apiId)) {
     query->insert(pair<string, string>("ApiId", *request->apiId));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->contentListShrink)) {
-    query->insert(pair<string, string>("ContentList", *request->contentListShrink));
+  if (!Darabonba_Util::Client::isUnset<string>(request->contentList)) {
+    query->insert(pair<string, string>("ContentList", *request->contentList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->iotInstanceId)) {
     query->insert(pair<string, string>("IotInstanceId", *request->iotInstanceId));

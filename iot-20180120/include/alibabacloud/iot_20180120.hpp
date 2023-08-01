@@ -1266,7 +1266,7 @@ public:
 class BatchAddDataForApiSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
-  shared_ptr<map<string, boost::any>> contentList{};
+  shared_ptr<string> contentList{};
   shared_ptr<string> iotInstanceId{};
 
   BatchAddDataForApiSourceRequest() {}
@@ -1296,12 +1296,7 @@ public:
       apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
     }
     if (m.find("ContentList") != m.end() && !m["ContentList"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["ContentList"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      contentList = make_shared<map<string, boost::any>>(toMap1);
+      contentList = make_shared<string>(boost::any_cast<string>(m["ContentList"]));
     }
     if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
       iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
@@ -1311,53 +1306,9 @@ public:
 
   virtual ~BatchAddDataForApiSourceRequest() = default;
 };
-class BatchAddDataForApiSourceShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> apiId{};
-  shared_ptr<string> contentListShrink{};
-  shared_ptr<string> iotInstanceId{};
-
-  BatchAddDataForApiSourceShrinkRequest() {}
-
-  explicit BatchAddDataForApiSourceShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (apiId) {
-      res["ApiId"] = boost::any(*apiId);
-    }
-    if (contentListShrink) {
-      res["ContentList"] = boost::any(*contentListShrink);
-    }
-    if (iotInstanceId) {
-      res["IotInstanceId"] = boost::any(*iotInstanceId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ApiId") != m.end() && !m["ApiId"].empty()) {
-      apiId = make_shared<string>(boost::any_cast<string>(m["ApiId"]));
-    }
-    if (m.find("ContentList") != m.end() && !m["ContentList"].empty()) {
-      contentListShrink = make_shared<string>(boost::any_cast<string>(m["ContentList"]));
-    }
-    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
-      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
-    }
-  }
-
-
-  virtual ~BatchAddDataForApiSourceShrinkRequest() = default;
-};
 class BatchAddDataForApiSourceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
-  shared_ptr<map<string, boost::any>> data{};
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
@@ -1375,9 +1326,6 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
-    if (data) {
-      res["Data"] = boost::any(*data);
-    }
     if (errorMessage) {
       res["ErrorMessage"] = boost::any(*errorMessage);
     }
@@ -1393,14 +1341,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
-    }
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Data"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      data = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
       errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
@@ -98366,7 +98306,7 @@ public:
   AttachDestinationResponse attachDestination(shared_ptr<AttachDestinationRequest> request);
   AttachParserDataSourceResponse attachParserDataSourceWithOptions(shared_ptr<AttachParserDataSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachParserDataSourceResponse attachParserDataSource(shared_ptr<AttachParserDataSourceRequest> request);
-  BatchAddDataForApiSourceResponse batchAddDataForApiSourceWithOptions(shared_ptr<BatchAddDataForApiSourceRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchAddDataForApiSourceResponse batchAddDataForApiSourceWithOptions(shared_ptr<BatchAddDataForApiSourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchAddDataForApiSourceResponse batchAddDataForApiSource(shared_ptr<BatchAddDataForApiSourceRequest> request);
   BatchAddDeviceGroupRelationsResponse batchAddDeviceGroupRelationsWithOptions(shared_ptr<BatchAddDeviceGroupRelationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchAddDeviceGroupRelationsResponse batchAddDeviceGroupRelations(shared_ptr<BatchAddDeviceGroupRelationsRequest> request);
