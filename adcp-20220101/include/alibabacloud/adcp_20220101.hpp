@@ -5866,16 +5866,19 @@ public:
 };
 class UpdateHubClusterFeatureRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accessControlList{};
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
+  shared_ptr<bool> argoCDHAEnabled{};
   shared_ptr<bool> argoServerEnabled{};
-  shared_ptr<bool> armsEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
+  shared_ptr<bool> publicAccessEnabled{};
   shared_ptr<bool> publicApiServerEnabled{};
   shared_ptr<vector<string>> vSwitches{};
   shared_ptr<string> workflowScheduleMode{};
@@ -5890,17 +5893,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessControlList) {
+      res["AccessControlList"] = boost::any(*accessControlList);
+    }
     if (apiServerEipId) {
       res["ApiServerEipId"] = boost::any(*apiServerEipId);
     }
     if (argoCDEnabled) {
       res["ArgoCDEnabled"] = boost::any(*argoCDEnabled);
     }
+    if (argoCDHAEnabled) {
+      res["ArgoCDHAEnabled"] = boost::any(*argoCDHAEnabled);
+    }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
-    }
-    if (armsEnabled) {
-      res["ArmsEnabled"] = boost::any(*armsEnabled);
     }
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
@@ -5914,11 +5920,17 @@ public:
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
     }
+    if (monitorEnabled) {
+      res["MonitorEnabled"] = boost::any(*monitorEnabled);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
     if (priceLimit) {
       res["PriceLimit"] = boost::any(*priceLimit);
+    }
+    if (publicAccessEnabled) {
+      res["PublicAccessEnabled"] = boost::any(*publicAccessEnabled);
     }
     if (publicApiServerEnabled) {
       res["PublicApiServerEnabled"] = boost::any(*publicApiServerEnabled);
@@ -5933,17 +5945,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessControlList") != m.end() && !m["AccessControlList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccessControlList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccessControlList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessControlList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
       apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
     }
     if (m.find("ArgoCDEnabled") != m.end() && !m["ArgoCDEnabled"].empty()) {
       argoCDEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDEnabled"]));
     }
+    if (m.find("ArgoCDHAEnabled") != m.end() && !m["ArgoCDHAEnabled"].empty()) {
+      argoCDHAEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDHAEnabled"]));
+    }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
-    }
-    if (m.find("ArmsEnabled") != m.end() && !m["ArmsEnabled"].empty()) {
-      armsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArmsEnabled"]));
     }
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
@@ -5957,11 +5979,17 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
+    if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
+      monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("PriceLimit") != m.end() && !m["PriceLimit"].empty()) {
       priceLimit = make_shared<string>(boost::any_cast<string>(m["PriceLimit"]));
+    }
+    if (m.find("PublicAccessEnabled") != m.end() && !m["PublicAccessEnabled"].empty()) {
+      publicAccessEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicAccessEnabled"]));
     }
     if (m.find("PublicApiServerEnabled") != m.end() && !m["PublicApiServerEnabled"].empty()) {
       publicApiServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicApiServerEnabled"]));
@@ -5986,16 +6014,19 @@ public:
 };
 class UpdateHubClusterFeatureShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> accessControlListShrink{};
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
+  shared_ptr<bool> argoCDHAEnabled{};
   shared_ptr<bool> argoServerEnabled{};
-  shared_ptr<bool> armsEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
+  shared_ptr<bool> publicAccessEnabled{};
   shared_ptr<bool> publicApiServerEnabled{};
   shared_ptr<string> vSwitchesShrink{};
   shared_ptr<string> workflowScheduleMode{};
@@ -6010,17 +6041,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessControlListShrink) {
+      res["AccessControlList"] = boost::any(*accessControlListShrink);
+    }
     if (apiServerEipId) {
       res["ApiServerEipId"] = boost::any(*apiServerEipId);
     }
     if (argoCDEnabled) {
       res["ArgoCDEnabled"] = boost::any(*argoCDEnabled);
     }
+    if (argoCDHAEnabled) {
+      res["ArgoCDHAEnabled"] = boost::any(*argoCDHAEnabled);
+    }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
-    }
-    if (armsEnabled) {
-      res["ArmsEnabled"] = boost::any(*armsEnabled);
     }
     if (auditLogEnabled) {
       res["AuditLogEnabled"] = boost::any(*auditLogEnabled);
@@ -6034,11 +6068,17 @@ public:
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
     }
+    if (monitorEnabled) {
+      res["MonitorEnabled"] = boost::any(*monitorEnabled);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
     if (priceLimit) {
       res["PriceLimit"] = boost::any(*priceLimit);
+    }
+    if (publicAccessEnabled) {
+      res["PublicAccessEnabled"] = boost::any(*publicAccessEnabled);
     }
     if (publicApiServerEnabled) {
       res["PublicApiServerEnabled"] = boost::any(*publicApiServerEnabled);
@@ -6053,17 +6093,20 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessControlList") != m.end() && !m["AccessControlList"].empty()) {
+      accessControlListShrink = make_shared<string>(boost::any_cast<string>(m["AccessControlList"]));
+    }
     if (m.find("ApiServerEipId") != m.end() && !m["ApiServerEipId"].empty()) {
       apiServerEipId = make_shared<string>(boost::any_cast<string>(m["ApiServerEipId"]));
     }
     if (m.find("ArgoCDEnabled") != m.end() && !m["ArgoCDEnabled"].empty()) {
       argoCDEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDEnabled"]));
     }
+    if (m.find("ArgoCDHAEnabled") != m.end() && !m["ArgoCDHAEnabled"].empty()) {
+      argoCDHAEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDHAEnabled"]));
+    }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
-    }
-    if (m.find("ArmsEnabled") != m.end() && !m["ArmsEnabled"].empty()) {
-      armsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArmsEnabled"]));
     }
     if (m.find("AuditLogEnabled") != m.end() && !m["AuditLogEnabled"].empty()) {
       auditLogEnabled = make_shared<bool>(boost::any_cast<bool>(m["AuditLogEnabled"]));
@@ -6077,11 +6120,17 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
+    if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
+      monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("PriceLimit") != m.end() && !m["PriceLimit"].empty()) {
       priceLimit = make_shared<string>(boost::any_cast<string>(m["PriceLimit"]));
+    }
+    if (m.find("PublicAccessEnabled") != m.end() && !m["PublicAccessEnabled"].empty()) {
+      publicAccessEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicAccessEnabled"]));
     }
     if (m.find("PublicApiServerEnabled") != m.end() && !m["PublicApiServerEnabled"].empty()) {
       publicApiServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["PublicApiServerEnabled"]));

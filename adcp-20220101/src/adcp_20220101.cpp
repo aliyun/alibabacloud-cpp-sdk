@@ -767,21 +767,27 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateHubClusterFeatureShrinkRequest> request = make_shared<UpdateHubClusterFeatureShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accessControlList)) {
+    request->accessControlListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accessControlList, make_shared<string>("AccessControlList"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitches)) {
     request->vSwitchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitches, make_shared<string>("VSwitches"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessControlListShrink)) {
+    query->insert(pair<string, string>("AccessControlList", *request->accessControlListShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiServerEipId)) {
     query->insert(pair<string, string>("ApiServerEipId", *request->apiServerEipId));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->argoCDEnabled)) {
     query->insert(pair<string, bool>("ArgoCDEnabled", *request->argoCDEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->argoCDHAEnabled)) {
+    query->insert(pair<string, bool>("ArgoCDHAEnabled", *request->argoCDHAEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->argoServerEnabled)) {
     query->insert(pair<string, bool>("ArgoServerEnabled", *request->argoServerEnabled));
-  }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->armsEnabled)) {
-    query->insert(pair<string, bool>("ArmsEnabled", *request->armsEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->auditLogEnabled)) {
     query->insert(pair<string, bool>("AuditLogEnabled", *request->auditLogEnabled));
@@ -795,11 +801,17 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMesh)) {
     query->insert(pair<string, bool>("EnableMesh", *request->enableMesh));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->monitorEnabled)) {
+    query->insert(pair<string, bool>("MonitorEnabled", *request->monitorEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->priceLimit)) {
     query->insert(pair<string, string>("PriceLimit", *request->priceLimit));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->publicAccessEnabled)) {
+    query->insert(pair<string, bool>("PublicAccessEnabled", *request->publicAccessEnabled));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->publicApiServerEnabled)) {
     query->insert(pair<string, bool>("PublicApiServerEnabled", *request->publicApiServerEnabled));
