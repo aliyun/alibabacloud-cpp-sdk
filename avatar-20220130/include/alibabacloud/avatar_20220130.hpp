@@ -1448,6 +1448,7 @@ public:
 };
 class GetVideoTaskInfoResponseBodyDataTaskResult : public Darabonba::Model {
 public:
+  shared_ptr<string> alphaUrl{};
   shared_ptr<string> failCode{};
   shared_ptr<string> failReason{};
   shared_ptr<string> subtitlesUrl{};
@@ -1465,6 +1466,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alphaUrl) {
+      res["AlphaUrl"] = boost::any(*alphaUrl);
+    }
     if (failCode) {
       res["FailCode"] = boost::any(*failCode);
     }
@@ -1487,6 +1491,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlphaUrl") != m.end() && !m["AlphaUrl"].empty()) {
+      alphaUrl = make_shared<string>(boost::any_cast<string>(m["AlphaUrl"]));
+    }
     if (m.find("FailCode") != m.end() && !m["FailCode"].empty()) {
       failCode = make_shared<string>(boost::any_cast<string>(m["FailCode"]));
     }
@@ -5915,7 +5922,7 @@ public:
   shared_ptr<SubmitAudioTo2DAvatarVideoTaskResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> success{};
+  shared_ptr<bool> success{};
 
   SubmitAudioTo2DAvatarVideoTaskResponseBody() {}
 
@@ -5963,7 +5970,7 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6378,7 +6385,7 @@ public:
   shared_ptr<SubmitAudioTo3DAvatarVideoTaskResponseBodyData> data{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
-  shared_ptr<string> success{};
+  shared_ptr<bool> success{};
 
   SubmitAudioTo3DAvatarVideoTaskResponseBody() {}
 
@@ -6426,7 +6433,7 @@ public:
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
-      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -6610,6 +6617,7 @@ public:
   shared_ptr<bool> isAlpha{};
   shared_ptr<bool> isSubtitles{};
   shared_ptr<long> resolution{};
+  shared_ptr<bool> subtitleEmbedded{};
 
   SubmitTextTo2DAvatarVideoTaskRequestVideoInfo() {}
 
@@ -6636,6 +6644,9 @@ public:
     if (resolution) {
       res["Resolution"] = boost::any(*resolution);
     }
+    if (subtitleEmbedded) {
+      res["SubtitleEmbedded"] = boost::any(*subtitleEmbedded);
+    }
     return res;
   }
 
@@ -6654,6 +6665,9 @@ public:
     }
     if (m.find("Resolution") != m.end() && !m["Resolution"].empty()) {
       resolution = make_shared<long>(boost::any_cast<long>(m["Resolution"]));
+    }
+    if (m.find("SubtitleEmbedded") != m.end() && !m["SubtitleEmbedded"].empty()) {
+      subtitleEmbedded = make_shared<bool>(boost::any_cast<bool>(m["SubtitleEmbedded"]));
     }
   }
 
@@ -7148,6 +7162,7 @@ public:
   shared_ptr<bool> isAlpha{};
   shared_ptr<bool> isSubtitles{};
   shared_ptr<long> resolution{};
+  shared_ptr<bool> subtitleEmbedded{};
 
   SubmitTextTo3DAvatarVideoTaskRequestVideoInfo() {}
 
@@ -7174,6 +7189,9 @@ public:
     if (resolution) {
       res["Resolution"] = boost::any(*resolution);
     }
+    if (subtitleEmbedded) {
+      res["SubtitleEmbedded"] = boost::any(*subtitleEmbedded);
+    }
     return res;
   }
 
@@ -7192,6 +7210,9 @@ public:
     }
     if (m.find("Resolution") != m.end() && !m["Resolution"].empty()) {
       resolution = make_shared<long>(boost::any_cast<long>(m["Resolution"]));
+    }
+    if (m.find("SubtitleEmbedded") != m.end() && !m["SubtitleEmbedded"].empty()) {
+      subtitleEmbedded = make_shared<bool>(boost::any_cast<bool>(m["SubtitleEmbedded"]));
     }
   }
 
