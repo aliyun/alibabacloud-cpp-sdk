@@ -7002,6 +7002,7 @@ public:
 };
 class DescribeDBInstanceNetInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceId{};
 
   DescribeDBInstanceNetInfoRequest() {}
@@ -7014,6 +7015,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (connectionString) {
+      res["ConnectionString"] = boost::any(*connectionString);
+    }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
@@ -7021,6 +7025,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
+      connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
@@ -16616,6 +16623,168 @@ public:
 
   virtual ~GrantCollectionResponse() = default;
 };
+class InitVectorDatabaseRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> managerAccount{};
+  shared_ptr<string> managerAccountPassword{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+
+  InitVectorDatabaseRequest() {}
+
+  explicit InitVectorDatabaseRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (managerAccount) {
+      res["ManagerAccount"] = boost::any(*managerAccount);
+    }
+    if (managerAccountPassword) {
+      res["ManagerAccountPassword"] = boost::any(*managerAccountPassword);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("ManagerAccount") != m.end() && !m["ManagerAccount"].empty()) {
+      managerAccount = make_shared<string>(boost::any_cast<string>(m["ManagerAccount"]));
+    }
+    if (m.find("ManagerAccountPassword") != m.end() && !m["ManagerAccountPassword"].empty()) {
+      managerAccountPassword = make_shared<string>(boost::any_cast<string>(m["ManagerAccountPassword"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~InitVectorDatabaseRequest() = default;
+};
+class InitVectorDatabaseResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  InitVectorDatabaseResponseBody() {}
+
+  explicit InitVectorDatabaseResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~InitVectorDatabaseResponseBody() = default;
+};
+class InitVectorDatabaseResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InitVectorDatabaseResponseBody> body{};
+
+  InitVectorDatabaseResponse() {}
+
+  explicit InitVectorDatabaseResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InitVectorDatabaseResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InitVectorDatabaseResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InitVectorDatabaseResponse() = default;
+};
 class ListCollectionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBInstanceId{};
@@ -19547,6 +19716,7 @@ class QueryCollectionDataResponseBodyMatchesMatch : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
   shared_ptr<map<string, string>> metadata{};
+  shared_ptr<double> similarity{};
   shared_ptr<QueryCollectionDataResponseBodyMatchesMatchValues> values{};
 
   QueryCollectionDataResponseBodyMatchesMatch() {}
@@ -19565,6 +19735,9 @@ public:
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
     }
+    if (similarity) {
+      res["Similarity"] = boost::any(*similarity);
+    }
     if (values) {
       res["Values"] = values ? boost::any(values->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -19582,6 +19755,9 @@ public:
          toMap1[item.first] = item.second;
       }
       metadata = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("Similarity") != m.end() && !m["Similarity"].empty()) {
+      similarity = make_shared<double>(boost::any_cast<double>(m["Similarity"]));
     }
     if (m.find("Values") != m.end() && !m["Values"].empty()) {
       if (typeid(map<string, boost::any>) == m["Values"].type()) {
@@ -19641,6 +19817,7 @@ public:
 class QueryCollectionDataResponseBody : public Darabonba::Model {
 public:
   shared_ptr<QueryCollectionDataResponseBodyMatches> matches{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
 
@@ -19656,6 +19833,9 @@ public:
     map<string, boost::any> res;
     if (matches) {
       res["Matches"] = matches ? boost::any(matches->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -19673,6 +19853,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Matches"]));
         matches = make_shared<QueryCollectionDataResponseBodyMatches>(model1);
       }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -22546,6 +22729,8 @@ public:
   DownloadSQLLogsRecordsResponse downloadSQLLogsRecords(shared_ptr<DownloadSQLLogsRecordsRequest> request);
   GrantCollectionResponse grantCollectionWithOptions(shared_ptr<GrantCollectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GrantCollectionResponse grantCollection(shared_ptr<GrantCollectionRequest> request);
+  InitVectorDatabaseResponse initVectorDatabaseWithOptions(shared_ptr<InitVectorDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InitVectorDatabaseResponse initVectorDatabase(shared_ptr<InitVectorDatabaseRequest> request);
   ListCollectionsResponse listCollectionsWithOptions(shared_ptr<ListCollectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCollectionsResponse listCollections(shared_ptr<ListCollectionsRequest> request);
   ListNamespacesResponse listNamespacesWithOptions(shared_ptr<ListNamespacesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

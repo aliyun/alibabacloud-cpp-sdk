@@ -1304,6 +1304,9 @@ DescribeDBInstanceIndexUsageResponse Alibabacloud_Gpdb20160503::Client::describe
 DescribeDBInstanceNetInfoResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceNetInfoWithOptions(shared_ptr<DescribeDBInstanceNetInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->connectionString)) {
+    query->insert(pair<string, string>("ConnectionString", *request->connectionString));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
@@ -2751,6 +2754,46 @@ GrantCollectionResponse Alibabacloud_Gpdb20160503::Client::grantCollectionWithOp
 GrantCollectionResponse Alibabacloud_Gpdb20160503::Client::grantCollection(shared_ptr<GrantCollectionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return grantCollectionWithOptions(request, runtime);
+}
+
+InitVectorDatabaseResponse Alibabacloud_Gpdb20160503::Client::initVectorDatabaseWithOptions(shared_ptr<InitVectorDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managerAccount)) {
+    query->insert(pair<string, string>("ManagerAccount", *request->managerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->managerAccountPassword)) {
+    query->insert(pair<string, string>("ManagerAccountPassword", *request->managerAccountPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InitVectorDatabase"))},
+    {"version", boost::any(string("2016-05-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InitVectorDatabaseResponse(callApi(params, req, runtime));
+}
+
+InitVectorDatabaseResponse Alibabacloud_Gpdb20160503::Client::initVectorDatabase(shared_ptr<InitVectorDatabaseRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return initVectorDatabaseWithOptions(request, runtime);
 }
 
 ListCollectionsResponse Alibabacloud_Gpdb20160503::Client::listCollectionsWithOptions(shared_ptr<ListCollectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
