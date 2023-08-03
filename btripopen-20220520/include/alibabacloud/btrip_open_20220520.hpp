@@ -4029,6 +4029,7 @@ public:
   shared_ptr<vector<ApplyListQueryResponseBodyModuleListItineraryList>> itineraryList{};
   shared_ptr<long> itineraryRule{};
   shared_ptr<vector<ApplyListQueryResponseBodyModuleListItinerarySetList>> itinerarySetList{};
+  shared_ptr<string> jobNo{};
   shared_ptr<long> status{};
   shared_ptr<string> statusDesc{};
   shared_ptr<string> thirdpartBusinessId{};
@@ -4109,6 +4110,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["itinerary_set_list"] = boost::any(temp1);
+    }
+    if (jobNo) {
+      res["job_no"] = boost::any(*jobNo);
     }
     if (status) {
       res["status"] = boost::any(*status);
@@ -4235,6 +4239,9 @@ public:
         }
         itinerarySetList = make_shared<vector<ApplyListQueryResponseBodyModuleListItinerarySetList>>(expect1);
       }
+    }
+    if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
+      jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
@@ -8414,9 +8421,14 @@ public:
 class CarBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
   shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityCode{};
   shared_ptr<string> arrDate{};
   shared_ptr<string> arrLocation{};
   shared_ptr<string> arrTime{};
@@ -8433,6 +8445,7 @@ public:
   shared_ptr<string> costCenterNumber{};
   shared_ptr<double> coupon{};
   shared_ptr<double> couponPrice{};
+  shared_ptr<string> depCityCode{};
   shared_ptr<string> department{};
   shared_ptr<string> departmentId{};
   shared_ptr<string> deptCity{};
@@ -8467,6 +8480,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> subOrderId{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdItineraryId{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
   shared_ptr<string> travelerName{};
@@ -8486,6 +8500,18 @@ public:
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
     }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
+    }
     if (applyExtendField) {
       res["apply_extend_field"] = boost::any(*applyExtendField);
     }
@@ -8494,6 +8520,9 @@ public:
     }
     if (arrCity) {
       res["arr_city"] = boost::any(*arrCity);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
     }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
@@ -8542,6 +8571,9 @@ public:
     }
     if (couponPrice) {
       res["coupon_price"] = boost::any(*couponPrice);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
     }
     if (department) {
       res["department"] = boost::any(*department);
@@ -8645,6 +8677,9 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
     if (travelerId) {
       res["traveler_id"] = boost::any(*travelerId);
     }
@@ -8667,6 +8702,18 @@ public:
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
     }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
+    }
     if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
       applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
@@ -8675,6 +8722,9 @@ public:
     }
     if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
       arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
     }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
@@ -8723,6 +8773,9 @@ public:
     }
     if (m.find("coupon_price") != m.end() && !m["coupon_price"].empty()) {
       couponPrice = make_shared<double>(boost::any_cast<double>(m["coupon_price"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
     }
     if (m.find("department") != m.end() && !m["department"].empty()) {
       department = make_shared<string>(boost::any_cast<string>(m["department"]));
@@ -8825,6 +8878,9 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
     }
     if (m.find("traveler_id") != m.end() && !m["traveler_id"].empty()) {
       travelerId = make_shared<string>(boost::any_cast<string>(m["traveler_id"]));
@@ -16389,10 +16445,15 @@ public:
   shared_ptr<string> airlineCorpCode{};
   shared_ptr<string> airlineCorpName{};
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
   shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrAirportCode{};
   shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityCode{};
   shared_ptr<string> arrDate{};
   shared_ptr<string> arrStation{};
   shared_ptr<string> arrTime{};
@@ -16413,6 +16474,7 @@ public:
   shared_ptr<string> costCenterNumber{};
   shared_ptr<double> coupon{};
   shared_ptr<string> depAirportCode{};
+  shared_ptr<string> depCityCode{};
   shared_ptr<string> department{};
   shared_ptr<string> departmentId{};
   shared_ptr<string> deptCity{};
@@ -16452,6 +16514,7 @@ public:
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdItineraryId{};
   shared_ptr<string> ticketId{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
@@ -16481,6 +16544,18 @@ public:
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
     }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
+    }
     if (applyExtendField) {
       res["apply_extend_field"] = boost::any(*applyExtendField);
     }
@@ -16492,6 +16567,9 @@ public:
     }
     if (arrCity) {
       res["arr_city"] = boost::any(*arrCity);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
     }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
@@ -16552,6 +16630,9 @@ public:
     }
     if (depAirportCode) {
       res["dep_airport_code"] = boost::any(*depAirportCode);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
     }
     if (department) {
       res["department"] = boost::any(*department);
@@ -16670,6 +16751,9 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
     if (ticketId) {
       res["ticket_id"] = boost::any(*ticketId);
     }
@@ -16704,6 +16788,18 @@ public:
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
     }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
+    }
     if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
       applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
@@ -16715,6 +16811,9 @@ public:
     }
     if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
       arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
     }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
@@ -16775,6 +16874,9 @@ public:
     }
     if (m.find("dep_airport_code") != m.end() && !m["dep_airport_code"].empty()) {
       depAirportCode = make_shared<string>(boost::any_cast<string>(m["dep_airport_code"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
     }
     if (m.find("department") != m.end() && !m["department"].empty()) {
       department = make_shared<string>(boost::any_cast<string>(m["department"]));
@@ -16892,6 +16994,9 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
     }
     if (m.find("ticket_id") != m.end() && !m["ticket_id"].empty()) {
       ticketId = make_shared<string>(boost::any_cast<string>(m["ticket_id"]));
@@ -37240,6 +37345,10 @@ public:
 class HotelBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
   shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> billRecordTime{};
@@ -37289,6 +37398,7 @@ public:
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdItineraryId{};
   shared_ptr<long> totalNights{};
   shared_ptr<string> travelerId{};
   shared_ptr<string> travelerJobNo{};
@@ -37307,6 +37417,18 @@ public:
     map<string, boost::any> res;
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
+    }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
     }
     if (applyExtendField) {
       res["apply_extend_field"] = boost::any(*applyExtendField);
@@ -37455,6 +37577,9 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
     if (totalNights) {
       res["total_nights"] = boost::any(*totalNights);
     }
@@ -37476,6 +37601,18 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
+    }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
     }
     if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
       applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
@@ -37623,6 +37760,9 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
     }
     if (m.find("total_nights") != m.end() && !m["total_nights"].empty()) {
       totalNights = make_shared<long>(boost::any_cast<long>(m["total_nights"]));
@@ -47724,10 +47864,15 @@ public:
   shared_ptr<string> airlineCorpCode{};
   shared_ptr<string> airlineCorpName{};
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
   shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
   shared_ptr<string> arrAirportCode{};
   shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityCode{};
   shared_ptr<string> arrDate{};
   shared_ptr<string> arrStation{};
   shared_ptr<string> arrTime{};
@@ -47748,6 +47893,7 @@ public:
   shared_ptr<string> costCenterNumber{};
   shared_ptr<double> coupon{};
   shared_ptr<string> depAirportCode{};
+  shared_ptr<string> depCityCode{};
   shared_ptr<string> department{};
   shared_ptr<string> departmentId{};
   shared_ptr<string> deptCity{};
@@ -47788,6 +47934,7 @@ public:
   shared_ptr<string> subOrderId{};
   shared_ptr<double> taxFee{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdItineraryId{};
   shared_ptr<string> ticketId{};
   shared_ptr<string> trade{};
   shared_ptr<string> travelerId{};
@@ -47817,6 +47964,18 @@ public:
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
     }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
+    }
     if (applyExtendField) {
       res["apply_extend_field"] = boost::any(*applyExtendField);
     }
@@ -47828,6 +47987,9 @@ public:
     }
     if (arrCity) {
       res["arr_city"] = boost::any(*arrCity);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
     }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
@@ -47888,6 +48050,9 @@ public:
     }
     if (depAirportCode) {
       res["dep_airport_code"] = boost::any(*depAirportCode);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
     }
     if (department) {
       res["department"] = boost::any(*department);
@@ -48009,6 +48174,9 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
     if (ticketId) {
       res["ticket_id"] = boost::any(*ticketId);
     }
@@ -48043,6 +48211,18 @@ public:
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
     }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
+    }
     if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
       applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
@@ -48054,6 +48234,9 @@ public:
     }
     if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
       arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
     }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
@@ -48114,6 +48297,9 @@ public:
     }
     if (m.find("dep_airport_code") != m.end() && !m["dep_airport_code"].empty()) {
       depAirportCode = make_shared<string>(boost::any_cast<string>(m["dep_airport_code"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
     }
     if (m.find("department") != m.end() && !m["department"].empty()) {
       department = make_shared<string>(boost::any_cast<string>(m["department"]));
@@ -48234,6 +48420,9 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
     }
     if (m.find("ticket_id") != m.end() && !m["ticket_id"].empty()) {
       ticketId = make_shared<string>(boost::any_cast<string>(m["ticket_id"]));
@@ -59524,8 +59713,13 @@ public:
 class TrainBillSettlementQueryResponseBodyModuleDataList : public Darabonba::Model {
 public:
   shared_ptr<string> alipayTradeNo{};
+  shared_ptr<string> applyArrCityCode{};
+  shared_ptr<string> applyArrCityName{};
+  shared_ptr<string> applyDepCityCode{};
+  shared_ptr<string> applyDepCityName{};
   shared_ptr<string> applyExtendField{};
   shared_ptr<string> applyId{};
+  shared_ptr<string> arrCityCode{};
   shared_ptr<string> arrDate{};
   shared_ptr<string> arrStation{};
   shared_ptr<string> arrTime{};
@@ -59540,6 +59734,7 @@ public:
   shared_ptr<string> costCenter{};
   shared_ptr<string> costCenterNumber{};
   shared_ptr<double> coupon{};
+  shared_ptr<string> depCityCode{};
   shared_ptr<string> department{};
   shared_ptr<string> departmentId{};
   shared_ptr<string> deptDate{};
@@ -59566,6 +59761,7 @@ public:
   shared_ptr<string> settlementType{};
   shared_ptr<long> status{};
   shared_ptr<string> taxRate{};
+  shared_ptr<string> thirdItineraryId{};
   shared_ptr<string> ticketNo{};
   shared_ptr<double> ticketPrice{};
   shared_ptr<string> trainNo{};
@@ -59588,11 +59784,26 @@ public:
     if (alipayTradeNo) {
       res["alipay_trade_no"] = boost::any(*alipayTradeNo);
     }
+    if (applyArrCityCode) {
+      res["apply_arr_city_code"] = boost::any(*applyArrCityCode);
+    }
+    if (applyArrCityName) {
+      res["apply_arr_city_name"] = boost::any(*applyArrCityName);
+    }
+    if (applyDepCityCode) {
+      res["apply_dep_city_code"] = boost::any(*applyDepCityCode);
+    }
+    if (applyDepCityName) {
+      res["apply_dep_city_name"] = boost::any(*applyDepCityName);
+    }
     if (applyExtendField) {
       res["apply_extend_field"] = boost::any(*applyExtendField);
     }
     if (applyId) {
       res["apply_id"] = boost::any(*applyId);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
     }
     if (arrDate) {
       res["arr_date"] = boost::any(*arrDate);
@@ -59635,6 +59846,9 @@ public:
     }
     if (coupon) {
       res["coupon"] = boost::any(*coupon);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
     }
     if (department) {
       res["department"] = boost::any(*department);
@@ -59714,6 +59928,9 @@ public:
     if (taxRate) {
       res["tax_rate"] = boost::any(*taxRate);
     }
+    if (thirdItineraryId) {
+      res["third_itinerary_id"] = boost::any(*thirdItineraryId);
+    }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
     }
@@ -59745,11 +59962,26 @@ public:
     if (m.find("alipay_trade_no") != m.end() && !m["alipay_trade_no"].empty()) {
       alipayTradeNo = make_shared<string>(boost::any_cast<string>(m["alipay_trade_no"]));
     }
+    if (m.find("apply_arr_city_code") != m.end() && !m["apply_arr_city_code"].empty()) {
+      applyArrCityCode = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_code"]));
+    }
+    if (m.find("apply_arr_city_name") != m.end() && !m["apply_arr_city_name"].empty()) {
+      applyArrCityName = make_shared<string>(boost::any_cast<string>(m["apply_arr_city_name"]));
+    }
+    if (m.find("apply_dep_city_code") != m.end() && !m["apply_dep_city_code"].empty()) {
+      applyDepCityCode = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_code"]));
+    }
+    if (m.find("apply_dep_city_name") != m.end() && !m["apply_dep_city_name"].empty()) {
+      applyDepCityName = make_shared<string>(boost::any_cast<string>(m["apply_dep_city_name"]));
+    }
     if (m.find("apply_extend_field") != m.end() && !m["apply_extend_field"].empty()) {
       applyExtendField = make_shared<string>(boost::any_cast<string>(m["apply_extend_field"]));
     }
     if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
       applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
     }
     if (m.find("arr_date") != m.end() && !m["arr_date"].empty()) {
       arrDate = make_shared<string>(boost::any_cast<string>(m["arr_date"]));
@@ -59792,6 +60024,9 @@ public:
     }
     if (m.find("coupon") != m.end() && !m["coupon"].empty()) {
       coupon = make_shared<double>(boost::any_cast<double>(m["coupon"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
     }
     if (m.find("department") != m.end() && !m["department"].empty()) {
       department = make_shared<string>(boost::any_cast<string>(m["department"]));
@@ -59870,6 +60105,9 @@ public:
     }
     if (m.find("tax_rate") != m.end() && !m["tax_rate"].empty()) {
       taxRate = make_shared<string>(boost::any_cast<string>(m["tax_rate"]));
+    }
+    if (m.find("third_itinerary_id") != m.end() && !m["third_itinerary_id"].empty()) {
+      thirdItineraryId = make_shared<string>(boost::any_cast<string>(m["third_itinerary_id"]));
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
