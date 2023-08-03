@@ -3438,6 +3438,46 @@ DescribeDomainResponse Alibabacloud_CloudAPI20160714::Client::describeDomain(sha
   return describeDomainWithOptions(request, runtime);
 }
 
+DescribeGroupQpsResponse Alibabacloud_CloudAPI20160714::Client::describeGroupQpsWithOptions(shared_ptr<DescribeGroupQpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->stageName)) {
+    query->insert(pair<string, string>("StageName", *request->stageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeGroupQps"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeGroupQpsResponse(callApi(params, req, runtime));
+}
+
+DescribeGroupQpsResponse Alibabacloud_CloudAPI20160714::Client::describeGroupQps(shared_ptr<DescribeGroupQpsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeGroupQpsWithOptions(request, runtime);
+}
+
 DescribeHistoryApisResponse Alibabacloud_CloudAPI20160714::Client::describeHistoryApisWithOptions(shared_ptr<DescribeHistoryApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
