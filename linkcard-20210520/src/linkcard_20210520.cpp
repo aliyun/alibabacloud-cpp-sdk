@@ -734,6 +734,9 @@ ListCardInfoResponse Alibabacloud_Linkcard20210520::Client::listCardInfoWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->msisdn)) {
     query->insert(pair<string, string>("Msisdn", *request->msisdn));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkType)) {
+    query->insert(pair<string, string>("NetworkType", *request->networkType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyId)) {
     query->insert(pair<string, string>("NotifyId", *request->notifyId));
   }

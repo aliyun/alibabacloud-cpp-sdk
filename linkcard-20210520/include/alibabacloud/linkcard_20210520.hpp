@@ -5291,6 +5291,7 @@ public:
   shared_ptr<double> maxRestFlowPercentage{};
   shared_ptr<string> minFlow{};
   shared_ptr<string> msisdn{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> notifyId{};
   shared_ptr<string> osStatus{};
   shared_ptr<long> pageNo{};
@@ -5368,6 +5369,9 @@ public:
     }
     if (msisdn) {
       res["Msisdn"] = boost::any(*msisdn);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (notifyId) {
       res["NotifyId"] = boost::any(*notifyId);
@@ -5460,6 +5464,9 @@ public:
     if (m.find("Msisdn") != m.end() && !m["Msisdn"].empty()) {
       msisdn = make_shared<string>(boost::any_cast<string>(m["Msisdn"]));
     }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
     if (m.find("NotifyId") != m.end() && !m["NotifyId"].empty()) {
       notifyId = make_shared<string>(boost::any_cast<string>(m["NotifyId"]));
     }
@@ -5547,10 +5554,12 @@ public:
   shared_ptr<long> directionalGroupId{};
   shared_ptr<string> directionalGroupName{};
   shared_ptr<string> expireTime{};
+  shared_ptr<string> flowLatestModifiedTime{};
   shared_ptr<string> iccid{};
   shared_ptr<vector<string>> imsi{};
   shared_ptr<bool> isAutoRecharge{};
   shared_ptr<vector<string>> msisdn{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> notifyId{};
   shared_ptr<string> openAccountTime{};
   shared_ptr<string> osStatus{};
@@ -5618,6 +5627,9 @@ public:
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
     }
+    if (flowLatestModifiedTime) {
+      res["FlowLatestModifiedTime"] = boost::any(*flowLatestModifiedTime);
+    }
     if (iccid) {
       res["Iccid"] = boost::any(*iccid);
     }
@@ -5629,6 +5641,9 @@ public:
     }
     if (msisdn) {
       res["Msisdn"] = boost::any(*msisdn);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (notifyId) {
       res["NotifyId"] = boost::any(*notifyId);
@@ -5722,6 +5737,9 @@ public:
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
     }
+    if (m.find("FlowLatestModifiedTime") != m.end() && !m["FlowLatestModifiedTime"].empty()) {
+      flowLatestModifiedTime = make_shared<string>(boost::any_cast<string>(m["FlowLatestModifiedTime"]));
+    }
     if (m.find("Iccid") != m.end() && !m["Iccid"].empty()) {
       iccid = make_shared<string>(boost::any_cast<string>(m["Iccid"]));
     }
@@ -5747,6 +5765,9 @@ public:
         }
       }
       msisdn = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("NotifyId") != m.end() && !m["NotifyId"].empty()) {
       notifyId = make_shared<string>(boost::any_cast<string>(m["NotifyId"]));
@@ -6805,6 +6826,7 @@ public:
   shared_ptr<vector<string>> expressNoList{};
   shared_ptr<string> flowType{};
   shared_ptr<long> functionFee{};
+  shared_ptr<string> networkType{};
   shared_ptr<string> orderDetailUrl{};
   shared_ptr<string> orderId{};
   shared_ptr<string> orderInfo{};
@@ -6866,6 +6888,9 @@ public:
     }
     if (functionFee) {
       res["FunctionFee"] = boost::any(*functionFee);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
     }
     if (orderDetailUrl) {
       res["OrderDetailUrl"] = boost::any(*orderDetailUrl);
@@ -6956,6 +6981,9 @@ public:
     }
     if (m.find("FunctionFee") != m.end() && !m["FunctionFee"].empty()) {
       functionFee = make_shared<long>(boost::any_cast<long>(m["FunctionFee"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
     }
     if (m.find("OrderDetailUrl") != m.end() && !m["OrderDetailUrl"].empty()) {
       orderDetailUrl = make_shared<string>(boost::any_cast<string>(m["OrderDetailUrl"]));
