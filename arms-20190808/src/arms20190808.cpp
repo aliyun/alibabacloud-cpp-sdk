@@ -2352,11 +2352,19 @@ DeleteSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::deleteSyntheticTa
   return deleteSyntheticTaskWithOptions(request, runtime);
 }
 
-DeleteTraceAppResponse Alibabacloud_ARMS20190808::Client::deleteTraceAppWithOptions(shared_ptr<DeleteTraceAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+DeleteTraceAppResponse Alibabacloud_ARMS20190808::Client::deleteTraceAppWithOptions(shared_ptr<DeleteTraceAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<DeleteTraceAppShrinkRequest> request = make_shared<DeleteTraceAppShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<DeleteTraceAppRequestDeleteReason>(tmpReq->deleteReason)) {
+    request->deleteReasonShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->deleteReason, make_shared<string>("DeleteReason"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deleteReasonShrink)) {
+    query->insert(pair<string, string>("DeleteReason", *request->deleteReasonShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
     query->insert(pair<string, string>("Pid", *request->pid));
@@ -6360,6 +6368,12 @@ UpdatePrometheusGlobalViewResponse Alibabacloud_ARMS20190808::Client::updateProm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
+    query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mostRegionId)) {
+    query->insert(pair<string, string>("MostRegionId", *request->mostRegionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

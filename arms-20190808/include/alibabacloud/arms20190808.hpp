@@ -15522,9 +15522,96 @@ public:
 
   virtual ~DeleteSyntheticTaskResponse() = default;
 };
+class DeleteTraceAppRequestDeleteReasonReasonIds : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  DeleteTraceAppRequestDeleteReasonReasonIds() {}
+
+  explicit DeleteTraceAppRequestDeleteReasonReasonIds(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DeleteTraceAppRequestDeleteReasonReasonIds() = default;
+};
+class DeleteTraceAppRequestDeleteReason : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeleteTraceAppRequestDeleteReasonReasonIds>> reasonIds{};
+  shared_ptr<string> remark{};
+
+  DeleteTraceAppRequestDeleteReason() {}
+
+  explicit DeleteTraceAppRequestDeleteReason(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (reasonIds) {
+      vector<boost::any> temp1;
+      for(auto item1:*reasonIds){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReasonIds"] = boost::any(temp1);
+    }
+    if (remark) {
+      res["Remark"] = boost::any(*remark);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReasonIds") != m.end() && !m["ReasonIds"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReasonIds"].type()) {
+        vector<DeleteTraceAppRequestDeleteReasonReasonIds> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReasonIds"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeleteTraceAppRequestDeleteReasonReasonIds model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        reasonIds = make_shared<vector<DeleteTraceAppRequestDeleteReasonReasonIds>>(expect1);
+      }
+    }
+    if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
+      remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));
+    }
+  }
+
+
+  virtual ~DeleteTraceAppRequestDeleteReason() = default;
+};
 class DeleteTraceAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<DeleteTraceAppRequestDeleteReason> deleteReason{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> type{};
@@ -15542,6 +15629,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (deleteReason) {
+      res["DeleteReason"] = deleteReason ? boost::any(deleteReason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (pid) {
       res["Pid"] = boost::any(*pid);
     }
@@ -15558,6 +15648,13 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
+    if (m.find("DeleteReason") != m.end() && !m["DeleteReason"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DeleteReason"].type()) {
+        DeleteTraceAppRequestDeleteReason model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DeleteReason"]));
+        deleteReason = make_shared<DeleteTraceAppRequestDeleteReason>(model1);
+      }
+    }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
     }
@@ -15572,10 +15669,70 @@ public:
 
   virtual ~DeleteTraceAppRequest() = default;
 };
+class DeleteTraceAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> deleteReasonShrink{};
+  shared_ptr<string> pid{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
+
+  DeleteTraceAppShrinkRequest() {}
+
+  explicit DeleteTraceAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (deleteReasonShrink) {
+      res["DeleteReason"] = boost::any(*deleteReasonShrink);
+    }
+    if (pid) {
+      res["Pid"] = boost::any(*pid);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DeleteReason") != m.end() && !m["DeleteReason"].empty()) {
+      deleteReasonShrink = make_shared<string>(boost::any_cast<string>(m["DeleteReason"]));
+    }
+    if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
+      pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~DeleteTraceAppShrinkRequest() = default;
+};
 class DeleteTraceAppResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
   shared_ptr<string> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   DeleteTraceAppResponseBody() {}
 
@@ -15587,21 +15744,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (data) {
       res["Data"] = boost::any(*data);
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
     }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -38908,8 +39083,11 @@ public:
 };
 class SaveTraceAppConfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> code{};
   shared_ptr<string> data{};
+  shared_ptr<string> message{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
 
   SaveTraceAppConfigResponseBody() {}
 
@@ -38921,21 +39099,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
     if (data) {
       res["Data"] = boost::any(*data);
     }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<string>(boost::any_cast<string>(m["Data"]));
     }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
     }
   }
 
@@ -46383,6 +46579,8 @@ class UpdatePrometheusGlobalViewRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allSubClustersSuccess{};
   shared_ptr<string> clusterId{};
+  shared_ptr<string> groupName{};
+  shared_ptr<string> mostRegionId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subClustersJson{};
@@ -46403,6 +46601,12 @@ public:
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
+    }
+    if (mostRegionId) {
+      res["MostRegionId"] = boost::any(*mostRegionId);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -46421,6 +46625,12 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("MostRegionId") != m.end() && !m["MostRegionId"].empty()) {
+      mostRegionId = make_shared<string>(boost::any_cast<string>(m["MostRegionId"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -47886,7 +48096,7 @@ public:
   DeleteSourceMapResponse deleteSourceMap(shared_ptr<DeleteSourceMapRequest> request);
   DeleteSyntheticTaskResponse deleteSyntheticTaskWithOptions(shared_ptr<DeleteSyntheticTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSyntheticTaskResponse deleteSyntheticTask(shared_ptr<DeleteSyntheticTaskRequest> request);
-  DeleteTraceAppResponse deleteTraceAppWithOptions(shared_ptr<DeleteTraceAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteTraceAppResponse deleteTraceAppWithOptions(shared_ptr<DeleteTraceAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteTraceAppResponse deleteTraceApp(shared_ptr<DeleteTraceAppRequest> request);
   DeleteWebhookContactResponse deleteWebhookContactWithOptions(shared_ptr<DeleteWebhookContactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteWebhookContactResponse deleteWebhookContact(shared_ptr<DeleteWebhookContactRequest> request);
