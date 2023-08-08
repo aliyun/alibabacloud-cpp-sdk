@@ -8904,6 +8904,7 @@ class CreateSiteMonitorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> alertIds{};
+  shared_ptr<string> customSchedule{};
   shared_ptr<string> interval{};
   shared_ptr<string> ispCities{};
   shared_ptr<string> optionsJson{};
@@ -8926,6 +8927,9 @@ public:
     }
     if (alertIds) {
       res["AlertIds"] = boost::any(*alertIds);
+    }
+    if (customSchedule) {
+      res["CustomSchedule"] = boost::any(*customSchedule);
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
@@ -8954,6 +8958,9 @@ public:
     }
     if (m.find("AlertIds") != m.end() && !m["AlertIds"].empty()) {
       alertIds = make_shared<string>(boost::any_cast<string>(m["AlertIds"]));
+    }
+    if (m.find("CustomSchedule") != m.end() && !m["CustomSchedule"].empty()) {
+      customSchedule = make_shared<string>(boost::any_cast<string>(m["CustomSchedule"]));
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
@@ -36714,6 +36721,96 @@ public:
 
   virtual ~DescribeSiteMonitorAttributeResponseBodyMetricRules() = default;
 };
+class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> days{};
+
+  DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays() {}
+
+  explicit DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (days) {
+      res["days"] = boost::any(*days);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("days") != m.end() && !m["days"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["days"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["days"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      days = make_shared<vector<long>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays() = default;
+};
+class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule : public Darabonba::Model {
+public:
+  shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays> days{};
+  shared_ptr<long> endHour{};
+  shared_ptr<long> startHour{};
+  shared_ptr<string> timeZone{};
+
+  DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule() {}
+
+  explicit DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (days) {
+      res["days"] = days ? boost::any(days->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (endHour) {
+      res["end_hour"] = boost::any(*endHour);
+    }
+    if (startHour) {
+      res["start_hour"] = boost::any(*startHour);
+    }
+    if (timeZone) {
+      res["time_zone"] = boost::any(*timeZone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("days") != m.end() && !m["days"].empty()) {
+      if (typeid(map<string, boost::any>) == m["days"].type()) {
+        DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["days"]));
+        days = make_shared<DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays>(model1);
+      }
+    }
+    if (m.find("end_hour") != m.end() && !m["end_hour"].empty()) {
+      endHour = make_shared<long>(boost::any_cast<long>(m["end_hour"]));
+    }
+    if (m.find("start_hour") != m.end() && !m["start_hour"].empty()) {
+      startHour = make_shared<long>(boost::any_cast<long>(m["start_hour"]));
+    }
+    if (m.find("time_zone") != m.end() && !m["time_zone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["time_zone"]));
+    }
+  }
+
+
+  virtual ~DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule() = default;
+};
 class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCity : public Darabonba::Model {
 public:
   shared_ptr<string> city{};
@@ -37124,6 +37221,7 @@ class DescribeSiteMonitorAttributeResponseBodySiteMonitors : public Darabonba::M
 public:
   shared_ptr<string> address{};
   shared_ptr<string> agentGroup{};
+  shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule> customSchedule{};
   shared_ptr<string> interval{};
   shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities> ispCities{};
   shared_ptr<DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson> optionJson{};
@@ -37147,6 +37245,9 @@ public:
     }
     if (agentGroup) {
       res["AgentGroup"] = boost::any(*agentGroup);
+    }
+    if (customSchedule) {
+      res["CustomSchedule"] = customSchedule ? boost::any(customSchedule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
@@ -37178,6 +37279,13 @@ public:
     }
     if (m.find("AgentGroup") != m.end() && !m["AgentGroup"].empty()) {
       agentGroup = make_shared<string>(boost::any_cast<string>(m["AgentGroup"]));
+    }
+    if (m.find("CustomSchedule") != m.end() && !m["CustomSchedule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CustomSchedule"].type()) {
+        DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CustomSchedule"]));
+        customSchedule = make_shared<DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule>(model1);
+      }
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
@@ -46284,6 +46392,7 @@ class ModifySiteMonitorRequest : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<string> alertIds{};
+  shared_ptr<string> customSchedule{};
   shared_ptr<string> interval{};
   shared_ptr<string> intervalUnit{};
   shared_ptr<string> ispCities{};
@@ -46307,6 +46416,9 @@ public:
     }
     if (alertIds) {
       res["AlertIds"] = boost::any(*alertIds);
+    }
+    if (customSchedule) {
+      res["CustomSchedule"] = boost::any(*customSchedule);
     }
     if (interval) {
       res["Interval"] = boost::any(*interval);
@@ -46338,6 +46450,9 @@ public:
     }
     if (m.find("AlertIds") != m.end() && !m["AlertIds"].empty()) {
       alertIds = make_shared<string>(boost::any_cast<string>(m["AlertIds"]));
+    }
+    if (m.find("CustomSchedule") != m.end() && !m["CustomSchedule"].empty()) {
+      customSchedule = make_shared<string>(boost::any_cast<string>(m["CustomSchedule"]));
     }
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));

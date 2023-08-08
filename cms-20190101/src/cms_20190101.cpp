@@ -1067,6 +1067,9 @@ CreateSiteMonitorResponse Alibabacloud_Cms20190101::Client::createSiteMonitorWit
   if (!Darabonba_Util::Client::isUnset<string>(request->alertIds)) {
     query->insert(pair<string, string>("AlertIds", *request->alertIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customSchedule)) {
+    query->insert(pair<string, string>("CustomSchedule", *request->customSchedule));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
     query->insert(pair<string, string>("Interval", *request->interval));
   }
@@ -5358,6 +5361,9 @@ ModifySiteMonitorResponse Alibabacloud_Cms20190101::Client::modifySiteMonitorWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->alertIds)) {
     query->insert(pair<string, string>("AlertIds", *request->alertIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->customSchedule)) {
+    query->insert(pair<string, string>("CustomSchedule", *request->customSchedule));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
     query->insert(pair<string, string>("Interval", *request->interval));
