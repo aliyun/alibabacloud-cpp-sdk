@@ -4727,11 +4727,26 @@ ListGrantVSwitchEnisResponse Alibabacloud_Cbn20170912::Client::listGrantVSwitchE
   if (!Darabonba_Util::Client::isUnset<string>(request->cenId)) {
     query->insert(pair<string, string>("CenId", *request->cenId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->networkInterfaceId)) {
+    query->insert(pair<string, vector<string>>("NetworkInterfaceId", *request->networkInterfaceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkInterfaceName)) {
+    query->insert(pair<string, string>("NetworkInterfaceName", *request->networkInterfaceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->primaryIpAddress)) {
+    query->insert(pair<string, string>("PrimaryIpAddress", *request->primaryIpAddress));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));

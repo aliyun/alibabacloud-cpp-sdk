@@ -22727,8 +22727,13 @@ public:
 class ListGrantVSwitchEnisRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cenId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<vector<string>> networkInterfaceId{};
+  shared_ptr<string> networkInterfaceName{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> primaryIpAddress{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> vSwitchId{};
@@ -22747,11 +22752,26 @@ public:
     if (cenId) {
       res["CenId"] = boost::any(*cenId);
     }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (networkInterfaceId) {
+      res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
+    }
+    if (networkInterfaceName) {
+      res["NetworkInterfaceName"] = boost::any(*networkInterfaceName);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (primaryIpAddress) {
+      res["PrimaryIpAddress"] = boost::any(*primaryIpAddress);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -22772,11 +22792,33 @@ public:
     if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
       cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
     }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NetworkInterfaceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NetworkInterfaceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      networkInterfaceId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("NetworkInterfaceName") != m.end() && !m["NetworkInterfaceName"].empty()) {
+      networkInterfaceName = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceName"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PrimaryIpAddress") != m.end() && !m["PrimaryIpAddress"].empty()) {
+      primaryIpAddress = make_shared<string>(boost::any_cast<string>(m["PrimaryIpAddress"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -22799,6 +22841,8 @@ class ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis : public Darabonba::Model
 public:
   shared_ptr<string> description{};
   shared_ptr<string> networkInterfaceId{};
+  shared_ptr<string> networkInterfaceName{};
+  shared_ptr<string> primaryIpAddress{};
   shared_ptr<bool> transitRouterFlag{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -22819,6 +22863,12 @@ public:
     if (networkInterfaceId) {
       res["NetworkInterfaceId"] = boost::any(*networkInterfaceId);
     }
+    if (networkInterfaceName) {
+      res["NetworkInterfaceName"] = boost::any(*networkInterfaceName);
+    }
+    if (primaryIpAddress) {
+      res["PrimaryIpAddress"] = boost::any(*primaryIpAddress);
+    }
     if (transitRouterFlag) {
       res["TransitRouterFlag"] = boost::any(*transitRouterFlag);
     }
@@ -22838,6 +22888,12 @@ public:
     if (m.find("NetworkInterfaceId") != m.end() && !m["NetworkInterfaceId"].empty()) {
       networkInterfaceId = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceId"]));
     }
+    if (m.find("NetworkInterfaceName") != m.end() && !m["NetworkInterfaceName"].empty()) {
+      networkInterfaceName = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceName"]));
+    }
+    if (m.find("PrimaryIpAddress") != m.end() && !m["PrimaryIpAddress"].empty()) {
+      primaryIpAddress = make_shared<string>(boost::any_cast<string>(m["PrimaryIpAddress"]));
+    }
     if (m.find("TransitRouterFlag") != m.end() && !m["TransitRouterFlag"].empty()) {
       transitRouterFlag = make_shared<bool>(boost::any_cast<bool>(m["TransitRouterFlag"]));
     }
@@ -22855,6 +22911,8 @@ public:
 class ListGrantVSwitchEnisResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis>> grantVSwitchEnis{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<string> totalCount{};
 
@@ -22874,6 +22932,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["GrantVSwitchEnis"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -22897,6 +22961,12 @@ public:
         }
         grantVSwitchEnis = make_shared<vector<ListGrantVSwitchEnisResponseBodyGrantVSwitchEnis>>(expect1);
       }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
