@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_TINGWU20220930_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -15,7 +16,9 @@ using namespace std;
 namespace Alibabacloud_Tingwu20220930 {
 class CreateFileTransRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> abilityParams{};
   shared_ptr<string> appKey{};
+  shared_ptr<map<string, boost::any>> asrParams{};
   shared_ptr<string> audioLanguage{};
   shared_ptr<string> audioOssBucket{};
   shared_ptr<string> audioOssPath{};
@@ -24,9 +27,14 @@ public:
   shared_ptr<string> audioOutputOssPath{};
   shared_ptr<string> audioRoleNum{};
   shared_ptr<bool> audioSegmentsEnabled{};
+  shared_ptr<map<string, boost::any>> labParams{};
+  shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> transKey{};
   shared_ptr<string> transResultOssBucket{};
   shared_ptr<string> transResultOssPath{};
+  shared_ptr<bool> videoOutputEnabled{};
+  shared_ptr<string> videoOutputOssBucket{};
+  shared_ptr<string> videoOutputOssPath{};
 
   CreateFileTransRequest() {}
 
@@ -38,8 +46,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abilityParams) {
+      res["AbilityParams"] = boost::any(*abilityParams);
+    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
+    }
+    if (asrParams) {
+      res["AsrParams"] = boost::any(*asrParams);
     }
     if (audioLanguage) {
       res["AudioLanguage"] = boost::any(*audioLanguage);
@@ -65,6 +79,12 @@ public:
     if (audioSegmentsEnabled) {
       res["AudioSegmentsEnabled"] = boost::any(*audioSegmentsEnabled);
     }
+    if (labParams) {
+      res["LabParams"] = boost::any(*labParams);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     if (transKey) {
       res["TransKey"] = boost::any(*transKey);
     }
@@ -74,12 +94,37 @@ public:
     if (transResultOssPath) {
       res["TransResultOssPath"] = boost::any(*transResultOssPath);
     }
+    if (videoOutputEnabled) {
+      res["VideoOutputEnabled"] = boost::any(*videoOutputEnabled);
+    }
+    if (videoOutputOssBucket) {
+      res["VideoOutputOssBucket"] = boost::any(*videoOutputOssBucket);
+    }
+    if (videoOutputOssPath) {
+      res["VideoOutputOssPath"] = boost::any(*videoOutputOssPath);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbilityParams") != m.end() && !m["AbilityParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AbilityParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      abilityParams = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AsrParams") != m.end() && !m["AsrParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AsrParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      asrParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("AudioLanguage") != m.end() && !m["AudioLanguage"].empty()) {
       audioLanguage = make_shared<string>(boost::any_cast<string>(m["AudioLanguage"]));
@@ -105,6 +150,22 @@ public:
     if (m.find("AudioSegmentsEnabled") != m.end() && !m["AudioSegmentsEnabled"].empty()) {
       audioSegmentsEnabled = make_shared<bool>(boost::any_cast<bool>(m["AudioSegmentsEnabled"]));
     }
+    if (m.find("LabParams") != m.end() && !m["LabParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["LabParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labParams = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("TransKey") != m.end() && !m["TransKey"].empty()) {
       transKey = make_shared<string>(boost::any_cast<string>(m["TransKey"]));
     }
@@ -113,6 +174,15 @@ public:
     }
     if (m.find("TransResultOssPath") != m.end() && !m["TransResultOssPath"].empty()) {
       transResultOssPath = make_shared<string>(boost::any_cast<string>(m["TransResultOssPath"]));
+    }
+    if (m.find("VideoOutputEnabled") != m.end() && !m["VideoOutputEnabled"].empty()) {
+      videoOutputEnabled = make_shared<bool>(boost::any_cast<bool>(m["VideoOutputEnabled"]));
+    }
+    if (m.find("VideoOutputOssBucket") != m.end() && !m["VideoOutputOssBucket"].empty()) {
+      videoOutputOssBucket = make_shared<string>(boost::any_cast<string>(m["VideoOutputOssBucket"]));
+    }
+    if (m.find("VideoOutputOssPath") != m.end() && !m["VideoOutputOssPath"].empty()) {
+      videoOutputOssPath = make_shared<string>(boost::any_cast<string>(m["VideoOutputOssPath"]));
     }
   }
 
@@ -273,7 +343,9 @@ public:
 };
 class CreateMeetingTransRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, boost::any>> abilityParams{};
   shared_ptr<string> appKey{};
+  shared_ptr<map<string, boost::any>> asrParams{};
   shared_ptr<long> audioBitRate{};
   shared_ptr<string> audioFormat{};
   shared_ptr<string> audioLanguage{};
@@ -284,6 +356,7 @@ public:
   shared_ptr<long> audioSampleRate{};
   shared_ptr<bool> audioSegmentsEnabled{};
   shared_ptr<bool> docResultEnabled{};
+  shared_ptr<map<string, boost::any>> labParams{};
   shared_ptr<string> meetingKey{};
   shared_ptr<bool> meetingResultEnabled{};
   shared_ptr<string> meetingResultOssBucket{};
@@ -291,6 +364,13 @@ public:
   shared_ptr<long> realtimeActiveResultLevel{};
   shared_ptr<bool> realtimeResultEnabled{};
   shared_ptr<long> realtimeResultLevel{};
+  shared_ptr<bool> realtimeResultMeetingInfoEnabled{};
+  shared_ptr<bool> realtimeResultWordsEnabled{};
+  shared_ptr<map<string, boost::any>> tags{};
+  shared_ptr<long> translateActiveResultLevel{};
+  shared_ptr<string> translateLanguages{};
+  shared_ptr<bool> translateResultEnabled{};
+  shared_ptr<long> translateResultLevel{};
 
   CreateMeetingTransRequest() {}
 
@@ -302,8 +382,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abilityParams) {
+      res["AbilityParams"] = boost::any(*abilityParams);
+    }
     if (appKey) {
       res["AppKey"] = boost::any(*appKey);
+    }
+    if (asrParams) {
+      res["AsrParams"] = boost::any(*asrParams);
     }
     if (audioBitRate) {
       res["AudioBitRate"] = boost::any(*audioBitRate);
@@ -335,6 +421,9 @@ public:
     if (docResultEnabled) {
       res["DocResultEnabled"] = boost::any(*docResultEnabled);
     }
+    if (labParams) {
+      res["LabParams"] = boost::any(*labParams);
+    }
     if (meetingKey) {
       res["MeetingKey"] = boost::any(*meetingKey);
     }
@@ -356,12 +445,49 @@ public:
     if (realtimeResultLevel) {
       res["RealtimeResultLevel"] = boost::any(*realtimeResultLevel);
     }
+    if (realtimeResultMeetingInfoEnabled) {
+      res["RealtimeResultMeetingInfoEnabled"] = boost::any(*realtimeResultMeetingInfoEnabled);
+    }
+    if (realtimeResultWordsEnabled) {
+      res["RealtimeResultWordsEnabled"] = boost::any(*realtimeResultWordsEnabled);
+    }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
+    if (translateActiveResultLevel) {
+      res["TranslateActiveResultLevel"] = boost::any(*translateActiveResultLevel);
+    }
+    if (translateLanguages) {
+      res["TranslateLanguages"] = boost::any(*translateLanguages);
+    }
+    if (translateResultEnabled) {
+      res["TranslateResultEnabled"] = boost::any(*translateResultEnabled);
+    }
+    if (translateResultLevel) {
+      res["TranslateResultLevel"] = boost::any(*translateResultLevel);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbilityParams") != m.end() && !m["AbilityParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AbilityParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      abilityParams = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
       appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AsrParams") != m.end() && !m["AsrParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["AsrParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      asrParams = make_shared<map<string, boost::any>>(toMap1);
     }
     if (m.find("AudioBitRate") != m.end() && !m["AudioBitRate"].empty()) {
       audioBitRate = make_shared<long>(boost::any_cast<long>(m["AudioBitRate"]));
@@ -393,6 +519,14 @@ public:
     if (m.find("DocResultEnabled") != m.end() && !m["DocResultEnabled"].empty()) {
       docResultEnabled = make_shared<bool>(boost::any_cast<bool>(m["DocResultEnabled"]));
     }
+    if (m.find("LabParams") != m.end() && !m["LabParams"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["LabParams"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      labParams = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("MeetingKey") != m.end() && !m["MeetingKey"].empty()) {
       meetingKey = make_shared<string>(boost::any_cast<string>(m["MeetingKey"]));
     }
@@ -413,6 +547,32 @@ public:
     }
     if (m.find("RealtimeResultLevel") != m.end() && !m["RealtimeResultLevel"].empty()) {
       realtimeResultLevel = make_shared<long>(boost::any_cast<long>(m["RealtimeResultLevel"]));
+    }
+    if (m.find("RealtimeResultMeetingInfoEnabled") != m.end() && !m["RealtimeResultMeetingInfoEnabled"].empty()) {
+      realtimeResultMeetingInfoEnabled = make_shared<bool>(boost::any_cast<bool>(m["RealtimeResultMeetingInfoEnabled"]));
+    }
+    if (m.find("RealtimeResultWordsEnabled") != m.end() && !m["RealtimeResultWordsEnabled"].empty()) {
+      realtimeResultWordsEnabled = make_shared<bool>(boost::any_cast<bool>(m["RealtimeResultWordsEnabled"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      tags = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("TranslateActiveResultLevel") != m.end() && !m["TranslateActiveResultLevel"].empty()) {
+      translateActiveResultLevel = make_shared<long>(boost::any_cast<long>(m["TranslateActiveResultLevel"]));
+    }
+    if (m.find("TranslateLanguages") != m.end() && !m["TranslateLanguages"].empty()) {
+      translateLanguages = make_shared<string>(boost::any_cast<string>(m["TranslateLanguages"]));
+    }
+    if (m.find("TranslateResultEnabled") != m.end() && !m["TranslateResultEnabled"].empty()) {
+      translateResultEnabled = make_shared<bool>(boost::any_cast<bool>(m["TranslateResultEnabled"]));
+    }
+    if (m.find("TranslateResultLevel") != m.end() && !m["TranslateResultLevel"].empty()) {
+      translateResultLevel = make_shared<long>(boost::any_cast<long>(m["TranslateResultLevel"]));
     }
   }
 
@@ -896,6 +1056,42 @@ public:
 
   virtual ~GetMeetingTransResponse() = default;
 };
+class StopMeetingTransRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> meetingRoleNum{};
+  shared_ptr<bool> onlyRoleSplitResult{};
+
+  StopMeetingTransRequest() {}
+
+  explicit StopMeetingTransRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (meetingRoleNum) {
+      res["MeetingRoleNum"] = boost::any(*meetingRoleNum);
+    }
+    if (onlyRoleSplitResult) {
+      res["OnlyRoleSplitResult"] = boost::any(*onlyRoleSplitResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MeetingRoleNum") != m.end() && !m["MeetingRoleNum"].empty()) {
+      meetingRoleNum = make_shared<long>(boost::any_cast<long>(m["MeetingRoleNum"]));
+    }
+    if (m.find("OnlyRoleSplitResult") != m.end() && !m["OnlyRoleSplitResult"].empty()) {
+      onlyRoleSplitResult = make_shared<bool>(boost::any_cast<bool>(m["OnlyRoleSplitResult"]));
+    }
+  }
+
+
+  virtual ~StopMeetingTransRequest() = default;
+};
 class StopMeetingTransResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> meetingId{};
@@ -1065,16 +1261,19 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateFileTransResponse createFileTrans(shared_ptr<CreateFileTransRequest> request);
   CreateFileTransResponse createFileTransWithOptions(shared_ptr<CreateFileTransRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateMeetingTransResponse createMeetingTrans(shared_ptr<CreateMeetingTransRequest> request);
+  CreateFileTransResponse createFileTrans(shared_ptr<CreateFileTransRequest> request);
   CreateMeetingTransResponse createMeetingTransWithOptions(shared_ptr<CreateMeetingTransRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetFileTransResponse getFileTrans(shared_ptr<string> TransId);
+  CreateMeetingTransResponse createMeetingTrans(shared_ptr<CreateMeetingTransRequest> request);
   GetFileTransResponse getFileTransWithOptions(shared_ptr<string> TransId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetMeetingTransResponse getMeetingTrans(shared_ptr<string> MeetingId);
+  GetFileTransResponse getFileTrans(shared_ptr<string> TransId);
   GetMeetingTransResponse getMeetingTransWithOptions(shared_ptr<string> MeetingId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopMeetingTransResponse stopMeetingTrans(shared_ptr<string> MeetingId);
-  StopMeetingTransResponse stopMeetingTransWithOptions(shared_ptr<string> MeetingId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMeetingTransResponse getMeetingTrans(shared_ptr<string> MeetingId);
+  StopMeetingTransResponse stopMeetingTransWithOptions(shared_ptr<string> MeetingId,
+                                                       shared_ptr<StopMeetingTransRequest> request,
+                                                       shared_ptr<map<string, string>> headers,
+                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StopMeetingTransResponse stopMeetingTrans(shared_ptr<string> MeetingId, shared_ptr<StopMeetingTransRequest> request);
 
   virtual ~Client() = default;
 };

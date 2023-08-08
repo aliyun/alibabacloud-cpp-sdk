@@ -37,17 +37,17 @@ string Alibabacloud_Tingwu20220930::Client::getEndpoint(shared_ptr<string> produ
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTrans(shared_ptr<CreateFileTransRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createFileTransWithOptions(request, headers, runtime);
-}
-
 CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWithOptions(shared_ptr<CreateFileTransRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->abilityParams)) {
+    body->insert(pair<string, map<string, boost::any>>("AbilityParams", *request->abilityParams));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
     body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->asrParams)) {
+    body->insert(pair<string, map<string, boost::any>>("AsrParams", *request->asrParams));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->audioLanguage)) {
     body->insert(pair<string, string>("AudioLanguage", *request->audioLanguage));
@@ -73,6 +73,12 @@ CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWith
   if (!Darabonba_Util::Client::isUnset<bool>(request->audioSegmentsEnabled)) {
     body->insert(pair<string, bool>("AudioSegmentsEnabled", *request->audioSegmentsEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->labParams)) {
+    body->insert(pair<string, map<string, boost::any>>("LabParams", *request->labParams));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->tags)) {
+    body->insert(pair<string, map<string, boost::any>>("Tags", *request->tags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->transKey)) {
     body->insert(pair<string, string>("TransKey", *request->transKey));
   }
@@ -81,6 +87,15 @@ CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transResultOssPath)) {
     body->insert(pair<string, string>("TransResultOssPath", *request->transResultOssPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->videoOutputEnabled)) {
+    body->insert(pair<string, bool>("VideoOutputEnabled", *request->videoOutputEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoOutputOssBucket)) {
+    body->insert(pair<string, string>("VideoOutputOssBucket", *request->videoOutputOssBucket));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoOutputOssPath)) {
+    body->insert(pair<string, string>("VideoOutputOssPath", *request->videoOutputOssPath));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -100,17 +115,23 @@ CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTransWith
   return CreateFileTransResponse(callApi(params, req, runtime));
 }
 
-CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTrans(shared_ptr<CreateMeetingTransRequest> request) {
+CreateFileTransResponse Alibabacloud_Tingwu20220930::Client::createFileTrans(shared_ptr<CreateFileTransRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return createMeetingTransWithOptions(request, headers, runtime);
+  return createFileTransWithOptions(request, headers, runtime);
 }
 
 CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTransWithOptions(shared_ptr<CreateMeetingTransRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->abilityParams)) {
+    body->insert(pair<string, map<string, boost::any>>("AbilityParams", *request->abilityParams));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->appKey)) {
     body->insert(pair<string, string>("AppKey", *request->appKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->asrParams)) {
+    body->insert(pair<string, map<string, boost::any>>("AsrParams", *request->asrParams));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->audioBitRate)) {
     body->insert(pair<string, long>("AudioBitRate", *request->audioBitRate));
@@ -142,6 +163,9 @@ CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTra
   if (!Darabonba_Util::Client::isUnset<bool>(request->docResultEnabled)) {
     body->insert(pair<string, bool>("DocResultEnabled", *request->docResultEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->labParams)) {
+    body->insert(pair<string, map<string, boost::any>>("LabParams", *request->labParams));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->meetingKey)) {
     body->insert(pair<string, string>("MeetingKey", *request->meetingKey));
   }
@@ -163,6 +187,27 @@ CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTra
   if (!Darabonba_Util::Client::isUnset<long>(request->realtimeResultLevel)) {
     body->insert(pair<string, long>("RealtimeResultLevel", *request->realtimeResultLevel));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->realtimeResultMeetingInfoEnabled)) {
+    body->insert(pair<string, bool>("RealtimeResultMeetingInfoEnabled", *request->realtimeResultMeetingInfoEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->realtimeResultWordsEnabled)) {
+    body->insert(pair<string, bool>("RealtimeResultWordsEnabled", *request->realtimeResultWordsEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->tags)) {
+    body->insert(pair<string, map<string, boost::any>>("Tags", *request->tags));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->translateActiveResultLevel)) {
+    body->insert(pair<string, long>("TranslateActiveResultLevel", *request->translateActiveResultLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->translateLanguages)) {
+    body->insert(pair<string, string>("TranslateLanguages", *request->translateLanguages));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->translateResultEnabled)) {
+    body->insert(pair<string, bool>("TranslateResultEnabled", *request->translateResultEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->translateResultLevel)) {
+    body->insert(pair<string, long>("TranslateResultLevel", *request->translateResultLevel));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -181,10 +226,10 @@ CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTra
   return CreateMeetingTransResponse(callApi(params, req, runtime));
 }
 
-GetFileTransResponse Alibabacloud_Tingwu20220930::Client::getFileTrans(shared_ptr<string> TransId) {
+CreateMeetingTransResponse Alibabacloud_Tingwu20220930::Client::createMeetingTrans(shared_ptr<CreateMeetingTransRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getFileTransWithOptions(TransId, headers, runtime);
+  return createMeetingTransWithOptions(request, headers, runtime);
 }
 
 GetFileTransResponse Alibabacloud_Tingwu20220930::Client::getFileTransWithOptions(shared_ptr<string> TransId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -205,10 +250,10 @@ GetFileTransResponse Alibabacloud_Tingwu20220930::Client::getFileTransWithOption
   return GetFileTransResponse(callApi(params, req, runtime));
 }
 
-GetMeetingTransResponse Alibabacloud_Tingwu20220930::Client::getMeetingTrans(shared_ptr<string> MeetingId) {
+GetFileTransResponse Alibabacloud_Tingwu20220930::Client::getFileTrans(shared_ptr<string> TransId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getMeetingTransWithOptions(MeetingId, headers, runtime);
+  return getFileTransWithOptions(TransId, headers, runtime);
 }
 
 GetMeetingTransResponse Alibabacloud_Tingwu20220930::Client::getMeetingTransWithOptions(shared_ptr<string> MeetingId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -229,15 +274,27 @@ GetMeetingTransResponse Alibabacloud_Tingwu20220930::Client::getMeetingTransWith
   return GetMeetingTransResponse(callApi(params, req, runtime));
 }
 
-StopMeetingTransResponse Alibabacloud_Tingwu20220930::Client::stopMeetingTrans(shared_ptr<string> MeetingId) {
+GetMeetingTransResponse Alibabacloud_Tingwu20220930::Client::getMeetingTrans(shared_ptr<string> MeetingId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return stopMeetingTransWithOptions(MeetingId, headers, runtime);
+  return getMeetingTransWithOptions(MeetingId, headers, runtime);
 }
 
-StopMeetingTransResponse Alibabacloud_Tingwu20220930::Client::stopMeetingTransWithOptions(shared_ptr<string> MeetingId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+StopMeetingTransResponse Alibabacloud_Tingwu20220930::Client::stopMeetingTransWithOptions(shared_ptr<string> MeetingId,
+                                                                                          shared_ptr<StopMeetingTransRequest> request,
+                                                                                          shared_ptr<map<string, string>> headers,
+                                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->meetingRoleNum)) {
+    body->insert(pair<string, long>("MeetingRoleNum", *request->meetingRoleNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->onlyRoleSplitResult)) {
+    body->insert(pair<string, bool>("OnlyRoleSplitResult", *request->onlyRoleSplitResult));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("StopMeetingTrans"))},
@@ -251,5 +308,11 @@ StopMeetingTransResponse Alibabacloud_Tingwu20220930::Client::stopMeetingTransWi
     {"bodyType", boost::any(string("json"))}
   }));
   return StopMeetingTransResponse(callApi(params, req, runtime));
+}
+
+StopMeetingTransResponse Alibabacloud_Tingwu20220930::Client::stopMeetingTrans(shared_ptr<string> MeetingId, shared_ptr<StopMeetingTransRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return stopMeetingTransWithOptions(MeetingId, request, headers, runtime);
 }
 
