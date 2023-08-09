@@ -14,6 +14,1768 @@
 using namespace std;
 
 namespace Alibabacloud_Nis20211216 {
+class CreateAndAnalyzeNetworkPathRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceIpAddress{};
+  shared_ptr<long> sourcePort{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetIpAddress{};
+  shared_ptr<long> targetPort{};
+  shared_ptr<string> targetType{};
+
+  CreateAndAnalyzeNetworkPathRequest() {}
+
+  explicit CreateAndAnalyzeNetworkPathRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceIpAddress) {
+      res["SourceIpAddress"] = boost::any(*sourceIpAddress);
+    }
+    if (sourcePort) {
+      res["SourcePort"] = boost::any(*sourcePort);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetIpAddress) {
+      res["TargetIpAddress"] = boost::any(*targetIpAddress);
+    }
+    if (targetPort) {
+      res["TargetPort"] = boost::any(*targetPort);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceIpAddress") != m.end() && !m["SourceIpAddress"].empty()) {
+      sourceIpAddress = make_shared<string>(boost::any_cast<string>(m["SourceIpAddress"]));
+    }
+    if (m.find("SourcePort") != m.end() && !m["SourcePort"].empty()) {
+      sourcePort = make_shared<long>(boost::any_cast<long>(m["SourcePort"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetIpAddress") != m.end() && !m["TargetIpAddress"].empty()) {
+      targetIpAddress = make_shared<string>(boost::any_cast<string>(m["TargetIpAddress"]));
+    }
+    if (m.find("TargetPort") != m.end() && !m["TargetPort"].empty()) {
+      targetPort = make_shared<long>(boost::any_cast<long>(m["TargetPort"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateAndAnalyzeNetworkPathRequest() = default;
+};
+class CreateAndAnalyzeNetworkPathResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> networkReachableAnalysisId{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceIpAddress{};
+  shared_ptr<string> sourcePort{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetIpAddress{};
+  shared_ptr<string> targetPort{};
+  shared_ptr<string> targetType{};
+
+  CreateAndAnalyzeNetworkPathResponseBody() {}
+
+  explicit CreateAndAnalyzeNetworkPathResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkReachableAnalysisId) {
+      res["NetworkReachableAnalysisId"] = boost::any(*networkReachableAnalysisId);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceIpAddress) {
+      res["SourceIpAddress"] = boost::any(*sourceIpAddress);
+    }
+    if (sourcePort) {
+      res["SourcePort"] = boost::any(*sourcePort);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetIpAddress) {
+      res["TargetIpAddress"] = boost::any(*targetIpAddress);
+    }
+    if (targetPort) {
+      res["TargetPort"] = boost::any(*targetPort);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkReachableAnalysisId") != m.end() && !m["NetworkReachableAnalysisId"].empty()) {
+      networkReachableAnalysisId = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisId"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceIpAddress") != m.end() && !m["SourceIpAddress"].empty()) {
+      sourceIpAddress = make_shared<string>(boost::any_cast<string>(m["SourceIpAddress"]));
+    }
+    if (m.find("SourcePort") != m.end() && !m["SourcePort"].empty()) {
+      sourcePort = make_shared<string>(boost::any_cast<string>(m["SourcePort"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetIpAddress") != m.end() && !m["TargetIpAddress"].empty()) {
+      targetIpAddress = make_shared<string>(boost::any_cast<string>(m["TargetIpAddress"]));
+    }
+    if (m.find("TargetPort") != m.end() && !m["TargetPort"].empty()) {
+      targetPort = make_shared<string>(boost::any_cast<string>(m["TargetPort"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateAndAnalyzeNetworkPathResponseBody() = default;
+};
+class CreateAndAnalyzeNetworkPathResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAndAnalyzeNetworkPathResponseBody> body{};
+
+  CreateAndAnalyzeNetworkPathResponse() {}
+
+  explicit CreateAndAnalyzeNetworkPathResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAndAnalyzeNetworkPathResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAndAnalyzeNetworkPathResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAndAnalyzeNetworkPathResponse() = default;
+};
+class CreateNetworkPathRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateNetworkPathRequestTag() {}
+
+  explicit CreateNetworkPathRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateNetworkPathRequestTag() = default;
+};
+class CreateNetworkPathRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkPathDescription{};
+  shared_ptr<string> networkPathName{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sourceId{};
+  shared_ptr<string> sourceIpAddress{};
+  shared_ptr<long> sourcePort{};
+  shared_ptr<string> sourceType{};
+  shared_ptr<vector<CreateNetworkPathRequestTag>> tag{};
+  shared_ptr<string> targetId{};
+  shared_ptr<string> targetIpAddress{};
+  shared_ptr<long> targetPort{};
+  shared_ptr<string> targetType{};
+
+  CreateNetworkPathRequest() {}
+
+  explicit CreateNetworkPathRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkPathDescription) {
+      res["NetworkPathDescription"] = boost::any(*networkPathDescription);
+    }
+    if (networkPathName) {
+      res["NetworkPathName"] = boost::any(*networkPathName);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sourceId) {
+      res["SourceId"] = boost::any(*sourceId);
+    }
+    if (sourceIpAddress) {
+      res["SourceIpAddress"] = boost::any(*sourceIpAddress);
+    }
+    if (sourcePort) {
+      res["SourcePort"] = boost::any(*sourcePort);
+    }
+    if (sourceType) {
+      res["SourceType"] = boost::any(*sourceType);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    if (targetId) {
+      res["TargetId"] = boost::any(*targetId);
+    }
+    if (targetIpAddress) {
+      res["TargetIpAddress"] = boost::any(*targetIpAddress);
+    }
+    if (targetPort) {
+      res["TargetPort"] = boost::any(*targetPort);
+    }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPathDescription") != m.end() && !m["NetworkPathDescription"].empty()) {
+      networkPathDescription = make_shared<string>(boost::any_cast<string>(m["NetworkPathDescription"]));
+    }
+    if (m.find("NetworkPathName") != m.end() && !m["NetworkPathName"].empty()) {
+      networkPathName = make_shared<string>(boost::any_cast<string>(m["NetworkPathName"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
+      sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
+    }
+    if (m.find("SourceIpAddress") != m.end() && !m["SourceIpAddress"].empty()) {
+      sourceIpAddress = make_shared<string>(boost::any_cast<string>(m["SourceIpAddress"]));
+    }
+    if (m.find("SourcePort") != m.end() && !m["SourcePort"].empty()) {
+      sourcePort = make_shared<long>(boost::any_cast<long>(m["SourcePort"]));
+    }
+    if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
+      sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateNetworkPathRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateNetworkPathRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateNetworkPathRequestTag>>(expect1);
+      }
+    }
+    if (m.find("TargetId") != m.end() && !m["TargetId"].empty()) {
+      targetId = make_shared<string>(boost::any_cast<string>(m["TargetId"]));
+    }
+    if (m.find("TargetIpAddress") != m.end() && !m["TargetIpAddress"].empty()) {
+      targetIpAddress = make_shared<string>(boost::any_cast<string>(m["TargetIpAddress"]));
+    }
+    if (m.find("TargetPort") != m.end() && !m["TargetPort"].empty()) {
+      targetPort = make_shared<long>(boost::any_cast<long>(m["TargetPort"]));
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
+    }
+  }
+
+
+  virtual ~CreateNetworkPathRequest() = default;
+};
+class CreateNetworkPathResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> networkPathId{};
+  shared_ptr<string> requestId{};
+
+  CreateNetworkPathResponseBody() {}
+
+  explicit CreateNetworkPathResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkPathId) {
+      res["NetworkPathId"] = boost::any(*networkPathId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPathId") != m.end() && !m["NetworkPathId"].empty()) {
+      networkPathId = make_shared<string>(boost::any_cast<string>(m["NetworkPathId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateNetworkPathResponseBody() = default;
+};
+class CreateNetworkPathResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateNetworkPathResponseBody> body{};
+
+  CreateNetworkPathResponse() {}
+
+  explicit CreateNetworkPathResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateNetworkPathResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateNetworkPathResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateNetworkPathResponse() = default;
+};
+class CreateNetworkReachableAnalysisRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateNetworkReachableAnalysisRequestTag() {}
+
+  explicit CreateNetworkReachableAnalysisRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateNetworkReachableAnalysisRequestTag() = default;
+};
+class CreateNetworkReachableAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkPathId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<CreateNetworkReachableAnalysisRequestTag>> tag{};
+
+  CreateNetworkReachableAnalysisRequest() {}
+
+  explicit CreateNetworkReachableAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkPathId) {
+      res["NetworkPathId"] = boost::any(*networkPathId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPathId") != m.end() && !m["NetworkPathId"].empty()) {
+      networkPathId = make_shared<string>(boost::any_cast<string>(m["NetworkPathId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateNetworkReachableAnalysisRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateNetworkReachableAnalysisRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateNetworkReachableAnalysisRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateNetworkReachableAnalysisRequest() = default;
+};
+class CreateNetworkReachableAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> networkReachableAnalysisId{};
+  shared_ptr<string> requestId{};
+
+  CreateNetworkReachableAnalysisResponseBody() {}
+
+  explicit CreateNetworkReachableAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkReachableAnalysisId) {
+      res["NetworkReachableAnalysisId"] = boost::any(*networkReachableAnalysisId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkReachableAnalysisId") != m.end() && !m["NetworkReachableAnalysisId"].empty()) {
+      networkReachableAnalysisId = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateNetworkReachableAnalysisResponseBody() = default;
+};
+class CreateNetworkReachableAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateNetworkReachableAnalysisResponseBody> body{};
+
+  CreateNetworkReachableAnalysisResponse() {}
+
+  explicit CreateNetworkReachableAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateNetworkReachableAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateNetworkReachableAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateNetworkReachableAnalysisResponse() = default;
+};
+class DeleteNetworkPathRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> networkPathIds{};
+  shared_ptr<string> regionId{};
+
+  DeleteNetworkPathRequest() {}
+
+  explicit DeleteNetworkPathRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkPathIds) {
+      res["NetworkPathIds"] = boost::any(*networkPathIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPathIds") != m.end() && !m["NetworkPathIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NetworkPathIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NetworkPathIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      networkPathIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkPathRequest() = default;
+};
+class DeleteNetworkPathShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkPathIdsShrink{};
+  shared_ptr<string> regionId{};
+
+  DeleteNetworkPathShrinkRequest() {}
+
+  explicit DeleteNetworkPathShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkPathIdsShrink) {
+      res["NetworkPathIds"] = boost::any(*networkPathIdsShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkPathIds") != m.end() && !m["NetworkPathIds"].empty()) {
+      networkPathIdsShrink = make_shared<string>(boost::any_cast<string>(m["NetworkPathIds"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkPathShrinkRequest() = default;
+};
+class DeleteNetworkPathResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteNetworkPathResponseBody() {}
+
+  explicit DeleteNetworkPathResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkPathResponseBody() = default;
+};
+class DeleteNetworkPathResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteNetworkPathResponseBody> body{};
+
+  DeleteNetworkPathResponse() {}
+
+  explicit DeleteNetworkPathResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteNetworkPathResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteNetworkPathResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteNetworkPathResponse() = default;
+};
+class DeleteNetworkReachableAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> networkReachableAnalysisIds{};
+  shared_ptr<string> regionId{};
+
+  DeleteNetworkReachableAnalysisRequest() {}
+
+  explicit DeleteNetworkReachableAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkReachableAnalysisIds) {
+      res["NetworkReachableAnalysisIds"] = boost::any(*networkReachableAnalysisIds);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkReachableAnalysisIds") != m.end() && !m["NetworkReachableAnalysisIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NetworkReachableAnalysisIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NetworkReachableAnalysisIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      networkReachableAnalysisIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkReachableAnalysisRequest() = default;
+};
+class DeleteNetworkReachableAnalysisShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkReachableAnalysisIdsShrink{};
+  shared_ptr<string> regionId{};
+
+  DeleteNetworkReachableAnalysisShrinkRequest() {}
+
+  explicit DeleteNetworkReachableAnalysisShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkReachableAnalysisIdsShrink) {
+      res["NetworkReachableAnalysisIds"] = boost::any(*networkReachableAnalysisIdsShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkReachableAnalysisIds") != m.end() && !m["NetworkReachableAnalysisIds"].empty()) {
+      networkReachableAnalysisIdsShrink = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisIds"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkReachableAnalysisShrinkRequest() = default;
+};
+class DeleteNetworkReachableAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteNetworkReachableAnalysisResponseBody() {}
+
+  explicit DeleteNetworkReachableAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteNetworkReachableAnalysisResponseBody() = default;
+};
+class DeleteNetworkReachableAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteNetworkReachableAnalysisResponseBody> body{};
+
+  DeleteNetworkReachableAnalysisResponse() {}
+
+  explicit DeleteNetworkReachableAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteNetworkReachableAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteNetworkReachableAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteNetworkReachableAnalysisResponse() = default;
+};
+class GetInternetTupleRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudIsp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<vector<string>> instanceList{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherCity{};
+  shared_ptr<string> otherCountry{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherIsp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<long> tupleType{};
+  shared_ptr<bool> useMultiAccount{};
+
+  GetInternetTupleRequest() {}
+
+  explicit GetInternetTupleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudIsp) {
+      res["CloudIsp"] = boost::any(*cloudIsp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceList) {
+      res["InstanceList"] = boost::any(*instanceList);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherCity) {
+      res["OtherCity"] = boost::any(*otherCity);
+    }
+    if (otherCountry) {
+      res["OtherCountry"] = boost::any(*otherCountry);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherIsp) {
+      res["OtherIsp"] = boost::any(*otherIsp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (tupleType) {
+      res["TupleType"] = boost::any(*tupleType);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudIsp") != m.end() && !m["CloudIsp"].empty()) {
+      cloudIsp = make_shared<string>(boost::any_cast<string>(m["CloudIsp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceList") != m.end() && !m["InstanceList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherCity") != m.end() && !m["OtherCity"].empty()) {
+      otherCity = make_shared<string>(boost::any_cast<string>(m["OtherCity"]));
+    }
+    if (m.find("OtherCountry") != m.end() && !m["OtherCountry"].empty()) {
+      otherCountry = make_shared<string>(boost::any_cast<string>(m["OtherCountry"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherIsp") != m.end() && !m["OtherIsp"].empty()) {
+      otherIsp = make_shared<string>(boost::any_cast<string>(m["OtherIsp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("TupleType") != m.end() && !m["TupleType"].empty()) {
+      tupleType = make_shared<long>(boost::any_cast<long>(m["TupleType"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+  }
+
+
+  virtual ~GetInternetTupleRequest() = default;
+};
+class GetInternetTupleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudIsp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceListShrink{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherCity{};
+  shared_ptr<string> otherCountry{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherIsp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<long> tupleType{};
+  shared_ptr<bool> useMultiAccount{};
+
+  GetInternetTupleShrinkRequest() {}
+
+  explicit GetInternetTupleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudIsp) {
+      res["CloudIsp"] = boost::any(*cloudIsp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceListShrink) {
+      res["InstanceList"] = boost::any(*instanceListShrink);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherCity) {
+      res["OtherCity"] = boost::any(*otherCity);
+    }
+    if (otherCountry) {
+      res["OtherCountry"] = boost::any(*otherCountry);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherIsp) {
+      res["OtherIsp"] = boost::any(*otherIsp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (tupleType) {
+      res["TupleType"] = boost::any(*tupleType);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudIsp") != m.end() && !m["CloudIsp"].empty()) {
+      cloudIsp = make_shared<string>(boost::any_cast<string>(m["CloudIsp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceList") != m.end() && !m["InstanceList"].empty()) {
+      instanceListShrink = make_shared<string>(boost::any_cast<string>(m["InstanceList"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherCity") != m.end() && !m["OtherCity"].empty()) {
+      otherCity = make_shared<string>(boost::any_cast<string>(m["OtherCity"]));
+    }
+    if (m.find("OtherCountry") != m.end() && !m["OtherCountry"].empty()) {
+      otherCountry = make_shared<string>(boost::any_cast<string>(m["OtherCountry"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherIsp") != m.end() && !m["OtherIsp"].empty()) {
+      otherIsp = make_shared<string>(boost::any_cast<string>(m["OtherIsp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("TupleType") != m.end() && !m["TupleType"].empty()) {
+      tupleType = make_shared<long>(boost::any_cast<long>(m["TupleType"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+  }
+
+
+  virtual ~GetInternetTupleShrinkRequest() = default;
+};
+class GetInternetTupleResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> accessRegion{};
+  shared_ptr<string> beginTime{};
+  shared_ptr<double> byteCount{};
+  shared_ptr<string> cloudCity{};
+  shared_ptr<string> cloudCountry{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudIsp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> cloudProduct{};
+  shared_ptr<string> cloudProvince{};
+  shared_ptr<string> direction{};
+  shared_ptr<double> inByteCount{};
+  shared_ptr<double> inOutOrderCount{};
+  shared_ptr<double> inPacketCount{};
+  shared_ptr<double> inRetranCount{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> otherCity{};
+  shared_ptr<string> otherCountry{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherIsp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> otherProduct{};
+  shared_ptr<string> otherProvince{};
+  shared_ptr<double> outByteCount{};
+  shared_ptr<double> outOrderCount{};
+  shared_ptr<double> outOutOrderCount{};
+  shared_ptr<double> outPacketCount{};
+  shared_ptr<double> outRetranCount{};
+  shared_ptr<double> packetCount{};
+  shared_ptr<string> protocol{};
+  shared_ptr<double> retranCount{};
+  shared_ptr<double> rtt{};
+
+  GetInternetTupleResponseBodyData() {}
+
+  explicit GetInternetTupleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessRegion) {
+      res["AccessRegion"] = boost::any(*accessRegion);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (byteCount) {
+      res["ByteCount"] = boost::any(*byteCount);
+    }
+    if (cloudCity) {
+      res["CloudCity"] = boost::any(*cloudCity);
+    }
+    if (cloudCountry) {
+      res["CloudCountry"] = boost::any(*cloudCountry);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudIsp) {
+      res["CloudIsp"] = boost::any(*cloudIsp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (cloudProduct) {
+      res["CloudProduct"] = boost::any(*cloudProduct);
+    }
+    if (cloudProvince) {
+      res["CloudProvince"] = boost::any(*cloudProvince);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (inByteCount) {
+      res["InByteCount"] = boost::any(*inByteCount);
+    }
+    if (inOutOrderCount) {
+      res["InOutOrderCount"] = boost::any(*inOutOrderCount);
+    }
+    if (inPacketCount) {
+      res["InPacketCount"] = boost::any(*inPacketCount);
+    }
+    if (inRetranCount) {
+      res["InRetranCount"] = boost::any(*inRetranCount);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (otherCity) {
+      res["OtherCity"] = boost::any(*otherCity);
+    }
+    if (otherCountry) {
+      res["OtherCountry"] = boost::any(*otherCountry);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherIsp) {
+      res["OtherIsp"] = boost::any(*otherIsp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (otherProduct) {
+      res["OtherProduct"] = boost::any(*otherProduct);
+    }
+    if (otherProvince) {
+      res["OtherProvince"] = boost::any(*otherProvince);
+    }
+    if (outByteCount) {
+      res["OutByteCount"] = boost::any(*outByteCount);
+    }
+    if (outOrderCount) {
+      res["OutOrderCount"] = boost::any(*outOrderCount);
+    }
+    if (outOutOrderCount) {
+      res["OutOutOrderCount"] = boost::any(*outOutOrderCount);
+    }
+    if (outPacketCount) {
+      res["OutPacketCount"] = boost::any(*outPacketCount);
+    }
+    if (outRetranCount) {
+      res["OutRetranCount"] = boost::any(*outRetranCount);
+    }
+    if (packetCount) {
+      res["PacketCount"] = boost::any(*packetCount);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (retranCount) {
+      res["RetranCount"] = boost::any(*retranCount);
+    }
+    if (rtt) {
+      res["Rtt"] = boost::any(*rtt);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessRegion") != m.end() && !m["AccessRegion"].empty()) {
+      accessRegion = make_shared<string>(boost::any_cast<string>(m["AccessRegion"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<string>(boost::any_cast<string>(m["BeginTime"]));
+    }
+    if (m.find("ByteCount") != m.end() && !m["ByteCount"].empty()) {
+      byteCount = make_shared<double>(boost::any_cast<double>(m["ByteCount"]));
+    }
+    if (m.find("CloudCity") != m.end() && !m["CloudCity"].empty()) {
+      cloudCity = make_shared<string>(boost::any_cast<string>(m["CloudCity"]));
+    }
+    if (m.find("CloudCountry") != m.end() && !m["CloudCountry"].empty()) {
+      cloudCountry = make_shared<string>(boost::any_cast<string>(m["CloudCountry"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudIsp") != m.end() && !m["CloudIsp"].empty()) {
+      cloudIsp = make_shared<string>(boost::any_cast<string>(m["CloudIsp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("CloudProduct") != m.end() && !m["CloudProduct"].empty()) {
+      cloudProduct = make_shared<string>(boost::any_cast<string>(m["CloudProduct"]));
+    }
+    if (m.find("CloudProvince") != m.end() && !m["CloudProvince"].empty()) {
+      cloudProvince = make_shared<string>(boost::any_cast<string>(m["CloudProvince"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("InByteCount") != m.end() && !m["InByteCount"].empty()) {
+      inByteCount = make_shared<double>(boost::any_cast<double>(m["InByteCount"]));
+    }
+    if (m.find("InOutOrderCount") != m.end() && !m["InOutOrderCount"].empty()) {
+      inOutOrderCount = make_shared<double>(boost::any_cast<double>(m["InOutOrderCount"]));
+    }
+    if (m.find("InPacketCount") != m.end() && !m["InPacketCount"].empty()) {
+      inPacketCount = make_shared<double>(boost::any_cast<double>(m["InPacketCount"]));
+    }
+    if (m.find("InRetranCount") != m.end() && !m["InRetranCount"].empty()) {
+      inRetranCount = make_shared<double>(boost::any_cast<double>(m["InRetranCount"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("OtherCity") != m.end() && !m["OtherCity"].empty()) {
+      otherCity = make_shared<string>(boost::any_cast<string>(m["OtherCity"]));
+    }
+    if (m.find("OtherCountry") != m.end() && !m["OtherCountry"].empty()) {
+      otherCountry = make_shared<string>(boost::any_cast<string>(m["OtherCountry"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherIsp") != m.end() && !m["OtherIsp"].empty()) {
+      otherIsp = make_shared<string>(boost::any_cast<string>(m["OtherIsp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("OtherProduct") != m.end() && !m["OtherProduct"].empty()) {
+      otherProduct = make_shared<string>(boost::any_cast<string>(m["OtherProduct"]));
+    }
+    if (m.find("OtherProvince") != m.end() && !m["OtherProvince"].empty()) {
+      otherProvince = make_shared<string>(boost::any_cast<string>(m["OtherProvince"]));
+    }
+    if (m.find("OutByteCount") != m.end() && !m["OutByteCount"].empty()) {
+      outByteCount = make_shared<double>(boost::any_cast<double>(m["OutByteCount"]));
+    }
+    if (m.find("OutOrderCount") != m.end() && !m["OutOrderCount"].empty()) {
+      outOrderCount = make_shared<double>(boost::any_cast<double>(m["OutOrderCount"]));
+    }
+    if (m.find("OutOutOrderCount") != m.end() && !m["OutOutOrderCount"].empty()) {
+      outOutOrderCount = make_shared<double>(boost::any_cast<double>(m["OutOutOrderCount"]));
+    }
+    if (m.find("OutPacketCount") != m.end() && !m["OutPacketCount"].empty()) {
+      outPacketCount = make_shared<double>(boost::any_cast<double>(m["OutPacketCount"]));
+    }
+    if (m.find("OutRetranCount") != m.end() && !m["OutRetranCount"].empty()) {
+      outRetranCount = make_shared<double>(boost::any_cast<double>(m["OutRetranCount"]));
+    }
+    if (m.find("PacketCount") != m.end() && !m["PacketCount"].empty()) {
+      packetCount = make_shared<double>(boost::any_cast<double>(m["PacketCount"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RetranCount") != m.end() && !m["RetranCount"].empty()) {
+      retranCount = make_shared<double>(boost::any_cast<double>(m["RetranCount"]));
+    }
+    if (m.find("Rtt") != m.end() && !m["Rtt"].empty()) {
+      rtt = make_shared<double>(boost::any_cast<double>(m["Rtt"]));
+    }
+  }
+
+
+  virtual ~GetInternetTupleResponseBodyData() = default;
+};
+class GetInternetTupleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetInternetTupleResponseBodyData>> data{};
+  shared_ptr<string> requestId{};
+
+  GetInternetTupleResponseBody() {}
+
+  explicit GetInternetTupleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      vector<boost::any> temp1;
+      for(auto item1:*data){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Data"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(vector<boost::any>) == m["Data"].type()) {
+        vector<GetInternetTupleResponseBodyData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Data"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInternetTupleResponseBodyData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        data = make_shared<vector<GetInternetTupleResponseBodyData>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetInternetTupleResponseBody() = default;
+};
+class GetInternetTupleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetInternetTupleResponseBody> body{};
+
+  GetInternetTupleResponse() {}
+
+  explicit GetInternetTupleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetInternetTupleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetInternetTupleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetInternetTupleResponse() = default;
+};
 class GetNatTopNRequest : public Darabonba::Model {
 public:
   shared_ptr<long> beginTime{};
@@ -289,6 +2051,189 @@ public:
 
   virtual ~GetNatTopNResponse() = default;
 };
+class GetNetworkReachableAnalysisRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> networkReachableAnalysisId{};
+  shared_ptr<string> regionId{};
+
+  GetNetworkReachableAnalysisRequest() {}
+
+  explicit GetNetworkReachableAnalysisRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (networkReachableAnalysisId) {
+      res["NetworkReachableAnalysisId"] = boost::any(*networkReachableAnalysisId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NetworkReachableAnalysisId") != m.end() && !m["NetworkReachableAnalysisId"].empty()) {
+      networkReachableAnalysisId = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~GetNetworkReachableAnalysisRequest() = default;
+};
+class GetNetworkReachableAnalysisResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> aliUid{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> networkPathId{};
+  shared_ptr<string> networkPathParameter{};
+  shared_ptr<string> networkReachableAnalysisId{};
+  shared_ptr<string> networkReachableAnalysisResult{};
+  shared_ptr<string> networkReachableAnalysisStatus{};
+  shared_ptr<bool> reachable{};
+  shared_ptr<string> requestId{};
+
+  GetNetworkReachableAnalysisResponseBody() {}
+
+  explicit GetNetworkReachableAnalysisResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliUid) {
+      res["AliUid"] = boost::any(*aliUid);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (networkPathId) {
+      res["NetworkPathId"] = boost::any(*networkPathId);
+    }
+    if (networkPathParameter) {
+      res["NetworkPathParameter"] = boost::any(*networkPathParameter);
+    }
+    if (networkReachableAnalysisId) {
+      res["NetworkReachableAnalysisId"] = boost::any(*networkReachableAnalysisId);
+    }
+    if (networkReachableAnalysisResult) {
+      res["NetworkReachableAnalysisResult"] = boost::any(*networkReachableAnalysisResult);
+    }
+    if (networkReachableAnalysisStatus) {
+      res["NetworkReachableAnalysisStatus"] = boost::any(*networkReachableAnalysisStatus);
+    }
+    if (reachable) {
+      res["Reachable"] = boost::any(*reachable);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliUid") != m.end() && !m["AliUid"].empty()) {
+      aliUid = make_shared<long>(boost::any_cast<long>(m["AliUid"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("NetworkPathId") != m.end() && !m["NetworkPathId"].empty()) {
+      networkPathId = make_shared<string>(boost::any_cast<string>(m["NetworkPathId"]));
+    }
+    if (m.find("NetworkPathParameter") != m.end() && !m["NetworkPathParameter"].empty()) {
+      networkPathParameter = make_shared<string>(boost::any_cast<string>(m["NetworkPathParameter"]));
+    }
+    if (m.find("NetworkReachableAnalysisId") != m.end() && !m["NetworkReachableAnalysisId"].empty()) {
+      networkReachableAnalysisId = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisId"]));
+    }
+    if (m.find("NetworkReachableAnalysisResult") != m.end() && !m["NetworkReachableAnalysisResult"].empty()) {
+      networkReachableAnalysisResult = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisResult"]));
+    }
+    if (m.find("NetworkReachableAnalysisStatus") != m.end() && !m["NetworkReachableAnalysisStatus"].empty()) {
+      networkReachableAnalysisStatus = make_shared<string>(boost::any_cast<string>(m["NetworkReachableAnalysisStatus"]));
+    }
+    if (m.find("Reachable") != m.end() && !m["Reachable"].empty()) {
+      reachable = make_shared<bool>(boost::any_cast<bool>(m["Reachable"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetNetworkReachableAnalysisResponseBody() = default;
+};
+class GetNetworkReachableAnalysisResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetNetworkReachableAnalysisResponseBody> body{};
+
+  GetNetworkReachableAnalysisResponse() {}
+
+  explicit GetNetworkReachableAnalysisResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetNetworkReachableAnalysisResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetNetworkReachableAnalysisResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetNetworkReachableAnalysisResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -299,8 +2244,22 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CreateAndAnalyzeNetworkPathResponse createAndAnalyzeNetworkPathWithOptions(shared_ptr<CreateAndAnalyzeNetworkPathRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAndAnalyzeNetworkPathResponse createAndAnalyzeNetworkPath(shared_ptr<CreateAndAnalyzeNetworkPathRequest> request);
+  CreateNetworkPathResponse createNetworkPathWithOptions(shared_ptr<CreateNetworkPathRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNetworkPathResponse createNetworkPath(shared_ptr<CreateNetworkPathRequest> request);
+  CreateNetworkReachableAnalysisResponse createNetworkReachableAnalysisWithOptions(shared_ptr<CreateNetworkReachableAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateNetworkReachableAnalysisResponse createNetworkReachableAnalysis(shared_ptr<CreateNetworkReachableAnalysisRequest> request);
+  DeleteNetworkPathResponse deleteNetworkPathWithOptions(shared_ptr<DeleteNetworkPathRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteNetworkPathResponse deleteNetworkPath(shared_ptr<DeleteNetworkPathRequest> request);
+  DeleteNetworkReachableAnalysisResponse deleteNetworkReachableAnalysisWithOptions(shared_ptr<DeleteNetworkReachableAnalysisRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteNetworkReachableAnalysisResponse deleteNetworkReachableAnalysis(shared_ptr<DeleteNetworkReachableAnalysisRequest> request);
+  GetInternetTupleResponse getInternetTupleWithOptions(shared_ptr<GetInternetTupleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetInternetTupleResponse getInternetTuple(shared_ptr<GetInternetTupleRequest> request);
   GetNatTopNResponse getNatTopNWithOptions(shared_ptr<GetNatTopNRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNatTopNResponse getNatTopN(shared_ptr<GetNatTopNRequest> request);
+  GetNetworkReachableAnalysisResponse getNetworkReachableAnalysisWithOptions(shared_ptr<GetNetworkReachableAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetNetworkReachableAnalysisResponse getNetworkReachableAnalysis(shared_ptr<GetNetworkReachableAnalysisRequest> request);
 
   virtual ~Client() = default;
 };
