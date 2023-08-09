@@ -2443,6 +2443,7 @@ public:
   shared_ptr<string> nodeCidrMask{};
   shared_ptr<string> nodeNameMode{};
   shared_ptr<string> nodePortRange{};
+  shared_ptr<vector<Nodepool>> nodepools{};
   shared_ptr<long> numOfNodes{};
   shared_ptr<string> osType{};
   shared_ptr<long> period{};
@@ -2641,6 +2642,13 @@ public:
     }
     if (nodePortRange) {
       res["node_port_range"] = boost::any(*nodePortRange);
+    }
+    if (nodepools) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodepools){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["nodepools"] = boost::any(temp1);
     }
     if (numOfNodes) {
       res["num_of_nodes"] = boost::any(*numOfNodes);
@@ -2959,6 +2967,19 @@ public:
     }
     if (m.find("node_port_range") != m.end() && !m["node_port_range"].empty()) {
       nodePortRange = make_shared<string>(boost::any_cast<string>(m["node_port_range"]));
+    }
+    if (m.find("nodepools") != m.end() && !m["nodepools"].empty()) {
+      if (typeid(vector<boost::any>) == m["nodepools"].type()) {
+        vector<Nodepool> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["nodepools"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            Nodepool model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodepools = make_shared<vector<Nodepool>>(expect1);
+      }
     }
     if (m.find("num_of_nodes") != m.end() && !m["num_of_nodes"].empty()) {
       numOfNodes = make_shared<long>(boost::any_cast<long>(m["num_of_nodes"]));
@@ -3779,8 +3800,10 @@ public:
   shared_ptr<bool> spotInstanceRemedy{};
   shared_ptr<vector<CreateClusterNodePoolRequestScalingGroupSpotPriceLimit>> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<bool> systemDiskBurstingEnabled{};
   shared_ptr<string> systemDiskCategory{};
   shared_ptr<string> systemDiskPerformanceLevel{};
+  shared_ptr<long> systemDiskProvisionedIops{};
   shared_ptr<long> systemDiskSize{};
   shared_ptr<vector<CreateClusterNodePoolRequestScalingGroupTags>> tags{};
   shared_ptr<vector<string>> vswitchIds{};
@@ -3890,11 +3913,17 @@ public:
     if (spotStrategy) {
       res["spot_strategy"] = boost::any(*spotStrategy);
     }
+    if (systemDiskBurstingEnabled) {
+      res["system_disk_bursting_enabled"] = boost::any(*systemDiskBurstingEnabled);
+    }
     if (systemDiskCategory) {
       res["system_disk_category"] = boost::any(*systemDiskCategory);
     }
     if (systemDiskPerformanceLevel) {
       res["system_disk_performance_level"] = boost::any(*systemDiskPerformanceLevel);
+    }
+    if (systemDiskProvisionedIops) {
+      res["system_disk_provisioned_iops"] = boost::any(*systemDiskProvisionedIops);
     }
     if (systemDiskSize) {
       res["system_disk_size"] = boost::any(*systemDiskSize);
@@ -4045,11 +4074,17 @@ public:
     if (m.find("spot_strategy") != m.end() && !m["spot_strategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["spot_strategy"]));
     }
+    if (m.find("system_disk_bursting_enabled") != m.end() && !m["system_disk_bursting_enabled"].empty()) {
+      systemDiskBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["system_disk_bursting_enabled"]));
+    }
     if (m.find("system_disk_category") != m.end() && !m["system_disk_category"].empty()) {
       systemDiskCategory = make_shared<string>(boost::any_cast<string>(m["system_disk_category"]));
     }
     if (m.find("system_disk_performance_level") != m.end() && !m["system_disk_performance_level"].empty()) {
       systemDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["system_disk_performance_level"]));
+    }
+    if (m.find("system_disk_provisioned_iops") != m.end() && !m["system_disk_provisioned_iops"].empty()) {
+      systemDiskProvisionedIops = make_shared<long>(boost::any_cast<long>(m["system_disk_provisioned_iops"]));
     }
     if (m.find("system_disk_size") != m.end() && !m["system_disk_size"].empty()) {
       systemDiskSize = make_shared<long>(boost::any_cast<long>(m["system_disk_size"]));

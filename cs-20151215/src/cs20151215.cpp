@@ -535,6 +535,9 @@ CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->nodePortRange)) {
     body->insert(pair<string, string>("node_port_range", *request->nodePortRange));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<Nodepool>>(request->nodepools)) {
+    body->insert(pair<string, vector<Nodepool>>("nodepools", *request->nodepools));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->numOfNodes)) {
     body->insert(pair<string, long>("num_of_nodes", *request->numOfNodes));
   }
