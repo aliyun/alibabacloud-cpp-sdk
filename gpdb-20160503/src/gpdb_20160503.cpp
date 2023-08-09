@@ -189,6 +189,9 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWith
   if (!Darabonba_Util::Client::isUnset<string>(request->fullTextRetrievalFields)) {
     query->insert(pair<string, string>("FullTextRetrievalFields", *request->fullTextRetrievalFields));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->hnswM)) {
+    query->insert(pair<string, long>("HnswM", *request->hnswM));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->managerAccount)) {
     query->insert(pair<string, string>("ManagerAccount", *request->managerAccount));
   }
@@ -198,6 +201,9 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWith
   if (!Darabonba_Util::Client::isUnset<string>(request->metadata)) {
     query->insert(pair<string, string>("Metadata", *request->metadata));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->metrics)) {
+    query->insert(pair<string, string>("Metrics", *request->metrics));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
@@ -206,6 +212,9 @@ CreateCollectionResponse Alibabacloud_Gpdb20160503::Client::createCollectionWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->parser)) {
     query->insert(pair<string, string>("Parser", *request->parser));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pqEnable)) {
+    query->insert(pair<string, long>("PqEnable", *request->pqEnable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -534,6 +543,9 @@ CreateVectorIndexResponse Alibabacloud_Gpdb20160503::Client::createVectorIndexWi
   if (!Darabonba_Util::Client::isUnset<long>(request->dimension)) {
     query->insert(pair<string, long>("Dimension", *request->dimension));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->hnswM)) {
+    query->insert(pair<string, long>("HnswM", *request->hnswM));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->managerAccount)) {
     query->insert(pair<string, string>("ManagerAccount", *request->managerAccount));
   }
@@ -548,6 +560,9 @@ CreateVectorIndexResponse Alibabacloud_Gpdb20160503::Client::createVectorIndexWi
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pqEnable)) {
+    query->insert(pair<string, long>("PqEnable", *request->pqEnable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));

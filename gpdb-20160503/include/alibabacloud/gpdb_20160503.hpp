@@ -478,12 +478,15 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> dimension{};
   shared_ptr<string> fullTextRetrievalFields{};
+  shared_ptr<long> hnswM{};
   shared_ptr<string> managerAccount{};
   shared_ptr<string> managerAccountPassword{};
   shared_ptr<string> metadata{};
+  shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> parser{};
+  shared_ptr<long> pqEnable{};
   shared_ptr<string> regionId{};
 
   CreateCollectionRequest() {}
@@ -508,6 +511,9 @@ public:
     if (fullTextRetrievalFields) {
       res["FullTextRetrievalFields"] = boost::any(*fullTextRetrievalFields);
     }
+    if (hnswM) {
+      res["HnswM"] = boost::any(*hnswM);
+    }
     if (managerAccount) {
       res["ManagerAccount"] = boost::any(*managerAccount);
     }
@@ -517,6 +523,9 @@ public:
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
     }
+    if (metrics) {
+      res["Metrics"] = boost::any(*metrics);
+    }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
@@ -525,6 +534,9 @@ public:
     }
     if (parser) {
       res["Parser"] = boost::any(*parser);
+    }
+    if (pqEnable) {
+      res["PqEnable"] = boost::any(*pqEnable);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -545,6 +557,9 @@ public:
     if (m.find("FullTextRetrievalFields") != m.end() && !m["FullTextRetrievalFields"].empty()) {
       fullTextRetrievalFields = make_shared<string>(boost::any_cast<string>(m["FullTextRetrievalFields"]));
     }
+    if (m.find("HnswM") != m.end() && !m["HnswM"].empty()) {
+      hnswM = make_shared<long>(boost::any_cast<long>(m["HnswM"]));
+    }
     if (m.find("ManagerAccount") != m.end() && !m["ManagerAccount"].empty()) {
       managerAccount = make_shared<string>(boost::any_cast<string>(m["ManagerAccount"]));
     }
@@ -554,6 +569,9 @@ public:
     if (m.find("Metadata") != m.end() && !m["Metadata"].empty()) {
       metadata = make_shared<string>(boost::any_cast<string>(m["Metadata"]));
     }
+    if (m.find("Metrics") != m.end() && !m["Metrics"].empty()) {
+      metrics = make_shared<string>(boost::any_cast<string>(m["Metrics"]));
+    }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
@@ -562,6 +580,9 @@ public:
     }
     if (m.find("Parser") != m.end() && !m["Parser"].empty()) {
       parser = make_shared<string>(boost::any_cast<string>(m["Parser"]));
+    }
+    if (m.find("PqEnable") != m.end() && !m["PqEnable"].empty()) {
+      pqEnable = make_shared<long>(boost::any_cast<long>(m["PqEnable"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -1772,11 +1793,13 @@ public:
   shared_ptr<string> collection{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> dimension{};
+  shared_ptr<long> hnswM{};
   shared_ptr<string> managerAccount{};
   shared_ptr<string> managerAccountPassword{};
   shared_ptr<string> metrics{};
   shared_ptr<string> namespace_{};
   shared_ptr<long> ownerId{};
+  shared_ptr<long> pqEnable{};
   shared_ptr<string> regionId{};
 
   CreateVectorIndexRequest() {}
@@ -1798,6 +1821,9 @@ public:
     if (dimension) {
       res["Dimension"] = boost::any(*dimension);
     }
+    if (hnswM) {
+      res["HnswM"] = boost::any(*hnswM);
+    }
     if (managerAccount) {
       res["ManagerAccount"] = boost::any(*managerAccount);
     }
@@ -1812,6 +1838,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (pqEnable) {
+      res["PqEnable"] = boost::any(*pqEnable);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -1829,6 +1858,9 @@ public:
     if (m.find("Dimension") != m.end() && !m["Dimension"].empty()) {
       dimension = make_shared<long>(boost::any_cast<long>(m["Dimension"]));
     }
+    if (m.find("HnswM") != m.end() && !m["HnswM"].empty()) {
+      hnswM = make_shared<long>(boost::any_cast<long>(m["HnswM"]));
+    }
     if (m.find("ManagerAccount") != m.end() && !m["ManagerAccount"].empty()) {
       managerAccount = make_shared<string>(boost::any_cast<string>(m["ManagerAccount"]));
     }
@@ -1843,6 +1875,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PqEnable") != m.end() && !m["PqEnable"].empty()) {
+      pqEnable = make_shared<long>(boost::any_cast<long>(m["PqEnable"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -19716,7 +19751,7 @@ class QueryCollectionDataResponseBodyMatchesMatch : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
   shared_ptr<map<string, string>> metadata{};
-  shared_ptr<double> similarity{};
+  shared_ptr<double> score{};
   shared_ptr<QueryCollectionDataResponseBodyMatchesMatchValues> values{};
 
   QueryCollectionDataResponseBodyMatchesMatch() {}
@@ -19735,8 +19770,8 @@ public:
     if (metadata) {
       res["Metadata"] = boost::any(*metadata);
     }
-    if (similarity) {
-      res["Similarity"] = boost::any(*similarity);
+    if (score) {
+      res["Score"] = boost::any(*score);
     }
     if (values) {
       res["Values"] = values ? boost::any(values->toMap()) : boost::any(map<string,boost::any>({}));
@@ -19756,8 +19791,8 @@ public:
       }
       metadata = make_shared<map<string, string>>(toMap1);
     }
-    if (m.find("Similarity") != m.end() && !m["Similarity"].empty()) {
-      similarity = make_shared<double>(boost::any_cast<double>(m["Similarity"]));
+    if (m.find("Score") != m.end() && !m["Score"].empty()) {
+      score = make_shared<double>(boost::any_cast<double>(m["Score"]));
     }
     if (m.find("Values") != m.end() && !m["Values"].empty()) {
       if (typeid(map<string, boost::any>) == m["Values"].type()) {
