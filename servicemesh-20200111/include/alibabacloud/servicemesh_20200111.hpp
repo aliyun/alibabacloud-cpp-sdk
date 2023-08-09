@@ -2209,6 +2209,7 @@ public:
   shared_ptr<string> existingRootCaKey{};
   shared_ptr<bool> filterGatewayClusterConfig{};
   shared_ptr<bool> gatewayAPIEnabled{};
+  shared_ptr<string> guestCluster{};
   shared_ptr<string> includeIPRanges{};
   shared_ptr<string> istioVersion{};
   shared_ptr<bool> kialiEnabled{};
@@ -2364,6 +2365,9 @@ public:
     }
     if (gatewayAPIEnabled) {
       res["GatewayAPIEnabled"] = boost::any(*gatewayAPIEnabled);
+    }
+    if (guestCluster) {
+      res["GuestCluster"] = boost::any(*guestCluster);
     }
     if (includeIPRanges) {
       res["IncludeIPRanges"] = boost::any(*includeIPRanges);
@@ -2581,6 +2585,9 @@ public:
     }
     if (m.find("GatewayAPIEnabled") != m.end() && !m["GatewayAPIEnabled"].empty()) {
       gatewayAPIEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayAPIEnabled"]));
+    }
+    if (m.find("GuestCluster") != m.end() && !m["GuestCluster"].empty()) {
+      guestCluster = make_shared<string>(boost::any_cast<string>(m["GuestCluster"]));
     }
     if (m.find("IncludeIPRanges") != m.end() && !m["IncludeIPRanges"].empty()) {
       includeIPRanges = make_shared<string>(boost::any_cast<string>(m["IncludeIPRanges"]));

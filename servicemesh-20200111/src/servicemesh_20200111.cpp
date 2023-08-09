@@ -395,6 +395,9 @@ CreateServiceMeshResponse Alibabacloud_Servicemesh20200111::Client::createServic
   if (!Darabonba_Util::Client::isUnset<bool>(request->gatewayAPIEnabled)) {
     body->insert(pair<string, bool>("GatewayAPIEnabled", *request->gatewayAPIEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->guestCluster)) {
+    body->insert(pair<string, string>("GuestCluster", *request->guestCluster));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->includeIPRanges)) {
     body->insert(pair<string, string>("IncludeIPRanges", *request->includeIPRanges));
   }
