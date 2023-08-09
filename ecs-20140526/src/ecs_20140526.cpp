@@ -1613,6 +1613,9 @@ CopySnapshotResponse Alibabacloud_Ecs20140526::Client::copySnapshotWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationSnapshotName)) {
     query->insert(pair<string, string>("DestinationSnapshotName", *request->destinationSnapshotName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destinationStorageLocationArn)) {
+    query->insert(pair<string, string>("DestinationStorageLocationArn", *request->destinationStorageLocationArn));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->encrypted)) {
     query->insert(pair<string, bool>("Encrypted", *request->encrypted));
   }
@@ -3191,6 +3194,9 @@ CreateLaunchTemplateResponse Alibabacloud_Ecs20140526::Client::createLaunchTempl
   if (!Darabonba_Util::Client::isUnset<vector<CreateLaunchTemplateRequestDataDisk>>(request->dataDisk)) {
     query->insert(pair<string, vector<CreateLaunchTemplateRequestDataDisk>>("DataDisk", *request->dataDisk));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploymentSetId)) {
     query->insert(pair<string, string>("DeploymentSetId", *request->deploymentSetId));
   }
@@ -3353,6 +3359,9 @@ CreateLaunchTemplateVersionResponse Alibabacloud_Ecs20140526::Client::createLaun
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateLaunchTemplateVersionRequestDataDisk>>(request->dataDisk)) {
     query->insert(pair<string, vector<CreateLaunchTemplateVersionRequestDataDisk>>("DataDisk", *request->dataDisk));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
+    query->insert(pair<string, bool>("DeletionProtection", *request->deletionProtection));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->deploymentSetId)) {
     query->insert(pair<string, string>("DeploymentSetId", *request->deploymentSetId));
@@ -19266,6 +19275,9 @@ RunInstancesResponse Alibabacloud_Ecs20140526::Client::runInstancesWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<vector<RunInstancesRequestArn>>(request->arn)) {
     query->insert(pair<string, vector<RunInstancesRequestArn>>("Arn", *request->arn));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->autoReleaseTime)) {
     query->insert(pair<string, string>("AutoReleaseTime", *request->autoReleaseTime));

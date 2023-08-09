@@ -6201,6 +6201,7 @@ public:
   shared_ptr<string> destinationRegionId{};
   shared_ptr<string> destinationSnapshotDescription{};
   shared_ptr<string> destinationSnapshotName{};
+  shared_ptr<string> destinationStorageLocationArn{};
   shared_ptr<bool> encrypted{};
   shared_ptr<string> KMSKeyId{};
   shared_ptr<long> ownerId{};
@@ -6237,6 +6238,9 @@ public:
     }
     if (destinationSnapshotName) {
       res["DestinationSnapshotName"] = boost::any(*destinationSnapshotName);
+    }
+    if (destinationStorageLocationArn) {
+      res["DestinationStorageLocationArn"] = boost::any(*destinationStorageLocationArn);
     }
     if (encrypted) {
       res["Encrypted"] = boost::any(*encrypted);
@@ -6297,6 +6301,9 @@ public:
     }
     if (m.find("DestinationSnapshotName") != m.end() && !m["DestinationSnapshotName"].empty()) {
       destinationSnapshotName = make_shared<string>(boost::any_cast<string>(m["DestinationSnapshotName"]));
+    }
+    if (m.find("DestinationStorageLocationArn") != m.end() && !m["DestinationStorageLocationArn"].empty()) {
+      destinationStorageLocationArn = make_shared<string>(boost::any_cast<string>(m["DestinationStorageLocationArn"]));
     }
     if (m.find("Encrypted") != m.end() && !m["Encrypted"].empty()) {
       encrypted = make_shared<bool>(boost::any_cast<bool>(m["Encrypted"]));
@@ -7723,6 +7730,7 @@ public:
 };
 class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResult : public Darabonba::Model {
 public:
+  shared_ptr<long> amount{};
   shared_ptr<string> errorCode{};
   shared_ptr<string> errorMsg{};
   shared_ptr<CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultInstanceIds> instanceIds{};
@@ -7740,6 +7748,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
     if (errorCode) {
       res["ErrorCode"] = boost::any(*errorCode);
     }
@@ -7762,6 +7773,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
+    }
     if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
       errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
     }
@@ -13651,6 +13665,7 @@ public:
   shared_ptr<CreateLaunchTemplateRequestSystemDisk> systemDisk{};
   shared_ptr<string> autoReleaseTime{};
   shared_ptr<vector<CreateLaunchTemplateRequestDataDisk>> dataDisk{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableVmOsConfig{};
@@ -13716,6 +13731,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisk"] = boost::any(temp1);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deploymentSetId) {
       res["DeploymentSetId"] = boost::any(*deploymentSetId);
@@ -13881,6 +13899,9 @@ public:
         }
         dataDisk = make_shared<vector<CreateLaunchTemplateRequestDataDisk>>(expect1);
       }
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
       deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
@@ -14479,6 +14500,7 @@ public:
   shared_ptr<CreateLaunchTemplateVersionRequestSystemDisk> systemDisk{};
   shared_ptr<string> autoReleaseTime{};
   shared_ptr<vector<CreateLaunchTemplateVersionRequestDataDisk>> dataDisk{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableVmOsConfig{};
@@ -14543,6 +14565,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DataDisk"] = boost::any(temp1);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deploymentSetId) {
       res["DeploymentSetId"] = boost::any(*deploymentSetId);
@@ -14701,6 +14726,9 @@ public:
         }
         dataDisk = make_shared<vector<CreateLaunchTemplateVersionRequestDataDisk>>(expect1);
       }
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
       deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
@@ -49819,6 +49847,7 @@ public:
   shared_ptr<string> punishType{};
   shared_ptr<string> punishUrl{};
   shared_ptr<string> rack{};
+  shared_ptr<string> responseResult{};
 
   DescribeInstanceHistoryEventsResponseBodyInstanceSystemEventSetInstanceSystemEventTypeExtendedAttribute() {}
 
@@ -49868,6 +49897,9 @@ public:
     }
     if (rack) {
       res["Rack"] = boost::any(*rack);
+    }
+    if (responseResult) {
+      res["ResponseResult"] = boost::any(*responseResult);
     }
     return res;
   }
@@ -49919,6 +49951,9 @@ public:
     }
     if (m.find("Rack") != m.end() && !m["Rack"].empty()) {
       rack = make_shared<string>(boost::any_cast<string>(m["Rack"]));
+    }
+    if (m.find("ResponseResult") != m.end() && !m["ResponseResult"].empty()) {
+      responseResult = make_shared<string>(boost::any_cast<string>(m["ResponseResult"]));
     }
   }
 
@@ -59351,6 +59386,7 @@ public:
   shared_ptr<DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataSystemDisk> systemDisk{};
   shared_ptr<string> autoReleaseTime{};
   shared_ptr<DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks> dataDisks{};
+  shared_ptr<bool> deletionProtection{};
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> description{};
   shared_ptr<bool> enableVmOsConfig{};
@@ -59403,6 +59439,9 @@ public:
     }
     if (dataDisks) {
       res["DataDisks"] = dataDisks ? boost::any(dataDisks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (deploymentSetId) {
       res["DeploymentSetId"] = boost::any(*deploymentSetId);
@@ -59523,6 +59562,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DataDisks"]));
         dataDisks = make_shared<DescribeLaunchTemplateVersionsResponseBodyLaunchTemplateVersionSetsLaunchTemplateVersionSetLaunchTemplateDataDataDisks>(model1);
       }
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["DeletionProtection"]));
     }
     if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
       deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
@@ -107820,6 +107862,7 @@ public:
   shared_ptr<string> affinity{};
   shared_ptr<long> amount{};
   shared_ptr<vector<RunInstancesRequestArn>> arn{};
+  shared_ptr<bool> autoPay{};
   shared_ptr<string> autoReleaseTime{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
@@ -107927,6 +107970,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Arn"] = boost::any(temp1);
+    }
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
     }
     if (autoReleaseTime) {
       res["AutoReleaseTime"] = boost::any(*autoReleaseTime);
@@ -108202,6 +108248,9 @@ public:
         }
         arn = make_shared<vector<RunInstancesRequestArn>>(expect1);
       }
+    }
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
     }
     if (m.find("AutoReleaseTime") != m.end() && !m["AutoReleaseTime"].empty()) {
       autoReleaseTime = make_shared<string>(boost::any_cast<string>(m["AutoReleaseTime"]));
