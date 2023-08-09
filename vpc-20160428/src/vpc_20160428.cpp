@@ -3846,6 +3846,9 @@ CreatePhysicalConnectionSetupOrderResponse Alibabacloud_Vpc20160428::Client::cre
 CreatePublicIpAddressPoolResponse Alibabacloud_Vpc20160428::Client::createPublicIpAddressPoolWithOptions(shared_ptr<CreatePublicIpAddressPoolRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    query->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
@@ -3881,6 +3884,9 @@ CreatePublicIpAddressPoolResponse Alibabacloud_Vpc20160428::Client::createPublic
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreatePublicIpAddressPoolRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<CreatePublicIpAddressPoolRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->zones)) {
+    query->insert(pair<string, vector<string>>("Zones", *request->zones));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -12225,6 +12231,9 @@ EnableNatGatewayEcsMetricResponse Alibabacloud_Vpc20160428::Client::enableNatGat
 EnablePhysicalConnectionResponse Alibabacloud_Vpc20160428::Client::enablePhysicalConnectionWithOptions(shared_ptr<EnablePhysicalConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->byPassSp)) {
+    query->insert(pair<string, bool>("ByPassSp", *request->byPassSp));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }

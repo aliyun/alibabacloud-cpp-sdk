@@ -13947,6 +13947,7 @@ public:
 };
 class CreatePublicIpAddressPoolRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bizType{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
@@ -13959,6 +13960,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<CreatePublicIpAddressPoolRequestTag>> tag{};
+  shared_ptr<vector<string>> zones{};
 
   CreatePublicIpAddressPoolRequest() {}
 
@@ -13970,6 +13972,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -14010,10 +14015,16 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (zones) {
+      res["Zones"] = boost::any(*zones);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -14059,6 +14070,16 @@ public:
         }
         tag = make_shared<vector<CreatePublicIpAddressPoolRequestTag>>(expect1);
       }
+    }
+    if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Zones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Zones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zones = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -31978,6 +31999,7 @@ class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBa
 public:
   shared_ptr<string> bandwidth{};
   shared_ptr<string> bandwidthPackageId{};
+  shared_ptr<string> bizType{};
   shared_ptr<string> businessStatus{};
   shared_ptr<string> creationTime{};
   shared_ptr<bool> deletionProtection{};
@@ -32000,6 +32022,7 @@ public:
   shared_ptr<long> serviceManaged{};
   shared_ptr<string> status{};
   shared_ptr<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags> tags{};
+  shared_ptr<string> zone{};
 
   DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackage() {}
 
@@ -32016,6 +32039,9 @@ public:
     }
     if (bandwidthPackageId) {
       res["BandwidthPackageId"] = boost::any(*bandwidthPackageId);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
     }
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
@@ -32083,6 +32109,9 @@ public:
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (zone) {
+      res["Zone"] = boost::any(*zone);
+    }
     return res;
   }
 
@@ -32092,6 +32121,9 @@ public:
     }
     if (m.find("BandwidthPackageId") != m.end() && !m["BandwidthPackageId"].empty()) {
       bandwidthPackageId = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageId"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
     }
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
@@ -32170,6 +32202,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackageTags>(model1);
       }
+    }
+    if (m.find("Zone") != m.end() && !m["Zone"].empty()) {
+      zone = make_shared<string>(boost::any_cast<string>(m["Zone"]));
     }
   }
 
@@ -33822,6 +33857,7 @@ public:
   shared_ptr<string> bandwidthPackageBandwidth{};
   shared_ptr<string> bandwidthPackageId{};
   shared_ptr<string> bandwidthPackageType{};
+  shared_ptr<string> bizType{};
   shared_ptr<string> businessStatus{};
   shared_ptr<string> chargeType{};
   shared_ptr<bool> deletionProtection{};
@@ -33882,6 +33918,9 @@ public:
     }
     if (bandwidthPackageType) {
       res["BandwidthPackageType"] = boost::any(*bandwidthPackageType);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
     }
     if (businessStatus) {
       res["BusinessStatus"] = boost::any(*businessStatus);
@@ -34000,6 +34039,9 @@ public:
     }
     if (m.find("BandwidthPackageType") != m.end() && !m["BandwidthPackageType"].empty()) {
       bandwidthPackageType = make_shared<string>(boost::any_cast<string>(m["BandwidthPackageType"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
     }
     if (m.find("BusinessStatus") != m.end() && !m["BusinessStatus"].empty()) {
       businessStatus = make_shared<string>(boost::any_cast<string>(m["BusinessStatus"]));
@@ -44278,6 +44320,85 @@ public:
 
   virtual ~DescribePhysicalConnectionsRequest() = default;
 };
+class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags() {}
+
+  explicit DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags() = default;
+};
+class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags>> tags{};
+
+  DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags() {}
+
+  explicit DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags() = default;
+};
 class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType : public Darabonba::Model {
 public:
   shared_ptr<string> accessPointId{};
@@ -44312,6 +44433,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> status{};
+  shared_ptr<DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags> tags{};
   shared_ptr<string> type{};
   shared_ptr<long> virtualPhysicalConnectionCount{};
   shared_ptr<string> vlanId{};
@@ -44422,6 +44544,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -44534,6 +44659,13 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags>(model1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -63726,6 +63858,7 @@ public:
 };
 class EnablePhysicalConnectionRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> byPassSp{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -63744,6 +63877,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (byPassSp) {
+      res["ByPassSp"] = boost::any(*byPassSp);
+    }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
@@ -63769,6 +63905,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ByPassSp") != m.end() && !m["ByPassSp"].empty()) {
+      byPassSp = make_shared<bool>(boost::any_cast<bool>(m["ByPassSp"]));
+    }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
@@ -72511,6 +72650,7 @@ public:
 };
 class ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList : public Darabonba::Model {
 public:
+  shared_ptr<string> bizType{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<bool> ipAddressRemaining{};
@@ -72526,6 +72666,7 @@ public:
   shared_ptr<long> totalIpNum{};
   shared_ptr<long> usedIpNum{};
   shared_ptr<bool> userType{};
+  shared_ptr<vector<string>> zones{};
 
   ListPublicIpAddressPoolsResponseBodyPublicIpAddressPoolList() {}
 
@@ -72537,6 +72678,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
     }
@@ -72586,10 +72730,16 @@ public:
     if (userType) {
       res["UserType"] = boost::any(*userType);
     }
+    if (zones) {
+      res["Zones"] = boost::any(*zones);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
     }
@@ -72644,6 +72794,16 @@ public:
     }
     if (m.find("UserType") != m.end() && !m["UserType"].empty()) {
       userType = make_shared<bool>(boost::any_cast<bool>(m["UserType"]));
+    }
+    if (m.find("Zones") != m.end() && !m["Zones"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Zones"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Zones"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      zones = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -74820,6 +74980,42 @@ public:
 
   virtual ~ListVirtualPhysicalConnectionsRequest() = default;
 };
+class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags() {}
+
+  explicit ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags() = default;
+};
 class ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnections : public Darabonba::Model {
 public:
   shared_ptr<string> accessPointId{};
@@ -74849,6 +75045,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags>> tags{};
   shared_ptr<string> type{};
   shared_ptr<string> virtualPhysicalConnectionStatus{};
   shared_ptr<string> vlanId{};
@@ -74944,6 +75141,13 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -75037,6 +75241,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListVirtualPhysicalConnectionsResponseBodyVirtualPhysicalConnectionsTags>>(expect1);
+      }
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
