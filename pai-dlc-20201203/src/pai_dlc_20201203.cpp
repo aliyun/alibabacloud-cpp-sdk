@@ -765,6 +765,9 @@ ListTensorboardsResponse Alibabacloud_Pai-dlc20201203::Client::listTensorboardsW
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showOwn)) {
+    query->insert(pair<string, bool>("ShowOwn", *request->showOwn));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
   }

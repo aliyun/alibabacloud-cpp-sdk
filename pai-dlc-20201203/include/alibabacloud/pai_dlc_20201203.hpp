@@ -1725,6 +1725,7 @@ public:
   shared_ptr<map<string, boost::any>> advancedSettings{};
   shared_ptr<string> businessUserId{};
   shared_ptr<string> caller{};
+  shared_ptr<string> driver{};
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
   shared_ptr<bool> enableOssAppend{};
   shared_ptr<bool> enableRDMA{};
@@ -1752,6 +1753,9 @@ public:
     }
     if (caller) {
       res["Caller"] = boost::any(*caller);
+    }
+    if (driver) {
+      res["Driver"] = boost::any(*driver);
     }
     if (enableErrorMonitoringInAIMaster) {
       res["EnableErrorMonitoringInAIMaster"] = boost::any(*enableErrorMonitoringInAIMaster);
@@ -1794,6 +1798,9 @@ public:
     }
     if (m.find("Caller") != m.end() && !m["Caller"].empty()) {
       caller = make_shared<string>(boost::any_cast<string>(m["Caller"]));
+    }
+    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
+      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
     if (m.find("EnableErrorMonitoringInAIMaster") != m.end() && !m["EnableErrorMonitoringInAIMaster"].empty()) {
       enableErrorMonitoringInAIMaster = make_shared<bool>(boost::any_cast<bool>(m["EnableErrorMonitoringInAIMaster"]));
@@ -6367,6 +6374,7 @@ public:
   shared_ptr<string> order{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<bool> showOwn{};
   shared_ptr<string> sortBy{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceType{};
@@ -6403,6 +6411,9 @@ public:
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (showOwn) {
+      res["ShowOwn"] = boost::any(*showOwn);
     }
     if (sortBy) {
       res["SortBy"] = boost::any(*sortBy);
@@ -6449,6 +6460,9 @@ public:
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ShowOwn") != m.end() && !m["ShowOwn"].empty()) {
+      showOwn = make_shared<bool>(boost::any_cast<bool>(m["ShowOwn"]));
     }
     if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
       sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
