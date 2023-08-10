@@ -49284,6 +49284,7 @@ public:
 };
 class RefundPayAsYouGoOrderRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceId{};
   shared_ptr<string> orderId{};
   shared_ptr<long> tid{};
 
@@ -49297,6 +49298,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
     }
@@ -49307,6 +49311,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
     }

@@ -6344,6 +6344,9 @@ ReRunTaskFlowInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::reRun
 RefundPayAsYouGoOrderResponse Alibabacloud_Dms-enterprise20181101::Client::refundPayAsYouGoOrderWithOptions(shared_ptr<RefundPayAsYouGoOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("OrderId", *request->orderId));
   }
