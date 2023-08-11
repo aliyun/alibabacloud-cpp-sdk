@@ -2196,6 +2196,7 @@ public:
   shared_ptr<bool> DNSProxyingEnabled{};
   shared_ptr<bool> dubboFilterEnabled{};
   shared_ptr<string> edition{};
+  shared_ptr<bool> enableAmbient{};
   shared_ptr<bool> enableAudit{};
   shared_ptr<bool> enableCRHistory{};
   shared_ptr<bool> enableSDSServer{};
@@ -2326,6 +2327,9 @@ public:
     }
     if (edition) {
       res["Edition"] = boost::any(*edition);
+    }
+    if (enableAmbient) {
+      res["EnableAmbient"] = boost::any(*enableAmbient);
     }
     if (enableAudit) {
       res["EnableAudit"] = boost::any(*enableAudit);
@@ -2546,6 +2550,9 @@ public:
     }
     if (m.find("Edition") != m.end() && !m["Edition"].empty()) {
       edition = make_shared<string>(boost::any_cast<string>(m["Edition"]));
+    }
+    if (m.find("EnableAmbient") != m.end() && !m["EnableAmbient"].empty()) {
+      enableAmbient = make_shared<bool>(boost::any_cast<bool>(m["EnableAmbient"]));
     }
     if (m.find("EnableAudit") != m.end() && !m["EnableAudit"].empty()) {
       enableAudit = make_shared<bool>(boost::any_cast<bool>(m["EnableAudit"]));
@@ -20729,6 +20736,7 @@ public:
 };
 class UpdateIstioInjectionConfigRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dataPlaneMode{};
   shared_ptr<bool> enableIstioInjection{};
   shared_ptr<bool> enableSidecarSetInjection{};
   shared_ptr<string> istioRev{};
@@ -20745,6 +20753,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataPlaneMode) {
+      res["DataPlaneMode"] = boost::any(*dataPlaneMode);
+    }
     if (enableIstioInjection) {
       res["EnableIstioInjection"] = boost::any(*enableIstioInjection);
     }
@@ -20764,6 +20775,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataPlaneMode") != m.end() && !m["DataPlaneMode"].empty()) {
+      dataPlaneMode = make_shared<string>(boost::any_cast<string>(m["DataPlaneMode"]));
+    }
     if (m.find("EnableIstioInjection") != m.end() && !m["EnableIstioInjection"].empty()) {
       enableIstioInjection = make_shared<bool>(boost::any_cast<bool>(m["EnableIstioInjection"]));
     }

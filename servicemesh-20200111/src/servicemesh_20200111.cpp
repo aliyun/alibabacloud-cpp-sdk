@@ -356,6 +356,9 @@ CreateServiceMeshResponse Alibabacloud_Servicemesh20200111::Client::createServic
   if (!Darabonba_Util::Client::isUnset<string>(request->edition)) {
     body->insert(pair<string, string>("Edition", *request->edition));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableAmbient)) {
+    body->insert(pair<string, bool>("EnableAmbient", *request->enableAmbient));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableAudit)) {
     body->insert(pair<string, bool>("EnableAudit", *request->enableAudit));
   }
@@ -2601,6 +2604,9 @@ UpdateIstioGatewayRoutesResponse Alibabacloud_Servicemesh20200111::Client::updat
 UpdateIstioInjectionConfigResponse Alibabacloud_Servicemesh20200111::Client::updateIstioInjectionConfigWithOptions(shared_ptr<UpdateIstioInjectionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataPlaneMode)) {
+    body->insert(pair<string, string>("DataPlaneMode", *request->dataPlaneMode));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableIstioInjection)) {
     body->insert(pair<string, bool>("EnableIstioInjection", *request->enableIstioInjection));
   }
