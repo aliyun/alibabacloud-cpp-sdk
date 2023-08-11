@@ -11330,6 +11330,7 @@ public:
   shared_ptr<string> dedicatedInstanceType{};
   shared_ptr<string> defaultDomain{};
   shared_ptr<string> description{};
+  shared_ptr<bool> disableInnerDomain{};
   shared_ptr<string> groupId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> httpsPolicy{};
@@ -11396,6 +11397,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (disableInnerDomain) {
+      res["DisableInnerDomain"] = boost::any(*disableInnerDomain);
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
@@ -11500,6 +11504,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DisableInnerDomain") != m.end() && !m["DisableInnerDomain"].empty()) {
+      disableInnerDomain = make_shared<bool>(boost::any_cast<bool>(m["DisableInnerDomain"]));
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
