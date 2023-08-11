@@ -393,6 +393,9 @@ CreateOIDCProviderResponse Alibabacloud_Ims20190815::Client::createOIDCProviderW
   if (!Darabonba_Util::Client::isUnset<string>(request->fingerprints)) {
     query->insert(pair<string, string>("Fingerprints", *request->fingerprints));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->issuanceLimitTime)) {
+    query->insert(pair<string, long>("IssuanceLimitTime", *request->issuanceLimitTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->issuerUrl)) {
     query->insert(pair<string, string>("IssuerUrl", *request->issuerUrl));
   }
@@ -2213,6 +2216,9 @@ UpdateOIDCProviderResponse Alibabacloud_Ims20190815::Client::updateOIDCProviderW
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clientIds)) {
     query->insert(pair<string, string>("ClientIds", *request->clientIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->issuanceLimitTime)) {
+    query->insert(pair<string, long>("IssuanceLimitTime", *request->issuanceLimitTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->newDescription)) {
     query->insert(pair<string, string>("NewDescription", *request->newDescription));

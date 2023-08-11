@@ -59,6 +59,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -94,6 +95,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -127,6 +131,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -289,6 +296,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -324,6 +332,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -357,6 +368,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -2117,6 +2131,7 @@ public:
   shared_ptr<string> clientIds{};
   shared_ptr<string> description{};
   shared_ptr<string> fingerprints{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
 
@@ -2139,6 +2154,9 @@ public:
     if (fingerprints) {
       res["Fingerprints"] = boost::any(*fingerprints);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -2157,6 +2175,9 @@ public:
     }
     if (m.find("Fingerprints") != m.end() && !m["Fingerprints"].empty()) {
       fingerprints = make_shared<string>(boost::any_cast<string>(m["Fingerprints"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -2178,6 +2199,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -2213,6 +2235,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -2246,6 +2271,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -6445,6 +6473,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -6480,6 +6509,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -6513,6 +6545,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -9428,6 +9463,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -9463,6 +9499,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -9496,6 +9535,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -11780,6 +11822,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -11815,6 +11858,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -11848,6 +11894,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -12010,6 +12059,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -12045,6 +12095,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -12078,6 +12131,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
@@ -15046,6 +15102,7 @@ public:
 class UpdateOIDCProviderRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientIds{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> newDescription{};
   shared_ptr<string> OIDCProviderName{};
 
@@ -15062,6 +15119,9 @@ public:
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (newDescription) {
       res["NewDescription"] = boost::any(*newDescription);
     }
@@ -15074,6 +15134,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("NewDescription") != m.end() && !m["NewDescription"].empty()) {
       newDescription = make_shared<string>(boost::any_cast<string>(m["NewDescription"]));
@@ -15095,6 +15158,7 @@ public:
   shared_ptr<string> fingerprints{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
+  shared_ptr<long> issuanceLimitTime{};
   shared_ptr<string> issuerUrl{};
   shared_ptr<string> OIDCProviderName{};
   shared_ptr<string> updateDate{};
@@ -15130,6 +15194,9 @@ public:
     if (gmtModified) {
       res["GmtModified"] = boost::any(*gmtModified);
     }
+    if (issuanceLimitTime) {
+      res["IssuanceLimitTime"] = boost::any(*issuanceLimitTime);
+    }
     if (issuerUrl) {
       res["IssuerUrl"] = boost::any(*issuerUrl);
     }
@@ -15163,6 +15230,9 @@ public:
     }
     if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
       gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("IssuanceLimitTime") != m.end() && !m["IssuanceLimitTime"].empty()) {
+      issuanceLimitTime = make_shared<long>(boost::any_cast<long>(m["IssuanceLimitTime"]));
     }
     if (m.find("IssuerUrl") != m.end() && !m["IssuerUrl"].empty()) {
       issuerUrl = make_shared<string>(boost::any_cast<string>(m["IssuerUrl"]));
