@@ -830,6 +830,10 @@ public:
   shared_ptr<string> dedicatedHostGroupDescription{};
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<vector<CreateMyBaseRequestECSClassList>> ECSClassList{};
+  shared_ptr<string> ecsDeploymentSetId{};
+  shared_ptr<string> ecsHostName{};
+  shared_ptr<string> ecsInstanceName{};
+  shared_ptr<string> ecsUniqueSuffix{};
   shared_ptr<string> engine{};
   shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
@@ -875,6 +879,18 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["ECSClassList"] = boost::any(temp1);
+    }
+    if (ecsDeploymentSetId) {
+      res["EcsDeploymentSetId"] = boost::any(*ecsDeploymentSetId);
+    }
+    if (ecsHostName) {
+      res["EcsHostName"] = boost::any(*ecsHostName);
+    }
+    if (ecsInstanceName) {
+      res["EcsInstanceName"] = boost::any(*ecsInstanceName);
+    }
+    if (ecsUniqueSuffix) {
+      res["EcsUniqueSuffix"] = boost::any(*ecsUniqueSuffix);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -953,6 +969,18 @@ public:
         ECSClassList = make_shared<vector<CreateMyBaseRequestECSClassList>>(expect1);
       }
     }
+    if (m.find("EcsDeploymentSetId") != m.end() && !m["EcsDeploymentSetId"].empty()) {
+      ecsDeploymentSetId = make_shared<string>(boost::any_cast<string>(m["EcsDeploymentSetId"]));
+    }
+    if (m.find("EcsHostName") != m.end() && !m["EcsHostName"].empty()) {
+      ecsHostName = make_shared<string>(boost::any_cast<string>(m["EcsHostName"]));
+    }
+    if (m.find("EcsInstanceName") != m.end() && !m["EcsInstanceName"].empty()) {
+      ecsInstanceName = make_shared<string>(boost::any_cast<string>(m["EcsInstanceName"]));
+    }
+    if (m.find("EcsUniqueSuffix") != m.end() && !m["EcsUniqueSuffix"].empty()) {
+      ecsUniqueSuffix = make_shared<string>(boost::any_cast<string>(m["EcsUniqueSuffix"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
@@ -1013,6 +1041,10 @@ public:
   shared_ptr<string> dedicatedHostGroupDescription{};
   shared_ptr<string> dedicatedHostGroupId{};
   shared_ptr<string> ECSClassListShrink{};
+  shared_ptr<string> ecsDeploymentSetId{};
+  shared_ptr<string> ecsHostName{};
+  shared_ptr<string> ecsInstanceName{};
+  shared_ptr<string> ecsUniqueSuffix{};
   shared_ptr<string> engine{};
   shared_ptr<string> imageId{};
   shared_ptr<string> keyPairName{};
@@ -1054,6 +1086,18 @@ public:
     }
     if (ECSClassListShrink) {
       res["ECSClassList"] = boost::any(*ECSClassListShrink);
+    }
+    if (ecsDeploymentSetId) {
+      res["EcsDeploymentSetId"] = boost::any(*ecsDeploymentSetId);
+    }
+    if (ecsHostName) {
+      res["EcsHostName"] = boost::any(*ecsHostName);
+    }
+    if (ecsInstanceName) {
+      res["EcsInstanceName"] = boost::any(*ecsInstanceName);
+    }
+    if (ecsUniqueSuffix) {
+      res["EcsUniqueSuffix"] = boost::any(*ecsUniqueSuffix);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -1122,6 +1166,18 @@ public:
     if (m.find("ECSClassList") != m.end() && !m["ECSClassList"].empty()) {
       ECSClassListShrink = make_shared<string>(boost::any_cast<string>(m["ECSClassList"]));
     }
+    if (m.find("EcsDeploymentSetId") != m.end() && !m["EcsDeploymentSetId"].empty()) {
+      ecsDeploymentSetId = make_shared<string>(boost::any_cast<string>(m["EcsDeploymentSetId"]));
+    }
+    if (m.find("EcsHostName") != m.end() && !m["EcsHostName"].empty()) {
+      ecsHostName = make_shared<string>(boost::any_cast<string>(m["EcsHostName"]));
+    }
+    if (m.find("EcsInstanceName") != m.end() && !m["EcsInstanceName"].empty()) {
+      ecsInstanceName = make_shared<string>(boost::any_cast<string>(m["EcsInstanceName"]));
+    }
+    if (m.find("EcsUniqueSuffix") != m.end() && !m["EcsUniqueSuffix"].empty()) {
+      ecsUniqueSuffix = make_shared<string>(boost::any_cast<string>(m["EcsUniqueSuffix"]));
+    }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
     }
@@ -1178,6 +1234,7 @@ public:
 class CreateMyBaseResponseBodyOrderListOrderList : public Darabonba::Model {
 public:
   shared_ptr<long> createTimestamp{};
+  shared_ptr<string> dedicatedHostGroupName{};
   shared_ptr<string> ECSInstanceIds{};
   shared_ptr<string> orderId{};
 
@@ -1194,6 +1251,9 @@ public:
     if (createTimestamp) {
       res["CreateTimestamp"] = boost::any(*createTimestamp);
     }
+    if (dedicatedHostGroupName) {
+      res["DedicatedHostGroupName"] = boost::any(*dedicatedHostGroupName);
+    }
     if (ECSInstanceIds) {
       res["ECSInstanceIds"] = boost::any(*ECSInstanceIds);
     }
@@ -1206,6 +1266,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
       createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
+    if (m.find("DedicatedHostGroupName") != m.end() && !m["DedicatedHostGroupName"].empty()) {
+      dedicatedHostGroupName = make_shared<string>(boost::any_cast<string>(m["DedicatedHostGroupName"]));
     }
     if (m.find("ECSInstanceIds") != m.end() && !m["ECSInstanceIds"].empty()) {
       ECSInstanceIds = make_shared<string>(boost::any_cast<string>(m["ECSInstanceIds"]));

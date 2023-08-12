@@ -259,6 +259,18 @@ CreateMyBaseResponse Alibabacloud_Cddc20200320::Client::createMyBaseWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->ECSClassListShrink)) {
     query->insert(pair<string, string>("ECSClassList", *request->ECSClassListShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecsDeploymentSetId)) {
+    query->insert(pair<string, string>("EcsDeploymentSetId", *request->ecsDeploymentSetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecsHostName)) {
+    query->insert(pair<string, string>("EcsHostName", *request->ecsHostName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceName)) {
+    query->insert(pair<string, string>("EcsInstanceName", *request->ecsInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ecsUniqueSuffix)) {
+    query->insert(pair<string, string>("EcsUniqueSuffix", *request->ecsUniqueSuffix));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->engine)) {
     query->insert(pair<string, string>("Engine", *request->engine));
   }
