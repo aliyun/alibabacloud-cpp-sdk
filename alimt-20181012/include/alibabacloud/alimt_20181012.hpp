@@ -15,6 +15,222 @@
 using namespace std;
 
 namespace Alibabacloud_Alimt20181012 {
+class CreateAsyncTranslateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiType{};
+  shared_ptr<string> formatType{};
+  shared_ptr<string> scene{};
+  shared_ptr<string> sourceLanguage{};
+  shared_ptr<string> sourceText{};
+  shared_ptr<string> targetLanguage{};
+
+  CreateAsyncTranslateRequest() {}
+
+  explicit CreateAsyncTranslateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiType) {
+      res["ApiType"] = boost::any(*apiType);
+    }
+    if (formatType) {
+      res["FormatType"] = boost::any(*formatType);
+    }
+    if (scene) {
+      res["Scene"] = boost::any(*scene);
+    }
+    if (sourceLanguage) {
+      res["SourceLanguage"] = boost::any(*sourceLanguage);
+    }
+    if (sourceText) {
+      res["SourceText"] = boost::any(*sourceText);
+    }
+    if (targetLanguage) {
+      res["TargetLanguage"] = boost::any(*targetLanguage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiType") != m.end() && !m["ApiType"].empty()) {
+      apiType = make_shared<string>(boost::any_cast<string>(m["ApiType"]));
+    }
+    if (m.find("FormatType") != m.end() && !m["FormatType"].empty()) {
+      formatType = make_shared<string>(boost::any_cast<string>(m["FormatType"]));
+    }
+    if (m.find("Scene") != m.end() && !m["Scene"].empty()) {
+      scene = make_shared<string>(boost::any_cast<string>(m["Scene"]));
+    }
+    if (m.find("SourceLanguage") != m.end() && !m["SourceLanguage"].empty()) {
+      sourceLanguage = make_shared<string>(boost::any_cast<string>(m["SourceLanguage"]));
+    }
+    if (m.find("SourceText") != m.end() && !m["SourceText"].empty()) {
+      sourceText = make_shared<string>(boost::any_cast<string>(m["SourceText"]));
+    }
+    if (m.find("TargetLanguage") != m.end() && !m["TargetLanguage"].empty()) {
+      targetLanguage = make_shared<string>(boost::any_cast<string>(m["TargetLanguage"]));
+    }
+  }
+
+
+  virtual ~CreateAsyncTranslateRequest() = default;
+};
+class CreateAsyncTranslateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> status{};
+
+  CreateAsyncTranslateResponseBodyData() {}
+
+  explicit CreateAsyncTranslateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~CreateAsyncTranslateResponseBodyData() = default;
+};
+class CreateAsyncTranslateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<CreateAsyncTranslateResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  CreateAsyncTranslateResponseBody() {}
+
+  explicit CreateAsyncTranslateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        CreateAsyncTranslateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<CreateAsyncTranslateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateAsyncTranslateResponseBody() = default;
+};
+class CreateAsyncTranslateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateAsyncTranslateResponseBody> body{};
+
+  CreateAsyncTranslateResponse() {}
+
+  explicit CreateAsyncTranslateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateAsyncTranslateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateAsyncTranslateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateAsyncTranslateResponse() = default;
+};
 class CreateDocTranslateTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callbackUrl{};
@@ -449,6 +665,201 @@ public:
 
 
   virtual ~CreateImageTranslateTaskResponse() = default;
+};
+class GetAsyncTranslateRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+
+  GetAsyncTranslateRequest() {}
+
+  explicit GetAsyncTranslateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+  }
+
+
+  virtual ~GetAsyncTranslateRequest() = default;
+};
+class GetAsyncTranslateResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> detectedLanguage{};
+  shared_ptr<string> status{};
+  shared_ptr<string> translatedText{};
+  shared_ptr<string> wordCount{};
+
+  GetAsyncTranslateResponseBodyData() {}
+
+  explicit GetAsyncTranslateResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (detectedLanguage) {
+      res["DetectedLanguage"] = boost::any(*detectedLanguage);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (translatedText) {
+      res["TranslatedText"] = boost::any(*translatedText);
+    }
+    if (wordCount) {
+      res["WordCount"] = boost::any(*wordCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DetectedLanguage") != m.end() && !m["DetectedLanguage"].empty()) {
+      detectedLanguage = make_shared<string>(boost::any_cast<string>(m["DetectedLanguage"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TranslatedText") != m.end() && !m["TranslatedText"].empty()) {
+      translatedText = make_shared<string>(boost::any_cast<string>(m["TranslatedText"]));
+    }
+    if (m.find("WordCount") != m.end() && !m["WordCount"].empty()) {
+      wordCount = make_shared<string>(boost::any_cast<string>(m["WordCount"]));
+    }
+  }
+
+
+  virtual ~GetAsyncTranslateResponseBodyData() = default;
+};
+class GetAsyncTranslateResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<GetAsyncTranslateResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetAsyncTranslateResponseBody() {}
+
+  explicit GetAsyncTranslateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetAsyncTranslateResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetAsyncTranslateResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetAsyncTranslateResponseBody() = default;
+};
+class GetAsyncTranslateResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetAsyncTranslateResponseBody> body{};
+
+  GetAsyncTranslateResponse() {}
+
+  explicit GetAsyncTranslateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetAsyncTranslateResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetAsyncTranslateResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetAsyncTranslateResponse() = default;
 };
 class GetBatchTranslateRequest : public Darabonba::Model {
 public:
@@ -4149,11 +4560,15 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  CreateAsyncTranslateResponse createAsyncTranslateWithOptions(shared_ptr<CreateAsyncTranslateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateAsyncTranslateResponse createAsyncTranslate(shared_ptr<CreateAsyncTranslateRequest> request);
   CreateDocTranslateTaskResponse createDocTranslateTaskWithOptions(shared_ptr<CreateDocTranslateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDocTranslateTaskResponse createDocTranslateTask(shared_ptr<CreateDocTranslateTaskRequest> request);
   CreateDocTranslateTaskResponse createDocTranslateTaskAdvance(shared_ptr<CreateDocTranslateTaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageTranslateTaskResponse createImageTranslateTaskWithOptions(shared_ptr<CreateImageTranslateTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateImageTranslateTaskResponse createImageTranslateTask(shared_ptr<CreateImageTranslateTaskRequest> request);
+  GetAsyncTranslateResponse getAsyncTranslateWithOptions(shared_ptr<GetAsyncTranslateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetAsyncTranslateResponse getAsyncTranslate(shared_ptr<GetAsyncTranslateRequest> request);
   GetBatchTranslateResponse getBatchTranslateWithOptions(shared_ptr<GetBatchTranslateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetBatchTranslateResponse getBatchTranslate(shared_ptr<GetBatchTranslateRequest> request);
   GetDetectLanguageResponse getDetectLanguageWithOptions(shared_ptr<GetDetectLanguageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
