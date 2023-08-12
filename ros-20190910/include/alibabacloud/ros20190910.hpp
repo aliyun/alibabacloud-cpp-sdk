@@ -8644,6 +8644,7 @@ public:
 };
 class GetStackResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> checkedStackResourceCount{};
   shared_ptr<string> createTime{};
   shared_ptr<string> deletionProtection{};
   shared_ptr<string> description{};
@@ -8651,6 +8652,7 @@ public:
   shared_ptr<string> driftDetectionTime{};
   shared_ptr<string> interface{};
   shared_ptr<GetStackResponseBodyLog> log{};
+  shared_ptr<long> notCheckedStackResourceCount{};
   shared_ptr<vector<string>> notificationURLs{};
   shared_ptr<GetStackResponseBodyOperationInfo> operationInfo{};
   shared_ptr<vector<string>> orderIds{};
@@ -8690,6 +8692,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (checkedStackResourceCount) {
+      res["CheckedStackResourceCount"] = boost::any(*checkedStackResourceCount);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -8710,6 +8715,9 @@ public:
     }
     if (log) {
       res["Log"] = log ? boost::any(log->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (notCheckedStackResourceCount) {
+      res["NotCheckedStackResourceCount"] = boost::any(*notCheckedStackResourceCount);
     }
     if (notificationURLs) {
       res["NotificationURLs"] = boost::any(*notificationURLs);
@@ -8807,6 +8815,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckedStackResourceCount") != m.end() && !m["CheckedStackResourceCount"].empty()) {
+      checkedStackResourceCount = make_shared<long>(boost::any_cast<long>(m["CheckedStackResourceCount"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -8831,6 +8842,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Log"]));
         log = make_shared<GetStackResponseBodyLog>(model1);
       }
+    }
+    if (m.find("NotCheckedStackResourceCount") != m.end() && !m["NotCheckedStackResourceCount"].empty()) {
+      notCheckedStackResourceCount = make_shared<long>(boost::any_cast<long>(m["NotCheckedStackResourceCount"]));
     }
     if (m.find("NotificationURLs") != m.end() && !m["NotificationURLs"].empty()) {
       vector<string> toVec1;
@@ -17377,6 +17391,7 @@ public:
 class ListStacksResponseBodyStacks : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<string> deletionProtection{};
   shared_ptr<bool> disableRollback{};
   shared_ptr<string> driftDetectionTime{};
   shared_ptr<ListStacksResponseBodyStacksOperationInfo> operationInfo{};
@@ -17407,6 +17422,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (deletionProtection) {
+      res["DeletionProtection"] = boost::any(*deletionProtection);
     }
     if (disableRollback) {
       res["DisableRollback"] = boost::any(*disableRollback);
@@ -17469,6 +17487,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DeletionProtection") != m.end() && !m["DeletionProtection"].empty()) {
+      deletionProtection = make_shared<string>(boost::any_cast<string>(m["DeletionProtection"]));
     }
     if (m.find("DisableRollback") != m.end() && !m["DisableRollback"].empty()) {
       disableRollback = make_shared<bool>(boost::any_cast<bool>(m["DisableRollback"]));
