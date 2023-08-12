@@ -422,6 +422,9 @@ CreatePatchBaselineResponse Alibabacloud_Oos20190601::Client::createPatchBaselin
   if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesAction)) {
     query->insert(pair<string, string>("RejectedPatchesAction", *request->rejectedPatchesAction));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
     query->insert(pair<string, string>("Sources", *request->sourcesShrink));
   }
@@ -3340,6 +3343,9 @@ UpdatePatchBaselineResponse Alibabacloud_Oos20190601::Client::updatePatchBaselin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->rejectedPatchesAction)) {
     query->insert(pair<string, string>("RejectedPatchesAction", *request->rejectedPatchesAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourcesShrink)) {
     query->insert(pair<string, string>("Sources", *request->sourcesShrink));

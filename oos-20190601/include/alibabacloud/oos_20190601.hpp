@@ -1990,6 +1990,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> rejectedPatches{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<CreatePatchBaselineRequestTags>> tags{};
 
@@ -2032,6 +2033,9 @@ public:
     }
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sources) {
       res["Sources"] = boost::any(*sources);
@@ -2091,6 +2095,9 @@ public:
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Sources"].type()) {
@@ -2131,6 +2138,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> rejectedPatchesShrink{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourcesShrink{};
   shared_ptr<string> tagsShrink{};
 
@@ -2174,6 +2182,9 @@ public:
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sourcesShrink) {
       res["Sources"] = boost::any(*sourcesShrink);
     }
@@ -2213,6 +2224,9 @@ public:
     }
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
@@ -2274,6 +2288,7 @@ public:
   shared_ptr<string> operationSystem{};
   shared_ptr<vector<string>> rejectedPatches{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<CreatePatchBaselineResponseBodyPatchBaselineTags>> tags{};
@@ -2322,6 +2337,9 @@ public:
     }
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -2392,6 +2410,9 @@ public:
     }
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
@@ -7774,6 +7795,7 @@ public:
   shared_ptr<string> operationSystem{};
   shared_ptr<vector<string>> rejectedPatches{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<GetPatchBaselineResponseBodyPatchBaselineTags>> tags{};
@@ -7825,6 +7847,9 @@ public:
     }
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -7898,6 +7923,9 @@ public:
     }
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
@@ -17754,6 +17782,7 @@ public:
   shared_ptr<string> id{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
   shared_ptr<string> updatedBy{};
   shared_ptr<string> updatedDate{};
@@ -17789,6 +17818,9 @@ public:
     if (operationSystem) {
       res["OperationSystem"] = boost::any(*operationSystem);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
     }
@@ -17822,6 +17854,9 @@ public:
     }
     if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
       operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
@@ -21196,6 +21231,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> rejectedPatches{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<UpdatePatchBaselineRequestTags>> tags{};
 
@@ -21235,6 +21271,9 @@ public:
     }
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sources) {
       res["Sources"] = boost::any(*sources);
@@ -21291,6 +21330,9 @@ public:
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Sources"].type()) {
@@ -21330,6 +21372,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> rejectedPatchesShrink{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourcesShrink{};
   shared_ptr<string> tagsShrink{};
 
@@ -21370,6 +21413,9 @@ public:
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sourcesShrink) {
       res["Sources"] = boost::any(*sourcesShrink);
     }
@@ -21406,6 +21452,9 @@ public:
     }
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
       sourcesShrink = make_shared<string>(boost::any_cast<string>(m["Sources"]));
@@ -21467,6 +21516,7 @@ public:
   shared_ptr<string> operationSystem{};
   shared_ptr<vector<string>> rejectedPatches{};
   shared_ptr<string> rejectedPatchesAction{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<UpdatePatchBaselineResponseBodyPatchBaselineTags>> tags{};
@@ -21515,6 +21565,9 @@ public:
     }
     if (rejectedPatchesAction) {
       res["RejectedPatchesAction"] = boost::any(*rejectedPatchesAction);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -21585,6 +21638,9 @@ public:
     }
     if (m.find("RejectedPatchesAction") != m.end() && !m["RejectedPatchesAction"].empty()) {
       rejectedPatchesAction = make_shared<string>(boost::any_cast<string>(m["RejectedPatchesAction"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
