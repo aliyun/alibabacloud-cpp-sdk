@@ -21667,6 +21667,249 @@ public:
 
   virtual ~FlightCancelOrderResponse() = default;
 };
+class FlightCancelOrderV2Headers : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  FlightCancelOrderV2Headers() {}
+
+  explicit FlightCancelOrderV2Headers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~FlightCancelOrderV2Headers() = default;
+};
+class FlightCancelOrderV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> isvName{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> outOrderId{};
+
+  FlightCancelOrderV2Request() {}
+
+  explicit FlightCancelOrderV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["order_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+  }
+
+
+  virtual ~FlightCancelOrderV2Request() = default;
+};
+class FlightCancelOrderV2ResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> cancelTime{};
+
+  FlightCancelOrderV2ResponseBodyModule() {}
+
+  explicit FlightCancelOrderV2ResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cancelTime) {
+      res["cancel_time"] = boost::any(*cancelTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cancel_time") != m.end() && !m["cancel_time"].empty()) {
+      cancelTime = make_shared<string>(boost::any_cast<string>(m["cancel_time"]));
+    }
+  }
+
+
+  virtual ~FlightCancelOrderV2ResponseBodyModule() = default;
+};
+class FlightCancelOrderV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<FlightCancelOrderV2ResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  FlightCancelOrderV2ResponseBody() {}
+
+  explicit FlightCancelOrderV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        FlightCancelOrderV2ResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<FlightCancelOrderV2ResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~FlightCancelOrderV2ResponseBody() = default;
+};
+class FlightCancelOrderV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FlightCancelOrderV2ResponseBody> body{};
+
+  FlightCancelOrderV2Response() {}
+
+  explicit FlightCancelOrderV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FlightCancelOrderV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FlightCancelOrderV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FlightCancelOrderV2Response() = default;
+};
 class FlightCreateOrderHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -22397,6 +22640,655 @@ public:
 
 
   virtual ~FlightCreateOrderResponse() = default;
+};
+class FlightCreateOrderV2Headers : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  FlightCreateOrderV2Headers() {}
+
+  explicit FlightCreateOrderV2Headers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2Headers() = default;
+};
+class FlightCreateOrderV2RequestContactInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> contactEmail{};
+  shared_ptr<string> contactName{};
+  shared_ptr<string> contactPhone{};
+  shared_ptr<bool> sendMsgToPassenger{};
+
+  FlightCreateOrderV2RequestContactInfo() {}
+
+  explicit FlightCreateOrderV2RequestContactInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactEmail) {
+      res["contact_email"] = boost::any(*contactEmail);
+    }
+    if (contactName) {
+      res["contact_name"] = boost::any(*contactName);
+    }
+    if (contactPhone) {
+      res["contact_phone"] = boost::any(*contactPhone);
+    }
+    if (sendMsgToPassenger) {
+      res["send_msg_to_passenger"] = boost::any(*sendMsgToPassenger);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("contact_email") != m.end() && !m["contact_email"].empty()) {
+      contactEmail = make_shared<string>(boost::any_cast<string>(m["contact_email"]));
+    }
+    if (m.find("contact_name") != m.end() && !m["contact_name"].empty()) {
+      contactName = make_shared<string>(boost::any_cast<string>(m["contact_name"]));
+    }
+    if (m.find("contact_phone") != m.end() && !m["contact_phone"].empty()) {
+      contactPhone = make_shared<string>(boost::any_cast<string>(m["contact_phone"]));
+    }
+    if (m.find("send_msg_to_passenger") != m.end() && !m["send_msg_to_passenger"].empty()) {
+      sendMsgToPassenger = make_shared<bool>(boost::any_cast<bool>(m["send_msg_to_passenger"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2RequestContactInfo() = default;
+};
+class FlightCreateOrderV2RequestTravelers : public Darabonba::Model {
+public:
+  shared_ptr<string> birthday{};
+  shared_ptr<string> certNation{};
+  shared_ptr<string> certNo{};
+  shared_ptr<long> certType{};
+  shared_ptr<string> certValidDate{};
+  shared_ptr<string> costCenterName{};
+  shared_ptr<string> costCenterNumber{};
+  shared_ptr<string> deptId{};
+  shared_ptr<string> deptName{};
+  shared_ptr<long> gender{};
+  shared_ptr<string> invoiceTitle{};
+  shared_ptr<string> nationality{};
+  shared_ptr<string> nationalityCode{};
+  shared_ptr<string> passengerName{};
+  shared_ptr<long> passengerType{};
+  shared_ptr<string> phone{};
+  shared_ptr<string> projectCode{};
+  shared_ptr<string> projectTitle{};
+  shared_ptr<string> userId{};
+  shared_ptr<long> userType{};
+
+  FlightCreateOrderV2RequestTravelers() {}
+
+  explicit FlightCreateOrderV2RequestTravelers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (certNation) {
+      res["cert_nation"] = boost::any(*certNation);
+    }
+    if (certNo) {
+      res["cert_no"] = boost::any(*certNo);
+    }
+    if (certType) {
+      res["cert_type"] = boost::any(*certType);
+    }
+    if (certValidDate) {
+      res["cert_valid_date"] = boost::any(*certValidDate);
+    }
+    if (costCenterName) {
+      res["cost_center_name"] = boost::any(*costCenterName);
+    }
+    if (costCenterNumber) {
+      res["cost_center_number"] = boost::any(*costCenterNumber);
+    }
+    if (deptId) {
+      res["dept_id"] = boost::any(*deptId);
+    }
+    if (deptName) {
+      res["dept_name"] = boost::any(*deptName);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
+    }
+    if (invoiceTitle) {
+      res["invoice_title"] = boost::any(*invoiceTitle);
+    }
+    if (nationality) {
+      res["nationality"] = boost::any(*nationality);
+    }
+    if (nationalityCode) {
+      res["nationality_code"] = boost::any(*nationalityCode);
+    }
+    if (passengerName) {
+      res["passenger_name"] = boost::any(*passengerName);
+    }
+    if (passengerType) {
+      res["passenger_type"] = boost::any(*passengerType);
+    }
+    if (phone) {
+      res["phone"] = boost::any(*phone);
+    }
+    if (projectCode) {
+      res["project_code"] = boost::any(*projectCode);
+    }
+    if (projectTitle) {
+      res["project_title"] = boost::any(*projectTitle);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    if (userType) {
+      res["user_type"] = boost::any(*userType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("cert_nation") != m.end() && !m["cert_nation"].empty()) {
+      certNation = make_shared<string>(boost::any_cast<string>(m["cert_nation"]));
+    }
+    if (m.find("cert_no") != m.end() && !m["cert_no"].empty()) {
+      certNo = make_shared<string>(boost::any_cast<string>(m["cert_no"]));
+    }
+    if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
+      certType = make_shared<long>(boost::any_cast<long>(m["cert_type"]));
+    }
+    if (m.find("cert_valid_date") != m.end() && !m["cert_valid_date"].empty()) {
+      certValidDate = make_shared<string>(boost::any_cast<string>(m["cert_valid_date"]));
+    }
+    if (m.find("cost_center_name") != m.end() && !m["cost_center_name"].empty()) {
+      costCenterName = make_shared<string>(boost::any_cast<string>(m["cost_center_name"]));
+    }
+    if (m.find("cost_center_number") != m.end() && !m["cost_center_number"].empty()) {
+      costCenterNumber = make_shared<string>(boost::any_cast<string>(m["cost_center_number"]));
+    }
+    if (m.find("dept_id") != m.end() && !m["dept_id"].empty()) {
+      deptId = make_shared<string>(boost::any_cast<string>(m["dept_id"]));
+    }
+    if (m.find("dept_name") != m.end() && !m["dept_name"].empty()) {
+      deptName = make_shared<string>(boost::any_cast<string>(m["dept_name"]));
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["gender"]));
+    }
+    if (m.find("invoice_title") != m.end() && !m["invoice_title"].empty()) {
+      invoiceTitle = make_shared<string>(boost::any_cast<string>(m["invoice_title"]));
+    }
+    if (m.find("nationality") != m.end() && !m["nationality"].empty()) {
+      nationality = make_shared<string>(boost::any_cast<string>(m["nationality"]));
+    }
+    if (m.find("nationality_code") != m.end() && !m["nationality_code"].empty()) {
+      nationalityCode = make_shared<string>(boost::any_cast<string>(m["nationality_code"]));
+    }
+    if (m.find("passenger_name") != m.end() && !m["passenger_name"].empty()) {
+      passengerName = make_shared<string>(boost::any_cast<string>(m["passenger_name"]));
+    }
+    if (m.find("passenger_type") != m.end() && !m["passenger_type"].empty()) {
+      passengerType = make_shared<long>(boost::any_cast<long>(m["passenger_type"]));
+    }
+    if (m.find("phone") != m.end() && !m["phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
+      projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
+    }
+    if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
+      projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+    if (m.find("user_type") != m.end() && !m["user_type"].empty()) {
+      userType = make_shared<long>(boost::any_cast<long>(m["user_type"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2RequestTravelers() = default;
+};
+class FlightCreateOrderV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> asyncCreateOrderKey{};
+  shared_ptr<bool> asyncCreateOrderMode{};
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> buyerName{};
+  shared_ptr<FlightCreateOrderV2RequestContactInfo> contactInfo{};
+  shared_ptr<string> isvName{};
+  shared_ptr<string> otaItemId{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<long> totalPriceCent{};
+  shared_ptr<vector<FlightCreateOrderV2RequestTravelers>> travelers{};
+
+  FlightCreateOrderV2Request() {}
+
+  explicit FlightCreateOrderV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncCreateOrderKey) {
+      res["async_create_order_key"] = boost::any(*asyncCreateOrderKey);
+    }
+    if (asyncCreateOrderMode) {
+      res["async_create_order_mode"] = boost::any(*asyncCreateOrderMode);
+    }
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (buyerName) {
+      res["buyer_name"] = boost::any(*buyerName);
+    }
+    if (contactInfo) {
+      res["contact_info"] = contactInfo ? boost::any(contactInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (otaItemId) {
+      res["ota_item_id"] = boost::any(*otaItemId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    if (totalPriceCent) {
+      res["total_price_cent"] = boost::any(*totalPriceCent);
+    }
+    if (travelers) {
+      vector<boost::any> temp1;
+      for(auto item1:*travelers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["travelers"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("async_create_order_key") != m.end() && !m["async_create_order_key"].empty()) {
+      asyncCreateOrderKey = make_shared<string>(boost::any_cast<string>(m["async_create_order_key"]));
+    }
+    if (m.find("async_create_order_mode") != m.end() && !m["async_create_order_mode"].empty()) {
+      asyncCreateOrderMode = make_shared<bool>(boost::any_cast<bool>(m["async_create_order_mode"]));
+    }
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("buyer_name") != m.end() && !m["buyer_name"].empty()) {
+      buyerName = make_shared<string>(boost::any_cast<string>(m["buyer_name"]));
+    }
+    if (m.find("contact_info") != m.end() && !m["contact_info"].empty()) {
+      if (typeid(map<string, boost::any>) == m["contact_info"].type()) {
+        FlightCreateOrderV2RequestContactInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["contact_info"]));
+        contactInfo = make_shared<FlightCreateOrderV2RequestContactInfo>(model1);
+      }
+    }
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("ota_item_id") != m.end() && !m["ota_item_id"].empty()) {
+      otaItemId = make_shared<string>(boost::any_cast<string>(m["ota_item_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+    if (m.find("total_price_cent") != m.end() && !m["total_price_cent"].empty()) {
+      totalPriceCent = make_shared<long>(boost::any_cast<long>(m["total_price_cent"]));
+    }
+    if (m.find("travelers") != m.end() && !m["travelers"].empty()) {
+      if (typeid(vector<boost::any>) == m["travelers"].type()) {
+        vector<FlightCreateOrderV2RequestTravelers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["travelers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightCreateOrderV2RequestTravelers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        travelers = make_shared<vector<FlightCreateOrderV2RequestTravelers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2Request() = default;
+};
+class FlightCreateOrderV2ShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> asyncCreateOrderKey{};
+  shared_ptr<bool> asyncCreateOrderMode{};
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> buyerName{};
+  shared_ptr<string> contactInfoShrink{};
+  shared_ptr<string> isvName{};
+  shared_ptr<string> otaItemId{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<long> totalPriceCent{};
+  shared_ptr<string> travelersShrink{};
+
+  FlightCreateOrderV2ShrinkRequest() {}
+
+  explicit FlightCreateOrderV2ShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncCreateOrderKey) {
+      res["async_create_order_key"] = boost::any(*asyncCreateOrderKey);
+    }
+    if (asyncCreateOrderMode) {
+      res["async_create_order_mode"] = boost::any(*asyncCreateOrderMode);
+    }
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (buyerName) {
+      res["buyer_name"] = boost::any(*buyerName);
+    }
+    if (contactInfoShrink) {
+      res["contact_info"] = boost::any(*contactInfoShrink);
+    }
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (otaItemId) {
+      res["ota_item_id"] = boost::any(*otaItemId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    if (totalPriceCent) {
+      res["total_price_cent"] = boost::any(*totalPriceCent);
+    }
+    if (travelersShrink) {
+      res["travelers"] = boost::any(*travelersShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("async_create_order_key") != m.end() && !m["async_create_order_key"].empty()) {
+      asyncCreateOrderKey = make_shared<string>(boost::any_cast<string>(m["async_create_order_key"]));
+    }
+    if (m.find("async_create_order_mode") != m.end() && !m["async_create_order_mode"].empty()) {
+      asyncCreateOrderMode = make_shared<bool>(boost::any_cast<bool>(m["async_create_order_mode"]));
+    }
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("buyer_name") != m.end() && !m["buyer_name"].empty()) {
+      buyerName = make_shared<string>(boost::any_cast<string>(m["buyer_name"]));
+    }
+    if (m.find("contact_info") != m.end() && !m["contact_info"].empty()) {
+      contactInfoShrink = make_shared<string>(boost::any_cast<string>(m["contact_info"]));
+    }
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("ota_item_id") != m.end() && !m["ota_item_id"].empty()) {
+      otaItemId = make_shared<string>(boost::any_cast<string>(m["ota_item_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+    if (m.find("total_price_cent") != m.end() && !m["total_price_cent"].empty()) {
+      totalPriceCent = make_shared<long>(boost::any_cast<long>(m["total_price_cent"]));
+    }
+    if (m.find("travelers") != m.end() && !m["travelers"].empty()) {
+      travelersShrink = make_shared<string>(boost::any_cast<string>(m["travelers"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2ShrinkRequest() = default;
+};
+class FlightCreateOrderV2ResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> asyncCreateOrderKey{};
+  shared_ptr<string> latestPayTime{};
+  shared_ptr<long> orderId{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<long> status{};
+  shared_ptr<long> totalPrice{};
+
+  FlightCreateOrderV2ResponseBodyModule() {}
+
+  explicit FlightCreateOrderV2ResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (asyncCreateOrderKey) {
+      res["async_create_order_key"] = boost::any(*asyncCreateOrderKey);
+    }
+    if (latestPayTime) {
+      res["latest_pay_time"] = boost::any(*latestPayTime);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (totalPrice) {
+      res["total_price"] = boost::any(*totalPrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("async_create_order_key") != m.end() && !m["async_create_order_key"].empty()) {
+      asyncCreateOrderKey = make_shared<string>(boost::any_cast<string>(m["async_create_order_key"]));
+    }
+    if (m.find("latest_pay_time") != m.end() && !m["latest_pay_time"].empty()) {
+      latestPayTime = make_shared<string>(boost::any_cast<string>(m["latest_pay_time"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["order_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("total_price") != m.end() && !m["total_price"].empty()) {
+      totalPrice = make_shared<long>(boost::any_cast<long>(m["total_price"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2ResponseBodyModule() = default;
+};
+class FlightCreateOrderV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<FlightCreateOrderV2ResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  FlightCreateOrderV2ResponseBody() {}
+
+  explicit FlightCreateOrderV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        FlightCreateOrderV2ResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<FlightCreateOrderV2ResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2ResponseBody() = default;
+};
+class FlightCreateOrderV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FlightCreateOrderV2ResponseBody> body{};
+
+  FlightCreateOrderV2Response() {}
+
+  explicit FlightCreateOrderV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FlightCreateOrderV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FlightCreateOrderV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FlightCreateOrderV2Response() = default;
 };
 class FlightExceedApplyQueryHeaders : public Darabonba::Model {
 public:
@@ -28171,6 +29063,1740 @@ public:
 
 
   virtual ~FlightOrderDetailInfoResponse() = default;
+};
+class FlightOrderDetailV2Headers : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  FlightOrderDetailV2Headers() {}
+
+  explicit FlightOrderDetailV2Headers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2Headers() = default;
+};
+class FlightOrderDetailV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> isvName{};
+  shared_ptr<long> orderId{};
+  shared_ptr<string> outOrderId{};
+
+  FlightOrderDetailV2Request() {}
+
+  explicit FlightOrderDetailV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["order_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2Request() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleContactInfoDTO : public Darabonba::Model {
+public:
+  shared_ptr<string> contactEmail{};
+  shared_ptr<string> contactName{};
+  shared_ptr<string> contactPhone{};
+  shared_ptr<bool> sendMsgToPassenger{};
+
+  FlightOrderDetailV2ResponseBodyModuleContactInfoDTO() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleContactInfoDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contactEmail) {
+      res["contact_email"] = boost::any(*contactEmail);
+    }
+    if (contactName) {
+      res["contact_name"] = boost::any(*contactName);
+    }
+    if (contactPhone) {
+      res["contact_phone"] = boost::any(*contactPhone);
+    }
+    if (sendMsgToPassenger) {
+      res["send_msg_to_passenger"] = boost::any(*sendMsgToPassenger);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("contact_email") != m.end() && !m["contact_email"].empty()) {
+      contactEmail = make_shared<string>(boost::any_cast<string>(m["contact_email"]));
+    }
+    if (m.find("contact_name") != m.end() && !m["contact_name"].empty()) {
+      contactName = make_shared<string>(boost::any_cast<string>(m["contact_name"]));
+    }
+    if (m.find("contact_phone") != m.end() && !m["contact_phone"].empty()) {
+      contactPhone = make_shared<string>(boost::any_cast<string>(m["contact_phone"]));
+    }
+    if (m.find("send_msg_to_passenger") != m.end() && !m["send_msg_to_passenger"].empty()) {
+      sendMsgToPassenger = make_shared<bool>(boost::any_cast<bool>(m["send_msg_to_passenger"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleContactInfoDTO() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange : public Darabonba::Model {
+public:
+  shared_ptr<string> changeDesc{};
+  shared_ptr<string> changeStatus{};
+  shared_ptr<string> changeStatusCode{};
+  shared_ptr<boost::any> newSegment{};
+  shared_ptr<vector<string>> passengerNames{};
+
+  FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (changeDesc) {
+      res["change_desc"] = boost::any(*changeDesc);
+    }
+    if (changeStatus) {
+      res["change_status"] = boost::any(*changeStatus);
+    }
+    if (changeStatusCode) {
+      res["change_status_code"] = boost::any(*changeStatusCode);
+    }
+    if (newSegment) {
+      res["new_segment"] = boost::any(*newSegment);
+    }
+    if (passengerNames) {
+      res["passenger_names"] = boost::any(*passengerNames);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("change_desc") != m.end() && !m["change_desc"].empty()) {
+      changeDesc = make_shared<string>(boost::any_cast<string>(m["change_desc"]));
+    }
+    if (m.find("change_status") != m.end() && !m["change_status"].empty()) {
+      changeStatus = make_shared<string>(boost::any_cast<string>(m["change_status"]));
+    }
+    if (m.find("change_status_code") != m.end() && !m["change_status_code"].empty()) {
+      changeStatusCode = make_shared<string>(boost::any_cast<string>(m["change_status_code"]));
+    }
+    if (m.find("new_segment") != m.end() && !m["new_segment"].empty()) {
+      newSegment = make_shared<boost::any>(boost::any_cast<boost::any>(m["new_segment"]));
+    }
+    if (m.find("passenger_names") != m.end() && !m["passenger_names"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["passenger_names"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["passenger_names"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      passengerNames = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition : public Darabonba::Model {
+public:
+  shared_ptr<long> journeyIndex{};
+  shared_ptr<long> segmentIndex{};
+
+  FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (journeyIndex) {
+      res["journey_index"] = boost::any(*journeyIndex);
+    }
+    if (segmentIndex) {
+      res["segment_index"] = boost::any(*segmentIndex);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("journey_index") != m.end() && !m["journey_index"].empty()) {
+      journeyIndex = make_shared<long>(boost::any_cast<long>(m["journey_index"]));
+    }
+    if (m.find("segment_index") != m.end() && !m["segment_index"].empty()) {
+      segmentIndex = make_shared<long>(boost::any_cast<long>(m["segment_index"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList : public Darabonba::Model {
+public:
+  shared_ptr<string> airLineCode{};
+  shared_ptr<string> airLineEnglishName{};
+  shared_ptr<string> airLineName{};
+  shared_ptr<string> airLinePhone{};
+  shared_ptr<string> airlineIconUrl{};
+  shared_ptr<string> airlineShortName{};
+  shared_ptr<string> arrAirportCode{};
+  shared_ptr<string> arrAirportName{};
+  shared_ptr<string> arrCityCode{};
+  shared_ptr<string> arrCityName{};
+  shared_ptr<string> arrTime{};
+  shared_ptr<string> arriveTerminal{};
+  shared_ptr<string> cabin{};
+  shared_ptr<string> cabinAndDiscount{};
+  shared_ptr<string> cabinClass{};
+  shared_ptr<string> cabinClassName{};
+  shared_ptr<bool> codeShare{};
+  shared_ptr<string> deadlineText{};
+  shared_ptr<string> depAirportCode{};
+  shared_ptr<string> depAirportName{};
+  shared_ptr<string> depCityCode{};
+  shared_ptr<string> depCityName{};
+  shared_ptr<string> depDate{};
+  shared_ptr<string> depTime{};
+  shared_ptr<string> departTerminal{};
+  shared_ptr<double> discount{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange> flightChange{};
+  shared_ptr<string> flightNo{};
+  shared_ptr<string> flightType{};
+  shared_ptr<long> flyDuration{};
+  shared_ptr<string> manufacturer{};
+  shared_ptr<string> mealDesc{};
+  shared_ptr<string> onTimeRate{};
+  shared_ptr<string> operatingAirShortName{};
+  shared_ptr<string> operatingAirlineCode{};
+  shared_ptr<string> operatingAirlineEnglishName{};
+  shared_ptr<string> operatingAirlineIconUrl{};
+  shared_ptr<string> operatingAirlineName{};
+  shared_ptr<string> operatingAirlinePhone{};
+  shared_ptr<string> operatingFlightNo{};
+  shared_ptr<string> planeType{};
+  shared_ptr<long> raisePrice{};
+  shared_ptr<string> segmentId{};
+  shared_ptr<long> segmentIndex{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition> segmentPosition{};
+  shared_ptr<string> stopAirport{};
+  shared_ptr<string> stopArrTime{};
+  shared_ptr<string> stopCity{};
+  shared_ptr<string> stopCityName{};
+  shared_ptr<string> stopDepTime{};
+  shared_ptr<long> stopQuantity{};
+
+  FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (airLineCode) {
+      res["air_line_code"] = boost::any(*airLineCode);
+    }
+    if (airLineEnglishName) {
+      res["air_line_english_name"] = boost::any(*airLineEnglishName);
+    }
+    if (airLineName) {
+      res["air_line_name"] = boost::any(*airLineName);
+    }
+    if (airLinePhone) {
+      res["air_line_phone"] = boost::any(*airLinePhone);
+    }
+    if (airlineIconUrl) {
+      res["airline_icon_url"] = boost::any(*airlineIconUrl);
+    }
+    if (airlineShortName) {
+      res["airline_short_name"] = boost::any(*airlineShortName);
+    }
+    if (arrAirportCode) {
+      res["arr_airport_code"] = boost::any(*arrAirportCode);
+    }
+    if (arrAirportName) {
+      res["arr_airport_name"] = boost::any(*arrAirportName);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
+    }
+    if (arrCityName) {
+      res["arr_city_name"] = boost::any(*arrCityName);
+    }
+    if (arrTime) {
+      res["arr_time"] = boost::any(*arrTime);
+    }
+    if (arriveTerminal) {
+      res["arrive_terminal"] = boost::any(*arriveTerminal);
+    }
+    if (cabin) {
+      res["cabin"] = boost::any(*cabin);
+    }
+    if (cabinAndDiscount) {
+      res["cabin_and_discount"] = boost::any(*cabinAndDiscount);
+    }
+    if (cabinClass) {
+      res["cabin_class"] = boost::any(*cabinClass);
+    }
+    if (cabinClassName) {
+      res["cabin_class_name"] = boost::any(*cabinClassName);
+    }
+    if (codeShare) {
+      res["code_share"] = boost::any(*codeShare);
+    }
+    if (deadlineText) {
+      res["deadline_text"] = boost::any(*deadlineText);
+    }
+    if (depAirportCode) {
+      res["dep_airport_code"] = boost::any(*depAirportCode);
+    }
+    if (depAirportName) {
+      res["dep_airport_name"] = boost::any(*depAirportName);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
+    }
+    if (depCityName) {
+      res["dep_city_name"] = boost::any(*depCityName);
+    }
+    if (depDate) {
+      res["dep_date"] = boost::any(*depDate);
+    }
+    if (depTime) {
+      res["dep_time"] = boost::any(*depTime);
+    }
+    if (departTerminal) {
+      res["depart_terminal"] = boost::any(*departTerminal);
+    }
+    if (discount) {
+      res["discount"] = boost::any(*discount);
+    }
+    if (flightChange) {
+      res["flight_change"] = flightChange ? boost::any(flightChange->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (flightNo) {
+      res["flight_no"] = boost::any(*flightNo);
+    }
+    if (flightType) {
+      res["flight_type"] = boost::any(*flightType);
+    }
+    if (flyDuration) {
+      res["fly_duration"] = boost::any(*flyDuration);
+    }
+    if (manufacturer) {
+      res["manufacturer"] = boost::any(*manufacturer);
+    }
+    if (mealDesc) {
+      res["meal_desc"] = boost::any(*mealDesc);
+    }
+    if (onTimeRate) {
+      res["on_time_rate"] = boost::any(*onTimeRate);
+    }
+    if (operatingAirShortName) {
+      res["operating_air_short_name"] = boost::any(*operatingAirShortName);
+    }
+    if (operatingAirlineCode) {
+      res["operating_airline_code"] = boost::any(*operatingAirlineCode);
+    }
+    if (operatingAirlineEnglishName) {
+      res["operating_airline_english_name"] = boost::any(*operatingAirlineEnglishName);
+    }
+    if (operatingAirlineIconUrl) {
+      res["operating_airline_icon_url"] = boost::any(*operatingAirlineIconUrl);
+    }
+    if (operatingAirlineName) {
+      res["operating_airline_name"] = boost::any(*operatingAirlineName);
+    }
+    if (operatingAirlinePhone) {
+      res["operating_airline_phone"] = boost::any(*operatingAirlinePhone);
+    }
+    if (operatingFlightNo) {
+      res["operating_flight_no"] = boost::any(*operatingFlightNo);
+    }
+    if (planeType) {
+      res["plane_type"] = boost::any(*planeType);
+    }
+    if (raisePrice) {
+      res["raise_price"] = boost::any(*raisePrice);
+    }
+    if (segmentId) {
+      res["segment_id"] = boost::any(*segmentId);
+    }
+    if (segmentIndex) {
+      res["segment_index"] = boost::any(*segmentIndex);
+    }
+    if (segmentPosition) {
+      res["segment_position"] = segmentPosition ? boost::any(segmentPosition->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stopAirport) {
+      res["stop_airport"] = boost::any(*stopAirport);
+    }
+    if (stopArrTime) {
+      res["stop_arr_time"] = boost::any(*stopArrTime);
+    }
+    if (stopCity) {
+      res["stop_city"] = boost::any(*stopCity);
+    }
+    if (stopCityName) {
+      res["stop_city_name"] = boost::any(*stopCityName);
+    }
+    if (stopDepTime) {
+      res["stop_dep_time"] = boost::any(*stopDepTime);
+    }
+    if (stopQuantity) {
+      res["stop_quantity"] = boost::any(*stopQuantity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("air_line_code") != m.end() && !m["air_line_code"].empty()) {
+      airLineCode = make_shared<string>(boost::any_cast<string>(m["air_line_code"]));
+    }
+    if (m.find("air_line_english_name") != m.end() && !m["air_line_english_name"].empty()) {
+      airLineEnglishName = make_shared<string>(boost::any_cast<string>(m["air_line_english_name"]));
+    }
+    if (m.find("air_line_name") != m.end() && !m["air_line_name"].empty()) {
+      airLineName = make_shared<string>(boost::any_cast<string>(m["air_line_name"]));
+    }
+    if (m.find("air_line_phone") != m.end() && !m["air_line_phone"].empty()) {
+      airLinePhone = make_shared<string>(boost::any_cast<string>(m["air_line_phone"]));
+    }
+    if (m.find("airline_icon_url") != m.end() && !m["airline_icon_url"].empty()) {
+      airlineIconUrl = make_shared<string>(boost::any_cast<string>(m["airline_icon_url"]));
+    }
+    if (m.find("airline_short_name") != m.end() && !m["airline_short_name"].empty()) {
+      airlineShortName = make_shared<string>(boost::any_cast<string>(m["airline_short_name"]));
+    }
+    if (m.find("arr_airport_code") != m.end() && !m["arr_airport_code"].empty()) {
+      arrAirportCode = make_shared<string>(boost::any_cast<string>(m["arr_airport_code"]));
+    }
+    if (m.find("arr_airport_name") != m.end() && !m["arr_airport_name"].empty()) {
+      arrAirportName = make_shared<string>(boost::any_cast<string>(m["arr_airport_name"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
+    }
+    if (m.find("arr_city_name") != m.end() && !m["arr_city_name"].empty()) {
+      arrCityName = make_shared<string>(boost::any_cast<string>(m["arr_city_name"]));
+    }
+    if (m.find("arr_time") != m.end() && !m["arr_time"].empty()) {
+      arrTime = make_shared<string>(boost::any_cast<string>(m["arr_time"]));
+    }
+    if (m.find("arrive_terminal") != m.end() && !m["arrive_terminal"].empty()) {
+      arriveTerminal = make_shared<string>(boost::any_cast<string>(m["arrive_terminal"]));
+    }
+    if (m.find("cabin") != m.end() && !m["cabin"].empty()) {
+      cabin = make_shared<string>(boost::any_cast<string>(m["cabin"]));
+    }
+    if (m.find("cabin_and_discount") != m.end() && !m["cabin_and_discount"].empty()) {
+      cabinAndDiscount = make_shared<string>(boost::any_cast<string>(m["cabin_and_discount"]));
+    }
+    if (m.find("cabin_class") != m.end() && !m["cabin_class"].empty()) {
+      cabinClass = make_shared<string>(boost::any_cast<string>(m["cabin_class"]));
+    }
+    if (m.find("cabin_class_name") != m.end() && !m["cabin_class_name"].empty()) {
+      cabinClassName = make_shared<string>(boost::any_cast<string>(m["cabin_class_name"]));
+    }
+    if (m.find("code_share") != m.end() && !m["code_share"].empty()) {
+      codeShare = make_shared<bool>(boost::any_cast<bool>(m["code_share"]));
+    }
+    if (m.find("deadline_text") != m.end() && !m["deadline_text"].empty()) {
+      deadlineText = make_shared<string>(boost::any_cast<string>(m["deadline_text"]));
+    }
+    if (m.find("dep_airport_code") != m.end() && !m["dep_airport_code"].empty()) {
+      depAirportCode = make_shared<string>(boost::any_cast<string>(m["dep_airport_code"]));
+    }
+    if (m.find("dep_airport_name") != m.end() && !m["dep_airport_name"].empty()) {
+      depAirportName = make_shared<string>(boost::any_cast<string>(m["dep_airport_name"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
+    }
+    if (m.find("dep_city_name") != m.end() && !m["dep_city_name"].empty()) {
+      depCityName = make_shared<string>(boost::any_cast<string>(m["dep_city_name"]));
+    }
+    if (m.find("dep_date") != m.end() && !m["dep_date"].empty()) {
+      depDate = make_shared<string>(boost::any_cast<string>(m["dep_date"]));
+    }
+    if (m.find("dep_time") != m.end() && !m["dep_time"].empty()) {
+      depTime = make_shared<string>(boost::any_cast<string>(m["dep_time"]));
+    }
+    if (m.find("depart_terminal") != m.end() && !m["depart_terminal"].empty()) {
+      departTerminal = make_shared<string>(boost::any_cast<string>(m["depart_terminal"]));
+    }
+    if (m.find("discount") != m.end() && !m["discount"].empty()) {
+      discount = make_shared<double>(boost::any_cast<double>(m["discount"]));
+    }
+    if (m.find("flight_change") != m.end() && !m["flight_change"].empty()) {
+      if (typeid(map<string, boost::any>) == m["flight_change"].type()) {
+        FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["flight_change"]));
+        flightChange = make_shared<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListFlightChange>(model1);
+      }
+    }
+    if (m.find("flight_no") != m.end() && !m["flight_no"].empty()) {
+      flightNo = make_shared<string>(boost::any_cast<string>(m["flight_no"]));
+    }
+    if (m.find("flight_type") != m.end() && !m["flight_type"].empty()) {
+      flightType = make_shared<string>(boost::any_cast<string>(m["flight_type"]));
+    }
+    if (m.find("fly_duration") != m.end() && !m["fly_duration"].empty()) {
+      flyDuration = make_shared<long>(boost::any_cast<long>(m["fly_duration"]));
+    }
+    if (m.find("manufacturer") != m.end() && !m["manufacturer"].empty()) {
+      manufacturer = make_shared<string>(boost::any_cast<string>(m["manufacturer"]));
+    }
+    if (m.find("meal_desc") != m.end() && !m["meal_desc"].empty()) {
+      mealDesc = make_shared<string>(boost::any_cast<string>(m["meal_desc"]));
+    }
+    if (m.find("on_time_rate") != m.end() && !m["on_time_rate"].empty()) {
+      onTimeRate = make_shared<string>(boost::any_cast<string>(m["on_time_rate"]));
+    }
+    if (m.find("operating_air_short_name") != m.end() && !m["operating_air_short_name"].empty()) {
+      operatingAirShortName = make_shared<string>(boost::any_cast<string>(m["operating_air_short_name"]));
+    }
+    if (m.find("operating_airline_code") != m.end() && !m["operating_airline_code"].empty()) {
+      operatingAirlineCode = make_shared<string>(boost::any_cast<string>(m["operating_airline_code"]));
+    }
+    if (m.find("operating_airline_english_name") != m.end() && !m["operating_airline_english_name"].empty()) {
+      operatingAirlineEnglishName = make_shared<string>(boost::any_cast<string>(m["operating_airline_english_name"]));
+    }
+    if (m.find("operating_airline_icon_url") != m.end() && !m["operating_airline_icon_url"].empty()) {
+      operatingAirlineIconUrl = make_shared<string>(boost::any_cast<string>(m["operating_airline_icon_url"]));
+    }
+    if (m.find("operating_airline_name") != m.end() && !m["operating_airline_name"].empty()) {
+      operatingAirlineName = make_shared<string>(boost::any_cast<string>(m["operating_airline_name"]));
+    }
+    if (m.find("operating_airline_phone") != m.end() && !m["operating_airline_phone"].empty()) {
+      operatingAirlinePhone = make_shared<string>(boost::any_cast<string>(m["operating_airline_phone"]));
+    }
+    if (m.find("operating_flight_no") != m.end() && !m["operating_flight_no"].empty()) {
+      operatingFlightNo = make_shared<string>(boost::any_cast<string>(m["operating_flight_no"]));
+    }
+    if (m.find("plane_type") != m.end() && !m["plane_type"].empty()) {
+      planeType = make_shared<string>(boost::any_cast<string>(m["plane_type"]));
+    }
+    if (m.find("raise_price") != m.end() && !m["raise_price"].empty()) {
+      raisePrice = make_shared<long>(boost::any_cast<long>(m["raise_price"]));
+    }
+    if (m.find("segment_id") != m.end() && !m["segment_id"].empty()) {
+      segmentId = make_shared<string>(boost::any_cast<string>(m["segment_id"]));
+    }
+    if (m.find("segment_index") != m.end() && !m["segment_index"].empty()) {
+      segmentIndex = make_shared<long>(boost::any_cast<long>(m["segment_index"]));
+    }
+    if (m.find("segment_position") != m.end() && !m["segment_position"].empty()) {
+      if (typeid(map<string, boost::any>) == m["segment_position"].type()) {
+        FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["segment_position"]));
+        segmentPosition = make_shared<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentListSegmentPosition>(model1);
+      }
+    }
+    if (m.find("stop_airport") != m.end() && !m["stop_airport"].empty()) {
+      stopAirport = make_shared<string>(boost::any_cast<string>(m["stop_airport"]));
+    }
+    if (m.find("stop_arr_time") != m.end() && !m["stop_arr_time"].empty()) {
+      stopArrTime = make_shared<string>(boost::any_cast<string>(m["stop_arr_time"]));
+    }
+    if (m.find("stop_city") != m.end() && !m["stop_city"].empty()) {
+      stopCity = make_shared<string>(boost::any_cast<string>(m["stop_city"]));
+    }
+    if (m.find("stop_city_name") != m.end() && !m["stop_city_name"].empty()) {
+      stopCityName = make_shared<string>(boost::any_cast<string>(m["stop_city_name"]));
+    }
+    if (m.find("stop_dep_time") != m.end() && !m["stop_dep_time"].empty()) {
+      stopDepTime = make_shared<string>(boost::any_cast<string>(m["stop_dep_time"]));
+    }
+    if (m.find("stop_quantity") != m.end() && !m["stop_quantity"].empty()) {
+      stopQuantity = make_shared<long>(boost::any_cast<long>(m["stop_quantity"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys : public Darabonba::Model {
+public:
+  shared_ptr<long> allFlyDuration{};
+  shared_ptr<long> allFlyDurationAfterChange{};
+  shared_ptr<long> applyId{};
+  shared_ptr<string> arrCityCode{};
+  shared_ptr<string> arrCityName{};
+  shared_ptr<string> arrTime{};
+  shared_ptr<string> baggageDetails{};
+  shared_ptr<string> depCityCode{};
+  shared_ptr<string> depCityName{};
+  shared_ptr<string> depTime{};
+  shared_ptr<string> flightStatus{};
+  shared_ptr<string> iataNo{};
+  shared_ptr<bool> isReshopJourney{};
+  shared_ptr<bool> isTransfer{};
+  shared_ptr<string> journeyTitle{};
+  shared_ptr<string> refundChangeDetails{};
+  shared_ptr<vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList>> segmentList{};
+
+  FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allFlyDuration) {
+      res["all_fly_duration"] = boost::any(*allFlyDuration);
+    }
+    if (allFlyDurationAfterChange) {
+      res["all_fly_duration_after_change"] = boost::any(*allFlyDurationAfterChange);
+    }
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
+    }
+    if (arrCityName) {
+      res["arr_city_name"] = boost::any(*arrCityName);
+    }
+    if (arrTime) {
+      res["arr_time"] = boost::any(*arrTime);
+    }
+    if (baggageDetails) {
+      res["baggage_details"] = boost::any(*baggageDetails);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
+    }
+    if (depCityName) {
+      res["dep_city_name"] = boost::any(*depCityName);
+    }
+    if (depTime) {
+      res["dep_time"] = boost::any(*depTime);
+    }
+    if (flightStatus) {
+      res["flight_status"] = boost::any(*flightStatus);
+    }
+    if (iataNo) {
+      res["iata_no"] = boost::any(*iataNo);
+    }
+    if (isReshopJourney) {
+      res["is_reshop_journey"] = boost::any(*isReshopJourney);
+    }
+    if (isTransfer) {
+      res["is_transfer"] = boost::any(*isTransfer);
+    }
+    if (journeyTitle) {
+      res["journey_title"] = boost::any(*journeyTitle);
+    }
+    if (refundChangeDetails) {
+      res["refund_change_details"] = boost::any(*refundChangeDetails);
+    }
+    if (segmentList) {
+      vector<boost::any> temp1;
+      for(auto item1:*segmentList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["segment_list"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("all_fly_duration") != m.end() && !m["all_fly_duration"].empty()) {
+      allFlyDuration = make_shared<long>(boost::any_cast<long>(m["all_fly_duration"]));
+    }
+    if (m.find("all_fly_duration_after_change") != m.end() && !m["all_fly_duration_after_change"].empty()) {
+      allFlyDurationAfterChange = make_shared<long>(boost::any_cast<long>(m["all_fly_duration_after_change"]));
+    }
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<long>(boost::any_cast<long>(m["apply_id"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
+    }
+    if (m.find("arr_city_name") != m.end() && !m["arr_city_name"].empty()) {
+      arrCityName = make_shared<string>(boost::any_cast<string>(m["arr_city_name"]));
+    }
+    if (m.find("arr_time") != m.end() && !m["arr_time"].empty()) {
+      arrTime = make_shared<string>(boost::any_cast<string>(m["arr_time"]));
+    }
+    if (m.find("baggage_details") != m.end() && !m["baggage_details"].empty()) {
+      baggageDetails = make_shared<string>(boost::any_cast<string>(m["baggage_details"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
+    }
+    if (m.find("dep_city_name") != m.end() && !m["dep_city_name"].empty()) {
+      depCityName = make_shared<string>(boost::any_cast<string>(m["dep_city_name"]));
+    }
+    if (m.find("dep_time") != m.end() && !m["dep_time"].empty()) {
+      depTime = make_shared<string>(boost::any_cast<string>(m["dep_time"]));
+    }
+    if (m.find("flight_status") != m.end() && !m["flight_status"].empty()) {
+      flightStatus = make_shared<string>(boost::any_cast<string>(m["flight_status"]));
+    }
+    if (m.find("iata_no") != m.end() && !m["iata_no"].empty()) {
+      iataNo = make_shared<string>(boost::any_cast<string>(m["iata_no"]));
+    }
+    if (m.find("is_reshop_journey") != m.end() && !m["is_reshop_journey"].empty()) {
+      isReshopJourney = make_shared<bool>(boost::any_cast<bool>(m["is_reshop_journey"]));
+    }
+    if (m.find("is_transfer") != m.end() && !m["is_transfer"].empty()) {
+      isTransfer = make_shared<bool>(boost::any_cast<bool>(m["is_transfer"]));
+    }
+    if (m.find("journey_title") != m.end() && !m["journey_title"].empty()) {
+      journeyTitle = make_shared<string>(boost::any_cast<string>(m["journey_title"]));
+    }
+    if (m.find("refund_change_details") != m.end() && !m["refund_change_details"].empty()) {
+      refundChangeDetails = make_shared<string>(boost::any_cast<string>(m["refund_change_details"]));
+    }
+    if (m.find("segment_list") != m.end() && !m["segment_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["segment_list"].type()) {
+        vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["segment_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        segmentList = make_shared<vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneysSegmentList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys() = default;
+};
+class FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO : public Darabonba::Model {
+public:
+  shared_ptr<vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys>> journeys{};
+  shared_ptr<string> noticeTips{};
+  shared_ptr<string> tripType{};
+  shared_ptr<long> tripTypeCode{};
+
+  FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (journeys) {
+      vector<boost::any> temp1;
+      for(auto item1:*journeys){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["journeys"] = boost::any(temp1);
+    }
+    if (noticeTips) {
+      res["notice_tips"] = boost::any(*noticeTips);
+    }
+    if (tripType) {
+      res["trip_type"] = boost::any(*tripType);
+    }
+    if (tripTypeCode) {
+      res["trip_type_code"] = boost::any(*tripTypeCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("journeys") != m.end() && !m["journeys"].empty()) {
+      if (typeid(vector<boost::any>) == m["journeys"].type()) {
+        vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["journeys"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        journeys = make_shared<vector<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTOJourneys>>(expect1);
+      }
+    }
+    if (m.find("notice_tips") != m.end() && !m["notice_tips"].empty()) {
+      noticeTips = make_shared<string>(boost::any_cast<string>(m["notice_tips"]));
+    }
+    if (m.find("trip_type") != m.end() && !m["trip_type"].empty()) {
+      tripType = make_shared<string>(boost::any_cast<string>(m["trip_type"]));
+    }
+    if (m.find("trip_type_code") != m.end() && !m["trip_type_code"].empty()) {
+      tripTypeCode = make_shared<long>(boost::any_cast<long>(m["trip_type_code"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO() = default;
+};
+class FlightOrderDetailV2ResponseBodyModulePassengerListCredential : public Darabonba::Model {
+public:
+  shared_ptr<string> birthDate{};
+  shared_ptr<string> certIssueDate{};
+  shared_ptr<string> certIssuePlace{};
+  shared_ptr<string> credentialNo{};
+  shared_ptr<string> driveLicenceFirst{};
+  shared_ptr<string> driveLicenceType{};
+  shared_ptr<string> expireDate{};
+  shared_ptr<string> holderNationality{};
+  shared_ptr<long> id{};
+  shared_ptr<string> idCheckCode{};
+  shared_ptr<string> issueCountry{};
+  shared_ptr<long> type{};
+
+  FlightOrderDetailV2ResponseBodyModulePassengerListCredential() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModulePassengerListCredential(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (birthDate) {
+      res["birth_date"] = boost::any(*birthDate);
+    }
+    if (certIssueDate) {
+      res["cert_issue_date"] = boost::any(*certIssueDate);
+    }
+    if (certIssuePlace) {
+      res["cert_issue_place"] = boost::any(*certIssuePlace);
+    }
+    if (credentialNo) {
+      res["credential_no"] = boost::any(*credentialNo);
+    }
+    if (driveLicenceFirst) {
+      res["drive_licence_first"] = boost::any(*driveLicenceFirst);
+    }
+    if (driveLicenceType) {
+      res["drive_licence_type"] = boost::any(*driveLicenceType);
+    }
+    if (expireDate) {
+      res["expire_date"] = boost::any(*expireDate);
+    }
+    if (holderNationality) {
+      res["holder_nationality"] = boost::any(*holderNationality);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (idCheckCode) {
+      res["id_check_code"] = boost::any(*idCheckCode);
+    }
+    if (issueCountry) {
+      res["issue_country"] = boost::any(*issueCountry);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("birth_date") != m.end() && !m["birth_date"].empty()) {
+      birthDate = make_shared<string>(boost::any_cast<string>(m["birth_date"]));
+    }
+    if (m.find("cert_issue_date") != m.end() && !m["cert_issue_date"].empty()) {
+      certIssueDate = make_shared<string>(boost::any_cast<string>(m["cert_issue_date"]));
+    }
+    if (m.find("cert_issue_place") != m.end() && !m["cert_issue_place"].empty()) {
+      certIssuePlace = make_shared<string>(boost::any_cast<string>(m["cert_issue_place"]));
+    }
+    if (m.find("credential_no") != m.end() && !m["credential_no"].empty()) {
+      credentialNo = make_shared<string>(boost::any_cast<string>(m["credential_no"]));
+    }
+    if (m.find("drive_licence_first") != m.end() && !m["drive_licence_first"].empty()) {
+      driveLicenceFirst = make_shared<string>(boost::any_cast<string>(m["drive_licence_first"]));
+    }
+    if (m.find("drive_licence_type") != m.end() && !m["drive_licence_type"].empty()) {
+      driveLicenceType = make_shared<string>(boost::any_cast<string>(m["drive_licence_type"]));
+    }
+    if (m.find("expire_date") != m.end() && !m["expire_date"].empty()) {
+      expireDate = make_shared<string>(boost::any_cast<string>(m["expire_date"]));
+    }
+    if (m.find("holder_nationality") != m.end() && !m["holder_nationality"].empty()) {
+      holderNationality = make_shared<string>(boost::any_cast<string>(m["holder_nationality"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("id_check_code") != m.end() && !m["id_check_code"].empty()) {
+      idCheckCode = make_shared<string>(boost::any_cast<string>(m["id_check_code"]));
+    }
+    if (m.find("issue_country") != m.end() && !m["issue_country"].empty()) {
+      issueCountry = make_shared<string>(boost::any_cast<string>(m["issue_country"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModulePassengerListCredential() = default;
+};
+class FlightOrderDetailV2ResponseBodyModulePassengerListCredentials : public Darabonba::Model {
+public:
+  shared_ptr<string> birthDate{};
+  shared_ptr<string> certIssueDate{};
+  shared_ptr<string> certIssuePlace{};
+  shared_ptr<string> credentialNo{};
+  shared_ptr<string> driveLicenceFirst{};
+  shared_ptr<string> driveLicenceType{};
+  shared_ptr<string> expireDate{};
+  shared_ptr<string> holderNationality{};
+  shared_ptr<long> id{};
+  shared_ptr<string> idCheckCode{};
+  shared_ptr<string> issueCountry{};
+  shared_ptr<long> type{};
+
+  FlightOrderDetailV2ResponseBodyModulePassengerListCredentials() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModulePassengerListCredentials(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (birthDate) {
+      res["birth_date"] = boost::any(*birthDate);
+    }
+    if (certIssueDate) {
+      res["cert_issue_date"] = boost::any(*certIssueDate);
+    }
+    if (certIssuePlace) {
+      res["cert_issue_place"] = boost::any(*certIssuePlace);
+    }
+    if (credentialNo) {
+      res["credential_no"] = boost::any(*credentialNo);
+    }
+    if (driveLicenceFirst) {
+      res["drive_licence_first"] = boost::any(*driveLicenceFirst);
+    }
+    if (driveLicenceType) {
+      res["drive_licence_type"] = boost::any(*driveLicenceType);
+    }
+    if (expireDate) {
+      res["expire_date"] = boost::any(*expireDate);
+    }
+    if (holderNationality) {
+      res["holder_nationality"] = boost::any(*holderNationality);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (idCheckCode) {
+      res["id_check_code"] = boost::any(*idCheckCode);
+    }
+    if (issueCountry) {
+      res["issue_country"] = boost::any(*issueCountry);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("birth_date") != m.end() && !m["birth_date"].empty()) {
+      birthDate = make_shared<string>(boost::any_cast<string>(m["birth_date"]));
+    }
+    if (m.find("cert_issue_date") != m.end() && !m["cert_issue_date"].empty()) {
+      certIssueDate = make_shared<string>(boost::any_cast<string>(m["cert_issue_date"]));
+    }
+    if (m.find("cert_issue_place") != m.end() && !m["cert_issue_place"].empty()) {
+      certIssuePlace = make_shared<string>(boost::any_cast<string>(m["cert_issue_place"]));
+    }
+    if (m.find("credential_no") != m.end() && !m["credential_no"].empty()) {
+      credentialNo = make_shared<string>(boost::any_cast<string>(m["credential_no"]));
+    }
+    if (m.find("drive_licence_first") != m.end() && !m["drive_licence_first"].empty()) {
+      driveLicenceFirst = make_shared<string>(boost::any_cast<string>(m["drive_licence_first"]));
+    }
+    if (m.find("drive_licence_type") != m.end() && !m["drive_licence_type"].empty()) {
+      driveLicenceType = make_shared<string>(boost::any_cast<string>(m["drive_licence_type"]));
+    }
+    if (m.find("expire_date") != m.end() && !m["expire_date"].empty()) {
+      expireDate = make_shared<string>(boost::any_cast<string>(m["expire_date"]));
+    }
+    if (m.find("holder_nationality") != m.end() && !m["holder_nationality"].empty()) {
+      holderNationality = make_shared<string>(boost::any_cast<string>(m["holder_nationality"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("id_check_code") != m.end() && !m["id_check_code"].empty()) {
+      idCheckCode = make_shared<string>(boost::any_cast<string>(m["id_check_code"]));
+    }
+    if (m.find("issue_country") != m.end() && !m["issue_country"].empty()) {
+      issueCountry = make_shared<string>(boost::any_cast<string>(m["issue_country"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModulePassengerListCredentials() = default;
+};
+class FlightOrderDetailV2ResponseBodyModulePassengerListTickets : public Darabonba::Model {
+public:
+  shared_ptr<string> channel{};
+  shared_ptr<string> journeyTitle{};
+  shared_ptr<string> openTicketStatus{};
+  shared_ptr<string> pcc{};
+  shared_ptr<string> ticketAuthMemo{};
+  shared_ptr<long> ticketAuthStatus{};
+  shared_ptr<string> ticketNo{};
+  shared_ptr<long> ticketPrice{};
+  shared_ptr<string> ticketStatus{};
+
+  FlightOrderDetailV2ResponseBodyModulePassengerListTickets() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModulePassengerListTickets(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (channel) {
+      res["channel"] = boost::any(*channel);
+    }
+    if (journeyTitle) {
+      res["journey_title"] = boost::any(*journeyTitle);
+    }
+    if (openTicketStatus) {
+      res["open_ticket_status"] = boost::any(*openTicketStatus);
+    }
+    if (pcc) {
+      res["pcc"] = boost::any(*pcc);
+    }
+    if (ticketAuthMemo) {
+      res["ticket_auth_memo"] = boost::any(*ticketAuthMemo);
+    }
+    if (ticketAuthStatus) {
+      res["ticket_auth_status"] = boost::any(*ticketAuthStatus);
+    }
+    if (ticketNo) {
+      res["ticket_no"] = boost::any(*ticketNo);
+    }
+    if (ticketPrice) {
+      res["ticket_price"] = boost::any(*ticketPrice);
+    }
+    if (ticketStatus) {
+      res["ticket_status"] = boost::any(*ticketStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("channel") != m.end() && !m["channel"].empty()) {
+      channel = make_shared<string>(boost::any_cast<string>(m["channel"]));
+    }
+    if (m.find("journey_title") != m.end() && !m["journey_title"].empty()) {
+      journeyTitle = make_shared<string>(boost::any_cast<string>(m["journey_title"]));
+    }
+    if (m.find("open_ticket_status") != m.end() && !m["open_ticket_status"].empty()) {
+      openTicketStatus = make_shared<string>(boost::any_cast<string>(m["open_ticket_status"]));
+    }
+    if (m.find("pcc") != m.end() && !m["pcc"].empty()) {
+      pcc = make_shared<string>(boost::any_cast<string>(m["pcc"]));
+    }
+    if (m.find("ticket_auth_memo") != m.end() && !m["ticket_auth_memo"].empty()) {
+      ticketAuthMemo = make_shared<string>(boost::any_cast<string>(m["ticket_auth_memo"]));
+    }
+    if (m.find("ticket_auth_status") != m.end() && !m["ticket_auth_status"].empty()) {
+      ticketAuthStatus = make_shared<long>(boost::any_cast<long>(m["ticket_auth_status"]));
+    }
+    if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
+      ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
+    }
+    if (m.find("ticket_price") != m.end() && !m["ticket_price"].empty()) {
+      ticketPrice = make_shared<long>(boost::any_cast<long>(m["ticket_price"]));
+    }
+    if (m.find("ticket_status") != m.end() && !m["ticket_status"].empty()) {
+      ticketStatus = make_shared<string>(boost::any_cast<string>(m["ticket_status"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModulePassengerListTickets() = default;
+};
+class FlightOrderDetailV2ResponseBodyModulePassengerList : public Darabonba::Model {
+public:
+  shared_ptr<string> birthday{};
+  shared_ptr<string> btripUserId{};
+  shared_ptr<long> code{};
+  shared_ptr<string> country{};
+  shared_ptr<string> countryCode{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModulePassengerListCredential> credential{};
+  shared_ptr<vector<FlightOrderDetailV2ResponseBodyModulePassengerListCredentials>> credentials{};
+  shared_ptr<string> email{};
+  shared_ptr<string> enFirstName{};
+  shared_ptr<string> enLastName{};
+  shared_ptr<string> englishName{};
+  shared_ptr<long> gender{};
+  shared_ptr<string> id{};
+  shared_ptr<bool> isComplete{};
+  shared_ptr<bool> isFrequently{};
+  shared_ptr<string> memo{};
+  shared_ptr<string> mobileCountryCode{};
+  shared_ptr<string> mobilePhoneNumber{};
+  shared_ptr<string> name{};
+  shared_ptr<bool> oneself{};
+  shared_ptr<string> orderName{};
+  shared_ptr<string> outPassengerId{};
+  shared_ptr<string> phone{};
+  shared_ptr<string> shengPiPinyin{};
+  shared_ptr<vector<string>> ticketNos{};
+  shared_ptr<vector<FlightOrderDetailV2ResponseBodyModulePassengerListTickets>> tickets{};
+  shared_ptr<long> type{};
+  shared_ptr<string> userId{};
+
+  FlightOrderDetailV2ResponseBodyModulePassengerList() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModulePassengerList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (country) {
+      res["country"] = boost::any(*country);
+    }
+    if (countryCode) {
+      res["country_code"] = boost::any(*countryCode);
+    }
+    if (credential) {
+      res["credential"] = credential ? boost::any(credential->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (credentials) {
+      vector<boost::any> temp1;
+      for(auto item1:*credentials){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["credentials"] = boost::any(temp1);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (enFirstName) {
+      res["en_first_name"] = boost::any(*enFirstName);
+    }
+    if (enLastName) {
+      res["en_last_name"] = boost::any(*enLastName);
+    }
+    if (englishName) {
+      res["english_name"] = boost::any(*englishName);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (isComplete) {
+      res["is_complete"] = boost::any(*isComplete);
+    }
+    if (isFrequently) {
+      res["is_frequently"] = boost::any(*isFrequently);
+    }
+    if (memo) {
+      res["memo"] = boost::any(*memo);
+    }
+    if (mobileCountryCode) {
+      res["mobile_country_code"] = boost::any(*mobileCountryCode);
+    }
+    if (mobilePhoneNumber) {
+      res["mobile_phone_number"] = boost::any(*mobilePhoneNumber);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (oneself) {
+      res["oneself"] = boost::any(*oneself);
+    }
+    if (orderName) {
+      res["order_name"] = boost::any(*orderName);
+    }
+    if (outPassengerId) {
+      res["out_passenger_id"] = boost::any(*outPassengerId);
+    }
+    if (phone) {
+      res["phone"] = boost::any(*phone);
+    }
+    if (shengPiPinyin) {
+      res["sheng_pi_pinyin"] = boost::any(*shengPiPinyin);
+    }
+    if (ticketNos) {
+      res["ticket_nos"] = boost::any(*ticketNos);
+    }
+    if (tickets) {
+      vector<boost::any> temp1;
+      for(auto item1:*tickets){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tickets"] = boost::any(temp1);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["code"]));
+    }
+    if (m.find("country") != m.end() && !m["country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["country"]));
+    }
+    if (m.find("country_code") != m.end() && !m["country_code"].empty()) {
+      countryCode = make_shared<string>(boost::any_cast<string>(m["country_code"]));
+    }
+    if (m.find("credential") != m.end() && !m["credential"].empty()) {
+      if (typeid(map<string, boost::any>) == m["credential"].type()) {
+        FlightOrderDetailV2ResponseBodyModulePassengerListCredential model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["credential"]));
+        credential = make_shared<FlightOrderDetailV2ResponseBodyModulePassengerListCredential>(model1);
+      }
+    }
+    if (m.find("credentials") != m.end() && !m["credentials"].empty()) {
+      if (typeid(vector<boost::any>) == m["credentials"].type()) {
+        vector<FlightOrderDetailV2ResponseBodyModulePassengerListCredentials> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["credentials"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightOrderDetailV2ResponseBodyModulePassengerListCredentials model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        credentials = make_shared<vector<FlightOrderDetailV2ResponseBodyModulePassengerListCredentials>>(expect1);
+      }
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("en_first_name") != m.end() && !m["en_first_name"].empty()) {
+      enFirstName = make_shared<string>(boost::any_cast<string>(m["en_first_name"]));
+    }
+    if (m.find("en_last_name") != m.end() && !m["en_last_name"].empty()) {
+      enLastName = make_shared<string>(boost::any_cast<string>(m["en_last_name"]));
+    }
+    if (m.find("english_name") != m.end() && !m["english_name"].empty()) {
+      englishName = make_shared<string>(boost::any_cast<string>(m["english_name"]));
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<long>(boost::any_cast<long>(m["gender"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["id"]));
+    }
+    if (m.find("is_complete") != m.end() && !m["is_complete"].empty()) {
+      isComplete = make_shared<bool>(boost::any_cast<bool>(m["is_complete"]));
+    }
+    if (m.find("is_frequently") != m.end() && !m["is_frequently"].empty()) {
+      isFrequently = make_shared<bool>(boost::any_cast<bool>(m["is_frequently"]));
+    }
+    if (m.find("memo") != m.end() && !m["memo"].empty()) {
+      memo = make_shared<string>(boost::any_cast<string>(m["memo"]));
+    }
+    if (m.find("mobile_country_code") != m.end() && !m["mobile_country_code"].empty()) {
+      mobileCountryCode = make_shared<string>(boost::any_cast<string>(m["mobile_country_code"]));
+    }
+    if (m.find("mobile_phone_number") != m.end() && !m["mobile_phone_number"].empty()) {
+      mobilePhoneNumber = make_shared<string>(boost::any_cast<string>(m["mobile_phone_number"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("oneself") != m.end() && !m["oneself"].empty()) {
+      oneself = make_shared<bool>(boost::any_cast<bool>(m["oneself"]));
+    }
+    if (m.find("order_name") != m.end() && !m["order_name"].empty()) {
+      orderName = make_shared<string>(boost::any_cast<string>(m["order_name"]));
+    }
+    if (m.find("out_passenger_id") != m.end() && !m["out_passenger_id"].empty()) {
+      outPassengerId = make_shared<string>(boost::any_cast<string>(m["out_passenger_id"]));
+    }
+    if (m.find("phone") != m.end() && !m["phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("sheng_pi_pinyin") != m.end() && !m["sheng_pi_pinyin"].empty()) {
+      shengPiPinyin = make_shared<string>(boost::any_cast<string>(m["sheng_pi_pinyin"]));
+    }
+    if (m.find("ticket_nos") != m.end() && !m["ticket_nos"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ticket_nos"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ticket_nos"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      ticketNos = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("tickets") != m.end() && !m["tickets"].empty()) {
+      if (typeid(vector<boost::any>) == m["tickets"].type()) {
+        vector<FlightOrderDetailV2ResponseBodyModulePassengerListTickets> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tickets"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightOrderDetailV2ResponseBodyModulePassengerListTickets model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tickets = make_shared<vector<FlightOrderDetailV2ResponseBodyModulePassengerListTickets>>(expect1);
+      }
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<long>(boost::any_cast<long>(m["type"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModulePassengerList() = default;
+};
+class FlightOrderDetailV2ResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> b2gVipCode{};
+  shared_ptr<string> bookSuccTime{};
+  shared_ptr<string> bookUserId{};
+  shared_ptr<string> bookUserName{};
+  shared_ptr<long> buildPrice{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModuleContactInfoDTO> contactInfoDTO{};
+  shared_ptr<string> createTime{};
+  shared_ptr<long> facevalue{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO> flightTaleInfoDTO{};
+  shared_ptr<bool> isProtocol{};
+  shared_ptr<bool> isemergency{};
+  shared_ptr<bool> issendmessage{};
+  shared_ptr<long> oilPrice{};
+  shared_ptr<long> orderId{};
+  shared_ptr<long> orderPrice{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<vector<FlightOrderDetailV2ResponseBodyModulePassengerList>> passengerList{};
+  shared_ptr<map<string, string>> passengerSegmentMap{};
+  shared_ptr<string> payTime{};
+  shared_ptr<long> saleprice{};
+  shared_ptr<bool> sendcpsms{};
+  shared_ptr<long> status{};
+  shared_ptr<long> totalServiceFeePrice{};
+
+  FlightOrderDetailV2ResponseBodyModule() {}
+
+  explicit FlightOrderDetailV2ResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (b2gVipCode) {
+      res["b2g_vip_code"] = boost::any(*b2gVipCode);
+    }
+    if (bookSuccTime) {
+      res["book_succ_time"] = boost::any(*bookSuccTime);
+    }
+    if (bookUserId) {
+      res["book_user_id"] = boost::any(*bookUserId);
+    }
+    if (bookUserName) {
+      res["book_user_name"] = boost::any(*bookUserName);
+    }
+    if (buildPrice) {
+      res["build_price"] = boost::any(*buildPrice);
+    }
+    if (contactInfoDTO) {
+      res["contact_info_d_t_o"] = contactInfoDTO ? boost::any(contactInfoDTO->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (createTime) {
+      res["create_time"] = boost::any(*createTime);
+    }
+    if (facevalue) {
+      res["facevalue"] = boost::any(*facevalue);
+    }
+    if (flightTaleInfoDTO) {
+      res["flight_tale_info_d_t_o"] = flightTaleInfoDTO ? boost::any(flightTaleInfoDTO->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (isProtocol) {
+      res["is_protocol"] = boost::any(*isProtocol);
+    }
+    if (isemergency) {
+      res["isemergency"] = boost::any(*isemergency);
+    }
+    if (issendmessage) {
+      res["issendmessage"] = boost::any(*issendmessage);
+    }
+    if (oilPrice) {
+      res["oil_price"] = boost::any(*oilPrice);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (orderPrice) {
+      res["order_price"] = boost::any(*orderPrice);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    if (passengerList) {
+      vector<boost::any> temp1;
+      for(auto item1:*passengerList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["passenger_list"] = boost::any(temp1);
+    }
+    if (passengerSegmentMap) {
+      res["passenger_segment_map"] = boost::any(*passengerSegmentMap);
+    }
+    if (payTime) {
+      res["pay_time"] = boost::any(*payTime);
+    }
+    if (saleprice) {
+      res["saleprice"] = boost::any(*saleprice);
+    }
+    if (sendcpsms) {
+      res["sendcpsms"] = boost::any(*sendcpsms);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (totalServiceFeePrice) {
+      res["total_service_fee_price"] = boost::any(*totalServiceFeePrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("b2g_vip_code") != m.end() && !m["b2g_vip_code"].empty()) {
+      b2gVipCode = make_shared<string>(boost::any_cast<string>(m["b2g_vip_code"]));
+    }
+    if (m.find("book_succ_time") != m.end() && !m["book_succ_time"].empty()) {
+      bookSuccTime = make_shared<string>(boost::any_cast<string>(m["book_succ_time"]));
+    }
+    if (m.find("book_user_id") != m.end() && !m["book_user_id"].empty()) {
+      bookUserId = make_shared<string>(boost::any_cast<string>(m["book_user_id"]));
+    }
+    if (m.find("book_user_name") != m.end() && !m["book_user_name"].empty()) {
+      bookUserName = make_shared<string>(boost::any_cast<string>(m["book_user_name"]));
+    }
+    if (m.find("build_price") != m.end() && !m["build_price"].empty()) {
+      buildPrice = make_shared<long>(boost::any_cast<long>(m["build_price"]));
+    }
+    if (m.find("contact_info_d_t_o") != m.end() && !m["contact_info_d_t_o"].empty()) {
+      if (typeid(map<string, boost::any>) == m["contact_info_d_t_o"].type()) {
+        FlightOrderDetailV2ResponseBodyModuleContactInfoDTO model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["contact_info_d_t_o"]));
+        contactInfoDTO = make_shared<FlightOrderDetailV2ResponseBodyModuleContactInfoDTO>(model1);
+      }
+    }
+    if (m.find("create_time") != m.end() && !m["create_time"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["create_time"]));
+    }
+    if (m.find("facevalue") != m.end() && !m["facevalue"].empty()) {
+      facevalue = make_shared<long>(boost::any_cast<long>(m["facevalue"]));
+    }
+    if (m.find("flight_tale_info_d_t_o") != m.end() && !m["flight_tale_info_d_t_o"].empty()) {
+      if (typeid(map<string, boost::any>) == m["flight_tale_info_d_t_o"].type()) {
+        FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["flight_tale_info_d_t_o"]));
+        flightTaleInfoDTO = make_shared<FlightOrderDetailV2ResponseBodyModuleFlightTaleInfoDTO>(model1);
+      }
+    }
+    if (m.find("is_protocol") != m.end() && !m["is_protocol"].empty()) {
+      isProtocol = make_shared<bool>(boost::any_cast<bool>(m["is_protocol"]));
+    }
+    if (m.find("isemergency") != m.end() && !m["isemergency"].empty()) {
+      isemergency = make_shared<bool>(boost::any_cast<bool>(m["isemergency"]));
+    }
+    if (m.find("issendmessage") != m.end() && !m["issendmessage"].empty()) {
+      issendmessage = make_shared<bool>(boost::any_cast<bool>(m["issendmessage"]));
+    }
+    if (m.find("oil_price") != m.end() && !m["oil_price"].empty()) {
+      oilPrice = make_shared<long>(boost::any_cast<long>(m["oil_price"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["order_id"]));
+    }
+    if (m.find("order_price") != m.end() && !m["order_price"].empty()) {
+      orderPrice = make_shared<long>(boost::any_cast<long>(m["order_price"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+    if (m.find("passenger_list") != m.end() && !m["passenger_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["passenger_list"].type()) {
+        vector<FlightOrderDetailV2ResponseBodyModulePassengerList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["passenger_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            FlightOrderDetailV2ResponseBodyModulePassengerList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        passengerList = make_shared<vector<FlightOrderDetailV2ResponseBodyModulePassengerList>>(expect1);
+      }
+    }
+    if (m.find("passenger_segment_map") != m.end() && !m["passenger_segment_map"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["passenger_segment_map"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      passengerSegmentMap = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("pay_time") != m.end() && !m["pay_time"].empty()) {
+      payTime = make_shared<string>(boost::any_cast<string>(m["pay_time"]));
+    }
+    if (m.find("saleprice") != m.end() && !m["saleprice"].empty()) {
+      saleprice = make_shared<long>(boost::any_cast<long>(m["saleprice"]));
+    }
+    if (m.find("sendcpsms") != m.end() && !m["sendcpsms"].empty()) {
+      sendcpsms = make_shared<bool>(boost::any_cast<bool>(m["sendcpsms"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("total_service_fee_price") != m.end() && !m["total_service_fee_price"].empty()) {
+      totalServiceFeePrice = make_shared<long>(boost::any_cast<long>(m["total_service_fee_price"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBodyModule() = default;
+};
+class FlightOrderDetailV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<FlightOrderDetailV2ResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  FlightOrderDetailV2ResponseBody() {}
+
+  explicit FlightOrderDetailV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        FlightOrderDetailV2ResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<FlightOrderDetailV2ResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2ResponseBody() = default;
+};
+class FlightOrderDetailV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FlightOrderDetailV2ResponseBody> body{};
+
+  FlightOrderDetailV2Response() {}
+
+  explicit FlightOrderDetailV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FlightOrderDetailV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FlightOrderDetailV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FlightOrderDetailV2Response() = default;
 };
 class FlightOrderListQueryHeaders : public Darabonba::Model {
 public:
@@ -37305,6 +39931,263 @@ public:
 
 
   virtual ~FlightPayOrderResponse() = default;
+};
+class FlightPayOrderV2Headers : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  FlightPayOrderV2Headers() {}
+
+  explicit FlightPayOrderV2Headers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~FlightPayOrderV2Headers() = default;
+};
+class FlightPayOrderV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> isvName{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> outOrderId{};
+  shared_ptr<long> totalPrice{};
+  shared_ptr<long> totalServiceFeePrice{};
+
+  FlightPayOrderV2Request() {}
+
+  explicit FlightPayOrderV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
+    }
+    if (outOrderId) {
+      res["out_order_id"] = boost::any(*outOrderId);
+    }
+    if (totalPrice) {
+      res["total_price"] = boost::any(*totalPrice);
+    }
+    if (totalServiceFeePrice) {
+      res["total_service_fee_price"] = boost::any(*totalServiceFeePrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["order_id"]));
+    }
+    if (m.find("out_order_id") != m.end() && !m["out_order_id"].empty()) {
+      outOrderId = make_shared<string>(boost::any_cast<string>(m["out_order_id"]));
+    }
+    if (m.find("total_price") != m.end() && !m["total_price"].empty()) {
+      totalPrice = make_shared<long>(boost::any_cast<long>(m["total_price"]));
+    }
+    if (m.find("total_service_fee_price") != m.end() && !m["total_service_fee_price"].empty()) {
+      totalServiceFeePrice = make_shared<long>(boost::any_cast<long>(m["total_service_fee_price"]));
+    }
+  }
+
+
+  virtual ~FlightPayOrderV2Request() = default;
+};
+class FlightPayOrderV2ResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<long> price{};
+
+  FlightPayOrderV2ResponseBodyModule() {}
+
+  explicit FlightPayOrderV2ResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (price) {
+      res["price"] = boost::any(*price);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("price") != m.end() && !m["price"].empty()) {
+      price = make_shared<long>(boost::any_cast<long>(m["price"]));
+    }
+  }
+
+
+  virtual ~FlightPayOrderV2ResponseBodyModule() = default;
+};
+class FlightPayOrderV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<FlightPayOrderV2ResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  FlightPayOrderV2ResponseBody() {}
+
+  explicit FlightPayOrderV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        FlightPayOrderV2ResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<FlightPayOrderV2ResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~FlightPayOrderV2ResponseBody() = default;
+};
+class FlightPayOrderV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<FlightPayOrderV2ResponseBody> body{};
+
+  FlightPayOrderV2Response() {}
+
+  explicit FlightPayOrderV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        FlightPayOrderV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<FlightPayOrderV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~FlightPayOrderV2Response() = default;
 };
 class FlightRefundApplyHeaders : public Darabonba::Model {
 public:
@@ -75094,8 +77977,12 @@ public:
   FlightBillSettlementQueryResponse flightBillSettlementQuery(shared_ptr<FlightBillSettlementQueryRequest> request);
   FlightCancelOrderResponse flightCancelOrderWithOptions(shared_ptr<FlightCancelOrderRequest> request, shared_ptr<FlightCancelOrderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightCancelOrderResponse flightCancelOrder(shared_ptr<FlightCancelOrderRequest> request);
+  FlightCancelOrderV2Response flightCancelOrderV2WithOptions(shared_ptr<FlightCancelOrderV2Request> request, shared_ptr<FlightCancelOrderV2Headers> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FlightCancelOrderV2Response flightCancelOrderV2(shared_ptr<FlightCancelOrderV2Request> request);
   FlightCreateOrderResponse flightCreateOrderWithOptions(shared_ptr<FlightCreateOrderRequest> tmpReq, shared_ptr<FlightCreateOrderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightCreateOrderResponse flightCreateOrder(shared_ptr<FlightCreateOrderRequest> request);
+  FlightCreateOrderV2Response flightCreateOrderV2WithOptions(shared_ptr<FlightCreateOrderV2Request> tmpReq, shared_ptr<FlightCreateOrderV2Headers> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FlightCreateOrderV2Response flightCreateOrderV2(shared_ptr<FlightCreateOrderV2Request> request);
   FlightExceedApplyQueryResponse flightExceedApplyQueryWithOptions(shared_ptr<FlightExceedApplyQueryRequest> request, shared_ptr<FlightExceedApplyQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightExceedApplyQueryResponse flightExceedApplyQuery(shared_ptr<FlightExceedApplyQueryRequest> request);
   FlightItineraryScanQueryResponse flightItineraryScanQueryWithOptions(shared_ptr<FlightItineraryScanQueryRequest> request, shared_ptr<FlightItineraryScanQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -75106,6 +77993,8 @@ public:
   FlightListingSearchV2Response flightListingSearchV2(shared_ptr<FlightListingSearchV2Request> request);
   FlightOrderDetailInfoResponse flightOrderDetailInfoWithOptions(shared_ptr<FlightOrderDetailInfoRequest> request, shared_ptr<FlightOrderDetailInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightOrderDetailInfoResponse flightOrderDetailInfo(shared_ptr<FlightOrderDetailInfoRequest> request);
+  FlightOrderDetailV2Response flightOrderDetailV2WithOptions(shared_ptr<FlightOrderDetailV2Request> request, shared_ptr<FlightOrderDetailV2Headers> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FlightOrderDetailV2Response flightOrderDetailV2(shared_ptr<FlightOrderDetailV2Request> request);
   FlightOrderListQueryResponse flightOrderListQueryWithOptions(shared_ptr<FlightOrderListQueryRequest> request, shared_ptr<FlightOrderListQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightOrderListQueryResponse flightOrderListQuery(shared_ptr<FlightOrderListQueryRequest> request);
   FlightOrderQueryResponse flightOrderQueryWithOptions(shared_ptr<FlightOrderQueryRequest> request, shared_ptr<FlightOrderQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -75118,6 +78007,8 @@ public:
   FlightOtaSearchV2Response flightOtaSearchV2(shared_ptr<FlightOtaSearchV2Request> request);
   FlightPayOrderResponse flightPayOrderWithOptions(shared_ptr<FlightPayOrderRequest> tmpReq, shared_ptr<FlightPayOrderHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightPayOrderResponse flightPayOrder(shared_ptr<FlightPayOrderRequest> request);
+  FlightPayOrderV2Response flightPayOrderV2WithOptions(shared_ptr<FlightPayOrderV2Request> request, shared_ptr<FlightPayOrderV2Headers> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FlightPayOrderV2Response flightPayOrderV2(shared_ptr<FlightPayOrderV2Request> request);
   FlightRefundApplyResponse flightRefundApplyWithOptions(shared_ptr<FlightRefundApplyRequest> tmpReq, shared_ptr<FlightRefundApplyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FlightRefundApplyResponse flightRefundApply(shared_ptr<FlightRefundApplyRequest> request);
   FlightRefundDetailResponse flightRefundDetailWithOptions(shared_ptr<FlightRefundDetailRequest> request, shared_ptr<FlightRefundDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
