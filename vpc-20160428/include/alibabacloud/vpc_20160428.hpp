@@ -45950,6 +45950,8 @@ public:
 };
 class DescribeRouteTableListRequestTag : public Darabonba::Model {
 public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
 
   DescribeRouteTableListRequestTag() {}
 
@@ -45961,10 +45963,22 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
   }
 
 
