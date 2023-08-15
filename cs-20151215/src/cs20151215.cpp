@@ -2073,6 +2073,9 @@ DescribeExternalAgentResponse Alibabacloud_CS20151215::Client::describeExternalA
                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->agentMode)) {
+    query->insert(pair<string, string>("AgentMode", *request->agentMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->privateIpAddress)) {
     query->insert(pair<string, string>("PrivateIpAddress", *request->privateIpAddress));
   }

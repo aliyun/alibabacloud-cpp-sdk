@@ -13279,6 +13279,7 @@ public:
 };
 class DescribeExternalAgentRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> agentMode{};
   shared_ptr<string> privateIpAddress{};
 
   DescribeExternalAgentRequest() {}
@@ -13291,6 +13292,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentMode) {
+      res["AgentMode"] = boost::any(*agentMode);
+    }
     if (privateIpAddress) {
       res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
@@ -13298,6 +13302,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentMode") != m.end() && !m["AgentMode"].empty()) {
+      agentMode = make_shared<string>(boost::any_cast<string>(m["AgentMode"]));
+    }
     if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
       privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
     }
