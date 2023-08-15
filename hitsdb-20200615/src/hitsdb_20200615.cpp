@@ -19,15 +19,7 @@ using namespace Alibabacloud_Hitsdb20200615;
 Alibabacloud_Hitsdb20200615::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"cn-qingdao", "hitsdb.aliyuncs.com"},
-    {"cn-beijing", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou", "hitsdb.aliyuncs.com"},
-    {"cn-shanghai", "hitsdb.aliyuncs.com"},
-    {"cn-shenzhen", "hitsdb.aliyuncs.com"},
-    {"cn-hongkong", "hitsdb.aliyuncs.com"},
-    {"ap-southeast-1", "hitsdb.aliyuncs.com"},
-    {"us-west-1", "hitsdb.aliyuncs.com"},
-    {"us-east-1", "hitsdb.aliyuncs.com"},
+    {"cn-hangzhou-finance", "hitsdb.cn-hangzhou.aliyuncs.com"},
     {"cn-shanghai-finance-1", "hitsdb.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "hitsdb.aliyuncs.com"},
     {"ap-northeast-2-pop", "hitsdb.aliyuncs.com"},
@@ -35,12 +27,10 @@ Alibabacloud_Hitsdb20200615::Client::Client(const shared_ptr<Alibabacloud_OpenAp
     {"cn-beijing-finance-pop", "hitsdb.aliyuncs.com"},
     {"cn-beijing-gov-1", "hitsdb.aliyuncs.com"},
     {"cn-beijing-nu16-b01", "hitsdb.aliyuncs.com"},
-    {"cn-chengdu", "hitsdb.aliyuncs.com"},
     {"cn-edge-1", "hitsdb.aliyuncs.com"},
     {"cn-fujian", "hitsdb.aliyuncs.com"},
     {"cn-haidian-cm12-c01", "hitsdb.aliyuncs.com"},
     {"cn-hangzhou-bj-b01", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-finance", "hitsdb.aliyuncs.com"},
     {"cn-hangzhou-internal-prod-1", "hitsdb.aliyuncs.com"},
     {"cn-hangzhou-internal-test-1", "hitsdb.aliyuncs.com"},
     {"cn-hangzhou-internal-test-2", "hitsdb.aliyuncs.com"},
@@ -57,7 +47,6 @@ Alibabacloud_Hitsdb20200615::Client::Client(const shared_ptr<Alibabacloud_OpenAp
     {"cn-shenzhen-st4-d01", "hitsdb.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "hitsdb.aliyuncs.com"},
     {"cn-wuhan", "hitsdb.aliyuncs.com"},
-    {"cn-wulanchabu", "hitsdb.aliyuncs.com"},
     {"cn-yushanfang", "hitsdb.aliyuncs.com"},
     {"cn-zhangbei", "hitsdb.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "hitsdb.aliyuncs.com"},
@@ -193,6 +182,12 @@ CreateLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::createLindorm
   if (!Darabonba_Util::Client::isUnset<string>(request->standbyZoneId)) {
     query->insert(pair<string, string>("StandbyZoneId", *request->standbyZoneId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamNum)) {
+    query->insert(pair<string, long>("StreamNum", *request->streamNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->streamSpec)) {
+    query->insert(pair<string, string>("StreamSpec", *request->streamSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->tsdbNum)) {
     query->insert(pair<string, long>("TsdbNum", *request->tsdbNum));
   }
@@ -317,6 +312,61 @@ GetInstanceIpWhiteListResponse Alibabacloud_Hitsdb20200615::Client::getInstanceI
 GetInstanceIpWhiteListResponse Alibabacloud_Hitsdb20200615::Client::getInstanceIpWhiteList(shared_ptr<GetInstanceIpWhiteListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getInstanceIpWhiteListWithOptions(request, runtime);
+}
+
+GetLdpsResourceCostResponse Alibabacloud_Hitsdb20200615::Client::getLdpsResourceCostWithOptions(shared_ptr<GetLdpsResourceCostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLdpsResourceCost"))},
+    {"version", boost::any(string("2020-06-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLdpsResourceCostResponse(callApi(params, req, runtime));
+}
+
+GetLdpsResourceCostResponse Alibabacloud_Hitsdb20200615::Client::getLdpsResourceCost(shared_ptr<GetLdpsResourceCostRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLdpsResourceCostWithOptions(request, runtime);
 }
 
 GetLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::getLindormInstanceWithOptions(shared_ptr<GetLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -582,6 +632,9 @@ ModifyInstancePayTypeResponse Alibabacloud_Hitsdb20200615::Client::modifyInstanc
 ReleaseLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::releaseLindormInstanceWithOptions(shared_ptr<ReleaseLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->immediately)) {
+    query->insert(pair<string, bool>("Immediately", *request->immediately));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -898,6 +951,12 @@ UpgradeLindormInstanceResponse Alibabacloud_Hitsdb20200615::Client::upgradeLindo
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->solrSpec)) {
     query->insert(pair<string, string>("SolrSpec", *request->solrSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->streamNum)) {
+    query->insert(pair<string, long>("StreamNum", *request->streamNum));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->streamSpec)) {
+    query->insert(pair<string, string>("StreamSpec", *request->streamSpec));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tsdbNum)) {
     query->insert(pair<string, long>("TsdbNum", *request->tsdbNum));

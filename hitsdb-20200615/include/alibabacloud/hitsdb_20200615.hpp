@@ -50,6 +50,8 @@ public:
   shared_ptr<string> solrSpec{};
   shared_ptr<string> standbyVSwitchId{};
   shared_ptr<string> standbyZoneId{};
+  shared_ptr<long> streamNum{};
+  shared_ptr<string> streamSpec{};
   shared_ptr<long> tsdbNum{};
   shared_ptr<string> tsdbSpec{};
   shared_ptr<string> VPCId{};
@@ -167,6 +169,12 @@ public:
     }
     if (standbyZoneId) {
       res["StandbyZoneId"] = boost::any(*standbyZoneId);
+    }
+    if (streamNum) {
+      res["StreamNum"] = boost::any(*streamNum);
+    }
+    if (streamSpec) {
+      res["StreamSpec"] = boost::any(*streamSpec);
     }
     if (tsdbNum) {
       res["TsdbNum"] = boost::any(*tsdbNum);
@@ -288,6 +296,12 @@ public:
     }
     if (m.find("StandbyZoneId") != m.end() && !m["StandbyZoneId"].empty()) {
       standbyZoneId = make_shared<string>(boost::any_cast<string>(m["StandbyZoneId"]));
+    }
+    if (m.find("StreamNum") != m.end() && !m["StreamNum"].empty()) {
+      streamNum = make_shared<long>(boost::any_cast<long>(m["StreamNum"]));
+    }
+    if (m.find("StreamSpec") != m.end() && !m["StreamSpec"].empty()) {
+      streamSpec = make_shared<string>(boost::any_cast<string>(m["StreamSpec"]));
     }
     if (m.find("TsdbNum") != m.end() && !m["TsdbNum"].empty()) {
       tsdbNum = make_shared<long>(boost::any_cast<long>(m["TsdbNum"]));
@@ -816,6 +830,224 @@ public:
 
   virtual ~GetInstanceIpWhiteListResponse() = default;
 };
+class GetLdpsResourceCostRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<long> startTime{};
+
+  GetLdpsResourceCostRequest() {}
+
+  explicit GetLdpsResourceCostRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~GetLdpsResourceCostRequest() = default;
+};
+class GetLdpsResourceCostResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> endTime{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> startTime{};
+  shared_ptr<long> totalResource{};
+
+  GetLdpsResourceCostResponseBody() {}
+
+  explicit GetLdpsResourceCostResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (totalResource) {
+      res["TotalResource"] = boost::any(*totalResource);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TotalResource") != m.end() && !m["TotalResource"].empty()) {
+      totalResource = make_shared<long>(boost::any_cast<long>(m["TotalResource"]));
+    }
+  }
+
+
+  virtual ~GetLdpsResourceCostResponseBody() = default;
+};
+class GetLdpsResourceCostResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetLdpsResourceCostResponseBody> body{};
+
+  GetLdpsResourceCostResponse() {}
+
+  explicit GetLdpsResourceCostResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetLdpsResourceCostResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetLdpsResourceCostResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetLdpsResourceCostResponse() = default;
+};
 class GetLindormInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
@@ -956,6 +1188,7 @@ public:
   shared_ptr<long> aliUid{};
   shared_ptr<string> arbiterVSwitchId{};
   shared_ptr<string> arbiterZoneId{};
+  shared_ptr<string> archVersion{};
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> coldStorage{};
   shared_ptr<string> coreDiskCategory{};
@@ -968,9 +1201,12 @@ public:
   shared_ptr<string> diskCategory{};
   shared_ptr<string> diskThreshold{};
   shared_ptr<string> diskUsage{};
+  shared_ptr<bool> enableBlob{};
   shared_ptr<bool> enableCdc{};
   shared_ptr<bool> enableCompute{};
   shared_ptr<bool> enableKms{};
+  shared_ptr<bool> enableLTS{};
+  shared_ptr<bool> enableMLCtrl{};
   shared_ptr<bool> enableSSL{};
   shared_ptr<bool> enableShs{};
   shared_ptr<bool> enableStream{};
@@ -1022,6 +1258,9 @@ public:
     if (arbiterZoneId) {
       res["ArbiterZoneId"] = boost::any(*arbiterZoneId);
     }
+    if (archVersion) {
+      res["ArchVersion"] = boost::any(*archVersion);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -1058,6 +1297,9 @@ public:
     if (diskUsage) {
       res["DiskUsage"] = boost::any(*diskUsage);
     }
+    if (enableBlob) {
+      res["EnableBlob"] = boost::any(*enableBlob);
+    }
     if (enableCdc) {
       res["EnableCdc"] = boost::any(*enableCdc);
     }
@@ -1066,6 +1308,12 @@ public:
     }
     if (enableKms) {
       res["EnableKms"] = boost::any(*enableKms);
+    }
+    if (enableLTS) {
+      res["EnableLTS"] = boost::any(*enableLTS);
+    }
+    if (enableMLCtrl) {
+      res["EnableMLCtrl"] = boost::any(*enableMLCtrl);
     }
     if (enableSSL) {
       res["EnableSSL"] = boost::any(*enableSSL);
@@ -1177,6 +1425,9 @@ public:
     if (m.find("ArbiterZoneId") != m.end() && !m["ArbiterZoneId"].empty()) {
       arbiterZoneId = make_shared<string>(boost::any_cast<string>(m["ArbiterZoneId"]));
     }
+    if (m.find("ArchVersion") != m.end() && !m["ArchVersion"].empty()) {
+      archVersion = make_shared<string>(boost::any_cast<string>(m["ArchVersion"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<bool>(boost::any_cast<bool>(m["AutoRenew"]));
     }
@@ -1213,6 +1464,9 @@ public:
     if (m.find("DiskUsage") != m.end() && !m["DiskUsage"].empty()) {
       diskUsage = make_shared<string>(boost::any_cast<string>(m["DiskUsage"]));
     }
+    if (m.find("EnableBlob") != m.end() && !m["EnableBlob"].empty()) {
+      enableBlob = make_shared<bool>(boost::any_cast<bool>(m["EnableBlob"]));
+    }
     if (m.find("EnableCdc") != m.end() && !m["EnableCdc"].empty()) {
       enableCdc = make_shared<bool>(boost::any_cast<bool>(m["EnableCdc"]));
     }
@@ -1221,6 +1475,12 @@ public:
     }
     if (m.find("EnableKms") != m.end() && !m["EnableKms"].empty()) {
       enableKms = make_shared<bool>(boost::any_cast<bool>(m["EnableKms"]));
+    }
+    if (m.find("EnableLTS") != m.end() && !m["EnableLTS"].empty()) {
+      enableLTS = make_shared<bool>(boost::any_cast<bool>(m["EnableLTS"]));
+    }
+    if (m.find("EnableMLCtrl") != m.end() && !m["EnableMLCtrl"].empty()) {
+      enableMLCtrl = make_shared<bool>(boost::any_cast<bool>(m["EnableMLCtrl"]));
     }
     if (m.find("EnableSSL") != m.end() && !m["EnableSSL"].empty()) {
       enableSSL = make_shared<bool>(boost::any_cast<bool>(m["EnableSSL"]));
@@ -2700,6 +2960,7 @@ public:
 };
 class ReleaseLindormInstanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> immediately{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -2717,6 +2978,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (immediately) {
+      res["Immediately"] = boost::any(*immediately);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -2739,6 +3003,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Immediately") != m.end() && !m["Immediately"].empty()) {
+      immediately = make_shared<bool>(boost::any_cast<bool>(m["Immediately"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -3660,6 +3927,8 @@ public:
   shared_ptr<string> securityToken{};
   shared_ptr<long> solrNum{};
   shared_ptr<string> solrSpec{};
+  shared_ptr<long> streamNum{};
+  shared_ptr<string> streamSpec{};
   shared_ptr<long> tsdbNum{};
   shared_ptr<string> tsdbSpec{};
   shared_ptr<string> upgradeType{};
@@ -3743,6 +4012,12 @@ public:
     }
     if (solrSpec) {
       res["SolrSpec"] = boost::any(*solrSpec);
+    }
+    if (streamNum) {
+      res["StreamNum"] = boost::any(*streamNum);
+    }
+    if (streamSpec) {
+      res["StreamSpec"] = boost::any(*streamSpec);
     }
     if (tsdbNum) {
       res["TsdbNum"] = boost::any(*tsdbNum);
@@ -3828,6 +4103,12 @@ public:
     }
     if (m.find("SolrSpec") != m.end() && !m["SolrSpec"].empty()) {
       solrSpec = make_shared<string>(boost::any_cast<string>(m["SolrSpec"]));
+    }
+    if (m.find("StreamNum") != m.end() && !m["StreamNum"].empty()) {
+      streamNum = make_shared<long>(boost::any_cast<long>(m["StreamNum"]));
+    }
+    if (m.find("StreamSpec") != m.end() && !m["StreamSpec"].empty()) {
+      streamSpec = make_shared<string>(boost::any_cast<string>(m["StreamSpec"]));
     }
     if (m.find("TsdbNum") != m.end() && !m["TsdbNum"].empty()) {
       tsdbNum = make_shared<long>(boost::any_cast<long>(m["TsdbNum"]));
@@ -3960,6 +4241,8 @@ public:
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   GetInstanceIpWhiteListResponse getInstanceIpWhiteListWithOptions(shared_ptr<GetInstanceIpWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceIpWhiteListResponse getInstanceIpWhiteList(shared_ptr<GetInstanceIpWhiteListRequest> request);
+  GetLdpsResourceCostResponse getLdpsResourceCostWithOptions(shared_ptr<GetLdpsResourceCostRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetLdpsResourceCostResponse getLdpsResourceCost(shared_ptr<GetLdpsResourceCostRequest> request);
   GetLindormInstanceResponse getLindormInstanceWithOptions(shared_ptr<GetLindormInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetLindormInstanceResponse getLindormInstance(shared_ptr<GetLindormInstanceRequest> request);
   GetLindormInstanceEngineListResponse getLindormInstanceEngineListWithOptions(shared_ptr<GetLindormInstanceEngineListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
