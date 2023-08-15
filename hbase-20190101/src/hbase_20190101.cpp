@@ -19,49 +19,18 @@ using namespace Alibabacloud_HBase20190101;
 Alibabacloud_HBase20190101::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"ap-northeast-2-pop", "hbase.aliyuncs.com"},
     {"ap-southeast-1", "hbase.aliyuncs.com"},
     {"cn-beijing", "hbase.aliyuncs.com"},
-    {"cn-beijing-finance-1", "hbase.aliyuncs.com"},
-    {"cn-beijing-finance-pop", "hbase.aliyuncs.com"},
-    {"cn-beijing-gov-1", "hbase.aliyuncs.com"},
-    {"cn-beijing-nu16-b01", "hbase.aliyuncs.com"},
-    {"cn-edge-1", "hbase.aliyuncs.com"},
-    {"cn-fujian", "hbase.aliyuncs.com"},
-    {"cn-haidian-cm12-c01", "hbase.aliyuncs.com"},
     {"cn-hangzhou", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-bj-b01", "hbase.aliyuncs.com"},
     {"cn-hangzhou-finance", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-internal-prod-1", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "hbase.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "hbase.aliyuncs.com"},
     {"cn-hongkong", "hbase.aliyuncs.com"},
-    {"cn-hongkong-finance-pop", "hbase.aliyuncs.com"},
     {"cn-north-2-gov-1", "hbase.aliyuncs.com"},
     {"cn-qingdao", "hbase.aliyuncs.com"},
-    {"cn-qingdao-nebula", "hbase.aliyuncs.com"},
     {"cn-shanghai", "hbase.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "hbase.aliyuncs.com"},
-    {"cn-shanghai-et2-b01", "hbase.aliyuncs.com"},
     {"cn-shanghai-finance-1", "hbase.aliyuncs.com"},
-    {"cn-shanghai-inner", "hbase.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "hbase.aliyuncs.com"},
     {"cn-shenzhen", "hbase.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "hbase.aliyuncs.com"},
-    {"cn-shenzhen-inner", "hbase.aliyuncs.com"},
-    {"cn-shenzhen-st4-d01", "hbase.aliyuncs.com"},
-    {"cn-shenzhen-su18-b01", "hbase.aliyuncs.com"},
-    {"cn-wuhan", "hbase.aliyuncs.com"},
-    {"cn-yushanfang", "hbase.aliyuncs.com"},
-    {"cn-zhangbei-na61-b01", "hbase.aliyuncs.com"},
-    {"cn-zhangjiakou-na62-a01", "hbase.aliyuncs.com"},
-    {"cn-zhengzhou-nebula-1", "hbase.aliyuncs.com"},
-    {"eu-west-1-oxs", "hbase.ap-northeast-1.aliyuncs.com"},
-    {"rus-west-1-pop", "hbase.ap-northeast-1.aliyuncs.com"},
-    {"us-east-1", "hbase.aliyuncs.com"},
-    {"us-west-1", "hbase.aliyuncs.com"}
+    {"cn-guangzhou", "hbase.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -413,6 +382,9 @@ CreateGlobalResourceResponse Alibabacloud_HBase20190101::Client::createGlobalRes
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
@@ -754,6 +726,9 @@ DeleteGlobalResourceResponse Alibabacloud_HBase20190101::Client::deleteGlobalRes
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
@@ -3533,6 +3508,40 @@ SwitchHbaseHaSlbResponse Alibabacloud_HBase20190101::Client::switchHbaseHaSlbWit
 SwitchHbaseHaSlbResponse Alibabacloud_HBase20190101::Client::switchHbaseHaSlb(shared_ptr<SwitchHbaseHaSlbRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return switchHbaseHaSlbWithOptions(request, runtime);
+}
+
+SwitchServiceResponse Alibabacloud_HBase20190101::Client::switchServiceWithOptions(shared_ptr<SwitchServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operate)) {
+    query->insert(pair<string, string>("Operate", *request->operate));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SwitchService"))},
+    {"version", boost::any(string("2019-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SwitchServiceResponse(callApi(params, req, runtime));
+}
+
+SwitchServiceResponse Alibabacloud_HBase20190101::Client::switchService(shared_ptr<SwitchServiceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return switchServiceWithOptions(request, runtime);
 }
 
 TagResourcesResponse Alibabacloud_HBase20190101::Client::tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
