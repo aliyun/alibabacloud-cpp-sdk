@@ -18,45 +18,6 @@ using namespace Alibabacloud_Hitsdb20200615;
 
 Alibabacloud_Hitsdb20200615::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
   _endpointRule = make_shared<string>("regional");
-  _endpointMap = make_shared<map<string, string>>(map<string, string>({
-    {"cn-hangzhou-finance", "hitsdb.cn-hangzhou.aliyuncs.com"},
-    {"cn-shanghai-finance-1", "hitsdb.aliyuncs.com"},
-    {"cn-shenzhen-finance-1", "hitsdb.aliyuncs.com"},
-    {"ap-northeast-2-pop", "hitsdb.aliyuncs.com"},
-    {"cn-beijing-finance-1", "hitsdb.aliyuncs.com"},
-    {"cn-beijing-finance-pop", "hitsdb.aliyuncs.com"},
-    {"cn-beijing-gov-1", "hitsdb.aliyuncs.com"},
-    {"cn-beijing-nu16-b01", "hitsdb.aliyuncs.com"},
-    {"cn-edge-1", "hitsdb.aliyuncs.com"},
-    {"cn-fujian", "hitsdb.aliyuncs.com"},
-    {"cn-haidian-cm12-c01", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-bj-b01", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-internal-prod-1", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-1", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-2", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-internal-test-3", "hitsdb.aliyuncs.com"},
-    {"cn-hangzhou-test-306", "hitsdb.aliyuncs.com"},
-    {"cn-hongkong-finance-pop", "hitsdb.aliyuncs.com"},
-    {"cn-huhehaote-nebula-1", "hitsdb.aliyuncs.com"},
-    {"cn-qingdao-nebula", "hitsdb.aliyuncs.com"},
-    {"cn-shanghai-et15-b01", "hitsdb.aliyuncs.com"},
-    {"cn-shanghai-et2-b01", "hitsdb.aliyuncs.com"},
-    {"cn-shanghai-inner", "hitsdb.aliyuncs.com"},
-    {"cn-shanghai-internal-test-1", "hitsdb.aliyuncs.com"},
-    {"cn-shenzhen-inner", "hitsdb.aliyuncs.com"},
-    {"cn-shenzhen-st4-d01", "hitsdb.aliyuncs.com"},
-    {"cn-shenzhen-su18-b01", "hitsdb.aliyuncs.com"},
-    {"cn-wuhan", "hitsdb.aliyuncs.com"},
-    {"cn-yushanfang", "hitsdb.aliyuncs.com"},
-    {"cn-zhangbei", "hitsdb.aliyuncs.com"},
-    {"cn-zhangbei-na61-b01", "hitsdb.aliyuncs.com"},
-    {"cn-zhangjiakou-na62-a01", "hitsdb.aliyuncs.com"},
-    {"cn-zhengzhou-nebula-1", "hitsdb.aliyuncs.com"},
-    {"eu-west-1-oxs", "hitsdb.aliyuncs.com"},
-    {"me-east-1", "hitsdb.aliyuncs.com"},
-    {"rus-west-1-pop", "hitsdb.aliyuncs.com"}
-  })
-);
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("hitsdb"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
 };

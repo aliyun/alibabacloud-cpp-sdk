@@ -1,4 +1,7 @@
 2023-08-15 Version: 3.0.7
+- Generated cpp 2020-06-15 for hitsdb.
+
+2023-08-15 Version: 3.0.7
 - Update Tea.
 
 2022-11-15 Version: 3.0.6
