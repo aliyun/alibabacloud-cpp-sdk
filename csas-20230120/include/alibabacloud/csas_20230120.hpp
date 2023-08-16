@@ -184,6 +184,217 @@ public:
 
   virtual ~AttachApplication2ConnectorResponse() = default;
 };
+class CreateDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> applicationIds{};
+  shared_ptr<string> applicationType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> dynamicRouteType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextHop{};
+  shared_ptr<long> priority{};
+  shared_ptr<vector<string>> regionIds{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  CreateDynamicRouteRequest() {}
+
+  explicit CreateDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationIds) {
+      res["ApplicationIds"] = boost::any(*applicationIds);
+    }
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dynamicRouteType) {
+      res["DynamicRouteType"] = boost::any(*dynamicRouteType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextHop) {
+      res["NextHop"] = boost::any(*nextHop);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (regionIds) {
+      res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DynamicRouteType") != m.end() && !m["DynamicRouteType"].empty()) {
+      dynamicRouteType = make_shared<string>(boost::any_cast<string>(m["DynamicRouteType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
+      nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateDynamicRouteRequest() = default;
+};
+class CreateDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dynamicRouteId{};
+  shared_ptr<string> requestId{};
+
+  CreateDynamicRouteResponseBody() {}
+
+  explicit CreateDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateDynamicRouteResponseBody() = default;
+};
+class CreateDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateDynamicRouteResponseBody> body{};
+
+  CreateDynamicRouteResponse() {}
+
+  explicit CreateDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateDynamicRouteResponse() = default;
+};
 class CreatePrivateAccessApplicationRequestPortRanges : public Darabonba::Model {
 public:
   shared_ptr<long> begin{};
@@ -1208,6 +1419,126 @@ public:
 
   virtual ~CreateUserGroupResponse() = default;
 };
+class DeleteDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dynamicRouteId{};
+
+  DeleteDynamicRouteRequest() {}
+
+  explicit DeleteDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+  }
+
+
+  virtual ~DeleteDynamicRouteRequest() = default;
+};
+class DeleteDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteDynamicRouteResponseBody() {}
+
+  explicit DeleteDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteDynamicRouteResponseBody() = default;
+};
+class DeleteDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteDynamicRouteResponseBody> body{};
+
+  DeleteDynamicRouteResponse() {}
+
+  explicit DeleteDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteDynamicRouteResponse() = default;
+};
 class DeletePrivateAccessApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
@@ -1857,6 +2188,264 @@ public:
 
 
   virtual ~DetachApplication2ConnectorResponse() = default;
+};
+class GetDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dynamicRouteId{};
+
+  GetDynamicRouteRequest() {}
+
+  explicit GetDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+  }
+
+
+  virtual ~GetDynamicRouteRequest() = default;
+};
+class GetDynamicRouteResponseBodyDynamicRoute : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> applicationIds{};
+  shared_ptr<string> applicationType{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> dynamicRouteId{};
+  shared_ptr<string> dynamicRouteType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextHop{};
+  shared_ptr<long> priority{};
+  shared_ptr<vector<string>> regionIds{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  GetDynamicRouteResponseBodyDynamicRoute() {}
+
+  explicit GetDynamicRouteResponseBodyDynamicRoute(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationIds) {
+      res["ApplicationIds"] = boost::any(*applicationIds);
+    }
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    if (dynamicRouteType) {
+      res["DynamicRouteType"] = boost::any(*dynamicRouteType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextHop) {
+      res["NextHop"] = boost::any(*nextHop);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (regionIds) {
+      res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+    if (m.find("DynamicRouteType") != m.end() && !m["DynamicRouteType"].empty()) {
+      dynamicRouteType = make_shared<string>(boost::any_cast<string>(m["DynamicRouteType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
+      nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~GetDynamicRouteResponseBodyDynamicRoute() = default;
+};
+class GetDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetDynamicRouteResponseBodyDynamicRoute> dynamicRoute{};
+  shared_ptr<string> requestId{};
+
+  GetDynamicRouteResponseBody() {}
+
+  explicit GetDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRoute) {
+      res["DynamicRoute"] = dynamicRoute ? boost::any(dynamicRoute->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRoute") != m.end() && !m["DynamicRoute"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DynamicRoute"].type()) {
+        GetDynamicRouteResponseBodyDynamicRoute model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DynamicRoute"]));
+        dynamicRoute = make_shared<GetDynamicRouteResponseBodyDynamicRoute>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDynamicRouteResponseBody() = default;
+};
+class GetDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDynamicRouteResponseBody> body{};
+
+  GetDynamicRouteResponse() {}
+
+  explicit GetDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDynamicRouteResponse() = default;
 };
 class GetPrivateAccessApplicationRequest : public Darabonba::Model {
 public:
@@ -3757,6 +4346,463 @@ public:
 
   virtual ~ListConnectorsResponse() = default;
 };
+class ListDynamicRouteRegionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> regions{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalNum{};
+
+  ListDynamicRouteRegionsResponseBody() {}
+
+  explicit ListDynamicRouteRegionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (regions) {
+      res["Regions"] = boost::any(*regions);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalNum) {
+      res["TotalNum"] = boost::any(*totalNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Regions") != m.end() && !m["Regions"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Regions"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Regions"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regions = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalNum") != m.end() && !m["TotalNum"].empty()) {
+      totalNum = make_shared<long>(boost::any_cast<long>(m["TotalNum"]));
+    }
+  }
+
+
+  virtual ~ListDynamicRouteRegionsResponseBody() = default;
+};
+class ListDynamicRouteRegionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDynamicRouteRegionsResponseBody> body{};
+
+  ListDynamicRouteRegionsResponse() {}
+
+  explicit ListDynamicRouteRegionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDynamicRouteRegionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDynamicRouteRegionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDynamicRouteRegionsResponse() = default;
+};
+class ListDynamicRoutesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationId{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<vector<string>> dynamicRouteIds{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextHop{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<vector<string>> regionIds{};
+  shared_ptr<string> status{};
+  shared_ptr<string> tagId{};
+
+  ListDynamicRoutesRequest() {}
+
+  explicit ListDynamicRoutesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (dynamicRouteIds) {
+      res["DynamicRouteIds"] = boost::any(*dynamicRouteIds);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextHop) {
+      res["NextHop"] = boost::any(*nextHop);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionIds) {
+      res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagId) {
+      res["TagId"] = boost::any(*tagId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("DynamicRouteIds") != m.end() && !m["DynamicRouteIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DynamicRouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DynamicRouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dynamicRouteIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
+      nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
+      tagId = make_shared<string>(boost::any_cast<string>(m["TagId"]));
+    }
+  }
+
+
+  virtual ~ListDynamicRoutesRequest() = default;
+};
+class ListDynamicRoutesResponseBodyDynamicRoutes : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> applicationIds{};
+  shared_ptr<string> applicationType{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> dynamicRouteId{};
+  shared_ptr<string> dynamicRouteType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextHop{};
+  shared_ptr<long> priority{};
+  shared_ptr<vector<string>> regionIds{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  ListDynamicRoutesResponseBodyDynamicRoutes() {}
+
+  explicit ListDynamicRoutesResponseBodyDynamicRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationIds) {
+      res["ApplicationIds"] = boost::any(*applicationIds);
+    }
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    if (dynamicRouteType) {
+      res["DynamicRouteType"] = boost::any(*dynamicRouteType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextHop) {
+      res["NextHop"] = boost::any(*nextHop);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (regionIds) {
+      res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+    if (m.find("DynamicRouteType") != m.end() && !m["DynamicRouteType"].empty()) {
+      dynamicRouteType = make_shared<string>(boost::any_cast<string>(m["DynamicRouteType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
+      nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListDynamicRoutesResponseBodyDynamicRoutes() = default;
+};
+class ListDynamicRoutesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListDynamicRoutesResponseBodyDynamicRoutes>> dynamicRoutes{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalNum{};
+
+  ListDynamicRoutesResponseBody() {}
+
+  explicit ListDynamicRoutesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRoutes) {
+      vector<boost::any> temp1;
+      for(auto item1:*dynamicRoutes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DynamicRoutes"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalNum) {
+      res["TotalNum"] = boost::any(*totalNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRoutes") != m.end() && !m["DynamicRoutes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DynamicRoutes"].type()) {
+        vector<ListDynamicRoutesResponseBodyDynamicRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DynamicRoutes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDynamicRoutesResponseBodyDynamicRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dynamicRoutes = make_shared<vector<ListDynamicRoutesResponseBodyDynamicRoutes>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalNum") != m.end() && !m["TotalNum"].empty()) {
+      totalNum = make_shared<long>(boost::any_cast<long>(m["TotalNum"]));
+    }
+  }
+
+
+  virtual ~ListDynamicRoutesResponseBody() = default;
+};
+class ListDynamicRoutesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListDynamicRoutesResponseBody> body{};
+
+  ListDynamicRoutesResponse() {}
+
+  explicit ListDynamicRoutesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListDynamicRoutesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListDynamicRoutesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListDynamicRoutesResponse() = default;
+};
 class ListPolicesForPrivateAccessApplicationRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> applicationIds{};
@@ -5073,6 +6119,339 @@ public:
 
   virtual ~ListPrivateAccessApplicationsResponse() = default;
 };
+class ListPrivateAccessApplicationsForDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> dynamicRouteIds{};
+
+  ListPrivateAccessApplicationsForDynamicRouteRequest() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteIds) {
+      res["DynamicRouteIds"] = boost::any(*dynamicRouteIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteIds") != m.end() && !m["DynamicRouteIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DynamicRouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DynamicRouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dynamicRouteIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteRequest() = default;
+};
+class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges : public Darabonba::Model {
+public:
+  shared_ptr<long> begin{};
+  shared_ptr<long> end{};
+
+  ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (begin) {
+      res["Begin"] = boost::any(*begin);
+    }
+    if (end) {
+      res["End"] = boost::any(*end);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Begin") != m.end() && !m["Begin"].empty()) {
+      begin = make_shared<long>(boost::any_cast<long>(m["Begin"]));
+    }
+    if (m.find("End") != m.end() && !m["End"].empty()) {
+      end = make_shared<long>(boost::any_cast<long>(m["End"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges() = default;
+};
+class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> addresses{};
+  shared_ptr<string> applicationId{};
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges>> portRanges{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> status{};
+
+  ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addresses) {
+      res["Addresses"] = boost::any(*addresses);
+    }
+    if (applicationId) {
+      res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (portRanges) {
+      vector<boost::any> temp1;
+      for(auto item1:*portRanges){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PortRanges"] = boost::any(temp1);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Addresses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Addresses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      addresses = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
+      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
+      if (typeid(vector<boost::any>) == m["PortRanges"].type()) {
+        vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PortRanges"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        portRanges = make_shared<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplicationsPortRanges>>(expect1);
+      }
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications() = default;
+};
+class ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications>> applications{};
+  shared_ptr<string> dynamicRouteId{};
+
+  ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applications) {
+      vector<boost::any> temp1;
+      for(auto item1:*applications){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Applications"] = boost::any(temp1);
+    }
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Applications") != m.end() && !m["Applications"].empty()) {
+      if (typeid(vector<boost::any>) == m["Applications"].type()) {
+        vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Applications"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applications = make_shared<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutesApplications>>(expect1);
+      }
+    }
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes() = default;
+};
+class ListPrivateAccessApplicationsForDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes>> dynamicRoutes{};
+  shared_ptr<string> requestId{};
+
+  ListPrivateAccessApplicationsForDynamicRouteResponseBody() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRoutes) {
+      vector<boost::any> temp1;
+      for(auto item1:*dynamicRoutes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DynamicRoutes"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRoutes") != m.end() && !m["DynamicRoutes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DynamicRoutes"].type()) {
+        vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DynamicRoutes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dynamicRoutes = make_shared<vector<ListPrivateAccessApplicationsForDynamicRouteResponseBodyDynamicRoutes>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteResponseBody() = default;
+};
+class ListPrivateAccessApplicationsForDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPrivateAccessApplicationsForDynamicRouteResponseBody> body{};
+
+  ListPrivateAccessApplicationsForDynamicRouteResponse() {}
+
+  explicit ListPrivateAccessApplicationsForDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPrivateAccessApplicationsForDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPrivateAccessApplicationsForDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPrivateAccessApplicationsForDynamicRouteResponse() = default;
+};
 class ListPrivateAccessPolicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
@@ -5756,6 +7135,261 @@ public:
 
 
   virtual ~ListPrivateAccessTagsResponse() = default;
+};
+class ListPrivateAccessTagsForDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> dynamicRouteIds{};
+
+  ListPrivateAccessTagsForDynamicRouteRequest() {}
+
+  explicit ListPrivateAccessTagsForDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteIds) {
+      res["DynamicRouteIds"] = boost::any(*dynamicRouteIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteIds") != m.end() && !m["DynamicRouteIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DynamicRouteIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DynamicRouteIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      dynamicRouteIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~ListPrivateAccessTagsForDynamicRouteRequest() = default;
+};
+class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> name{};
+  shared_ptr<string> tagId{};
+  shared_ptr<string> tagType{};
+
+  ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags() {}
+
+  explicit ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (tagId) {
+      res["TagId"] = boost::any(*tagId);
+    }
+    if (tagType) {
+      res["TagType"] = boost::any(*tagType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
+      tagId = make_shared<string>(boost::any_cast<string>(m["TagId"]));
+    }
+    if (m.find("TagType") != m.end() && !m["TagType"].empty()) {
+      tagType = make_shared<string>(boost::any_cast<string>(m["TagType"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags() = default;
+};
+class ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes : public Darabonba::Model {
+public:
+  shared_ptr<string> dynamicRouteId{};
+  shared_ptr<vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags>> tags{};
+
+  ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes() {}
+
+  explicit ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutesTags>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes() = default;
+};
+class ListPrivateAccessTagsForDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes>> dynamicRoutes{};
+  shared_ptr<string> requestId{};
+
+  ListPrivateAccessTagsForDynamicRouteResponseBody() {}
+
+  explicit ListPrivateAccessTagsForDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dynamicRoutes) {
+      vector<boost::any> temp1;
+      for(auto item1:*dynamicRoutes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DynamicRoutes"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DynamicRoutes") != m.end() && !m["DynamicRoutes"].empty()) {
+      if (typeid(vector<boost::any>) == m["DynamicRoutes"].type()) {
+        vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DynamicRoutes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dynamicRoutes = make_shared<vector<ListPrivateAccessTagsForDynamicRouteResponseBodyDynamicRoutes>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListPrivateAccessTagsForDynamicRouteResponseBody() = default;
+};
+class ListPrivateAccessTagsForDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListPrivateAccessTagsForDynamicRouteResponseBody> body{};
+
+  ListPrivateAccessTagsForDynamicRouteResponse() {}
+
+  explicit ListPrivateAccessTagsForDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListPrivateAccessTagsForDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListPrivateAccessTagsForDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListPrivateAccessTagsForDynamicRouteResponse() = default;
 };
 class ListTagsForPrivateAccessApplicationRequest : public Darabonba::Model {
 public:
@@ -6897,6 +8531,224 @@ public:
 
   virtual ~ListUserGroupsForPrivateAccessPolicyResponse() = default;
 };
+class UpdateDynamicRouteRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> applicationIds{};
+  shared_ptr<string> applicationType{};
+  shared_ptr<string> description{};
+  shared_ptr<string> dynamicRouteId{};
+  shared_ptr<string> dynamicRouteType{};
+  shared_ptr<string> modifyType{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextHop{};
+  shared_ptr<long> priority{};
+  shared_ptr<vector<string>> regionIds{};
+  shared_ptr<string> status{};
+  shared_ptr<vector<string>> tagIds{};
+
+  UpdateDynamicRouteRequest() {}
+
+  explicit UpdateDynamicRouteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationIds) {
+      res["ApplicationIds"] = boost::any(*applicationIds);
+    }
+    if (applicationType) {
+      res["ApplicationType"] = boost::any(*applicationType);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (dynamicRouteId) {
+      res["DynamicRouteId"] = boost::any(*dynamicRouteId);
+    }
+    if (dynamicRouteType) {
+      res["DynamicRouteType"] = boost::any(*dynamicRouteType);
+    }
+    if (modifyType) {
+      res["ModifyType"] = boost::any(*modifyType);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextHop) {
+      res["NextHop"] = boost::any(*nextHop);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (regionIds) {
+      res["RegionIds"] = boost::any(*regionIds);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (tagIds) {
+      res["TagIds"] = boost::any(*tagIds);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
+      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DynamicRouteId") != m.end() && !m["DynamicRouteId"].empty()) {
+      dynamicRouteId = make_shared<string>(boost::any_cast<string>(m["DynamicRouteId"]));
+    }
+    if (m.find("DynamicRouteType") != m.end() && !m["DynamicRouteType"].empty()) {
+      dynamicRouteType = make_shared<string>(boost::any_cast<string>(m["DynamicRouteType"]));
+    }
+    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
+      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextHop") != m.end() && !m["NextHop"].empty()) {
+      nextHop = make_shared<string>(boost::any_cast<string>(m["NextHop"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("RegionIds") != m.end() && !m["RegionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RegionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RegionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      regionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagIds = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateDynamicRouteRequest() = default;
+};
+class UpdateDynamicRouteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateDynamicRouteResponseBody() {}
+
+  explicit UpdateDynamicRouteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateDynamicRouteResponseBody() = default;
+};
+class UpdateDynamicRouteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateDynamicRouteResponseBody> body{};
+
+  UpdateDynamicRouteResponse() {}
+
+  explicit UpdateDynamicRouteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateDynamicRouteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateDynamicRouteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateDynamicRouteResponse() = default;
+};
 class UpdatePrivateAccessApplicationRequestPortRanges : public Darabonba::Model {
 public:
   shared_ptr<long> begin{};
@@ -7813,6 +9665,8 @@ public:
                      shared_ptr<string> endpoint);
   AttachApplication2ConnectorResponse attachApplication2ConnectorWithOptions(shared_ptr<AttachApplication2ConnectorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AttachApplication2ConnectorResponse attachApplication2Connector(shared_ptr<AttachApplication2ConnectorRequest> request);
+  CreateDynamicRouteResponse createDynamicRouteWithOptions(shared_ptr<CreateDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateDynamicRouteResponse createDynamicRoute(shared_ptr<CreateDynamicRouteRequest> request);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplication(shared_ptr<CreatePrivateAccessApplicationRequest> request);
   CreatePrivateAccessPolicyResponse createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7821,6 +9675,8 @@ public:
   CreatePrivateAccessTagResponse createPrivateAccessTag(shared_ptr<CreatePrivateAccessTagRequest> request);
   CreateUserGroupResponse createUserGroupWithOptions(shared_ptr<CreateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateUserGroupResponse createUserGroup(shared_ptr<CreateUserGroupRequest> request);
+  DeleteDynamicRouteResponse deleteDynamicRouteWithOptions(shared_ptr<DeleteDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteDynamicRouteResponse deleteDynamicRoute(shared_ptr<DeleteDynamicRouteRequest> request);
   DeletePrivateAccessApplicationResponse deletePrivateAccessApplicationWithOptions(shared_ptr<DeletePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeletePrivateAccessApplicationResponse deletePrivateAccessApplication(shared_ptr<DeletePrivateAccessApplicationRequest> request);
   DeletePrivateAccessPolicyResponse deletePrivateAccessPolicyWithOptions(shared_ptr<DeletePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7831,6 +9687,8 @@ public:
   DeleteUserGroupResponse deleteUserGroup(shared_ptr<DeleteUserGroupRequest> request);
   DetachApplication2ConnectorResponse detachApplication2ConnectorWithOptions(shared_ptr<DetachApplication2ConnectorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachApplication2ConnectorResponse detachApplication2Connector(shared_ptr<DetachApplication2ConnectorRequest> request);
+  GetDynamicRouteResponse getDynamicRouteWithOptions(shared_ptr<GetDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDynamicRouteResponse getDynamicRoute(shared_ptr<GetDynamicRouteRequest> request);
   GetPrivateAccessApplicationResponse getPrivateAccessApplicationWithOptions(shared_ptr<GetPrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPrivateAccessApplicationResponse getPrivateAccessApplication(shared_ptr<GetPrivateAccessApplicationRequest> request);
   GetPrivateAccessPolicyResponse getPrivateAccessPolicyWithOptions(shared_ptr<GetPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7843,6 +9701,10 @@ public:
   ListApplicationsForPrivateAccessTagResponse listApplicationsForPrivateAccessTag(shared_ptr<ListApplicationsForPrivateAccessTagRequest> request);
   ListConnectorsResponse listConnectorsWithOptions(shared_ptr<ListConnectorsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListConnectorsResponse listConnectors(shared_ptr<ListConnectorsRequest> request);
+  ListDynamicRouteRegionsResponse listDynamicRouteRegionsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDynamicRouteRegionsResponse listDynamicRouteRegions();
+  ListDynamicRoutesResponse listDynamicRoutesWithOptions(shared_ptr<ListDynamicRoutesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListDynamicRoutesResponse listDynamicRoutes(shared_ptr<ListDynamicRoutesRequest> request);
   ListPolicesForPrivateAccessApplicationResponse listPolicesForPrivateAccessApplicationWithOptions(shared_ptr<ListPolicesForPrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPolicesForPrivateAccessApplicationResponse listPolicesForPrivateAccessApplication(shared_ptr<ListPolicesForPrivateAccessApplicationRequest> request);
   ListPolicesForPrivateAccessTagResponse listPolicesForPrivateAccessTagWithOptions(shared_ptr<ListPolicesForPrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7851,10 +9713,14 @@ public:
   ListPolicesForUserGroupResponse listPolicesForUserGroup(shared_ptr<ListPolicesForUserGroupRequest> request);
   ListPrivateAccessApplicationsResponse listPrivateAccessApplicationsWithOptions(shared_ptr<ListPrivateAccessApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPrivateAccessApplicationsResponse listPrivateAccessApplications(shared_ptr<ListPrivateAccessApplicationsRequest> request);
+  ListPrivateAccessApplicationsForDynamicRouteResponse listPrivateAccessApplicationsForDynamicRouteWithOptions(shared_ptr<ListPrivateAccessApplicationsForDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPrivateAccessApplicationsForDynamicRouteResponse listPrivateAccessApplicationsForDynamicRoute(shared_ptr<ListPrivateAccessApplicationsForDynamicRouteRequest> request);
   ListPrivateAccessPolicesResponse listPrivateAccessPolicesWithOptions(shared_ptr<ListPrivateAccessPolicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPrivateAccessPolicesResponse listPrivateAccessPolices(shared_ptr<ListPrivateAccessPolicesRequest> request);
   ListPrivateAccessTagsResponse listPrivateAccessTagsWithOptions(shared_ptr<ListPrivateAccessTagsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListPrivateAccessTagsResponse listPrivateAccessTags(shared_ptr<ListPrivateAccessTagsRequest> request);
+  ListPrivateAccessTagsForDynamicRouteResponse listPrivateAccessTagsForDynamicRouteWithOptions(shared_ptr<ListPrivateAccessTagsForDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListPrivateAccessTagsForDynamicRouteResponse listPrivateAccessTagsForDynamicRoute(shared_ptr<ListPrivateAccessTagsForDynamicRouteRequest> request);
   ListTagsForPrivateAccessApplicationResponse listTagsForPrivateAccessApplicationWithOptions(shared_ptr<ListTagsForPrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagsForPrivateAccessApplicationResponse listTagsForPrivateAccessApplication(shared_ptr<ListTagsForPrivateAccessApplicationRequest> request);
   ListTagsForPrivateAccessPolicyResponse listTagsForPrivateAccessPolicyWithOptions(shared_ptr<ListTagsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7863,6 +9729,8 @@ public:
   ListUserGroupsResponse listUserGroups(shared_ptr<ListUserGroupsRequest> request);
   ListUserGroupsForPrivateAccessPolicyResponse listUserGroupsForPrivateAccessPolicyWithOptions(shared_ptr<ListUserGroupsForPrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListUserGroupsForPrivateAccessPolicyResponse listUserGroupsForPrivateAccessPolicy(shared_ptr<ListUserGroupsForPrivateAccessPolicyRequest> request);
+  UpdateDynamicRouteResponse updateDynamicRouteWithOptions(shared_ptr<UpdateDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDynamicRouteResponse updateDynamicRoute(shared_ptr<UpdateDynamicRouteRequest> request);
   UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrivateAccessApplicationResponse updatePrivateAccessApplication(shared_ptr<UpdatePrivateAccessApplicationRequest> request);
   UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
