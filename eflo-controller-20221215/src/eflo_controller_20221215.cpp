@@ -557,6 +557,9 @@ ReimageNodesResponse Alibabacloud_Eflo-controller20221215::Client::reimageNodesW
   if (!Darabonba_Util::Client::isUnset<string>(request->nodesShrink)) {
     body->insert(pair<string, string>("Nodes", *request->nodesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    body->insert(pair<string, string>("UserData", *request->userData));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

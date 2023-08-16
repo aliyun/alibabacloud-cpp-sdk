@@ -851,6 +851,7 @@ public:
   shared_ptr<string> nodeGroupDescription{};
   shared_ptr<string> nodeGroupName{};
   shared_ptr<vector<CreateClusterRequestNodeGroupsNodes>> nodes{};
+  shared_ptr<string> userData{};
   shared_ptr<string> zoneId{};
 
   CreateClusterRequestNodeGroups() {}
@@ -881,6 +882,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Nodes"] = boost::any(temp1);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
     }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
@@ -913,6 +917,9 @@ public:
         }
         nodes = make_shared<vector<CreateClusterRequestNodeGroupsNodes>>(expect1);
       }
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -3136,6 +3143,7 @@ class ExtendClusterRequestNodeGroups : public Darabonba::Model {
 public:
   shared_ptr<string> nodeGroupId{};
   shared_ptr<vector<ExtendClusterRequestNodeGroupsNodes>> nodes{};
+  shared_ptr<string> userData{};
 
   ExtendClusterRequestNodeGroups() {}
 
@@ -3157,6 +3165,9 @@ public:
       }
       res["Nodes"] = boost::any(temp1);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -3176,6 +3187,9 @@ public:
         }
         nodes = make_shared<vector<ExtendClusterRequestNodeGroupsNodes>>(expect1);
       }
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
@@ -4824,6 +4838,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<vector<ReimageNodesRequestNodes>> nodes{};
+  shared_ptr<string> userData{};
 
   ReimageNodesRequest() {}
 
@@ -4848,6 +4863,9 @@ public:
       }
       res["Nodes"] = boost::any(temp1);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -4871,6 +4889,9 @@ public:
         nodes = make_shared<vector<ReimageNodesRequestNodes>>(expect1);
       }
     }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
   }
 
 
@@ -4881,6 +4902,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<string> nodesShrink{};
+  shared_ptr<string> userData{};
 
   ReimageNodesShrinkRequest() {}
 
@@ -4901,6 +4923,9 @@ public:
     if (nodesShrink) {
       res["Nodes"] = boost::any(*nodesShrink);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -4913,6 +4938,9 @@ public:
     }
     if (m.find("Nodes") != m.end() && !m["Nodes"].empty()) {
       nodesShrink = make_shared<string>(boost::any_cast<string>(m["Nodes"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
