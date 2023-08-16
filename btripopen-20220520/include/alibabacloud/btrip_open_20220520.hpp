@@ -63194,10 +63194,70 @@ public:
 
   virtual ~IsvUserSaveHeaders() = default;
 };
+class IsvUserSaveRequestUserListCertList : public Darabonba::Model {
+public:
+  shared_ptr<string> certExpiredTime{};
+  shared_ptr<string> certNation{};
+  shared_ptr<string> certNo{};
+  shared_ptr<long> certType{};
+  shared_ptr<string> nationality{};
+
+  IsvUserSaveRequestUserListCertList() {}
+
+  explicit IsvUserSaveRequestUserListCertList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certExpiredTime) {
+      res["cert_expired_time"] = boost::any(*certExpiredTime);
+    }
+    if (certNation) {
+      res["cert_nation"] = boost::any(*certNation);
+    }
+    if (certNo) {
+      res["cert_no"] = boost::any(*certNo);
+    }
+    if (certType) {
+      res["cert_type"] = boost::any(*certType);
+    }
+    if (nationality) {
+      res["nationality"] = boost::any(*nationality);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cert_expired_time") != m.end() && !m["cert_expired_time"].empty()) {
+      certExpiredTime = make_shared<string>(boost::any_cast<string>(m["cert_expired_time"]));
+    }
+    if (m.find("cert_nation") != m.end() && !m["cert_nation"].empty()) {
+      certNation = make_shared<string>(boost::any_cast<string>(m["cert_nation"]));
+    }
+    if (m.find("cert_no") != m.end() && !m["cert_no"].empty()) {
+      certNo = make_shared<string>(boost::any_cast<string>(m["cert_no"]));
+    }
+    if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
+      certType = make_shared<long>(boost::any_cast<long>(m["cert_type"]));
+    }
+    if (m.find("nationality") != m.end() && !m["nationality"].empty()) {
+      nationality = make_shared<string>(boost::any_cast<string>(m["nationality"]));
+    }
+  }
+
+
+  virtual ~IsvUserSaveRequestUserListCertList() = default;
+};
 class IsvUserSaveRequestUserList : public Darabonba::Model {
 public:
+  shared_ptr<string> birthday{};
+  shared_ptr<vector<IsvUserSaveRequestUserListCertList>> certList{};
   shared_ptr<long> departId{};
   shared_ptr<string> email{};
+  shared_ptr<string> gender{};
   shared_ptr<string> jobNo{};
   shared_ptr<long> leaveStatus{};
   shared_ptr<string> managerUserId{};
@@ -63220,11 +63280,24 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (certList) {
+      vector<boost::any> temp1;
+      for(auto item1:*certList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["cert_list"] = boost::any(temp1);
+    }
     if (departId) {
       res["depart_id"] = boost::any(*departId);
     }
     if (email) {
       res["email"] = boost::any(*email);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
     }
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
@@ -63263,11 +63336,30 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("cert_list") != m.end() && !m["cert_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["cert_list"].type()) {
+        vector<IsvUserSaveRequestUserListCertList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["cert_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            IsvUserSaveRequestUserListCertList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certList = make_shared<vector<IsvUserSaveRequestUserListCertList>>(expect1);
+      }
+    }
     if (m.find("depart_id") != m.end() && !m["depart_id"].empty()) {
       departId = make_shared<long>(boost::any_cast<long>(m["depart_id"]));
     }
     if (m.find("email") != m.end() && !m["email"].empty()) {
       email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<string>(boost::any_cast<string>(m["gender"]));
     }
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
