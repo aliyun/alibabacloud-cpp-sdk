@@ -438,6 +438,9 @@ CreateChatappTemplateResponse Alibabacloud_Cams20200606::Client::createChatappTe
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->messageSendTtlSeconds)) {
+    body->insert(pair<string, long>("MessageSendTtlSeconds", *request->messageSendTtlSeconds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
@@ -679,6 +682,37 @@ GetPhoneNumberVerificationStatusResponse Alibabacloud_Cams20200606::Client::getP
   return getPhoneNumberVerificationStatusWithOptions(request, runtime);
 }
 
+GetPreValidatePhoneIdResponse Alibabacloud_Cams20200606::Client::getPreValidatePhoneIdWithOptions(shared_ptr<GetPreValidatePhoneIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    body->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyCode)) {
+    body->insert(pair<string, string>("VerifyCode", *request->verifyCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPreValidatePhoneId"))},
+    {"version", boost::any(string("2020-06-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPreValidatePhoneIdResponse(callApi(params, req, runtime));
+}
+
+GetPreValidatePhoneIdResponse Alibabacloud_Cams20200606::Client::getPreValidatePhoneId(shared_ptr<GetPreValidatePhoneIdRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPreValidatePhoneIdWithOptions(request, runtime);
+}
+
 IsvGetAppIdResponse Alibabacloud_Cams20200606::Client::isvGetAppIdWithOptions(shared_ptr<IsvGetAppIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -792,6 +826,9 @@ ModifyChatappTemplateResponse Alibabacloud_Cams20200606::Client::modifyChatappTe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->language)) {
     body->insert(pair<string, string>("Language", *request->language));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->messageSendTtlSeconds)) {
+    body->insert(pair<string, long>("MessageSendTtlSeconds", *request->messageSendTtlSeconds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
     body->insert(pair<string, string>("TemplateCode", *request->templateCode));
@@ -1081,6 +1118,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->payload)) {
     request->payloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->payload, make_shared<string>("Payload"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SendChatappMessageRequestProductAction>(tmpReq->productAction)) {
+    request->productActionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->productAction, make_shared<string>("ProductAction"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->templateParams)) {
     request->templateParamsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->templateParams, make_shared<string>("TemplateParams"), make_shared<string>("json")));
   }
@@ -1127,6 +1167,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->messageType)) {
     body->insert(pair<string, string>("MessageType", *request->messageType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productActionShrink)) {
+    body->insert(pair<string, string>("ProductAction", *request->productActionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->tag)) {
     body->insert(pair<string, string>("Tag", *request->tag));

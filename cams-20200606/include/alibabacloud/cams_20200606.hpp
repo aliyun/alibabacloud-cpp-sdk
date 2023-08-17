@@ -259,6 +259,7 @@ public:
 };
 class BeeBotAssociateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<BeeBotAssociateResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -274,6 +275,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -290,6 +294,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1086,6 +1093,7 @@ public:
 };
 class BeeBotChatResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<BeeBotChatResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -1101,6 +1109,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1117,6 +1128,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1267,6 +1281,7 @@ public:
 };
 class ChatappBindWabaResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<ChatappBindWabaResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -1282,6 +1297,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1298,6 +1316,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1469,6 +1490,7 @@ public:
 };
 class ChatappEmbedSignUpResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -1484,6 +1506,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1504,6 +1529,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1631,6 +1659,7 @@ public:
 };
 class ChatappMigrationRegisterResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -1645,6 +1674,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1658,6 +1690,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1815,6 +1850,7 @@ public:
 };
 class ChatappMigrationVerifiedResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<ChatappMigrationVerifiedResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -1830,6 +1866,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1846,6 +1885,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -1967,6 +2009,7 @@ public:
 };
 class ChatappPhoneNumberRegisterResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -1981,6 +2024,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -1994,6 +2040,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -2207,6 +2256,7 @@ public:
 };
 class ChatappSyncPhoneNumberResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<ChatappSyncPhoneNumberResponseBodyPhoneNumbers>> phoneNumbers{};
@@ -2222,6 +2272,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2242,6 +2295,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -2376,6 +2432,7 @@ public:
 };
 class ChatappVerifyAndRegisterResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -2390,6 +2447,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2403,6 +2463,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -2567,6 +2630,7 @@ public:
 };
 class CreateChatappMigrationInitiateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<CreateChatappMigrationInitiateResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -2582,6 +2646,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -2598,6 +2665,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -2896,6 +2966,7 @@ public:
   shared_ptr<map<string, string>> example{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
+  shared_ptr<long> messageSendTtlSeconds{};
   shared_ptr<string> name{};
   shared_ptr<string> templateType{};
 
@@ -2936,6 +3007,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (messageSendTtlSeconds) {
+      res["MessageSendTtlSeconds"] = boost::any(*messageSendTtlSeconds);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -2986,6 +3060,9 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("MessageSendTtlSeconds") != m.end() && !m["MessageSendTtlSeconds"].empty()) {
+      messageSendTtlSeconds = make_shared<long>(boost::any_cast<long>(m["MessageSendTtlSeconds"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -3007,6 +3084,7 @@ public:
   shared_ptr<string> exampleShrink{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
+  shared_ptr<long> messageSendTtlSeconds{};
   shared_ptr<string> name{};
   shared_ptr<string> templateType{};
 
@@ -3044,6 +3122,9 @@ public:
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (messageSendTtlSeconds) {
+      res["MessageSendTtlSeconds"] = boost::any(*messageSendTtlSeconds);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -3077,6 +3158,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MessageSendTtlSeconds") != m.end() && !m["MessageSendTtlSeconds"].empty()) {
+      messageSendTtlSeconds = make_shared<long>(boost::any_cast<long>(m["MessageSendTtlSeconds"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -3127,6 +3211,7 @@ public:
 };
 class CreateChatappTemplateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<CreateChatappTemplateResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -3142,6 +3227,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3158,6 +3246,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -3293,6 +3384,7 @@ public:
 };
 class DeleteChatappTemplateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -3307,6 +3399,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3320,6 +3415,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -3768,7 +3866,9 @@ public:
   shared_ptr<vector<GetChatappTemplateDetailResponseBodyDataComponents>> components{};
   shared_ptr<map<string, string>> example{};
   shared_ptr<string> language{};
+  shared_ptr<long> messageSendTtlSeconds{};
   shared_ptr<string> name{};
+  shared_ptr<string> qualityScore{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateType{};
 
@@ -3801,8 +3901,14 @@ public:
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (messageSendTtlSeconds) {
+      res["MessageSendTtlSeconds"] = boost::any(*messageSendTtlSeconds);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (qualityScore) {
+      res["QualityScore"] = boost::any(*qualityScore);
     }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
@@ -3844,8 +3950,14 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("MessageSendTtlSeconds") != m.end() && !m["MessageSendTtlSeconds"].empty()) {
+      messageSendTtlSeconds = make_shared<long>(boost::any_cast<long>(m["MessageSendTtlSeconds"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("QualityScore") != m.end() && !m["QualityScore"].empty()) {
+      qualityScore = make_shared<string>(boost::any_cast<string>(m["QualityScore"]));
     }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
@@ -3860,6 +3972,7 @@ public:
 };
 class GetChatappTemplateDetailResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<GetChatappTemplateDetailResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -3875,6 +3988,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -3891,6 +4007,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -4076,6 +4195,7 @@ public:
 };
 class GetChatappUploadAuthorizationResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<GetChatappUploadAuthorizationResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -4091,6 +4211,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4107,6 +4230,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -4242,6 +4368,7 @@ public:
 };
 class GetChatappVerifyCodeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -4256,6 +4383,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4269,6 +4399,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -4433,6 +4566,7 @@ public:
 };
 class GetMigrationVerifyCodeResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<GetMigrationVerifyCodeResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -4448,6 +4582,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -4464,6 +4601,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -4742,6 +4882,194 @@ public:
 
   virtual ~GetPhoneNumberVerificationStatusResponse() = default;
 };
+class GetPreValidatePhoneIdRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> verifyCode{};
+
+  GetPreValidatePhoneIdRequest() {}
+
+  explicit GetPreValidatePhoneIdRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (verifyCode) {
+      res["VerifyCode"] = boost::any(*verifyCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("VerifyCode") != m.end() && !m["VerifyCode"].empty()) {
+      verifyCode = make_shared<string>(boost::any_cast<string>(m["VerifyCode"]));
+    }
+  }
+
+
+  virtual ~GetPreValidatePhoneIdRequest() = default;
+};
+class GetPreValidatePhoneIdResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<string> phoneNumber{};
+  shared_ptr<string> phoneNumberId{};
+
+  GetPreValidatePhoneIdResponseBodyData() {}
+
+  explicit GetPreValidatePhoneIdResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (phoneNumber) {
+      res["PhoneNumber"] = boost::any(*phoneNumber);
+    }
+    if (phoneNumberId) {
+      res["PhoneNumberId"] = boost::any(*phoneNumberId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PhoneNumber") != m.end() && !m["PhoneNumber"].empty()) {
+      phoneNumber = make_shared<string>(boost::any_cast<string>(m["PhoneNumber"]));
+    }
+    if (m.find("PhoneNumberId") != m.end() && !m["PhoneNumberId"].empty()) {
+      phoneNumberId = make_shared<string>(boost::any_cast<string>(m["PhoneNumberId"]));
+    }
+  }
+
+
+  virtual ~GetPreValidatePhoneIdResponseBodyData() = default;
+};
+class GetPreValidatePhoneIdResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<GetPreValidatePhoneIdResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  GetPreValidatePhoneIdResponseBody() {}
+
+  explicit GetPreValidatePhoneIdResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetPreValidatePhoneIdResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetPreValidatePhoneIdResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetPreValidatePhoneIdResponseBody() = default;
+};
+class GetPreValidatePhoneIdResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPreValidatePhoneIdResponseBody> body{};
+
+  GetPreValidatePhoneIdResponse() {}
+
+  explicit GetPreValidatePhoneIdResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPreValidatePhoneIdResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPreValidatePhoneIdResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPreValidatePhoneIdResponse() = default;
+};
 class IsvGetAppIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> type{};
@@ -4773,6 +5101,7 @@ public:
 };
 class IsvGetAppIdResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> appId{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
@@ -4788,6 +5117,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
@@ -4804,6 +5136,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
     }
@@ -5145,6 +5480,7 @@ public:
 };
 class ListChatappTemplateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<vector<ListChatappTemplateResponseBodyListTemplate>> listTemplate{};
   shared_ptr<string> message{};
@@ -5161,6 +5497,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -5184,6 +5523,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -5490,6 +5832,7 @@ public:
   shared_ptr<map<string, string>> example{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
+  shared_ptr<long> messageSendTtlSeconds{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateType{};
 
@@ -5527,6 +5870,9 @@ public:
     }
     if (language) {
       res["Language"] = boost::any(*language);
+    }
+    if (messageSendTtlSeconds) {
+      res["MessageSendTtlSeconds"] = boost::any(*messageSendTtlSeconds);
     }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
@@ -5574,6 +5920,9 @@ public:
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
+    if (m.find("MessageSendTtlSeconds") != m.end() && !m["MessageSendTtlSeconds"].empty()) {
+      messageSendTtlSeconds = make_shared<long>(boost::any_cast<long>(m["MessageSendTtlSeconds"]));
+    }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
     }
@@ -5594,6 +5943,7 @@ public:
   shared_ptr<string> exampleShrink{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> language{};
+  shared_ptr<long> messageSendTtlSeconds{};
   shared_ptr<string> templateCode{};
   shared_ptr<string> templateType{};
 
@@ -5628,6 +5978,9 @@ public:
     if (language) {
       res["Language"] = boost::any(*language);
     }
+    if (messageSendTtlSeconds) {
+      res["MessageSendTtlSeconds"] = boost::any(*messageSendTtlSeconds);
+    }
     if (templateCode) {
       res["TemplateCode"] = boost::any(*templateCode);
     }
@@ -5658,6 +6011,9 @@ public:
     }
     if (m.find("Language") != m.end() && !m["Language"].empty()) {
       language = make_shared<string>(boost::any_cast<string>(m["Language"]));
+    }
+    if (m.find("MessageSendTtlSeconds") != m.end() && !m["MessageSendTtlSeconds"].empty()) {
+      messageSendTtlSeconds = make_shared<long>(boost::any_cast<long>(m["MessageSendTtlSeconds"]));
     }
     if (m.find("TemplateCode") != m.end() && !m["TemplateCode"].empty()) {
       templateCode = make_shared<string>(boost::any_cast<string>(m["TemplateCode"]));
@@ -5708,6 +6064,7 @@ public:
 };
 class ModifyChatappTemplateResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<ModifyChatappTemplateResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -5723,6 +6080,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -5739,6 +6099,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -5987,6 +6350,7 @@ public:
 };
 class ModifyPhoneBusinessProfileResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -6001,6 +6365,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6014,6 +6381,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6185,6 +6555,7 @@ public:
 };
 class QueryChatappBindWabaResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<QueryChatappBindWabaResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -6200,6 +6571,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6216,6 +6590,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6443,6 +6820,7 @@ public:
 };
 class QueryChatappPhoneNumbersResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<vector<QueryChatappPhoneNumbersResponseBodyPhoneNumbers>> phoneNumbers{};
@@ -6458,6 +6836,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6478,6 +6859,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6676,6 +7060,7 @@ public:
 };
 class QueryPhoneBusinessProfileResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<QueryPhoneBusinessProfileResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -6691,6 +7076,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6707,6 +7095,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6878,6 +7269,7 @@ public:
 };
 class QueryWabaBusinessInfoResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<QueryWabaBusinessInfoResponseBodyData> data{};
   shared_ptr<string> message{};
@@ -6893,6 +7285,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -6909,6 +7304,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -6992,9 +7390,139 @@ public:
 
   virtual ~QueryWabaBusinessInfoResponse() = default;
 };
+class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems : public Darabonba::Model {
+public:
+  shared_ptr<string> productRetailerId{};
+
+  SendChatappMassMessageRequestSenderListProductActionSectionsProductItems() {}
+
+  explicit SendChatappMassMessageRequestSenderListProductActionSectionsProductItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productRetailerId) {
+      res["ProductRetailerId"] = boost::any(*productRetailerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProductRetailerId") != m.end() && !m["ProductRetailerId"].empty()) {
+      productRetailerId = make_shared<string>(boost::any_cast<string>(m["ProductRetailerId"]));
+    }
+  }
+
+
+  virtual ~SendChatappMassMessageRequestSenderListProductActionSectionsProductItems() = default;
+};
+class SendChatappMassMessageRequestSenderListProductActionSections : public Darabonba::Model {
+public:
+  shared_ptr<vector<SendChatappMassMessageRequestSenderListProductActionSectionsProductItems>> productItems{};
+  shared_ptr<string> title{};
+
+  SendChatappMassMessageRequestSenderListProductActionSections() {}
+
+  explicit SendChatappMassMessageRequestSenderListProductActionSections(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*productItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ProductItems"] = boost::any(temp1);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProductItems") != m.end() && !m["ProductItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["ProductItems"].type()) {
+        vector<SendChatappMassMessageRequestSenderListProductActionSectionsProductItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ProductItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendChatappMassMessageRequestSenderListProductActionSectionsProductItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        productItems = make_shared<vector<SendChatappMassMessageRequestSenderListProductActionSectionsProductItems>>(expect1);
+      }
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~SendChatappMassMessageRequestSenderListProductActionSections() = default;
+};
+class SendChatappMassMessageRequestSenderListProductAction : public Darabonba::Model {
+public:
+  shared_ptr<vector<SendChatappMassMessageRequestSenderListProductActionSections>> sections{};
+  shared_ptr<string> thumbnailProductRetailerId{};
+
+  SendChatappMassMessageRequestSenderListProductAction() {}
+
+  explicit SendChatappMassMessageRequestSenderListProductAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sections) {
+      vector<boost::any> temp1;
+      for(auto item1:*sections){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sections"] = boost::any(temp1);
+    }
+    if (thumbnailProductRetailerId) {
+      res["ThumbnailProductRetailerId"] = boost::any(*thumbnailProductRetailerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Sections") != m.end() && !m["Sections"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sections"].type()) {
+        vector<SendChatappMassMessageRequestSenderListProductActionSections> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sections"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendChatappMassMessageRequestSenderListProductActionSections model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sections = make_shared<vector<SendChatappMassMessageRequestSenderListProductActionSections>>(expect1);
+      }
+    }
+    if (m.find("ThumbnailProductRetailerId") != m.end() && !m["ThumbnailProductRetailerId"].empty()) {
+      thumbnailProductRetailerId = make_shared<string>(boost::any_cast<string>(m["ThumbnailProductRetailerId"]));
+    }
+  }
+
+
+  virtual ~SendChatappMassMessageRequestSenderListProductAction() = default;
+};
 class SendChatappMassMessageRequestSenderList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> payload{};
+  shared_ptr<SendChatappMassMessageRequestSenderListProductAction> productAction{};
   shared_ptr<map<string, string>> templateParams{};
   shared_ptr<string> to{};
 
@@ -7010,6 +7538,9 @@ public:
     map<string, boost::any> res;
     if (payload) {
       res["Payload"] = boost::any(*payload);
+    }
+    if (productAction) {
+      res["ProductAction"] = productAction ? boost::any(productAction->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (templateParams) {
       res["TemplateParams"] = boost::any(*templateParams);
@@ -7030,6 +7561,13 @@ public:
         }
       }
       payload = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ProductAction") != m.end() && !m["ProductAction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProductAction"].type()) {
+        SendChatappMassMessageRequestSenderListProductAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProductAction"]));
+        productAction = make_shared<SendChatappMassMessageRequestSenderListProductAction>(model1);
+      }
     }
     if (m.find("TemplateParams") != m.end() && !m["TemplateParams"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["TemplateParams"]);
@@ -7317,6 +7855,7 @@ public:
 };
 class SendChatappMassMessageResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> groupMessageId{};
   shared_ptr<string> message{};
@@ -7332,6 +7871,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -7348,6 +7890,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -7427,6 +7972,135 @@ public:
 
   virtual ~SendChatappMassMessageResponse() = default;
 };
+class SendChatappMessageRequestProductActionSectionsProductItems : public Darabonba::Model {
+public:
+  shared_ptr<string> productRetailerId{};
+
+  SendChatappMessageRequestProductActionSectionsProductItems() {}
+
+  explicit SendChatappMessageRequestProductActionSectionsProductItems(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productRetailerId) {
+      res["ProductRetailerId"] = boost::any(*productRetailerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProductRetailerId") != m.end() && !m["ProductRetailerId"].empty()) {
+      productRetailerId = make_shared<string>(boost::any_cast<string>(m["ProductRetailerId"]));
+    }
+  }
+
+
+  virtual ~SendChatappMessageRequestProductActionSectionsProductItems() = default;
+};
+class SendChatappMessageRequestProductActionSections : public Darabonba::Model {
+public:
+  shared_ptr<vector<SendChatappMessageRequestProductActionSectionsProductItems>> productItems{};
+  shared_ptr<string> title{};
+
+  SendChatappMessageRequestProductActionSections() {}
+
+  explicit SendChatappMessageRequestProductActionSections(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (productItems) {
+      vector<boost::any> temp1;
+      for(auto item1:*productItems){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ProductItems"] = boost::any(temp1);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProductItems") != m.end() && !m["ProductItems"].empty()) {
+      if (typeid(vector<boost::any>) == m["ProductItems"].type()) {
+        vector<SendChatappMessageRequestProductActionSectionsProductItems> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ProductItems"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendChatappMessageRequestProductActionSectionsProductItems model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        productItems = make_shared<vector<SendChatappMessageRequestProductActionSectionsProductItems>>(expect1);
+      }
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~SendChatappMessageRequestProductActionSections() = default;
+};
+class SendChatappMessageRequestProductAction : public Darabonba::Model {
+public:
+  shared_ptr<vector<SendChatappMessageRequestProductActionSections>> sections{};
+  shared_ptr<string> thumbnailProductRetailerId{};
+
+  SendChatappMessageRequestProductAction() {}
+
+  explicit SendChatappMessageRequestProductAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sections) {
+      vector<boost::any> temp1;
+      for(auto item1:*sections){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Sections"] = boost::any(temp1);
+    }
+    if (thumbnailProductRetailerId) {
+      res["ThumbnailProductRetailerId"] = boost::any(*thumbnailProductRetailerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Sections") != m.end() && !m["Sections"].empty()) {
+      if (typeid(vector<boost::any>) == m["Sections"].type()) {
+        vector<SendChatappMessageRequestProductActionSections> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Sections"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SendChatappMessageRequestProductActionSections model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        sections = make_shared<vector<SendChatappMessageRequestProductActionSections>>(expect1);
+      }
+    }
+    if (m.find("ThumbnailProductRetailerId") != m.end() && !m["ThumbnailProductRetailerId"].empty()) {
+      thumbnailProductRetailerId = make_shared<string>(boost::any_cast<string>(m["ThumbnailProductRetailerId"]));
+    }
+  }
+
+
+  virtual ~SendChatappMessageRequestProductAction() = default;
+};
 class SendChatappMessageRequest : public Darabonba::Model {
 public:
   shared_ptr<string> channelType{};
@@ -7443,6 +8117,7 @@ public:
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
   shared_ptr<vector<string>> payload{};
+  shared_ptr<SendChatappMessageRequestProductAction> productAction{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -7503,6 +8178,9 @@ public:
     }
     if (payload) {
       res["Payload"] = boost::any(*payload);
+    }
+    if (productAction) {
+      res["ProductAction"] = productAction ? boost::any(productAction->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -7581,6 +8259,13 @@ public:
       }
       payload = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ProductAction") != m.end() && !m["ProductAction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProductAction"].type()) {
+        SendChatappMessageRequestProductAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProductAction"]));
+        productAction = make_shared<SendChatappMessageRequestProductAction>(model1);
+      }
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
     }
@@ -7631,6 +8316,7 @@ public:
   shared_ptr<string> language{};
   shared_ptr<string> messageType{};
   shared_ptr<string> payloadShrink{};
+  shared_ptr<string> productActionShrink{};
   shared_ptr<string> tag{};
   shared_ptr<string> taskId{};
   shared_ptr<string> templateCode{};
@@ -7691,6 +8377,9 @@ public:
     }
     if (payloadShrink) {
       res["Payload"] = boost::any(*payloadShrink);
+    }
+    if (productActionShrink) {
+      res["ProductAction"] = boost::any(*productActionShrink);
     }
     if (tag) {
       res["Tag"] = boost::any(*tag);
@@ -7761,6 +8450,9 @@ public:
     }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       payloadShrink = make_shared<string>(boost::any_cast<string>(m["Payload"]));
+    }
+    if (m.find("ProductAction") != m.end() && !m["ProductAction"].empty()) {
+      productActionShrink = make_shared<string>(boost::any_cast<string>(m["ProductAction"]));
     }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       tag = make_shared<string>(boost::any_cast<string>(m["Tag"]));
@@ -7976,6 +8668,7 @@ public:
 };
 class SubmitIsvCustomerTermsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -7990,6 +8683,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8003,6 +8699,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -8131,6 +8830,7 @@ public:
 };
 class UpdateAccountWebhookResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -8145,6 +8845,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8158,6 +8861,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -8300,6 +9006,7 @@ public:
 };
 class UpdatePhoneWebhookResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> code{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
@@ -8314,6 +9021,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessDeniedDetail) {
+      res["AccessDeniedDetail"] = boost::any(*accessDeniedDetail);
+    }
     if (code) {
       res["Code"] = boost::any(*code);
     }
@@ -8327,6 +9037,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessDeniedDetail") != m.end() && !m["AccessDeniedDetail"].empty()) {
+      accessDeniedDetail = make_shared<string>(boost::any_cast<string>(m["AccessDeniedDetail"]));
+    }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
@@ -8447,6 +9160,8 @@ public:
   GetMigrationVerifyCodeResponse getMigrationVerifyCode(shared_ptr<GetMigrationVerifyCodeRequest> request);
   GetPhoneNumberVerificationStatusResponse getPhoneNumberVerificationStatusWithOptions(shared_ptr<GetPhoneNumberVerificationStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPhoneNumberVerificationStatusResponse getPhoneNumberVerificationStatus(shared_ptr<GetPhoneNumberVerificationStatusRequest> request);
+  GetPreValidatePhoneIdResponse getPreValidatePhoneIdWithOptions(shared_ptr<GetPreValidatePhoneIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPreValidatePhoneIdResponse getPreValidatePhoneId(shared_ptr<GetPreValidatePhoneIdRequest> request);
   IsvGetAppIdResponse isvGetAppIdWithOptions(shared_ptr<IsvGetAppIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   IsvGetAppIdResponse isvGetAppId(shared_ptr<IsvGetAppIdRequest> request);
   ListChatappTemplateResponse listChatappTemplateWithOptions(shared_ptr<ListChatappTemplateRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
