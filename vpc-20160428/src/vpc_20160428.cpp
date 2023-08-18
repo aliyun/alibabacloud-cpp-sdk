@@ -12562,52 +12562,6 @@ GetNatGatewayAttributeResponse Alibabacloud_Vpc20160428::Client::getNatGatewayAt
   return getNatGatewayAttributeWithOptions(request, runtime);
 }
 
-GetNatGatewayConvertStatusResponse Alibabacloud_Vpc20160428::Client::getNatGatewayConvertStatusWithOptions(shared_ptr<GetNatGatewayConvertStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
-    query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetNatGatewayConvertStatus"))},
-    {"version", boost::any(string("2016-04-28"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetNatGatewayConvertStatusResponse(callApi(params, req, runtime));
-}
-
-GetNatGatewayConvertStatusResponse Alibabacloud_Vpc20160428::Client::getNatGatewayConvertStatus(shared_ptr<GetNatGatewayConvertStatusRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getNatGatewayConvertStatusWithOptions(request, runtime);
-}
-
 GetPhysicalConnectionServiceStatusResponse Alibabacloud_Vpc20160428::Client::getPhysicalConnectionServiceStatusWithOptions(shared_ptr<GetPhysicalConnectionServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
