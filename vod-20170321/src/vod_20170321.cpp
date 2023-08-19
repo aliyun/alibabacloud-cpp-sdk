@@ -210,6 +210,52 @@ AddEditingProjectResponse Alibabacloud_Vod20170321::Client::addEditingProject(sh
   return addEditingProjectWithOptions(request, runtime);
 }
 
+AddEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::addEditingProjectMaterialsWithOptions(shared_ptr<AddEditingProjectMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->materialIds)) {
+    query->insert(pair<string, string>("MaterialIds", *request->materialIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->materialType)) {
+    query->insert(pair<string, string>("MaterialType", *request->materialType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddEditingProjectMaterials"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddEditingProjectMaterialsResponse(callApi(params, req, runtime));
+}
+
+AddEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::addEditingProjectMaterials(shared_ptr<AddEditingProjectMaterialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addEditingProjectMaterialsWithOptions(request, runtime);
+}
+
 AddTranscodeTemplateGroupResponse Alibabacloud_Vod20170321::Client::addTranscodeTemplateGroupWithOptions(shared_ptr<AddTranscodeTemplateGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1033,6 +1079,52 @@ DeleteEditingProjectResponse Alibabacloud_Vod20170321::Client::deleteEditingProj
   return deleteEditingProjectWithOptions(request, runtime);
 }
 
+DeleteEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::deleteEditingProjectMaterialsWithOptions(shared_ptr<DeleteEditingProjectMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->materialIds)) {
+    query->insert(pair<string, string>("MaterialIds", *request->materialIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->materialType)) {
+    query->insert(pair<string, string>("MaterialType", *request->materialType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
+    query->insert(pair<string, string>("ProjectId", *request->projectId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteEditingProjectMaterials"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteEditingProjectMaterialsResponse(callApi(params, req, runtime));
+}
+
+DeleteEditingProjectMaterialsResponse Alibabacloud_Vod20170321::Client::deleteEditingProjectMaterials(shared_ptr<DeleteEditingProjectMaterialsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteEditingProjectMaterialsWithOptions(request, runtime);
+}
+
 DeleteImageResponse Alibabacloud_Vod20170321::Client::deleteImageWithOptions(shared_ptr<DeleteImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1307,6 +1399,9 @@ DeleteVodSpecificConfigResponse Alibabacloud_Vod20170321::Client::deleteVodSpeci
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->env)) {
+    query->insert(pair<string, string>("Env", *request->env));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -5479,6 +5574,9 @@ UploadMediaByURLResponse Alibabacloud_Vod20170321::Client::uploadMediaByURLWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sessionId)) {
+    query->insert(pair<string, string>("SessionId", *request->sessionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageLocation)) {
     query->insert(pair<string, string>("StorageLocation", *request->storageLocation));
