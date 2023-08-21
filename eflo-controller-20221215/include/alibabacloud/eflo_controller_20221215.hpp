@@ -806,6 +806,8 @@ public:
   shared_ptr<string> hostname{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> nodeId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
 
   CreateClusterRequestNodeGroupsNodes() {}
 
@@ -826,6 +828,12 @@ public:
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -838,6 +846,12 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -1566,6 +1580,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> taskId{};
   shared_ptr<string> updateTime{};
+  shared_ptr<string> vpcId{};
 
   DescribeClusterResponseBody() {}
 
@@ -1626,6 +1641,9 @@ public:
     }
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -1692,6 +1710,9 @@ public:
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -3839,6 +3860,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> taskId{};
   shared_ptr<string> updateTime{};
+  shared_ptr<string> vpcId{};
 
   ListClustersResponseBodyClusters() {}
 
@@ -3886,6 +3908,9 @@ public:
     if (updateTime) {
       res["UpdateTime"] = boost::any(*updateTime);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -3925,6 +3950,9 @@ public:
     }
     if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
       updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
