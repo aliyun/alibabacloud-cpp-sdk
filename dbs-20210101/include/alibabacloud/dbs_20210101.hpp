@@ -558,6 +558,7 @@ public:
   shared_ptr<string> sandboxUser{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> vpcSwitchId{};
+  shared_ptr<string> zoneId{};
 
   CreateSandboxInstanceRequest() {}
 
@@ -599,6 +600,9 @@ public:
     if (vpcSwitchId) {
       res["VpcSwitchId"] = boost::any(*vpcSwitchId);
     }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     return res;
   }
 
@@ -632,6 +636,9 @@ public:
     }
     if (m.find("VpcSwitchId") != m.end() && !m["VpcSwitchId"].empty()) {
       vpcSwitchId = make_shared<string>(boost::any_cast<string>(m["VpcSwitchId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 
@@ -815,6 +822,7 @@ class DeleteSandboxInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backupPlanId{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> zoneId{};
 
   DeleteSandboxInstanceRequest() {}
 
@@ -832,6 +840,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     return res;
   }
 
@@ -841,6 +852,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
     }
   }
 

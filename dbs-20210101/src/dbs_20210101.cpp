@@ -192,6 +192,9 @@ CreateSandboxInstanceResponse Alibabacloud_Dbs20210101::Client::createSandboxIns
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcSwitchId)) {
     query->insert(pair<string, string>("VpcSwitchId", *request->vpcSwitchId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
+    query->insert(pair<string, string>("ZoneId", *request->zoneId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -222,6 +225,9 @@ DeleteSandboxInstanceResponse Alibabacloud_Dbs20210101::Client::deleteSandboxIns
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
+    query->insert(pair<string, string>("ZoneId", *request->zoneId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
