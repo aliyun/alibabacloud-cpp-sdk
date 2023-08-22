@@ -13274,6 +13274,7 @@ public:
 };
 class DescribeServiceMeshKubeconfigResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> expireTime{};
   shared_ptr<string> kubeconfig{};
   shared_ptr<string> requestId{};
 
@@ -13287,6 +13288,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
     if (kubeconfig) {
       res["Kubeconfig"] = boost::any(*kubeconfig);
     }
@@ -13297,6 +13301,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
     if (m.find("Kubeconfig") != m.end() && !m["Kubeconfig"].empty()) {
       kubeconfig = make_shared<string>(boost::any_cast<string>(m["Kubeconfig"]));
     }
