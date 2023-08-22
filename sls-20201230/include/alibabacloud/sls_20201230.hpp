@@ -509,6 +509,144 @@ public:
 
   virtual ~LogtailConfig() = default;
 };
+class LogtailPipelineConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<map<string, boost::any>>> aggregators{};
+  shared_ptr<string> configName{};
+  shared_ptr<long> createTime{};
+  shared_ptr<vector<map<string, boost::any>>> flushers{};
+  shared_ptr<map<string, boost::any>> global{};
+  shared_ptr<vector<map<string, boost::any>>> inputs{};
+  shared_ptr<long> lastModifyTime{};
+  shared_ptr<string> logSample{};
+  shared_ptr<vector<map<string, boost::any>>> processors{};
+
+  LogtailPipelineConfig() {}
+
+  explicit LogtailPipelineConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aggregators) {
+      res["aggregators"] = boost::any(*aggregators);
+    }
+    if (configName) {
+      res["configName"] = boost::any(*configName);
+    }
+    if (createTime) {
+      res["createTime"] = boost::any(*createTime);
+    }
+    if (flushers) {
+      res["flushers"] = boost::any(*flushers);
+    }
+    if (global) {
+      res["global"] = boost::any(*global);
+    }
+    if (inputs) {
+      res["inputs"] = boost::any(*inputs);
+    }
+    if (lastModifyTime) {
+      res["lastModifyTime"] = boost::any(*lastModifyTime);
+    }
+    if (logSample) {
+      res["logSample"] = boost::any(*logSample);
+    }
+    if (processors) {
+      res["processors"] = boost::any(*processors);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aggregators") != m.end() && !m["aggregators"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["aggregators"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["aggregators"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      aggregators = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("configName") != m.end() && !m["configName"].empty()) {
+      configName = make_shared<string>(boost::any_cast<string>(m["configName"]));
+    }
+    if (m.find("createTime") != m.end() && !m["createTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["createTime"]));
+    }
+    if (m.find("flushers") != m.end() && !m["flushers"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["flushers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["flushers"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      flushers = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("global") != m.end() && !m["global"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["global"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      global = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("inputs") != m.end() && !m["inputs"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["inputs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["inputs"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      inputs = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+    if (m.find("lastModifyTime") != m.end() && !m["lastModifyTime"].empty()) {
+      lastModifyTime = make_shared<long>(boost::any_cast<long>(m["lastModifyTime"]));
+    }
+    if (m.find("logSample") != m.end() && !m["logSample"].empty()) {
+      logSample = make_shared<string>(boost::any_cast<string>(m["logSample"]));
+    }
+    if (m.find("processors") != m.end() && !m["processors"].empty()) {
+      vector<map<string, boost::any>> toVec1;
+      if (typeid(vector<boost::any>) == m["processors"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["processors"]);
+        for (auto item:vec1) {
+          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
+          map<string, boost::any> toMap2;
+          for (auto item:map2) {
+             toMap2[item.first] = item.second;
+          }
+           toVec1.push_back(toMap2);
+        }
+      }
+      processors = make_shared<vector<map<string, boost::any>>>(toVec1);
+    }
+  }
+
+
+  virtual ~LogtailPipelineConfig() = default;
+};
 class SavedSearch : public Darabonba::Model {
 public:
   shared_ptr<string> displayName{};
@@ -3820,6 +3958,7 @@ public:
 };
 class CreateProjectRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> dataRedundancyType{};
   shared_ptr<string> description{};
   shared_ptr<string> projectName{};
   shared_ptr<string> resourceGroupId{};
@@ -3834,6 +3973,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataRedundancyType) {
+      res["dataRedundancyType"] = boost::any(*dataRedundancyType);
+    }
     if (description) {
       res["description"] = boost::any(*description);
     }
@@ -3847,6 +3989,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataRedundancyType") != m.end() && !m["dataRedundancyType"].empty()) {
+      dataRedundancyType = make_shared<string>(boost::any_cast<string>(m["dataRedundancyType"]));
+    }
     if (m.find("description") != m.end() && !m["description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["description"]));
     }

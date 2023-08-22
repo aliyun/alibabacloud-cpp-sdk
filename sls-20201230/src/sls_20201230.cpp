@@ -620,6 +620,9 @@ CreateOssShipperResponse Alibabacloud_Sls20201230::Client::createOssShipper(shar
 CreateProjectResponse Alibabacloud_Sls20201230::Client::createProjectWithOptions(shared_ptr<CreateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataRedundancyType)) {
+    body->insert(pair<string, string>("dataRedundancyType", *request->dataRedundancyType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("description", *request->description));
   }
@@ -642,7 +645,7 @@ CreateProjectResponse Alibabacloud_Sls20201230::Client::createProjectWithOptions
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return CreateProjectResponse(execute(params, req, runtime));
 }
