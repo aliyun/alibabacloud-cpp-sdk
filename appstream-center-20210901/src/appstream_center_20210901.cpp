@@ -498,6 +498,9 @@ GetResourcePriceResponse Alibabacloud_Appstream-center20210901::Client::getResou
   if (!Darabonba_Util::Client::isUnset<long>(request->amount)) {
     query->insert(pair<string, long>("Amount", *request->amount));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceType)) {
+    query->insert(pair<string, string>("AppInstanceType", *request->appInstanceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
     query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
   }
@@ -837,6 +840,9 @@ ModifyAppInstanceGroupAttributeResponse Alibabacloud_Appstream-center20210901::C
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ModifyAppInstanceGroupAttributeShrinkRequest> request = make_shared<ModifyAppInstanceGroupAttributeShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ModifyAppInstanceGroupAttributeRequestNetwork>(tmpReq->network)) {
+    request->networkShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->network, make_shared<string>("Network"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<ModifyAppInstanceGroupAttributeRequestNodePool>(tmpReq->nodePool)) {
     request->nodePoolShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodePool, make_shared<string>("NodePool"), make_shared<string>("json")));
   }
@@ -863,6 +869,15 @@ ModifyAppInstanceGroupAttributeResponse Alibabacloud_Appstream-center20210901::C
     query->insert(pair<string, long>("SessionTimeout", *request->sessionTimeout));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkShrink)) {
+    body->insert(pair<string, string>("Network", *request->networkShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->preOpenAppId)) {
+    body->insert(pair<string, string>("PreOpenAppId", *request->preOpenAppId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->preOpenMode)) {
+    body->insert(pair<string, string>("PreOpenMode", *request->preOpenMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyShrink)) {
     body->insert(pair<string, string>("SecurityPolicy", *request->securityPolicyShrink));
   }

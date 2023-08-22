@@ -472,6 +472,42 @@ public:
 
   virtual ~CancelOtaTaskResponse() = default;
 };
+class CreateAppInstanceGroupRequestNetworkDomainRules : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+
+  CreateAppInstanceGroupRequestNetworkDomainRules() {}
+
+  explicit CreateAppInstanceGroupRequestNetworkDomainRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~CreateAppInstanceGroupRequestNetworkDomainRules() = default;
+};
 class CreateAppInstanceGroupRequestNetworkRoutes : public Darabonba::Model {
 public:
   shared_ptr<string> destination{};
@@ -510,6 +546,7 @@ public:
 };
 class CreateAppInstanceGroupRequestNetwork : public Darabonba::Model {
 public:
+  shared_ptr<vector<CreateAppInstanceGroupRequestNetworkDomainRules>> domainRules{};
   shared_ptr<long> ipExpireMinutes{};
   shared_ptr<vector<CreateAppInstanceGroupRequestNetworkRoutes>> routes{};
   shared_ptr<string> strategyType{};
@@ -524,6 +561,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (domainRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainRules"] = boost::any(temp1);
+    }
     if (ipExpireMinutes) {
       res["IpExpireMinutes"] = boost::any(*ipExpireMinutes);
     }
@@ -541,6 +585,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainRules") != m.end() && !m["DomainRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainRules"].type()) {
+        vector<CreateAppInstanceGroupRequestNetworkDomainRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateAppInstanceGroupRequestNetworkDomainRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainRules = make_shared<vector<CreateAppInstanceGroupRequestNetworkDomainRules>>(expect1);
+      }
+    }
     if (m.find("IpExpireMinutes") != m.end() && !m["IpExpireMinutes"].empty()) {
       ipExpireMinutes = make_shared<long>(boost::any_cast<long>(m["IpExpireMinutes"]));
     }
@@ -2308,17 +2365,27 @@ public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceGroupName{};
   shared_ptr<string> appInstanceType{};
+  shared_ptr<string> appInstanceTypeName{};
   shared_ptr<string> appPolicyId{};
   shared_ptr<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps>> apps{};
+  shared_ptr<string> chargeResourceMode{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<long> maxAmount{};
+  shared_ptr<long> minAmount{};
   shared_ptr<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool{};
   shared_ptr<string> osType{};
   shared_ptr<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo> otaInfo{};
   shared_ptr<string> productType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> reserveAmountRatio{};
+  shared_ptr<long> reserveMaxAmount{};
+  shared_ptr<long> reserveMinAmount{};
   shared_ptr<string> resourceStatus{};
+  shared_ptr<long> scalingDownAfterIdleMinutes{};
+  shared_ptr<long> scalingStep{};
+  shared_ptr<string> scalingUsageThreshold{};
   shared_ptr<string> sessionTimeout{};
   shared_ptr<bool> skipUserAuthCheck{};
   shared_ptr<string> specId{};
@@ -2352,6 +2419,9 @@ public:
     if (appInstanceType) {
       res["AppInstanceType"] = boost::any(*appInstanceType);
     }
+    if (appInstanceTypeName) {
+      res["AppInstanceTypeName"] = boost::any(*appInstanceTypeName);
+    }
     if (appPolicyId) {
       res["AppPolicyId"] = boost::any(*appPolicyId);
     }
@@ -2362,6 +2432,9 @@ public:
       }
       res["Apps"] = boost::any(temp1);
     }
+    if (chargeResourceMode) {
+      res["ChargeResourceMode"] = boost::any(*chargeResourceMode);
+    }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
     }
@@ -2370,6 +2443,12 @@ public:
     }
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (maxAmount) {
+      res["MaxAmount"] = boost::any(*maxAmount);
+    }
+    if (minAmount) {
+      res["MinAmount"] = boost::any(*minAmount);
     }
     if (nodePool) {
       vector<boost::any> temp1;
@@ -2390,8 +2469,26 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (reserveAmountRatio) {
+      res["ReserveAmountRatio"] = boost::any(*reserveAmountRatio);
+    }
+    if (reserveMaxAmount) {
+      res["ReserveMaxAmount"] = boost::any(*reserveMaxAmount);
+    }
+    if (reserveMinAmount) {
+      res["ReserveMinAmount"] = boost::any(*reserveMinAmount);
+    }
     if (resourceStatus) {
       res["ResourceStatus"] = boost::any(*resourceStatus);
+    }
+    if (scalingDownAfterIdleMinutes) {
+      res["ScalingDownAfterIdleMinutes"] = boost::any(*scalingDownAfterIdleMinutes);
+    }
+    if (scalingStep) {
+      res["ScalingStep"] = boost::any(*scalingStep);
+    }
+    if (scalingUsageThreshold) {
+      res["ScalingUsageThreshold"] = boost::any(*scalingUsageThreshold);
     }
     if (sessionTimeout) {
       res["SessionTimeout"] = boost::any(*sessionTimeout);
@@ -2427,6 +2524,9 @@ public:
     if (m.find("AppInstanceType") != m.end() && !m["AppInstanceType"].empty()) {
       appInstanceType = make_shared<string>(boost::any_cast<string>(m["AppInstanceType"]));
     }
+    if (m.find("AppInstanceTypeName") != m.end() && !m["AppInstanceTypeName"].empty()) {
+      appInstanceTypeName = make_shared<string>(boost::any_cast<string>(m["AppInstanceTypeName"]));
+    }
     if (m.find("AppPolicyId") != m.end() && !m["AppPolicyId"].empty()) {
       appPolicyId = make_shared<string>(boost::any_cast<string>(m["AppPolicyId"]));
     }
@@ -2443,6 +2543,9 @@ public:
         apps = make_shared<vector<GetAppInstanceGroupResponseBodyAppInstanceGroupModelsApps>>(expect1);
       }
     }
+    if (m.find("ChargeResourceMode") != m.end() && !m["ChargeResourceMode"].empty()) {
+      chargeResourceMode = make_shared<string>(boost::any_cast<string>(m["ChargeResourceMode"]));
+    }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
     }
@@ -2451,6 +2554,12 @@ public:
     }
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("MaxAmount") != m.end() && !m["MaxAmount"].empty()) {
+      maxAmount = make_shared<long>(boost::any_cast<long>(m["MaxAmount"]));
+    }
+    if (m.find("MinAmount") != m.end() && !m["MinAmount"].empty()) {
+      minAmount = make_shared<long>(boost::any_cast<long>(m["MinAmount"]));
     }
     if (m.find("NodePool") != m.end() && !m["NodePool"].empty()) {
       if (typeid(vector<boost::any>) == m["NodePool"].type()) {
@@ -2481,8 +2590,26 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ReserveAmountRatio") != m.end() && !m["ReserveAmountRatio"].empty()) {
+      reserveAmountRatio = make_shared<string>(boost::any_cast<string>(m["ReserveAmountRatio"]));
+    }
+    if (m.find("ReserveMaxAmount") != m.end() && !m["ReserveMaxAmount"].empty()) {
+      reserveMaxAmount = make_shared<long>(boost::any_cast<long>(m["ReserveMaxAmount"]));
+    }
+    if (m.find("ReserveMinAmount") != m.end() && !m["ReserveMinAmount"].empty()) {
+      reserveMinAmount = make_shared<long>(boost::any_cast<long>(m["ReserveMinAmount"]));
+    }
     if (m.find("ResourceStatus") != m.end() && !m["ResourceStatus"].empty()) {
       resourceStatus = make_shared<string>(boost::any_cast<string>(m["ResourceStatus"]));
+    }
+    if (m.find("ScalingDownAfterIdleMinutes") != m.end() && !m["ScalingDownAfterIdleMinutes"].empty()) {
+      scalingDownAfterIdleMinutes = make_shared<long>(boost::any_cast<long>(m["ScalingDownAfterIdleMinutes"]));
+    }
+    if (m.find("ScalingStep") != m.end() && !m["ScalingStep"].empty()) {
+      scalingStep = make_shared<long>(boost::any_cast<long>(m["ScalingStep"]));
+    }
+    if (m.find("ScalingUsageThreshold") != m.end() && !m["ScalingUsageThreshold"].empty()) {
+      scalingUsageThreshold = make_shared<string>(boost::any_cast<string>(m["ScalingUsageThreshold"]));
     }
     if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
       sessionTimeout = make_shared<string>(boost::any_cast<string>(m["SessionTimeout"]));
@@ -2704,6 +2831,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskStatus{};
+  shared_ptr<long> tenantId{};
   shared_ptr<string> ticket{};
 
   GetConnectionTicketResponseBody() {}
@@ -2737,6 +2865,9 @@ public:
     if (taskStatus) {
       res["TaskStatus"] = boost::any(*taskStatus);
     }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
     if (ticket) {
       res["Ticket"] = boost::any(*ticket);
     }
@@ -2764,6 +2895,9 @@ public:
     }
     if (m.find("TaskStatus") != m.end() && !m["TaskStatus"].empty()) {
       taskStatus = make_shared<string>(boost::any_cast<string>(m["TaskStatus"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<long>(boost::any_cast<long>(m["TenantId"]));
     }
     if (m.find("Ticket") != m.end() && !m["Ticket"].empty()) {
       ticket = make_shared<string>(boost::any_cast<string>(m["Ticket"]));
@@ -3162,6 +3296,7 @@ public:
 class GetResourcePriceRequest : public Darabonba::Model {
 public:
   shared_ptr<long> amount{};
+  shared_ptr<string> appInstanceType{};
   shared_ptr<string> bizRegionId{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> nodeInstanceType{};
@@ -3181,6 +3316,9 @@ public:
     map<string, boost::any> res;
     if (amount) {
       res["Amount"] = boost::any(*amount);
+    }
+    if (appInstanceType) {
+      res["AppInstanceType"] = boost::any(*appInstanceType);
     }
     if (bizRegionId) {
       res["BizRegionId"] = boost::any(*bizRegionId);
@@ -3207,6 +3345,9 @@ public:
     if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
       amount = make_shared<long>(boost::any_cast<long>(m["Amount"]));
     }
+    if (m.find("AppInstanceType") != m.end() && !m["AppInstanceType"].empty()) {
+      appInstanceType = make_shared<string>(boost::any_cast<string>(m["AppInstanceType"]));
+    }
     if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
       bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
     }
@@ -3229,6 +3370,231 @@ public:
 
 
   virtual ~GetResourcePriceRequest() = default;
+};
+class GetResourcePriceResponseBodyPriceListPricePromotions : public Darabonba::Model {
+public:
+  shared_ptr<string> optionCode{};
+  shared_ptr<string> promotionDesc{};
+  shared_ptr<string> promotionId{};
+  shared_ptr<string> promotionName{};
+  shared_ptr<bool> selected{};
+
+  GetResourcePriceResponseBodyPriceListPricePromotions() {}
+
+  explicit GetResourcePriceResponseBodyPriceListPricePromotions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (optionCode) {
+      res["OptionCode"] = boost::any(*optionCode);
+    }
+    if (promotionDesc) {
+      res["PromotionDesc"] = boost::any(*promotionDesc);
+    }
+    if (promotionId) {
+      res["PromotionId"] = boost::any(*promotionId);
+    }
+    if (promotionName) {
+      res["PromotionName"] = boost::any(*promotionName);
+    }
+    if (selected) {
+      res["Selected"] = boost::any(*selected);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OptionCode") != m.end() && !m["OptionCode"].empty()) {
+      optionCode = make_shared<string>(boost::any_cast<string>(m["OptionCode"]));
+    }
+    if (m.find("PromotionDesc") != m.end() && !m["PromotionDesc"].empty()) {
+      promotionDesc = make_shared<string>(boost::any_cast<string>(m["PromotionDesc"]));
+    }
+    if (m.find("PromotionId") != m.end() && !m["PromotionId"].empty()) {
+      promotionId = make_shared<string>(boost::any_cast<string>(m["PromotionId"]));
+    }
+    if (m.find("PromotionName") != m.end() && !m["PromotionName"].empty()) {
+      promotionName = make_shared<string>(boost::any_cast<string>(m["PromotionName"]));
+    }
+    if (m.find("Selected") != m.end() && !m["Selected"].empty()) {
+      selected = make_shared<bool>(boost::any_cast<bool>(m["Selected"]));
+    }
+  }
+
+
+  virtual ~GetResourcePriceResponseBodyPriceListPricePromotions() = default;
+};
+class GetResourcePriceResponseBodyPriceListPrice : public Darabonba::Model {
+public:
+  shared_ptr<string> currency{};
+  shared_ptr<string> discountPrice{};
+  shared_ptr<string> originalPrice{};
+  shared_ptr<vector<GetResourcePriceResponseBodyPriceListPricePromotions>> promotions{};
+  shared_ptr<string> tradePrice{};
+
+  GetResourcePriceResponseBodyPriceListPrice() {}
+
+  explicit GetResourcePriceResponseBodyPriceListPrice(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (discountPrice) {
+      res["DiscountPrice"] = boost::any(*discountPrice);
+    }
+    if (originalPrice) {
+      res["OriginalPrice"] = boost::any(*originalPrice);
+    }
+    if (promotions) {
+      vector<boost::any> temp1;
+      for(auto item1:*promotions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Promotions"] = boost::any(temp1);
+    }
+    if (tradePrice) {
+      res["TradePrice"] = boost::any(*tradePrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("DiscountPrice") != m.end() && !m["DiscountPrice"].empty()) {
+      discountPrice = make_shared<string>(boost::any_cast<string>(m["DiscountPrice"]));
+    }
+    if (m.find("OriginalPrice") != m.end() && !m["OriginalPrice"].empty()) {
+      originalPrice = make_shared<string>(boost::any_cast<string>(m["OriginalPrice"]));
+    }
+    if (m.find("Promotions") != m.end() && !m["Promotions"].empty()) {
+      if (typeid(vector<boost::any>) == m["Promotions"].type()) {
+        vector<GetResourcePriceResponseBodyPriceListPricePromotions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Promotions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourcePriceResponseBodyPriceListPricePromotions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        promotions = make_shared<vector<GetResourcePriceResponseBodyPriceListPricePromotions>>(expect1);
+      }
+    }
+    if (m.find("TradePrice") != m.end() && !m["TradePrice"].empty()) {
+      tradePrice = make_shared<string>(boost::any_cast<string>(m["TradePrice"]));
+    }
+  }
+
+
+  virtual ~GetResourcePriceResponseBodyPriceListPrice() = default;
+};
+class GetResourcePriceResponseBodyPriceListRules : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<long> ruleId{};
+
+  GetResourcePriceResponseBodyPriceListRules() {}
+
+  explicit GetResourcePriceResponseBodyPriceListRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
+    }
+  }
+
+
+  virtual ~GetResourcePriceResponseBodyPriceListRules() = default;
+};
+class GetResourcePriceResponseBodyPriceList : public Darabonba::Model {
+public:
+  shared_ptr<GetResourcePriceResponseBodyPriceListPrice> price{};
+  shared_ptr<string> priceType{};
+  shared_ptr<vector<GetResourcePriceResponseBodyPriceListRules>> rules{};
+
+  GetResourcePriceResponseBodyPriceList() {}
+
+  explicit GetResourcePriceResponseBodyPriceList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (price) {
+      res["Price"] = price ? boost::any(price->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (priceType) {
+      res["PriceType"] = boost::any(*priceType);
+    }
+    if (rules) {
+      vector<boost::any> temp1;
+      for(auto item1:*rules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Rules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Price") != m.end() && !m["Price"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Price"].type()) {
+        GetResourcePriceResponseBodyPriceListPrice model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Price"]));
+        price = make_shared<GetResourcePriceResponseBodyPriceListPrice>(model1);
+      }
+    }
+    if (m.find("PriceType") != m.end() && !m["PriceType"].empty()) {
+      priceType = make_shared<string>(boost::any_cast<string>(m["PriceType"]));
+    }
+    if (m.find("Rules") != m.end() && !m["Rules"].empty()) {
+      if (typeid(vector<boost::any>) == m["Rules"].type()) {
+        vector<GetResourcePriceResponseBodyPriceListRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Rules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourcePriceResponseBodyPriceListRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rules = make_shared<vector<GetResourcePriceResponseBodyPriceListRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetResourcePriceResponseBodyPriceList() = default;
 };
 class GetResourcePriceResponseBodyPriceModelPricePromotions : public Darabonba::Model {
 public:
@@ -3452,6 +3818,7 @@ class GetResourcePriceResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
   shared_ptr<string> message{};
+  shared_ptr<vector<GetResourcePriceResponseBodyPriceList>> priceList{};
   shared_ptr<GetResourcePriceResponseBodyPriceModel> priceModel{};
   shared_ptr<string> requestId{};
 
@@ -3471,6 +3838,13 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (priceList) {
+      vector<boost::any> temp1;
+      for(auto item1:*priceList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PriceList"] = boost::any(temp1);
+    }
     if (priceModel) {
       res["PriceModel"] = priceModel ? boost::any(priceModel->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -3486,6 +3860,19 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("PriceList") != m.end() && !m["PriceList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PriceList"].type()) {
+        vector<GetResourcePriceResponseBodyPriceList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PriceList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourcePriceResponseBodyPriceList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        priceList = make_shared<vector<GetResourcePriceResponseBodyPriceList>>(expect1);
+      }
     }
     if (m.find("PriceModel") != m.end() && !m["PriceModel"].empty()) {
       if (typeid(map<string, boost::any>) == m["PriceModel"].type()) {
@@ -4408,12 +4795,20 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> gmtCreate{};
+  shared_ptr<long> maxAmount{};
+  shared_ptr<long> minAmount{};
   shared_ptr<vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool>> nodePool{};
   shared_ptr<string> osType{};
   shared_ptr<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsOtaInfo> otaInfo{};
   shared_ptr<string> productType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> reserveAmountRatio{};
+  shared_ptr<long> reserveMaxAmount{};
+  shared_ptr<long> reserveMinAmount{};
   shared_ptr<string> resourceStatus{};
+  shared_ptr<long> scalingDownAfterIdleMinutes{};
+  shared_ptr<long> scalingStep{};
+  shared_ptr<string> scalingUsageThreshold{};
   shared_ptr<string> sessionTimeout{};
   shared_ptr<bool> skipUserAuthCheck{};
   shared_ptr<string> specId{};
@@ -4466,6 +4861,12 @@ public:
     if (gmtCreate) {
       res["GmtCreate"] = boost::any(*gmtCreate);
     }
+    if (maxAmount) {
+      res["MaxAmount"] = boost::any(*maxAmount);
+    }
+    if (minAmount) {
+      res["MinAmount"] = boost::any(*minAmount);
+    }
     if (nodePool) {
       vector<boost::any> temp1;
       for(auto item1:*nodePool){
@@ -4485,8 +4886,26 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (reserveAmountRatio) {
+      res["ReserveAmountRatio"] = boost::any(*reserveAmountRatio);
+    }
+    if (reserveMaxAmount) {
+      res["ReserveMaxAmount"] = boost::any(*reserveMaxAmount);
+    }
+    if (reserveMinAmount) {
+      res["ReserveMinAmount"] = boost::any(*reserveMinAmount);
+    }
     if (resourceStatus) {
       res["ResourceStatus"] = boost::any(*resourceStatus);
+    }
+    if (scalingDownAfterIdleMinutes) {
+      res["ScalingDownAfterIdleMinutes"] = boost::any(*scalingDownAfterIdleMinutes);
+    }
+    if (scalingStep) {
+      res["ScalingStep"] = boost::any(*scalingStep);
+    }
+    if (scalingUsageThreshold) {
+      res["ScalingUsageThreshold"] = boost::any(*scalingUsageThreshold);
     }
     if (sessionTimeout) {
       res["SessionTimeout"] = boost::any(*sessionTimeout);
@@ -4547,6 +4966,12 @@ public:
     if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
     }
+    if (m.find("MaxAmount") != m.end() && !m["MaxAmount"].empty()) {
+      maxAmount = make_shared<long>(boost::any_cast<long>(m["MaxAmount"]));
+    }
+    if (m.find("MinAmount") != m.end() && !m["MinAmount"].empty()) {
+      minAmount = make_shared<long>(boost::any_cast<long>(m["MinAmount"]));
+    }
     if (m.find("NodePool") != m.end() && !m["NodePool"].empty()) {
       if (typeid(vector<boost::any>) == m["NodePool"].type()) {
         vector<ListAppInstanceGroupResponseBodyAppInstanceGroupModelsNodePool> expect1;
@@ -4576,8 +5001,26 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ReserveAmountRatio") != m.end() && !m["ReserveAmountRatio"].empty()) {
+      reserveAmountRatio = make_shared<string>(boost::any_cast<string>(m["ReserveAmountRatio"]));
+    }
+    if (m.find("ReserveMaxAmount") != m.end() && !m["ReserveMaxAmount"].empty()) {
+      reserveMaxAmount = make_shared<long>(boost::any_cast<long>(m["ReserveMaxAmount"]));
+    }
+    if (m.find("ReserveMinAmount") != m.end() && !m["ReserveMinAmount"].empty()) {
+      reserveMinAmount = make_shared<long>(boost::any_cast<long>(m["ReserveMinAmount"]));
+    }
     if (m.find("ResourceStatus") != m.end() && !m["ResourceStatus"].empty()) {
       resourceStatus = make_shared<string>(boost::any_cast<string>(m["ResourceStatus"]));
+    }
+    if (m.find("ScalingDownAfterIdleMinutes") != m.end() && !m["ScalingDownAfterIdleMinutes"].empty()) {
+      scalingDownAfterIdleMinutes = make_shared<long>(boost::any_cast<long>(m["ScalingDownAfterIdleMinutes"]));
+    }
+    if (m.find("ScalingStep") != m.end() && !m["ScalingStep"].empty()) {
+      scalingStep = make_shared<long>(boost::any_cast<long>(m["ScalingStep"]));
+    }
+    if (m.find("ScalingUsageThreshold") != m.end() && !m["ScalingUsageThreshold"].empty()) {
+      scalingUsageThreshold = make_shared<string>(boost::any_cast<string>(m["ScalingUsageThreshold"]));
     }
     if (m.find("SessionTimeout") != m.end() && !m["SessionTimeout"].empty()) {
       sessionTimeout = make_shared<string>(boost::any_cast<string>(m["SessionTimeout"]));
@@ -5993,6 +6436,85 @@ public:
 
   virtual ~LogOffAllSessionsInAppInstanceGroupResponse() = default;
 };
+class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules : public Darabonba::Model {
+public:
+  shared_ptr<string> domain{};
+  shared_ptr<string> policy{};
+
+  ModifyAppInstanceGroupAttributeRequestNetworkDomainRules() {}
+
+  explicit ModifyAppInstanceGroupAttributeRequestNetworkDomainRules(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domain) {
+      res["Domain"] = boost::any(*domain);
+    }
+    if (policy) {
+      res["Policy"] = boost::any(*policy);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Domain") != m.end() && !m["Domain"].empty()) {
+      domain = make_shared<string>(boost::any_cast<string>(m["Domain"]));
+    }
+    if (m.find("Policy") != m.end() && !m["Policy"].empty()) {
+      policy = make_shared<string>(boost::any_cast<string>(m["Policy"]));
+    }
+  }
+
+
+  virtual ~ModifyAppInstanceGroupAttributeRequestNetworkDomainRules() = default;
+};
+class ModifyAppInstanceGroupAttributeRequestNetwork : public Darabonba::Model {
+public:
+  shared_ptr<vector<ModifyAppInstanceGroupAttributeRequestNetworkDomainRules>> domainRules{};
+
+  ModifyAppInstanceGroupAttributeRequestNetwork() {}
+
+  explicit ModifyAppInstanceGroupAttributeRequestNetwork(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainRules) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainRules){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainRules"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainRules") != m.end() && !m["DomainRules"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainRules"].type()) {
+        vector<ModifyAppInstanceGroupAttributeRequestNetworkDomainRules> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainRules"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ModifyAppInstanceGroupAttributeRequestNetworkDomainRules model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainRules = make_shared<vector<ModifyAppInstanceGroupAttributeRequestNetworkDomainRules>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyAppInstanceGroupAttributeRequestNetwork() = default;
+};
 class ModifyAppInstanceGroupAttributeRequestNodePool : public Darabonba::Model {
 public:
   shared_ptr<long> nodeCapacity{};
@@ -6105,7 +6627,10 @@ class ModifyAppInstanceGroupAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceGroupName{};
+  shared_ptr<ModifyAppInstanceGroupAttributeRequestNetwork> network{};
   shared_ptr<ModifyAppInstanceGroupAttributeRequestNodePool> nodePool{};
+  shared_ptr<string> preOpenAppId{};
+  shared_ptr<string> preOpenMode{};
   shared_ptr<string> productType{};
   shared_ptr<ModifyAppInstanceGroupAttributeRequestSecurityPolicy> securityPolicy{};
   shared_ptr<long> sessionTimeout{};
@@ -6127,8 +6652,17 @@ public:
     if (appInstanceGroupName) {
       res["AppInstanceGroupName"] = boost::any(*appInstanceGroupName);
     }
+    if (network) {
+      res["Network"] = network ? boost::any(network->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (nodePool) {
       res["NodePool"] = nodePool ? boost::any(nodePool->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (preOpenAppId) {
+      res["PreOpenAppId"] = boost::any(*preOpenAppId);
+    }
+    if (preOpenMode) {
+      res["PreOpenMode"] = boost::any(*preOpenMode);
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
@@ -6152,12 +6686,25 @@ public:
     if (m.find("AppInstanceGroupName") != m.end() && !m["AppInstanceGroupName"].empty()) {
       appInstanceGroupName = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupName"]));
     }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Network"].type()) {
+        ModifyAppInstanceGroupAttributeRequestNetwork model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Network"]));
+        network = make_shared<ModifyAppInstanceGroupAttributeRequestNetwork>(model1);
+      }
+    }
     if (m.find("NodePool") != m.end() && !m["NodePool"].empty()) {
       if (typeid(map<string, boost::any>) == m["NodePool"].type()) {
         ModifyAppInstanceGroupAttributeRequestNodePool model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NodePool"]));
         nodePool = make_shared<ModifyAppInstanceGroupAttributeRequestNodePool>(model1);
       }
+    }
+    if (m.find("PreOpenAppId") != m.end() && !m["PreOpenAppId"].empty()) {
+      preOpenAppId = make_shared<string>(boost::any_cast<string>(m["PreOpenAppId"]));
+    }
+    if (m.find("PreOpenMode") != m.end() && !m["PreOpenMode"].empty()) {
+      preOpenMode = make_shared<string>(boost::any_cast<string>(m["PreOpenMode"]));
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
@@ -6188,7 +6735,10 @@ class ModifyAppInstanceGroupAttributeShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceGroupName{};
+  shared_ptr<string> networkShrink{};
   shared_ptr<string> nodePoolShrink{};
+  shared_ptr<string> preOpenAppId{};
+  shared_ptr<string> preOpenMode{};
   shared_ptr<string> productType{};
   shared_ptr<string> securityPolicyShrink{};
   shared_ptr<long> sessionTimeout{};
@@ -6210,8 +6760,17 @@ public:
     if (appInstanceGroupName) {
       res["AppInstanceGroupName"] = boost::any(*appInstanceGroupName);
     }
+    if (networkShrink) {
+      res["Network"] = boost::any(*networkShrink);
+    }
     if (nodePoolShrink) {
       res["NodePool"] = boost::any(*nodePoolShrink);
+    }
+    if (preOpenAppId) {
+      res["PreOpenAppId"] = boost::any(*preOpenAppId);
+    }
+    if (preOpenMode) {
+      res["PreOpenMode"] = boost::any(*preOpenMode);
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
@@ -6235,8 +6794,17 @@ public:
     if (m.find("AppInstanceGroupName") != m.end() && !m["AppInstanceGroupName"].empty()) {
       appInstanceGroupName = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupName"]));
     }
+    if (m.find("Network") != m.end() && !m["Network"].empty()) {
+      networkShrink = make_shared<string>(boost::any_cast<string>(m["Network"]));
+    }
     if (m.find("NodePool") != m.end() && !m["NodePool"].empty()) {
       nodePoolShrink = make_shared<string>(boost::any_cast<string>(m["NodePool"]));
+    }
+    if (m.find("PreOpenAppId") != m.end() && !m["PreOpenAppId"].empty()) {
+      preOpenAppId = make_shared<string>(boost::any_cast<string>(m["PreOpenAppId"]));
+    }
+    if (m.find("PreOpenMode") != m.end() && !m["PreOpenMode"].empty()) {
+      preOpenMode = make_shared<string>(boost::any_cast<string>(m["PreOpenMode"]));
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
