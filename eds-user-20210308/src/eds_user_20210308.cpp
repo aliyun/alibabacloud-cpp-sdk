@@ -196,6 +196,9 @@ DeleteUserPropertyValueResponse Alibabacloud_Eds-user20210308::Client::deleteUse
 DescribeMfaDevicesResponse Alibabacloud_Eds-user20210308::Client::describeMfaDevicesWithOptions(shared_ptr<DescribeMfaDevicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    query->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endUserIds)) {
     query->insert(pair<string, vector<string>>("EndUserIds", *request->endUserIds));
   }
@@ -390,6 +393,9 @@ ListPropertyValueResponse Alibabacloud_Eds-user20210308::Client::listPropertyVal
 LockMfaDeviceResponse Alibabacloud_Eds-user20210308::Client::lockMfaDeviceWithOptions(shared_ptr<LockMfaDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    query->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     query->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }
@@ -501,6 +507,9 @@ QuerySyncStatusByAliUidResponse Alibabacloud_Eds-user20210308::Client::querySync
 RemoveMfaDeviceResponse Alibabacloud_Eds-user20210308::Client::removeMfaDeviceWithOptions(shared_ptr<RemoveMfaDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    query->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     query->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }
@@ -674,6 +683,9 @@ SyncAllEduInfoResponse Alibabacloud_Eds-user20210308::Client::syncAllEduInfo() {
 UnlockMfaDeviceResponse Alibabacloud_Eds-user20210308::Client::unlockMfaDeviceWithOptions(shared_ptr<UnlockMfaDeviceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->adDomain)) {
+    query->insert(pair<string, string>("AdDomain", *request->adDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
     query->insert(pair<string, string>("SerialNumber", *request->serialNumber));
   }

@@ -14,6 +14,77 @@
 using namespace std;
 
 namespace Alibabacloud_Eds-user20210308 {
+class WaIdPermissions : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> isBasicChild{};
+  shared_ptr<string> name{};
+  shared_ptr<vector<WaIdPermissions>> subPermissions{};
+  shared_ptr<string> type{};
+
+  WaIdPermissions() {}
+
+  explicit WaIdPermissions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isBasicChild) {
+      res["IsBasicChild"] = boost::any(*isBasicChild);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (subPermissions) {
+      vector<boost::any> temp1;
+      for(auto item1:*subPermissions){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubPermissions"] = boost::any(temp1);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsBasicChild") != m.end() && !m["IsBasicChild"].empty()) {
+      isBasicChild = make_shared<bool>(boost::any_cast<bool>(m["IsBasicChild"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("SubPermissions") != m.end() && !m["SubPermissions"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubPermissions"].type()) {
+        vector<WaIdPermissions> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubPermissions"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            WaIdPermissions model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subPermissions = make_shared<vector<WaIdPermissions>>(expect1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~WaIdPermissions() = default;
+};
 class CheckUsedPropertyRequest : public Darabonba::Model {
 public:
   shared_ptr<long> propertyId{};
@@ -1147,6 +1218,7 @@ public:
 };
 class DescribeMfaDevicesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> adDomain{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -1162,6 +1234,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
     if (endUserIds) {
       res["EndUserIds"] = boost::any(*endUserIds);
     }
@@ -1178,6 +1253,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
     if (m.find("EndUserIds") != m.end() && !m["EndUserIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["EndUserIds"].type()) {
@@ -1497,6 +1575,7 @@ public:
   shared_ptr<string> endUserId{};
   shared_ptr<long> id{};
   shared_ptr<bool> isTenantManager{};
+  shared_ptr<string> nickName{};
   shared_ptr<string> orgId{};
   shared_ptr<string> ownerType{};
   shared_ptr<string> phone{};
@@ -1525,6 +1604,9 @@ public:
     }
     if (isTenantManager) {
       res["IsTenantManager"] = boost::any(*isTenantManager);
+    }
+    if (nickName) {
+      res["NickName"] = boost::any(*nickName);
     }
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
@@ -1559,6 +1641,9 @@ public:
     }
     if (m.find("IsTenantManager") != m.end() && !m["IsTenantManager"].empty()) {
       isTenantManager = make_shared<bool>(boost::any_cast<bool>(m["IsTenantManager"]));
+    }
+    if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
     }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
@@ -2945,6 +3030,7 @@ public:
 };
 class LockMfaDeviceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> adDomain{};
   shared_ptr<string> serialNumber{};
 
   LockMfaDeviceRequest() {}
@@ -2957,6 +3043,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
@@ -2964,6 +3053,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
@@ -3652,6 +3744,7 @@ public:
 };
 class RemoveMfaDeviceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> adDomain{};
   shared_ptr<string> serialNumber{};
 
   RemoveMfaDeviceRequest() {}
@@ -3664,6 +3757,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
@@ -3671,6 +3767,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
@@ -4635,6 +4734,7 @@ public:
 };
 class UnlockMfaDeviceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> adDomain{};
   shared_ptr<string> serialNumber{};
 
   UnlockMfaDeviceRequest() {}
@@ -4647,6 +4747,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (adDomain) {
+      res["AdDomain"] = boost::any(*adDomain);
+    }
     if (serialNumber) {
       res["SerialNumber"] = boost::any(*serialNumber);
     }
@@ -4654,6 +4757,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdDomain") != m.end() && !m["AdDomain"].empty()) {
+      adDomain = make_shared<string>(boost::any_cast<string>(m["AdDomain"]));
+    }
     if (m.find("SerialNumber") != m.end() && !m["SerialNumber"].empty()) {
       serialNumber = make_shared<string>(boost::any_cast<string>(m["SerialNumber"]));
     }
