@@ -1817,6 +1817,9 @@ DescribeDcdnDomainBpsDataByLayerResponse Alibabacloud_Dcdn20180115::Client::desc
 DescribeDcdnDomainByCertificateResponse Alibabacloud_Dcdn20180115::Client::describeDcdnDomainByCertificateWithOptions(shared_ptr<DescribeDcdnDomainByCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->exact)) {
+    query->insert(pair<string, bool>("Exact", *request->exact));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->SSLPub)) {
     query->insert(pair<string, string>("SSLPub", *request->SSLPub));
   }

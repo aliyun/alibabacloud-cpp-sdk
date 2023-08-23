@@ -8276,6 +8276,7 @@ public:
 };
 class DescribeDcdnDomainByCertificateRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> exact{};
   shared_ptr<string> SSLPub{};
   shared_ptr<bool> SSLStatus{};
 
@@ -8289,6 +8290,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (exact) {
+      res["Exact"] = boost::any(*exact);
+    }
     if (SSLPub) {
       res["SSLPub"] = boost::any(*SSLPub);
     }
@@ -8299,6 +8303,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Exact") != m.end() && !m["Exact"].empty()) {
+      exact = make_shared<bool>(boost::any_cast<bool>(m["Exact"]));
+    }
     if (m.find("SSLPub") != m.end() && !m["SSLPub"].empty()) {
       SSLPub = make_shared<string>(boost::any_cast<string>(m["SSLPub"]));
     }
