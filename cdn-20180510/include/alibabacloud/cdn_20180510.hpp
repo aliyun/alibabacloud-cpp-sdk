@@ -5356,6 +5356,7 @@ public:
 };
 class DescribeCdnDomainByCertificateRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> exact{};
   shared_ptr<string> SSLPub{};
   shared_ptr<bool> SSLStatus{};
 
@@ -5369,6 +5370,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (exact) {
+      res["Exact"] = boost::any(*exact);
+    }
     if (SSLPub) {
       res["SSLPub"] = boost::any(*SSLPub);
     }
@@ -5379,6 +5383,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Exact") != m.end() && !m["Exact"].empty()) {
+      exact = make_shared<bool>(boost::any_cast<bool>(m["Exact"]));
+    }
     if (m.find("SSLPub") != m.end() && !m["SSLPub"].empty()) {
       SSLPub = make_shared<string>(boost::any_cast<string>(m["SSLPub"]));
     }
@@ -6119,7 +6126,6 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
-  shared_ptr<string> globalResourcePlan{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> httpsCname{};
@@ -6152,9 +6158,6 @@ public:
     }
     if (domainStatus) {
       res["DomainStatus"] = boost::any(*domainStatus);
-    }
-    if (globalResourcePlan) {
-      res["GlobalResourcePlan"] = boost::any(*globalResourcePlan);
     }
     if (gmtCreated) {
       res["GmtCreated"] = boost::any(*gmtCreated);
@@ -6195,9 +6198,6 @@ public:
     }
     if (m.find("DomainStatus") != m.end() && !m["DomainStatus"].empty()) {
       domainStatus = make_shared<string>(boost::any_cast<string>(m["DomainStatus"]));
-    }
-    if (m.find("GlobalResourcePlan") != m.end() && !m["GlobalResourcePlan"].empty()) {
-      globalResourcePlan = make_shared<string>(boost::any_cast<string>(m["GlobalResourcePlan"]));
     }
     if (m.find("GmtCreated") != m.end() && !m["GmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["GmtCreated"]));
@@ -29234,7 +29234,6 @@ public:
   shared_ptr<long> domainId{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
-  shared_ptr<string> globalResourcePlan{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> resourceGroupId{};
@@ -29272,9 +29271,6 @@ public:
     }
     if (domainStatus) {
       res["DomainStatus"] = boost::any(*domainStatus);
-    }
-    if (globalResourcePlan) {
-      res["GlobalResourcePlan"] = boost::any(*globalResourcePlan);
     }
     if (gmtCreated) {
       res["GmtCreated"] = boost::any(*gmtCreated);
@@ -29318,9 +29314,6 @@ public:
     }
     if (m.find("DomainStatus") != m.end() && !m["DomainStatus"].empty()) {
       domainStatus = make_shared<string>(boost::any_cast<string>(m["DomainStatus"]));
-    }
-    if (m.find("GlobalResourcePlan") != m.end() && !m["GlobalResourcePlan"].empty()) {
-      globalResourcePlan = make_shared<string>(boost::any_cast<string>(m["GlobalResourcePlan"]));
     }
     if (m.find("GmtCreated") != m.end() && !m["GmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["GmtCreated"]));
