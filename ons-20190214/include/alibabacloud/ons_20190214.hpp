@@ -4890,6 +4890,7 @@ public:
 };
 class OnsInstanceInServiceListRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> needResourceInfo{};
   shared_ptr<vector<OnsInstanceInServiceListRequestTag>> tag{};
 
   OnsInstanceInServiceListRequest() {}
@@ -4902,6 +4903,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (needResourceInfo) {
+      res["NeedResourceInfo"] = boost::any(*needResourceInfo);
+    }
     if (tag) {
       vector<boost::any> temp1;
       for(auto item1:*tag){
@@ -4913,6 +4917,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NeedResourceInfo") != m.end() && !m["NeedResourceInfo"].empty()) {
+      needResourceInfo = make_shared<bool>(boost::any_cast<bool>(m["NeedResourceInfo"]));
+    }
     if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
       if (typeid(vector<boost::any>) == m["Tag"].type()) {
         vector<OnsInstanceInServiceListRequestTag> expect1;
@@ -5013,6 +5020,7 @@ public:
 class OnsInstanceInServiceListResponseBodyDataInstanceVO : public Darabonba::Model {
 public:
   shared_ptr<long> createTime{};
+  shared_ptr<long> groupCount{};
   shared_ptr<bool> independentNaming{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
@@ -5020,6 +5028,7 @@ public:
   shared_ptr<long> instanceType{};
   shared_ptr<long> releaseTime{};
   shared_ptr<OnsInstanceInServiceListResponseBodyDataInstanceVOTags> tags{};
+  shared_ptr<long> topicCount{};
 
   OnsInstanceInServiceListResponseBodyDataInstanceVO() {}
 
@@ -5033,6 +5042,9 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (groupCount) {
+      res["GroupCount"] = boost::any(*groupCount);
     }
     if (independentNaming) {
       res["IndependentNaming"] = boost::any(*independentNaming);
@@ -5055,12 +5067,18 @@ public:
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (topicCount) {
+      res["TopicCount"] = boost::any(*topicCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
+    if (m.find("GroupCount") != m.end() && !m["GroupCount"].empty()) {
+      groupCount = make_shared<long>(boost::any_cast<long>(m["GroupCount"]));
     }
     if (m.find("IndependentNaming") != m.end() && !m["IndependentNaming"].empty()) {
       independentNaming = make_shared<bool>(boost::any_cast<bool>(m["IndependentNaming"]));
@@ -5086,6 +5104,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<OnsInstanceInServiceListResponseBodyDataInstanceVOTags>(model1);
       }
+    }
+    if (m.find("TopicCount") != m.end() && !m["TopicCount"].empty()) {
+      topicCount = make_shared<long>(boost::any_cast<long>(m["TopicCount"]));
     }
   }
 

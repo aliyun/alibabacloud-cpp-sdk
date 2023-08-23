@@ -661,6 +661,9 @@ OnsInstanceDeleteResponse Alibabacloud_Ons20190214::Client::onsInstanceDelete(sh
 OnsInstanceInServiceListResponse Alibabacloud_Ons20190214::Client::onsInstanceInServiceListWithOptions(shared_ptr<OnsInstanceInServiceListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->needResourceInfo)) {
+    query->insert(pair<string, bool>("NeedResourceInfo", *request->needResourceInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<OnsInstanceInServiceListRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<OnsInstanceInServiceListRequestTag>>("Tag", *request->tag));
   }
