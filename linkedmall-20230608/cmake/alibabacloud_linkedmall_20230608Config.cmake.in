@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_linkedmall_20230608Targets.cmake")
+check_required_components("alibabacloud_linkedmall_20230608")
