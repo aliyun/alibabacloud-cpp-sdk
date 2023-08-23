@@ -2136,6 +2136,9 @@ ListPatchBaselinesResponse Alibabacloud_Oos20190601::Client::listPatchBaselinesW
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupld)) {
+    query->insert(pair<string, string>("ResourceGroupld", *request->resourceGroupld));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->shareType)) {
     query->insert(pair<string, string>("ShareType", *request->shareType));
   }

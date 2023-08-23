@@ -13786,6 +13786,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> operationSystem{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupld{};
   shared_ptr<string> shareType{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<ListPatchBaselinesRequestTags>> tags{};
@@ -13820,6 +13821,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupld) {
+      res["ResourceGroupld"] = boost::any(*resourceGroupld);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -13866,6 +13870,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupld") != m.end() && !m["ResourceGroupld"].empty()) {
+      resourceGroupld = make_shared<string>(boost::any_cast<string>(m["ResourceGroupld"]));
+    }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
     }
@@ -13906,6 +13913,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> operationSystem{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupld{};
   shared_ptr<string> shareType{};
   shared_ptr<string> sourcesShrink{};
   shared_ptr<string> tagsShrink{};
@@ -13941,6 +13949,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupld) {
+      res["ResourceGroupld"] = boost::any(*resourceGroupld);
+    }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
     }
@@ -13974,6 +13985,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupld") != m.end() && !m["ResourceGroupld"].empty()) {
+      resourceGroupld = make_shared<string>(boost::any_cast<string>(m["ResourceGroupld"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
@@ -14036,6 +14050,7 @@ public:
   shared_ptr<bool> isDefault{};
   shared_ptr<string> name{};
   shared_ptr<string> operationSystem{};
+  shared_ptr<string> resourceGroupld{};
   shared_ptr<string> shareType{};
   shared_ptr<vector<string>> sources{};
   shared_ptr<vector<ListPatchBaselinesResponseBodyPatchBaselinesTags>> tags{};
@@ -14078,6 +14093,9 @@ public:
     }
     if (operationSystem) {
       res["OperationSystem"] = boost::any(*operationSystem);
+    }
+    if (resourceGroupld) {
+      res["ResourceGroupld"] = boost::any(*resourceGroupld);
     }
     if (shareType) {
       res["ShareType"] = boost::any(*shareType);
@@ -14135,6 +14153,9 @@ public:
     }
     if (m.find("OperationSystem") != m.end() && !m["OperationSystem"].empty()) {
       operationSystem = make_shared<string>(boost::any_cast<string>(m["OperationSystem"]));
+    }
+    if (m.find("ResourceGroupld") != m.end() && !m["ResourceGroupld"].empty()) {
+      resourceGroupld = make_shared<string>(boost::any_cast<string>(m["ResourceGroupld"]));
     }
     if (m.find("ShareType") != m.end() && !m["ShareType"].empty()) {
       shareType = make_shared<string>(boost::any_cast<string>(m["ShareType"]));
