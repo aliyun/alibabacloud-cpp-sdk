@@ -7740,6 +7740,7 @@ public:
 };
 class CreateOrUpdateNotificationPolicyRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> directedMode{};
   shared_ptr<long> escalationPolicyId{};
   shared_ptr<string> groupRule{};
   shared_ptr<long> id{};
@@ -7763,6 +7764,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (directedMode) {
+      res["DirectedMode"] = boost::any(*directedMode);
+    }
     if (escalationPolicyId) {
       res["EscalationPolicyId"] = boost::any(*escalationPolicyId);
     }
@@ -7803,6 +7807,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DirectedMode") != m.end() && !m["DirectedMode"].empty()) {
+      directedMode = make_shared<bool>(boost::any_cast<bool>(m["DirectedMode"]));
+    }
     if (m.find("EscalationPolicyId") != m.end() && !m["EscalationPolicyId"].empty()) {
       escalationPolicyId = make_shared<long>(boost::any_cast<long>(m["EscalationPolicyId"]));
     }
@@ -8195,6 +8202,7 @@ public:
 };
 class CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicy : public Darabonba::Model {
 public:
+  shared_ptr<bool> directedMode{};
   shared_ptr<long> escalationPolicyId{};
   shared_ptr<CreateOrUpdateNotificationPolicyResponseBodyNotificationPolicyGroupRule> groupRule{};
   shared_ptr<long> id{};
@@ -8217,6 +8225,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (directedMode) {
+      res["DirectedMode"] = boost::any(*directedMode);
+    }
     if (escalationPolicyId) {
       res["EscalationPolicyId"] = boost::any(*escalationPolicyId);
     }
@@ -8258,6 +8269,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DirectedMode") != m.end() && !m["DirectedMode"].empty()) {
+      directedMode = make_shared<bool>(boost::any_cast<bool>(m["DirectedMode"]));
+    }
     if (m.find("EscalationPolicyId") != m.end() && !m["EscalationPolicyId"].empty()) {
       escalationPolicyId = make_shared<long>(boost::any_cast<long>(m["EscalationPolicyId"]));
     }
@@ -9534,7 +9548,6 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> grafanaInstanceId{};
-  shared_ptr<string> paramJson{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityGroupId{};
@@ -9567,9 +9580,6 @@ public:
     }
     if (grafanaInstanceId) {
       res["GrafanaInstanceId"] = boost::any(*grafanaInstanceId);
-    }
-    if (paramJson) {
-      res["ParamJson"] = boost::any(*paramJson);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -9614,9 +9624,6 @@ public:
     }
     if (m.find("GrafanaInstanceId") != m.end() && !m["GrafanaInstanceId"].empty()) {
       grafanaInstanceId = make_shared<string>(boost::any_cast<string>(m["GrafanaInstanceId"]));
-    }
-    if (m.find("ParamJson") != m.end() && !m["ParamJson"].empty()) {
-      paramJson = make_shared<string>(boost::any_cast<string>(m["ParamJson"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -32397,6 +32404,7 @@ public:
   shared_ptr<string> endTime{};
   shared_ptr<string> integrationType{};
   shared_ptr<long> page{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> severity{};
   shared_ptr<bool> showActivities{};
   shared_ptr<bool> showEvents{};
@@ -32428,6 +32436,9 @@ public:
     }
     if (page) {
       res["Page"] = boost::any(*page);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
     }
     if (severity) {
       res["Severity"] = boost::any(*severity);
@@ -32465,6 +32476,9 @@ public:
     }
     if (m.find("Page") != m.end() && !m["Page"].empty()) {
       page = make_shared<long>(boost::any_cast<long>(m["Page"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Severity") != m.end() && !m["Severity"].empty()) {
       severity = make_shared<string>(boost::any_cast<string>(m["Severity"]));
@@ -35566,6 +35580,7 @@ public:
 };
 class ListNotificationPoliciesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> directedMode{};
   shared_ptr<string> ids{};
   shared_ptr<bool> isDetail{};
   shared_ptr<string> name{};
@@ -35583,6 +35598,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (directedMode) {
+      res["DirectedMode"] = boost::any(*directedMode);
+    }
     if (ids) {
       res["Ids"] = boost::any(*ids);
     }
@@ -35605,6 +35623,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DirectedMode") != m.end() && !m["DirectedMode"].empty()) {
+      directedMode = make_shared<bool>(boost::any_cast<bool>(m["DirectedMode"]));
+    }
     if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
       ids = make_shared<string>(boost::any_cast<string>(m["Ids"]));
     }
@@ -35979,6 +36000,7 @@ public:
 };
 class ListNotificationPoliciesResponseBodyPageBeanNotificationPolicies : public Darabonba::Model {
 public:
+  shared_ptr<bool> directedMode{};
   shared_ptr<long> escalationPolicyId{};
   shared_ptr<ListNotificationPoliciesResponseBodyPageBeanNotificationPoliciesGroupRule> groupRule{};
   shared_ptr<long> id{};
@@ -36001,6 +36023,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (directedMode) {
+      res["DirectedMode"] = boost::any(*directedMode);
+    }
     if (escalationPolicyId) {
       res["EscalationPolicyId"] = boost::any(*escalationPolicyId);
     }
@@ -36042,6 +36067,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DirectedMode") != m.end() && !m["DirectedMode"].empty()) {
+      directedMode = make_shared<bool>(boost::any_cast<bool>(m["DirectedMode"]));
+    }
     if (m.find("EscalationPolicyId") != m.end() && !m["EscalationPolicyId"].empty()) {
       escalationPolicyId = make_shared<long>(boost::any_cast<long>(m["EscalationPolicyId"]));
     }
@@ -50732,7 +50760,6 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> mostRegionId{};
-  shared_ptr<string> paramJson{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> subClustersJson{};
@@ -50759,9 +50786,6 @@ public:
     if (mostRegionId) {
       res["MostRegionId"] = boost::any(*mostRegionId);
     }
-    if (paramJson) {
-      res["ParamJson"] = boost::any(*paramJson);
-    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -50786,9 +50810,6 @@ public:
     }
     if (m.find("MostRegionId") != m.end() && !m["MostRegionId"].empty()) {
       mostRegionId = make_shared<string>(boost::any_cast<string>(m["MostRegionId"]));
-    }
-    if (m.find("ParamJson") != m.end() && !m["ParamJson"].empty()) {
-      paramJson = make_shared<string>(boost::any_cast<string>(m["ParamJson"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

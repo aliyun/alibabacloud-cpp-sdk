@@ -1077,6 +1077,9 @@ CreateOrUpdateIMRobotResponse Alibabacloud_ARMS20190808::Client::createOrUpdateI
 CreateOrUpdateNotificationPolicyResponse Alibabacloud_ARMS20190808::Client::createOrUpdateNotificationPolicyWithOptions(shared_ptr<CreateOrUpdateNotificationPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->directedMode)) {
+    body->insert(pair<string, bool>("DirectedMode", *request->directedMode));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->escalationPolicyId)) {
     body->insert(pair<string, long>("EscalationPolicyId", *request->escalationPolicyId));
   }
@@ -1299,9 +1302,6 @@ CreatePrometheusInstanceResponse Alibabacloud_ARMS20190808::Client::createPromet
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->grafanaInstanceId)) {
     query->insert(pair<string, string>("GrafanaInstanceId", *request->grafanaInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->paramJson)) {
-    query->insert(pair<string, string>("ParamJson", *request->paramJson));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -4128,6 +4128,9 @@ ListAlertsResponse Alibabacloud_ARMS20190808::Client::listAlertsWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<long>(request->page)) {
     query->insert(pair<string, long>("Page", *request->page));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->severity)) {
     query->insert(pair<string, string>("Severity", *request->severity));
   }
@@ -4483,6 +4486,9 @@ ListIntegrationResponse Alibabacloud_ARMS20190808::Client::listIntegration(share
 ListNotificationPoliciesResponse Alibabacloud_ARMS20190808::Client::listNotificationPoliciesWithOptions(shared_ptr<ListNotificationPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->directedMode)) {
+    query->insert(pair<string, bool>("DirectedMode", *request->directedMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ids)) {
     query->insert(pair<string, string>("Ids", *request->ids));
   }
@@ -6652,9 +6658,6 @@ UpdatePrometheusGlobalViewResponse Alibabacloud_ARMS20190808::Client::updateProm
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mostRegionId)) {
     query->insert(pair<string, string>("MostRegionId", *request->mostRegionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->paramJson)) {
-    query->insert(pair<string, string>("ParamJson", *request->paramJson));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
