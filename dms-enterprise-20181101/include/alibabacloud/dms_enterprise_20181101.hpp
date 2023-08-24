@@ -47922,6 +47922,7 @@ class ModifyDesensitizationStrategyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> columnName{};
   shared_ptr<long> dbId{};
+  shared_ptr<bool> isDefault{};
   shared_ptr<bool> isLogic{};
   shared_ptr<bool> isReset{};
   shared_ptr<long> ruleId{};
@@ -47944,6 +47945,9 @@ public:
     }
     if (dbId) {
       res["DbId"] = boost::any(*dbId);
+    }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
     }
     if (isLogic) {
       res["IsLogic"] = boost::any(*isLogic);
@@ -47972,6 +47976,9 @@ public:
     }
     if (m.find("DbId") != m.end() && !m["DbId"].empty()) {
       dbId = make_shared<long>(boost::any_cast<long>(m["DbId"]));
+    }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
     }
     if (m.find("IsLogic") != m.end() && !m["IsLogic"].empty()) {
       isLogic = make_shared<bool>(boost::any_cast<bool>(m["IsLogic"]));

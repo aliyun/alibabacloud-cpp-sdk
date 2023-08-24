@@ -6060,6 +6060,9 @@ ModifyDesensitizationStrategyResponse Alibabacloud_Dms-enterprise20181101::Clien
   if (!Darabonba_Util::Client::isUnset<long>(request->dbId)) {
     query->insert(pair<string, long>("DbId", *request->dbId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isDefault)) {
+    query->insert(pair<string, bool>("IsDefault", *request->isDefault));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isLogic)) {
     query->insert(pair<string, bool>("IsLogic", *request->isLogic));
   }
