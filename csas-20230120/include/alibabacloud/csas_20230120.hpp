@@ -530,77 +530,6 @@ public:
 
   virtual ~CreatePrivateAccessApplicationRequest() = default;
 };
-class CreatePrivateAccessApplicationShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> addressesShrink{};
-  shared_ptr<string> description{};
-  shared_ptr<string> name{};
-  shared_ptr<string> portRangesShrink{};
-  shared_ptr<string> protocol{};
-  shared_ptr<string> status{};
-  shared_ptr<string> tagIdsShrink{};
-
-  CreatePrivateAccessApplicationShrinkRequest() {}
-
-  explicit CreatePrivateAccessApplicationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (addressesShrink) {
-      res["Addresses"] = boost::any(*addressesShrink);
-    }
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (portRangesShrink) {
-      res["PortRanges"] = boost::any(*portRangesShrink);
-    }
-    if (protocol) {
-      res["Protocol"] = boost::any(*protocol);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (tagIdsShrink) {
-      res["TagIds"] = boost::any(*tagIdsShrink);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
-      addressesShrink = make_shared<string>(boost::any_cast<string>(m["Addresses"]));
-    }
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
-      portRangesShrink = make_shared<string>(boost::any_cast<string>(m["PortRanges"]));
-    }
-    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
-      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
-      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
-    }
-  }
-
-
-  virtual ~CreatePrivateAccessApplicationShrinkRequest() = default;
-};
 class CreatePrivateAccessApplicationResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> applicationId{};
@@ -882,105 +811,6 @@ public:
 
 
   virtual ~CreatePrivateAccessPolicyRequest() = default;
-};
-class CreatePrivateAccessPolicyShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> applicationIdsShrink{};
-  shared_ptr<string> applicationType{};
-  shared_ptr<string> customUserAttributesShrink{};
-  shared_ptr<string> description{};
-  shared_ptr<string> name{};
-  shared_ptr<string> policyAction{};
-  shared_ptr<long> priority{};
-  shared_ptr<string> status{};
-  shared_ptr<string> tagIdsShrink{};
-  shared_ptr<string> userGroupIdsShrink{};
-  shared_ptr<string> userGroupMode{};
-
-  CreatePrivateAccessPolicyShrinkRequest() {}
-
-  explicit CreatePrivateAccessPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (applicationIdsShrink) {
-      res["ApplicationIds"] = boost::any(*applicationIdsShrink);
-    }
-    if (applicationType) {
-      res["ApplicationType"] = boost::any(*applicationType);
-    }
-    if (customUserAttributesShrink) {
-      res["CustomUserAttributes"] = boost::any(*customUserAttributesShrink);
-    }
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (name) {
-      res["Name"] = boost::any(*name);
-    }
-    if (policyAction) {
-      res["PolicyAction"] = boost::any(*policyAction);
-    }
-    if (priority) {
-      res["Priority"] = boost::any(*priority);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (tagIdsShrink) {
-      res["TagIds"] = boost::any(*tagIdsShrink);
-    }
-    if (userGroupIdsShrink) {
-      res["UserGroupIds"] = boost::any(*userGroupIdsShrink);
-    }
-    if (userGroupMode) {
-      res["UserGroupMode"] = boost::any(*userGroupMode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
-      applicationIdsShrink = make_shared<string>(boost::any_cast<string>(m["ApplicationIds"]));
-    }
-    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
-      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
-    }
-    if (m.find("CustomUserAttributes") != m.end() && !m["CustomUserAttributes"].empty()) {
-      customUserAttributesShrink = make_shared<string>(boost::any_cast<string>(m["CustomUserAttributes"]));
-    }
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("Name") != m.end() && !m["Name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
-    }
-    if (m.find("PolicyAction") != m.end() && !m["PolicyAction"].empty()) {
-      policyAction = make_shared<string>(boost::any_cast<string>(m["PolicyAction"]));
-    }
-    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
-      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
-      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
-    }
-    if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
-      userGroupIdsShrink = make_shared<string>(boost::any_cast<string>(m["UserGroupIds"]));
-    }
-    if (m.find("UserGroupMode") != m.end() && !m["UserGroupMode"].empty()) {
-      userGroupMode = make_shared<string>(boost::any_cast<string>(m["UserGroupMode"]));
-    }
-  }
-
-
-  virtual ~CreatePrivateAccessPolicyShrinkRequest() = default;
 };
 class CreatePrivateAccessPolicyResponseBody : public Darabonba::Model {
 public:
@@ -8891,84 +8721,6 @@ public:
 
   virtual ~UpdatePrivateAccessApplicationRequest() = default;
 };
-class UpdatePrivateAccessApplicationShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> addressesShrink{};
-  shared_ptr<string> applicationId{};
-  shared_ptr<string> description{};
-  shared_ptr<string> modifyType{};
-  shared_ptr<string> portRangesShrink{};
-  shared_ptr<string> protocol{};
-  shared_ptr<string> status{};
-  shared_ptr<string> tagIdsShrink{};
-
-  UpdatePrivateAccessApplicationShrinkRequest() {}
-
-  explicit UpdatePrivateAccessApplicationShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (addressesShrink) {
-      res["Addresses"] = boost::any(*addressesShrink);
-    }
-    if (applicationId) {
-      res["ApplicationId"] = boost::any(*applicationId);
-    }
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (modifyType) {
-      res["ModifyType"] = boost::any(*modifyType);
-    }
-    if (portRangesShrink) {
-      res["PortRanges"] = boost::any(*portRangesShrink);
-    }
-    if (protocol) {
-      res["Protocol"] = boost::any(*protocol);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (tagIdsShrink) {
-      res["TagIds"] = boost::any(*tagIdsShrink);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Addresses") != m.end() && !m["Addresses"].empty()) {
-      addressesShrink = make_shared<string>(boost::any_cast<string>(m["Addresses"]));
-    }
-    if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
-      applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
-    }
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
-      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
-    }
-    if (m.find("PortRanges") != m.end() && !m["PortRanges"].empty()) {
-      portRangesShrink = make_shared<string>(boost::any_cast<string>(m["PortRanges"]));
-    }
-    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
-      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
-      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
-    }
-  }
-
-
-  virtual ~UpdatePrivateAccessApplicationShrinkRequest() = default;
-};
 class UpdatePrivateAccessApplicationResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
@@ -9250,112 +9002,6 @@ public:
 
 
   virtual ~UpdatePrivateAccessPolicyRequest() = default;
-};
-class UpdatePrivateAccessPolicyShrinkRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> applicationIdsShrink{};
-  shared_ptr<string> applicationType{};
-  shared_ptr<string> customUserAttributesShrink{};
-  shared_ptr<string> description{};
-  shared_ptr<string> modifyType{};
-  shared_ptr<string> policyAction{};
-  shared_ptr<string> policyId{};
-  shared_ptr<long> priority{};
-  shared_ptr<string> status{};
-  shared_ptr<string> tagIdsShrink{};
-  shared_ptr<string> userGroupIdsShrink{};
-  shared_ptr<string> userGroupMode{};
-
-  UpdatePrivateAccessPolicyShrinkRequest() {}
-
-  explicit UpdatePrivateAccessPolicyShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (applicationIdsShrink) {
-      res["ApplicationIds"] = boost::any(*applicationIdsShrink);
-    }
-    if (applicationType) {
-      res["ApplicationType"] = boost::any(*applicationType);
-    }
-    if (customUserAttributesShrink) {
-      res["CustomUserAttributes"] = boost::any(*customUserAttributesShrink);
-    }
-    if (description) {
-      res["Description"] = boost::any(*description);
-    }
-    if (modifyType) {
-      res["ModifyType"] = boost::any(*modifyType);
-    }
-    if (policyAction) {
-      res["PolicyAction"] = boost::any(*policyAction);
-    }
-    if (policyId) {
-      res["PolicyId"] = boost::any(*policyId);
-    }
-    if (priority) {
-      res["Priority"] = boost::any(*priority);
-    }
-    if (status) {
-      res["Status"] = boost::any(*status);
-    }
-    if (tagIdsShrink) {
-      res["TagIds"] = boost::any(*tagIdsShrink);
-    }
-    if (userGroupIdsShrink) {
-      res["UserGroupIds"] = boost::any(*userGroupIdsShrink);
-    }
-    if (userGroupMode) {
-      res["UserGroupMode"] = boost::any(*userGroupMode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ApplicationIds") != m.end() && !m["ApplicationIds"].empty()) {
-      applicationIdsShrink = make_shared<string>(boost::any_cast<string>(m["ApplicationIds"]));
-    }
-    if (m.find("ApplicationType") != m.end() && !m["ApplicationType"].empty()) {
-      applicationType = make_shared<string>(boost::any_cast<string>(m["ApplicationType"]));
-    }
-    if (m.find("CustomUserAttributes") != m.end() && !m["CustomUserAttributes"].empty()) {
-      customUserAttributesShrink = make_shared<string>(boost::any_cast<string>(m["CustomUserAttributes"]));
-    }
-    if (m.find("Description") != m.end() && !m["Description"].empty()) {
-      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
-    }
-    if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
-      modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));
-    }
-    if (m.find("PolicyAction") != m.end() && !m["PolicyAction"].empty()) {
-      policyAction = make_shared<string>(boost::any_cast<string>(m["PolicyAction"]));
-    }
-    if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
-      policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
-    }
-    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
-      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
-    }
-    if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
-    }
-    if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
-      tagIdsShrink = make_shared<string>(boost::any_cast<string>(m["TagIds"]));
-    }
-    if (m.find("UserGroupIds") != m.end() && !m["UserGroupIds"].empty()) {
-      userGroupIdsShrink = make_shared<string>(boost::any_cast<string>(m["UserGroupIds"]));
-    }
-    if (m.find("UserGroupMode") != m.end() && !m["UserGroupMode"].empty()) {
-      userGroupMode = make_shared<string>(boost::any_cast<string>(m["UserGroupMode"]));
-    }
-  }
-
-
-  virtual ~UpdatePrivateAccessPolicyShrinkRequest() = default;
 };
 class UpdatePrivateAccessPolicyResponseBody : public Darabonba::Model {
 public:
@@ -9667,9 +9313,9 @@ public:
   AttachApplication2ConnectorResponse attachApplication2Connector(shared_ptr<AttachApplication2ConnectorRequest> request);
   CreateDynamicRouteResponse createDynamicRouteWithOptions(shared_ptr<CreateDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDynamicRouteResponse createDynamicRoute(shared_ptr<CreateDynamicRouteRequest> request);
-  CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePrivateAccessApplicationResponse createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessApplicationResponse createPrivateAccessApplication(shared_ptr<CreatePrivateAccessApplicationRequest> request);
-  CreatePrivateAccessPolicyResponse createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreatePrivateAccessPolicyResponse createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessPolicyResponse createPrivateAccessPolicy(shared_ptr<CreatePrivateAccessPolicyRequest> request);
   CreatePrivateAccessTagResponse createPrivateAccessTagWithOptions(shared_ptr<CreatePrivateAccessTagRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreatePrivateAccessTagResponse createPrivateAccessTag(shared_ptr<CreatePrivateAccessTagRequest> request);
@@ -9731,9 +9377,9 @@ public:
   ListUserGroupsForPrivateAccessPolicyResponse listUserGroupsForPrivateAccessPolicy(shared_ptr<ListUserGroupsForPrivateAccessPolicyRequest> request);
   UpdateDynamicRouteResponse updateDynamicRouteWithOptions(shared_ptr<UpdateDynamicRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateDynamicRouteResponse updateDynamicRoute(shared_ptr<UpdateDynamicRouteRequest> request);
-  UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePrivateAccessApplicationResponse updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrivateAccessApplicationResponse updatePrivateAccessApplication(shared_ptr<UpdatePrivateAccessApplicationRequest> request);
-  UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrivateAccessPolicyResponse updatePrivateAccessPolicy(shared_ptr<UpdatePrivateAccessPolicyRequest> request);
   UpdateUserGroupResponse updateUserGroupWithOptions(shared_ptr<UpdateUserGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateUserGroupResponse updateUserGroup(shared_ptr<UpdateUserGroupRequest> request);

@@ -131,22 +131,12 @@ CreateDynamicRouteResponse Alibabacloud_Csas20230120::Client::createDynamicRoute
   return createDynamicRouteWithOptions(request, runtime);
 }
 
-CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreatePrivateAccessApplicationShrinkRequest> request = make_shared<CreatePrivateAccessApplicationShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->addresses)) {
-    request->addressesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->addresses, make_shared<string>("Addresses"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<CreatePrivateAccessApplicationRequestPortRanges>>(tmpReq->portRanges)) {
-    request->portRangesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->portRanges, make_shared<string>("PortRanges"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
+CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::createPrivateAccessApplicationWithOptions(shared_ptr<CreatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->addressesShrink)) {
-    body->insert(pair<string, string>("Addresses", *request->addressesShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->addresses)) {
+    bodyFlat->insert(pair<string, vector<string>>("Addresses", *request->addresses));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -154,8 +144,8 @@ CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     body->insert(pair<string, string>("Name", *request->name));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->portRangesShrink)) {
-    body->insert(pair<string, string>("PortRanges", *request->portRangesShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePrivateAccessApplicationRequestPortRanges>>(request->portRanges)) {
+    bodyFlat->insert(pair<string, vector<CreatePrivateAccessApplicationRequestPortRanges>>("PortRanges", *request->portRanges));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("Protocol", *request->protocol));
@@ -163,9 +153,10 @@ CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
-    body->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TagIds", *request->tagIds));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -188,31 +179,18 @@ CreatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::create
   return createPrivateAccessApplicationWithOptions(request, runtime);
 }
 
-CreatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<CreatePrivateAccessPolicyShrinkRequest> request = make_shared<CreatePrivateAccessPolicyShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->applicationIds)) {
-    request->applicationIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationIds, make_shared<string>("ApplicationIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<CreatePrivateAccessPolicyRequestCustomUserAttributes>>(tmpReq->customUserAttributes)) {
-    request->customUserAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customUserAttributes, make_shared<string>("CustomUserAttributes"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userGroupIds)) {
-    request->userGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userGroupIds, make_shared<string>("UserGroupIds"), make_shared<string>("json")));
-  }
+CreatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::createPrivateAccessPolicyWithOptions(shared_ptr<CreatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->applicationIdsShrink)) {
-    body->insert(pair<string, string>("ApplicationIds", *request->applicationIdsShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->applicationIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("ApplicationIds", *request->applicationIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationType)) {
     body->insert(pair<string, string>("ApplicationType", *request->applicationType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customUserAttributesShrink)) {
-    body->insert(pair<string, string>("CustomUserAttributes", *request->customUserAttributesShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePrivateAccessPolicyRequestCustomUserAttributes>>(request->customUserAttributes)) {
+    bodyFlat->insert(pair<string, vector<CreatePrivateAccessPolicyRequestCustomUserAttributes>>("CustomUserAttributes", *request->customUserAttributes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -229,15 +207,16 @@ CreatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::createPriva
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
-    body->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TagIds", *request->tagIds));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userGroupIdsShrink)) {
-    body->insert(pair<string, string>("UserGroupIds", *request->userGroupIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userGroupIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("UserGroupIds", *request->userGroupIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userGroupMode)) {
     body->insert(pair<string, string>("UserGroupMode", *request->userGroupMode));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1087,22 +1066,12 @@ UpdateDynamicRouteResponse Alibabacloud_Csas20230120::Client::updateDynamicRoute
   return updateDynamicRouteWithOptions(request, runtime);
 }
 
-UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<UpdatePrivateAccessApplicationShrinkRequest> request = make_shared<UpdatePrivateAccessApplicationShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->addresses)) {
-    request->addressesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->addresses, make_shared<string>("Addresses"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<UpdatePrivateAccessApplicationRequestPortRanges>>(tmpReq->portRanges)) {
-    request->portRangesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->portRanges, make_shared<string>("PortRanges"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
+UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::updatePrivateAccessApplicationWithOptions(shared_ptr<UpdatePrivateAccessApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->addressesShrink)) {
-    body->insert(pair<string, string>("Addresses", *request->addressesShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->addresses)) {
+    bodyFlat->insert(pair<string, vector<string>>("Addresses", *request->addresses));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationId)) {
     body->insert(pair<string, string>("ApplicationId", *request->applicationId));
@@ -1113,8 +1082,8 @@ UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->modifyType)) {
     body->insert(pair<string, string>("ModifyType", *request->modifyType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->portRangesShrink)) {
-    body->insert(pair<string, string>("PortRanges", *request->portRangesShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<UpdatePrivateAccessApplicationRequestPortRanges>>(request->portRanges)) {
+    bodyFlat->insert(pair<string, vector<UpdatePrivateAccessApplicationRequestPortRanges>>("PortRanges", *request->portRanges));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("Protocol", *request->protocol));
@@ -1122,9 +1091,10 @@ UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
-    body->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TagIds", *request->tagIds));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
@@ -1147,31 +1117,18 @@ UpdatePrivateAccessApplicationResponse Alibabacloud_Csas20230120::Client::update
   return updatePrivateAccessApplicationWithOptions(request, runtime);
 }
 
-UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(tmpReq);
-  shared_ptr<UpdatePrivateAccessPolicyShrinkRequest> request = make_shared<UpdatePrivateAccessPolicyShrinkRequest>();
-  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->applicationIds)) {
-    request->applicationIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicationIds, make_shared<string>("ApplicationIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<UpdatePrivateAccessPolicyRequestCustomUserAttributes>>(tmpReq->customUserAttributes)) {
-    request->customUserAttributesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->customUserAttributes, make_shared<string>("CustomUserAttributes"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->tagIds)) {
-    request->tagIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tagIds, make_shared<string>("TagIds"), make_shared<string>("json")));
-  }
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userGroupIds)) {
-    request->userGroupIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userGroupIds, make_shared<string>("UserGroupIds"), make_shared<string>("json")));
-  }
+UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePrivateAccessPolicyWithOptions(shared_ptr<UpdatePrivateAccessPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->applicationIdsShrink)) {
-    body->insert(pair<string, string>("ApplicationIds", *request->applicationIdsShrink));
+  shared_ptr<map<string, boost::any>> bodyFlat = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->applicationIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("ApplicationIds", *request->applicationIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationType)) {
     body->insert(pair<string, string>("ApplicationType", *request->applicationType));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->customUserAttributesShrink)) {
-    body->insert(pair<string, string>("CustomUserAttributes", *request->customUserAttributesShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<UpdatePrivateAccessPolicyRequestCustomUserAttributes>>(request->customUserAttributes)) {
+    bodyFlat->insert(pair<string, vector<UpdatePrivateAccessPolicyRequestCustomUserAttributes>>("CustomUserAttributes", *request->customUserAttributes));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -1191,15 +1148,16 @@ UpdatePrivateAccessPolicyResponse Alibabacloud_Csas20230120::Client::updatePriva
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     body->insert(pair<string, string>("Status", *request->status));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->tagIdsShrink)) {
-    body->insert(pair<string, string>("TagIds", *request->tagIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tagIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("TagIds", *request->tagIds));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->userGroupIdsShrink)) {
-    body->insert(pair<string, string>("UserGroupIds", *request->userGroupIdsShrink));
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->userGroupIds)) {
+    bodyFlat->insert(pair<string, vector<string>>("UserGroupIds", *request->userGroupIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userGroupMode)) {
     body->insert(pair<string, string>("UserGroupMode", *request->userGroupMode));
   }
+  body = make_shared<map<string, boost::any>>(Darabonba::Converter::merge(map<string, boost::any>(), !body ? map<string, boost::any>() : *body, Darabonba::Converter::toGenericMap(Alibabacloud_OpenApiUtil::Client::query(bodyFlat))));
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
