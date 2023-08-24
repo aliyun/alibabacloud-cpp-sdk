@@ -5745,6 +5745,42 @@ public:
 
   virtual ~CreateIntegrationResponse() = default;
 };
+class CreateOrUpdateAlertRuleRequestMarkTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateOrUpdateAlertRuleRequestMarkTags() {}
+
+  explicit CreateOrUpdateAlertRuleRequestMarkTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateOrUpdateAlertRuleRequestMarkTags() = default;
+};
 class CreateOrUpdateAlertRuleRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5797,6 +5833,7 @@ public:
   shared_ptr<string> filters{};
   shared_ptr<string> labels{};
   shared_ptr<string> level{};
+  shared_ptr<vector<CreateOrUpdateAlertRuleRequestMarkTags>> markTags{};
   shared_ptr<string> message{};
   shared_ptr<string> metricsKey{};
   shared_ptr<string> metricsType{};
@@ -5857,6 +5894,13 @@ public:
     }
     if (level) {
       res["Level"] = boost::any(*level);
+    }
+    if (markTags) {
+      vector<boost::any> temp1;
+      for(auto item1:*markTags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MarkTags"] = boost::any(temp1);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -5931,6 +5975,19 @@ public:
     }
     if (m.find("Level") != m.end() && !m["Level"].empty()) {
       level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("MarkTags") != m.end() && !m["MarkTags"].empty()) {
+      if (typeid(vector<boost::any>) == m["MarkTags"].type()) {
+        vector<CreateOrUpdateAlertRuleRequestMarkTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MarkTags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateOrUpdateAlertRuleRequestMarkTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        markTags = make_shared<vector<CreateOrUpdateAlertRuleRequestMarkTags>>(expect1);
+      }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -16929,6 +16986,7 @@ public:
 class DeleteTimingSyntheticTaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> taskId{};
 
   DeleteTimingSyntheticTaskRequest() {}
@@ -16944,6 +17002,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -16953,6 +17014,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));

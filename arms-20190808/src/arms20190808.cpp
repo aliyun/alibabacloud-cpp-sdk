@@ -836,6 +836,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   if (!Darabonba_Util::Client::isUnset<string>(request->level)) {
     body->insert(pair<string, string>("Level", *request->level));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateOrUpdateAlertRuleRequestMarkTags>>(request->markTags)) {
+    body->insert(pair<string, vector<CreateOrUpdateAlertRuleRequestMarkTags>>("MarkTags", *request->markTags));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->message)) {
     body->insert(pair<string, string>("Message", *request->message));
   }
@@ -2441,6 +2444,9 @@ DeleteTimingSyntheticTaskResponse Alibabacloud_ARMS20190808::Client::deleteTimin
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->taskId)) {
     query->insert(pair<string, string>("TaskId", *request->taskId));
