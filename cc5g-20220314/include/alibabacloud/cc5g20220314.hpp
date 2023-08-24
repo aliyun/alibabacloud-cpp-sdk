@@ -5405,6 +5405,154 @@ public:
 
   virtual ~ListBatchOperateCardsTasksResponse() = default;
 };
+class ListCardAreaLimitSupportAreaRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> provinceName{};
+  shared_ptr<string> regionId{};
+
+  ListCardAreaLimitSupportAreaRequest() {}
+
+  explicit ListCardAreaLimitSupportAreaRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (provinceName) {
+      res["ProvinceName"] = boost::any(*provinceName);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("ProvinceName") != m.end() && !m["ProvinceName"].empty()) {
+      provinceName = make_shared<string>(boost::any_cast<string>(m["ProvinceName"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ListCardAreaLimitSupportAreaRequest() = default;
+};
+class ListCardAreaLimitSupportAreaResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> provinces{};
+  shared_ptr<string> requestId{};
+
+  ListCardAreaLimitSupportAreaResponseBody() {}
+
+  explicit ListCardAreaLimitSupportAreaResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (provinces) {
+      res["Provinces"] = boost::any(*provinces);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Provinces") != m.end() && !m["Provinces"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Provinces"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Provinces"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      provinces = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListCardAreaLimitSupportAreaResponseBody() = default;
+};
+class ListCardAreaLimitSupportAreaResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCardAreaLimitSupportAreaResponseBody> body{};
+
+  ListCardAreaLimitSupportAreaResponse() {}
+
+  explicit ListCardAreaLimitSupportAreaResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCardAreaLimitSupportAreaResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCardAreaLimitSupportAreaResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCardAreaLimitSupportAreaResponse() = default;
+};
 class ListCardDayUsagesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> iccids{};
@@ -9707,6 +9855,161 @@ public:
 
   virtual ~RemoveWirelessCloudConnectorFromGroupResponse() = default;
 };
+class ResetAreaLimitCardsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<vector<string>> iccids{};
+  shared_ptr<string> province{};
+  shared_ptr<string> regionId{};
+
+  ResetAreaLimitCardsRequest() {}
+
+  explicit ResetAreaLimitCardsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (iccids) {
+      res["Iccids"] = boost::any(*iccids);
+    }
+    if (province) {
+      res["Province"] = boost::any(*province);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("Iccids") != m.end() && !m["Iccids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Iccids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Iccids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      iccids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Province") != m.end() && !m["Province"].empty()) {
+      province = make_shared<string>(boost::any_cast<string>(m["Province"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ResetAreaLimitCardsRequest() = default;
+};
+class ResetAreaLimitCardsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ResetAreaLimitCardsResponseBody() {}
+
+  explicit ResetAreaLimitCardsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ResetAreaLimitCardsResponseBody() = default;
+};
+class ResetAreaLimitCardsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ResetAreaLimitCardsResponseBody> body{};
+
+  ResetAreaLimitCardsResponse() {}
+
+  explicit ResetAreaLimitCardsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResetAreaLimitCardsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResetAreaLimitCardsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResetAreaLimitCardsResponse() = default;
+};
 class ResumeCardsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -12039,6 +12342,8 @@ public:
   ListAuthorizationRulesResponse listAuthorizationRules(shared_ptr<ListAuthorizationRulesRequest> request);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasksWithOptions(shared_ptr<ListBatchOperateCardsTasksRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListBatchOperateCardsTasksResponse listBatchOperateCardsTasks(shared_ptr<ListBatchOperateCardsTasksRequest> request);
+  ListCardAreaLimitSupportAreaResponse listCardAreaLimitSupportAreaWithOptions(shared_ptr<ListCardAreaLimitSupportAreaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCardAreaLimitSupportAreaResponse listCardAreaLimitSupportArea(shared_ptr<ListCardAreaLimitSupportAreaRequest> request);
   ListCardDayUsagesResponse listCardDayUsagesWithOptions(shared_ptr<ListCardDayUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListCardDayUsagesResponse listCardDayUsages(shared_ptr<ListCardDayUsagesRequest> request);
   ListCardUsagesResponse listCardUsagesWithOptions(shared_ptr<ListCardUsagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -12073,6 +12378,8 @@ public:
   RebindCardsResponse rebindCards(shared_ptr<RebindCardsRequest> request);
   RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroupWithOptions(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RemoveWirelessCloudConnectorFromGroupResponse removeWirelessCloudConnectorFromGroup(shared_ptr<RemoveWirelessCloudConnectorFromGroupRequest> request);
+  ResetAreaLimitCardsResponse resetAreaLimitCardsWithOptions(shared_ptr<ResetAreaLimitCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResetAreaLimitCardsResponse resetAreaLimitCards(shared_ptr<ResetAreaLimitCardsRequest> request);
   ResumeCardsResponse resumeCardsWithOptions(shared_ptr<ResumeCardsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeCardsResponse resumeCards(shared_ptr<ResumeCardsRequest> request);
   RevokeNetLinkResponse revokeNetLinkWithOptions(shared_ptr<RevokeNetLinkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
