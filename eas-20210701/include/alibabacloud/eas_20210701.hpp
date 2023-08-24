@@ -379,6 +379,7 @@ public:
   shared_ptr<long> prePaidInstanceCount{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -424,6 +425,9 @@ public:
     }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -472,6 +476,9 @@ public:
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -1350,12 +1357,67 @@ public:
 
   virtual ~CreateBenchmarkTaskResponse() = default;
 };
+class CreateResourceRequestNodeTolerations : public Darabonba::Model {
+public:
+  shared_ptr<string> effect{};
+  shared_ptr<string> key{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> value{};
+
+  CreateResourceRequestNodeTolerations() {}
+
+  explicit CreateResourceRequestNodeTolerations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effect) {
+      res["effect"] = boost::any(*effect);
+    }
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (operator_) {
+      res["operator"] = boost::any(*operator_);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("effect") != m.end() && !m["effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["effect"]));
+    }
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("operator") != m.end() && !m["operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~CreateResourceRequestNodeTolerations() = default;
+};
 class CreateResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenewal{};
   shared_ptr<string> chargeType{};
   shared_ptr<long> ecsInstanceCount{};
   shared_ptr<string> ecsInstanceType{};
+  shared_ptr<string> externalClusterId{};
+  shared_ptr<map<string, string>> nodeMatchLabels{};
+  shared_ptr<vector<CreateResourceRequestNodeTolerations>> nodeTolerations{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> roleName{};
   shared_ptr<long> systemDiskSize{};
   shared_ptr<string> zone{};
 
@@ -1381,6 +1443,25 @@ public:
     if (ecsInstanceType) {
       res["EcsInstanceType"] = boost::any(*ecsInstanceType);
     }
+    if (externalClusterId) {
+      res["ExternalClusterId"] = boost::any(*externalClusterId);
+    }
+    if (nodeMatchLabels) {
+      res["NodeMatchLabels"] = boost::any(*nodeMatchLabels);
+    }
+    if (nodeTolerations) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeTolerations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeTolerations"] = boost::any(temp1);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
     if (systemDiskSize) {
       res["SystemDiskSize"] = boost::any(*systemDiskSize);
     }
@@ -1402,6 +1483,36 @@ public:
     }
     if (m.find("EcsInstanceType") != m.end() && !m["EcsInstanceType"].empty()) {
       ecsInstanceType = make_shared<string>(boost::any_cast<string>(m["EcsInstanceType"]));
+    }
+    if (m.find("ExternalClusterId") != m.end() && !m["ExternalClusterId"].empty()) {
+      externalClusterId = make_shared<string>(boost::any_cast<string>(m["ExternalClusterId"]));
+    }
+    if (m.find("NodeMatchLabels") != m.end() && !m["NodeMatchLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["NodeMatchLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      nodeMatchLabels = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("NodeTolerations") != m.end() && !m["NodeTolerations"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeTolerations"].type()) {
+        vector<CreateResourceRequestNodeTolerations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeTolerations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateResourceRequestNodeTolerations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeTolerations = make_shared<vector<CreateResourceRequestNodeTolerations>>(expect1);
+      }
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
     }
     if (m.find("SystemDiskSize") != m.end() && !m["SystemDiskSize"].empty()) {
       systemDiskSize = make_shared<long>(boost::any_cast<long>(m["SystemDiskSize"]));
@@ -4393,6 +4504,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -4445,6 +4557,9 @@ public:
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
@@ -4493,6 +4608,9 @@ public:
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -7375,6 +7493,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceName{};
+  shared_ptr<string> resourceType{};
 
   ListResourcesRequest() {}
 
@@ -7398,6 +7517,9 @@ public:
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     return res;
   }
 
@@ -7413,6 +7535,9 @@ public:
     }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
     }
   }
 
@@ -9258,8 +9383,60 @@ public:
 
   virtual ~UpdateBenchmarkTaskResponse() = default;
 };
+class UpdateResourceRequestNodeTolerations : public Darabonba::Model {
+public:
+  shared_ptr<string> effect{};
+  shared_ptr<string> key{};
+  shared_ptr<string> operator_{};
+  shared_ptr<string> value{};
+
+  UpdateResourceRequestNodeTolerations() {}
+
+  explicit UpdateResourceRequestNodeTolerations(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effect) {
+      res["effect"] = boost::any(*effect);
+    }
+    if (key) {
+      res["key"] = boost::any(*key);
+    }
+    if (operator_) {
+      res["operator"] = boost::any(*operator_);
+    }
+    if (value) {
+      res["value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("effect") != m.end() && !m["effect"].empty()) {
+      effect = make_shared<string>(boost::any_cast<string>(m["effect"]));
+    }
+    if (m.find("key") != m.end() && !m["key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["key"]));
+    }
+    if (m.find("operator") != m.end() && !m["operator"].empty()) {
+      operator_ = make_shared<string>(boost::any_cast<string>(m["operator"]));
+    }
+    if (m.find("value") != m.end() && !m["value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["value"]));
+    }
+  }
+
+
+  virtual ~UpdateResourceRequestNodeTolerations() = default;
+};
 class UpdateResourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> nodeMatchLabels{};
+  shared_ptr<vector<UpdateResourceRequestNodeTolerations>> nodeTolerations{};
   shared_ptr<string> resourceName{};
 
   UpdateResourceRequest() {}
@@ -9272,6 +9449,16 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (nodeMatchLabels) {
+      res["NodeMatchLabels"] = boost::any(*nodeMatchLabels);
+    }
+    if (nodeTolerations) {
+      vector<boost::any> temp1;
+      for(auto item1:*nodeTolerations){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["NodeTolerations"] = boost::any(temp1);
+    }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
@@ -9279,6 +9466,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NodeMatchLabels") != m.end() && !m["NodeMatchLabels"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["NodeMatchLabels"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      nodeMatchLabels = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("NodeTolerations") != m.end() && !m["NodeTolerations"].empty()) {
+      if (typeid(vector<boost::any>) == m["NodeTolerations"].type()) {
+        vector<UpdateResourceRequestNodeTolerations> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["NodeTolerations"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateResourceRequestNodeTolerations model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nodeTolerations = make_shared<vector<UpdateResourceRequestNodeTolerations>>(expect1);
+      }
+    }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }

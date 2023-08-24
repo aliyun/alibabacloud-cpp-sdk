@@ -124,6 +124,21 @@ CreateResourceResponse Alibabacloud_Eas20210701::Client::createResourceWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsInstanceType)) {
     body->insert(pair<string, string>("EcsInstanceType", *request->ecsInstanceType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->externalClusterId)) {
+    body->insert(pair<string, string>("ExternalClusterId", *request->externalClusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->nodeMatchLabels)) {
+    body->insert(pair<string, map<string, string>>("NodeMatchLabels", *request->nodeMatchLabels));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateResourceRequestNodeTolerations>>(request->nodeTolerations)) {
+    body->insert(pair<string, vector<CreateResourceRequestNodeTolerations>>("NodeTolerations", *request->nodeTolerations));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    body->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
+    body->insert(pair<string, string>("RoleName", *request->roleName));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->systemDiskSize)) {
     body->insert(pair<string, long>("SystemDiskSize", *request->systemDiskSize));
   }
@@ -1433,6 +1448,9 @@ ListResourcesResponse Alibabacloud_Eas20210701::Client::listResourcesWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1872,6 +1890,12 @@ UpdateResourceResponse Alibabacloud_Eas20210701::Client::updateResourceWithOptio
                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->nodeMatchLabels)) {
+    body->insert(pair<string, map<string, string>>("NodeMatchLabels", *request->nodeMatchLabels));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateResourceRequestNodeTolerations>>(request->nodeTolerations)) {
+    body->insert(pair<string, vector<UpdateResourceRequestNodeTolerations>>("NodeTolerations", *request->nodeTolerations));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     body->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
