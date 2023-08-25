@@ -961,6 +961,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> period{};
+  shared_ptr<long> provisionedIops{};
   shared_ptr<string> readonlyReplicas{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replicationFactor{};
@@ -1054,6 +1055,9 @@ public:
     }
     if (period) {
       res["Period"] = boost::any(*period);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
     }
     if (readonlyReplicas) {
       res["ReadonlyReplicas"] = boost::any(*readonlyReplicas);
@@ -1179,6 +1183,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
     }
     if (m.find("ReadonlyReplicas") != m.end() && !m["ReadonlyReplicas"].empty()) {
       readonlyReplicas = make_shared<string>(boost::any_cast<string>(m["ReadonlyReplicas"]));
@@ -2233,6 +2240,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<long> period{};
   shared_ptr<string> protocolType{};
+  shared_ptr<long> provisionedIops{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<CreateShardingDBInstanceRequestReplicaSet>> replicaSet{};
   shared_ptr<string> resourceGroupId{};
@@ -2321,6 +2329,9 @@ public:
     }
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -2455,6 +2466,9 @@ public:
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -7347,6 +7361,7 @@ public:
 };
 class DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstance : public Darabonba::Model {
 public:
+  shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> capacityUnit{};
   shared_ptr<string> chargeType{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceConfigserverList> configserverList{};
@@ -7377,6 +7392,7 @@ public:
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceMongosList> mongosList{};
   shared_ptr<string> networkType{};
   shared_ptr<string> protocolType{};
+  shared_ptr<long> provisionedIops{};
   shared_ptr<string> readonlyReplicas{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replacateId{};
@@ -7406,6 +7422,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (burstingEnabled) {
+      res["BurstingEnabled"] = boost::any(*burstingEnabled);
+    }
     if (capacityUnit) {
       res["CapacityUnit"] = boost::any(*capacityUnit);
     }
@@ -7496,6 +7515,9 @@ public:
     if (protocolType) {
       res["ProtocolType"] = boost::any(*protocolType);
     }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
+    }
     if (readonlyReplicas) {
       res["ReadonlyReplicas"] = boost::any(*readonlyReplicas);
     }
@@ -7554,6 +7576,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BurstingEnabled") != m.end() && !m["BurstingEnabled"].empty()) {
+      burstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["BurstingEnabled"]));
+    }
     if (m.find("CapacityUnit") != m.end() && !m["CapacityUnit"].empty()) {
       capacityUnit = make_shared<string>(boost::any_cast<string>(m["CapacityUnit"]));
     }
@@ -7651,6 +7676,9 @@ public:
     }
     if (m.find("ProtocolType") != m.end() && !m["ProtocolType"].empty()) {
       protocolType = make_shared<string>(boost::any_cast<string>(m["ProtocolType"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
     }
     if (m.find("ReadonlyReplicas") != m.end() && !m["ReadonlyReplicas"].empty()) {
       readonlyReplicas = make_shared<string>(boost::any_cast<string>(m["ReadonlyReplicas"]));
@@ -24597,6 +24625,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> period{};
+  shared_ptr<string> pricingCycle{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
@@ -24638,6 +24667,9 @@ public:
     if (period) {
       res["Period"] = boost::any(*period);
     }
+    if (pricingCycle) {
+      res["PricingCycle"] = boost::any(*pricingCycle);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -24677,6 +24709,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<long>(boost::any_cast<long>(m["Period"]));
+    }
+    if (m.find("PricingCycle") != m.end() && !m["PricingCycle"].empty()) {
+      pricingCycle = make_shared<string>(boost::any_cast<string>(m["PricingCycle"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));

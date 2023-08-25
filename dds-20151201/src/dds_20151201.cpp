@@ -355,6 +355,9 @@ CreateDBInstanceResponse Alibabacloud_Dds20151201::Client::createDBInstanceWithO
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->provisionedIops)) {
+    query->insert(pair<string, long>("ProvisionedIops", *request->provisionedIops));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->readonlyReplicas)) {
     query->insert(pair<string, string>("ReadonlyReplicas", *request->readonlyReplicas));
   }
@@ -679,6 +682,9 @@ CreateShardingDBInstanceResponse Alibabacloud_Dds20151201::Client::createShardin
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->protocolType)) {
     query->insert(pair<string, string>("ProtocolType", *request->protocolType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->provisionedIops)) {
+    query->insert(pair<string, long>("ProvisionedIops", *request->provisionedIops));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -5027,6 +5033,9 @@ TransformInstanceChargeTypeResponse Alibabacloud_Dds20151201::Client::transformI
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->period)) {
     query->insert(pair<string, long>("Period", *request->period));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pricingCycle)) {
+    query->insert(pair<string, string>("PricingCycle", *request->pricingCycle));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
