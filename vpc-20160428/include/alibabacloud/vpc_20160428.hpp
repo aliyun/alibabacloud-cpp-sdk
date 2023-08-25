@@ -75395,6 +75395,7 @@ public:
   shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<ListVpcEndpointServicesByEndUserResponseBodyServices>> services{};
+  shared_ptr<string> totalCount{};
 
   ListVpcEndpointServicesByEndUserResponseBody() {}
 
@@ -75422,6 +75423,9 @@ public:
       }
       res["Services"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
@@ -75447,6 +75451,9 @@ public:
         }
         services = make_shared<vector<ListVpcEndpointServicesByEndUserResponseBodyServices>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<string>(boost::any_cast<string>(m["TotalCount"]));
     }
   }
 
