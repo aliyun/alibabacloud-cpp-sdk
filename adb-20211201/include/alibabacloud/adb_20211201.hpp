@@ -2660,6 +2660,7 @@ public:
 };
 class CreateDBClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> backupSetId{};
   shared_ptr<string> computeResource{};
   shared_ptr<string> DBClusterDescription{};
   shared_ptr<string> DBClusterNetworkType{};
@@ -2669,6 +2670,9 @@ public:
   shared_ptr<string> period{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> restoreToTime{};
+  shared_ptr<string> restoreType{};
+  shared_ptr<string> sourceDbClusterId{};
   shared_ptr<string> storageResource{};
   shared_ptr<vector<CreateDBClusterRequestTag>> tag{};
   shared_ptr<string> usedTime{};
@@ -2686,6 +2690,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backupSetId) {
+      res["BackupSetId"] = boost::any(*backupSetId);
+    }
     if (computeResource) {
       res["ComputeResource"] = boost::any(*computeResource);
     }
@@ -2713,6 +2720,15 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (restoreToTime) {
+      res["RestoreToTime"] = boost::any(*restoreToTime);
+    }
+    if (restoreType) {
+      res["RestoreType"] = boost::any(*restoreType);
+    }
+    if (sourceDbClusterId) {
+      res["SourceDbClusterId"] = boost::any(*sourceDbClusterId);
+    }
     if (storageResource) {
       res["StorageResource"] = boost::any(*storageResource);
     }
@@ -2739,6 +2755,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupSetId") != m.end() && !m["BackupSetId"].empty()) {
+      backupSetId = make_shared<string>(boost::any_cast<string>(m["BackupSetId"]));
+    }
     if (m.find("ComputeResource") != m.end() && !m["ComputeResource"].empty()) {
       computeResource = make_shared<string>(boost::any_cast<string>(m["ComputeResource"]));
     }
@@ -2765,6 +2784,15 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("RestoreToTime") != m.end() && !m["RestoreToTime"].empty()) {
+      restoreToTime = make_shared<string>(boost::any_cast<string>(m["RestoreToTime"]));
+    }
+    if (m.find("RestoreType") != m.end() && !m["RestoreType"].empty()) {
+      restoreType = make_shared<string>(boost::any_cast<string>(m["RestoreType"]));
+    }
+    if (m.find("SourceDbClusterId") != m.end() && !m["SourceDbClusterId"].empty()) {
+      sourceDbClusterId = make_shared<string>(boost::any_cast<string>(m["SourceDbClusterId"]));
     }
     if (m.find("StorageResource") != m.end() && !m["StorageResource"].empty()) {
       storageResource = make_shared<string>(boost::any_cast<string>(m["StorageResource"]));

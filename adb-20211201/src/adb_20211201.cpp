@@ -224,6 +224,9 @@ CreateAccountResponse Alibabacloud_Adb20211201::Client::createAccount(shared_ptr
 CreateDBClusterResponse Alibabacloud_Adb20211201::Client::createDBClusterWithOptions(shared_ptr<CreateDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->backupSetId)) {
+    query->insert(pair<string, string>("BackupSetId", *request->backupSetId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->computeResource)) {
     query->insert(pair<string, string>("ComputeResource", *request->computeResource));
   }
@@ -250,6 +253,15 @@ CreateDBClusterResponse Alibabacloud_Adb20211201::Client::createDBClusterWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreToTime)) {
+    query->insert(pair<string, string>("RestoreToTime", *request->restoreToTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->restoreType)) {
+    query->insert(pair<string, string>("RestoreType", *request->restoreType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDbClusterId)) {
+    query->insert(pair<string, string>("SourceDbClusterId", *request->sourceDbClusterId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->storageResource)) {
     query->insert(pair<string, string>("StorageResource", *request->storageResource));
