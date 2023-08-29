@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_trusted_server_20200613Targets.cmake")
+check_required_components("alibabacloud_trusted_server_20200613")
