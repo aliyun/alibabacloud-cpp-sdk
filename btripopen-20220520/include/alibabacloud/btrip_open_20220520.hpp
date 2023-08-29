@@ -5828,6 +5828,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyAddRequestExternalTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<string> internationalFlightCabins{};
   shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
@@ -5860,6 +5861,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (internationalFlightCabins) {
+      res["international_flight_cabins"] = boost::any(*internationalFlightCabins);
     }
     if (premiumEconomyDiscount) {
       res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
@@ -5898,6 +5902,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyAddRequestExternalTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("international_flight_cabins") != m.end() && !m["international_flight_cabins"].empty()) {
+      internationalFlightCabins = make_shared<string>(boost::any_cast<string>(m["international_flight_cabins"]));
     }
     if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
       premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
@@ -6282,6 +6289,7 @@ public:
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
   shared_ptr<vector<ApplyAddRequestTravelerStandardHotelCitys>> hotelCitys{};
+  shared_ptr<string> internationalFlightCabins{};
   shared_ptr<long> premiumEconomyDiscount{};
   shared_ptr<long> reserveType{};
   shared_ptr<string> trainSeats{};
@@ -6315,6 +6323,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["hotel_citys"] = boost::any(temp1);
+    }
+    if (internationalFlightCabins) {
+      res["international_flight_cabins"] = boost::any(*internationalFlightCabins);
     }
     if (premiumEconomyDiscount) {
       res["premium_economy_discount"] = boost::any(*premiumEconomyDiscount);
@@ -6356,6 +6367,9 @@ public:
         }
         hotelCitys = make_shared<vector<ApplyAddRequestTravelerStandardHotelCitys>>(expect1);
       }
+    }
+    if (m.find("international_flight_cabins") != m.end() && !m["international_flight_cabins"].empty()) {
+      internationalFlightCabins = make_shared<string>(boost::any_cast<string>(m["international_flight_cabins"]));
     }
     if (m.find("premium_economy_discount") != m.end() && !m["premium_economy_discount"].empty()) {
       premiumEconomyDiscount = make_shared<long>(boost::any_cast<long>(m["premium_economy_discount"]));
