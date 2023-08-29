@@ -55,6 +55,7 @@ class AddDcdnDomainRequest : public Darabonba::Model {
 public:
   shared_ptr<string> checkUrl{};
   shared_ptr<string> domainName{};
+  shared_ptr<string> functionType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceGroupId{};
@@ -80,6 +81,9 @@ public:
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
+    }
+    if (functionType) {
+      res["FunctionType"] = boost::any(*functionType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -121,6 +125,9 @@ public:
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("FunctionType") != m.end() && !m["FunctionType"].empty()) {
+      functionType = make_shared<string>(boost::any_cast<string>(m["FunctionType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -1182,6 +1189,261 @@ public:
 
 
   virtual ~BatchModifyDcdnWafRulesResponse() = default;
+};
+class BatchPutDcdnKvRequestKvList : public Darabonba::Model {
+public:
+  shared_ptr<long> expiration{};
+  shared_ptr<long> expirationTtl{};
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  BatchPutDcdnKvRequestKvList() {}
+
+  explicit BatchPutDcdnKvRequestKvList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (expiration) {
+      res["Expiration"] = boost::any(*expiration);
+    }
+    if (expirationTtl) {
+      res["ExpirationTtl"] = boost::any(*expirationTtl);
+    }
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Expiration") != m.end() && !m["Expiration"].empty()) {
+      expiration = make_shared<long>(boost::any_cast<long>(m["Expiration"]));
+    }
+    if (m.find("ExpirationTtl") != m.end() && !m["ExpirationTtl"].empty()) {
+      expirationTtl = make_shared<long>(boost::any_cast<long>(m["ExpirationTtl"]));
+    }
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvRequestKvList() = default;
+};
+class BatchPutDcdnKvRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<BatchPutDcdnKvRequestKvList>> kvList{};
+  shared_ptr<string> namespace_{};
+
+  BatchPutDcdnKvRequest() {}
+
+  explicit BatchPutDcdnKvRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kvList) {
+      vector<boost::any> temp1;
+      for(auto item1:*kvList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["KvList"] = boost::any(temp1);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KvList") != m.end() && !m["KvList"].empty()) {
+      if (typeid(vector<boost::any>) == m["KvList"].type()) {
+        vector<BatchPutDcdnKvRequestKvList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["KvList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            BatchPutDcdnKvRequestKvList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        kvList = make_shared<vector<BatchPutDcdnKvRequestKvList>>(expect1);
+      }
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvRequest() = default;
+};
+class BatchPutDcdnKvShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> kvListShrink{};
+  shared_ptr<string> namespace_{};
+
+  BatchPutDcdnKvShrinkRequest() {}
+
+  explicit BatchPutDcdnKvShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kvListShrink) {
+      res["KvList"] = boost::any(*kvListShrink);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KvList") != m.end() && !m["KvList"].empty()) {
+      kvListShrink = make_shared<string>(boost::any_cast<string>(m["KvList"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvShrinkRequest() = default;
+};
+class BatchPutDcdnKvResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> failKeys{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<string>> successKeys{};
+
+  BatchPutDcdnKvResponseBody() {}
+
+  explicit BatchPutDcdnKvResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failKeys) {
+      res["FailKeys"] = boost::any(*failKeys);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (successKeys) {
+      res["SuccessKeys"] = boost::any(*successKeys);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailKeys") != m.end() && !m["FailKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["FailKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["FailKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      failKeys = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SuccessKeys") != m.end() && !m["SuccessKeys"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SuccessKeys"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SuccessKeys"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      successKeys = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvResponseBody() = default;
+};
+class BatchPutDcdnKvResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BatchPutDcdnKvResponseBody> body{};
+
+  BatchPutDcdnKvResponse() {}
+
+  explicit BatchPutDcdnKvResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BatchPutDcdnKvResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BatchPutDcdnKvResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BatchPutDcdnKvResponse() = default;
 };
 class BatchSetDcdnDomainCertificateRequest : public Darabonba::Model {
 public:
@@ -9824,6 +10086,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
+  shared_ptr<string> functionType{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> resourceGroupId{};
@@ -9854,6 +10117,9 @@ public:
     }
     if (domainStatus) {
       res["DomainStatus"] = boost::any(*domainStatus);
+    }
+    if (functionType) {
+      res["FunctionType"] = boost::any(*functionType);
     }
     if (gmtCreated) {
       res["GmtCreated"] = boost::any(*gmtCreated);
@@ -9894,6 +10160,9 @@ public:
     }
     if (m.find("DomainStatus") != m.end() && !m["DomainStatus"].empty()) {
       domainStatus = make_shared<string>(boost::any_cast<string>(m["DomainStatus"]));
+    }
+    if (m.find("FunctionType") != m.end() && !m["FunctionType"].empty()) {
+      functionType = make_shared<string>(boost::any_cast<string>(m["FunctionType"]));
     }
     if (m.find("GmtCreated") != m.end() && !m["GmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["GmtCreated"]));
@@ -28382,6 +28651,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityToken{};
   shared_ptr<vector<DescribeDcdnUserDomainsRequestTag>> tag{};
+  shared_ptr<string> webSiteType{};
 
   DescribeDcdnUserDomainsRequest() {}
 
@@ -28436,6 +28706,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (webSiteType) {
+      res["WebSiteType"] = boost::any(*webSiteType);
+    }
     return res;
   }
 
@@ -28488,6 +28761,9 @@ public:
         }
         tag = make_shared<vector<DescribeDcdnUserDomainsRequestTag>>(expect1);
       }
+    }
+    if (m.find("WebSiteType") != m.end() && !m["WebSiteType"].empty()) {
+      webSiteType = make_shared<string>(boost::any_cast<string>(m["WebSiteType"]));
     }
   }
 
@@ -28601,6 +28877,7 @@ public:
   shared_ptr<long> domainId{};
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
+  shared_ptr<string> functionType{};
   shared_ptr<string> gmtCreated{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> resourceGroupId{};
@@ -28633,6 +28910,9 @@ public:
     }
     if (domainStatus) {
       res["DomainStatus"] = boost::any(*domainStatus);
+    }
+    if (functionType) {
+      res["FunctionType"] = boost::any(*functionType);
     }
     if (gmtCreated) {
       res["GmtCreated"] = boost::any(*gmtCreated);
@@ -28673,6 +28953,9 @@ public:
     }
     if (m.find("DomainStatus") != m.end() && !m["DomainStatus"].empty()) {
       domainStatus = make_shared<string>(boost::any_cast<string>(m["DomainStatus"]));
+    }
+    if (m.find("FunctionType") != m.end() && !m["FunctionType"].empty()) {
+      functionType = make_shared<string>(boost::any_cast<string>(m["FunctionType"]));
     }
     if (m.find("GmtCreated") != m.end() && !m["GmtCreated"].empty()) {
       gmtCreated = make_shared<string>(boost::any_cast<string>(m["GmtCreated"]));
@@ -37490,6 +37773,138 @@ public:
 
   virtual ~DescribeRoutineCodeRevisionResponse() = default;
 };
+class DescribeRoutineRelatedDomainsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+
+  DescribeRoutineRelatedDomainsRequest() {}
+
+  explicit DescribeRoutineRelatedDomainsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~DescribeRoutineRelatedDomainsRequest() = default;
+};
+class DescribeRoutineRelatedDomainsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<map<string, boost::any>> content{};
+  shared_ptr<string> requestId{};
+
+  DescribeRoutineRelatedDomainsResponseBody() {}
+
+  explicit DescribeRoutineRelatedDomainsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Content"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      content = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeRoutineRelatedDomainsResponseBody() = default;
+};
+class DescribeRoutineRelatedDomainsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeRoutineRelatedDomainsResponseBody> body{};
+
+  DescribeRoutineRelatedDomainsResponse() {}
+
+  explicit DescribeRoutineRelatedDomainsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeRoutineRelatedDomainsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeRoutineRelatedDomainsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeRoutineRelatedDomainsResponse() = default;
+};
 class DescribeRoutineSpecResponseBody : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> content{};
@@ -44456,6 +44871,8 @@ public:
   BatchDeleteDcdnWafRulesResponse batchDeleteDcdnWafRules(shared_ptr<BatchDeleteDcdnWafRulesRequest> request);
   BatchModifyDcdnWafRulesResponse batchModifyDcdnWafRulesWithOptions(shared_ptr<BatchModifyDcdnWafRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchModifyDcdnWafRulesResponse batchModifyDcdnWafRules(shared_ptr<BatchModifyDcdnWafRulesRequest> request);
+  BatchPutDcdnKvResponse batchPutDcdnKvWithOptions(shared_ptr<BatchPutDcdnKvRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BatchPutDcdnKvResponse batchPutDcdnKv(shared_ptr<BatchPutDcdnKvRequest> request);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificateWithOptions(shared_ptr<BatchSetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BatchSetDcdnDomainCertificateResponse batchSetDcdnDomainCertificate(shared_ptr<BatchSetDcdnDomainCertificateRequest> request);
   BatchSetDcdnDomainConfigsResponse batchSetDcdnDomainConfigsWithOptions(shared_ptr<BatchSetDcdnDomainConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -44770,6 +45187,8 @@ public:
   DescribeRoutineCanaryEnvsResponse describeRoutineCanaryEnvs();
   DescribeRoutineCodeRevisionResponse describeRoutineCodeRevisionWithOptions(shared_ptr<DescribeRoutineCodeRevisionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRoutineCodeRevisionResponse describeRoutineCodeRevision(shared_ptr<DescribeRoutineCodeRevisionRequest> request);
+  DescribeRoutineRelatedDomainsResponse describeRoutineRelatedDomainsWithOptions(shared_ptr<DescribeRoutineRelatedDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeRoutineRelatedDomainsResponse describeRoutineRelatedDomains(shared_ptr<DescribeRoutineRelatedDomainsRequest> request);
   DescribeRoutineSpecResponse describeRoutineSpecWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRoutineSpecResponse describeRoutineSpec();
   DescribeRoutineUserInfoResponse describeRoutineUserInfoWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

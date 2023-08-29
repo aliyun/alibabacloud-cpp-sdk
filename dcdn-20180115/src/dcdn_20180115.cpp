@@ -104,6 +104,9 @@ AddDcdnDomainResponse Alibabacloud_Dcdn20180115::Client::addDcdnDomainWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->functionType)) {
+    query->insert(pair<string, string>("FunctionType", *request->functionType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -388,6 +391,42 @@ BatchModifyDcdnWafRulesResponse Alibabacloud_Dcdn20180115::Client::batchModifyDc
 BatchModifyDcdnWafRulesResponse Alibabacloud_Dcdn20180115::Client::batchModifyDcdnWafRules(shared_ptr<BatchModifyDcdnWafRulesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return batchModifyDcdnWafRulesWithOptions(request, runtime);
+}
+
+BatchPutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKvWithOptions(shared_ptr<BatchPutDcdnKvRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<BatchPutDcdnKvShrinkRequest> request = make_shared<BatchPutDcdnKvShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<BatchPutDcdnKvRequestKvList>>(tmpReq->kvList)) {
+    request->kvListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->kvList, make_shared<string>("KvList"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->kvListShrink)) {
+    query->insert(pair<string, string>("KvList", *request->kvListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    query->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchPutDcdnKv"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchPutDcdnKvResponse(callApi(params, req, runtime));
+}
+
+BatchPutDcdnKvResponse Alibabacloud_Dcdn20180115::Client::batchPutDcdnKv(shared_ptr<BatchPutDcdnKvRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchPutDcdnKvWithOptions(request, runtime);
 }
 
 BatchSetDcdnDomainCertificateResponse Alibabacloud_Dcdn20180115::Client::batchSetDcdnDomainCertificateWithOptions(shared_ptr<BatchSetDcdnDomainCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4463,6 +4502,9 @@ DescribeDcdnUserDomainsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnU
   if (!Darabonba_Util::Client::isUnset<vector<DescribeDcdnUserDomainsRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeDcdnUserDomainsRequestTag>>("Tag", *request->tag));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->webSiteType)) {
+    query->insert(pair<string, string>("WebSiteType", *request->webSiteType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5661,6 +5703,34 @@ DescribeRoutineCodeRevisionResponse Alibabacloud_Dcdn20180115::Client::describeR
 DescribeRoutineCodeRevisionResponse Alibabacloud_Dcdn20180115::Client::describeRoutineCodeRevision(shared_ptr<DescribeRoutineCodeRevisionRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeRoutineCodeRevisionWithOptions(request, runtime);
+}
+
+DescribeRoutineRelatedDomainsResponse Alibabacloud_Dcdn20180115::Client::describeRoutineRelatedDomainsWithOptions(shared_ptr<DescribeRoutineRelatedDomainsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeRoutineRelatedDomains"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeRoutineRelatedDomainsResponse(callApi(params, req, runtime));
+}
+
+DescribeRoutineRelatedDomainsResponse Alibabacloud_Dcdn20180115::Client::describeRoutineRelatedDomains(shared_ptr<DescribeRoutineRelatedDomainsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeRoutineRelatedDomainsWithOptions(request, runtime);
 }
 
 DescribeRoutineSpecResponse Alibabacloud_Dcdn20180115::Client::describeRoutineSpecWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
