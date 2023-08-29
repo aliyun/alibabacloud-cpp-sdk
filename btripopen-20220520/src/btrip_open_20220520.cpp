@@ -267,10 +267,6 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestTravelerStandard>>(tmpReq->travelerStandard)) {
     request->travelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->travelerStandard, make_shared<string>("traveler_standard"), make_shared<string>("json")));
   }
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->internationalFlightCabins)) {
-    query->insert(pair<string, string>("international_flight_cabins", *request->internationalFlightCabins));
-  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->budget)) {
     body->insert(pair<string, long>("budget", *request->budget));
@@ -304,6 +300,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->hotelShareShrink)) {
     body->insert(pair<string, string>("hotel_share", *request->hotelShareShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internationalFlightCabins)) {
+    body->insert(pair<string, string>("international_flight_cabins", *request->internationalFlightCabins));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryListShrink)) {
     body->insert(pair<string, string>("itinerary_list", *request->itineraryListShrink));
@@ -377,7 +376,6 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
