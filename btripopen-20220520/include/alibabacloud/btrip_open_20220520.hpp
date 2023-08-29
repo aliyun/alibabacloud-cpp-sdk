@@ -31839,11 +31839,55 @@ public:
 
   virtual ~FlightModifyOrderDetailV2ResponseBodyModuleDestFlightInfoDTOS() = default;
 };
+class FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee : public Darabonba::Model {
+public:
+  shared_ptr<long> changeFee{};
+  shared_ptr<long> serviceFee{};
+  shared_ptr<long> upgradePrice{};
+
+  FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee() {}
+
+  explicit FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (changeFee) {
+      res["change_fee"] = boost::any(*changeFee);
+    }
+    if (serviceFee) {
+      res["service_fee"] = boost::any(*serviceFee);
+    }
+    if (upgradePrice) {
+      res["upgrade_price"] = boost::any(*upgradePrice);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("change_fee") != m.end() && !m["change_fee"].empty()) {
+      changeFee = make_shared<long>(boost::any_cast<long>(m["change_fee"]));
+    }
+    if (m.find("service_fee") != m.end() && !m["service_fee"].empty()) {
+      serviceFee = make_shared<long>(boost::any_cast<long>(m["service_fee"]));
+    }
+    if (m.find("upgrade_price") != m.end() && !m["upgrade_price"].empty()) {
+      upgradePrice = make_shared<long>(boost::any_cast<long>(m["upgrade_price"]));
+    }
+  }
+
+
+  virtual ~FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee() = default;
+};
 class FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOS : public Darabonba::Model {
 public:
   shared_ptr<string> birthDate{};
   shared_ptr<string> certNo{};
   shared_ptr<long> certType{};
+  shared_ptr<FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee> changeFee{};
   shared_ptr<long> gender{};
   shared_ptr<vector<string>> originTicketNos{};
   shared_ptr<string> passengerId{};
@@ -31871,6 +31915,9 @@ public:
     }
     if (certType) {
       res["cert_type"] = boost::any(*certType);
+    }
+    if (changeFee) {
+      res["change_fee"] = changeFee ? boost::any(changeFee->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (gender) {
       res["gender"] = boost::any(*gender);
@@ -31908,6 +31955,13 @@ public:
     }
     if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
       certType = make_shared<long>(boost::any_cast<long>(m["cert_type"]));
+    }
+    if (m.find("change_fee") != m.end() && !m["change_fee"].empty()) {
+      if (typeid(map<string, boost::any>) == m["change_fee"].type()) {
+        FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["change_fee"]));
+        changeFee = make_shared<FlightModifyOrderDetailV2ResponseBodyModuleTravelerInfoDTOSChangeFee>(model1);
+      }
     }
     if (m.find("gender") != m.end() && !m["gender"].empty()) {
       gender = make_shared<long>(boost::any_cast<long>(m["gender"]));
