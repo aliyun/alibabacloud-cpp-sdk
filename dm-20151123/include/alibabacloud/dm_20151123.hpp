@@ -2730,6 +2730,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
   shared_ptr<string> domainType{};
+  shared_ptr<string> hostRecord{};
   shared_ptr<string> icpStatus{};
   shared_ptr<string> mxAuthStatus{};
   shared_ptr<string> mxRecord{};
@@ -2794,6 +2795,9 @@ public:
     }
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
+    }
+    if (hostRecord) {
+      res["HostRecord"] = boost::any(*hostRecord);
     }
     if (icpStatus) {
       res["IcpStatus"] = boost::any(*icpStatus);
@@ -2870,6 +2874,9 @@ public:
     }
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("HostRecord") != m.end() && !m["HostRecord"].empty()) {
+      hostRecord = make_shared<string>(boost::any_cast<string>(m["HostRecord"]));
     }
     if (m.find("IcpStatus") != m.end() && !m["IcpStatus"].empty()) {
       icpStatus = make_shared<string>(boost::any_cast<string>(m["IcpStatus"]));
