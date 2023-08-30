@@ -177,6 +177,35 @@ CreateTriggerResponse Alibabacloud_FC20230330::Client::createTrigger(shared_ptr<
   return createTriggerWithOptions(functionName, request, headers, runtime);
 }
 
+CreateVpcBindingResponse Alibabacloud_FC20230330::Client::createVpcBindingWithOptions(shared_ptr<string> functionName,
+                                                                                      shared_ptr<CreateVpcBindingRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateVpcBinding"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/vpc-bindings"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return CreateVpcBindingResponse(callApi(params, req, runtime));
+}
+
+CreateVpcBindingResponse Alibabacloud_FC20230330::Client::createVpcBinding(shared_ptr<string> functionName, shared_ptr<CreateVpcBindingRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createVpcBindingWithOptions(functionName, request, headers, runtime);
+}
+
 DeleteAliasResponse Alibabacloud_FC20230330::Client::deleteAliasWithOptions(shared_ptr<string> functionName,
                                                                             shared_ptr<string> aliasName,
                                                                             shared_ptr<map<string, string>> headers,
@@ -310,7 +339,7 @@ DeleteFunctionResponse Alibabacloud_FC20230330::Client::deleteFunction(shared_pt
 }
 
 DeleteFunctionVersionResponse Alibabacloud_FC20230330::Client::deleteFunctionVersionWithOptions(shared_ptr<string> functionName,
-                                                                                                shared_ptr<string> versionID,
+                                                                                                shared_ptr<string> versionId,
                                                                                                 shared_ptr<map<string, string>> headers,
                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -320,7 +349,7 @@ DeleteFunctionVersionResponse Alibabacloud_FC20230330::Client::deleteFunctionVer
     {"action", boost::any(string("DeleteFunctionVersion"))},
     {"version", boost::any(string("2023-03-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(versionID)))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/versions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(versionId)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -330,10 +359,10 @@ DeleteFunctionVersionResponse Alibabacloud_FC20230330::Client::deleteFunctionVer
   return DeleteFunctionVersionResponse(callApi(params, req, runtime));
 }
 
-DeleteFunctionVersionResponse Alibabacloud_FC20230330::Client::deleteFunctionVersion(shared_ptr<string> functionName, shared_ptr<string> versionID) {
+DeleteFunctionVersionResponse Alibabacloud_FC20230330::Client::deleteFunctionVersion(shared_ptr<string> functionName, shared_ptr<string> versionId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return deleteFunctionVersionWithOptions(functionName, versionID, headers, runtime);
+  return deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
 }
 
 DeleteLayerVersionResponse Alibabacloud_FC20230330::Client::deleteLayerVersionWithOptions(shared_ptr<string> layerName,
@@ -421,6 +450,33 @@ DeleteTriggerResponse Alibabacloud_FC20230330::Client::deleteTrigger(shared_ptr<
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
+}
+
+DeleteVpcBindingResponse Alibabacloud_FC20230330::Client::deleteVpcBindingWithOptions(shared_ptr<string> functionName,
+                                                                                      shared_ptr<string> vpcId,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteVpcBinding"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/vpc-bindings/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(vpcId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return DeleteVpcBindingResponse(callApi(params, req, runtime));
+}
+
+DeleteVpcBindingResponse Alibabacloud_FC20230330::Client::deleteVpcBinding(shared_ptr<string> functionName, shared_ptr<string> vpcId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
 }
 
 GetAliasResponse Alibabacloud_FC20230330::Client::getAliasWithOptions(shared_ptr<string> functionName,
@@ -1241,6 +1297,30 @@ ListTriggersResponse Alibabacloud_FC20230330::Client::listTriggers(shared_ptr<st
   return listTriggersWithOptions(functionName, request, headers, runtime);
 }
 
+ListVpcBindingsResponse Alibabacloud_FC20230330::Client::listVpcBindingsWithOptions(shared_ptr<string> functionName, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListVpcBindings"))},
+    {"version", boost::any(string("2023-03-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/2023-03-30/functions/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(functionName)) + string("/vpc-bindings"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListVpcBindingsResponse(callApi(params, req, runtime));
+}
+
+ListVpcBindingsResponse Alibabacloud_FC20230330::Client::listVpcBindings(shared_ptr<string> functionName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listVpcBindingsWithOptions(functionName, headers, runtime);
+}
+
 PublishFunctionVersionResponse Alibabacloud_FC20230330::Client::publishFunctionVersionWithOptions(shared_ptr<string> functionName,
                                                                                                   shared_ptr<PublishFunctionVersionRequest> request,
                                                                                                   shared_ptr<map<string, string>> headers,
@@ -1415,7 +1495,7 @@ TagResourceResponse Alibabacloud_FC20230330::Client::tagResourceWithOptions(shar
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return TagResourceResponse(callApi(params, req, runtime));
 }
