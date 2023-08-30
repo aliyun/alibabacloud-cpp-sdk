@@ -2346,6 +2346,7 @@ class GetPrivateAccessApplicationResponseBodyApplication : public Darabonba::Mod
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -2370,6 +2371,9 @@ public:
     }
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (connectorIds) {
+      res["ConnectorIds"] = boost::any(*connectorIds);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -2415,6 +2419,16 @@ public:
     }
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ConnectorIds") != m.end() && !m["ConnectorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ConnectorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ConnectorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      connectorIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
@@ -3925,6 +3939,56 @@ public:
 
   virtual ~ListConnectorsResponseBodyConnectorsApplications() = default;
 };
+class ListConnectorsResponseBodyConnectorsConnectorClients : public Darabonba::Model {
+public:
+  shared_ptr<string> connectionStatus{};
+  shared_ptr<string> devTag{};
+  shared_ptr<string> hostname{};
+  shared_ptr<string> publicIp{};
+
+  ListConnectorsResponseBodyConnectorsConnectorClients() {}
+
+  explicit ListConnectorsResponseBodyConnectorsConnectorClients(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectionStatus) {
+      res["ConnectionStatus"] = boost::any(*connectionStatus);
+    }
+    if (devTag) {
+      res["DevTag"] = boost::any(*devTag);
+    }
+    if (hostname) {
+      res["Hostname"] = boost::any(*hostname);
+    }
+    if (publicIp) {
+      res["PublicIp"] = boost::any(*publicIp);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
+      connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
+    }
+    if (m.find("DevTag") != m.end() && !m["DevTag"].empty()) {
+      devTag = make_shared<string>(boost::any_cast<string>(m["DevTag"]));
+    }
+    if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
+      hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("PublicIp") != m.end() && !m["PublicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["PublicIp"]));
+    }
+  }
+
+
+  virtual ~ListConnectorsResponseBodyConnectorsConnectorClients() = default;
+};
 class ListConnectorsResponseBodyConnectorsUpgradeTime : public Darabonba::Model {
 public:
   shared_ptr<string> end{};
@@ -3964,6 +4028,7 @@ public:
 class ListConnectorsResponseBodyConnectors : public Darabonba::Model {
 public:
   shared_ptr<vector<ListConnectorsResponseBodyConnectorsApplications>> applications{};
+  shared_ptr<vector<ListConnectorsResponseBodyConnectorsConnectorClients>> connectorClients{};
   shared_ptr<string> connectorId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> name{};
@@ -3988,6 +4053,13 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Applications"] = boost::any(temp1);
+    }
+    if (connectorClients) {
+      vector<boost::any> temp1;
+      for(auto item1:*connectorClients){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ConnectorClients"] = boost::any(temp1);
     }
     if (connectorId) {
       res["ConnectorId"] = boost::any(*connectorId);
@@ -4025,6 +4097,19 @@ public:
           }
         }
         applications = make_shared<vector<ListConnectorsResponseBodyConnectorsApplications>>(expect1);
+      }
+    }
+    if (m.find("ConnectorClients") != m.end() && !m["ConnectorClients"].empty()) {
+      if (typeid(vector<boost::any>) == m["ConnectorClients"].type()) {
+        vector<ListConnectorsResponseBodyConnectorsConnectorClients> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ConnectorClients"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListConnectorsResponseBodyConnectorsConnectorClients model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        connectorClients = make_shared<vector<ListConnectorsResponseBodyConnectorsConnectorClients>>(expect1);
       }
     }
     if (m.find("ConnectorId") != m.end() && !m["ConnectorId"].empty()) {
@@ -5586,6 +5671,7 @@ class ListPrivateAccessApplicationsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> address{};
   shared_ptr<vector<string>> applicationIds{};
+  shared_ptr<string> connectorId{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> name{};
   shared_ptr<long> pageSize{};
@@ -5608,6 +5694,9 @@ public:
     }
     if (applicationIds) {
       res["ApplicationIds"] = boost::any(*applicationIds);
+    }
+    if (connectorId) {
+      res["ConnectorId"] = boost::any(*connectorId);
     }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
@@ -5643,6 +5732,9 @@ public:
         }
       }
       applicationIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ConnectorId") != m.end() && !m["ConnectorId"].empty()) {
+      connectorId = make_shared<string>(boost::any_cast<string>(m["ConnectorId"]));
     }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
@@ -5707,6 +5799,7 @@ class ListPrivateAccessApplicationsResponseBodyApplications : public Darabonba::
 public:
   shared_ptr<vector<string>> addresses{};
   shared_ptr<string> applicationId{};
+  shared_ptr<vector<string>> connectorIds{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
@@ -5731,6 +5824,9 @@ public:
     }
     if (applicationId) {
       res["ApplicationId"] = boost::any(*applicationId);
+    }
+    if (connectorIds) {
+      res["ConnectorIds"] = boost::any(*connectorIds);
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
@@ -5776,6 +5872,16 @@ public:
     }
     if (m.find("ApplicationId") != m.end() && !m["ApplicationId"].empty()) {
       applicationId = make_shared<string>(boost::any_cast<string>(m["ApplicationId"]));
+    }
+    if (m.find("ConnectorIds") != m.end() && !m["ConnectorIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ConnectorIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ConnectorIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      connectorIds = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
