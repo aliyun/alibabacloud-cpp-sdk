@@ -3513,6 +3513,34 @@ DescribeDcdnIpInfoResponse Alibabacloud_Dcdn20180115::Client::describeDcdnIpInfo
   return describeDcdnIpInfoWithOptions(request, runtime);
 }
 
+DescribeDcdnIpaDomainCidrResponse Alibabacloud_Dcdn20180115::Client::describeDcdnIpaDomainCidrWithOptions(shared_ptr<DescribeDcdnIpaDomainCidrRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDcdnIpaDomainCidr"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDcdnIpaDomainCidrResponse(callApi(params, req, runtime));
+}
+
+DescribeDcdnIpaDomainCidrResponse Alibabacloud_Dcdn20180115::Client::describeDcdnIpaDomainCidr(shared_ptr<DescribeDcdnIpaDomainCidrRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDcdnIpaDomainCidrWithOptions(request, runtime);
+}
+
 DescribeDcdnIpaDomainConfigsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnIpaDomainConfigsWithOptions(shared_ptr<DescribeDcdnIpaDomainConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
