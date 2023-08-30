@@ -29,6 +29,7 @@ public:
   shared_ptr<string> securityToken{};
   shared_ptr<long> shardCount{};
   shared_ptr<string> sourceBiz{};
+  shared_ptr<string> vSwitchId{};
 
   AddShardingNodeRequest() {}
 
@@ -76,6 +77,9 @@ public:
     if (sourceBiz) {
       res["SourceBiz"] = boost::any(*sourceBiz);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
     return res;
   }
 
@@ -115,6 +119,9 @@ public:
     }
     if (m.find("SourceBiz") != m.end() && !m["SourceBiz"].empty()) {
       sourceBiz = make_shared<string>(boost::any_cast<string>(m["SourceBiz"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
     }
   }
 
@@ -1731,6 +1738,7 @@ public:
   shared_ptr<string> nodeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> paramGroupId{};
   shared_ptr<string> password{};
   shared_ptr<string> period{};
   shared_ptr<string> port{};
@@ -1829,6 +1837,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (paramGroupId) {
+      res["ParamGroupId"] = boost::any(*paramGroupId);
     }
     if (password) {
       res["Password"] = boost::any(*password);
@@ -1963,6 +1974,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ParamGroupId") != m.end() && !m["ParamGroupId"].empty()) {
+      paramGroupId = make_shared<string>(boost::any_cast<string>(m["ParamGroupId"]));
     }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));

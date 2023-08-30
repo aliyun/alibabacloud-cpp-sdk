@@ -125,6 +125,9 @@ AddShardingNodeResponse Alibabacloud_R-kvstore20150101::Client::addShardingNodeW
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceBiz)) {
     query->insert(pair<string, string>("SourceBiz", *request->sourceBiz));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
+    query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -604,6 +607,9 @@ CreateInstanceResponse Alibabacloud_R-kvstore20150101::Client::createInstanceWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->paramGroupId)) {
+    query->insert(pair<string, string>("ParamGroupId", *request->paramGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     query->insert(pair<string, string>("Password", *request->password));
