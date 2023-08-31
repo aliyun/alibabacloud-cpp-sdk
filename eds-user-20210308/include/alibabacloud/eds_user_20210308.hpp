@@ -761,6 +761,7 @@ public:
 };
 class CreateUsersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoLockTime{};
   shared_ptr<string> password{};
   shared_ptr<vector<CreateUsersRequestUsers>> users{};
 
@@ -774,6 +775,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoLockTime) {
+      res["AutoLockTime"] = boost::any(*autoLockTime);
+    }
     if (password) {
       res["Password"] = boost::any(*password);
     }
@@ -788,6 +792,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoLockTime") != m.end() && !m["AutoLockTime"].empty()) {
+      autoLockTime = make_shared<string>(boost::any_cast<string>(m["AutoLockTime"]));
+    }
     if (m.find("Password") != m.end() && !m["Password"].empty()) {
       password = make_shared<string>(boost::any_cast<string>(m["Password"]));
     }
@@ -4861,6 +4868,7 @@ public:
 };
 class UnlockUsersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> autoLockTime{};
   shared_ptr<vector<string>> users{};
 
   UnlockUsersRequest() {}
@@ -4873,6 +4881,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoLockTime) {
+      res["AutoLockTime"] = boost::any(*autoLockTime);
+    }
     if (users) {
       res["Users"] = boost::any(*users);
     }
@@ -4880,6 +4891,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoLockTime") != m.end() && !m["AutoLockTime"].empty()) {
+      autoLockTime = make_shared<string>(boost::any_cast<string>(m["AutoLockTime"]));
+    }
     if (m.find("Users") != m.end() && !m["Users"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Users"].type()) {

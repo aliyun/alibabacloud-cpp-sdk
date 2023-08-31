@@ -130,6 +130,10 @@ CreatePropertyResponse Alibabacloud_Eds-user20210308::Client::createProperty(sha
 
 CreateUsersResponse Alibabacloud_Eds-user20210308::Client::createUsersWithOptions(shared_ptr<CreateUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoLockTime)) {
+    query->insert(pair<string, string>("AutoLockTime", *request->autoLockTime));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
     body->insert(pair<string, string>("Password", *request->password));
@@ -138,6 +142,7 @@ CreateUsersResponse Alibabacloud_Eds-user20210308::Client::createUsersWithOption
     body->insert(pair<string, vector<CreateUsersRequestUsers>>("Users", *request->users));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -713,11 +718,16 @@ UnlockMfaDeviceResponse Alibabacloud_Eds-user20210308::Client::unlockMfaDevice(s
 
 UnlockUsersResponse Alibabacloud_Eds-user20210308::Client::unlockUsersWithOptions(shared_ptr<UnlockUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->autoLockTime)) {
+    query->insert(pair<string, string>("AutoLockTime", *request->autoLockTime));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->users)) {
     body->insert(pair<string, vector<string>>("Users", *request->users));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
