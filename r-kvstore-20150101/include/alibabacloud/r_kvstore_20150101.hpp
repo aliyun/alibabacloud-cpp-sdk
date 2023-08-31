@@ -5995,6 +5995,7 @@ class DescribeBackupPolicyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<DescribeBackupPolicyResponseBodyAccessDeniedDetail> accessDeniedDetail{};
   shared_ptr<string> backupRetentionPeriod{};
+  shared_ptr<string> dbsInstance{};
   shared_ptr<long> enableBackupLog{};
   shared_ptr<string> preferredBackupPeriod{};
   shared_ptr<string> preferredBackupTime{};
@@ -6016,6 +6017,9 @@ public:
     }
     if (backupRetentionPeriod) {
       res["BackupRetentionPeriod"] = boost::any(*backupRetentionPeriod);
+    }
+    if (dbsInstance) {
+      res["DbsInstance"] = boost::any(*dbsInstance);
     }
     if (enableBackupLog) {
       res["EnableBackupLog"] = boost::any(*enableBackupLog);
@@ -6045,6 +6049,9 @@ public:
     }
     if (m.find("BackupRetentionPeriod") != m.end() && !m["BackupRetentionPeriod"].empty()) {
       backupRetentionPeriod = make_shared<string>(boost::any_cast<string>(m["BackupRetentionPeriod"]));
+    }
+    if (m.find("DbsInstance") != m.end() && !m["DbsInstance"].empty()) {
+      dbsInstance = make_shared<string>(boost::any_cast<string>(m["DbsInstance"]));
     }
     if (m.find("EnableBackupLog") != m.end() && !m["EnableBackupLog"].empty()) {
       enableBackupLog = make_shared<long>(boost::any_cast<long>(m["EnableBackupLog"]));
