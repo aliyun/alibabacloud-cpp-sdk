@@ -3353,6 +3353,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceInstanceId{};
   shared_ptr<string> serviceVersion{};
+  shared_ptr<string> specificationName{};
   shared_ptr<string> templateName{};
 
   GetServiceEstimateCostRequest() {}
@@ -3382,6 +3383,9 @@ public:
     }
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
+    }
+    if (specificationName) {
+      res["SpecificationName"] = boost::any(*specificationName);
     }
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
@@ -3413,6 +3417,9 @@ public:
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
     }
+    if (m.find("SpecificationName") != m.end() && !m["SpecificationName"].empty()) {
+      specificationName = make_shared<string>(boost::any_cast<string>(m["SpecificationName"]));
+    }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
     }
@@ -3429,6 +3436,7 @@ public:
   shared_ptr<string> serviceId{};
   shared_ptr<string> serviceInstanceId{};
   shared_ptr<string> serviceVersion{};
+  shared_ptr<string> specificationName{};
   shared_ptr<string> templateName{};
 
   GetServiceEstimateCostShrinkRequest() {}
@@ -3459,6 +3467,9 @@ public:
     if (serviceVersion) {
       res["ServiceVersion"] = boost::any(*serviceVersion);
     }
+    if (specificationName) {
+      res["SpecificationName"] = boost::any(*specificationName);
+    }
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
     }
@@ -3483,6 +3494,9 @@ public:
     }
     if (m.find("ServiceVersion") != m.end() && !m["ServiceVersion"].empty()) {
       serviceVersion = make_shared<string>(boost::any_cast<string>(m["ServiceVersion"]));
+    }
+    if (m.find("SpecificationName") != m.end() && !m["SpecificationName"].empty()) {
+      specificationName = make_shared<string>(boost::any_cast<string>(m["SpecificationName"]));
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));

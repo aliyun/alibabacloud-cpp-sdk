@@ -562,6 +562,9 @@ GetServiceEstimateCostResponse Alibabacloud_ComputeNestSupplier20210521::Client:
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceVersion)) {
     query->insert(pair<string, string>("ServiceVersion", *request->serviceVersion));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specificationName)) {
+    query->insert(pair<string, string>("SpecificationName", *request->specificationName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
     query->insert(pair<string, string>("TemplateName", *request->templateName));
   }
