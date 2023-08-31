@@ -16,6 +16,7 @@ using namespace std;
 namespace Alibabacloud_Nis20211216 {
 class CreateAndAnalyzeNetworkPathRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> auditParam{};
   shared_ptr<string> protocol{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sourceId{};
@@ -37,6 +38,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (auditParam) {
+      res["AuditParam"] = boost::any(*auditParam);
+    }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
@@ -71,6 +75,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditParam") != m.end() && !m["AuditParam"].empty()) {
+      auditParam = make_shared<string>(boost::any_cast<string>(m["AuditParam"]));
+    }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
@@ -566,6 +573,7 @@ public:
 };
 class CreateNetworkReachableAnalysisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> auditParam{};
   shared_ptr<string> networkPathId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<CreateNetworkReachableAnalysisRequestTag>> tag{};
@@ -580,6 +588,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (auditParam) {
+      res["AuditParam"] = boost::any(*auditParam);
+    }
     if (networkPathId) {
       res["NetworkPathId"] = boost::any(*networkPathId);
     }
@@ -597,6 +608,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditParam") != m.end() && !m["AuditParam"].empty()) {
+      auditParam = make_shared<string>(boost::any_cast<string>(m["AuditParam"]));
+    }
     if (m.find("NetworkPathId") != m.end() && !m["NetworkPathId"].empty()) {
       networkPathId = make_shared<string>(boost::any_cast<string>(m["NetworkPathId"]));
     }
@@ -2234,6 +2248,1055 @@ public:
 
   virtual ~GetNetworkReachableAnalysisResponse() = default;
 };
+class GetTransitRouterFlowTopNRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<string> bandwithPackageId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> otherRegion{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> sort{};
+  shared_ptr<string> thisIp{};
+  shared_ptr<string> thisPort{};
+  shared_ptr<string> thisRegion{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useMultiAccount{};
+
+  GetTransitRouterFlowTopNRequest() {}
+
+  explicit GetTransitRouterFlowTopNRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (bandwithPackageId) {
+      res["BandwithPackageId"] = boost::any(*bandwithPackageId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (otherRegion) {
+      res["OtherRegion"] = boost::any(*otherRegion);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (thisIp) {
+      res["ThisIp"] = boost::any(*thisIp);
+    }
+    if (thisPort) {
+      res["ThisPort"] = boost::any(*thisPort);
+    }
+    if (thisRegion) {
+      res["ThisRegion"] = boost::any(*thisRegion);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("BandwithPackageId") != m.end() && !m["BandwithPackageId"].empty()) {
+      bandwithPackageId = make_shared<string>(boost::any_cast<string>(m["BandwithPackageId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("OtherRegion") != m.end() && !m["OtherRegion"].empty()) {
+      otherRegion = make_shared<string>(boost::any_cast<string>(m["OtherRegion"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("ThisIp") != m.end() && !m["ThisIp"].empty()) {
+      thisIp = make_shared<string>(boost::any_cast<string>(m["ThisIp"]));
+    }
+    if (m.find("ThisPort") != m.end() && !m["ThisPort"].empty()) {
+      thisPort = make_shared<string>(boost::any_cast<string>(m["ThisPort"]));
+    }
+    if (m.find("ThisRegion") != m.end() && !m["ThisRegion"].empty()) {
+      thisRegion = make_shared<string>(boost::any_cast<string>(m["ThisRegion"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+  }
+
+
+  virtual ~GetTransitRouterFlowTopNRequest() = default;
+};
+class GetTransitRouterFlowTopNShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountIdsShrink{};
+  shared_ptr<string> bandwithPackageId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> otherRegion{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> sort{};
+  shared_ptr<string> thisIp{};
+  shared_ptr<string> thisPort{};
+  shared_ptr<string> thisRegion{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useMultiAccount{};
+
+  GetTransitRouterFlowTopNShrinkRequest() {}
+
+  explicit GetTransitRouterFlowTopNShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIdsShrink) {
+      res["AccountIds"] = boost::any(*accountIdsShrink);
+    }
+    if (bandwithPackageId) {
+      res["BandwithPackageId"] = boost::any(*bandwithPackageId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (otherRegion) {
+      res["OtherRegion"] = boost::any(*otherRegion);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (thisIp) {
+      res["ThisIp"] = boost::any(*thisIp);
+    }
+    if (thisPort) {
+      res["ThisPort"] = boost::any(*thisPort);
+    }
+    if (thisRegion) {
+      res["ThisRegion"] = boost::any(*thisRegion);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      accountIdsShrink = make_shared<string>(boost::any_cast<string>(m["AccountIds"]));
+    }
+    if (m.find("BandwithPackageId") != m.end() && !m["BandwithPackageId"].empty()) {
+      bandwithPackageId = make_shared<string>(boost::any_cast<string>(m["BandwithPackageId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("OtherRegion") != m.end() && !m["OtherRegion"].empty()) {
+      otherRegion = make_shared<string>(boost::any_cast<string>(m["OtherRegion"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("ThisIp") != m.end() && !m["ThisIp"].empty()) {
+      thisIp = make_shared<string>(boost::any_cast<string>(m["ThisIp"]));
+    }
+    if (m.find("ThisPort") != m.end() && !m["ThisPort"].empty()) {
+      thisPort = make_shared<string>(boost::any_cast<string>(m["ThisPort"]));
+    }
+    if (m.find("ThisRegion") != m.end() && !m["ThisRegion"].empty()) {
+      thisRegion = make_shared<string>(boost::any_cast<string>(m["ThisRegion"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+  }
+
+
+  virtual ~GetTransitRouterFlowTopNShrinkRequest() = default;
+};
+class GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> bandwithPackageId{};
+  shared_ptr<double> bytes{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> otherRegion{};
+  shared_ptr<double> packets{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> thisIp{};
+  shared_ptr<string> thisPort{};
+  shared_ptr<string> thisRegion{};
+
+  GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN() {}
+
+  explicit GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (bandwithPackageId) {
+      res["BandwithPackageId"] = boost::any(*bandwithPackageId);
+    }
+    if (bytes) {
+      res["Bytes"] = boost::any(*bytes);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (otherRegion) {
+      res["OtherRegion"] = boost::any(*otherRegion);
+    }
+    if (packets) {
+      res["Packets"] = boost::any(*packets);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (thisIp) {
+      res["ThisIp"] = boost::any(*thisIp);
+    }
+    if (thisPort) {
+      res["ThisPort"] = boost::any(*thisPort);
+    }
+    if (thisRegion) {
+      res["ThisRegion"] = boost::any(*thisRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("BandwithPackageId") != m.end() && !m["BandwithPackageId"].empty()) {
+      bandwithPackageId = make_shared<string>(boost::any_cast<string>(m["BandwithPackageId"]));
+    }
+    if (m.find("Bytes") != m.end() && !m["Bytes"].empty()) {
+      bytes = make_shared<double>(boost::any_cast<double>(m["Bytes"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("OtherRegion") != m.end() && !m["OtherRegion"].empty()) {
+      otherRegion = make_shared<string>(boost::any_cast<string>(m["OtherRegion"]));
+    }
+    if (m.find("Packets") != m.end() && !m["Packets"].empty()) {
+      packets = make_shared<double>(boost::any_cast<double>(m["Packets"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("ThisIp") != m.end() && !m["ThisIp"].empty()) {
+      thisIp = make_shared<string>(boost::any_cast<string>(m["ThisIp"]));
+    }
+    if (m.find("ThisPort") != m.end() && !m["ThisPort"].empty()) {
+      thisPort = make_shared<string>(boost::any_cast<string>(m["ThisPort"]));
+    }
+    if (m.find("ThisRegion") != m.end() && !m["ThisRegion"].empty()) {
+      thisRegion = make_shared<string>(boost::any_cast<string>(m["ThisRegion"]));
+    }
+  }
+
+
+  virtual ~GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN() = default;
+};
+class GetTransitRouterFlowTopNResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN>> transitRouterFlowTopN{};
+
+  GetTransitRouterFlowTopNResponseBody() {}
+
+  explicit GetTransitRouterFlowTopNResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (transitRouterFlowTopN) {
+      vector<boost::any> temp1;
+      for(auto item1:*transitRouterFlowTopN){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TransitRouterFlowTopN"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TransitRouterFlowTopN") != m.end() && !m["TransitRouterFlowTopN"].empty()) {
+      if (typeid(vector<boost::any>) == m["TransitRouterFlowTopN"].type()) {
+        vector<GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TransitRouterFlowTopN"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transitRouterFlowTopN = make_shared<vector<GetTransitRouterFlowTopNResponseBodyTransitRouterFlowTopN>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetTransitRouterFlowTopNResponseBody() = default;
+};
+class GetTransitRouterFlowTopNResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetTransitRouterFlowTopNResponseBody> body{};
+
+  GetTransitRouterFlowTopNResponse() {}
+
+  explicit GetTransitRouterFlowTopNResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetTransitRouterFlowTopNResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetTransitRouterFlowTopNResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetTransitRouterFlowTopNResponse() = default;
+};
+class GetVbrFlowTopNRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<string> attachmentId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useMultiAccount{};
+  shared_ptr<string> virtualBorderRouterId{};
+
+  GetVbrFlowTopNRequest() {}
+
+  explicit GetVbrFlowTopNRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIds) {
+      res["AccountIds"] = boost::any(*accountIds);
+    }
+    if (attachmentId) {
+      res["AttachmentId"] = boost::any(*attachmentId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    if (virtualBorderRouterId) {
+      res["VirtualBorderRouterId"] = boost::any(*virtualBorderRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accountIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AttachmentId") != m.end() && !m["AttachmentId"].empty()) {
+      attachmentId = make_shared<string>(boost::any_cast<string>(m["AttachmentId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+    if (m.find("VirtualBorderRouterId") != m.end() && !m["VirtualBorderRouterId"].empty()) {
+      virtualBorderRouterId = make_shared<string>(boost::any_cast<string>(m["VirtualBorderRouterId"]));
+    }
+  }
+
+
+  virtual ~GetVbrFlowTopNRequest() = default;
+};
+class GetVbrFlowTopNShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountIdsShrink{};
+  shared_ptr<string> attachmentId{};
+  shared_ptr<long> beginTime{};
+  shared_ptr<string> cenId{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> groupBy{};
+  shared_ptr<string> orderBy{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sort{};
+  shared_ptr<long> topN{};
+  shared_ptr<bool> useMultiAccount{};
+  shared_ptr<string> virtualBorderRouterId{};
+
+  GetVbrFlowTopNShrinkRequest() {}
+
+  explicit GetVbrFlowTopNShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountIdsShrink) {
+      res["AccountIds"] = boost::any(*accountIdsShrink);
+    }
+    if (attachmentId) {
+      res["AttachmentId"] = boost::any(*attachmentId);
+    }
+    if (beginTime) {
+      res["BeginTime"] = boost::any(*beginTime);
+    }
+    if (cenId) {
+      res["CenId"] = boost::any(*cenId);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupBy) {
+      res["GroupBy"] = boost::any(*groupBy);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (topN) {
+      res["TopN"] = boost::any(*topN);
+    }
+    if (useMultiAccount) {
+      res["UseMultiAccount"] = boost::any(*useMultiAccount);
+    }
+    if (virtualBorderRouterId) {
+      res["VirtualBorderRouterId"] = boost::any(*virtualBorderRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
+      accountIdsShrink = make_shared<string>(boost::any_cast<string>(m["AccountIds"]));
+    }
+    if (m.find("AttachmentId") != m.end() && !m["AttachmentId"].empty()) {
+      attachmentId = make_shared<string>(boost::any_cast<string>(m["AttachmentId"]));
+    }
+    if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
+      beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
+    }
+    if (m.find("CenId") != m.end() && !m["CenId"].empty()) {
+      cenId = make_shared<string>(boost::any_cast<string>(m["CenId"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
+      groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("TopN") != m.end() && !m["TopN"].empty()) {
+      topN = make_shared<long>(boost::any_cast<long>(m["TopN"]));
+    }
+    if (m.find("UseMultiAccount") != m.end() && !m["UseMultiAccount"].empty()) {
+      useMultiAccount = make_shared<bool>(boost::any_cast<bool>(m["UseMultiAccount"]));
+    }
+    if (m.find("VirtualBorderRouterId") != m.end() && !m["VirtualBorderRouterId"].empty()) {
+      virtualBorderRouterId = make_shared<string>(boost::any_cast<string>(m["VirtualBorderRouterId"]));
+    }
+  }
+
+
+  virtual ~GetVbrFlowTopNShrinkRequest() = default;
+};
+class GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN : public Darabonba::Model {
+public:
+  shared_ptr<string> accountId{};
+  shared_ptr<string> attachmentId{};
+  shared_ptr<double> bytes{};
+  shared_ptr<string> cloudIp{};
+  shared_ptr<string> cloudPort{};
+  shared_ptr<string> cloudRegion{};
+  shared_ptr<string> otherIp{};
+  shared_ptr<string> otherPort{};
+  shared_ptr<double> packets{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> virtualBorderRouterId{};
+
+  GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN() {}
+
+  explicit GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountId) {
+      res["AccountId"] = boost::any(*accountId);
+    }
+    if (attachmentId) {
+      res["AttachmentId"] = boost::any(*attachmentId);
+    }
+    if (bytes) {
+      res["Bytes"] = boost::any(*bytes);
+    }
+    if (cloudIp) {
+      res["CloudIp"] = boost::any(*cloudIp);
+    }
+    if (cloudPort) {
+      res["CloudPort"] = boost::any(*cloudPort);
+    }
+    if (cloudRegion) {
+      res["CloudRegion"] = boost::any(*cloudRegion);
+    }
+    if (otherIp) {
+      res["OtherIp"] = boost::any(*otherIp);
+    }
+    if (otherPort) {
+      res["OtherPort"] = boost::any(*otherPort);
+    }
+    if (packets) {
+      res["Packets"] = boost::any(*packets);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (virtualBorderRouterId) {
+      res["VirtualBorderRouterId"] = boost::any(*virtualBorderRouterId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountId") != m.end() && !m["AccountId"].empty()) {
+      accountId = make_shared<string>(boost::any_cast<string>(m["AccountId"]));
+    }
+    if (m.find("AttachmentId") != m.end() && !m["AttachmentId"].empty()) {
+      attachmentId = make_shared<string>(boost::any_cast<string>(m["AttachmentId"]));
+    }
+    if (m.find("Bytes") != m.end() && !m["Bytes"].empty()) {
+      bytes = make_shared<double>(boost::any_cast<double>(m["Bytes"]));
+    }
+    if (m.find("CloudIp") != m.end() && !m["CloudIp"].empty()) {
+      cloudIp = make_shared<string>(boost::any_cast<string>(m["CloudIp"]));
+    }
+    if (m.find("CloudPort") != m.end() && !m["CloudPort"].empty()) {
+      cloudPort = make_shared<string>(boost::any_cast<string>(m["CloudPort"]));
+    }
+    if (m.find("CloudRegion") != m.end() && !m["CloudRegion"].empty()) {
+      cloudRegion = make_shared<string>(boost::any_cast<string>(m["CloudRegion"]));
+    }
+    if (m.find("OtherIp") != m.end() && !m["OtherIp"].empty()) {
+      otherIp = make_shared<string>(boost::any_cast<string>(m["OtherIp"]));
+    }
+    if (m.find("OtherPort") != m.end() && !m["OtherPort"].empty()) {
+      otherPort = make_shared<string>(boost::any_cast<string>(m["OtherPort"]));
+    }
+    if (m.find("Packets") != m.end() && !m["Packets"].empty()) {
+      packets = make_shared<double>(boost::any_cast<double>(m["Packets"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("VirtualBorderRouterId") != m.end() && !m["VirtualBorderRouterId"].empty()) {
+      virtualBorderRouterId = make_shared<string>(boost::any_cast<string>(m["VirtualBorderRouterId"]));
+    }
+  }
+
+
+  virtual ~GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN() = default;
+};
+class GetVbrFlowTopNResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN>> virtualBorderRouterFlowlogTopN{};
+
+  GetVbrFlowTopNResponseBody() {}
+
+  explicit GetVbrFlowTopNResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (virtualBorderRouterFlowlogTopN) {
+      vector<boost::any> temp1;
+      for(auto item1:*virtualBorderRouterFlowlogTopN){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VirtualBorderRouterFlowlogTopN"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("VirtualBorderRouterFlowlogTopN") != m.end() && !m["VirtualBorderRouterFlowlogTopN"].empty()) {
+      if (typeid(vector<boost::any>) == m["VirtualBorderRouterFlowlogTopN"].type()) {
+        vector<GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VirtualBorderRouterFlowlogTopN"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        virtualBorderRouterFlowlogTopN = make_shared<vector<GetVbrFlowTopNResponseBodyVirtualBorderRouterFlowlogTopN>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetVbrFlowTopNResponseBody() = default;
+};
+class GetVbrFlowTopNResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetVbrFlowTopNResponseBody> body{};
+
+  GetVbrFlowTopNResponse() {}
+
+  explicit GetVbrFlowTopNResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetVbrFlowTopNResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetVbrFlowTopNResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetVbrFlowTopNResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -2260,6 +3323,10 @@ public:
   GetNatTopNResponse getNatTopN(shared_ptr<GetNatTopNRequest> request);
   GetNetworkReachableAnalysisResponse getNetworkReachableAnalysisWithOptions(shared_ptr<GetNetworkReachableAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetNetworkReachableAnalysisResponse getNetworkReachableAnalysis(shared_ptr<GetNetworkReachableAnalysisRequest> request);
+  GetTransitRouterFlowTopNResponse getTransitRouterFlowTopNWithOptions(shared_ptr<GetTransitRouterFlowTopNRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetTransitRouterFlowTopNResponse getTransitRouterFlowTopN(shared_ptr<GetTransitRouterFlowTopNRequest> request);
+  GetVbrFlowTopNResponse getVbrFlowTopNWithOptions(shared_ptr<GetVbrFlowTopNRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetVbrFlowTopNResponse getVbrFlowTopN(shared_ptr<GetVbrFlowTopNRequest> request);
 
   virtual ~Client() = default;
 };
