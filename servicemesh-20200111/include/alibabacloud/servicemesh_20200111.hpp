@@ -9068,6 +9068,7 @@ public:
 class DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatches : public Darabonba::Model {
 public:
   shared_ptr<long> concurrency{};
+  shared_ptr<bool> enableCoreDump{};
   shared_ptr<string> excludeInboundPorts{};
   shared_ptr<string> excludeOutboundIPRanges{};
   shared_ptr<string> excludeOutboundPorts{};
@@ -9079,8 +9080,12 @@ public:
   shared_ptr<bool> istioDNSProxyEnabled{};
   shared_ptr<string> lifecycleStr{};
   shared_ptr<string> logLevel{};
+  shared_ptr<bool> privileged{};
   shared_ptr<map<string, string>> proxyMetadata{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher> proxyStatsMatcher{};
+  shared_ptr<long> readinessFailureThreshold{};
+  shared_ptr<long> readinessInitialDelaySeconds{};
+  shared_ptr<long> readinessPeriodSeconds{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyAckSloResource> sidecarProxyAckSloResource{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitAckSloResource> sidecarProxyInitAckSloResource{};
   shared_ptr<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesSidecarProxyInitResourceLimit> sidecarProxyInitResourceLimit{};
@@ -9102,6 +9107,9 @@ public:
     map<string, boost::any> res;
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
+    }
+    if (enableCoreDump) {
+      res["EnableCoreDump"] = boost::any(*enableCoreDump);
     }
     if (excludeInboundPorts) {
       res["ExcludeInboundPorts"] = boost::any(*excludeInboundPorts);
@@ -9136,11 +9144,23 @@ public:
     if (logLevel) {
       res["LogLevel"] = boost::any(*logLevel);
     }
+    if (privileged) {
+      res["Privileged"] = boost::any(*privileged);
+    }
     if (proxyMetadata) {
       res["ProxyMetadata"] = boost::any(*proxyMetadata);
     }
     if (proxyStatsMatcher) {
       res["ProxyStatsMatcher"] = proxyStatsMatcher ? boost::any(proxyStatsMatcher->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (readinessFailureThreshold) {
+      res["ReadinessFailureThreshold"] = boost::any(*readinessFailureThreshold);
+    }
+    if (readinessInitialDelaySeconds) {
+      res["ReadinessInitialDelaySeconds"] = boost::any(*readinessInitialDelaySeconds);
+    }
+    if (readinessPeriodSeconds) {
+      res["ReadinessPeriodSeconds"] = boost::any(*readinessPeriodSeconds);
     }
     if (sidecarProxyAckSloResource) {
       res["SidecarProxyAckSloResource"] = sidecarProxyAckSloResource ? boost::any(sidecarProxyAckSloResource->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9172,6 +9192,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
+    if (m.find("EnableCoreDump") != m.end() && !m["EnableCoreDump"].empty()) {
+      enableCoreDump = make_shared<bool>(boost::any_cast<bool>(m["EnableCoreDump"]));
     }
     if (m.find("ExcludeInboundPorts") != m.end() && !m["ExcludeInboundPorts"].empty()) {
       excludeInboundPorts = make_shared<string>(boost::any_cast<string>(m["ExcludeInboundPorts"]));
@@ -9206,6 +9229,9 @@ public:
     if (m.find("LogLevel") != m.end() && !m["LogLevel"].empty()) {
       logLevel = make_shared<string>(boost::any_cast<string>(m["LogLevel"]));
     }
+    if (m.find("Privileged") != m.end() && !m["Privileged"].empty()) {
+      privileged = make_shared<bool>(boost::any_cast<bool>(m["Privileged"]));
+    }
     if (m.find("ProxyMetadata") != m.end() && !m["ProxyMetadata"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["ProxyMetadata"]);
       map<string, string> toMap1;
@@ -9220,6 +9246,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyStatsMatcher"]));
         proxyStatsMatcher = make_shared<DescribeNamespaceScopeSidecarConfigResponseBodyConfigPatchesProxyStatsMatcher>(model1);
       }
+    }
+    if (m.find("ReadinessFailureThreshold") != m.end() && !m["ReadinessFailureThreshold"].empty()) {
+      readinessFailureThreshold = make_shared<long>(boost::any_cast<long>(m["ReadinessFailureThreshold"]));
+    }
+    if (m.find("ReadinessInitialDelaySeconds") != m.end() && !m["ReadinessInitialDelaySeconds"].empty()) {
+      readinessInitialDelaySeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessInitialDelaySeconds"]));
+    }
+    if (m.find("ReadinessPeriodSeconds") != m.end() && !m["ReadinessPeriodSeconds"].empty()) {
+      readinessPeriodSeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessPeriodSeconds"]));
     }
     if (m.find("SidecarProxyAckSloResource") != m.end() && !m["SidecarProxyAckSloResource"].empty()) {
       if (typeid(map<string, boost::any>) == m["SidecarProxyAckSloResource"].type()) {
@@ -10758,6 +10793,7 @@ public:
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigControlPlaneLogInfo : public Darabonba::Model {
 public:
   shared_ptr<bool> enabled{};
+  shared_ptr<long> logTTL{};
   shared_ptr<string> project{};
 
   DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigControlPlaneLogInfo() {}
@@ -10773,6 +10809,9 @@ public:
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
+    if (logTTL) {
+      res["LogTTL"] = boost::any(*logTTL);
+    }
     if (project) {
       res["Project"] = boost::any(*project);
     }
@@ -10782,6 +10821,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("LogTTL") != m.end() && !m["LogTTL"].empty()) {
+      logTTL = make_shared<long>(boost::any_cast<long>(m["LogTTL"]));
     }
     if (m.find("Project") != m.end() && !m["Project"].empty()) {
       project = make_shared<string>(boost::any_cast<string>(m["Project"]));
@@ -10836,7 +10878,9 @@ public:
 };
 class DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf : public Darabonba::Model {
 public:
+  shared_ptr<bool> gatewayEnabled{};
   shared_ptr<long> gatewayLifecycle{};
+  shared_ptr<bool> sidecarEnabled{};
   shared_ptr<long> sidecarLifecycle{};
 
   DescribeServiceMeshDetailResponseBodyServiceMeshSpecMeshConfigExtraConfigurationAccessLogExtraConf() {}
@@ -10849,8 +10893,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (gatewayEnabled) {
+      res["GatewayEnabled"] = boost::any(*gatewayEnabled);
+    }
     if (gatewayLifecycle) {
       res["GatewayLifecycle"] = boost::any(*gatewayLifecycle);
+    }
+    if (sidecarEnabled) {
+      res["SidecarEnabled"] = boost::any(*sidecarEnabled);
     }
     if (sidecarLifecycle) {
       res["SidecarLifecycle"] = boost::any(*sidecarLifecycle);
@@ -10859,8 +10909,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("GatewayEnabled") != m.end() && !m["GatewayEnabled"].empty()) {
+      gatewayEnabled = make_shared<bool>(boost::any_cast<bool>(m["GatewayEnabled"]));
+    }
     if (m.find("GatewayLifecycle") != m.end() && !m["GatewayLifecycle"].empty()) {
       gatewayLifecycle = make_shared<long>(boost::any_cast<long>(m["GatewayLifecycle"]));
+    }
+    if (m.find("SidecarEnabled") != m.end() && !m["SidecarEnabled"].empty()) {
+      sidecarEnabled = make_shared<bool>(boost::any_cast<bool>(m["SidecarEnabled"]));
     }
     if (m.find("SidecarLifecycle") != m.end() && !m["SidecarLifecycle"].empty()) {
       sidecarLifecycle = make_shared<long>(boost::any_cast<long>(m["SidecarLifecycle"]));
@@ -20369,6 +20425,147 @@ public:
 
   virtual ~UpdateASMNamespaceFromGuestClusterResponse() = default;
 };
+class UpdateControlPlaneLogConfigRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> logTTLInDay{};
+  shared_ptr<string> project{};
+  shared_ptr<string> serviceMeshId{};
+
+  UpdateControlPlaneLogConfigRequest() {}
+
+  explicit UpdateControlPlaneLogConfigRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (logTTLInDay) {
+      res["LogTTLInDay"] = boost::any(*logTTLInDay);
+    }
+    if (project) {
+      res["Project"] = boost::any(*project);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("LogTTLInDay") != m.end() && !m["LogTTLInDay"].empty()) {
+      logTTLInDay = make_shared<long>(boost::any_cast<long>(m["LogTTLInDay"]));
+    }
+    if (m.find("Project") != m.end() && !m["Project"].empty()) {
+      project = make_shared<string>(boost::any_cast<string>(m["Project"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~UpdateControlPlaneLogConfigRequest() = default;
+};
+class UpdateControlPlaneLogConfigResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateControlPlaneLogConfigResponseBody() {}
+
+  explicit UpdateControlPlaneLogConfigResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateControlPlaneLogConfigResponseBody() = default;
+};
+class UpdateControlPlaneLogConfigResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateControlPlaneLogConfigResponseBody> body{};
+
+  UpdateControlPlaneLogConfigResponse() {}
+
+  explicit UpdateControlPlaneLogConfigResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateControlPlaneLogConfigResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateControlPlaneLogConfigResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateControlPlaneLogConfigResponse() = default;
+};
 class UpdateIstioGatewayRoutesRequestGatewayRouteHTTPAdvancedOptionsDelegate : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -22054,11 +22251,13 @@ public:
   shared_ptr<bool> accessLogEnabled{};
   shared_ptr<string> accessLogFile{};
   shared_ptr<string> accessLogFormat{};
+  shared_ptr<bool> accessLogGatewayEnabled{};
   shared_ptr<long> accessLogGatewayLifecycle{};
   shared_ptr<string> accessLogProject{};
   shared_ptr<bool> accessLogServiceEnabled{};
   shared_ptr<string> accessLogServiceHost{};
   shared_ptr<long> accessLogServicePort{};
+  shared_ptr<bool> accessLogSidecarEnabled{};
   shared_ptr<long> accessLogSidecarLifecycle{};
   shared_ptr<string> auditProject{};
   shared_ptr<bool> autoInjectionPolicyEnabled{};
@@ -22168,6 +22367,9 @@ public:
     if (accessLogFormat) {
       res["AccessLogFormat"] = boost::any(*accessLogFormat);
     }
+    if (accessLogGatewayEnabled) {
+      res["AccessLogGatewayEnabled"] = boost::any(*accessLogGatewayEnabled);
+    }
     if (accessLogGatewayLifecycle) {
       res["AccessLogGatewayLifecycle"] = boost::any(*accessLogGatewayLifecycle);
     }
@@ -22182,6 +22384,9 @@ public:
     }
     if (accessLogServicePort) {
       res["AccessLogServicePort"] = boost::any(*accessLogServicePort);
+    }
+    if (accessLogSidecarEnabled) {
+      res["AccessLogSidecarEnabled"] = boost::any(*accessLogSidecarEnabled);
     }
     if (accessLogSidecarLifecycle) {
       res["AccessLogSidecarLifecycle"] = boost::any(*accessLogSidecarLifecycle);
@@ -22463,6 +22668,9 @@ public:
     if (m.find("AccessLogFormat") != m.end() && !m["AccessLogFormat"].empty()) {
       accessLogFormat = make_shared<string>(boost::any_cast<string>(m["AccessLogFormat"]));
     }
+    if (m.find("AccessLogGatewayEnabled") != m.end() && !m["AccessLogGatewayEnabled"].empty()) {
+      accessLogGatewayEnabled = make_shared<bool>(boost::any_cast<bool>(m["AccessLogGatewayEnabled"]));
+    }
     if (m.find("AccessLogGatewayLifecycle") != m.end() && !m["AccessLogGatewayLifecycle"].empty()) {
       accessLogGatewayLifecycle = make_shared<long>(boost::any_cast<long>(m["AccessLogGatewayLifecycle"]));
     }
@@ -22477,6 +22685,9 @@ public:
     }
     if (m.find("AccessLogServicePort") != m.end() && !m["AccessLogServicePort"].empty()) {
       accessLogServicePort = make_shared<long>(boost::any_cast<long>(m["AccessLogServicePort"]));
+    }
+    if (m.find("AccessLogSidecarEnabled") != m.end() && !m["AccessLogSidecarEnabled"].empty()) {
+      accessLogSidecarEnabled = make_shared<bool>(boost::any_cast<bool>(m["AccessLogSidecarEnabled"]));
     }
     if (m.find("AccessLogSidecarLifecycle") != m.end() && !m["AccessLogSidecarLifecycle"].empty()) {
       accessLogSidecarLifecycle = make_shared<long>(boost::any_cast<long>(m["AccessLogSidecarLifecycle"]));
@@ -22844,6 +23055,7 @@ public:
 class UpdateNamespaceScopeSidecarConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<long> concurrency{};
+  shared_ptr<bool> enableCoreDump{};
   shared_ptr<string> excludeIPRanges{};
   shared_ptr<string> excludeInboundPorts{};
   shared_ptr<string> excludeOutboundPorts{};
@@ -22858,6 +23070,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> postStart{};
   shared_ptr<string> preStop{};
+  shared_ptr<bool> privileged{};
   shared_ptr<string> proxyInitAckSloCPUResourceLimit{};
   shared_ptr<string> proxyInitAckSloCPUResourceRequest{};
   shared_ptr<string> proxyInitAckSloMemoryResourceLimit{};
@@ -22868,6 +23081,9 @@ public:
   shared_ptr<string> proxyInitMemoryResourceRequest{};
   shared_ptr<string> proxyMetadata{};
   shared_ptr<string> proxyStatsMatcher{};
+  shared_ptr<long> readinessFailureThreshold{};
+  shared_ptr<long> readinessInitialDelaySeconds{};
+  shared_ptr<long> readinessPeriodSeconds{};
   shared_ptr<string> serviceMeshId{};
   shared_ptr<string> sidecarProxyAckSloCPUResourceLimit{};
   shared_ptr<string> sidecarProxyAckSloCPUResourceRequest{};
@@ -22892,6 +23108,9 @@ public:
     map<string, boost::any> res;
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
+    }
+    if (enableCoreDump) {
+      res["EnableCoreDump"] = boost::any(*enableCoreDump);
     }
     if (excludeIPRanges) {
       res["ExcludeIPRanges"] = boost::any(*excludeIPRanges);
@@ -22935,6 +23154,9 @@ public:
     if (preStop) {
       res["PreStop"] = boost::any(*preStop);
     }
+    if (privileged) {
+      res["Privileged"] = boost::any(*privileged);
+    }
     if (proxyInitAckSloCPUResourceLimit) {
       res["ProxyInitAckSloCPUResourceLimit"] = boost::any(*proxyInitAckSloCPUResourceLimit);
     }
@@ -22964,6 +23186,15 @@ public:
     }
     if (proxyStatsMatcher) {
       res["ProxyStatsMatcher"] = boost::any(*proxyStatsMatcher);
+    }
+    if (readinessFailureThreshold) {
+      res["ReadinessFailureThreshold"] = boost::any(*readinessFailureThreshold);
+    }
+    if (readinessInitialDelaySeconds) {
+      res["ReadinessInitialDelaySeconds"] = boost::any(*readinessInitialDelaySeconds);
+    }
+    if (readinessPeriodSeconds) {
+      res["ReadinessPeriodSeconds"] = boost::any(*readinessPeriodSeconds);
     }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
@@ -23004,6 +23235,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
+    }
+    if (m.find("EnableCoreDump") != m.end() && !m["EnableCoreDump"].empty()) {
+      enableCoreDump = make_shared<bool>(boost::any_cast<bool>(m["EnableCoreDump"]));
     }
     if (m.find("ExcludeIPRanges") != m.end() && !m["ExcludeIPRanges"].empty()) {
       excludeIPRanges = make_shared<string>(boost::any_cast<string>(m["ExcludeIPRanges"]));
@@ -23047,6 +23281,9 @@ public:
     if (m.find("PreStop") != m.end() && !m["PreStop"].empty()) {
       preStop = make_shared<string>(boost::any_cast<string>(m["PreStop"]));
     }
+    if (m.find("Privileged") != m.end() && !m["Privileged"].empty()) {
+      privileged = make_shared<bool>(boost::any_cast<bool>(m["Privileged"]));
+    }
     if (m.find("ProxyInitAckSloCPUResourceLimit") != m.end() && !m["ProxyInitAckSloCPUResourceLimit"].empty()) {
       proxyInitAckSloCPUResourceLimit = make_shared<string>(boost::any_cast<string>(m["ProxyInitAckSloCPUResourceLimit"]));
     }
@@ -23076,6 +23313,15 @@ public:
     }
     if (m.find("ProxyStatsMatcher") != m.end() && !m["ProxyStatsMatcher"].empty()) {
       proxyStatsMatcher = make_shared<string>(boost::any_cast<string>(m["ProxyStatsMatcher"]));
+    }
+    if (m.find("ReadinessFailureThreshold") != m.end() && !m["ReadinessFailureThreshold"].empty()) {
+      readinessFailureThreshold = make_shared<long>(boost::any_cast<long>(m["ReadinessFailureThreshold"]));
+    }
+    if (m.find("ReadinessInitialDelaySeconds") != m.end() && !m["ReadinessInitialDelaySeconds"].empty()) {
+      readinessInitialDelaySeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessInitialDelaySeconds"]));
+    }
+    if (m.find("ReadinessPeriodSeconds") != m.end() && !m["ReadinessPeriodSeconds"].empty()) {
+      readinessPeriodSeconds = make_shared<long>(boost::any_cast<long>(m["ReadinessPeriodSeconds"]));
     }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
@@ -23935,6 +24181,8 @@ public:
   UpdateASMGatewayImportedServicesResponse updateASMGatewayImportedServices(shared_ptr<UpdateASMGatewayImportedServicesRequest> request);
   UpdateASMNamespaceFromGuestClusterResponse updateASMNamespaceFromGuestClusterWithOptions(shared_ptr<UpdateASMNamespaceFromGuestClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateASMNamespaceFromGuestClusterResponse updateASMNamespaceFromGuestCluster(shared_ptr<UpdateASMNamespaceFromGuestClusterRequest> request);
+  UpdateControlPlaneLogConfigResponse updateControlPlaneLogConfigWithOptions(shared_ptr<UpdateControlPlaneLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateControlPlaneLogConfigResponse updateControlPlaneLogConfig(shared_ptr<UpdateControlPlaneLogConfigRequest> request);
   UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutesWithOptions(shared_ptr<UpdateIstioGatewayRoutesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIstioGatewayRoutesResponse updateIstioGatewayRoutes(shared_ptr<UpdateIstioGatewayRoutesRequest> request);
   UpdateIstioInjectionConfigResponse updateIstioInjectionConfigWithOptions(shared_ptr<UpdateIstioInjectionConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

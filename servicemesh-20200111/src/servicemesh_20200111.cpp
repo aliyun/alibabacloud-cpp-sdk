@@ -2679,6 +2679,43 @@ UpdateASMNamespaceFromGuestClusterResponse Alibabacloud_Servicemesh20200111::Cli
   return updateASMNamespaceFromGuestClusterWithOptions(request, runtime);
 }
 
+UpdateControlPlaneLogConfigResponse Alibabacloud_Servicemesh20200111::Client::updateControlPlaneLogConfigWithOptions(shared_ptr<UpdateControlPlaneLogConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
+    body->insert(pair<string, bool>("Enabled", *request->enabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->logTTLInDay)) {
+    body->insert(pair<string, long>("LogTTLInDay", *request->logTTLInDay));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->project)) {
+    body->insert(pair<string, string>("Project", *request->project));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateControlPlaneLogConfig"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateControlPlaneLogConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateControlPlaneLogConfigResponse Alibabacloud_Servicemesh20200111::Client::updateControlPlaneLogConfig(shared_ptr<UpdateControlPlaneLogConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateControlPlaneLogConfigWithOptions(request, runtime);
+}
+
 UpdateIstioGatewayRoutesResponse Alibabacloud_Servicemesh20200111::Client::updateIstioGatewayRoutesWithOptions(shared_ptr<UpdateIstioGatewayRoutesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateIstioGatewayRoutesShrinkRequest> request = make_shared<UpdateIstioGatewayRoutesShrinkRequest>();
@@ -2863,6 +2900,13 @@ UpdateMeshCRAggregationResponse Alibabacloud_Servicemesh20200111::Client::update
 
 UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFeatureWithOptions(shared_ptr<UpdateMeshFeatureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->accessLogGatewayEnabled)) {
+    query->insert(pair<string, bool>("AccessLogGatewayEnabled", *request->accessLogGatewayEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->accessLogSidecarEnabled)) {
+    query->insert(pair<string, bool>("AccessLogSidecarEnabled", *request->accessLogSidecarEnabled));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->accessLogEnabled)) {
     body->insert(pair<string, bool>("AccessLogEnabled", *request->accessLogEnabled));
@@ -3156,6 +3200,7 @@ UpdateMeshFeatureResponse Alibabacloud_Servicemesh20200111::Client::updateMeshFe
     body->insert(pair<string, bool>("WebAssemblyFilterEnabled", *request->webAssemblyFilterEnabled));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -3182,6 +3227,9 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->concurrency)) {
     body->insert(pair<string, long>("Concurrency", *request->concurrency));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCoreDump)) {
+    body->insert(pair<string, bool>("EnableCoreDump", *request->enableCoreDump));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeIPRanges)) {
     body->insert(pair<string, string>("ExcludeIPRanges", *request->excludeIPRanges));
@@ -3225,6 +3273,9 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   if (!Darabonba_Util::Client::isUnset<string>(request->preStop)) {
     body->insert(pair<string, string>("PreStop", *request->preStop));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->privileged)) {
+    body->insert(pair<string, bool>("Privileged", *request->privileged));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyInitAckSloCPUResourceLimit)) {
     body->insert(pair<string, string>("ProxyInitAckSloCPUResourceLimit", *request->proxyInitAckSloCPUResourceLimit));
   }
@@ -3254,6 +3305,15 @@ UpdateNamespaceScopeSidecarConfigResponse Alibabacloud_Servicemesh20200111::Clie
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyStatsMatcher)) {
     body->insert(pair<string, string>("ProxyStatsMatcher", *request->proxyStatsMatcher));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readinessFailureThreshold)) {
+    body->insert(pair<string, long>("ReadinessFailureThreshold", *request->readinessFailureThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readinessInitialDelaySeconds)) {
+    body->insert(pair<string, long>("ReadinessInitialDelaySeconds", *request->readinessInitialDelaySeconds));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->readinessPeriodSeconds)) {
+    body->insert(pair<string, long>("ReadinessPeriodSeconds", *request->readinessPeriodSeconds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
