@@ -5062,6 +5062,7 @@ public:
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityToken{};
+  shared_ptr<string> storageType{};
   shared_ptr<string> zoneId{};
 
   DescribeAvailableResourceRequest() {}
@@ -5101,6 +5102,9 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
     if (zoneId) {
       res["ZoneId"] = boost::any(*zoneId);
     }
@@ -5134,6 +5138,9 @@ public:
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
       zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
@@ -14138,6 +14145,7 @@ public:
 };
 class DescribeRegionsResponseBodyRegionsDdsRegion : public Darabonba::Model {
 public:
+  shared_ptr<string> endPoint{};
   shared_ptr<string> regionId{};
   shared_ptr<string> regionName{};
   shared_ptr<DescribeRegionsResponseBodyRegionsDdsRegionZones> zones{};
@@ -14152,6 +14160,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (endPoint) {
+      res["EndPoint"] = boost::any(*endPoint);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -14165,6 +14176,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndPoint") != m.end() && !m["EndPoint"].empty()) {
+      endPoint = make_shared<string>(boost::any_cast<string>(m["EndPoint"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
