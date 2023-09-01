@@ -656,6 +656,9 @@ DescribeEaisResponse Alibabacloud_Eais20190624::Client::describeEaisWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeEaisRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeEaisRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
