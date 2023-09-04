@@ -6481,6 +6481,7 @@ class ListFeatureViewsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> featureName{};
   shared_ptr<vector<string>> featureViewIds{};
+  shared_ptr<string> name{};
   shared_ptr<string> order{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
@@ -6505,6 +6506,9 @@ public:
     }
     if (featureViewIds) {
       res["FeatureViewIds"] = boost::any(*featureViewIds);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -6547,6 +6551,9 @@ public:
       }
       featureViewIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));
     }
@@ -6580,6 +6587,7 @@ class ListFeatureViewsShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> featureName{};
   shared_ptr<string> featureViewIdsShrink{};
+  shared_ptr<string> name{};
   shared_ptr<string> order{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
@@ -6604,6 +6612,9 @@ public:
     }
     if (featureViewIdsShrink) {
       res["FeatureViewIds"] = boost::any(*featureViewIdsShrink);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -6638,6 +6649,9 @@ public:
     }
     if (m.find("FeatureViewIds") != m.end() && !m["FeatureViewIds"].empty()) {
       featureViewIdsShrink = make_shared<string>(boost::any_cast<string>(m["FeatureViewIds"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<string>(boost::any_cast<string>(m["Order"]));

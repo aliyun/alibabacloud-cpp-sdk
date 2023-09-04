@@ -1256,6 +1256,9 @@ ListFeatureViewsResponse Alibabacloud_PaiFeatureStore20230621::Client::listFeatu
   if (!Darabonba_Util::Client::isUnset<string>(request->featureViewIdsShrink)) {
     query->insert(pair<string, string>("FeatureViewIds", *request->featureViewIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
   }
