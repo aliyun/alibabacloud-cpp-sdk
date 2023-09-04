@@ -225,6 +225,9 @@ CreateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::createEscalation
   if (!Darabonba_Util::Client::isUnset<vector<CreateEscalationPlanRequestEscalationPlanScopeObjects>>(request->escalationPlanScopeObjects)) {
     body->insert(pair<string, vector<CreateEscalationPlanRequestEscalationPlanScopeObjects>>("escalationPlanScopeObjects", *request->escalationPlanScopeObjects));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isGlobal)) {
+    body->insert(pair<string, bool>("isGlobal", *request->isGlobal));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -792,8 +795,14 @@ CreateServiceResponse Alibabacloud_GEMP20210413::Client::createServiceWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->escalationPlanId)) {
+    body->insert(pair<string, long>("escalationPlanId", *request->escalationPlanId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceDescription)) {
     body->insert(pair<string, string>("serviceDescription", *request->serviceDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->serviceGroupIdList)) {
+    body->insert(pair<string, vector<long>>("serviceGroupIdList", *request->serviceGroupIdList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     body->insert(pair<string, string>("serviceName", *request->serviceName));
@@ -1022,6 +1031,9 @@ CreateUserResponse Alibabacloud_GEMP20210413::Client::createUserWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ramId)) {
     body->insert(pair<string, long>("ramId", *request->ramId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->roleIdList)) {
+    body->insert(pair<string, vector<long>>("roleIdList", *request->roleIdList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
     body->insert(pair<string, string>("username", *request->username));
@@ -3363,6 +3375,9 @@ ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPla
   if (!Darabonba_Util::Client::isUnset<string>(request->escalationPlanName)) {
     body->insert(pair<string, string>("escalationPlanName", *request->escalationPlanName));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isGlobal)) {
+    body->insert(pair<string, bool>("isGlobal", *request->isGlobal));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     body->insert(pair<string, long>("pageNumber", *request->pageNumber));
   }
@@ -3371,6 +3386,9 @@ ListEscalationPlansResponse Alibabacloud_GEMP20210413::Client::listEscalationPla
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
     body->insert(pair<string, string>("serviceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    body->insert(pair<string, string>("status", *request->status));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -4113,6 +4131,9 @@ ListServiceGroupsResponse Alibabacloud_GEMP20210413::Client::listServiceGroupsWi
   if (!Darabonba_Util::Client::isUnset<string>(request->queryType)) {
     body->insert(pair<string, string>("queryType", *request->queryType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
+    body->insert(pair<string, long>("serviceId", *request->serviceId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->userId)) {
     body->insert(pair<string, long>("userId", *request->userId));
   }
@@ -4817,6 +4838,9 @@ UpdateEscalationPlanResponse Alibabacloud_GEMP20210413::Client::updateEscalation
   if (!Darabonba_Util::Client::isUnset<vector<UpdateEscalationPlanRequestEscalationPlanScopeObjects>>(request->escalationPlanScopeObjects)) {
     body->insert(pair<string, vector<UpdateEscalationPlanRequestEscalationPlanScopeObjects>>("escalationPlanScopeObjects", *request->escalationPlanScopeObjects));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isGlobal)) {
+    body->insert(pair<string, bool>("isGlobal", *request->isGlobal));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -5375,8 +5399,14 @@ UpdateServiceResponse Alibabacloud_GEMP20210413::Client::updateServiceWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->escalationPlanId)) {
+    body->insert(pair<string, long>("escalationPlanId", *request->escalationPlanId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceDescription)) {
     body->insert(pair<string, string>("serviceDescription", *request->serviceDescription));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->serviceGroupIdList)) {
+    body->insert(pair<string, vector<long>>("serviceGroupIdList", *request->serviceGroupIdList));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->serviceId)) {
     body->insert(pair<string, long>("serviceId", *request->serviceId));
@@ -5617,6 +5647,9 @@ UpdateUserResponse Alibabacloud_GEMP20210413::Client::updateUserWithOptions(shar
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ramId)) {
     body->insert(pair<string, long>("ramId", *request->ramId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->roleIdList)) {
+    body->insert(pair<string, vector<long>>("roleIdList", *request->roleIdList));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->userId)) {
     body->insert(pair<string, long>("userId", *request->userId));

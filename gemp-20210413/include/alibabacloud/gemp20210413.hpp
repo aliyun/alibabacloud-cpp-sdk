@@ -1091,6 +1091,7 @@ public:
   shared_ptr<string> escalationPlanType{};
   shared_ptr<vector<string>> noticeChannels{};
   shared_ptr<vector<long>> noticeObjects{};
+  shared_ptr<vector<long>> noticeRoleList{};
   shared_ptr<string> noticeTime{};
   shared_ptr<vector<long>> serviceGroupIds{};
 
@@ -1115,6 +1116,9 @@ public:
     }
     if (noticeObjects) {
       res["noticeObjects"] = boost::any(*noticeObjects);
+    }
+    if (noticeRoleList) {
+      res["noticeRoleList"] = boost::any(*noticeRoleList);
     }
     if (noticeTime) {
       res["noticeTime"] = boost::any(*noticeTime);
@@ -1151,6 +1155,16 @@ public:
         }
       }
       noticeObjects = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleList") != m.end() && !m["noticeRoleList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeRoleList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeRoleList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeRoleList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("noticeTime") != m.end() && !m["noticeTime"].empty()) {
       noticeTime = make_shared<string>(boost::any_cast<string>(m["noticeTime"]));
@@ -1284,6 +1298,7 @@ public:
   shared_ptr<string> escalationPlanName{};
   shared_ptr<vector<CreateEscalationPlanRequestEscalationPlanRules>> escalationPlanRules{};
   shared_ptr<vector<CreateEscalationPlanRequestEscalationPlanScopeObjects>> escalationPlanScopeObjects{};
+  shared_ptr<bool> isGlobal{};
 
   CreateEscalationPlanRequest() {}
 
@@ -1317,6 +1332,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["escalationPlanScopeObjects"] = boost::any(temp1);
+    }
+    if (isGlobal) {
+      res["isGlobal"] = boost::any(*isGlobal);
     }
     return res;
   }
@@ -1356,6 +1374,9 @@ public:
         }
         escalationPlanScopeObjects = make_shared<vector<CreateEscalationPlanRequestEscalationPlanScopeObjects>>(expect1);
       }
+    }
+    if (m.find("isGlobal") != m.end() && !m["isGlobal"].empty()) {
+      isGlobal = make_shared<bool>(boost::any_cast<bool>(m["isGlobal"]));
     }
   }
 
@@ -3951,7 +3972,9 @@ public:
 class CreateServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<long> escalationPlanId{};
   shared_ptr<string> serviceDescription{};
+  shared_ptr<vector<long>> serviceGroupIdList{};
   shared_ptr<string> serviceName{};
 
   CreateServiceRequest() {}
@@ -3967,8 +3990,14 @@ public:
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
+    if (escalationPlanId) {
+      res["escalationPlanId"] = boost::any(*escalationPlanId);
+    }
     if (serviceDescription) {
       res["serviceDescription"] = boost::any(*serviceDescription);
+    }
+    if (serviceGroupIdList) {
+      res["serviceGroupIdList"] = boost::any(*serviceGroupIdList);
     }
     if (serviceName) {
       res["serviceName"] = boost::any(*serviceName);
@@ -3980,8 +4009,21 @@ public:
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
+    if (m.find("escalationPlanId") != m.end() && !m["escalationPlanId"].empty()) {
+      escalationPlanId = make_shared<long>(boost::any_cast<long>(m["escalationPlanId"]));
+    }
     if (m.find("serviceDescription") != m.end() && !m["serviceDescription"].empty()) {
       serviceDescription = make_shared<string>(boost::any_cast<string>(m["serviceDescription"]));
+    }
+    if (m.find("serviceGroupIdList") != m.end() && !m["serviceGroupIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["serviceGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      serviceGroupIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
@@ -5648,6 +5690,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> phone{};
   shared_ptr<long> ramId{};
+  shared_ptr<vector<long>> roleIdList{};
   shared_ptr<string> username{};
 
   CreateUserRequest() {}
@@ -5672,6 +5715,9 @@ public:
     if (ramId) {
       res["ramId"] = boost::any(*ramId);
     }
+    if (roleIdList) {
+      res["roleIdList"] = boost::any(*roleIdList);
+    }
     if (username) {
       res["username"] = boost::any(*username);
     }
@@ -5690,6 +5736,16 @@ public:
     }
     if (m.find("ramId") != m.end() && !m["ramId"].empty()) {
       ramId = make_shared<long>(boost::any_cast<long>(m["ramId"]));
+    }
+    if (m.find("roleIdList") != m.end() && !m["roleIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["roleIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      roleIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("username") != m.end() && !m["username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["username"]));
@@ -10402,6 +10458,42 @@ public:
 
   virtual ~GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeObjectList() = default;
 };
+class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList() {}
+
+  explicit GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList() = default;
+};
 class GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesServiceGroups : public Darabonba::Model {
 public:
   shared_ptr<long> id{};
@@ -10444,6 +10536,9 @@ public:
   shared_ptr<string> escalationPlanType{};
   shared_ptr<string> noticeChannels{};
   shared_ptr<vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeObjectList>> noticeObjectList{};
+  shared_ptr<vector<long>> noticeObjects{};
+  shared_ptr<vector<long>> noticeRoleList{};
+  shared_ptr<vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList>> noticeRoleObjectList{};
   shared_ptr<long> noticeTime{};
   shared_ptr<vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesServiceGroups>> serviceGroups{};
 
@@ -10472,6 +10567,19 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["noticeObjectList"] = boost::any(temp1);
+    }
+    if (noticeObjects) {
+      res["noticeObjects"] = boost::any(*noticeObjects);
+    }
+    if (noticeRoleList) {
+      res["noticeRoleList"] = boost::any(*noticeRoleList);
+    }
+    if (noticeRoleObjectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*noticeRoleObjectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["noticeRoleObjectList"] = boost::any(temp1);
     }
     if (noticeTime) {
       res["noticeTime"] = boost::any(*noticeTime);
@@ -10507,6 +10615,39 @@ public:
           }
         }
         noticeObjectList = make_shared<vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeObjectList>>(expect1);
+      }
+    }
+    if (m.find("noticeObjects") != m.end() && !m["noticeObjects"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeObjects"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeObjects"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeObjects = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleList") != m.end() && !m["noticeRoleList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeRoleList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeRoleList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeRoleList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleObjectList") != m.end() && !m["noticeRoleObjectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["noticeRoleObjectList"].type()) {
+        vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["noticeRoleObjectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        noticeRoleObjectList = make_shared<vector<GetEscalationPlanResponseBodyDataEscalationPlanRulesEscalationPlanStrategiesNoticeRoleObjectList>>(expect1);
       }
     }
     if (m.find("noticeTime") != m.end() && !m["noticeTime"].empty()) {
@@ -10666,6 +10807,7 @@ public:
   shared_ptr<string> escalationPlanName{};
   shared_ptr<vector<GetEscalationPlanResponseBodyDataEscalationPlanRules>> escalationPlanRules{};
   shared_ptr<vector<GetEscalationPlanResponseBodyDataEscalationPlanScopeObjects>> escalationPlanScopeObjects{};
+  shared_ptr<bool> isGlobal{};
 
   GetEscalationPlanResponseBodyData() {}
 
@@ -10702,6 +10844,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["escalationPlanScopeObjects"] = boost::any(temp1);
+    }
+    if (isGlobal) {
+      res["isGlobal"] = boost::any(*isGlobal);
     }
     return res;
   }
@@ -10744,6 +10889,9 @@ public:
         }
         escalationPlanScopeObjects = make_shared<vector<GetEscalationPlanResponseBodyDataEscalationPlanScopeObjects>>(expect1);
       }
+    }
+    if (m.find("isGlobal") != m.end() && !m["isGlobal"].empty()) {
+      isGlobal = make_shared<bool>(boost::any_cast<bool>(m["isGlobal"]));
     }
   }
 
@@ -15987,7 +16135,9 @@ public:
 };
 class GetServiceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> escalationPlanId{};
   shared_ptr<string> serviceDescription{};
+  shared_ptr<vector<long>> serviceGroupIdList{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> updateTime{};
@@ -16002,8 +16152,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (escalationPlanId) {
+      res["escalationPlanId"] = boost::any(*escalationPlanId);
+    }
     if (serviceDescription) {
       res["serviceDescription"] = boost::any(*serviceDescription);
+    }
+    if (serviceGroupIdList) {
+      res["serviceGroupIdList"] = boost::any(*serviceGroupIdList);
     }
     if (serviceId) {
       res["serviceId"] = boost::any(*serviceId);
@@ -16018,8 +16174,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("escalationPlanId") != m.end() && !m["escalationPlanId"].empty()) {
+      escalationPlanId = make_shared<long>(boost::any_cast<long>(m["escalationPlanId"]));
+    }
     if (m.find("serviceDescription") != m.end() && !m["serviceDescription"].empty()) {
       serviceDescription = make_shared<string>(boost::any_cast<string>(m["serviceDescription"]));
+    }
+    if (m.find("serviceGroupIdList") != m.end() && !m["serviceGroupIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["serviceGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      serviceGroupIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("serviceId") != m.end() && !m["serviceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["serviceId"]));
@@ -16176,6 +16345,7 @@ public:
 class GetServiceGroupResponseBodyDataUsers : public Darabonba::Model {
 public:
   shared_ptr<string> phone{};
+  shared_ptr<vector<string>> roleNameList{};
   shared_ptr<long> serviceGroupId{};
   shared_ptr<long> userId{};
   shared_ptr<string> userName{};
@@ -16193,6 +16363,9 @@ public:
     if (phone) {
       res["phone"] = boost::any(*phone);
     }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
+    }
     if (serviceGroupId) {
       res["serviceGroupId"] = boost::any(*serviceGroupId);
     }
@@ -16208,6 +16381,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("phone") != m.end() && !m["phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("serviceGroupId") != m.end() && !m["serviceGroupId"].empty()) {
       serviceGroupId = make_shared<long>(boost::any_cast<long>(m["serviceGroupId"]));
@@ -19472,6 +19655,8 @@ public:
   shared_ptr<string> isRelated{};
   shared_ptr<string> phone{};
   shared_ptr<string> ramId{};
+  shared_ptr<vector<long>> roleIdList{};
+  shared_ptr<vector<string>> roleNameList{};
   shared_ptr<vector<GetUserResponseBodyDataServiceGroups>> serviceGroups{};
   shared_ptr<long> userId{};
   shared_ptr<string> username{};
@@ -19506,6 +19691,12 @@ public:
     }
     if (ramId) {
       res["ramId"] = boost::any(*ramId);
+    }
+    if (roleIdList) {
+      res["roleIdList"] = boost::any(*roleIdList);
+    }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
     }
     if (serviceGroups) {
       vector<boost::any> temp1;
@@ -19544,6 +19735,26 @@ public:
     }
     if (m.find("ramId") != m.end() && !m["ramId"].empty()) {
       ramId = make_shared<string>(boost::any_cast<string>(m["ramId"]));
+    }
+    if (m.find("roleIdList") != m.end() && !m["roleIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["roleIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      roleIdList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("serviceGroups") != m.end() && !m["serviceGroups"].empty()) {
       if (typeid(vector<boost::any>) == m["serviceGroups"].type()) {
@@ -21848,9 +22059,11 @@ class ListEscalationPlansRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> escalationPlanName{};
+  shared_ptr<bool> isGlobal{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> serviceName{};
+  shared_ptr<string> status{};
 
   ListEscalationPlansRequest() {}
 
@@ -21868,6 +22081,9 @@ public:
     if (escalationPlanName) {
       res["escalationPlanName"] = boost::any(*escalationPlanName);
     }
+    if (isGlobal) {
+      res["isGlobal"] = boost::any(*isGlobal);
+    }
     if (pageNumber) {
       res["pageNumber"] = boost::any(*pageNumber);
     }
@@ -21876,6 +22092,9 @@ public:
     }
     if (serviceName) {
       res["serviceName"] = boost::any(*serviceName);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
     }
     return res;
   }
@@ -21887,6 +22106,9 @@ public:
     if (m.find("escalationPlanName") != m.end() && !m["escalationPlanName"].empty()) {
       escalationPlanName = make_shared<string>(boost::any_cast<string>(m["escalationPlanName"]));
     }
+    if (m.find("isGlobal") != m.end() && !m["isGlobal"].empty()) {
+      isGlobal = make_shared<bool>(boost::any_cast<bool>(m["isGlobal"]));
+    }
     if (m.find("pageNumber") != m.end() && !m["pageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["pageNumber"]));
     }
@@ -21895,6 +22117,9 @@ public:
     }
     if (m.find("serviceName") != m.end() && !m["serviceName"].empty()) {
       serviceName = make_shared<string>(boost::any_cast<string>(m["serviceName"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
     }
   }
 
@@ -21956,6 +22181,7 @@ public:
   shared_ptr<long> escalationPlanId{};
   shared_ptr<string> escalationPlanName{};
   shared_ptr<vector<ListEscalationPlansResponseBodyDataEscalationPlanScopeObjects>> escalationPlanScopeObjects{};
+  shared_ptr<bool> isGlobal{};
   shared_ptr<string> modifyTime{};
   shared_ptr<string> status{};
 
@@ -21981,6 +22207,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["escalationPlanScopeObjects"] = boost::any(temp1);
+    }
+    if (isGlobal) {
+      res["isGlobal"] = boost::any(*isGlobal);
     }
     if (modifyTime) {
       res["modifyTime"] = boost::any(*modifyTime);
@@ -22010,6 +22239,9 @@ public:
         }
         escalationPlanScopeObjects = make_shared<vector<ListEscalationPlansResponseBodyDataEscalationPlanScopeObjects>>(expect1);
       }
+    }
+    if (m.find("isGlobal") != m.end() && !m["isGlobal"].empty()) {
+      isGlobal = make_shared<bool>(boost::any_cast<bool>(m["isGlobal"]));
     }
     if (m.find("modifyTime") != m.end() && !m["modifyTime"].empty()) {
       modifyTime = make_shared<string>(boost::any_cast<string>(m["modifyTime"]));
@@ -22465,6 +22697,7 @@ public:
   shared_ptr<long> noticeObjectId{};
   shared_ptr<string> noticeObjectName{};
   shared_ptr<string> noticeObjectPhone{};
+  shared_ptr<vector<string>> roleNameList{};
 
   ListIncidentDetailEscalationPlansResponseBodyDataConvergenceEscalationPlanNoticeObjectList() {}
 
@@ -22485,6 +22718,9 @@ public:
     if (noticeObjectPhone) {
       res["noticeObjectPhone"] = boost::any(*noticeObjectPhone);
     }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
+    }
     return res;
   }
 
@@ -22497,6 +22733,16 @@ public:
     }
     if (m.find("noticeObjectPhone") != m.end() && !m["noticeObjectPhone"].empty()) {
       noticeObjectPhone = make_shared<string>(boost::any_cast<string>(m["noticeObjectPhone"]));
+    }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -22650,6 +22896,7 @@ public:
   shared_ptr<long> noticeObjectId{};
   shared_ptr<string> noticeObjectName{};
   shared_ptr<string> noticeObjectPhone{};
+  shared_ptr<vector<string>> roleNameList{};
 
   ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList() {}
 
@@ -22670,6 +22917,9 @@ public:
     if (noticeObjectPhone) {
       res["noticeObjectPhone"] = boost::any(*noticeObjectPhone);
     }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
+    }
     return res;
   }
 
@@ -22683,10 +22933,56 @@ public:
     if (m.find("noticeObjectPhone") != m.end() && !m["noticeObjectPhone"].empty()) {
       noticeObjectPhone = make_shared<string>(boost::any_cast<string>(m["noticeObjectPhone"]));
     }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList() = default;
+};
+class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList() {}
+
+  explicit ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList() = default;
 };
 class ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanServiceGroupList : public Darabonba::Model {
 public:
@@ -22729,6 +23025,8 @@ public:
   shared_ptr<string> escalationPlanType{};
   shared_ptr<vector<string>> noticeChannels{};
   shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList>> noticeObjectList{};
+  shared_ptr<vector<long>> noticeRoleList{};
+  shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList>> noticeRoleObjectList{};
   shared_ptr<long> noticeTime{};
   shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanServiceGroupList>> serviceGroupList{};
   shared_ptr<long> startTime{};
@@ -22756,6 +23054,16 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["noticeObjectList"] = boost::any(temp1);
+    }
+    if (noticeRoleList) {
+      res["noticeRoleList"] = boost::any(*noticeRoleList);
+    }
+    if (noticeRoleObjectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*noticeRoleObjectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["noticeRoleObjectList"] = boost::any(temp1);
     }
     if (noticeTime) {
       res["noticeTime"] = boost::any(*noticeTime);
@@ -22803,6 +23111,29 @@ public:
         noticeObjectList = make_shared<vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeObjectList>>(expect1);
       }
     }
+    if (m.find("noticeRoleList") != m.end() && !m["noticeRoleList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeRoleList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeRoleList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeRoleList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleObjectList") != m.end() && !m["noticeRoleObjectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["noticeRoleObjectList"].type()) {
+        vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["noticeRoleObjectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        noticeRoleObjectList = make_shared<vector<ListIncidentDetailEscalationPlansResponseBodyDataNuAcknowledgeEscalationPlanNoticeRoleObjectList>>(expect1);
+      }
+    }
     if (m.find("noticeTime") != m.end() && !m["noticeTime"].empty()) {
       noticeTime = make_shared<long>(boost::any_cast<long>(m["noticeTime"]));
     }
@@ -22835,6 +23166,7 @@ public:
   shared_ptr<long> noticeObjectId{};
   shared_ptr<string> noticeObjectName{};
   shared_ptr<string> noticeObjectPhone{};
+  shared_ptr<vector<string>> roleNameList{};
 
   ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList() {}
 
@@ -22855,6 +23187,9 @@ public:
     if (noticeObjectPhone) {
       res["noticeObjectPhone"] = boost::any(*noticeObjectPhone);
     }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
+    }
     return res;
   }
 
@@ -22868,10 +23203,56 @@ public:
     if (m.find("noticeObjectPhone") != m.end() && !m["noticeObjectPhone"].empty()) {
       noticeObjectPhone = make_shared<string>(boost::any_cast<string>(m["noticeObjectPhone"]));
     }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList() = default;
+};
+class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList : public Darabonba::Model {
+public:
+  shared_ptr<long> id{};
+  shared_ptr<string> name{};
+
+  ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList() {}
+
+  explicit ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+  }
+
+
+  virtual ~ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList() = default;
 };
 class ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanServiceGroupList : public Darabonba::Model {
 public:
@@ -22914,6 +23295,8 @@ public:
   shared_ptr<string> escalationPlanType{};
   shared_ptr<vector<string>> noticeChannels{};
   shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList>> noticeObjectList{};
+  shared_ptr<vector<long>> noticeRoleList{};
+  shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList>> noticeRoleObjectList{};
   shared_ptr<long> noticeTime{};
   shared_ptr<vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanServiceGroupList>> serviceGroupList{};
   shared_ptr<long> startTime{};
@@ -22941,6 +23324,16 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["noticeObjectList"] = boost::any(temp1);
+    }
+    if (noticeRoleList) {
+      res["noticeRoleList"] = boost::any(*noticeRoleList);
+    }
+    if (noticeRoleObjectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*noticeRoleObjectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["noticeRoleObjectList"] = boost::any(temp1);
     }
     if (noticeTime) {
       res["noticeTime"] = boost::any(*noticeTime);
@@ -22986,6 +23379,29 @@ public:
           }
         }
         noticeObjectList = make_shared<vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeObjectList>>(expect1);
+      }
+    }
+    if (m.find("noticeRoleList") != m.end() && !m["noticeRoleList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeRoleList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeRoleList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeRoleList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleObjectList") != m.end() && !m["noticeRoleObjectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["noticeRoleObjectList"].type()) {
+        vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["noticeRoleObjectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        noticeRoleObjectList = make_shared<vector<ListIncidentDetailEscalationPlansResponseBodyDataUnFinishEscalationPlanNoticeRoleObjectList>>(expect1);
       }
     }
     if (m.find("noticeTime") != m.end() && !m["noticeTime"].empty()) {
@@ -24620,6 +25036,7 @@ public:
   shared_ptr<long> monitorSourceId{};
   shared_ptr<string> monitorSourceName{};
   shared_ptr<string> monitorSourceShortName{};
+  shared_ptr<long> monitorSourceType{};
   shared_ptr<string> status{};
 
   ListIntegrationConfigsResponseBodyData() {}
@@ -24647,6 +25064,9 @@ public:
     if (monitorSourceShortName) {
       res["monitorSourceShortName"] = boost::any(*monitorSourceShortName);
     }
+    if (monitorSourceType) {
+      res["monitorSourceType"] = boost::any(*monitorSourceType);
+    }
     if (status) {
       res["status"] = boost::any(*status);
     }
@@ -24668,6 +25088,9 @@ public:
     }
     if (m.find("monitorSourceShortName") != m.end() && !m["monitorSourceShortName"].empty()) {
       monitorSourceShortName = make_shared<string>(boost::any_cast<string>(m["monitorSourceShortName"]));
+    }
+    if (m.find("monitorSourceType") != m.end() && !m["monitorSourceType"].empty()) {
+      monitorSourceType = make_shared<long>(boost::any_cast<long>(m["monitorSourceType"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
@@ -27416,6 +27839,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> queryName{};
   shared_ptr<string> queryType{};
+  shared_ptr<long> serviceId{};
   shared_ptr<long> userId{};
 
   ListServiceGroupsRequest() {}
@@ -27449,6 +27873,9 @@ public:
     if (queryType) {
       res["queryType"] = boost::any(*queryType);
     }
+    if (serviceId) {
+      res["serviceId"] = boost::any(*serviceId);
+    }
     if (userId) {
       res["userId"] = boost::any(*userId);
     }
@@ -27476,6 +27903,9 @@ public:
     }
     if (m.find("queryType") != m.end() && !m["queryType"].empty()) {
       queryType = make_shared<string>(boost::any_cast<string>(m["queryType"]));
+    }
+    if (m.find("serviceId") != m.end() && !m["serviceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["serviceId"]));
     }
     if (m.find("userId") != m.end() && !m["userId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["userId"]));
@@ -27978,8 +28408,11 @@ public:
 };
 class ListServicesResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<long> escalationPlanId{};
+  shared_ptr<string> escalationPlanName{};
   shared_ptr<long> isValid{};
   shared_ptr<string> serviceDescription{};
+  shared_ptr<vector<long>> serviceGroupIdList{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
   shared_ptr<string> updateTime{};
@@ -27994,11 +28427,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (escalationPlanId) {
+      res["escalationPlanId"] = boost::any(*escalationPlanId);
+    }
+    if (escalationPlanName) {
+      res["escalationPlanName"] = boost::any(*escalationPlanName);
+    }
     if (isValid) {
       res["isValid"] = boost::any(*isValid);
     }
     if (serviceDescription) {
       res["serviceDescription"] = boost::any(*serviceDescription);
+    }
+    if (serviceGroupIdList) {
+      res["serviceGroupIdList"] = boost::any(*serviceGroupIdList);
     }
     if (serviceId) {
       res["serviceId"] = boost::any(*serviceId);
@@ -28013,11 +28455,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("escalationPlanId") != m.end() && !m["escalationPlanId"].empty()) {
+      escalationPlanId = make_shared<long>(boost::any_cast<long>(m["escalationPlanId"]));
+    }
+    if (m.find("escalationPlanName") != m.end() && !m["escalationPlanName"].empty()) {
+      escalationPlanName = make_shared<string>(boost::any_cast<string>(m["escalationPlanName"]));
+    }
     if (m.find("isValid") != m.end() && !m["isValid"].empty()) {
       isValid = make_shared<long>(boost::any_cast<long>(m["isValid"]));
     }
     if (m.find("serviceDescription") != m.end() && !m["serviceDescription"].empty()) {
       serviceDescription = make_shared<string>(boost::any_cast<string>(m["serviceDescription"]));
+    }
+    if (m.find("serviceGroupIdList") != m.end() && !m["serviceGroupIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["serviceGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      serviceGroupIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("serviceId") != m.end() && !m["serviceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["serviceId"]));
@@ -29903,6 +30361,8 @@ public:
   shared_ptr<string> isRelated{};
   shared_ptr<string> phone{};
   shared_ptr<long> ramId{};
+  shared_ptr<vector<long>> roleIdList{};
+  shared_ptr<vector<string>> roleNameList{};
   shared_ptr<string> synergyChannel{};
   shared_ptr<long> userId{};
   shared_ptr<string> username{};
@@ -29944,6 +30404,12 @@ public:
     if (ramId) {
       res["ramId"] = boost::any(*ramId);
     }
+    if (roleIdList) {
+      res["roleIdList"] = boost::any(*roleIdList);
+    }
+    if (roleNameList) {
+      res["roleNameList"] = boost::any(*roleNameList);
+    }
     if (synergyChannel) {
       res["synergyChannel"] = boost::any(*synergyChannel);
     }
@@ -29983,6 +30449,26 @@ public:
     }
     if (m.find("ramId") != m.end() && !m["ramId"].empty()) {
       ramId = make_shared<long>(boost::any_cast<long>(m["ramId"]));
+    }
+    if (m.find("roleIdList") != m.end() && !m["roleIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["roleIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      roleIdList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("roleNameList") != m.end() && !m["roleNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["roleNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      roleNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("synergyChannel") != m.end() && !m["synergyChannel"].empty()) {
       synergyChannel = make_shared<string>(boost::any_cast<string>(m["synergyChannel"]));
@@ -31355,6 +31841,7 @@ public:
   shared_ptr<string> escalationPlanType{};
   shared_ptr<vector<string>> noticeChannels{};
   shared_ptr<vector<long>> noticeObjects{};
+  shared_ptr<vector<long>> noticeRoleList{};
   shared_ptr<long> noticeTime{};
   shared_ptr<vector<long>> serviceGroupIds{};
 
@@ -31379,6 +31866,9 @@ public:
     }
     if (noticeObjects) {
       res["noticeObjects"] = boost::any(*noticeObjects);
+    }
+    if (noticeRoleList) {
+      res["noticeRoleList"] = boost::any(*noticeRoleList);
     }
     if (noticeTime) {
       res["noticeTime"] = boost::any(*noticeTime);
@@ -31415,6 +31905,16 @@ public:
         }
       }
       noticeObjects = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("noticeRoleList") != m.end() && !m["noticeRoleList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["noticeRoleList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["noticeRoleList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      noticeRoleList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("noticeTime") != m.end() && !m["noticeTime"].empty()) {
       noticeTime = make_shared<long>(boost::any_cast<long>(m["noticeTime"]));
@@ -31563,6 +32063,7 @@ public:
   shared_ptr<string> escalationPlanName{};
   shared_ptr<vector<UpdateEscalationPlanRequestEscalationPlanRules>> escalationPlanRules{};
   shared_ptr<vector<UpdateEscalationPlanRequestEscalationPlanScopeObjects>> escalationPlanScopeObjects{};
+  shared_ptr<bool> isGlobal{};
 
   UpdateEscalationPlanRequest() {}
 
@@ -31599,6 +32100,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["escalationPlanScopeObjects"] = boost::any(temp1);
+    }
+    if (isGlobal) {
+      res["isGlobal"] = boost::any(*isGlobal);
     }
     return res;
   }
@@ -31641,6 +32145,9 @@ public:
         }
         escalationPlanScopeObjects = make_shared<vector<UpdateEscalationPlanRequestEscalationPlanScopeObjects>>(expect1);
       }
+    }
+    if (m.find("isGlobal") != m.end() && !m["isGlobal"].empty()) {
+      isGlobal = make_shared<bool>(boost::any_cast<bool>(m["isGlobal"]));
     }
   }
 
@@ -33751,7 +34258,9 @@ public:
 class UpdateServiceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<long> escalationPlanId{};
   shared_ptr<string> serviceDescription{};
+  shared_ptr<vector<long>> serviceGroupIdList{};
   shared_ptr<long> serviceId{};
   shared_ptr<string> serviceName{};
 
@@ -33768,8 +34277,14 @@ public:
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
+    if (escalationPlanId) {
+      res["escalationPlanId"] = boost::any(*escalationPlanId);
+    }
     if (serviceDescription) {
       res["serviceDescription"] = boost::any(*serviceDescription);
+    }
+    if (serviceGroupIdList) {
+      res["serviceGroupIdList"] = boost::any(*serviceGroupIdList);
     }
     if (serviceId) {
       res["serviceId"] = boost::any(*serviceId);
@@ -33784,8 +34299,21 @@ public:
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
     }
+    if (m.find("escalationPlanId") != m.end() && !m["escalationPlanId"].empty()) {
+      escalationPlanId = make_shared<long>(boost::any_cast<long>(m["escalationPlanId"]));
+    }
     if (m.find("serviceDescription") != m.end() && !m["serviceDescription"].empty()) {
       serviceDescription = make_shared<string>(boost::any_cast<string>(m["serviceDescription"]));
+    }
+    if (m.find("serviceGroupIdList") != m.end() && !m["serviceGroupIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["serviceGroupIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["serviceGroupIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      serviceGroupIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("serviceId") != m.end() && !m["serviceId"].empty()) {
       serviceId = make_shared<long>(boost::any_cast<long>(m["serviceId"]));
@@ -35436,6 +35964,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<string> phone{};
   shared_ptr<long> ramId{};
+  shared_ptr<vector<long>> roleIdList{};
   shared_ptr<long> userId{};
   shared_ptr<string> username{};
 
@@ -35461,6 +35990,9 @@ public:
     if (ramId) {
       res["ramId"] = boost::any(*ramId);
     }
+    if (roleIdList) {
+      res["roleIdList"] = boost::any(*roleIdList);
+    }
     if (userId) {
       res["userId"] = boost::any(*userId);
     }
@@ -35482,6 +36014,16 @@ public:
     }
     if (m.find("ramId") != m.end() && !m["ramId"].empty()) {
       ramId = make_shared<long>(boost::any_cast<long>(m["ramId"]));
+    }
+    if (m.find("roleIdList") != m.end() && !m["roleIdList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["roleIdList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["roleIdList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      roleIdList = make_shared<vector<long>>(toVec1);
     }
     if (m.find("userId") != m.end() && !m["userId"].empty()) {
       userId = make_shared<long>(boost::any_cast<long>(m["userId"]));
