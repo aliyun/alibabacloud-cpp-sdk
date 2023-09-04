@@ -3695,6 +3695,49 @@ RelieveAccountRelationResponse Alibabacloud_BssOpenApi20171214::Client::relieveA
   return relieveAccountRelationWithOptions(request, runtime);
 }
 
+RenewChangeInstanceResponse Alibabacloud_BssOpenApi20171214::Client::renewChangeInstanceWithOptions(shared_ptr<RenewChangeInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<RenewChangeInstanceRequestParameter>>(request->parameter)) {
+    query->insert(pair<string, vector<RenewChangeInstanceRequestParameter>>("Parameter", *request->parameter));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    query->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
+    query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->renewPeriod)) {
+    query->insert(pair<string, long>("RenewPeriod", *request->renewPeriod));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RenewChangeInstance"))},
+    {"version", boost::any(string("2017-12-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RenewChangeInstanceResponse(callApi(params, req, runtime));
+}
+
+RenewChangeInstanceResponse Alibabacloud_BssOpenApi20171214::Client::renewChangeInstance(shared_ptr<RenewChangeInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return renewChangeInstanceWithOptions(request, runtime);
+}
+
 RenewInstanceResponse Alibabacloud_BssOpenApi20171214::Client::renewInstanceWithOptions(shared_ptr<RenewInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
