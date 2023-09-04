@@ -5043,6 +5043,9 @@ SetCdnDomainSSLCertificateResponse Alibabacloud_Cdn20180510::Client::setCdnDomai
   if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
     query->insert(pair<string, string>("DomainName", *request->domainName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->env)) {
+    query->insert(pair<string, string>("Env", *request->env));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
