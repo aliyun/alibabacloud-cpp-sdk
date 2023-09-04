@@ -16,7 +16,6 @@ using namespace std;
 namespace Alibabacloud_Nis20211216 {
 class CreateAndAnalyzeNetworkPathRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> auditParam{};
   shared_ptr<string> protocol{};
   shared_ptr<string> regionId{};
   shared_ptr<string> sourceId{};
@@ -38,9 +37,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (auditParam) {
-      res["AuditParam"] = boost::any(*auditParam);
-    }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
@@ -75,9 +71,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuditParam") != m.end() && !m["AuditParam"].empty()) {
-      auditParam = make_shared<string>(boost::any_cast<string>(m["AuditParam"]));
-    }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
@@ -573,7 +566,6 @@ public:
 };
 class CreateNetworkReachableAnalysisRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> auditParam{};
   shared_ptr<string> networkPathId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<CreateNetworkReachableAnalysisRequestTag>> tag{};
@@ -588,9 +580,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (auditParam) {
-      res["AuditParam"] = boost::any(*auditParam);
-    }
     if (networkPathId) {
       res["NetworkPathId"] = boost::any(*networkPathId);
     }
@@ -608,9 +597,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("AuditParam") != m.end() && !m["AuditParam"].empty()) {
-      auditParam = make_shared<string>(boost::any_cast<string>(m["AuditParam"]));
-    }
     if (m.find("NetworkPathId") != m.end() && !m["NetworkPathId"].empty()) {
       networkPathId = make_shared<string>(boost::any_cast<string>(m["NetworkPathId"]));
     }

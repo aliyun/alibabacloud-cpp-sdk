@@ -130,9 +130,6 @@ CreateNetworkPathResponse Alibabacloud_Nis20211216::Client::createNetworkPath(sh
 CreateNetworkReachableAnalysisResponse Alibabacloud_Nis20211216::Client::createNetworkReachableAnalysisWithOptions(shared_ptr<CreateNetworkReachableAnalysisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->auditParam)) {
-    query->insert(pair<string, string>("AuditParam", *request->auditParam));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkPathId)) {
     query->insert(pair<string, string>("NetworkPathId", *request->networkPathId));
   }
