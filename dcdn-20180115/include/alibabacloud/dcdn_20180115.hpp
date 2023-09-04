@@ -41916,6 +41916,7 @@ public:
   shared_ptr<string> certRegion{};
   shared_ptr<string> certType{};
   shared_ptr<string> domainName{};
+  shared_ptr<string> env{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> SSLPri{};
   shared_ptr<string> SSLProtocol{};
@@ -41946,6 +41947,9 @@ public:
     }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
+    }
+    if (env) {
+      res["Env"] = boost::any(*env);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -41980,6 +41984,9 @@ public:
     }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("Env") != m.end() && !m["Env"].empty()) {
+      env = make_shared<string>(boost::any_cast<string>(m["Env"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
