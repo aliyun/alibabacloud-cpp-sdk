@@ -4077,6 +4077,7 @@ public:
   shared_ptr<long> SCIMServerCredentialCount{};
   shared_ptr<bool> SCIMSyncEnabled{};
   shared_ptr<bool> SSOEnabled{};
+  shared_ptr<long> systemPolicyPerAccessConfigurationQuota{};
   shared_ptr<long> userCount{};
   shared_ptr<long> userQuota{};
 
@@ -4126,6 +4127,9 @@ public:
     if (SSOEnabled) {
       res["SSOEnabled"] = boost::any(*SSOEnabled);
     }
+    if (systemPolicyPerAccessConfigurationQuota) {
+      res["SystemPolicyPerAccessConfigurationQuota"] = boost::any(*systemPolicyPerAccessConfigurationQuota);
+    }
     if (userCount) {
       res["UserCount"] = boost::any(*userCount);
     }
@@ -4171,6 +4175,9 @@ public:
     }
     if (m.find("SSOEnabled") != m.end() && !m["SSOEnabled"].empty()) {
       SSOEnabled = make_shared<bool>(boost::any_cast<bool>(m["SSOEnabled"]));
+    }
+    if (m.find("SystemPolicyPerAccessConfigurationQuota") != m.end() && !m["SystemPolicyPerAccessConfigurationQuota"].empty()) {
+      systemPolicyPerAccessConfigurationQuota = make_shared<long>(boost::any_cast<long>(m["SystemPolicyPerAccessConfigurationQuota"]));
     }
     if (m.find("UserCount") != m.end() && !m["UserCount"].empty()) {
       userCount = make_shared<long>(boost::any_cast<long>(m["UserCount"]));
@@ -4709,6 +4716,173 @@ public:
 
 
   virtual ~GetGroupResponse() = default;
+};
+class GetMFAAuthenticationSettingInfoRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> directoryId{};
+
+  GetMFAAuthenticationSettingInfoRequest() {}
+
+  explicit GetMFAAuthenticationSettingInfoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (directoryId) {
+      res["DirectoryId"] = boost::any(*directoryId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DirectoryId") != m.end() && !m["DirectoryId"].empty()) {
+      directoryId = make_shared<string>(boost::any_cast<string>(m["DirectoryId"]));
+    }
+  }
+
+
+  virtual ~GetMFAAuthenticationSettingInfoRequest() = default;
+};
+class GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> mfaAuthenticationAdvanceSettings{};
+  shared_ptr<string> operationForRiskLogin{};
+
+  GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo() {}
+
+  explicit GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mfaAuthenticationAdvanceSettings) {
+      res["MfaAuthenticationAdvanceSettings"] = boost::any(*mfaAuthenticationAdvanceSettings);
+    }
+    if (operationForRiskLogin) {
+      res["OperationForRiskLogin"] = boost::any(*operationForRiskLogin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MfaAuthenticationAdvanceSettings") != m.end() && !m["MfaAuthenticationAdvanceSettings"].empty()) {
+      mfaAuthenticationAdvanceSettings = make_shared<string>(boost::any_cast<string>(m["MfaAuthenticationAdvanceSettings"]));
+    }
+    if (m.find("OperationForRiskLogin") != m.end() && !m["OperationForRiskLogin"].empty()) {
+      operationForRiskLogin = make_shared<string>(boost::any_cast<string>(m["OperationForRiskLogin"]));
+    }
+  }
+
+
+  virtual ~GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo() = default;
+};
+class GetMFAAuthenticationSettingInfoResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo> MFAAuthenticationSettingInfo{};
+  shared_ptr<string> requestId{};
+
+  GetMFAAuthenticationSettingInfoResponseBody() {}
+
+  explicit GetMFAAuthenticationSettingInfoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (MFAAuthenticationSettingInfo) {
+      res["MFAAuthenticationSettingInfo"] = MFAAuthenticationSettingInfo ? boost::any(MFAAuthenticationSettingInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MFAAuthenticationSettingInfo") != m.end() && !m["MFAAuthenticationSettingInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MFAAuthenticationSettingInfo"].type()) {
+        GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MFAAuthenticationSettingInfo"]));
+        MFAAuthenticationSettingInfo = make_shared<GetMFAAuthenticationSettingInfoResponseBodyMFAAuthenticationSettingInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetMFAAuthenticationSettingInfoResponseBody() = default;
+};
+class GetMFAAuthenticationSettingInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMFAAuthenticationSettingInfoResponseBody> body{};
+
+  GetMFAAuthenticationSettingInfoResponse() {}
+
+  explicit GetMFAAuthenticationSettingInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMFAAuthenticationSettingInfoResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMFAAuthenticationSettingInfoResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMFAAuthenticationSettingInfoResponse() = default;
 };
 class GetMFAAuthenticationSettingsRequest : public Darabonba::Model {
 public:
@@ -12614,6 +12788,8 @@ public:
   GetExternalSAMLIdentityProviderResponse getExternalSAMLIdentityProvider(shared_ptr<GetExternalSAMLIdentityProviderRequest> request);
   GetGroupResponse getGroupWithOptions(shared_ptr<GetGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetGroupResponse getGroup(shared_ptr<GetGroupRequest> request);
+  GetMFAAuthenticationSettingInfoResponse getMFAAuthenticationSettingInfoWithOptions(shared_ptr<GetMFAAuthenticationSettingInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMFAAuthenticationSettingInfoResponse getMFAAuthenticationSettingInfo(shared_ptr<GetMFAAuthenticationSettingInfoRequest> request);
   GetMFAAuthenticationSettingsResponse getMFAAuthenticationSettingsWithOptions(shared_ptr<GetMFAAuthenticationSettingsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMFAAuthenticationSettingsResponse getMFAAuthenticationSettings(shared_ptr<GetMFAAuthenticationSettingsRequest> request);
   GetMFAAuthenticationStatusResponse getMFAAuthenticationStatusWithOptions(shared_ptr<GetMFAAuthenticationStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
