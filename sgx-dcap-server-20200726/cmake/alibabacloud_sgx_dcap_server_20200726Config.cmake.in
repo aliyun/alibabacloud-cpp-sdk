@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_sgx_dcap_server_20200726Targets.cmake")
+check_required_components("alibabacloud_sgx_dcap_server_20200726")
