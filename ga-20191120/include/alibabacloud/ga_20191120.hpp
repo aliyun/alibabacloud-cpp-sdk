@@ -11888,6 +11888,49 @@ public:
 
   virtual ~DescribeAcceleratorResponseBodyIpSetConfig() = default;
 };
+class DescribeAcceleratorResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeAcceleratorResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeAcceleratorResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeAcceleratorResponseBodyServiceManagedInfos() = default;
+};
 class DescribeAcceleratorResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -11946,6 +11989,9 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> secondDnsName{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeAcceleratorResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> spec{};
   shared_ptr<string> state{};
   shared_ptr<vector<DescribeAcceleratorResponseBodyTags>> tags{};
@@ -12020,6 +12066,19 @@ public:
     }
     if (secondDnsName) {
       res["SecondDnsName"] = boost::any(*secondDnsName);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -12112,6 +12171,25 @@ public:
     }
     if (m.find("SecondDnsName") != m.end() && !m["SecondDnsName"].empty()) {
       secondDnsName = make_shared<string>(boost::any_cast<string>(m["SecondDnsName"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeAcceleratorResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAcceleratorResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeAcceleratorResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -14401,6 +14479,49 @@ public:
 
   virtual ~DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges() = default;
 };
+class DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos() = default;
+};
 class DescribeCustomRoutingEndPointTrafficPolicyResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -14412,6 +14533,9 @@ public:
   shared_ptr<string> policyId{};
   shared_ptr<vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyPortRanges>> portRanges{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
 
   DescribeCustomRoutingEndPointTrafficPolicyResponseBody() {}
@@ -14454,6 +14578,19 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -14498,6 +14635,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeCustomRoutingEndPointTrafficPolicyResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -14612,6 +14768,49 @@ public:
 
   virtual ~DescribeCustomRoutingEndpointRequest() = default;
 };
+class DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos() = default;
+};
 class DescribeCustomRoutingEndpointResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -14620,6 +14819,9 @@ public:
   shared_ptr<string> endpointId{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
   shared_ptr<string> trafficToEndpointPolicy{};
   shared_ptr<string> type{};
@@ -14652,6 +14854,19 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
+    }
     if (state) {
       res["State"] = boost::any(*state);
     }
@@ -14682,6 +14897,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeCustomRoutingEndpointResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -14795,6 +15029,49 @@ public:
 
   virtual ~DescribeCustomRoutingEndpointGroupRequest() = default;
 };
+class DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos() = default;
+};
 class DescribeCustomRoutingEndpointGroupResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -14808,6 +15085,9 @@ public:
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> slsLogStoreName{};
   shared_ptr<string> slsProjectName{};
   shared_ptr<string> slsRegion{};
@@ -14855,6 +15135,19 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (slsLogStoreName) {
       res["SlsLogStoreName"] = boost::any(*slsLogStoreName);
@@ -14918,6 +15211,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeCustomRoutingEndpointGroupResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("SlsLogStoreName") != m.end() && !m["SlsLogStoreName"].empty()) {
       slsLogStoreName = make_shared<string>(boost::any_cast<string>(m["SlsLogStoreName"]));
@@ -15041,6 +15353,49 @@ public:
 
   virtual ~DescribeCustomRoutingEndpointGroupDestinationsRequest() = default;
 };
+class DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos() = default;
+};
 class DescribeCustomRoutingEndpointGroupDestinationsResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -15050,6 +15405,9 @@ public:
   shared_ptr<string> listenerId{};
   shared_ptr<vector<string>> protocols{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
   shared_ptr<long> toPort{};
 
@@ -15083,6 +15441,19 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -15121,6 +15492,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeCustomRoutingEndpointGroupDestinationsResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -15338,6 +15728,49 @@ public:
 
   virtual ~DescribeEndpointGroupResponseBodyPortOverrides() = default;
 };
+class DescribeEndpointGroupResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeEndpointGroupResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeEndpointGroupResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeEndpointGroupResponseBodyServiceManagedInfos() = default;
+};
 class DescribeEndpointGroupResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -15397,6 +15830,9 @@ public:
   shared_ptr<string> name{};
   shared_ptr<vector<DescribeEndpointGroupResponseBodyPortOverrides>> portOverrides{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeEndpointGroupResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> slsLogStoreName{};
   shared_ptr<string> slsProjectName{};
   shared_ptr<string> slsRegion{};
@@ -15485,6 +15921,19 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (slsLogStoreName) {
       res["SlsLogStoreName"] = boost::any(*slsLogStoreName);
@@ -15618,6 +16067,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeEndpointGroupResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEndpointGroupResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeEndpointGroupResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("SlsLogStoreName") != m.end() && !m["SlsLogStoreName"].empty()) {
       slsLogStoreName = make_shared<string>(boost::any_cast<string>(m["SlsLogStoreName"]));
@@ -15753,6 +16221,49 @@ public:
 
   virtual ~DescribeIpSetRequest() = default;
 };
+class DescribeIpSetResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeIpSetResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeIpSetResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeIpSetResponseBodyServiceManagedInfos() = default;
+};
 class DescribeIpSetResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> accelerateRegionId{};
@@ -15763,6 +16274,9 @@ public:
   shared_ptr<string> ipVersion{};
   shared_ptr<string> ispType{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeIpSetResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
 
   DescribeIpSetResponseBody() {}
@@ -15798,6 +16312,19 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -15836,6 +16363,25 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeIpSetResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIpSetResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeIpSetResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -16087,6 +16633,49 @@ public:
 
   virtual ~DescribeListenerResponseBodyRelatedAcls() = default;
 };
+class DescribeListenerResponseBodyServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  DescribeListenerResponseBodyServiceManagedInfos() {}
+
+  explicit DescribeListenerResponseBodyServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~DescribeListenerResponseBodyServiceManagedInfos() = default;
+};
 class DescribeListenerResponseBodyXForwardedForConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> XForwardedForGaApEnabled{};
@@ -16161,6 +16750,9 @@ public:
   shared_ptr<vector<DescribeListenerResponseBodyRelatedAcls>> relatedAcls{};
   shared_ptr<string> requestId{};
   shared_ptr<string> securityPolicyId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<DescribeListenerResponseBodyServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
   shared_ptr<string> type{};
   shared_ptr<DescribeListenerResponseBodyXForwardedForConfig> XForwardedForConfig{};
@@ -16235,6 +16827,19 @@ public:
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -16333,6 +16938,25 @@ public:
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<DescribeListenerResponseBodyServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeListenerResponseBodyServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<DescribeListenerResponseBodyServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -20680,6 +21304,49 @@ public:
 
   virtual ~ListAcceleratorsResponseBodyAcceleratorsIpSetConfig() = default;
 };
+class ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos() {}
+
+  explicit ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos() = default;
+};
 class ListAcceleratorsResponseBodyAcceleratorsTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -20737,6 +21404,9 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> secondDnsName{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> spec{};
   shared_ptr<string> state{};
   shared_ptr<vector<ListAcceleratorsResponseBodyAcceleratorsTags>> tags{};
@@ -20809,6 +21479,19 @@ public:
     }
     if (secondDnsName) {
       res["SecondDnsName"] = boost::any(*secondDnsName);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -20901,6 +21584,25 @@ public:
     }
     if (m.find("SecondDnsName") != m.end() && !m["SecondDnsName"].empty()) {
       secondDnsName = make_shared<string>(boost::any_cast<string>(m["SecondDnsName"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListAcceleratorsResponseBodyAcceleratorsServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -25120,8 +25822,8 @@ public:
   shared_ptr<string> endpointGroupId{};
   shared_ptr<long> fromPort{};
   shared_ptr<string> listenerId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<vector<string>> protocols{};
   shared_ptr<string> regionId{};
   shared_ptr<long> toPort{};
@@ -25180,10 +25882,10 @@ public:
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("Protocols") != m.end() && !m["Protocols"].empty()) {
       vector<string> toVec1;
@@ -25206,6 +25908,49 @@ public:
 
   virtual ~ListCustomRoutingEndpointGroupDestinationsRequest() = default;
 };
+class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos() {}
+
+  explicit ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos() = default;
+};
 class ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -25214,6 +25959,9 @@ public:
   shared_ptr<long> fromPort{};
   shared_ptr<string> listenerId{};
   shared_ptr<vector<string>> protocols{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<long> toPort{};
 
   ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinations() {}
@@ -25243,6 +25991,19 @@ public:
     }
     if (protocols) {
       res["Protocols"] = boost::any(*protocols);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (toPort) {
       res["ToPort"] = boost::any(*toPort);
@@ -25275,6 +26036,25 @@ public:
         }
       }
       protocols = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListCustomRoutingEndpointGroupDestinationsResponseBodyDestinationsServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("ToPort") != m.end() && !m["ToPort"].empty()) {
       toPort = make_shared<long>(boost::any_cast<long>(m["ToPort"]));
@@ -25422,8 +26202,8 @@ public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> listenerId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   ListCustomRoutingEndpointGroupsRequest() {}
@@ -25468,10 +26248,10 @@ public:
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -25480,6 +26260,49 @@ public:
 
 
   virtual ~ListCustomRoutingEndpointGroupsRequest() = default;
+};
+class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos() {}
+
+  explicit ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos() = default;
 };
 class ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups : public Darabonba::Model {
 public:
@@ -25491,6 +26314,9 @@ public:
   shared_ptr<vector<string>> endpointGroupUnconfirmedIpList{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
 
   ListCustomRoutingEndpointGroupsResponseBodyEndpointGroups() {}
@@ -25526,6 +26352,19 @@ public:
     }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -25571,6 +26410,25 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListCustomRoutingEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -25720,8 +26578,8 @@ public:
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> endpointId{};
   shared_ptr<string> listenerId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   ListCustomRoutingEndpointTrafficPoliciesRequest() {}
@@ -25778,10 +26636,10 @@ public:
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -25827,6 +26685,49 @@ public:
 
   virtual ~ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges() = default;
 };
+class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos() {}
+
+  explicit ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos() = default;
+};
 class ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -25836,6 +26737,9 @@ public:
   shared_ptr<string> listenerId{};
   shared_ptr<string> policyId{};
   shared_ptr<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges>> portRanges{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos>> serviceManagedInfos{};
 
   ListCustomRoutingEndpointTrafficPoliciesResponseBodyPolicies() {}
 
@@ -25872,6 +26776,19 @@ public:
       }
       res["PortRanges"] = boost::any(temp1);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -25905,6 +26822,25 @@ public:
           }
         }
         portRanges = make_shared<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesPortRanges>>(expect1);
+      }
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListCustomRoutingEndpointTrafficPoliciesResponseBodyPoliciesServiceManagedInfos>>(expect1);
       }
     }
   }
@@ -26050,8 +26986,8 @@ public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> listenerId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   ListCustomRoutingEndpointsRequest() {}
@@ -26096,10 +27032,10 @@ public:
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -26109,6 +27045,49 @@ public:
 
   virtual ~ListCustomRoutingEndpointsRequest() = default;
 };
+class ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos() {}
+
+  explicit ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos() = default;
+};
 class ListCustomRoutingEndpointsResponseBodyEndpoints : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
@@ -26116,6 +27095,9 @@ public:
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> endpointId{};
   shared_ptr<string> listenerId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> trafficToEndpointPolicy{};
   shared_ptr<string> type{};
 
@@ -26144,6 +27126,19 @@ public:
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
+    }
     if (trafficToEndpointPolicy) {
       res["TrafficToEndpointPolicy"] = boost::any(*trafficToEndpointPolicy);
     }
@@ -26168,6 +27163,25 @@ public:
     }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListCustomRoutingEndpointsResponseBodyEndpointsServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("TrafficToEndpointPolicy") != m.end() && !m["TrafficToEndpointPolicy"].empty()) {
       trafficToEndpointPolicy = make_shared<string>(boost::any_cast<string>(m["TrafficToEndpointPolicy"]));
@@ -26318,8 +27332,8 @@ public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> listenerId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   ListCustomRoutingPortMappingsRequest() {}
@@ -26364,10 +27378,10 @@ public:
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -26653,8 +27667,8 @@ class ListCustomRoutingPortMappingsByDestinationRequest : public Darabonba::Mode
 public:
   shared_ptr<string> destinationAddress{};
   shared_ptr<string> endpointId{};
-  shared_ptr<string> pageNumber{};
-  shared_ptr<string> pageSize{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
 
   ListCustomRoutingPortMappingsByDestinationRequest() {}
@@ -26693,10 +27707,10 @@ public:
       endpointId = make_shared<string>(boost::any_cast<string>(m["EndpointId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
-      pageNumber = make_shared<string>(boost::any_cast<string>(m["PageNumber"]));
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
-      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -27042,10 +28056,56 @@ public:
 
   virtual ~ListDomainsRequest() = default;
 };
+class ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos() {}
+
+  explicit ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos() = default;
+};
 class ListDomainsResponseBodyDomainsAccelerators : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
   shared_ptr<string> name{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos>> serviceManagedInfos{};
 
   ListDomainsResponseBodyDomainsAccelerators() {}
 
@@ -27063,6 +28123,19 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -27072,6 +28145,25 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListDomainsResponseBodyDomainsAcceleratorsServiceManagedInfos>>(expect1);
+      }
     }
   }
 
@@ -27672,6 +28764,49 @@ public:
 
   virtual ~ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides() = default;
 };
+class ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos() {}
+
+  explicit ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos() = default;
+};
 class ListEndpointGroupsResponseBodyEndpointGroupsTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -27728,6 +28863,9 @@ public:
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
   shared_ptr<vector<ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides>> portOverrides{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
   shared_ptr<vector<ListEndpointGroupsResponseBodyEndpointGroupsTags>> tags{};
   shared_ptr<long> thresholdCount{};
@@ -27804,6 +28942,19 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PortOverrides"] = boost::any(temp1);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -27918,6 +29069,25 @@ public:
           }
         }
         portOverrides = make_shared<vector<ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides>>(expect1);
+      }
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListEndpointGroupsResponseBodyEndpointGroupsServiceManagedInfos>>(expect1);
       }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
@@ -28407,6 +29577,49 @@ public:
 
   virtual ~ListForwardingRulesResponseBodyForwardingRulesRuleConditions() = default;
 };
+class ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos() {}
+
+  explicit ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos() = default;
+};
 class ListForwardingRulesResponseBodyForwardingRules : public Darabonba::Model {
 public:
   shared_ptr<string> forwardingRuleDirection{};
@@ -28417,6 +29630,9 @@ public:
   shared_ptr<long> priority{};
   shared_ptr<vector<ListForwardingRulesResponseBodyForwardingRulesRuleActions>> ruleActions{};
   shared_ptr<vector<ListForwardingRulesResponseBodyForwardingRulesRuleConditions>> ruleConditions{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos>> serviceManagedInfos{};
 
   ListForwardingRulesResponseBodyForwardingRules() {}
 
@@ -28459,6 +29675,19 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["RuleConditions"] = boost::any(temp1);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     return res;
   }
@@ -28506,6 +29735,25 @@ public:
           }
         }
         ruleConditions = make_shared<vector<ListForwardingRulesResponseBodyForwardingRulesRuleConditions>>(expect1);
+      }
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListForwardingRulesResponseBodyForwardingRulesServiceManagedInfos>>(expect1);
       }
     }
   }
@@ -28696,6 +29944,49 @@ public:
 
   virtual ~ListIpSetsRequest() = default;
 };
+class ListIpSetsResponseBodyIpSetsServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListIpSetsResponseBodyIpSetsServiceManagedInfos() {}
+
+  explicit ListIpSetsResponseBodyIpSetsServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListIpSetsResponseBodyIpSetsServiceManagedInfos() = default;
+};
 class ListIpSetsResponseBodyIpSets : public Darabonba::Model {
 public:
   shared_ptr<string> accelerateRegionId{};
@@ -28704,6 +29995,9 @@ public:
   shared_ptr<string> ipSetId{};
   shared_ptr<string> ipVersion{};
   shared_ptr<string> ispType{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListIpSetsResponseBodyIpSetsServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
 
   ListIpSetsResponseBodyIpSets() {}
@@ -28733,6 +30027,19 @@ public:
     }
     if (ispType) {
       res["IspType"] = boost::any(*ispType);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -28765,6 +30072,25 @@ public:
     }
     if (m.find("IspType") != m.end() && !m["IspType"].empty()) {
       ispType = make_shared<string>(boost::any_cast<string>(m["IspType"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListIpSetsResponseBodyIpSetsServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIpSetsResponseBodyIpSetsServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListIpSetsResponseBodyIpSetsServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -29460,6 +30786,49 @@ public:
 
   virtual ~ListListenersResponseBodyListenersPortRanges() = default;
 };
+class ListListenersResponseBodyListenersServiceManagedInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> childType{};
+  shared_ptr<bool> isManaged{};
+
+  ListListenersResponseBodyListenersServiceManagedInfos() {}
+
+  explicit ListListenersResponseBodyListenersServiceManagedInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (childType) {
+      res["ChildType"] = boost::any(*childType);
+    }
+    if (isManaged) {
+      res["IsManaged"] = boost::any(*isManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("ChildType") != m.end() && !m["ChildType"].empty()) {
+      childType = make_shared<string>(boost::any_cast<string>(m["ChildType"]));
+    }
+    if (m.find("IsManaged") != m.end() && !m["IsManaged"].empty()) {
+      isManaged = make_shared<bool>(boost::any_cast<bool>(m["IsManaged"]));
+    }
+  }
+
+
+  virtual ~ListListenersResponseBodyListenersServiceManagedInfos() = default;
+};
 class ListListenersResponseBodyListenersXForwardedForConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> XForwardedForGaApEnabled{};
@@ -29531,6 +30900,9 @@ public:
   shared_ptr<string> protocol{};
   shared_ptr<bool> proxyProtocol{};
   shared_ptr<string> securityPolicyId{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<bool> serviceManaged{};
+  shared_ptr<vector<ListListenersResponseBodyListenersServiceManagedInfos>> serviceManagedInfos{};
   shared_ptr<string> state{};
   shared_ptr<string> type{};
   shared_ptr<ListListenersResponseBodyListenersXForwardedForConfig> XForwardedForConfig{};
@@ -29592,6 +30964,19 @@ public:
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    if (serviceManagedInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceManagedInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceManagedInfos"] = boost::any(temp1);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -29671,6 +31056,25 @@ public:
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+    if (m.find("ServiceManagedInfos") != m.end() && !m["ServiceManagedInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceManagedInfos"].type()) {
+        vector<ListListenersResponseBodyListenersServiceManagedInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceManagedInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListListenersResponseBodyListenersServiceManagedInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceManagedInfos = make_shared<vector<ListListenersResponseBodyListenersServiceManagedInfos>>(expect1);
+      }
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -32184,6 +33588,147 @@ public:
 
 
   virtual ~UpdateAcceleratorCrossBorderModeResponse() = default;
+};
+class UpdateAcceleratorCrossBorderStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> crossBorderStatus{};
+  shared_ptr<string> regionId{};
+
+  UpdateAcceleratorCrossBorderStatusRequest() {}
+
+  explicit UpdateAcceleratorCrossBorderStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (crossBorderStatus) {
+      res["CrossBorderStatus"] = boost::any(*crossBorderStatus);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("CrossBorderStatus") != m.end() && !m["CrossBorderStatus"].empty()) {
+      crossBorderStatus = make_shared<bool>(boost::any_cast<bool>(m["CrossBorderStatus"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorCrossBorderStatusRequest() = default;
+};
+class UpdateAcceleratorCrossBorderStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateAcceleratorCrossBorderStatusResponseBody() {}
+
+  explicit UpdateAcceleratorCrossBorderStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorCrossBorderStatusResponseBody() = default;
+};
+class UpdateAcceleratorCrossBorderStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateAcceleratorCrossBorderStatusResponseBody> body{};
+
+  UpdateAcceleratorCrossBorderStatusResponse() {}
+
+  explicit UpdateAcceleratorCrossBorderStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateAcceleratorCrossBorderStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateAcceleratorCrossBorderStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateAcceleratorCrossBorderStatusResponse() = default;
 };
 class UpdateAclAttributeRequest : public Darabonba::Model {
 public:
@@ -37091,6 +38636,154 @@ public:
 
   virtual ~UpdateListenerResponse() = default;
 };
+class UpdateServiceManagedControlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<bool> serviceManaged{};
+
+  UpdateServiceManagedControlRequest() {}
+
+  explicit UpdateServiceManagedControlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (serviceManaged) {
+      res["ServiceManaged"] = boost::any(*serviceManaged);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("ServiceManaged") != m.end() && !m["ServiceManaged"].empty()) {
+      serviceManaged = make_shared<bool>(boost::any_cast<bool>(m["ServiceManaged"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceManagedControlRequest() = default;
+};
+class UpdateServiceManagedControlResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateServiceManagedControlResponseBody() {}
+
+  explicit UpdateServiceManagedControlResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateServiceManagedControlResponseBody() = default;
+};
+class UpdateServiceManagedControlResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateServiceManagedControlResponseBody> body{};
+
+  UpdateServiceManagedControlResponse() {}
+
+  explicit UpdateServiceManagedControlResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateServiceManagedControlResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateServiceManagedControlResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateServiceManagedControlResponse() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -37363,6 +39056,8 @@ public:
   UpdateAcceleratorConfirmResponse updateAcceleratorConfirm(shared_ptr<UpdateAcceleratorConfirmRequest> request);
   UpdateAcceleratorCrossBorderModeResponse updateAcceleratorCrossBorderModeWithOptions(shared_ptr<UpdateAcceleratorCrossBorderModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAcceleratorCrossBorderModeResponse updateAcceleratorCrossBorderMode(shared_ptr<UpdateAcceleratorCrossBorderModeRequest> request);
+  UpdateAcceleratorCrossBorderStatusResponse updateAcceleratorCrossBorderStatusWithOptions(shared_ptr<UpdateAcceleratorCrossBorderStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateAcceleratorCrossBorderStatusResponse updateAcceleratorCrossBorderStatus(shared_ptr<UpdateAcceleratorCrossBorderStatusRequest> request);
   UpdateAclAttributeResponse updateAclAttributeWithOptions(shared_ptr<UpdateAclAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateAclAttributeResponse updateAclAttribute(shared_ptr<UpdateAclAttributeRequest> request);
   UpdateAdditionalCertificateWithListenerResponse updateAdditionalCertificateWithListenerWithOptions(shared_ptr<UpdateAdditionalCertificateWithListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -37407,6 +39102,8 @@ public:
   UpdateIpSetsResponse updateIpSets(shared_ptr<UpdateIpSetsRequest> request);
   UpdateListenerResponse updateListenerWithOptions(shared_ptr<UpdateListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateListenerResponse updateListener(shared_ptr<UpdateListenerRequest> request);
+  UpdateServiceManagedControlResponse updateServiceManagedControlWithOptions(shared_ptr<UpdateServiceManagedControlRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateServiceManagedControlResponse updateServiceManagedControl(shared_ptr<UpdateServiceManagedControlRequest> request);
 
   virtual ~Client() = default;
 };
