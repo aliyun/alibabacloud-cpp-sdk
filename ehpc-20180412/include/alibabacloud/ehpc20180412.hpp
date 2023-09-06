@@ -1077,6 +1077,7 @@ public:
   shared_ptr<string> deploymentSetId{};
   shared_ptr<string> networkInterfaceTrafficMode{};
   shared_ptr<string> queueName{};
+  shared_ptr<bool> useESS{};
 
   AddQueueRequest() {}
 
@@ -1100,6 +1101,9 @@ public:
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
     }
+    if (useESS) {
+      res["UseESS"] = boost::any(*useESS);
+    }
     return res;
   }
 
@@ -1115,6 +1119,9 @@ public:
     }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
+    }
+    if (m.find("UseESS") != m.end() && !m["UseESS"].empty()) {
+      useESS = make_shared<bool>(boost::any_cast<bool>(m["UseESS"]));
     }
   }
 
@@ -14794,6 +14801,7 @@ public:
 };
 class GetAutoScaleConfigResponseBodyQueuesQueueInfo : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoMinNodesPerCycle{};
   shared_ptr<GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks> dataDisks{};
   shared_ptr<bool> enableAutoGrow{};
   shared_ptr<bool> enableAutoShrink{};
@@ -14825,6 +14833,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoMinNodesPerCycle) {
+      res["AutoMinNodesPerCycle"] = boost::any(*autoMinNodesPerCycle);
+    }
     if (dataDisks) {
       res["DataDisks"] = dataDisks ? boost::any(dataDisks->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14889,6 +14900,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoMinNodesPerCycle") != m.end() && !m["AutoMinNodesPerCycle"].empty()) {
+      autoMinNodesPerCycle = make_shared<bool>(boost::any_cast<bool>(m["AutoMinNodesPerCycle"]));
+    }
     if (m.find("DataDisks") != m.end() && !m["DataDisks"].empty()) {
       if (typeid(map<string, boost::any>) == m["DataDisks"].type()) {
         GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks model1;
@@ -27163,11 +27177,13 @@ public:
   shared_ptr<string> hostNamePrefix{};
   shared_ptr<string> hostNameSuffix{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
   shared_ptr<string> queueName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<ListQueuesResponseBodyQueuesQueueInfoSpotInstanceTypes> spotInstanceTypes{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> type{};
+  shared_ptr<bool> useESS{};
 
   ListQueuesResponseBodyQueuesQueueInfo() {}
 
@@ -27197,6 +27213,9 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
     }
@@ -27211,6 +27230,9 @@ public:
     }
     if (type) {
       res["Type"] = boost::any(*type);
+    }
+    if (useESS) {
+      res["UseESS"] = boost::any(*useESS);
     }
     return res;
   }
@@ -27238,6 +27260,9 @@ public:
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
+    }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));
     }
@@ -27256,6 +27281,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UseESS") != m.end() && !m["UseESS"].empty()) {
+      useESS = make_shared<bool>(boost::any_cast<bool>(m["UseESS"]));
     }
   }
 
@@ -32635,6 +32663,7 @@ public:
 };
 class SetAutoScaleConfigRequestQueues : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoMinNodesPerCycle{};
   shared_ptr<vector<SetAutoScaleConfigRequestQueuesDataDisks>> dataDisks{};
   shared_ptr<bool> enableAutoGrow{};
   shared_ptr<bool> enableAutoShrink{};
@@ -32665,6 +32694,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoMinNodesPerCycle) {
+      res["AutoMinNodesPerCycle"] = boost::any(*autoMinNodesPerCycle);
+    }
     if (dataDisks) {
       vector<boost::any> temp1;
       for(auto item1:*dataDisks){
@@ -32734,6 +32766,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoMinNodesPerCycle") != m.end() && !m["AutoMinNodesPerCycle"].empty()) {
+      autoMinNodesPerCycle = make_shared<bool>(boost::any_cast<bool>(m["AutoMinNodesPerCycle"]));
+    }
     if (m.find("DataDisks") != m.end() && !m["DataDisks"].empty()) {
       if (typeid(vector<boost::any>) == m["DataDisks"].type()) {
         vector<SetAutoScaleConfigRequestQueuesDataDisks> expect1;
@@ -36332,6 +36367,92 @@ public:
 
   virtual ~SubmitServerlessJobRequestDependsOn() = default;
 };
+class SubmitServerlessJobRequestRetryStrategyEvaluateOnExit : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+  shared_ptr<string> onExitCode{};
+
+  SubmitServerlessJobRequestRetryStrategyEvaluateOnExit() {}
+
+  explicit SubmitServerlessJobRequestRetryStrategyEvaluateOnExit(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    if (onExitCode) {
+      res["OnExitCode"] = boost::any(*onExitCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+    if (m.find("OnExitCode") != m.end() && !m["OnExitCode"].empty()) {
+      onExitCode = make_shared<string>(boost::any_cast<string>(m["OnExitCode"]));
+    }
+  }
+
+
+  virtual ~SubmitServerlessJobRequestRetryStrategyEvaluateOnExit() = default;
+};
+class SubmitServerlessJobRequestRetryStrategy : public Darabonba::Model {
+public:
+  shared_ptr<long> attempts{};
+  shared_ptr<vector<SubmitServerlessJobRequestRetryStrategyEvaluateOnExit>> evaluateOnExit{};
+
+  SubmitServerlessJobRequestRetryStrategy() {}
+
+  explicit SubmitServerlessJobRequestRetryStrategy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attempts) {
+      res["Attempts"] = boost::any(*attempts);
+    }
+    if (evaluateOnExit) {
+      vector<boost::any> temp1;
+      for(auto item1:*evaluateOnExit){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EvaluateOnExit"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Attempts") != m.end() && !m["Attempts"].empty()) {
+      attempts = make_shared<long>(boost::any_cast<long>(m["Attempts"]));
+    }
+    if (m.find("EvaluateOnExit") != m.end() && !m["EvaluateOnExit"].empty()) {
+      if (typeid(vector<boost::any>) == m["EvaluateOnExit"].type()) {
+        vector<SubmitServerlessJobRequestRetryStrategyEvaluateOnExit> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EvaluateOnExit"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SubmitServerlessJobRequestRetryStrategyEvaluateOnExit model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        evaluateOnExit = make_shared<vector<SubmitServerlessJobRequestRetryStrategyEvaluateOnExit>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitServerlessJobRequestRetryStrategy() = default;
+};
 class SubmitServerlessJobRequest : public Darabonba::Model {
 public:
   shared_ptr<SubmitServerlessJobRequestArrayProperties> arrayProperties{};
@@ -36345,6 +36466,7 @@ public:
   shared_ptr<long> jobPriority{};
   shared_ptr<double> memory{};
   shared_ptr<string> ramRoleName{};
+  shared_ptr<SubmitServerlessJobRequestRetryStrategy> retryStrategy{};
   shared_ptr<double> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<long> timeout{};
@@ -36396,6 +36518,9 @@ public:
     }
     if (ramRoleName) {
       res["RamRoleName"] = boost::any(*ramRoleName);
+    }
+    if (retryStrategy) {
+      res["RetryStrategy"] = retryStrategy ? boost::any(retryStrategy->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (spotPriceLimit) {
       res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
@@ -36471,6 +36596,13 @@ public:
     if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
       ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
     }
+    if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RetryStrategy"].type()) {
+        SubmitServerlessJobRequestRetryStrategy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RetryStrategy"]));
+        retryStrategy = make_shared<SubmitServerlessJobRequestRetryStrategy>(model1);
+      }
+    }
     if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
       spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
     }
@@ -36508,6 +36640,7 @@ public:
   shared_ptr<long> jobPriority{};
   shared_ptr<double> memory{};
   shared_ptr<string> ramRoleName{};
+  shared_ptr<string> retryStrategyShrink{};
   shared_ptr<double> spotPriceLimit{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<long> timeout{};
@@ -36555,6 +36688,9 @@ public:
     }
     if (ramRoleName) {
       res["RamRoleName"] = boost::any(*ramRoleName);
+    }
+    if (retryStrategyShrink) {
+      res["RetryStrategy"] = boost::any(*retryStrategyShrink);
     }
     if (spotPriceLimit) {
       res["SpotPriceLimit"] = boost::any(*spotPriceLimit);
@@ -36604,6 +36740,9 @@ public:
     }
     if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
       ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
+    }
+    if (m.find("RetryStrategy") != m.end() && !m["RetryStrategy"].empty()) {
+      retryStrategyShrink = make_shared<string>(boost::any_cast<string>(m["RetryStrategy"]));
     }
     if (m.find("SpotPriceLimit") != m.end() && !m["SpotPriceLimit"].empty()) {
       spotPriceLimit = make_shared<double>(boost::any_cast<double>(m["SpotPriceLimit"]));
@@ -37890,6 +38029,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<string> computeInstanceType{};
   shared_ptr<string> deploymentSetId{};
+  shared_ptr<string> networkInterfaceTrafficMode{};
   shared_ptr<string> queueName{};
   shared_ptr<string> resourceGroupId{};
 
@@ -37912,6 +38052,9 @@ public:
     if (deploymentSetId) {
       res["DeploymentSetId"] = boost::any(*deploymentSetId);
     }
+    if (networkInterfaceTrafficMode) {
+      res["NetworkInterfaceTrafficMode"] = boost::any(*networkInterfaceTrafficMode);
+    }
     if (queueName) {
       res["QueueName"] = boost::any(*queueName);
     }
@@ -37930,6 +38073,9 @@ public:
     }
     if (m.find("DeploymentSetId") != m.end() && !m["DeploymentSetId"].empty()) {
       deploymentSetId = make_shared<string>(boost::any_cast<string>(m["DeploymentSetId"]));
+    }
+    if (m.find("NetworkInterfaceTrafficMode") != m.end() && !m["NetworkInterfaceTrafficMode"].empty()) {
+      networkInterfaceTrafficMode = make_shared<string>(boost::any_cast<string>(m["NetworkInterfaceTrafficMode"]));
     }
     if (m.find("QueueName") != m.end() && !m["QueueName"].empty()) {
       queueName = make_shared<string>(boost::any_cast<string>(m["QueueName"]));

@@ -3305,10 +3305,13 @@ SubmitServerlessJobResponse Alibabacloud_EHPC20180412::Client::submitServerlessJ
     request->dependsOnShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->dependsOn, make_shared<string>("DependsOn"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->instanceType)) {
-    request->instanceTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceType, make_shared<string>("InstanceType"), make_shared<string>("simple")));
+    request->instanceTypeShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceType, make_shared<string>("InstanceType"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<SubmitServerlessJobRequestRetryStrategy>(tmpReq->retryStrategy)) {
+    request->retryStrategyShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->retryStrategy, make_shared<string>("RetryStrategy"), make_shared<string>("json")));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->vSwitchId)) {
-    request->vSwitchIdShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchId, make_shared<string>("VSwitchId"), make_shared<string>("simple")));
+    request->vSwitchIdShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->vSwitchId, make_shared<string>("VSwitchId"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->arrayPropertiesShrink)) {
@@ -3343,6 +3346,9 @@ SubmitServerlessJobResponse Alibabacloud_EHPC20180412::Client::submitServerlessJ
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ramRoleName)) {
     query->insert(pair<string, string>("RamRoleName", *request->ramRoleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->retryStrategyShrink)) {
+    query->insert(pair<string, string>("RetryStrategy", *request->retryStrategyShrink));
   }
   if (!Darabonba_Util::Client::isUnset<double>(request->spotPriceLimit)) {
     query->insert(pair<string, double>("SpotPriceLimit", *request->spotPriceLimit));
