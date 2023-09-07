@@ -65,3 +65,31 @@ VerifyCaptchaResponse Alibabacloud_Captcha20230305::Client::verifyCaptcha(shared
   return verifyCaptchaWithOptions(request, runtime);
 }
 
+VerifyIntelligentCaptchaResponse Alibabacloud_Captcha20230305::Client::verifyIntelligentCaptchaWithOptions(shared_ptr<VerifyIntelligentCaptchaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->captchaVerifyParam)) {
+    body->insert(pair<string, string>("CaptchaVerifyParam", *request->captchaVerifyParam));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("VerifyIntelligentCaptcha"))},
+    {"version", boost::any(string("2023-03-05"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return VerifyIntelligentCaptchaResponse(callApi(params, req, runtime));
+}
+
+VerifyIntelligentCaptchaResponse Alibabacloud_Captcha20230305::Client::verifyIntelligentCaptcha(shared_ptr<VerifyIntelligentCaptchaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return verifyIntelligentCaptchaWithOptions(request, runtime);
+}
+
