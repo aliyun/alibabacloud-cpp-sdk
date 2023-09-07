@@ -42360,6 +42360,7 @@ public:
   shared_ptr<string> iotId{};
   shared_ptr<string> iotInstanceId{};
   shared_ptr<string> productKey{};
+  shared_ptr<long> qos{};
 
   InvokeThingServiceRequest() {}
 
@@ -42389,6 +42390,9 @@ public:
     if (productKey) {
       res["ProductKey"] = boost::any(*productKey);
     }
+    if (qos) {
+      res["Qos"] = boost::any(*qos);
+    }
     return res;
   }
 
@@ -42410,6 +42414,9 @@ public:
     }
     if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
       productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("Qos") != m.end() && !m["Qos"].empty()) {
+      qos = make_shared<long>(boost::any_cast<long>(m["Qos"]));
     }
   }
 
@@ -52382,6 +52389,7 @@ public:
   shared_ptr<long> qos{};
   shared_ptr<string> responseTopic{};
   shared_ptr<bool> retained{};
+  shared_ptr<long> topicAlias{};
   shared_ptr<string> topicFullName{};
   shared_ptr<vector<PubRequestUserProp>> userProp{};
 
@@ -52427,6 +52435,9 @@ public:
     }
     if (retained) {
       res["Retained"] = boost::any(*retained);
+    }
+    if (topicAlias) {
+      res["TopicAlias"] = boost::any(*topicAlias);
     }
     if (topicFullName) {
       res["TopicFullName"] = boost::any(*topicFullName);
@@ -52474,6 +52485,9 @@ public:
     }
     if (m.find("Retained") != m.end() && !m["Retained"].empty()) {
       retained = make_shared<bool>(boost::any_cast<bool>(m["Retained"]));
+    }
+    if (m.find("TopicAlias") != m.end() && !m["TopicAlias"].empty()) {
+      topicAlias = make_shared<long>(boost::any_cast<long>(m["TopicAlias"]));
     }
     if (m.find("TopicFullName") != m.end() && !m["TopicFullName"].empty()) {
       topicFullName = make_shared<string>(boost::any_cast<string>(m["TopicFullName"]));
@@ -88416,6 +88430,7 @@ public:
   shared_ptr<string> iotInstanceId{};
   shared_ptr<string> items{};
   shared_ptr<string> productKey{};
+  shared_ptr<long> qos{};
 
   SetDevicePropertyRequest() {}
 
@@ -88442,6 +88457,9 @@ public:
     if (productKey) {
       res["ProductKey"] = boost::any(*productKey);
     }
+    if (qos) {
+      res["Qos"] = boost::any(*qos);
+    }
     return res;
   }
 
@@ -88460,6 +88478,9 @@ public:
     }
     if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
       productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("Qos") != m.end() && !m["Qos"].empty()) {
+      qos = make_shared<long>(boost::any_cast<long>(m["Qos"]));
     }
   }
 

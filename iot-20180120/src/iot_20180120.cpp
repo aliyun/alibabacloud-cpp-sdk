@@ -7415,6 +7415,9 @@ InvokeThingServiceResponse Alibabacloud_Iot20180120::Client::invokeThingServiceW
   if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
     query->insert(pair<string, string>("ProductKey", *request->productKey));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->qos)) {
+    query->insert(pair<string, long>("Qos", *request->qos));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -8707,6 +8710,9 @@ PubResponse Alibabacloud_Iot20180120::Client::pubWithOptions(shared_ptr<PubReque
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->retained)) {
     query->insert(pair<string, bool>("Retained", *request->retained));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->topicAlias)) {
+    query->insert(pair<string, long>("TopicAlias", *request->topicAlias));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topicFullName)) {
     query->insert(pair<string, string>("TopicFullName", *request->topicFullName));
@@ -12858,17 +12864,19 @@ RRpcResponse Alibabacloud_Iot20180120::Client::rRpcWithOptions(shared_ptr<RRpcRe
   if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
     query->insert(pair<string, string>("ProductKey", *request->productKey));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->requestBase64Byte)) {
-    query->insert(pair<string, string>("RequestBase64Byte", *request->requestBase64Byte));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
     query->insert(pair<string, long>("Timeout", *request->timeout));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->topic)) {
     query->insert(pair<string, string>("Topic", *request->topic));
   }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestBase64Byte)) {
+    body->insert(pair<string, string>("RequestBase64Byte", *request->requestBase64Byte));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RRpc"))},
@@ -13578,6 +13586,9 @@ SetDevicePropertyResponse Alibabacloud_Iot20180120::Client::setDevicePropertyWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productKey)) {
     query->insert(pair<string, string>("ProductKey", *request->productKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->qos)) {
+    query->insert(pair<string, long>("Qos", *request->qos));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
