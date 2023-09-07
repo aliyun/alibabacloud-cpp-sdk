@@ -6212,9 +6212,12 @@ public:
 class CompletePhysicalConnectionLOARequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> finishWork{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> lineCode{};
   shared_ptr<string> lineLabel{};
+  shared_ptr<string> lineSPContactInfo{};
+  shared_ptr<string> lineServiceProvider{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -6234,6 +6237,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (finishWork) {
+      res["FinishWork"] = boost::any(*finishWork);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -6242,6 +6248,12 @@ public:
     }
     if (lineLabel) {
       res["LineLabel"] = boost::any(*lineLabel);
+    }
+    if (lineSPContactInfo) {
+      res["LineSPContactInfo"] = boost::any(*lineSPContactInfo);
+    }
+    if (lineServiceProvider) {
+      res["LineServiceProvider"] = boost::any(*lineServiceProvider);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -6265,6 +6277,9 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("FinishWork") != m.end() && !m["FinishWork"].empty()) {
+      finishWork = make_shared<bool>(boost::any_cast<bool>(m["FinishWork"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
@@ -6273,6 +6288,12 @@ public:
     }
     if (m.find("LineLabel") != m.end() && !m["LineLabel"].empty()) {
       lineLabel = make_shared<string>(boost::any_cast<string>(m["LineLabel"]));
+    }
+    if (m.find("LineSPContactInfo") != m.end() && !m["LineSPContactInfo"].empty()) {
+      lineSPContactInfo = make_shared<string>(boost::any_cast<string>(m["LineSPContactInfo"]));
+    }
+    if (m.find("LineServiceProvider") != m.end() && !m["LineServiceProvider"].empty()) {
+      lineServiceProvider = make_shared<string>(boost::any_cast<string>(m["LineServiceProvider"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -43974,6 +43995,8 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> lineCode{};
   shared_ptr<string> lineLabel{};
+  shared_ptr<string> lineSPContactInfo{};
+  shared_ptr<string> lineServiceProvider{};
   shared_ptr<string> lineType{};
   shared_ptr<string> loaUrl{};
   shared_ptr<DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInfo> PMInfo{};
@@ -44007,6 +44030,12 @@ public:
     }
     if (lineLabel) {
       res["LineLabel"] = boost::any(*lineLabel);
+    }
+    if (lineSPContactInfo) {
+      res["LineSPContactInfo"] = boost::any(*lineSPContactInfo);
+    }
+    if (lineServiceProvider) {
+      res["LineServiceProvider"] = boost::any(*lineServiceProvider);
     }
     if (lineType) {
       res["LineType"] = boost::any(*lineType);
@@ -44044,6 +44073,12 @@ public:
     }
     if (m.find("LineLabel") != m.end() && !m["LineLabel"].empty()) {
       lineLabel = make_shared<string>(boost::any_cast<string>(m["LineLabel"]));
+    }
+    if (m.find("LineSPContactInfo") != m.end() && !m["LineSPContactInfo"].empty()) {
+      lineSPContactInfo = make_shared<string>(boost::any_cast<string>(m["LineSPContactInfo"]));
+    }
+    if (m.find("LineServiceProvider") != m.end() && !m["LineServiceProvider"].empty()) {
+      lineServiceProvider = make_shared<string>(boost::any_cast<string>(m["LineServiceProvider"]));
     }
     if (m.find("LineType") != m.end() && !m["LineType"].empty()) {
       lineType = make_shared<string>(boost::any_cast<string>(m["LineType"]));

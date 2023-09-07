@@ -1879,6 +1879,9 @@ CompletePhysicalConnectionLOAResponse Alibabacloud_Vpc20160428::Client::complete
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->finishWork)) {
+    query->insert(pair<string, bool>("FinishWork", *request->finishWork));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -1887,6 +1890,12 @@ CompletePhysicalConnectionLOAResponse Alibabacloud_Vpc20160428::Client::complete
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lineLabel)) {
     query->insert(pair<string, string>("LineLabel", *request->lineLabel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lineSPContactInfo)) {
+    query->insert(pair<string, string>("LineSPContactInfo", *request->lineSPContactInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lineServiceProvider)) {
+    query->insert(pair<string, string>("LineServiceProvider", *request->lineServiceProvider));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
