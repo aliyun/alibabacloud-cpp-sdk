@@ -4,6 +4,7 @@
 #define ALIBABACLOUD_OCR-API20210707_H_
 
 #include <alibabacloud/open_api.hpp>
+#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -14,6 +15,392 @@
 using namespace std;
 
 namespace Alibabacloud_Ocr-api20210707 {
+class DataSubImagesFigureInfoValueFigureDetailsFigurePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  DataSubImagesFigureInfoValueFigureDetailsFigurePoints() {}
+
+  explicit DataSubImagesFigureInfoValueFigureDetailsFigurePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesFigureInfoValueFigureDetailsFigurePoints() = default;
+};
+class DataSubImagesFigureInfoValueFigureDetailsFigureRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> width{};
+  shared_ptr<long> height{};
+
+  DataSubImagesFigureInfoValueFigureDetailsFigureRect() {}
+
+  explicit DataSubImagesFigureInfoValueFigureDetailsFigureRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesFigureInfoValueFigureDetailsFigureRect() = default;
+};
+class DataSubImagesFigureInfoValueFigureDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> type{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<vector<DataSubImagesFigureInfoValueFigureDetailsFigurePoints>> figurePoints{};
+  shared_ptr<DataSubImagesFigureInfoValueFigureDetailsFigureRect> figureRect{};
+  shared_ptr<long> figureAngle{};
+
+  DataSubImagesFigureInfoValueFigureDetails() {}
+
+  explicit DataSubImagesFigureInfoValueFigureDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (figurePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*figurePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FigurePoints"] = boost::any(temp1);
+    }
+    if (figureRect) {
+      res["FigureRect"] = figureRect ? boost::any(figureRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (figureAngle) {
+      res["FigureAngle"] = boost::any(*figureAngle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("FigurePoints") != m.end() && !m["FigurePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["FigurePoints"].type()) {
+        vector<DataSubImagesFigureInfoValueFigureDetailsFigurePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FigurePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DataSubImagesFigureInfoValueFigureDetailsFigurePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        figurePoints = make_shared<vector<DataSubImagesFigureInfoValueFigureDetailsFigurePoints>>(expect1);
+      }
+    }
+    if (m.find("FigureRect") != m.end() && !m["FigureRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FigureRect"].type()) {
+        DataSubImagesFigureInfoValueFigureDetailsFigureRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FigureRect"]));
+        figureRect = make_shared<DataSubImagesFigureInfoValueFigureDetailsFigureRect>(model1);
+      }
+    }
+    if (m.find("FigureAngle") != m.end() && !m["FigureAngle"].empty()) {
+      figureAngle = make_shared<long>(boost::any_cast<long>(m["FigureAngle"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesFigureInfoValueFigureDetails() = default;
+};
+class DataSubImagesFigureInfoValue : public Darabonba::Model {
+public:
+  shared_ptr<long> figureCount{};
+  shared_ptr<vector<DataSubImagesFigureInfoValueFigureDetails>> figureDetails{};
+
+  DataSubImagesFigureInfoValue() {}
+
+  explicit DataSubImagesFigureInfoValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (figureCount) {
+      res["FigureCount"] = boost::any(*figureCount);
+    }
+    if (figureDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*figureDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FigureDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FigureCount") != m.end() && !m["FigureCount"].empty()) {
+      figureCount = make_shared<long>(boost::any_cast<long>(m["FigureCount"]));
+    }
+    if (m.find("FigureDetails") != m.end() && !m["FigureDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["FigureDetails"].type()) {
+        vector<DataSubImagesFigureInfoValueFigureDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FigureDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DataSubImagesFigureInfoValueFigureDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        figureDetails = make_shared<vector<DataSubImagesFigureInfoValueFigureDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DataSubImagesFigureInfoValue() = default;
+};
+class DataSubImagesKvInfoKvDetailsValueValuePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  DataSubImagesKvInfoKvDetailsValueValuePoints() {}
+
+  explicit DataSubImagesKvInfoKvDetailsValueValuePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesKvInfoKvDetailsValueValuePoints() = default;
+};
+class DataSubImagesKvInfoKvDetailsValueValueRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> width{};
+  shared_ptr<long> height{};
+
+  DataSubImagesKvInfoKvDetailsValueValueRect() {}
+
+  explicit DataSubImagesKvInfoKvDetailsValueValueRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesKvInfoKvDetailsValueValueRect() = default;
+};
+class DataSubImagesKvInfoKvDetailsValue : public Darabonba::Model {
+public:
+  shared_ptr<string> keyName{};
+  shared_ptr<long> keyConfidence{};
+  shared_ptr<string> value{};
+  shared_ptr<long> valueConfidence{};
+  shared_ptr<vector<DataSubImagesKvInfoKvDetailsValueValuePoints>> valuePoints{};
+  shared_ptr<DataSubImagesKvInfoKvDetailsValueValueRect> valueRect{};
+  shared_ptr<long> valueAngle{};
+
+  DataSubImagesKvInfoKvDetailsValue() {}
+
+  explicit DataSubImagesKvInfoKvDetailsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (keyName) {
+      res["KeyName"] = boost::any(*keyName);
+    }
+    if (keyConfidence) {
+      res["KeyConfidence"] = boost::any(*keyConfidence);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (valueConfidence) {
+      res["ValueConfidence"] = boost::any(*valueConfidence);
+    }
+    if (valuePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*valuePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ValuePoints"] = boost::any(temp1);
+    }
+    if (valueRect) {
+      res["ValueRect"] = valueRect ? boost::any(valueRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (valueAngle) {
+      res["ValueAngle"] = boost::any(*valueAngle);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("KeyName") != m.end() && !m["KeyName"].empty()) {
+      keyName = make_shared<string>(boost::any_cast<string>(m["KeyName"]));
+    }
+    if (m.find("KeyConfidence") != m.end() && !m["KeyConfidence"].empty()) {
+      keyConfidence = make_shared<long>(boost::any_cast<long>(m["KeyConfidence"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("ValueConfidence") != m.end() && !m["ValueConfidence"].empty()) {
+      valueConfidence = make_shared<long>(boost::any_cast<long>(m["ValueConfidence"]));
+    }
+    if (m.find("ValuePoints") != m.end() && !m["ValuePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["ValuePoints"].type()) {
+        vector<DataSubImagesKvInfoKvDetailsValueValuePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ValuePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DataSubImagesKvInfoKvDetailsValueValuePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        valuePoints = make_shared<vector<DataSubImagesKvInfoKvDetailsValueValuePoints>>(expect1);
+      }
+    }
+    if (m.find("ValueRect") != m.end() && !m["ValueRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ValueRect"].type()) {
+        DataSubImagesKvInfoKvDetailsValueValueRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ValueRect"]));
+        valueRect = make_shared<DataSubImagesKvInfoKvDetailsValueValueRect>(model1);
+      }
+    }
+    if (m.find("ValueAngle") != m.end() && !m["ValueAngle"].empty()) {
+      valueAngle = make_shared<long>(boost::any_cast<long>(m["ValueAngle"]));
+    }
+  }
+
+
+  virtual ~DataSubImagesKvInfoKvDetailsValue() = default;
+};
 class RecognizeAdvancedRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> needRotate{};
@@ -365,6 +752,6148 @@ public:
 
 
   virtual ~RecognizeAirItineraryResponse() = default;
+};
+class RecognizeAllTextRequestAdvancedConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> isHandWritingTable{};
+  shared_ptr<bool> isLineLessTable{};
+  shared_ptr<bool> outputCharInfo{};
+  shared_ptr<bool> outputParagraph{};
+  shared_ptr<bool> outputRow{};
+  shared_ptr<bool> outputTable{};
+  shared_ptr<bool> outputTableExcel{};
+  shared_ptr<bool> outputTableHtml{};
+
+  RecognizeAllTextRequestAdvancedConfig() {}
+
+  explicit RecognizeAllTextRequestAdvancedConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (isHandWritingTable) {
+      res["IsHandWritingTable"] = boost::any(*isHandWritingTable);
+    }
+    if (isLineLessTable) {
+      res["IsLineLessTable"] = boost::any(*isLineLessTable);
+    }
+    if (outputCharInfo) {
+      res["OutputCharInfo"] = boost::any(*outputCharInfo);
+    }
+    if (outputParagraph) {
+      res["OutputParagraph"] = boost::any(*outputParagraph);
+    }
+    if (outputRow) {
+      res["OutputRow"] = boost::any(*outputRow);
+    }
+    if (outputTable) {
+      res["OutputTable"] = boost::any(*outputTable);
+    }
+    if (outputTableExcel) {
+      res["OutputTableExcel"] = boost::any(*outputTableExcel);
+    }
+    if (outputTableHtml) {
+      res["OutputTableHtml"] = boost::any(*outputTableHtml);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsHandWritingTable") != m.end() && !m["IsHandWritingTable"].empty()) {
+      isHandWritingTable = make_shared<bool>(boost::any_cast<bool>(m["IsHandWritingTable"]));
+    }
+    if (m.find("IsLineLessTable") != m.end() && !m["IsLineLessTable"].empty()) {
+      isLineLessTable = make_shared<bool>(boost::any_cast<bool>(m["IsLineLessTable"]));
+    }
+    if (m.find("OutputCharInfo") != m.end() && !m["OutputCharInfo"].empty()) {
+      outputCharInfo = make_shared<bool>(boost::any_cast<bool>(m["OutputCharInfo"]));
+    }
+    if (m.find("OutputParagraph") != m.end() && !m["OutputParagraph"].empty()) {
+      outputParagraph = make_shared<bool>(boost::any_cast<bool>(m["OutputParagraph"]));
+    }
+    if (m.find("OutputRow") != m.end() && !m["OutputRow"].empty()) {
+      outputRow = make_shared<bool>(boost::any_cast<bool>(m["OutputRow"]));
+    }
+    if (m.find("OutputTable") != m.end() && !m["OutputTable"].empty()) {
+      outputTable = make_shared<bool>(boost::any_cast<bool>(m["OutputTable"]));
+    }
+    if (m.find("OutputTableExcel") != m.end() && !m["OutputTableExcel"].empty()) {
+      outputTableExcel = make_shared<bool>(boost::any_cast<bool>(m["OutputTableExcel"]));
+    }
+    if (m.find("OutputTableHtml") != m.end() && !m["OutputTableHtml"].empty()) {
+      outputTableHtml = make_shared<bool>(boost::any_cast<bool>(m["OutputTableHtml"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestAdvancedConfig() = default;
+};
+class RecognizeAllTextRequestIdCardConfig : public Darabonba::Model {
+public:
+  shared_ptr<bool> outputIdCardQuality{};
+
+  RecognizeAllTextRequestIdCardConfig() {}
+
+  explicit RecognizeAllTextRequestIdCardConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputIdCardQuality) {
+      res["OutputIdCardQuality"] = boost::any(*outputIdCardQuality);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputIdCardQuality") != m.end() && !m["OutputIdCardQuality"].empty()) {
+      outputIdCardQuality = make_shared<bool>(boost::any_cast<bool>(m["OutputIdCardQuality"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestIdCardConfig() = default;
+};
+class RecognizeAllTextRequestInternationalIdCardConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> country{};
+
+  RecognizeAllTextRequestInternationalIdCardConfig() {}
+
+  explicit RecognizeAllTextRequestInternationalIdCardConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (country) {
+      res["Country"] = boost::any(*country);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Country") != m.end() && !m["Country"].empty()) {
+      country = make_shared<string>(boost::any_cast<string>(m["Country"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestInternationalIdCardConfig() = default;
+};
+class RecognizeAllTextRequestMultiLanConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> languages{};
+
+  RecognizeAllTextRequestMultiLanConfig() {}
+
+  explicit RecognizeAllTextRequestMultiLanConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (languages) {
+      res["Languages"] = boost::any(*languages);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Languages") != m.end() && !m["Languages"].empty()) {
+      languages = make_shared<string>(boost::any_cast<string>(m["Languages"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequestMultiLanConfig() = default;
+};
+class RecognizeAllTextRequest : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeAllTextRequestAdvancedConfig> advancedConfig{};
+  shared_ptr<RecognizeAllTextRequestIdCardConfig> idCardConfig{};
+  shared_ptr<RecognizeAllTextRequestInternationalIdCardConfig> internationalIdCardConfig{};
+  shared_ptr<RecognizeAllTextRequestMultiLanConfig> multiLanConfig{};
+  shared_ptr<bool> outputBarCode{};
+  shared_ptr<vector<uint8_t>> outputCoordinate{};
+  shared_ptr<bool> outputFigure{};
+  shared_ptr<bool> outputKVExcel{};
+  shared_ptr<bool> outputOricoord{};
+  shared_ptr<bool> outputQrcode{};
+  shared_ptr<bool> outputStamp{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<string> type{};
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizeAllTextRequest() {}
+
+  explicit RecognizeAllTextRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedConfig) {
+      res["AdvancedConfig"] = advancedConfig ? boost::any(advancedConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (idCardConfig) {
+      res["IdCardConfig"] = idCardConfig ? boost::any(idCardConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (internationalIdCardConfig) {
+      res["InternationalIdCardConfig"] = internationalIdCardConfig ? boost::any(internationalIdCardConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (multiLanConfig) {
+      res["MultiLanConfig"] = multiLanConfig ? boost::any(multiLanConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (outputBarCode) {
+      res["OutputBarCode"] = boost::any(*outputBarCode);
+    }
+    if (outputCoordinate) {
+      res["OutputCoordinate"] = boost::any(*outputCoordinate);
+    }
+    if (outputFigure) {
+      res["OutputFigure"] = boost::any(*outputFigure);
+    }
+    if (outputKVExcel) {
+      res["OutputKVExcel"] = boost::any(*outputKVExcel);
+    }
+    if (outputOricoord) {
+      res["OutputOricoord"] = boost::any(*outputOricoord);
+    }
+    if (outputQrcode) {
+      res["OutputQrcode"] = boost::any(*outputQrcode);
+    }
+    if (outputStamp) {
+      res["OutputStamp"] = boost::any(*outputStamp);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedConfig") != m.end() && !m["AdvancedConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AdvancedConfig"].type()) {
+        RecognizeAllTextRequestAdvancedConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AdvancedConfig"]));
+        advancedConfig = make_shared<RecognizeAllTextRequestAdvancedConfig>(model1);
+      }
+    }
+    if (m.find("IdCardConfig") != m.end() && !m["IdCardConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IdCardConfig"].type()) {
+        RecognizeAllTextRequestIdCardConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IdCardConfig"]));
+        idCardConfig = make_shared<RecognizeAllTextRequestIdCardConfig>(model1);
+      }
+    }
+    if (m.find("InternationalIdCardConfig") != m.end() && !m["InternationalIdCardConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InternationalIdCardConfig"].type()) {
+        RecognizeAllTextRequestInternationalIdCardConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InternationalIdCardConfig"]));
+        internationalIdCardConfig = make_shared<RecognizeAllTextRequestInternationalIdCardConfig>(model1);
+      }
+    }
+    if (m.find("MultiLanConfig") != m.end() && !m["MultiLanConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MultiLanConfig"].type()) {
+        RecognizeAllTextRequestMultiLanConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MultiLanConfig"]));
+        multiLanConfig = make_shared<RecognizeAllTextRequestMultiLanConfig>(model1);
+      }
+    }
+    if (m.find("OutputBarCode") != m.end() && !m["OutputBarCode"].empty()) {
+      outputBarCode = make_shared<bool>(boost::any_cast<bool>(m["OutputBarCode"]));
+    }
+    if (m.find("OutputCoordinate") != m.end() && !m["OutputCoordinate"].empty()) {
+      outputCoordinate = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["OutputCoordinate"]));
+    }
+    if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
+      outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
+    }
+    if (m.find("OutputKVExcel") != m.end() && !m["OutputKVExcel"].empty()) {
+      outputKVExcel = make_shared<bool>(boost::any_cast<bool>(m["OutputKVExcel"]));
+    }
+    if (m.find("OutputOricoord") != m.end() && !m["OutputOricoord"].empty()) {
+      outputOricoord = make_shared<bool>(boost::any_cast<bool>(m["OutputOricoord"]));
+    }
+    if (m.find("OutputQrcode") != m.end() && !m["OutputQrcode"].empty()) {
+      outputQrcode = make_shared<bool>(boost::any_cast<bool>(m["OutputQrcode"]));
+    }
+    if (m.find("OutputStamp") != m.end() && !m["OutputStamp"].empty()) {
+      outputStamp = make_shared<bool>(boost::any_cast<bool>(m["OutputStamp"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextRequest() = default;
+};
+class RecognizeAllTextShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> advancedConfigShrink{};
+  shared_ptr<string> idCardConfigShrink{};
+  shared_ptr<string> internationalIdCardConfigShrink{};
+  shared_ptr<string> multiLanConfigShrink{};
+  shared_ptr<bool> outputBarCode{};
+  shared_ptr<vector<uint8_t>> outputCoordinate{};
+  shared_ptr<bool> outputFigure{};
+  shared_ptr<bool> outputKVExcel{};
+  shared_ptr<bool> outputOricoord{};
+  shared_ptr<bool> outputQrcode{};
+  shared_ptr<bool> outputStamp{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<string> type{};
+  shared_ptr<string> url{};
+  shared_ptr<Darabonba::Stream> body{};
+
+  RecognizeAllTextShrinkRequest() {}
+
+  explicit RecognizeAllTextShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (advancedConfigShrink) {
+      res["AdvancedConfig"] = boost::any(*advancedConfigShrink);
+    }
+    if (idCardConfigShrink) {
+      res["IdCardConfig"] = boost::any(*idCardConfigShrink);
+    }
+    if (internationalIdCardConfigShrink) {
+      res["InternationalIdCardConfig"] = boost::any(*internationalIdCardConfigShrink);
+    }
+    if (multiLanConfigShrink) {
+      res["MultiLanConfig"] = boost::any(*multiLanConfigShrink);
+    }
+    if (outputBarCode) {
+      res["OutputBarCode"] = boost::any(*outputBarCode);
+    }
+    if (outputCoordinate) {
+      res["OutputCoordinate"] = boost::any(*outputCoordinate);
+    }
+    if (outputFigure) {
+      res["OutputFigure"] = boost::any(*outputFigure);
+    }
+    if (outputKVExcel) {
+      res["OutputKVExcel"] = boost::any(*outputKVExcel);
+    }
+    if (outputOricoord) {
+      res["OutputOricoord"] = boost::any(*outputOricoord);
+    }
+    if (outputQrcode) {
+      res["OutputQrcode"] = boost::any(*outputQrcode);
+    }
+    if (outputStamp) {
+      res["OutputStamp"] = boost::any(*outputStamp);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (url) {
+      res["Url"] = boost::any(*url);
+    }
+    if (body) {
+      res["body"] = boost::any(*body);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdvancedConfig") != m.end() && !m["AdvancedConfig"].empty()) {
+      advancedConfigShrink = make_shared<string>(boost::any_cast<string>(m["AdvancedConfig"]));
+    }
+    if (m.find("IdCardConfig") != m.end() && !m["IdCardConfig"].empty()) {
+      idCardConfigShrink = make_shared<string>(boost::any_cast<string>(m["IdCardConfig"]));
+    }
+    if (m.find("InternationalIdCardConfig") != m.end() && !m["InternationalIdCardConfig"].empty()) {
+      internationalIdCardConfigShrink = make_shared<string>(boost::any_cast<string>(m["InternationalIdCardConfig"]));
+    }
+    if (m.find("MultiLanConfig") != m.end() && !m["MultiLanConfig"].empty()) {
+      multiLanConfigShrink = make_shared<string>(boost::any_cast<string>(m["MultiLanConfig"]));
+    }
+    if (m.find("OutputBarCode") != m.end() && !m["OutputBarCode"].empty()) {
+      outputBarCode = make_shared<bool>(boost::any_cast<bool>(m["OutputBarCode"]));
+    }
+    if (m.find("OutputCoordinate") != m.end() && !m["OutputCoordinate"].empty()) {
+      outputCoordinate = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["OutputCoordinate"]));
+    }
+    if (m.find("OutputFigure") != m.end() && !m["OutputFigure"].empty()) {
+      outputFigure = make_shared<bool>(boost::any_cast<bool>(m["OutputFigure"]));
+    }
+    if (m.find("OutputKVExcel") != m.end() && !m["OutputKVExcel"].empty()) {
+      outputKVExcel = make_shared<bool>(boost::any_cast<bool>(m["OutputKVExcel"]));
+    }
+    if (m.find("OutputOricoord") != m.end() && !m["OutputOricoord"].empty()) {
+      outputOricoord = make_shared<bool>(boost::any_cast<bool>(m["OutputOricoord"]));
+    }
+    if (m.find("OutputQrcode") != m.end() && !m["OutputQrcode"].empty()) {
+      outputQrcode = make_shared<bool>(boost::any_cast<bool>(m["OutputQrcode"]));
+    }
+    if (m.find("OutputStamp") != m.end() && !m["OutputStamp"].empty()) {
+      outputStamp = make_shared<bool>(boost::any_cast<bool>(m["OutputStamp"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("Url") != m.end() && !m["Url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["Url"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      body = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["body"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextShrinkRequest() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> barCodeAngle{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints>> barCodePoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect> barCodeRect{};
+  shared_ptr<vector<uint8_t>> data{};
+  shared_ptr<string> type{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (barCodeAngle) {
+      res["BarCodeAngle"] = boost::any(*barCodeAngle);
+    }
+    if (barCodePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*barCodePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BarCodePoints"] = boost::any(temp1);
+    }
+    if (barCodeRect) {
+      res["BarCodeRect"] = barCodeRect ? boost::any(barCodeRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BarCodeAngle") != m.end() && !m["BarCodeAngle"].empty()) {
+      barCodeAngle = make_shared<long>(boost::any_cast<long>(m["BarCodeAngle"]));
+    }
+    if (m.find("BarCodePoints") != m.end() && !m["BarCodePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["BarCodePoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BarCodePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        barCodePoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodePoints>>(expect1);
+      }
+    }
+    if (m.find("BarCodeRect") != m.end() && !m["BarCodeRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BarCodeRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BarCodeRect"]));
+        barCodeRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetailsBarCodeRect>(model1);
+      }
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["Data"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> barCodeCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails>> barCodeDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (barCodeCount) {
+      res["BarCodeCount"] = boost::any(*barCodeCount);
+    }
+    if (barCodeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*barCodeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BarCodeDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BarCodeCount") != m.end() && !m["BarCodeCount"].empty()) {
+      barCodeCount = make_shared<long>(boost::any_cast<long>(m["BarCodeCount"]));
+    }
+    if (m.find("BarCodeDetails") != m.end() && !m["BarCodeDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["BarCodeDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BarCodeDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        barCodeDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfoBarCodeDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos : public Darabonba::Model {
+public:
+  shared_ptr<long> charConfidence{};
+  shared_ptr<string> charContent{};
+  shared_ptr<long> charId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints>> charPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect> charRect{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (charConfidence) {
+      res["CharConfidence"] = boost::any(*charConfidence);
+    }
+    if (charContent) {
+      res["CharContent"] = boost::any(*charContent);
+    }
+    if (charId) {
+      res["CharId"] = boost::any(*charId);
+    }
+    if (charPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*charPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CharPoints"] = boost::any(temp1);
+    }
+    if (charRect) {
+      res["CharRect"] = charRect ? boost::any(charRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CharConfidence") != m.end() && !m["CharConfidence"].empty()) {
+      charConfidence = make_shared<long>(boost::any_cast<long>(m["CharConfidence"]));
+    }
+    if (m.find("CharContent") != m.end() && !m["CharContent"].empty()) {
+      charContent = make_shared<string>(boost::any_cast<string>(m["CharContent"]));
+    }
+    if (m.find("CharId") != m.end() && !m["CharId"].empty()) {
+      charId = make_shared<long>(boost::any_cast<long>(m["CharId"]));
+    }
+    if (m.find("CharPoints") != m.end() && !m["CharPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["CharPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CharPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        charPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharPoints>>(expect1);
+      }
+    }
+    if (m.find("CharRect") != m.end() && !m["CharRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CharRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CharRect"]));
+        charRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfosCharRect>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> blockAngle{};
+  shared_ptr<long> blockConfidence{};
+  shared_ptr<string> blockContent{};
+  shared_ptr<long> blockId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints>> blockPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect> blockRect{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos>> charInfos{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockAngle) {
+      res["BlockAngle"] = boost::any(*blockAngle);
+    }
+    if (blockConfidence) {
+      res["BlockConfidence"] = boost::any(*blockConfidence);
+    }
+    if (blockContent) {
+      res["BlockContent"] = boost::any(*blockContent);
+    }
+    if (blockId) {
+      res["BlockId"] = boost::any(*blockId);
+    }
+    if (blockPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*blockPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlockPoints"] = boost::any(temp1);
+    }
+    if (blockRect) {
+      res["BlockRect"] = blockRect ? boost::any(blockRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (charInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*charInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CharInfos"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockAngle") != m.end() && !m["BlockAngle"].empty()) {
+      blockAngle = make_shared<long>(boost::any_cast<long>(m["BlockAngle"]));
+    }
+    if (m.find("BlockConfidence") != m.end() && !m["BlockConfidence"].empty()) {
+      blockConfidence = make_shared<long>(boost::any_cast<long>(m["BlockConfidence"]));
+    }
+    if (m.find("BlockContent") != m.end() && !m["BlockContent"].empty()) {
+      blockContent = make_shared<string>(boost::any_cast<string>(m["BlockContent"]));
+    }
+    if (m.find("BlockId") != m.end() && !m["BlockId"].empty()) {
+      blockId = make_shared<long>(boost::any_cast<long>(m["BlockId"]));
+    }
+    if (m.find("BlockPoints") != m.end() && !m["BlockPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlockPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlockPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blockPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockPoints>>(expect1);
+      }
+    }
+    if (m.find("BlockRect") != m.end() && !m["BlockRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BlockRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BlockRect"]));
+        blockRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsBlockRect>(model1);
+      }
+    }
+    if (m.find("CharInfos") != m.end() && !m["CharInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["CharInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CharInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        charInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetailsCharInfos>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesBlockInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> blockCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails>> blockDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesBlockInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesBlockInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockCount) {
+      res["BlockCount"] = boost::any(*blockCount);
+    }
+    if (blockDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*blockDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlockDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockCount") != m.end() && !m["BlockCount"].empty()) {
+      blockCount = make_shared<long>(boost::any_cast<long>(m["BlockCount"]));
+    }
+    if (m.find("BlockDetails") != m.end() && !m["BlockDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlockDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlockDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blockDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesBlockInfoBlockDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesBlockInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocLayouts : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints>> layoutPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect> layoutRect{};
+  shared_ptr<string> layoutType{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocLayouts() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocLayouts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (layoutPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*layoutPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LayoutPoints"] = boost::any(temp1);
+    }
+    if (layoutRect) {
+      res["LayoutRect"] = layoutRect ? boost::any(layoutRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (layoutType) {
+      res["LayoutType"] = boost::any(*layoutType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LayoutPoints") != m.end() && !m["LayoutPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["LayoutPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LayoutPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        layoutPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutPoints>>(expect1);
+      }
+    }
+    if (m.find("LayoutRect") != m.end() && !m["LayoutRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutRect"]));
+        layoutRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesDocLayoutsLayoutRect>(model1);
+      }
+    }
+    if (m.find("LayoutType") != m.end() && !m["LayoutType"].empty()) {
+      layoutType = make_shared<string>(boost::any_cast<string>(m["LayoutType"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocLayouts() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos>> specialTextPos{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect> specialTextRect{};
+  shared_ptr<string> specialTextType{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (specialTextPos) {
+      vector<boost::any> temp1;
+      for(auto item1:*specialTextPos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SpecialTextPos"] = boost::any(temp1);
+    }
+    if (specialTextRect) {
+      res["SpecialTextRect"] = specialTextRect ? boost::any(specialTextRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (specialTextType) {
+      res["SpecialTextType"] = boost::any(*specialTextType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SpecialTextPos") != m.end() && !m["SpecialTextPos"].empty()) {
+      if (typeid(vector<boost::any>) == m["SpecialTextPos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SpecialTextPos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        specialTextPos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextPos>>(expect1);
+      }
+    }
+    if (m.find("SpecialTextRect") != m.end() && !m["SpecialTextRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SpecialTextRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SpecialTextRect"]));
+        specialTextRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTextsSpecialTextRect>(model1);
+      }
+    }
+    if (m.find("SpecialTextType") != m.end() && !m["SpecialTextType"].empty()) {
+      specialTextType = make_shared<string>(boost::any_cast<string>(m["SpecialTextType"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesDocSubField : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos>> subFieldPos{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect> subFieldRect{};
+  shared_ptr<string> subFieldType{};
+
+  RecognizeAllTextResponseBodyDataSubImagesDocSubField() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesDocSubField(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (subFieldPos) {
+      vector<boost::any> temp1;
+      for(auto item1:*subFieldPos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubFieldPos"] = boost::any(temp1);
+    }
+    if (subFieldRect) {
+      res["SubFieldRect"] = subFieldRect ? boost::any(subFieldRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (subFieldType) {
+      res["SubFieldType"] = boost::any(*subFieldType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("SubFieldPos") != m.end() && !m["SubFieldPos"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubFieldPos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubFieldPos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subFieldPos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldPos>>(expect1);
+      }
+    }
+    if (m.find("SubFieldRect") != m.end() && !m["SubFieldRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubFieldRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubFieldRect"]));
+        subFieldRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesDocSubFieldSubFieldRect>(model1);
+      }
+    }
+    if (m.find("SubFieldType") != m.end() && !m["SubFieldType"].empty()) {
+      subFieldType = make_shared<string>(boost::any_cast<string>(m["SubFieldType"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesDocSubField() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesKvInfo : public Darabonba::Model {
+public:
+  shared_ptr<boost::any> data{};
+  shared_ptr<long> kvCount{};
+  shared_ptr<map<string, DataSubImagesKvInfoKvDetailsValue>> kvDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesKvInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesKvInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (kvCount) {
+      res["KvCount"] = boost::any(*kvCount);
+    }
+    if (kvDetails) {
+      map<string, boost::any> temp1;
+      for(auto item1:*kvDetails){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["KvDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("KvCount") != m.end() && !m["KvCount"].empty()) {
+      kvCount = make_shared<long>(boost::any_cast<long>(m["KvCount"]));
+    }
+    if (m.find("KvDetails") != m.end() && !m["KvDetails"].empty()) {
+      if (typeid(map<string, boost::any>) == m["KvDetails"].type()) {
+        map<string, DataSubImagesKvInfoKvDetailsValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["KvDetails"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            DataSubImagesKvInfoKvDetailsValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        kvDetails = make_shared<map<string, DataSubImagesKvInfoKvDetailsValue>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesKvInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesMathInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints>> mathInfoPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect> mathInfoRect{};
+  shared_ptr<string> result{};
+  shared_ptr<string> title{};
+
+  RecognizeAllTextResponseBodyDataSubImagesMathInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesMathInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (mathInfoPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*mathInfoPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MathInfoPoints"] = boost::any(temp1);
+    }
+    if (mathInfoRect) {
+      res["MathInfoRect"] = mathInfoRect ? boost::any(mathInfoRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (title) {
+      res["Title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MathInfoPoints") != m.end() && !m["MathInfoPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["MathInfoPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MathInfoPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mathInfoPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoPoints>>(expect1);
+      }
+    }
+    if (m.find("MathInfoRect") != m.end() && !m["MathInfoRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MathInfoRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MathInfoRect"]));
+        mathInfoRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesMathInfosMathInfoRect>(model1);
+      }
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<string>(boost::any_cast<string>(m["Result"]));
+    }
+    if (m.find("Title") != m.end() && !m["Title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["Title"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesMathInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages : public Darabonba::Model {
+public:
+  shared_ptr<long> imageWidth{};
+  shared_ptr<long> inageHeight{};
+  shared_ptr<long> pageIdAllDocs{};
+  shared_ptr<long> pageIdCurDoc{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageWidth) {
+      res["ImageWidth"] = boost::any(*imageWidth);
+    }
+    if (inageHeight) {
+      res["InageHeight"] = boost::any(*inageHeight);
+    }
+    if (pageIdAllDocs) {
+      res["PageIdAllDocs"] = boost::any(*pageIdAllDocs);
+    }
+    if (pageIdCurDoc) {
+      res["PageIdCurDoc"] = boost::any(*pageIdCurDoc);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageWidth") != m.end() && !m["ImageWidth"].empty()) {
+      imageWidth = make_shared<long>(boost::any_cast<long>(m["ImageWidth"]));
+    }
+    if (m.find("InageHeight") != m.end() && !m["InageHeight"].empty()) {
+      inageHeight = make_shared<long>(boost::any_cast<long>(m["InageHeight"]));
+    }
+    if (m.find("PageIdAllDocs") != m.end() && !m["PageIdAllDocs"].empty()) {
+      pageIdAllDocs = make_shared<long>(boost::any_cast<long>(m["PageIdAllDocs"]));
+    }
+    if (m.find("PageIdCurDoc") != m.end() && !m["PageIdCurDoc"].empty()) {
+      pageIdCurDoc = make_shared<long>(boost::any_cast<long>(m["PageIdCurDoc"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages>> pages{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pages) {
+      vector<boost::any> temp1;
+      for(auto item1:*pages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Pages"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pages") != m.end() && !m["Pages"].empty()) {
+      if (typeid(vector<boost::any>) == m["Pages"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Pages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pages = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfoPages>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> alignment{};
+  shared_ptr<long> index{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints>> layoutPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect> layoutRect{};
+  shared_ptr<vector<long>> pageNum{};
+  shared_ptr<string> source{};
+  shared_ptr<string> subType{};
+  shared_ptr<string> text{};
+  shared_ptr<string> type{};
+  shared_ptr<string> uniqueID{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alignment) {
+      res["Alignment"] = boost::any(*alignment);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (layoutPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*layoutPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LayoutPoints"] = boost::any(temp1);
+    }
+    if (layoutRect) {
+      res["LayoutRect"] = layoutRect ? boost::any(layoutRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (subType) {
+      res["SubType"] = boost::any(*subType);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    if (uniqueID) {
+      res["UniqueID"] = boost::any(*uniqueID);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Alignment") != m.end() && !m["Alignment"].empty()) {
+      alignment = make_shared<string>(boost::any_cast<string>(m["Alignment"]));
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("LayoutPoints") != m.end() && !m["LayoutPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["LayoutPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LayoutPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        layoutPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutPoints>>(expect1);
+      }
+    }
+    if (m.find("LayoutRect") != m.end() && !m["LayoutRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LayoutRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LayoutRect"]));
+        layoutRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfosLayoutRect>(model1);
+      }
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["PageNum"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PageNum"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      pageNum = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SubType") != m.end() && !m["SubType"].empty()) {
+      subType = make_shared<string>(boost::any_cast<string>(m["SubType"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UniqueID") != m.end() && !m["UniqueID"].empty()) {
+      uniqueID = make_shared<string>(boost::any_cast<string>(m["UniqueID"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles : public Darabonba::Model {
+public:
+  shared_ptr<bool> bold{};
+  shared_ptr<double> charScale{};
+  shared_ptr<string> color{};
+  shared_ptr<bool> deleteLine{};
+  shared_ptr<string> fontName{};
+  shared_ptr<long> fontSize{};
+  shared_ptr<bool> italic{};
+  shared_ptr<long> styleId{};
+  shared_ptr<bool> underline{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bold) {
+      res["Bold"] = boost::any(*bold);
+    }
+    if (charScale) {
+      res["CharScale"] = boost::any(*charScale);
+    }
+    if (color) {
+      res["Color"] = boost::any(*color);
+    }
+    if (deleteLine) {
+      res["DeleteLine"] = boost::any(*deleteLine);
+    }
+    if (fontName) {
+      res["FontName"] = boost::any(*fontName);
+    }
+    if (fontSize) {
+      res["FontSize"] = boost::any(*fontSize);
+    }
+    if (italic) {
+      res["Italic"] = boost::any(*italic);
+    }
+    if (styleId) {
+      res["StyleId"] = boost::any(*styleId);
+    }
+    if (underline) {
+      res["Underline"] = boost::any(*underline);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Bold") != m.end() && !m["Bold"].empty()) {
+      bold = make_shared<bool>(boost::any_cast<bool>(m["Bold"]));
+    }
+    if (m.find("CharScale") != m.end() && !m["CharScale"].empty()) {
+      charScale = make_shared<double>(boost::any_cast<double>(m["CharScale"]));
+    }
+    if (m.find("Color") != m.end() && !m["Color"].empty()) {
+      color = make_shared<string>(boost::any_cast<string>(m["Color"]));
+    }
+    if (m.find("DeleteLine") != m.end() && !m["DeleteLine"].empty()) {
+      deleteLine = make_shared<bool>(boost::any_cast<bool>(m["DeleteLine"]));
+    }
+    if (m.find("FontName") != m.end() && !m["FontName"].empty()) {
+      fontName = make_shared<string>(boost::any_cast<string>(m["FontName"]));
+    }
+    if (m.find("FontSize") != m.end() && !m["FontSize"].empty()) {
+      fontSize = make_shared<long>(boost::any_cast<long>(m["FontSize"]));
+    }
+    if (m.find("Italic") != m.end() && !m["Italic"].empty()) {
+      italic = make_shared<bool>(boost::any_cast<bool>(m["Italic"]));
+    }
+    if (m.find("StyleId") != m.end() && !m["StyleId"].empty()) {
+      styleId = make_shared<long>(boost::any_cast<long>(m["StyleId"]));
+    }
+    if (m.find("Underline") != m.end() && !m["Underline"].empty()) {
+      underline = make_shared<bool>(boost::any_cast<bool>(m["Underline"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesNewStyleData : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo> docInfo{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos>> layoutInfos{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles>> styles{};
+
+  RecognizeAllTextResponseBodyDataSubImagesNewStyleData() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesNewStyleData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (docInfo) {
+      res["DocInfo"] = docInfo ? boost::any(docInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (layoutInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*layoutInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["LayoutInfos"] = boost::any(temp1);
+    }
+    if (styles) {
+      vector<boost::any> temp1;
+      for(auto item1:*styles){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Styles"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DocInfo") != m.end() && !m["DocInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DocInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DocInfo"]));
+        docInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataDocInfo>(model1);
+      }
+    }
+    if (m.find("LayoutInfos") != m.end() && !m["LayoutInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["LayoutInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["LayoutInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        layoutInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataLayoutInfos>>(expect1);
+      }
+    }
+    if (m.find("Styles") != m.end() && !m["Styles"].empty()) {
+      if (typeid(vector<boost::any>) == m["Styles"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Styles"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        styles = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesNewStyleDataStyles>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesNewStyleData() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> charId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints>> charPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect> charRect{};
+  shared_ptr<long> confidence{};
+  shared_ptr<string> content{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (charId) {
+      res["CharId"] = boost::any(*charId);
+    }
+    if (charPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*charPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CharPoints"] = boost::any(temp1);
+    }
+    if (charRect) {
+      res["CharRect"] = charRect ? boost::any(charRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CharId") != m.end() && !m["CharId"].empty()) {
+      charId = make_shared<long>(boost::any_cast<long>(m["CharId"]));
+    }
+    if (m.find("CharPoints") != m.end() && !m["CharPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["CharPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CharPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        charPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharPoints>>(expect1);
+      }
+    }
+    if (m.find("CharRect") != m.end() && !m["CharRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CharRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CharRect"]));
+        charRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfoCharRect>(model1);
+      }
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<long>(boost::any_cast<long>(m["Confidence"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<long> blockId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints>> blockPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect> blockRect{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo>> charInfo{};
+  shared_ptr<long> confidence{};
+  shared_ptr<string> content{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (blockId) {
+      res["BlockId"] = boost::any(*blockId);
+    }
+    if (blockPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*blockPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlockPoints"] = boost::any(temp1);
+    }
+    if (blockRect) {
+      res["BlockRect"] = blockRect ? boost::any(blockRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (charInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*charInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CharInfo"] = boost::any(temp1);
+    }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("BlockId") != m.end() && !m["BlockId"].empty()) {
+      blockId = make_shared<long>(boost::any_cast<long>(m["BlockId"]));
+    }
+    if (m.find("BlockPoints") != m.end() && !m["BlockPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlockPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlockPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blockPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockPoints>>(expect1);
+      }
+    }
+    if (m.find("BlockRect") != m.end() && !m["BlockRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BlockRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BlockRect"]));
+        blockRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsBlockRect>(model1);
+      }
+    }
+    if (m.find("CharInfo") != m.end() && !m["CharInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["CharInfo"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CharInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        charInfo = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetailsCharInfo>>(expect1);
+      }
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<long>(boost::any_cast<long>(m["Confidence"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> blockCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails>> blockDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockCount) {
+      res["BlockCount"] = boost::any(*blockCount);
+    }
+    if (blockDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*blockDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BlockDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockCount") != m.end() && !m["BlockCount"].empty()) {
+      blockCount = make_shared<long>(boost::any_cast<long>(m["BlockCount"]));
+    }
+    if (m.find("BlockDetails") != m.end() && !m["BlockDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["BlockDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BlockDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        blockDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfoBlockDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints>> contentPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect> contentRect{};
+  shared_ptr<long> docIndex{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contentPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*contentPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ContentPoints"] = boost::any(temp1);
+    }
+    if (contentRect) {
+      res["ContentRect"] = contentRect ? boost::any(contentRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (docIndex) {
+      res["DocIndex"] = boost::any(*docIndex);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContentPoints") != m.end() && !m["ContentPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["ContentPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ContentPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contentPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentPoints>>(expect1);
+      }
+    }
+    if (m.find("ContentRect") != m.end() && !m["ContentRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContentRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContentRect"]));
+        contentRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfosContentRect>(model1);
+      }
+    }
+    if (m.find("DocIndex") != m.end() && !m["DocIndex"].empty()) {
+      docIndex = make_shared<long>(boost::any_cast<long>(m["DocIndex"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo> blockInfo{};
+  shared_ptr<string> content{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos>> contentInfos{};
+  shared_ptr<vector<long>> ids{};
+  shared_ptr<bool> isMultiPage{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockInfo) {
+      res["BlockInfo"] = blockInfo ? boost::any(blockInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (contentInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*contentInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ContentInfos"] = boost::any(temp1);
+    }
+    if (ids) {
+      res["Ids"] = boost::any(*ids);
+    }
+    if (isMultiPage) {
+      res["IsMultiPage"] = boost::any(*isMultiPage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockInfo") != m.end() && !m["BlockInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BlockInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BlockInfo"]));
+        blockInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosBlockInfo>(model1);
+      }
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ContentInfos") != m.end() && !m["ContentInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ContentInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ContentInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contentInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfosContentInfos>>(expect1);
+      }
+    }
+    if (m.find("Ids") != m.end() && !m["Ids"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["Ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      ids = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("IsMultiPage") != m.end() && !m["IsMultiPage"].empty()) {
+      isMultiPage = make_shared<bool>(boost::any_cast<bool>(m["IsMultiPage"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPageInfos : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<long> docIndex{};
+  shared_ptr<long> height{};
+  shared_ptr<long> pageId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos>> subjectInfos{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPageInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPageInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (docIndex) {
+      res["DocIndex"] = boost::any(*docIndex);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (subjectInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*subjectInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubjectInfos"] = boost::any(temp1);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("DocIndex") != m.end() && !m["DocIndex"].empty()) {
+      docIndex = make_shared<long>(boost::any_cast<long>(m["DocIndex"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("SubjectInfos") != m.end() && !m["SubjectInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubjectInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubjectInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subjectInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfosSubjectInfos>>(expect1);
+      }
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPageInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> blockList{};
+  shared_ptr<string> paragraphContent{};
+  shared_ptr<long> paragraphId{};
+
+  RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockList) {
+      res["BlockList"] = boost::any(*blockList);
+    }
+    if (paragraphContent) {
+      res["ParagraphContent"] = boost::any(*paragraphContent);
+    }
+    if (paragraphId) {
+      res["ParagraphId"] = boost::any(*paragraphId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockList") != m.end() && !m["BlockList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["BlockList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlockList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      blockList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("ParagraphContent") != m.end() && !m["ParagraphContent"].empty()) {
+      paragraphContent = make_shared<string>(boost::any_cast<string>(m["ParagraphContent"]));
+    }
+    if (m.find("ParagraphId") != m.end() && !m["ParagraphId"].empty()) {
+      paragraphId = make_shared<long>(boost::any_cast<long>(m["ParagraphId"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesParagraphInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> paragraphCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails>> paragraphDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesParagraphInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesParagraphInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (paragraphCount) {
+      res["ParagraphCount"] = boost::any(*paragraphCount);
+    }
+    if (paragraphDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*paragraphDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ParagraphDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ParagraphCount") != m.end() && !m["ParagraphCount"].empty()) {
+      paragraphCount = make_shared<long>(boost::any_cast<long>(m["ParagraphCount"]));
+    }
+    if (m.find("ParagraphDetails") != m.end() && !m["ParagraphDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["ParagraphDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ParagraphDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        paragraphDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesParagraphInfoParagraphDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesParagraphInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoPointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerPointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents : public Darabonba::Model {
+public:
+  shared_ptr<long> confidence{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints>> contentPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect> contentRect{};
+  shared_ptr<long> contentType{};
+  shared_ptr<string> option{};
+  shared_ptr<string> text{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (contentPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*contentPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ContentPoints"] = boost::any(temp1);
+    }
+    if (contentRect) {
+      res["ContentRect"] = contentRect ? boost::any(contentRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (contentType) {
+      res["ContentType"] = boost::any(*contentType);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<long>(boost::any_cast<long>(m["Confidence"]));
+    }
+    if (m.find("ContentPoints") != m.end() && !m["ContentPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["ContentPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ContentPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contentPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentPoints>>(expect1);
+      }
+    }
+    if (m.find("ContentRect") != m.end() && !m["ContentRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ContentRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ContentRect"]));
+        contentRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContentsContentRect>(model1);
+      }
+    }
+    if (m.find("ContentType") != m.end() && !m["ContentType"].empty()) {
+      contentType = make_shared<long>(boost::any_cast<long>(m["ContentType"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementPointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements : public Darabonba::Model {
+public:
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents>> contents{};
+  shared_ptr<vector<vector<undefined>>> elementPointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList>> elementRectList{};
+  shared_ptr<long> elementType{};
+  shared_ptr<string> text{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (contents) {
+      vector<boost::any> temp1;
+      for(auto item1:*contents){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Contents"] = boost::any(temp1);
+    }
+    if (elementPointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*elementPointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["ElementPointsList"] = boost::any(temp1);
+    }
+    if (elementRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*elementRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ElementRectList"] = boost::any(temp1);
+    }
+    if (elementType) {
+      res["ElementType"] = boost::any(*elementType);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Contents") != m.end() && !m["Contents"].empty()) {
+      if (typeid(vector<boost::any>) == m["Contents"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Contents"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        contents = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsContents>>(expect1);
+      }
+    }
+    if (m.find("ElementPointsList") != m.end() && !m["ElementPointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ElementPointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ElementPointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        elementPointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("ElementRectList") != m.end() && !m["ElementRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ElementRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ElementRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elementRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElementsElementRectList>>(expect1);
+      }
+    }
+    if (m.find("ElementType") != m.end() && !m["ElementType"].empty()) {
+      elementType = make_shared<long>(boost::any_cast<long>(m["ElementType"]));
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigurePointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectPointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList : public Darabonba::Model {
+public:
+  shared_ptr<string> centerX{};
+  shared_ptr<string> centerY{};
+  shared_ptr<string> height{};
+  shared_ptr<string> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<string>(boost::any_cast<string>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<string>(boost::any_cast<string>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<string>(boost::any_cast<string>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<string>(boost::any_cast<string>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTablePointsList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList : public Darabonba::Model {
+public:
+  shared_ptr<vector<vector<undefined>>> answerPointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList>> answerRectList{};
+  shared_ptr<long> confidence{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements>> elements{};
+  shared_ptr<vector<vector<undefined>>> figurePointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList>> figureRectList{};
+  shared_ptr<long> index{};
+  shared_ptr<long> numChoices{};
+  shared_ptr<vector<vector<undefined>>> subjectPointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList>> subjectRectList{};
+  shared_ptr<long> subjectType{};
+  shared_ptr<vector<vector<undefined>>> tablePointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList>> tableRectList{};
+  shared_ptr<string> text{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (answerPointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerPointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["AnswerPointsList"] = boost::any(temp1);
+    }
+    if (answerRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*answerRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AnswerRectList"] = boost::any(temp1);
+    }
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
+    if (figurePointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*figurePointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["FigurePointsList"] = boost::any(temp1);
+    }
+    if (figureRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*figureRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FigureRectList"] = boost::any(temp1);
+    }
+    if (index) {
+      res["Index"] = boost::any(*index);
+    }
+    if (numChoices) {
+      res["NumChoices"] = boost::any(*numChoices);
+    }
+    if (subjectPointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subjectPointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["SubjectPointsList"] = boost::any(temp1);
+    }
+    if (subjectRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subjectRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubjectRectList"] = boost::any(temp1);
+    }
+    if (subjectType) {
+      res["SubjectType"] = boost::any(*subjectType);
+    }
+    if (tablePointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tablePointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["TablePointsList"] = boost::any(temp1);
+    }
+    if (tableRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableRectList"] = boost::any(temp1);
+    }
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AnswerPointsList") != m.end() && !m["AnswerPointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerPointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerPointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        answerPointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("AnswerRectList") != m.end() && !m["AnswerRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AnswerRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AnswerRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        answerRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListAnswerRectList>>(expect1);
+      }
+    }
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<long>(boost::any_cast<long>(m["Confidence"]));
+    }
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListElements>>(expect1);
+      }
+    }
+    if (m.find("FigurePointsList") != m.end() && !m["FigurePointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FigurePointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FigurePointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        figurePointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("FigureRectList") != m.end() && !m["FigureRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["FigureRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FigureRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        figureRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListFigureRectList>>(expect1);
+      }
+    }
+    if (m.find("Index") != m.end() && !m["Index"].empty()) {
+      index = make_shared<long>(boost::any_cast<long>(m["Index"]));
+    }
+    if (m.find("NumChoices") != m.end() && !m["NumChoices"].empty()) {
+      numChoices = make_shared<long>(boost::any_cast<long>(m["NumChoices"]));
+    }
+    if (m.find("SubjectPointsList") != m.end() && !m["SubjectPointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubjectPointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubjectPointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        subjectPointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("SubjectRectList") != m.end() && !m["SubjectRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubjectRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubjectRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subjectRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListSubjectRectList>>(expect1);
+      }
+    }
+    if (m.find("SubjectType") != m.end() && !m["SubjectType"].empty()) {
+      subjectType = make_shared<long>(boost::any_cast<long>(m["SubjectType"]));
+    }
+    if (m.find("TablePointsList") != m.end() && !m["TablePointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TablePointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TablePointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        tablePointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("TableRectList") != m.end() && !m["TableRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectListTableRectList>>(expect1);
+      }
+    }
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesPartInfos : public Darabonba::Model {
+public:
+  shared_ptr<vector<vector<undefined>>> partInfoPointsList{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList>> partInfoRectList{};
+  shared_ptr<string> partTitle{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList>> subjectList{};
+
+  RecognizeAllTextResponseBodyDataSubImagesPartInfos() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesPartInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (partInfoPointsList) {
+      vector<boost::any> temp1;
+      for(auto item1:*partInfoPointsList){
+        vector<boost::any> temp2;
+        for(auto item2:item1){
+          temp2.push_back(boost::any(item2.toMap()));
+        }
+        temp1 = boost::any(temp2);
+      }
+      res["PartInfoPointsList"] = boost::any(temp1);
+    }
+    if (partInfoRectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*partInfoRectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartInfoRectList"] = boost::any(temp1);
+    }
+    if (partTitle) {
+      res["PartTitle"] = boost::any(*partTitle);
+    }
+    if (subjectList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subjectList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubjectList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PartInfoPointsList") != m.end() && !m["PartInfoPointsList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartInfoPointsList"].type()) {
+        vector<vector<undefined>> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartInfoPointsList"])){
+          if (typeid(vector<boost::any>) == item1.type()) {
+            vector<undefined> expect2;
+            for(auto item2:boost::any_cast<vector<boost::any>>(item1)){
+              if (typeid(map<string, boost::any>) == item2.type()) {
+                undefined model3;
+                model3.fromMap(boost::any_cast<map<string, boost::any>>(item2));
+                expect2.push_back(model3);
+              }
+            }
+            expect1.push_back(expect2);
+          }
+        }
+        partInfoPointsList = make_shared<vector<vector<undefined>>>(expect1);
+      }
+    }
+    if (m.find("PartInfoRectList") != m.end() && !m["PartInfoRectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartInfoRectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartInfoRectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partInfoRectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosPartInfoRectList>>(expect1);
+      }
+    }
+    if (m.find("PartTitle") != m.end() && !m["PartTitle"].empty()) {
+      partTitle = make_shared<string>(boost::any_cast<string>(m["PartTitle"]));
+    }
+    if (m.find("SubjectList") != m.end() && !m["SubjectList"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubjectList"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubjectList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subjectList = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfosSubjectList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesPartInfos() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<vector<uint8_t>> data{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints>> qrCodePoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect> qrCodeRect{};
+  shared_ptr<string> type{};
+
+  RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (qrCodePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*qrCodePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QrCodePoints"] = boost::any(temp1);
+    }
+    if (qrCodeRect) {
+      res["QrCodeRect"] = qrCodeRect ? boost::any(qrCodeRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["Data"]));
+    }
+    if (m.find("QrCodePoints") != m.end() && !m["QrCodePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["QrCodePoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QrCodePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        qrCodePoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodePoints>>(expect1);
+      }
+    }
+    if (m.find("QrCodeRect") != m.end() && !m["QrCodeRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QrCodeRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QrCodeRect"]));
+        qrCodeRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetailsQrCodeRect>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> qrCodeCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails>> qrCodeDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (qrCodeCount) {
+      res["QrCodeCount"] = boost::any(*qrCodeCount);
+    }
+    if (qrCodeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*qrCodeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["QrCodeDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QrCodeCount") != m.end() && !m["QrCodeCount"].empty()) {
+      qrCodeCount = make_shared<long>(boost::any_cast<long>(m["QrCodeCount"]));
+    }
+    if (m.find("QrCodeDetails") != m.end() && !m["QrCodeDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["QrCodeDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["QrCodeDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        qrCodeDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfoQrCodeDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesQualityInfo : public Darabonba::Model {
+public:
+  shared_ptr<double> completenessScore{};
+  shared_ptr<bool> isCopy{};
+  shared_ptr<bool> isReshoot{};
+  shared_ptr<double> qualityScore{};
+  shared_ptr<double> tamperScore{};
+
+  RecognizeAllTextResponseBodyDataSubImagesQualityInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesQualityInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completenessScore) {
+      res["CompletenessScore"] = boost::any(*completenessScore);
+    }
+    if (isCopy) {
+      res["IsCopy"] = boost::any(*isCopy);
+    }
+    if (isReshoot) {
+      res["IsReshoot"] = boost::any(*isReshoot);
+    }
+    if (qualityScore) {
+      res["QualityScore"] = boost::any(*qualityScore);
+    }
+    if (tamperScore) {
+      res["TamperScore"] = boost::any(*tamperScore);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CompletenessScore") != m.end() && !m["CompletenessScore"].empty()) {
+      completenessScore = make_shared<double>(boost::any_cast<double>(m["CompletenessScore"]));
+    }
+    if (m.find("IsCopy") != m.end() && !m["IsCopy"].empty()) {
+      isCopy = make_shared<bool>(boost::any_cast<bool>(m["IsCopy"]));
+    }
+    if (m.find("IsReshoot") != m.end() && !m["IsReshoot"].empty()) {
+      isReshoot = make_shared<bool>(boost::any_cast<bool>(m["IsReshoot"]));
+    }
+    if (m.find("QualityScore") != m.end() && !m["QualityScore"].empty()) {
+      qualityScore = make_shared<double>(boost::any_cast<double>(m["QualityScore"]));
+    }
+    if (m.find("TamperScore") != m.end() && !m["TamperScore"].empty()) {
+      tamperScore = make_shared<double>(boost::any_cast<double>(m["TamperScore"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesQualityInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> blockList{};
+  shared_ptr<string> rowContent{};
+  shared_ptr<long> rowId{};
+
+  RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockList) {
+      res["BlockList"] = boost::any(*blockList);
+    }
+    if (rowContent) {
+      res["RowContent"] = boost::any(*rowContent);
+    }
+    if (rowId) {
+      res["RowId"] = boost::any(*rowId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockList") != m.end() && !m["BlockList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["BlockList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlockList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      blockList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RowContent") != m.end() && !m["RowContent"].empty()) {
+      rowContent = make_shared<string>(boost::any_cast<string>(m["RowContent"]));
+    }
+    if (m.find("RowId") != m.end() && !m["RowId"].empty()) {
+      rowId = make_shared<long>(boost::any_cast<long>(m["RowId"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesRowInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> rowCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails>> rowDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesRowInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesRowInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (rowCount) {
+      res["RowCount"] = boost::any(*rowCount);
+    }
+    if (rowDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*rowDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["RowDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RowCount") != m.end() && !m["RowCount"].empty()) {
+      rowCount = make_shared<long>(boost::any_cast<long>(m["RowCount"]));
+    }
+    if (m.find("RowDetails") != m.end() && !m["RowDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["RowDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["RowDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        rowDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesRowInfoRowDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesRowInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData : public Darabonba::Model {
+public:
+  shared_ptr<string> antiFakeCode{};
+  shared_ptr<string> companyId{};
+  shared_ptr<string> organizationName{};
+  shared_ptr<string> organizationNameEng{};
+  shared_ptr<string> otherText{};
+  shared_ptr<string> taxpayerId{};
+  shared_ptr<string> topText{};
+
+  RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (antiFakeCode) {
+      res["AntiFakeCode"] = boost::any(*antiFakeCode);
+    }
+    if (companyId) {
+      res["CompanyId"] = boost::any(*companyId);
+    }
+    if (organizationName) {
+      res["OrganizationName"] = boost::any(*organizationName);
+    }
+    if (organizationNameEng) {
+      res["OrganizationNameEng"] = boost::any(*organizationNameEng);
+    }
+    if (otherText) {
+      res["OtherText"] = boost::any(*otherText);
+    }
+    if (taxpayerId) {
+      res["TaxpayerId"] = boost::any(*taxpayerId);
+    }
+    if (topText) {
+      res["TopText"] = boost::any(*topText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AntiFakeCode") != m.end() && !m["AntiFakeCode"].empty()) {
+      antiFakeCode = make_shared<string>(boost::any_cast<string>(m["AntiFakeCode"]));
+    }
+    if (m.find("CompanyId") != m.end() && !m["CompanyId"].empty()) {
+      companyId = make_shared<string>(boost::any_cast<string>(m["CompanyId"]));
+    }
+    if (m.find("OrganizationName") != m.end() && !m["OrganizationName"].empty()) {
+      organizationName = make_shared<string>(boost::any_cast<string>(m["OrganizationName"]));
+    }
+    if (m.find("OrganizationNameEng") != m.end() && !m["OrganizationNameEng"].empty()) {
+      organizationNameEng = make_shared<string>(boost::any_cast<string>(m["OrganizationNameEng"]));
+    }
+    if (m.find("OtherText") != m.end() && !m["OtherText"].empty()) {
+      otherText = make_shared<string>(boost::any_cast<string>(m["OtherText"]));
+    }
+    if (m.find("TaxpayerId") != m.end() && !m["TaxpayerId"].empty()) {
+      taxpayerId = make_shared<string>(boost::any_cast<string>(m["TaxpayerId"]));
+    }
+    if (m.find("TopText") != m.end() && !m["TopText"].empty()) {
+      topText = make_shared<string>(boost::any_cast<string>(m["TopText"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails : public Darabonba::Model {
+public:
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData> data{};
+  shared_ptr<long> stampAngle{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints>> stampPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect> stampRect{};
+
+  RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stampAngle) {
+      res["StampAngle"] = boost::any(*stampAngle);
+    }
+    if (stampPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*stampPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StampPoints"] = boost::any(temp1);
+    }
+    if (stampRect) {
+      res["StampRect"] = stampRect ? boost::any(stampRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsData>(model1);
+      }
+    }
+    if (m.find("StampAngle") != m.end() && !m["StampAngle"].empty()) {
+      stampAngle = make_shared<long>(boost::any_cast<long>(m["StampAngle"]));
+    }
+    if (m.find("StampPoints") != m.end() && !m["StampPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["StampPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StampPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stampPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampPoints>>(expect1);
+      }
+    }
+    if (m.find("StampRect") != m.end() && !m["StampRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StampRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StampRect"]));
+        stampRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetailsStampRect>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesStampInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> stampCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails>> stampDetails{};
+
+  RecognizeAllTextResponseBodyDataSubImagesStampInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesStampInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (stampCount) {
+      res["StampCount"] = boost::any(*stampCount);
+    }
+    if (stampDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*stampDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["StampDetails"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StampCount") != m.end() && !m["StampCount"].empty()) {
+      stampCount = make_shared<long>(boost::any_cast<long>(m["StampCount"]));
+    }
+    if (m.find("StampDetails") != m.end() && !m["StampDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["StampDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["StampDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        stampDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesStampInfoStampDetails>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesStampInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesSubImagePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesSubImagePoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesSubImagePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesSubImagePoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesSubImageRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesSubImageRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesSubImageRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesSubImageRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails : public Darabonba::Model {
+public:
+  shared_ptr<vector<long>> blockList{};
+  shared_ptr<long> cellAngle{};
+  shared_ptr<string> cellContent{};
+  shared_ptr<long> cellId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints>> cellPoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect> cellRect{};
+  shared_ptr<long> columnEnd{};
+  shared_ptr<long> columnStart{};
+  shared_ptr<long> rowEnd{};
+  shared_ptr<long> rowStart{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockList) {
+      res["BlockList"] = boost::any(*blockList);
+    }
+    if (cellAngle) {
+      res["CellAngle"] = boost::any(*cellAngle);
+    }
+    if (cellContent) {
+      res["CellContent"] = boost::any(*cellContent);
+    }
+    if (cellId) {
+      res["CellId"] = boost::any(*cellId);
+    }
+    if (cellPoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*cellPoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CellPoints"] = boost::any(temp1);
+    }
+    if (cellRect) {
+      res["CellRect"] = cellRect ? boost::any(cellRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (columnEnd) {
+      res["ColumnEnd"] = boost::any(*columnEnd);
+    }
+    if (columnStart) {
+      res["ColumnStart"] = boost::any(*columnStart);
+    }
+    if (rowEnd) {
+      res["RowEnd"] = boost::any(*rowEnd);
+    }
+    if (rowStart) {
+      res["RowStart"] = boost::any(*rowStart);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockList") != m.end() && !m["BlockList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["BlockList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BlockList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      blockList = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("CellAngle") != m.end() && !m["CellAngle"].empty()) {
+      cellAngle = make_shared<long>(boost::any_cast<long>(m["CellAngle"]));
+    }
+    if (m.find("CellContent") != m.end() && !m["CellContent"].empty()) {
+      cellContent = make_shared<string>(boost::any_cast<string>(m["CellContent"]));
+    }
+    if (m.find("CellId") != m.end() && !m["CellId"].empty()) {
+      cellId = make_shared<long>(boost::any_cast<long>(m["CellId"]));
+    }
+    if (m.find("CellPoints") != m.end() && !m["CellPoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["CellPoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CellPoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cellPoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellPoints>>(expect1);
+      }
+    }
+    if (m.find("CellRect") != m.end() && !m["CellRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["CellRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["CellRect"]));
+        cellRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetailsCellRect>(model1);
+      }
+    }
+    if (m.find("ColumnEnd") != m.end() && !m["ColumnEnd"].empty()) {
+      columnEnd = make_shared<long>(boost::any_cast<long>(m["ColumnEnd"]));
+    }
+    if (m.find("ColumnStart") != m.end() && !m["ColumnStart"].empty()) {
+      columnStart = make_shared<long>(boost::any_cast<long>(m["ColumnStart"]));
+    }
+    if (m.find("RowEnd") != m.end() && !m["RowEnd"].empty()) {
+      rowEnd = make_shared<long>(boost::any_cast<long>(m["RowEnd"]));
+    }
+    if (m.find("RowStart") != m.end() && !m["RowStart"].empty()) {
+      rowStart = make_shared<long>(boost::any_cast<long>(m["RowStart"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter : public Darabonba::Model {
+public:
+  shared_ptr<long> blockId{};
+  shared_ptr<vector<string>> contents{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints>> points{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockId) {
+      res["BlockId"] = boost::any(*blockId);
+    }
+    if (contents) {
+      res["Contents"] = boost::any(*contents);
+    }
+    if (points) {
+      vector<boost::any> temp1;
+      for(auto item1:*points){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Points"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockId") != m.end() && !m["BlockId"].empty()) {
+      blockId = make_shared<long>(boost::any_cast<long>(m["BlockId"]));
+    }
+    if (m.find("Contents") != m.end() && !m["Contents"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Contents"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Contents"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contents = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Points") != m.end() && !m["Points"].empty()) {
+      if (typeid(vector<boost::any>) == m["Points"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Points"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        points = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooterPoints>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader : public Darabonba::Model {
+public:
+  shared_ptr<long> blockId{};
+  shared_ptr<vector<string>> contents{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints>> points{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (blockId) {
+      res["BlockId"] = boost::any(*blockId);
+    }
+    if (contents) {
+      res["Contents"] = boost::any(*contents);
+    }
+    if (points) {
+      vector<boost::any> temp1;
+      for(auto item1:*points){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Points"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BlockId") != m.end() && !m["BlockId"].empty()) {
+      blockId = make_shared<long>(boost::any_cast<long>(m["BlockId"]));
+    }
+    if (m.find("Contents") != m.end() && !m["Contents"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Contents"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Contents"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contents = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Points") != m.end() && !m["Points"].empty()) {
+      if (typeid(vector<boost::any>) == m["Points"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Points"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        points = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeaderPoints>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints : public Darabonba::Model {
+public:
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect : public Darabonba::Model {
+public:
+  shared_ptr<long> centerX{};
+  shared_ptr<long> centerY{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (centerX) {
+      res["CenterX"] = boost::any(*centerX);
+    }
+    if (centerY) {
+      res["CenterY"] = boost::any(*centerY);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CenterX") != m.end() && !m["CenterX"].empty()) {
+      centerX = make_shared<long>(boost::any_cast<long>(m["CenterX"]));
+    }
+    if (m.find("CenterY") != m.end() && !m["CenterY"].empty()) {
+      centerY = make_shared<long>(boost::any_cast<long>(m["CenterY"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails : public Darabonba::Model {
+public:
+  shared_ptr<long> cellCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails>> cellDetails{};
+  shared_ptr<long> columnCount{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter> footer{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader> header{};
+  shared_ptr<long> rowCount{};
+  shared_ptr<long> tableId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints>> tablePoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect> tableRect{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cellCount) {
+      res["CellCount"] = boost::any(*cellCount);
+    }
+    if (cellDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*cellDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["CellDetails"] = boost::any(temp1);
+    }
+    if (columnCount) {
+      res["ColumnCount"] = boost::any(*columnCount);
+    }
+    if (footer) {
+      res["Footer"] = footer ? boost::any(footer->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (header) {
+      res["Header"] = header ? boost::any(header->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rowCount) {
+      res["RowCount"] = boost::any(*rowCount);
+    }
+    if (tableId) {
+      res["TableId"] = boost::any(*tableId);
+    }
+    if (tablePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*tablePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TablePoints"] = boost::any(temp1);
+    }
+    if (tableRect) {
+      res["TableRect"] = tableRect ? boost::any(tableRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CellCount") != m.end() && !m["CellCount"].empty()) {
+      cellCount = make_shared<long>(boost::any_cast<long>(m["CellCount"]));
+    }
+    if (m.find("CellDetails") != m.end() && !m["CellDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["CellDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["CellDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        cellDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsCellDetails>>(expect1);
+      }
+    }
+    if (m.find("ColumnCount") != m.end() && !m["ColumnCount"].empty()) {
+      columnCount = make_shared<long>(boost::any_cast<long>(m["ColumnCount"]));
+    }
+    if (m.find("Footer") != m.end() && !m["Footer"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Footer"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Footer"]));
+        footer = make_shared<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsFooter>(model1);
+      }
+    }
+    if (m.find("Header") != m.end() && !m["Header"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Header"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Header"]));
+        header = make_shared<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsHeader>(model1);
+      }
+    }
+    if (m.find("RowCount") != m.end() && !m["RowCount"].empty()) {
+      rowCount = make_shared<long>(boost::any_cast<long>(m["RowCount"]));
+    }
+    if (m.find("TableId") != m.end() && !m["TableId"].empty()) {
+      tableId = make_shared<long>(boost::any_cast<long>(m["TableId"]));
+    }
+    if (m.find("TablePoints") != m.end() && !m["TablePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["TablePoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TablePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tablePoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTablePoints>>(expect1);
+      }
+    }
+    if (m.find("TableRect") != m.end() && !m["TableRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableRect"]));
+        tableRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetailsTableRect>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImagesTableInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> tableCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails>> tableDetails{};
+  shared_ptr<string> tableExcel{};
+  shared_ptr<string> tableHtml{};
+
+  RecognizeAllTextResponseBodyDataSubImagesTableInfo() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImagesTableInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tableCount) {
+      res["TableCount"] = boost::any(*tableCount);
+    }
+    if (tableDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*tableDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TableDetails"] = boost::any(temp1);
+    }
+    if (tableExcel) {
+      res["TableExcel"] = boost::any(*tableExcel);
+    }
+    if (tableHtml) {
+      res["TableHtml"] = boost::any(*tableHtml);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TableCount") != m.end() && !m["TableCount"].empty()) {
+      tableCount = make_shared<long>(boost::any_cast<long>(m["TableCount"]));
+    }
+    if (m.find("TableDetails") != m.end() && !m["TableDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["TableDetails"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TableDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tableDetails = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesTableInfoTableDetails>>(expect1);
+      }
+    }
+    if (m.find("TableExcel") != m.end() && !m["TableExcel"].empty()) {
+      tableExcel = make_shared<string>(boost::any_cast<string>(m["TableExcel"]));
+    }
+    if (m.find("TableHtml") != m.end() && !m["TableHtml"].empty()) {
+      tableHtml = make_shared<string>(boost::any_cast<string>(m["TableHtml"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImagesTableInfo() = default;
+};
+class RecognizeAllTextResponseBodyDataSubImages : public Darabonba::Model {
+public:
+  shared_ptr<long> angle{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo> barCodeInfo{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesBlockInfo> blockInfo{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocLayouts>> docLayouts{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts>> docSpecialTexts{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesDocSubField>> docSubField{};
+  shared_ptr<map<string, DataSubImagesFigureInfoValue>> figureInfo{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesKvInfo> kvInfo{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesMathInfos>> mathInfos{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesNewStyleData> newStyleData{};
+  shared_ptr<long> pageId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfos>> pageInfos{};
+  shared_ptr<string> pageTitle{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesParagraphInfo> paragraphInfo{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfos>> partInfos{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo> qrCodeInfo{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesQualityInfo> qualityInfo{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesRowInfo> rowInfo{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesStampInfo> stampInfo{};
+  shared_ptr<long> subImageId{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImagesSubImagePoints>> subImagePoints{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesSubImageRect> subImageRect{};
+  shared_ptr<RecognizeAllTextResponseBodyDataSubImagesTableInfo> tableInfo{};
+  shared_ptr<string> type{};
+
+  RecognizeAllTextResponseBodyDataSubImages() {}
+
+  explicit RecognizeAllTextResponseBodyDataSubImages(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (angle) {
+      res["Angle"] = boost::any(*angle);
+    }
+    if (barCodeInfo) {
+      res["BarCodeInfo"] = barCodeInfo ? boost::any(barCodeInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (blockInfo) {
+      res["BlockInfo"] = blockInfo ? boost::any(blockInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (docLayouts) {
+      vector<boost::any> temp1;
+      for(auto item1:*docLayouts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocLayouts"] = boost::any(temp1);
+    }
+    if (docSpecialTexts) {
+      vector<boost::any> temp1;
+      for(auto item1:*docSpecialTexts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocSpecialTexts"] = boost::any(temp1);
+    }
+    if (docSubField) {
+      vector<boost::any> temp1;
+      for(auto item1:*docSubField){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DocSubField"] = boost::any(temp1);
+    }
+    if (figureInfo) {
+      map<string, boost::any> temp1;
+      for(auto item1:*figureInfo){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["FigureInfo"] = boost::any(temp1);
+    }
+    if (kvInfo) {
+      res["KvInfo"] = kvInfo ? boost::any(kvInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (mathInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*mathInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MathInfos"] = boost::any(temp1);
+    }
+    if (newStyleData) {
+      res["NewStyleData"] = newStyleData ? boost::any(newStyleData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (pageId) {
+      res["PageId"] = boost::any(*pageId);
+    }
+    if (pageInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*pageInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PageInfos"] = boost::any(temp1);
+    }
+    if (pageTitle) {
+      res["PageTitle"] = boost::any(*pageTitle);
+    }
+    if (paragraphInfo) {
+      res["ParagraphInfo"] = paragraphInfo ? boost::any(paragraphInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (partInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*partInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PartInfos"] = boost::any(temp1);
+    }
+    if (qrCodeInfo) {
+      res["QrCodeInfo"] = qrCodeInfo ? boost::any(qrCodeInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (qualityInfo) {
+      res["QualityInfo"] = qualityInfo ? boost::any(qualityInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (rowInfo) {
+      res["RowInfo"] = rowInfo ? boost::any(rowInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stampInfo) {
+      res["StampInfo"] = stampInfo ? boost::any(stampInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (subImageId) {
+      res["SubImageId"] = boost::any(*subImageId);
+    }
+    if (subImagePoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*subImagePoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubImagePoints"] = boost::any(temp1);
+    }
+    if (subImageRect) {
+      res["SubImageRect"] = subImageRect ? boost::any(subImageRect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (tableInfo) {
+      res["TableInfo"] = tableInfo ? boost::any(tableInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Angle") != m.end() && !m["Angle"].empty()) {
+      angle = make_shared<long>(boost::any_cast<long>(m["Angle"]));
+    }
+    if (m.find("BarCodeInfo") != m.end() && !m["BarCodeInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BarCodeInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BarCodeInfo"]));
+        barCodeInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesBarCodeInfo>(model1);
+      }
+    }
+    if (m.find("BlockInfo") != m.end() && !m["BlockInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["BlockInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesBlockInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["BlockInfo"]));
+        blockInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesBlockInfo>(model1);
+      }
+    }
+    if (m.find("DocLayouts") != m.end() && !m["DocLayouts"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocLayouts"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocLayouts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocLayouts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocLayouts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docLayouts = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocLayouts>>(expect1);
+      }
+    }
+    if (m.find("DocSpecialTexts") != m.end() && !m["DocSpecialTexts"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocSpecialTexts"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocSpecialTexts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docSpecialTexts = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocSpecialTexts>>(expect1);
+      }
+    }
+    if (m.find("DocSubField") != m.end() && !m["DocSubField"].empty()) {
+      if (typeid(vector<boost::any>) == m["DocSubField"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesDocSubField> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DocSubField"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesDocSubField model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        docSubField = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesDocSubField>>(expect1);
+      }
+    }
+    if (m.find("FigureInfo") != m.end() && !m["FigureInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FigureInfo"].type()) {
+        map<string, DataSubImagesFigureInfoValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["FigureInfo"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            DataSubImagesFigureInfoValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
+        }
+        figureInfo = make_shared<map<string, DataSubImagesFigureInfoValue>>(expect1);
+      }
+    }
+    if (m.find("KvInfo") != m.end() && !m["KvInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["KvInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesKvInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["KvInfo"]));
+        kvInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesKvInfo>(model1);
+      }
+    }
+    if (m.find("MathInfos") != m.end() && !m["MathInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["MathInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesMathInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MathInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesMathInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mathInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesMathInfos>>(expect1);
+      }
+    }
+    if (m.find("NewStyleData") != m.end() && !m["NewStyleData"].empty()) {
+      if (typeid(map<string, boost::any>) == m["NewStyleData"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesNewStyleData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NewStyleData"]));
+        newStyleData = make_shared<RecognizeAllTextResponseBodyDataSubImagesNewStyleData>(model1);
+      }
+    }
+    if (m.find("PageId") != m.end() && !m["PageId"].empty()) {
+      pageId = make_shared<long>(boost::any_cast<long>(m["PageId"]));
+    }
+    if (m.find("PageInfos") != m.end() && !m["PageInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["PageInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPageInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PageInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPageInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pageInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPageInfos>>(expect1);
+      }
+    }
+    if (m.find("PageTitle") != m.end() && !m["PageTitle"].empty()) {
+      pageTitle = make_shared<string>(boost::any_cast<string>(m["PageTitle"]));
+    }
+    if (m.find("ParagraphInfo") != m.end() && !m["ParagraphInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ParagraphInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesParagraphInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ParagraphInfo"]));
+        paragraphInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesParagraphInfo>(model1);
+      }
+    }
+    if (m.find("PartInfos") != m.end() && !m["PartInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["PartInfos"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesPartInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PartInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesPartInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partInfos = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesPartInfos>>(expect1);
+      }
+    }
+    if (m.find("QrCodeInfo") != m.end() && !m["QrCodeInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QrCodeInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QrCodeInfo"]));
+        qrCodeInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesQrCodeInfo>(model1);
+      }
+    }
+    if (m.find("QualityInfo") != m.end() && !m["QualityInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["QualityInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesQualityInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QualityInfo"]));
+        qualityInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesQualityInfo>(model1);
+      }
+    }
+    if (m.find("RowInfo") != m.end() && !m["RowInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RowInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesRowInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RowInfo"]));
+        rowInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesRowInfo>(model1);
+      }
+    }
+    if (m.find("StampInfo") != m.end() && !m["StampInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["StampInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesStampInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StampInfo"]));
+        stampInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesStampInfo>(model1);
+      }
+    }
+    if (m.find("SubImageId") != m.end() && !m["SubImageId"].empty()) {
+      subImageId = make_shared<long>(boost::any_cast<long>(m["SubImageId"]));
+    }
+    if (m.find("SubImagePoints") != m.end() && !m["SubImagePoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubImagePoints"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImagesSubImagePoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubImagePoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImagesSubImagePoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subImagePoints = make_shared<vector<RecognizeAllTextResponseBodyDataSubImagesSubImagePoints>>(expect1);
+      }
+    }
+    if (m.find("SubImageRect") != m.end() && !m["SubImageRect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SubImageRect"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesSubImageRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SubImageRect"]));
+        subImageRect = make_shared<RecognizeAllTextResponseBodyDataSubImagesSubImageRect>(model1);
+      }
+    }
+    if (m.find("TableInfo") != m.end() && !m["TableInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TableInfo"].type()) {
+        RecognizeAllTextResponseBodyDataSubImagesTableInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TableInfo"]));
+        tableInfo = make_shared<RecognizeAllTextResponseBodyDataSubImagesTableInfo>(model1);
+      }
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyDataSubImages() = default;
+};
+class RecognizeAllTextResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> algoServer{};
+  shared_ptr<string> algoVersion{};
+  shared_ptr<string> content{};
+  shared_ptr<boost::any> debugInfo{};
+  shared_ptr<long> height{};
+  shared_ptr<bool> isMixedMode{};
+  shared_ptr<string> kvExcelUrl{};
+  shared_ptr<long> pageNo{};
+  shared_ptr<long> subImageCount{};
+  shared_ptr<vector<RecognizeAllTextResponseBodyDataSubImages>> subImages{};
+  shared_ptr<long> width{};
+  shared_ptr<string> xmlResult{};
+
+  RecognizeAllTextResponseBodyData() {}
+
+  explicit RecognizeAllTextResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (algoServer) {
+      res["AlgoServer"] = boost::any(*algoServer);
+    }
+    if (algoVersion) {
+      res["AlgoVersion"] = boost::any(*algoVersion);
+    }
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (debugInfo) {
+      res["DebugInfo"] = boost::any(*debugInfo);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (isMixedMode) {
+      res["IsMixedMode"] = boost::any(*isMixedMode);
+    }
+    if (kvExcelUrl) {
+      res["KvExcelUrl"] = boost::any(*kvExcelUrl);
+    }
+    if (pageNo) {
+      res["PageNo"] = boost::any(*pageNo);
+    }
+    if (subImageCount) {
+      res["SubImageCount"] = boost::any(*subImageCount);
+    }
+    if (subImages) {
+      vector<boost::any> temp1;
+      for(auto item1:*subImages){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SubImages"] = boost::any(temp1);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (xmlResult) {
+      res["XmlResult"] = boost::any(*xmlResult);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlgoServer") != m.end() && !m["AlgoServer"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AlgoServer"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AlgoServer"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      algoServer = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("AlgoVersion") != m.end() && !m["AlgoVersion"].empty()) {
+      algoVersion = make_shared<string>(boost::any_cast<string>(m["AlgoVersion"]));
+    }
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("DebugInfo") != m.end() && !m["DebugInfo"].empty()) {
+      debugInfo = make_shared<boost::any>(boost::any_cast<boost::any>(m["DebugInfo"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("IsMixedMode") != m.end() && !m["IsMixedMode"].empty()) {
+      isMixedMode = make_shared<bool>(boost::any_cast<bool>(m["IsMixedMode"]));
+    }
+    if (m.find("KvExcelUrl") != m.end() && !m["KvExcelUrl"].empty()) {
+      kvExcelUrl = make_shared<string>(boost::any_cast<string>(m["KvExcelUrl"]));
+    }
+    if (m.find("PageNo") != m.end() && !m["PageNo"].empty()) {
+      pageNo = make_shared<long>(boost::any_cast<long>(m["PageNo"]));
+    }
+    if (m.find("SubImageCount") != m.end() && !m["SubImageCount"].empty()) {
+      subImageCount = make_shared<long>(boost::any_cast<long>(m["SubImageCount"]));
+    }
+    if (m.find("SubImages") != m.end() && !m["SubImages"].empty()) {
+      if (typeid(vector<boost::any>) == m["SubImages"].type()) {
+        vector<RecognizeAllTextResponseBodyDataSubImages> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SubImages"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            RecognizeAllTextResponseBodyDataSubImages model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subImages = make_shared<vector<RecognizeAllTextResponseBodyDataSubImages>>(expect1);
+      }
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("XmlResult") != m.end() && !m["XmlResult"].empty()) {
+      xmlResult = make_shared<string>(boost::any_cast<string>(m["XmlResult"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBodyData() = default;
+};
+class RecognizeAllTextResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<RecognizeAllTextResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+
+  RecognizeAllTextResponseBody() {}
+
+  explicit RecognizeAllTextResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        RecognizeAllTextResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<RecognizeAllTextResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponseBody() = default;
+};
+class RecognizeAllTextResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<RecognizeAllTextResponseBody> body{};
+
+  RecognizeAllTextResponse() {}
+
+  explicit RecognizeAllTextResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        RecognizeAllTextResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<RecognizeAllTextResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~RecognizeAllTextResponse() = default;
 };
 class RecognizeBankAcceptanceRequest : public Darabonba::Model {
 public:
@@ -11386,6 +17915,8 @@ public:
   RecognizeAdvancedResponse recognizeAdvanced(shared_ptr<RecognizeAdvancedRequest> request);
   RecognizeAirItineraryResponse recognizeAirItineraryWithOptions(shared_ptr<RecognizeAirItineraryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeAirItineraryResponse recognizeAirItinerary(shared_ptr<RecognizeAirItineraryRequest> request);
+  RecognizeAllTextResponse recognizeAllTextWithOptions(shared_ptr<RecognizeAllTextRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RecognizeAllTextResponse recognizeAllText(shared_ptr<RecognizeAllTextRequest> request);
   RecognizeBankAcceptanceResponse recognizeBankAcceptanceWithOptions(shared_ptr<RecognizeBankAcceptanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RecognizeBankAcceptanceResponse recognizeBankAcceptance(shared_ptr<RecognizeBankAcceptanceRequest> request);
   RecognizeBankAccountLicenseResponse recognizeBankAccountLicenseWithOptions(shared_ptr<RecognizeBankAccountLicenseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

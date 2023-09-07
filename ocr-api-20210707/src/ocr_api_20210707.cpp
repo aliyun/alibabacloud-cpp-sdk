@@ -122,6 +122,89 @@ RecognizeAirItineraryResponse Alibabacloud_Ocr-api20210707::Client::recognizeAir
   return recognizeAirItineraryWithOptions(request, runtime);
 }
 
+RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllTextWithOptions(shared_ptr<RecognizeAllTextRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<RecognizeAllTextShrinkRequest> request = make_shared<RecognizeAllTextShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestAdvancedConfig>(tmpReq->advancedConfig)) {
+    request->advancedConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->advancedConfig, make_shared<string>("AdvancedConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestIdCardConfig>(tmpReq->idCardConfig)) {
+    request->idCardConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->idCardConfig, make_shared<string>("IdCardConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestInternationalIdCardConfig>(tmpReq->internationalIdCardConfig)) {
+    request->internationalIdCardConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->internationalIdCardConfig, make_shared<string>("InternationalIdCardConfig"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<RecognizeAllTextRequestMultiLanConfig>(tmpReq->multiLanConfig)) {
+    request->multiLanConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->multiLanConfig, make_shared<string>("MultiLanConfig"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->advancedConfigShrink)) {
+    query->insert(pair<string, string>("AdvancedConfig", *request->advancedConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->idCardConfigShrink)) {
+    query->insert(pair<string, string>("IdCardConfig", *request->idCardConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internationalIdCardConfigShrink)) {
+    query->insert(pair<string, string>("InternationalIdCardConfig", *request->internationalIdCardConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->multiLanConfigShrink)) {
+    query->insert(pair<string, string>("MultiLanConfig", *request->multiLanConfigShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputBarCode)) {
+    query->insert(pair<string, bool>("OutputBarCode", *request->outputBarCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->outputCoordinate)) {
+    query->insert(pair<string, vector<uint8_t>>("OutputCoordinate", *request->outputCoordinate));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputFigure)) {
+    query->insert(pair<string, bool>("OutputFigure", *request->outputFigure));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputKVExcel)) {
+    query->insert(pair<string, bool>("OutputKVExcel", *request->outputKVExcel));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputOricoord)) {
+    query->insert(pair<string, bool>("OutputOricoord", *request->outputOricoord));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputQrcode)) {
+    query->insert(pair<string, bool>("OutputQrcode", *request->outputQrcode));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->outputStamp)) {
+    query->insert(pair<string, bool>("OutputStamp", *request->outputStamp));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("PageNo", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
+    query->insert(pair<string, string>("Url", *request->url));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", !request->body ? boost::any() : boost::any(*request->body)},
+    {"stream", !tmpReq->body ? boost::any() : boost::any(*tmpReq->body)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RecognizeAllText"))},
+    {"version", boost::any(string("2021-07-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RecognizeAllTextResponse(callApi(params, req, runtime));
+}
+
+RecognizeAllTextResponse Alibabacloud_Ocr-api20210707::Client::recognizeAllText(shared_ptr<RecognizeAllTextRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return recognizeAllTextWithOptions(request, runtime);
+}
+
 RecognizeBankAcceptanceResponse Alibabacloud_Ocr-api20210707::Client::recognizeBankAcceptanceWithOptions(shared_ptr<RecognizeBankAcceptanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
