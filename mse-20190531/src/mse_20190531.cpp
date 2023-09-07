@@ -892,8 +892,13 @@ ApplyGatewayRouteResponse Alibabacloud_Mse20190531::Client::applyGatewayRoute(sh
   return applyGatewayRouteWithOptions(request, runtime);
 }
 
-ApplyTagPoliciesResponse Alibabacloud_Mse20190531::Client::applyTagPoliciesWithOptions(shared_ptr<ApplyTagPoliciesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ApplyTagPoliciesResponse Alibabacloud_Mse20190531::Client::applyTagPoliciesWithOptions(shared_ptr<ApplyTagPoliciesRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ApplyTagPoliciesShrinkRequest> request = make_shared<ApplyTagPoliciesShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, RulesValue>>(tmpReq->rules)) {
+    request->rulesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->rules, make_shared<string>("Rules"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -916,8 +921,8 @@ ApplyTagPoliciesResponse Alibabacloud_Mse20190531::Client::applyTagPoliciesWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->rules)) {
-    query->insert(pair<string, string>("Rules", *request->rules));
+  if (!Darabonba_Util::Client::isUnset<string>(request->rulesShrink)) {
+    query->insert(pair<string, string>("Rules", *request->rulesShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
