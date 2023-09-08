@@ -18,6 +18,8 @@ namespace Alibabacloud_PaiFeatureStore20230621 {
 class FeatureViewConfigValue : public Darabonba::Model {
 public:
   shared_ptr<map<string, map<string, boost::any>>> partitions{};
+  shared_ptr<string> eventTime{};
+  shared_ptr<bool> equal{};
 
   FeatureViewConfigValue() {}
 
@@ -31,6 +33,12 @@ public:
     map<string, boost::any> res;
     if (partitions) {
       res["Partitions"] = boost::any(*partitions);
+    }
+    if (eventTime) {
+      res["EventTime"] = boost::any(*eventTime);
+    }
+    if (equal) {
+      res["Equal"] = boost::any(*equal);
     }
     return res;
   }
@@ -48,6 +56,12 @@ public:
          toMap1[item.first] = toMap2;
       }
       partitions = make_shared<map<string, map<string, boost::any>>>(toMap1);
+    }
+    if (m.find("EventTime") != m.end() && !m["EventTime"].empty()) {
+      eventTime = make_shared<string>(boost::any_cast<string>(m["EventTime"]));
+    }
+    if (m.find("Equal") != m.end() && !m["Equal"].empty()) {
+      equal = make_shared<bool>(boost::any_cast<bool>(m["Equal"]));
     }
   }
 
