@@ -1431,11 +1431,11 @@ ListModelFeaturesResponse Alibabacloud_PaiFeatureStore20230621::Client::listMode
   if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
     query->insert(pair<string, string>("Owner", *request->owner));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
-    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
-    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
     query->insert(pair<string, string>("ProjectId", *request->projectId));
