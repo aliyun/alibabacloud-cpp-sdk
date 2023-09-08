@@ -337,6 +337,42 @@ public:
 
   virtual ~CreateArtifactRequestArtifactProperty() = default;
 };
+class CreateArtifactRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateArtifactRequestTag() {}
+
+  explicit CreateArtifactRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactRequestTag() = default;
+};
 class CreateArtifactRequest : public Darabonba::Model {
 public:
   shared_ptr<string> artifactId{};
@@ -344,7 +380,9 @@ public:
   shared_ptr<string> artifactType{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> supportRegionIds{};
+  shared_ptr<vector<CreateArtifactRequestTag>> tag{};
   shared_ptr<string> versionName{};
 
   CreateArtifactRequest() {}
@@ -372,8 +410,18 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
@@ -401,6 +449,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["SupportRegionIds"].type()) {
@@ -411,6 +462,19 @@ public:
       }
       supportRegionIds = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateArtifactRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateArtifactRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateArtifactRequestTag>>(expect1);
+      }
+    }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
     }
@@ -419,6 +483,42 @@ public:
 
   virtual ~CreateArtifactRequest() = default;
 };
+class CreateArtifactShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateArtifactShrinkRequestTag() {}
+
+  explicit CreateArtifactShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactShrinkRequestTag() = default;
+};
 class CreateArtifactShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> artifactId{};
@@ -426,7 +526,9 @@ public:
   shared_ptr<string> artifactType{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<string>> supportRegionIds{};
+  shared_ptr<vector<CreateArtifactShrinkRequestTag>> tag{};
   shared_ptr<string> versionName{};
 
   CreateArtifactShrinkRequest() {}
@@ -454,8 +556,18 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
@@ -479,6 +591,9 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["SupportRegionIds"].type()) {
@@ -488,6 +603,19 @@ public:
         }
       }
       supportRegionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateArtifactShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateArtifactShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateArtifactShrinkRequestTag>>(expect1);
+      }
     }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
@@ -2096,6 +2224,42 @@ public:
 
   virtual ~GetArtifactRequest() = default;
 };
+class GetArtifactResponseBodyTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetArtifactResponseBodyTags() {}
+
+  explicit GetArtifactResponseBodyTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetArtifactResponseBodyTags() = default;
+};
 class GetArtifactResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> artifactId{};
@@ -2108,8 +2272,10 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> progress{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<string> supportRegionIds{};
+  shared_ptr<vector<GetArtifactResponseBodyTags>> tags{};
   shared_ptr<string> versionName{};
 
   GetArtifactResponseBody() {}
@@ -2152,11 +2318,21 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
     }
     if (supportRegionIds) {
       res["SupportRegionIds"] = boost::any(*supportRegionIds);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
@@ -2195,11 +2371,27 @@ public:
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("SupportRegionIds") != m.end() && !m["SupportRegionIds"].empty()) {
       supportRegionIds = make_shared<string>(boost::any_cast<string>(m["SupportRegionIds"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<GetArtifactResponseBodyTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetArtifactResponseBodyTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<GetArtifactResponseBodyTags>>(expect1);
+      }
     }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
@@ -5512,11 +5704,49 @@ public:
 
   virtual ~ListArtifactsRequestFilter() = default;
 };
+class ListArtifactsRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListArtifactsRequestTag() {}
+
+  explicit ListArtifactsRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListArtifactsRequestTag() = default;
+};
 class ListArtifactsRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<ListArtifactsRequestFilter>> filter{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<ListArtifactsRequestTag>> tag{};
 
   ListArtifactsRequest() {}
 
@@ -5541,6 +5771,16 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -5564,10 +5804,62 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListArtifactsRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListArtifactsRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListArtifactsRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~ListArtifactsRequest() = default;
+};
+class ListArtifactsResponseBodyArtifactsTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListArtifactsResponseBodyArtifactsTags() {}
+
+  explicit ListArtifactsResponseBodyArtifactsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListArtifactsResponseBodyArtifactsTags() = default;
 };
 class ListArtifactsResponseBodyArtifacts : public Darabonba::Model {
 public:
@@ -5577,7 +5869,9 @@ public:
   shared_ptr<string> gmtModified{};
   shared_ptr<string> maxVersion{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListArtifactsResponseBodyArtifactsTags>> tags{};
 
   ListArtifactsResponseBodyArtifacts() {}
 
@@ -5607,8 +5901,18 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -5632,8 +5936,24 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<ListArtifactsResponseBodyArtifactsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListArtifactsResponseBodyArtifactsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<ListArtifactsResponseBodyArtifactsTags>>(expect1);
+      }
     }
   }
 

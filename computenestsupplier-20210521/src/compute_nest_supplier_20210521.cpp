@@ -101,8 +101,14 @@ CreateArtifactResponse Alibabacloud_ComputeNestSupplier20210521::Client::createA
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->supportRegionIds)) {
     query->insert(pair<string, vector<string>>("SupportRegionIds", *request->supportRegionIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateArtifactShrinkRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateArtifactShrinkRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->versionName)) {
     query->insert(pair<string, string>("VersionName", *request->versionName));
@@ -768,6 +774,12 @@ ListArtifactsResponse Alibabacloud_ComputeNestSupplier20210521::Client::listArti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListArtifactsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListArtifactsRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
