@@ -5842,10 +5842,48 @@ public:
 
   virtual ~GetApplicationResponse() = default;
 };
+class GetCredentialReportRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> maxItems{};
+  shared_ptr<string> nextToken{};
+
+  GetCredentialReportRequest() {}
+
+  explicit GetCredentialReportRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (maxItems) {
+      res["MaxItems"] = boost::any(*maxItems);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MaxItems") != m.end() && !m["MaxItems"].empty()) {
+      maxItems = make_shared<string>(boost::any_cast<string>(m["MaxItems"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+  }
+
+
+  virtual ~GetCredentialReportRequest() = default;
+};
 class GetCredentialReportResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
   shared_ptr<string> generatedTime{};
+  shared_ptr<string> isTruncated{};
+  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
 
   GetCredentialReportResponseBody() {}
@@ -5864,6 +5902,12 @@ public:
     if (generatedTime) {
       res["GeneratedTime"] = boost::any(*generatedTime);
     }
+    if (isTruncated) {
+      res["IsTruncated"] = boost::any(*isTruncated);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -5876,6 +5920,12 @@ public:
     }
     if (m.find("GeneratedTime") != m.end() && !m["GeneratedTime"].empty()) {
       generatedTime = make_shared<string>(boost::any_cast<string>(m["GeneratedTime"]));
+    }
+    if (m.find("IsTruncated") != m.end() && !m["IsTruncated"].empty()) {
+      isTruncated = make_shared<string>(boost::any_cast<string>(m["IsTruncated"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -15889,8 +15939,8 @@ public:
   GetAppSecretResponse getAppSecret(shared_ptr<GetAppSecretRequest> request);
   GetApplicationResponse getApplicationWithOptions(shared_ptr<GetApplicationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetApplicationResponse getApplication(shared_ptr<GetApplicationRequest> request);
-  GetCredentialReportResponse getCredentialReportWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetCredentialReportResponse getCredentialReport();
+  GetCredentialReportResponse getCredentialReportWithOptions(shared_ptr<GetCredentialReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetCredentialReportResponse getCredentialReport(shared_ptr<GetCredentialReportRequest> request);
   GetDefaultDomainResponse getDefaultDomainWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDefaultDomainResponse getDefaultDomain();
   GetGroupResponse getGroupWithOptions(shared_ptr<GetGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

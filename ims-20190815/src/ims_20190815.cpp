@@ -992,8 +992,18 @@ GetApplicationResponse Alibabacloud_Ims20190815::Client::getApplication(shared_p
   return getApplicationWithOptions(request, runtime);
 }
 
-GetCredentialReportResponse Alibabacloud_Ims20190815::Client::getCredentialReportWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+GetCredentialReportResponse Alibabacloud_Ims20190815::Client::getCredentialReportWithOptions(shared_ptr<GetCredentialReportRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxItems)) {
+    query->insert(pair<string, string>("MaxItems", *request->maxItems));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetCredentialReport"))},
     {"version", boost::any(string("2019-08-15"))},
@@ -1008,9 +1018,9 @@ GetCredentialReportResponse Alibabacloud_Ims20190815::Client::getCredentialRepor
   return GetCredentialReportResponse(callApi(params, req, runtime));
 }
 
-GetCredentialReportResponse Alibabacloud_Ims20190815::Client::getCredentialReport() {
+GetCredentialReportResponse Alibabacloud_Ims20190815::Client::getCredentialReport(shared_ptr<GetCredentialReportRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getCredentialReportWithOptions(runtime);
+  return getCredentialReportWithOptions(request, runtime);
 }
 
 GetDefaultDomainResponse Alibabacloud_Ims20190815::Client::getDefaultDomainWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
