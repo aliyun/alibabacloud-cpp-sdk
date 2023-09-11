@@ -14099,6 +14099,168 @@ public:
 
   virtual ~DeleteAlertRulesResponse() = default;
 };
+class DeleteAppListRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> pids{};
+  shared_ptr<string> regionId{};
+
+  DeleteAppListRequest() {}
+
+  explicit DeleteAppListRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pids) {
+      res["Pids"] = boost::any(*pids);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Pids") != m.end() && !m["Pids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Pids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Pids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      pids = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DeleteAppListRequest() = default;
+};
+class DeleteAppListResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DeleteAppListResponseBody() {}
+
+  explicit DeleteAppListResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DeleteAppListResponseBody() = default;
+};
+class DeleteAppListResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteAppListResponseBody> body{};
+
+  DeleteAppListResponse() {}
+
+  explicit DeleteAppListResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteAppListResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteAppListResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteAppListResponse() = default;
+};
 class DeleteCmsExporterRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -40508,6 +40670,7 @@ public:
 };
 class ListTraceAppsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appType{};
   shared_ptr<string> region{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -40523,6 +40686,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
     if (region) {
       res["Region"] = boost::any(*region);
     }
@@ -40543,6 +40709,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["AppType"]));
+    }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
@@ -40610,8 +40779,10 @@ class ListTraceAppsResponseBodyTraceApps : public Darabonba::Model {
 public:
   shared_ptr<long> appId{};
   shared_ptr<string> appName{};
+  shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
   shared_ptr<vector<string>> labels{};
+  shared_ptr<string> namespace_{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
@@ -40621,6 +40792,8 @@ public:
   shared_ptr<string> type{};
   shared_ptr<long> updateTime{};
   shared_ptr<string> userId{};
+  shared_ptr<string> workloadKind{};
+  shared_ptr<string> workloadName{};
 
   ListTraceAppsResponseBodyTraceApps() {}
 
@@ -40638,11 +40811,17 @@ public:
     if (appName) {
       res["AppName"] = boost::any(*appName);
     }
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
     }
     if (pid) {
       res["Pid"] = boost::any(*pid);
@@ -40675,6 +40854,12 @@ public:
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
+    if (workloadKind) {
+      res["WorkloadKind"] = boost::any(*workloadKind);
+    }
+    if (workloadName) {
+      res["WorkloadName"] = boost::any(*workloadName);
+    }
     return res;
   }
 
@@ -40684,6 +40869,9 @@ public:
     }
     if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
       appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
@@ -40697,6 +40885,9 @@ public:
         }
       }
       labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
     }
     if (m.find("Pid") != m.end() && !m["Pid"].empty()) {
       pid = make_shared<string>(boost::any_cast<string>(m["Pid"]));
@@ -40734,6 +40925,12 @@ public:
     }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
+    }
+    if (m.find("WorkloadKind") != m.end() && !m["WorkloadKind"].empty()) {
+      workloadKind = make_shared<string>(boost::any_cast<string>(m["WorkloadKind"]));
+    }
+    if (m.find("WorkloadName") != m.end() && !m["WorkloadName"].empty()) {
+      workloadName = make_shared<string>(boost::any_cast<string>(m["WorkloadName"]));
     }
   }
 
@@ -53886,6 +54083,8 @@ public:
   DeleteAlertRuleResponse deleteAlertRule(shared_ptr<DeleteAlertRuleRequest> request);
   DeleteAlertRulesResponse deleteAlertRulesWithOptions(shared_ptr<DeleteAlertRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteAlertRulesResponse deleteAlertRules(shared_ptr<DeleteAlertRulesRequest> request);
+  DeleteAppListResponse deleteAppListWithOptions(shared_ptr<DeleteAppListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteAppListResponse deleteAppList(shared_ptr<DeleteAppListRequest> request);
   DeleteCmsExporterResponse deleteCmsExporterWithOptions(shared_ptr<DeleteCmsExporterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteCmsExporterResponse deleteCmsExporter(shared_ptr<DeleteCmsExporterRequest> request);
   DeleteContactResponse deleteContactWithOptions(shared_ptr<DeleteContactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

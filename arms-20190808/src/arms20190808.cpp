@@ -1806,6 +1806,37 @@ DeleteAlertRulesResponse Alibabacloud_ARMS20190808::Client::deleteAlertRules(sha
   return deleteAlertRulesWithOptions(request, runtime);
 }
 
+DeleteAppListResponse Alibabacloud_ARMS20190808::Client::deleteAppListWithOptions(shared_ptr<DeleteAppListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->pids)) {
+    query->insert(pair<string, vector<string>>("Pids", *request->pids));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteAppList"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteAppListResponse(callApi(params, req, runtime));
+}
+
+DeleteAppListResponse Alibabacloud_ARMS20190808::Client::deleteAppList(shared_ptr<DeleteAppListRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteAppListWithOptions(request, runtime);
+}
+
 DeleteCmsExporterResponse Alibabacloud_ARMS20190808::Client::deleteCmsExporterWithOptions(shared_ptr<DeleteCmsExporterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -4982,6 +5013,9 @@ ListTimingSyntheticTasksResponse Alibabacloud_ARMS20190808::Client::listTimingSy
 ListTraceAppsResponse Alibabacloud_ARMS20190808::Client::listTraceAppsWithOptions(shared_ptr<ListTraceAppsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    query->insert(pair<string, string>("AppType", *request->appType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
   }
