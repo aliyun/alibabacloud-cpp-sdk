@@ -3157,6 +3157,7 @@ public:
 };
 class CreateJobRequestUserVpc : public Darabonba::Model {
 public:
+  shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> switchId{};
@@ -3172,6 +3173,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (defaultRoute) {
+      res["DefaultRoute"] = boost::any(*defaultRoute);
+    }
     if (extendedCIDRs) {
       res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
     }
@@ -3188,6 +3192,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultRoute") != m.end() && !m["DefaultRoute"].empty()) {
+      defaultRoute = make_shared<string>(boost::any_cast<string>(m["DefaultRoute"]));
+    }
     if (m.find("ExtendedCIDRs") != m.end() && !m["ExtendedCIDRs"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ExtendedCIDRs"].type()) {
