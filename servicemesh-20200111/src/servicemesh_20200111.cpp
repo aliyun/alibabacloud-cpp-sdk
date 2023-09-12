@@ -585,11 +585,20 @@ CreateSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::createSwim
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressType)) {
     body->insert(pair<string, string>("IngressType", *request->ingressType));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isPermissive)) {
+    body->insert(pair<string, bool>("IsPermissive", *request->isPermissive));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeHeader)) {
+    body->insert(pair<string, string>("RouteHeader", *request->routeHeader));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
     body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->servicesList)) {
     body->insert(pair<string, string>("ServicesList", *request->servicesList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->traceHeader)) {
+    body->insert(pair<string, string>("TraceHeader", *request->traceHeader));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -3416,6 +3425,9 @@ UpdateSwimLaneResponse Alibabacloud_Servicemesh20200111::Client::updateSwimLane(
 UpdateSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::updateSwimLaneGroupWithOptions(shared_ptr<UpdateSwimLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallbackTarget)) {
+    body->insert(pair<string, string>("FallbackTarget", *request->fallbackTarget));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     body->insert(pair<string, string>("GroupName", *request->groupName));
   }

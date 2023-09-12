@@ -3018,8 +3018,11 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> ingressGatewayName{};
   shared_ptr<string> ingressType{};
+  shared_ptr<bool> isPermissive{};
+  shared_ptr<string> routeHeader{};
   shared_ptr<string> serviceMeshId{};
   shared_ptr<string> servicesList{};
+  shared_ptr<string> traceHeader{};
 
   CreateSwimLaneGroupRequest() {}
 
@@ -3040,11 +3043,20 @@ public:
     if (ingressType) {
       res["IngressType"] = boost::any(*ingressType);
     }
+    if (isPermissive) {
+      res["IsPermissive"] = boost::any(*isPermissive);
+    }
+    if (routeHeader) {
+      res["RouteHeader"] = boost::any(*routeHeader);
+    }
     if (serviceMeshId) {
       res["ServiceMeshId"] = boost::any(*serviceMeshId);
     }
     if (servicesList) {
       res["ServicesList"] = boost::any(*servicesList);
+    }
+    if (traceHeader) {
+      res["TraceHeader"] = boost::any(*traceHeader);
     }
     return res;
   }
@@ -3059,11 +3071,20 @@ public:
     if (m.find("IngressType") != m.end() && !m["IngressType"].empty()) {
       ingressType = make_shared<string>(boost::any_cast<string>(m["IngressType"]));
     }
+    if (m.find("IsPermissive") != m.end() && !m["IsPermissive"].empty()) {
+      isPermissive = make_shared<bool>(boost::any_cast<bool>(m["IsPermissive"]));
+    }
+    if (m.find("RouteHeader") != m.end() && !m["RouteHeader"].empty()) {
+      routeHeader = make_shared<string>(boost::any_cast<string>(m["RouteHeader"]));
+    }
     if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
       serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
     }
     if (m.find("ServicesList") != m.end() && !m["ServicesList"].empty()) {
       servicesList = make_shared<string>(boost::any_cast<string>(m["ServicesList"]));
+    }
+    if (m.find("TraceHeader") != m.end() && !m["TraceHeader"].empty()) {
+      traceHeader = make_shared<string>(boost::any_cast<string>(m["TraceHeader"]));
     }
   }
 
@@ -17691,10 +17712,15 @@ public:
 };
 class GetSwimLaneGroupListResponseBodySwimLaneGroupList : public Darabonba::Model {
 public:
+  shared_ptr<string> fallbackTarget{};
   shared_ptr<string> groupName{};
   shared_ptr<string> ingressGatewayName{};
   shared_ptr<string> ingressType{};
+  shared_ptr<bool> isPermissive{};
+  shared_ptr<string> routeHeader{};
   shared_ptr<string> serviceList{};
+  shared_ptr<string> swimLaneLabels{};
+  shared_ptr<string> traceHeader{};
 
   GetSwimLaneGroupListResponseBodySwimLaneGroupList() {}
 
@@ -17706,6 +17732,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fallbackTarget) {
+      res["FallbackTarget"] = boost::any(*fallbackTarget);
+    }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
@@ -17715,13 +17744,28 @@ public:
     if (ingressType) {
       res["IngressType"] = boost::any(*ingressType);
     }
+    if (isPermissive) {
+      res["IsPermissive"] = boost::any(*isPermissive);
+    }
+    if (routeHeader) {
+      res["RouteHeader"] = boost::any(*routeHeader);
+    }
     if (serviceList) {
       res["ServiceList"] = boost::any(*serviceList);
+    }
+    if (swimLaneLabels) {
+      res["SwimLaneLabels"] = boost::any(*swimLaneLabels);
+    }
+    if (traceHeader) {
+      res["TraceHeader"] = boost::any(*traceHeader);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FallbackTarget") != m.end() && !m["FallbackTarget"].empty()) {
+      fallbackTarget = make_shared<string>(boost::any_cast<string>(m["FallbackTarget"]));
+    }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
@@ -17731,8 +17775,20 @@ public:
     if (m.find("IngressType") != m.end() && !m["IngressType"].empty()) {
       ingressType = make_shared<string>(boost::any_cast<string>(m["IngressType"]));
     }
+    if (m.find("IsPermissive") != m.end() && !m["IsPermissive"].empty()) {
+      isPermissive = make_shared<bool>(boost::any_cast<bool>(m["IsPermissive"]));
+    }
+    if (m.find("RouteHeader") != m.end() && !m["RouteHeader"].empty()) {
+      routeHeader = make_shared<string>(boost::any_cast<string>(m["RouteHeader"]));
+    }
     if (m.find("ServiceList") != m.end() && !m["ServiceList"].empty()) {
       serviceList = make_shared<string>(boost::any_cast<string>(m["ServiceList"]));
+    }
+    if (m.find("SwimLaneLabels") != m.end() && !m["SwimLaneLabels"].empty()) {
+      swimLaneLabels = make_shared<string>(boost::any_cast<string>(m["SwimLaneLabels"]));
+    }
+    if (m.find("TraceHeader") != m.end() && !m["TraceHeader"].empty()) {
+      traceHeader = make_shared<string>(boost::any_cast<string>(m["TraceHeader"]));
     }
   }
 
@@ -23609,6 +23665,7 @@ public:
 };
 class UpdateSwimLaneGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> fallbackTarget{};
   shared_ptr<string> groupName{};
   shared_ptr<string> serviceMeshId{};
   shared_ptr<string> servicesList{};
@@ -23623,6 +23680,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fallbackTarget) {
+      res["FallbackTarget"] = boost::any(*fallbackTarget);
+    }
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
@@ -23636,6 +23696,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FallbackTarget") != m.end() && !m["FallbackTarget"].empty()) {
+      fallbackTarget = make_shared<string>(boost::any_cast<string>(m["FallbackTarget"]));
+    }
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
