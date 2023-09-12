@@ -9398,6 +9398,7 @@ public:
 class DescribeDBClusterAttributeResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> aiType{};
+  shared_ptr<string> architecture{};
   shared_ptr<long> blktagTotal{};
   shared_ptr<long> blktagUsed{};
   shared_ptr<string> category{};
@@ -9419,6 +9420,7 @@ public:
   shared_ptr<string> expireTime{};
   shared_ptr<string> expired{};
   shared_ptr<bool> hasCompleteStandbyRes{};
+  shared_ptr<string> hotStandbyCluster{};
   shared_ptr<long> inodeTotal{};
   shared_ptr<long> inodeUsed{};
   shared_ptr<bool> isLatestVersion{};
@@ -9461,6 +9463,9 @@ public:
     map<string, boost::any> res;
     if (aiType) {
       res["AiType"] = boost::any(*aiType);
+    }
+    if (architecture) {
+      res["Architecture"] = boost::any(*architecture);
     }
     if (blktagTotal) {
       res["BlktagTotal"] = boost::any(*blktagTotal);
@@ -9528,6 +9533,9 @@ public:
     }
     if (hasCompleteStandbyRes) {
       res["HasCompleteStandbyRes"] = boost::any(*hasCompleteStandbyRes);
+    }
+    if (hotStandbyCluster) {
+      res["HotStandbyCluster"] = boost::any(*hotStandbyCluster);
     }
     if (inodeTotal) {
       res["InodeTotal"] = boost::any(*inodeTotal);
@@ -9627,6 +9635,9 @@ public:
     if (m.find("AiType") != m.end() && !m["AiType"].empty()) {
       aiType = make_shared<string>(boost::any_cast<string>(m["AiType"]));
     }
+    if (m.find("Architecture") != m.end() && !m["Architecture"].empty()) {
+      architecture = make_shared<string>(boost::any_cast<string>(m["Architecture"]));
+    }
     if (m.find("BlktagTotal") != m.end() && !m["BlktagTotal"].empty()) {
       blktagTotal = make_shared<long>(boost::any_cast<long>(m["BlktagTotal"]));
     }
@@ -9699,6 +9710,9 @@ public:
     }
     if (m.find("HasCompleteStandbyRes") != m.end() && !m["HasCompleteStandbyRes"].empty()) {
       hasCompleteStandbyRes = make_shared<bool>(boost::any_cast<bool>(m["HasCompleteStandbyRes"]));
+    }
+    if (m.find("HotStandbyCluster") != m.end() && !m["HotStandbyCluster"].empty()) {
+      hotStandbyCluster = make_shared<string>(boost::any_cast<string>(m["HotStandbyCluster"]));
     }
     if (m.find("InodeTotal") != m.end() && !m["InodeTotal"].empty()) {
       inodeTotal = make_shared<long>(boost::any_cast<long>(m["InodeTotal"]));
@@ -28479,6 +28493,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> DBNodeTargetClass{};
+  shared_ptr<string> DBNodeType{};
   shared_ptr<string> modifyType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -28506,6 +28521,9 @@ public:
     }
     if (DBNodeTargetClass) {
       res["DBNodeTargetClass"] = boost::any(*DBNodeTargetClass);
+    }
+    if (DBNodeType) {
+      res["DBNodeType"] = boost::any(*DBNodeType);
     }
     if (modifyType) {
       res["ModifyType"] = boost::any(*modifyType);
@@ -28543,6 +28561,9 @@ public:
     }
     if (m.find("DBNodeTargetClass") != m.end() && !m["DBNodeTargetClass"].empty()) {
       DBNodeTargetClass = make_shared<string>(boost::any_cast<string>(m["DBNodeTargetClass"]));
+    }
+    if (m.find("DBNodeType") != m.end() && !m["DBNodeType"].empty()) {
+      DBNodeType = make_shared<string>(boost::any_cast<string>(m["DBNodeType"]));
     }
     if (m.find("ModifyType") != m.end() && !m["ModifyType"].empty()) {
       modifyType = make_shared<string>(boost::any_cast<string>(m["ModifyType"]));

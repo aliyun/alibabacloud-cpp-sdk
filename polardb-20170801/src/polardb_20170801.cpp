@@ -5780,6 +5780,9 @@ ModifyDBNodeClassResponse Alibabacloud_Polardb20170801::Client::modifyDBNodeClas
   if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeTargetClass)) {
     query->insert(pair<string, string>("DBNodeTargetClass", *request->DBNodeTargetClass));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBNodeType)) {
+    query->insert(pair<string, string>("DBNodeType", *request->DBNodeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->modifyType)) {
     query->insert(pair<string, string>("ModifyType", *request->modifyType));
   }
