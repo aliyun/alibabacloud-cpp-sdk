@@ -1026,6 +1026,54 @@ ResumeSingleCardResponse Alibabacloud_Linkcard20210520::Client::resumeSingleCard
   return resumeSingleCardWithOptions(request, runtime);
 }
 
+SendMessageResponse Alibabacloud_Linkcard20210520::Client::sendMessageWithOptions(shared_ptr<SendMessageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SendMessageShrinkRequest> request = make_shared<SendMessageShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->msisdns)) {
+    request->msisdnsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->msisdns, make_shared<string>("Msisdns"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->apiProduct)) {
+    body->insert(pair<string, string>("ApiProduct", *request->apiProduct));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->messageSendTime)) {
+    body->insert(pair<string, long>("MessageSendTime", *request->messageSendTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->messageTemplateId)) {
+    body->insert(pair<string, long>("MessageTemplateId", *request->messageTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->messageVariableParam)) {
+    body->insert(pair<string, string>("MessageVariableParam", *request->messageVariableParam));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->msisdnsShrink)) {
+    body->insert(pair<string, string>("Msisdns", *request->msisdnsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskName)) {
+    body->insert(pair<string, string>("TaskName", *request->taskName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SendMessage"))},
+    {"version", boost::any(string("2021-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SendMessageResponse(callApi(params, req, runtime));
+}
+
+SendMessageResponse Alibabacloud_Linkcard20210520::Client::sendMessage(shared_ptr<SendMessageRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return sendMessageWithOptions(request, runtime);
+}
+
 SetCardStopRuleResponse Alibabacloud_Linkcard20210520::Client::setCardStopRuleWithOptions(shared_ptr<SetCardStopRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

@@ -7874,6 +7874,281 @@ public:
 
   virtual ~ResumeSingleCardResponse() = default;
 };
+class SendMessageRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiProduct{};
+  shared_ptr<long> messageSendTime{};
+  shared_ptr<long> messageTemplateId{};
+  shared_ptr<string> messageVariableParam{};
+  shared_ptr<vector<string>> msisdns{};
+  shared_ptr<string> taskName{};
+
+  SendMessageRequest() {}
+
+  explicit SendMessageRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiProduct) {
+      res["ApiProduct"] = boost::any(*apiProduct);
+    }
+    if (messageSendTime) {
+      res["MessageSendTime"] = boost::any(*messageSendTime);
+    }
+    if (messageTemplateId) {
+      res["MessageTemplateId"] = boost::any(*messageTemplateId);
+    }
+    if (messageVariableParam) {
+      res["MessageVariableParam"] = boost::any(*messageVariableParam);
+    }
+    if (msisdns) {
+      res["Msisdns"] = boost::any(*msisdns);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiProduct") != m.end() && !m["ApiProduct"].empty()) {
+      apiProduct = make_shared<string>(boost::any_cast<string>(m["ApiProduct"]));
+    }
+    if (m.find("MessageSendTime") != m.end() && !m["MessageSendTime"].empty()) {
+      messageSendTime = make_shared<long>(boost::any_cast<long>(m["MessageSendTime"]));
+    }
+    if (m.find("MessageTemplateId") != m.end() && !m["MessageTemplateId"].empty()) {
+      messageTemplateId = make_shared<long>(boost::any_cast<long>(m["MessageTemplateId"]));
+    }
+    if (m.find("MessageVariableParam") != m.end() && !m["MessageVariableParam"].empty()) {
+      messageVariableParam = make_shared<string>(boost::any_cast<string>(m["MessageVariableParam"]));
+    }
+    if (m.find("Msisdns") != m.end() && !m["Msisdns"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Msisdns"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Msisdns"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      msisdns = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~SendMessageRequest() = default;
+};
+class SendMessageShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiProduct{};
+  shared_ptr<long> messageSendTime{};
+  shared_ptr<long> messageTemplateId{};
+  shared_ptr<string> messageVariableParam{};
+  shared_ptr<string> msisdnsShrink{};
+  shared_ptr<string> taskName{};
+
+  SendMessageShrinkRequest() {}
+
+  explicit SendMessageShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiProduct) {
+      res["ApiProduct"] = boost::any(*apiProduct);
+    }
+    if (messageSendTime) {
+      res["MessageSendTime"] = boost::any(*messageSendTime);
+    }
+    if (messageTemplateId) {
+      res["MessageTemplateId"] = boost::any(*messageTemplateId);
+    }
+    if (messageVariableParam) {
+      res["MessageVariableParam"] = boost::any(*messageVariableParam);
+    }
+    if (msisdnsShrink) {
+      res["Msisdns"] = boost::any(*msisdnsShrink);
+    }
+    if (taskName) {
+      res["TaskName"] = boost::any(*taskName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiProduct") != m.end() && !m["ApiProduct"].empty()) {
+      apiProduct = make_shared<string>(boost::any_cast<string>(m["ApiProduct"]));
+    }
+    if (m.find("MessageSendTime") != m.end() && !m["MessageSendTime"].empty()) {
+      messageSendTime = make_shared<long>(boost::any_cast<long>(m["MessageSendTime"]));
+    }
+    if (m.find("MessageTemplateId") != m.end() && !m["MessageTemplateId"].empty()) {
+      messageTemplateId = make_shared<long>(boost::any_cast<long>(m["MessageTemplateId"]));
+    }
+    if (m.find("MessageVariableParam") != m.end() && !m["MessageVariableParam"].empty()) {
+      messageVariableParam = make_shared<string>(boost::any_cast<string>(m["MessageVariableParam"]));
+    }
+    if (m.find("Msisdns") != m.end() && !m["Msisdns"].empty()) {
+      msisdnsShrink = make_shared<string>(boost::any_cast<string>(m["Msisdns"]));
+    }
+    if (m.find("TaskName") != m.end() && !m["TaskName"].empty()) {
+      taskName = make_shared<string>(boost::any_cast<string>(m["TaskName"]));
+    }
+  }
+
+
+  virtual ~SendMessageShrinkRequest() = default;
+};
+class SendMessageResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<long> data{};
+  shared_ptr<string> dynamicCode{};
+  shared_ptr<string> dynamicMessage{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> localizedMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  SendMessageResponseBody() {}
+
+  explicit SendMessageResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (dynamicCode) {
+      res["DynamicCode"] = boost::any(*dynamicCode);
+    }
+    if (dynamicMessage) {
+      res["DynamicMessage"] = boost::any(*dynamicMessage);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (localizedMessage) {
+      res["LocalizedMessage"] = boost::any(*localizedMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("DynamicCode") != m.end() && !m["DynamicCode"].empty()) {
+      dynamicCode = make_shared<string>(boost::any_cast<string>(m["DynamicCode"]));
+    }
+    if (m.find("DynamicMessage") != m.end() && !m["DynamicMessage"].empty()) {
+      dynamicMessage = make_shared<string>(boost::any_cast<string>(m["DynamicMessage"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("LocalizedMessage") != m.end() && !m["LocalizedMessage"].empty()) {
+      localizedMessage = make_shared<string>(boost::any_cast<string>(m["LocalizedMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~SendMessageResponseBody() = default;
+};
+class SendMessageResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SendMessageResponseBody> body{};
+
+  SendMessageResponse() {}
+
+  explicit SendMessageResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SendMessageResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SendMessageResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SendMessageResponse() = default;
+};
 class SetCardStopRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRestore{};
@@ -8625,6 +8900,8 @@ public:
   RenewResponse renew(shared_ptr<RenewRequest> request);
   ResumeSingleCardResponse resumeSingleCardWithOptions(shared_ptr<ResumeSingleCardRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeSingleCardResponse resumeSingleCard(shared_ptr<ResumeSingleCardRequest> request);
+  SendMessageResponse sendMessageWithOptions(shared_ptr<SendMessageRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SendMessageResponse sendMessage(shared_ptr<SendMessageRequest> request);
   SetCardStopRuleResponse setCardStopRuleWithOptions(shared_ptr<SetCardStopRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetCardStopRuleResponse setCardStopRule(shared_ptr<SetCardStopRuleRequest> request);
   StopSingleCardResponse stopSingleCardWithOptions(shared_ptr<StopSingleCardRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
