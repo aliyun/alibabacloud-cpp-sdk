@@ -5870,6 +5870,7 @@ public:
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
   shared_ptr<bool> argoCDHAEnabled{};
+  shared_ptr<bool> argoEventsEnabled{};
   shared_ptr<bool> argoServerEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
@@ -5904,6 +5905,9 @@ public:
     }
     if (argoCDHAEnabled) {
       res["ArgoCDHAEnabled"] = boost::any(*argoCDHAEnabled);
+    }
+    if (argoEventsEnabled) {
+      res["ArgoEventsEnabled"] = boost::any(*argoEventsEnabled);
     }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
@@ -5964,6 +5968,9 @@ public:
     if (m.find("ArgoCDHAEnabled") != m.end() && !m["ArgoCDHAEnabled"].empty()) {
       argoCDHAEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDHAEnabled"]));
     }
+    if (m.find("ArgoEventsEnabled") != m.end() && !m["ArgoEventsEnabled"].empty()) {
+      argoEventsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoEventsEnabled"]));
+    }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
     }
@@ -6018,6 +6025,7 @@ public:
   shared_ptr<string> apiServerEipId{};
   shared_ptr<bool> argoCDEnabled{};
   shared_ptr<bool> argoCDHAEnabled{};
+  shared_ptr<bool> argoEventsEnabled{};
   shared_ptr<bool> argoServerEnabled{};
   shared_ptr<bool> auditLogEnabled{};
   shared_ptr<string> clusterId{};
@@ -6052,6 +6060,9 @@ public:
     }
     if (argoCDHAEnabled) {
       res["ArgoCDHAEnabled"] = boost::any(*argoCDHAEnabled);
+    }
+    if (argoEventsEnabled) {
+      res["ArgoEventsEnabled"] = boost::any(*argoEventsEnabled);
     }
     if (argoServerEnabled) {
       res["ArgoServerEnabled"] = boost::any(*argoServerEnabled);
@@ -6104,6 +6115,9 @@ public:
     }
     if (m.find("ArgoCDHAEnabled") != m.end() && !m["ArgoCDHAEnabled"].empty()) {
       argoCDHAEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoCDHAEnabled"]));
+    }
+    if (m.find("ArgoEventsEnabled") != m.end() && !m["ArgoEventsEnabled"].empty()) {
+      argoEventsEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoEventsEnabled"]));
     }
     if (m.find("ArgoServerEnabled") != m.end() && !m["ArgoServerEnabled"].empty()) {
       argoServerEnabled = make_shared<bool>(boost::any_cast<bool>(m["ArgoServerEnabled"]));
