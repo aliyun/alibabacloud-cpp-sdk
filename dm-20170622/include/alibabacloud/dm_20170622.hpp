@@ -2245,6 +2245,7 @@ public:
   shared_ptr<long> monthQuota{};
   shared_ptr<long> quotaLevel{};
   shared_ptr<long> receivers{};
+  shared_ptr<long> remainFreeQuota{};
   shared_ptr<string> requestId{};
   shared_ptr<long> smsRecord{};
   shared_ptr<long> smsSign{};
@@ -2289,6 +2290,9 @@ public:
     }
     if (receivers) {
       res["Receivers"] = boost::any(*receivers);
+    }
+    if (remainFreeQuota) {
+      res["RemainFreeQuota"] = boost::any(*remainFreeQuota);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2341,6 +2345,9 @@ public:
     }
     if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
       receivers = make_shared<long>(boost::any_cast<long>(m["Receivers"]));
+    }
+    if (m.find("RemainFreeQuota") != m.end() && !m["RemainFreeQuota"].empty()) {
+      remainFreeQuota = make_shared<long>(boost::any_cast<long>(m["RemainFreeQuota"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -2487,6 +2494,9 @@ public:
   shared_ptr<string> cnameRecord{};
   shared_ptr<string> createTime{};
   shared_ptr<string> defaultDomain{};
+  shared_ptr<string> dkimAuthStatus{};
+  shared_ptr<string> dkimPublicKey{};
+  shared_ptr<string> dkimRR{};
   shared_ptr<string> dnsMx{};
   shared_ptr<string> dnsSpf{};
   shared_ptr<string> dnsTxt{};
@@ -2494,12 +2504,14 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> domainStatus{};
   shared_ptr<string> domainType{};
+  shared_ptr<string> hostRecord{};
   shared_ptr<string> icpStatus{};
   shared_ptr<string> mxAuthStatus{};
   shared_ptr<string> mxRecord{};
   shared_ptr<string> requestId{};
   shared_ptr<string> spfAuthStatus{};
   shared_ptr<string> spfRecord{};
+  shared_ptr<string> spfRecordV2{};
   shared_ptr<string> tlDomainName{};
   shared_ptr<string> tracefRecord{};
 
@@ -2528,6 +2540,15 @@ public:
     if (defaultDomain) {
       res["DefaultDomain"] = boost::any(*defaultDomain);
     }
+    if (dkimAuthStatus) {
+      res["DkimAuthStatus"] = boost::any(*dkimAuthStatus);
+    }
+    if (dkimPublicKey) {
+      res["DkimPublicKey"] = boost::any(*dkimPublicKey);
+    }
+    if (dkimRR) {
+      res["DkimRR"] = boost::any(*dkimRR);
+    }
     if (dnsMx) {
       res["DnsMx"] = boost::any(*dnsMx);
     }
@@ -2549,6 +2570,9 @@ public:
     if (domainType) {
       res["DomainType"] = boost::any(*domainType);
     }
+    if (hostRecord) {
+      res["HostRecord"] = boost::any(*hostRecord);
+    }
     if (icpStatus) {
       res["IcpStatus"] = boost::any(*icpStatus);
     }
@@ -2566,6 +2590,9 @@ public:
     }
     if (spfRecord) {
       res["SpfRecord"] = boost::any(*spfRecord);
+    }
+    if (spfRecordV2) {
+      res["SpfRecordV2"] = boost::any(*spfRecordV2);
     }
     if (tlDomainName) {
       res["TlDomainName"] = boost::any(*tlDomainName);
@@ -2592,6 +2619,15 @@ public:
     if (m.find("DefaultDomain") != m.end() && !m["DefaultDomain"].empty()) {
       defaultDomain = make_shared<string>(boost::any_cast<string>(m["DefaultDomain"]));
     }
+    if (m.find("DkimAuthStatus") != m.end() && !m["DkimAuthStatus"].empty()) {
+      dkimAuthStatus = make_shared<string>(boost::any_cast<string>(m["DkimAuthStatus"]));
+    }
+    if (m.find("DkimPublicKey") != m.end() && !m["DkimPublicKey"].empty()) {
+      dkimPublicKey = make_shared<string>(boost::any_cast<string>(m["DkimPublicKey"]));
+    }
+    if (m.find("DkimRR") != m.end() && !m["DkimRR"].empty()) {
+      dkimRR = make_shared<string>(boost::any_cast<string>(m["DkimRR"]));
+    }
     if (m.find("DnsMx") != m.end() && !m["DnsMx"].empty()) {
       dnsMx = make_shared<string>(boost::any_cast<string>(m["DnsMx"]));
     }
@@ -2613,6 +2649,9 @@ public:
     if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
       domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
     }
+    if (m.find("HostRecord") != m.end() && !m["HostRecord"].empty()) {
+      hostRecord = make_shared<string>(boost::any_cast<string>(m["HostRecord"]));
+    }
     if (m.find("IcpStatus") != m.end() && !m["IcpStatus"].empty()) {
       icpStatus = make_shared<string>(boost::any_cast<string>(m["IcpStatus"]));
     }
@@ -2630,6 +2669,9 @@ public:
     }
     if (m.find("SpfRecord") != m.end() && !m["SpfRecord"].empty()) {
       spfRecord = make_shared<string>(boost::any_cast<string>(m["SpfRecord"]));
+    }
+    if (m.find("SpfRecordV2") != m.end() && !m["SpfRecordV2"].empty()) {
+      spfRecordV2 = make_shared<string>(boost::any_cast<string>(m["SpfRecordV2"]));
     }
     if (m.find("TlDomainName") != m.end() && !m["TlDomainName"].empty()) {
       tlDomainName = make_shared<string>(boost::any_cast<string>(m["TlDomainName"]));
@@ -3472,16 +3514,16 @@ public:
 };
 class GetTrackListResponseBodyDataStat : public Darabonba::Model {
 public:
-  shared_ptr<string> createTime{};
-  shared_ptr<string> rcptClickCount{};
+  shared_ptr<long> createTime{};
+  shared_ptr<long> rcptClickCount{};
   shared_ptr<string> rcptClickRate{};
-  shared_ptr<string> rcptOpenCount{};
+  shared_ptr<long> rcptOpenCount{};
   shared_ptr<string> rcptOpenRate{};
-  shared_ptr<string> rcptUniqueClickCount{};
+  shared_ptr<long> rcptUniqueClickCount{};
   shared_ptr<string> rcptUniqueClickRate{};
-  shared_ptr<string> rcptUniqueOpenCount{};
+  shared_ptr<long> rcptUniqueOpenCount{};
   shared_ptr<string> rcptUniqueOpenRate{};
-  shared_ptr<string> totalNumber{};
+  shared_ptr<long> totalNumber{};
 
   GetTrackListResponseBodyDataStat() {}
 
@@ -3528,34 +3570,34 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
-      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
     if (m.find("RcptClickCount") != m.end() && !m["RcptClickCount"].empty()) {
-      rcptClickCount = make_shared<string>(boost::any_cast<string>(m["RcptClickCount"]));
+      rcptClickCount = make_shared<long>(boost::any_cast<long>(m["RcptClickCount"]));
     }
     if (m.find("RcptClickRate") != m.end() && !m["RcptClickRate"].empty()) {
       rcptClickRate = make_shared<string>(boost::any_cast<string>(m["RcptClickRate"]));
     }
     if (m.find("RcptOpenCount") != m.end() && !m["RcptOpenCount"].empty()) {
-      rcptOpenCount = make_shared<string>(boost::any_cast<string>(m["RcptOpenCount"]));
+      rcptOpenCount = make_shared<long>(boost::any_cast<long>(m["RcptOpenCount"]));
     }
     if (m.find("RcptOpenRate") != m.end() && !m["RcptOpenRate"].empty()) {
       rcptOpenRate = make_shared<string>(boost::any_cast<string>(m["RcptOpenRate"]));
     }
     if (m.find("RcptUniqueClickCount") != m.end() && !m["RcptUniqueClickCount"].empty()) {
-      rcptUniqueClickCount = make_shared<string>(boost::any_cast<string>(m["RcptUniqueClickCount"]));
+      rcptUniqueClickCount = make_shared<long>(boost::any_cast<long>(m["RcptUniqueClickCount"]));
     }
     if (m.find("RcptUniqueClickRate") != m.end() && !m["RcptUniqueClickRate"].empty()) {
       rcptUniqueClickRate = make_shared<string>(boost::any_cast<string>(m["RcptUniqueClickRate"]));
     }
     if (m.find("RcptUniqueOpenCount") != m.end() && !m["RcptUniqueOpenCount"].empty()) {
-      rcptUniqueOpenCount = make_shared<string>(boost::any_cast<string>(m["RcptUniqueOpenCount"]));
+      rcptUniqueOpenCount = make_shared<long>(boost::any_cast<long>(m["RcptUniqueOpenCount"]));
     }
     if (m.find("RcptUniqueOpenRate") != m.end() && !m["RcptUniqueOpenRate"].empty()) {
       rcptUniqueOpenRate = make_shared<string>(boost::any_cast<string>(m["RcptUniqueOpenRate"]));
     }
     if (m.find("TotalNumber") != m.end() && !m["TotalNumber"].empty()) {
-      totalNumber = make_shared<string>(boost::any_cast<string>(m["TotalNumber"]));
+      totalNumber = make_shared<long>(boost::any_cast<long>(m["TotalNumber"]));
     }
   }
 
