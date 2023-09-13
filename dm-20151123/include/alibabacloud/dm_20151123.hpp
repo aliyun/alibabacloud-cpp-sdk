@@ -2478,6 +2478,7 @@ public:
   shared_ptr<long> monthQuota{};
   shared_ptr<long> quotaLevel{};
   shared_ptr<long> receivers{};
+  shared_ptr<long> remainFreeQuota{};
   shared_ptr<string> requestId{};
   shared_ptr<long> smsRecord{};
   shared_ptr<long> smsSign{};
@@ -2522,6 +2523,9 @@ public:
     }
     if (receivers) {
       res["Receivers"] = boost::any(*receivers);
+    }
+    if (remainFreeQuota) {
+      res["RemainFreeQuota"] = boost::any(*remainFreeQuota);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -2574,6 +2578,9 @@ public:
     }
     if (m.find("Receivers") != m.end() && !m["Receivers"].empty()) {
       receivers = make_shared<long>(boost::any_cast<long>(m["Receivers"]));
+    }
+    if (m.find("RemainFreeQuota") != m.end() && !m["RemainFreeQuota"].empty()) {
+      remainFreeQuota = make_shared<long>(boost::any_cast<long>(m["RemainFreeQuota"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
