@@ -256,6 +256,9 @@ AbstractFilmVideoResponse Alibabacloud_Videoenhan20200320::Client::abstractFilmV
 AddFaceVideoTemplateResponse Alibabacloud_Videoenhan20200320::Client::addFaceVideoTemplateWithOptions(shared_ptr<AddFaceVideoTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->videoScene)) {
+    body->insert(pair<string, string>("VideoScene", *request->videoScene));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoURL)) {
     body->insert(pair<string, string>("VideoURL", *request->videoURL));
   }
@@ -1525,6 +1528,12 @@ InterpolateVideoFrameResponse Alibabacloud_Videoenhan20200320::Client::interpola
 MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceWithOptions(shared_ptr<MergeVideoFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->addWatermark)) {
+    body->insert(pair<string, bool>("AddWatermark", *request->addWatermark));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enhance)) {
+    body->insert(pair<string, bool>("Enhance", *request->enhance));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->referenceURL)) {
     body->insert(pair<string, string>("ReferenceURL", *request->referenceURL));
   }
@@ -1652,8 +1661,17 @@ MergeVideoFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoFaceAd
 MergeVideoModelFaceResponse Alibabacloud_Videoenhan20200320::Client::mergeVideoModelFaceWithOptions(shared_ptr<MergeVideoModelFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->addWatermark)) {
+    body->insert(pair<string, bool>("AddWatermark", *request->addWatermark));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enhance)) {
+    body->insert(pair<string, bool>("Enhance", *request->enhance));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->faceImageURL)) {
     body->insert(pair<string, string>("FaceImageURL", *request->faceImageURL));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<MergeVideoModelFaceRequestMergeInfos>>(request->mergeInfos)) {
+    body->insert(pair<string, vector<MergeVideoModelFaceRequestMergeInfos>>("MergeInfos", *request->mergeInfos));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));

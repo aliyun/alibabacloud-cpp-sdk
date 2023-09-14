@@ -471,6 +471,7 @@ public:
 };
 class AddFaceVideoTemplateRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> videoScene{};
   shared_ptr<string> videoURL{};
 
   AddFaceVideoTemplateRequest() {}
@@ -483,6 +484,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (videoScene) {
+      res["VideoScene"] = boost::any(*videoScene);
+    }
     if (videoURL) {
       res["VideoURL"] = boost::any(*videoURL);
     }
@@ -490,6 +494,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoScene") != m.end() && !m["VideoScene"].empty()) {
+      videoScene = make_shared<string>(boost::any_cast<string>(m["VideoScene"]));
+    }
     if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
       videoURL = make_shared<string>(boost::any_cast<string>(m["VideoURL"]));
     }
@@ -500,6 +507,7 @@ public:
 };
 class AddFaceVideoTemplateAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> videoScene{};
   shared_ptr<Darabonba::Stream> videoURLObject{};
 
   AddFaceVideoTemplateAdvanceRequest() {}
@@ -512,6 +520,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (videoScene) {
+      res["VideoScene"] = boost::any(*videoScene);
+    }
     if (videoURLObject) {
       res["VideoURL"] = boost::any(*videoURLObject);
     }
@@ -519,6 +530,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("VideoScene") != m.end() && !m["VideoScene"].empty()) {
+      videoScene = make_shared<string>(boost::any_cast<string>(m["VideoScene"]));
+    }
     if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
       videoURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoURL"]));
     }
@@ -527,8 +541,45 @@ public:
 
   virtual ~AddFaceVideoTemplateAdvanceRequest() = default;
 };
+class AddFaceVideoTemplateResponseBodyDateFaceInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> templateFaceID{};
+  shared_ptr<string> templateFaceURL{};
+
+  AddFaceVideoTemplateResponseBodyDateFaceInfos() {}
+
+  explicit AddFaceVideoTemplateResponseBodyDateFaceInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (templateFaceID) {
+      res["TemplateFaceID"] = boost::any(*templateFaceID);
+    }
+    if (templateFaceURL) {
+      res["TemplateFaceURL"] = boost::any(*templateFaceURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateFaceID") != m.end() && !m["TemplateFaceID"].empty()) {
+      templateFaceID = make_shared<string>(boost::any_cast<string>(m["TemplateFaceID"]));
+    }
+    if (m.find("TemplateFaceURL") != m.end() && !m["TemplateFaceURL"].empty()) {
+      templateFaceURL = make_shared<string>(boost::any_cast<string>(m["TemplateFaceURL"]));
+    }
+  }
+
+
+  virtual ~AddFaceVideoTemplateResponseBodyDateFaceInfos() = default;
+};
 class AddFaceVideoTemplateResponseBodyDate : public Darabonba::Model {
 public:
+  shared_ptr<vector<AddFaceVideoTemplateResponseBodyDateFaceInfos>> faceInfos{};
   shared_ptr<string> templateId{};
 
   AddFaceVideoTemplateResponseBodyDate() {}
@@ -541,6 +592,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (faceInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*faceInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FaceInfos"] = boost::any(temp1);
+    }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
@@ -548,6 +606,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceInfos") != m.end() && !m["FaceInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["FaceInfos"].type()) {
+        vector<AddFaceVideoTemplateResponseBodyDateFaceInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FaceInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddFaceVideoTemplateResponseBodyDateFaceInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faceInfos = make_shared<vector<AddFaceVideoTemplateResponseBodyDateFaceInfos>>(expect1);
+      }
+    }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
     }
@@ -3737,6 +3808,8 @@ public:
 };
 class MergeVideoFaceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> addWatermark{};
+  shared_ptr<bool> enhance{};
   shared_ptr<string> referenceURL{};
   shared_ptr<string> videoURL{};
 
@@ -3750,6 +3823,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addWatermark) {
+      res["AddWatermark"] = boost::any(*addWatermark);
+    }
+    if (enhance) {
+      res["Enhance"] = boost::any(*enhance);
+    }
     if (referenceURL) {
       res["ReferenceURL"] = boost::any(*referenceURL);
     }
@@ -3760,6 +3839,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddWatermark") != m.end() && !m["AddWatermark"].empty()) {
+      addWatermark = make_shared<bool>(boost::any_cast<bool>(m["AddWatermark"]));
+    }
+    if (m.find("Enhance") != m.end() && !m["Enhance"].empty()) {
+      enhance = make_shared<bool>(boost::any_cast<bool>(m["Enhance"]));
+    }
     if (m.find("ReferenceURL") != m.end() && !m["ReferenceURL"].empty()) {
       referenceURL = make_shared<string>(boost::any_cast<string>(m["ReferenceURL"]));
     }
@@ -3773,6 +3858,8 @@ public:
 };
 class MergeVideoFaceAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> addWatermark{};
+  shared_ptr<bool> enhance{};
   shared_ptr<Darabonba::Stream> referenceURLObject{};
   shared_ptr<Darabonba::Stream> videoURLObject{};
 
@@ -3786,6 +3873,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addWatermark) {
+      res["AddWatermark"] = boost::any(*addWatermark);
+    }
+    if (enhance) {
+      res["Enhance"] = boost::any(*enhance);
+    }
     if (referenceURLObject) {
       res["ReferenceURL"] = boost::any(*referenceURLObject);
     }
@@ -3796,6 +3889,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddWatermark") != m.end() && !m["AddWatermark"].empty()) {
+      addWatermark = make_shared<bool>(boost::any_cast<bool>(m["AddWatermark"]));
+    }
+    if (m.find("Enhance") != m.end() && !m["Enhance"].empty()) {
+      enhance = make_shared<bool>(boost::any_cast<bool>(m["Enhance"]));
+    }
     if (m.find("ReferenceURL") != m.end() && !m["ReferenceURL"].empty()) {
       referenceURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ReferenceURL"]));
     }
@@ -3945,9 +4044,55 @@ public:
 
   virtual ~MergeVideoFaceResponse() = default;
 };
+class MergeVideoModelFaceRequestMergeInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<string> templateFaceID{};
+  shared_ptr<string> templateFaceURL{};
+
+  MergeVideoModelFaceRequestMergeInfos() {}
+
+  explicit MergeVideoModelFaceRequestMergeInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (templateFaceID) {
+      res["TemplateFaceID"] = boost::any(*templateFaceID);
+    }
+    if (templateFaceURL) {
+      res["TemplateFaceURL"] = boost::any(*templateFaceURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("TemplateFaceID") != m.end() && !m["TemplateFaceID"].empty()) {
+      templateFaceID = make_shared<string>(boost::any_cast<string>(m["TemplateFaceID"]));
+    }
+    if (m.find("TemplateFaceURL") != m.end() && !m["TemplateFaceURL"].empty()) {
+      templateFaceURL = make_shared<string>(boost::any_cast<string>(m["TemplateFaceURL"]));
+    }
+  }
+
+
+  virtual ~MergeVideoModelFaceRequestMergeInfos() = default;
+};
 class MergeVideoModelFaceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> addWatermark{};
+  shared_ptr<bool> enhance{};
   shared_ptr<string> faceImageURL{};
+  shared_ptr<vector<MergeVideoModelFaceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> templateId{};
 
   MergeVideoModelFaceRequest() {}
@@ -3960,8 +4105,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addWatermark) {
+      res["AddWatermark"] = boost::any(*addWatermark);
+    }
+    if (enhance) {
+      res["Enhance"] = boost::any(*enhance);
+    }
     if (faceImageURL) {
       res["FaceImageURL"] = boost::any(*faceImageURL);
+    }
+    if (mergeInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*mergeInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MergeInfos"] = boost::any(temp1);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -3970,8 +4128,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddWatermark") != m.end() && !m["AddWatermark"].empty()) {
+      addWatermark = make_shared<bool>(boost::any_cast<bool>(m["AddWatermark"]));
+    }
+    if (m.find("Enhance") != m.end() && !m["Enhance"].empty()) {
+      enhance = make_shared<bool>(boost::any_cast<bool>(m["Enhance"]));
+    }
     if (m.find("FaceImageURL") != m.end() && !m["FaceImageURL"].empty()) {
       faceImageURL = make_shared<string>(boost::any_cast<string>(m["FaceImageURL"]));
+    }
+    if (m.find("MergeInfos") != m.end() && !m["MergeInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["MergeInfos"].type()) {
+        vector<MergeVideoModelFaceRequestMergeInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MergeInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MergeVideoModelFaceRequestMergeInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mergeInfos = make_shared<vector<MergeVideoModelFaceRequestMergeInfos>>(expect1);
+      }
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -3981,9 +4158,55 @@ public:
 
   virtual ~MergeVideoModelFaceRequest() = default;
 };
+class MergeVideoModelFaceAdvanceRequestMergeInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> imageURL{};
+  shared_ptr<string> templateFaceID{};
+  shared_ptr<string> templateFaceURL{};
+
+  MergeVideoModelFaceAdvanceRequestMergeInfos() {}
+
+  explicit MergeVideoModelFaceAdvanceRequestMergeInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (templateFaceID) {
+      res["TemplateFaceID"] = boost::any(*templateFaceID);
+    }
+    if (templateFaceURL) {
+      res["TemplateFaceURL"] = boost::any(*templateFaceURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("TemplateFaceID") != m.end() && !m["TemplateFaceID"].empty()) {
+      templateFaceID = make_shared<string>(boost::any_cast<string>(m["TemplateFaceID"]));
+    }
+    if (m.find("TemplateFaceURL") != m.end() && !m["TemplateFaceURL"].empty()) {
+      templateFaceURL = make_shared<string>(boost::any_cast<string>(m["TemplateFaceURL"]));
+    }
+  }
+
+
+  virtual ~MergeVideoModelFaceAdvanceRequestMergeInfos() = default;
+};
 class MergeVideoModelFaceAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> addWatermark{};
+  shared_ptr<bool> enhance{};
   shared_ptr<Darabonba::Stream> faceImageURLObject{};
+  shared_ptr<vector<MergeVideoModelFaceAdvanceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> templateId{};
 
   MergeVideoModelFaceAdvanceRequest() {}
@@ -3996,8 +4219,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addWatermark) {
+      res["AddWatermark"] = boost::any(*addWatermark);
+    }
+    if (enhance) {
+      res["Enhance"] = boost::any(*enhance);
+    }
     if (faceImageURLObject) {
       res["FaceImageURL"] = boost::any(*faceImageURLObject);
+    }
+    if (mergeInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*mergeInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MergeInfos"] = boost::any(temp1);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -4006,8 +4242,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddWatermark") != m.end() && !m["AddWatermark"].empty()) {
+      addWatermark = make_shared<bool>(boost::any_cast<bool>(m["AddWatermark"]));
+    }
+    if (m.find("Enhance") != m.end() && !m["Enhance"].empty()) {
+      enhance = make_shared<bool>(boost::any_cast<bool>(m["Enhance"]));
+    }
     if (m.find("FaceImageURL") != m.end() && !m["FaceImageURL"].empty()) {
       faceImageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FaceImageURL"]));
+    }
+    if (m.find("MergeInfos") != m.end() && !m["MergeInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["MergeInfos"].type()) {
+        vector<MergeVideoModelFaceAdvanceRequestMergeInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MergeInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MergeVideoModelFaceAdvanceRequestMergeInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        mergeInfos = make_shared<vector<MergeVideoModelFaceAdvanceRequestMergeInfos>>(expect1);
+      }
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
@@ -4184,9 +4439,46 @@ public:
 
   virtual ~QueryFaceVideoTemplateRequest() = default;
 };
+class QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos : public Darabonba::Model {
+public:
+  shared_ptr<string> templateFaceID{};
+  shared_ptr<string> templateFaceURL{};
+
+  QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos() {}
+
+  explicit QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (templateFaceID) {
+      res["TemplateFaceID"] = boost::any(*templateFaceID);
+    }
+    if (templateFaceURL) {
+      res["TemplateFaceURL"] = boost::any(*templateFaceURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("TemplateFaceID") != m.end() && !m["TemplateFaceID"].empty()) {
+      templateFaceID = make_shared<string>(boost::any_cast<string>(m["TemplateFaceID"]));
+    }
+    if (m.find("TemplateFaceURL") != m.end() && !m["TemplateFaceURL"].empty()) {
+      templateFaceURL = make_shared<string>(boost::any_cast<string>(m["TemplateFaceURL"]));
+    }
+  }
+
+
+  virtual ~QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos() = default;
+};
 class QueryFaceVideoTemplateResponseBodyDataElements : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<vector<QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos>> faceInfos{};
   shared_ptr<string> templateId{};
   shared_ptr<string> templateURL{};
   shared_ptr<string> updateTime{};
@@ -4204,6 +4496,13 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (faceInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*faceInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FaceInfos"] = boost::any(temp1);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -4223,6 +4522,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("FaceInfos") != m.end() && !m["FaceInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["FaceInfos"].type()) {
+        vector<QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FaceInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        faceInfos = make_shared<vector<QueryFaceVideoTemplateResponseBodyDataElementsFaceInfos>>(expect1);
+      }
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
