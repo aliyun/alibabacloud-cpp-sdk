@@ -5823,12 +5823,14 @@ public:
   shared_ptr<long> alertGroup{};
   shared_ptr<long> alertId{};
   shared_ptr<string> alertName{};
+  shared_ptr<string> alertPiplines{};
   shared_ptr<string> alertRuleContent{};
   shared_ptr<string> alertStatus{};
   shared_ptr<string> alertType{};
   shared_ptr<string> annotations{};
   shared_ptr<bool> autoAddNewApplication{};
   shared_ptr<string> clusterId{};
+  shared_ptr<string> dataConfig{};
   shared_ptr<long> duration{};
   shared_ptr<string> filters{};
   shared_ptr<string> labels{};
@@ -5837,6 +5839,7 @@ public:
   shared_ptr<string> message{};
   shared_ptr<string> metricsKey{};
   shared_ptr<string> metricsType{};
+  shared_ptr<string> notice{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pids{};
   shared_ptr<string> promQL{};
@@ -5865,6 +5868,9 @@ public:
     if (alertName) {
       res["AlertName"] = boost::any(*alertName);
     }
+    if (alertPiplines) {
+      res["AlertPiplines"] = boost::any(*alertPiplines);
+    }
     if (alertRuleContent) {
       res["AlertRuleContent"] = boost::any(*alertRuleContent);
     }
@@ -5882,6 +5888,9 @@ public:
     }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (dataConfig) {
+      res["DataConfig"] = boost::any(*dataConfig);
     }
     if (duration) {
       res["Duration"] = boost::any(*duration);
@@ -5910,6 +5919,9 @@ public:
     }
     if (metricsType) {
       res["MetricsType"] = boost::any(*metricsType);
+    }
+    if (notice) {
+      res["Notice"] = boost::any(*notice);
     }
     if (notifyStrategy) {
       res["NotifyStrategy"] = boost::any(*notifyStrategy);
@@ -5946,6 +5958,9 @@ public:
     if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
       alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
     }
+    if (m.find("AlertPiplines") != m.end() && !m["AlertPiplines"].empty()) {
+      alertPiplines = make_shared<string>(boost::any_cast<string>(m["AlertPiplines"]));
+    }
     if (m.find("AlertRuleContent") != m.end() && !m["AlertRuleContent"].empty()) {
       alertRuleContent = make_shared<string>(boost::any_cast<string>(m["AlertRuleContent"]));
     }
@@ -5963,6 +5978,9 @@ public:
     }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("DataConfig") != m.end() && !m["DataConfig"].empty()) {
+      dataConfig = make_shared<string>(boost::any_cast<string>(m["DataConfig"]));
     }
     if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
       duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
@@ -5997,6 +6015,9 @@ public:
     }
     if (m.find("MetricsType") != m.end() && !m["MetricsType"].empty()) {
       metricsType = make_shared<string>(boost::any_cast<string>(m["MetricsType"]));
+    }
+    if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
+      notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
     }
     if (m.find("NotifyStrategy") != m.end() && !m["NotifyStrategy"].empty()) {
       notifyStrategy = make_shared<string>(boost::any_cast<string>(m["NotifyStrategy"]));

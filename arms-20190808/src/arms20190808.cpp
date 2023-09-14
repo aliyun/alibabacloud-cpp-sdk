@@ -806,6 +806,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   if (!Darabonba_Util::Client::isUnset<string>(request->alertName)) {
     body->insert(pair<string, string>("AlertName", *request->alertName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->alertPiplines)) {
+    body->insert(pair<string, string>("AlertPiplines", *request->alertPiplines));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->alertRuleContent)) {
     body->insert(pair<string, string>("AlertRuleContent", *request->alertRuleContent));
   }
@@ -823,6 +826,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataConfig)) {
+    body->insert(pair<string, string>("DataConfig", *request->dataConfig));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->duration)) {
     body->insert(pair<string, long>("Duration", *request->duration));
@@ -847,6 +853,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->metricsType)) {
     body->insert(pair<string, string>("MetricsType", *request->metricsType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notice)) {
+    body->insert(pair<string, string>("Notice", *request->notice));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyStrategy)) {
     body->insert(pair<string, string>("NotifyStrategy", *request->notifyStrategy));
