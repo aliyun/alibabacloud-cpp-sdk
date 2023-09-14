@@ -13685,6 +13685,35 @@ public:
 
   virtual ~GetEventResponseBodyReminders() = default;
 };
+class GetEventResponseBodyRichTextDescription : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  GetEventResponseBodyRichTextDescription() {}
+
+  explicit GetEventResponseBodyRichTextDescription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~GetEventResponseBodyRichTextDescription() = default;
+};
 class GetEventResponseBodyStart : public Darabonba::Model {
 public:
   shared_ptr<string> date{};
@@ -13746,6 +13775,7 @@ public:
   shared_ptr<GetEventResponseBodyRecurrence> recurrence{};
   shared_ptr<vector<GetEventResponseBodyReminders>> reminders{};
   shared_ptr<string> requestId{};
+  shared_ptr<GetEventResponseBodyRichTextDescription> richTextDescription{};
   shared_ptr<string> seriesMasterId{};
   shared_ptr<GetEventResponseBodyStart> start{};
   shared_ptr<string> status{};
@@ -13825,6 +13855,9 @@ public:
     }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
+    }
+    if (richTextDescription) {
+      res["richTextDescription"] = richTextDescription ? boost::any(richTextDescription->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (seriesMasterId) {
       res["seriesMasterId"] = boost::any(*seriesMasterId);
@@ -13960,6 +13993,13 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("richTextDescription") != m.end() && !m["richTextDescription"].empty()) {
+      if (typeid(map<string, boost::any>) == m["richTextDescription"].type()) {
+        GetEventResponseBodyRichTextDescription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["richTextDescription"]));
+        richTextDescription = make_shared<GetEventResponseBodyRichTextDescription>(model1);
+      }
     }
     if (m.find("seriesMasterId") != m.end() && !m["seriesMasterId"].empty()) {
       seriesMasterId = make_shared<string>(boost::any_cast<string>(m["seriesMasterId"]));
@@ -23495,6 +23535,35 @@ public:
 
   virtual ~ListEventsResponseBodyEventsReminders() = default;
 };
+class ListEventsResponseBodyEventsRichTextDescription : public Darabonba::Model {
+public:
+  shared_ptr<string> text{};
+
+  ListEventsResponseBodyEventsRichTextDescription() {}
+
+  explicit ListEventsResponseBodyEventsRichTextDescription(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (text) {
+      res["Text"] = boost::any(*text);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Text") != m.end() && !m["Text"].empty()) {
+      text = make_shared<string>(boost::any_cast<string>(m["Text"]));
+    }
+  }
+
+
+  virtual ~ListEventsResponseBodyEventsRichTextDescription() = default;
+};
 class ListEventsResponseBodyEventsStart : public Darabonba::Model {
 public:
   shared_ptr<string> date{};
@@ -23555,6 +23624,7 @@ public:
   shared_ptr<ListEventsResponseBodyEventsOriginStart> originStart{};
   shared_ptr<ListEventsResponseBodyEventsRecurrence> recurrence{};
   shared_ptr<vector<ListEventsResponseBodyEventsReminders>> reminders{};
+  shared_ptr<ListEventsResponseBodyEventsRichTextDescription> richTextDescription{};
   shared_ptr<string> seriesMasterId{};
   shared_ptr<ListEventsResponseBodyEventsStart> start{};
   shared_ptr<string> status{};
@@ -23631,6 +23701,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Reminders"] = boost::any(temp1);
+    }
+    if (richTextDescription) {
+      res["RichTextDescription"] = richTextDescription ? boost::any(richTextDescription->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (seriesMasterId) {
       res["SeriesMasterId"] = boost::any(*seriesMasterId);
@@ -23762,6 +23835,13 @@ public:
           }
         }
         reminders = make_shared<vector<ListEventsResponseBodyEventsReminders>>(expect1);
+      }
+    }
+    if (m.find("RichTextDescription") != m.end() && !m["RichTextDescription"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RichTextDescription"].type()) {
+        ListEventsResponseBodyEventsRichTextDescription model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RichTextDescription"]));
+        richTextDescription = make_shared<ListEventsResponseBodyEventsRichTextDescription>(model1);
       }
     }
     if (m.find("SeriesMasterId") != m.end() && !m["SeriesMasterId"].empty()) {
