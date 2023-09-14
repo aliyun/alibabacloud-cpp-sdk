@@ -15,9 +15,66 @@
 using namespace std;
 
 namespace Alibabacloud_PaiFeatureStore20230621 {
+class FeatureViewConfigValuePartitionsValue : public Darabonba::Model {
+public:
+  shared_ptr<string> value{};
+  shared_ptr<vector<string>> values{};
+  shared_ptr<string> startValue{};
+  shared_ptr<string> endValue{};
+
+  FeatureViewConfigValuePartitionsValue() {}
+
+  explicit FeatureViewConfigValuePartitionsValue(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    if (startValue) {
+      res["StartValue"] = boost::any(*startValue);
+    }
+    if (endValue) {
+      res["EndValue"] = boost::any(*endValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("StartValue") != m.end() && !m["StartValue"].empty()) {
+      startValue = make_shared<string>(boost::any_cast<string>(m["StartValue"]));
+    }
+    if (m.find("EndValue") != m.end() && !m["EndValue"].empty()) {
+      endValue = make_shared<string>(boost::any_cast<string>(m["EndValue"]));
+    }
+  }
+
+
+  virtual ~FeatureViewConfigValuePartitionsValue() = default;
+};
 class FeatureViewConfigValue : public Darabonba::Model {
 public:
-  shared_ptr<map<string, map<string, boost::any>>> partitions{};
+  shared_ptr<map<string, FeatureViewConfigValuePartitionsValue>> partitions{};
   shared_ptr<string> eventTime{};
   shared_ptr<bool> equal{};
 
@@ -32,7 +89,11 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (partitions) {
-      res["Partitions"] = boost::any(*partitions);
+      map<string, boost::any> temp1;
+      for(auto item1:*partitions){
+        temp1[item1.first] = boost::any(item1.second.toMap());
+      }
+      res["Partitions"] = boost::any(temp1);
     }
     if (eventTime) {
       res["EventTime"] = boost::any(*eventTime);
@@ -45,17 +106,17 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Partitions") != m.end() && !m["Partitions"].empty()) {
-      map<string, map<string, boost::any>> map1 = boost::any_cast<map<string, map<string, boost::any>>>(m["Partitions"]);
-      map<string, map<string, boost::any>> toMap1;
-      for (auto item:map1) {
-        map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item.second);
-        map<string, boost::any> toMap2;
-        for (auto item:map2) {
-           toMap2[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["Partitions"].type()) {
+        map<string, FeatureViewConfigValuePartitionsValue> expect1;
+        for(auto item1:boost::any_cast<map<string, boost::any>>(m["Partitions"])){
+          if (typeid(map<string, boost::any>) == item1.second.type()) {
+            FeatureViewConfigValuePartitionsValue model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1.second));
+            expect1[item1.first] = model2;
+          }
         }
-         toMap1[item.first] = toMap2;
+        partitions = make_shared<map<string, FeatureViewConfigValuePartitionsValue>>(expect1);
       }
-      partitions = make_shared<map<string, map<string, boost::any>>>(toMap1);
     }
     if (m.find("EventTime") != m.end() && !m["EventTime"].empty()) {
       eventTime = make_shared<string>(boost::any_cast<string>(m["EventTime"]));
@@ -2453,6 +2514,7 @@ public:
 class ExportModelFeatureTrainingSetTableResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
+  shared_ptr<string> taskId{};
 
   ExportModelFeatureTrainingSetTableResponseBody() {}
 
@@ -2467,12 +2529,18 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
   }
 
