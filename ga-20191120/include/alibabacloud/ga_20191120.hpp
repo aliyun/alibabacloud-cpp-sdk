@@ -5762,6 +5762,7 @@ public:
   shared_ptr<bool> enableClientIPPreservation{};
   shared_ptr<bool> enableProxyProtocol{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -5784,6 +5785,9 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -5802,6 +5806,9 @@ public:
     }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -6184,6 +6191,7 @@ public:
 class CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
 public:
   shared_ptr<string> endpoint{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -6200,6 +6208,9 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -6212,6 +6223,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -15628,6 +15642,7 @@ public:
   shared_ptr<string> endpoint{};
   shared_ptr<long> probePort{};
   shared_ptr<string> probeProtocol{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -15656,6 +15671,9 @@ public:
     if (probeProtocol) {
       res["ProbeProtocol"] = boost::any(*probeProtocol);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -15680,6 +15698,9 @@ public:
     }
     if (m.find("ProbeProtocol") != m.end() && !m["ProbeProtocol"].empty()) {
       probeProtocol = make_shared<string>(boost::any_cast<string>(m["ProbeProtocol"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -17037,6 +17058,196 @@ public:
 
 
   virtual ~DescribeListenerResponse() = default;
+};
+class DescribeLogStoreOfEndpointGroupRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> regionId{};
+
+  DescribeLogStoreOfEndpointGroupRequest() {}
+
+  explicit DescribeLogStoreOfEndpointGroupRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeLogStoreOfEndpointGroupRequest() = default;
+};
+class DescribeLogStoreOfEndpointGroupResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> acceleratorId{};
+  shared_ptr<string> endpointGroupId{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> slsLogStoreName{};
+  shared_ptr<string> slsProjectName{};
+  shared_ptr<string> slsRegionId{};
+  shared_ptr<string> status{};
+
+  DescribeLogStoreOfEndpointGroupResponseBody() {}
+
+  explicit DescribeLogStoreOfEndpointGroupResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceleratorId) {
+      res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (endpointGroupId) {
+      res["EndpointGroupId"] = boost::any(*endpointGroupId);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (slsLogStoreName) {
+      res["SlsLogStoreName"] = boost::any(*slsLogStoreName);
+    }
+    if (slsProjectName) {
+      res["SlsProjectName"] = boost::any(*slsProjectName);
+    }
+    if (slsRegionId) {
+      res["SlsRegionId"] = boost::any(*slsRegionId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
+      acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
+      endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("SlsLogStoreName") != m.end() && !m["SlsLogStoreName"].empty()) {
+      slsLogStoreName = make_shared<string>(boost::any_cast<string>(m["SlsLogStoreName"]));
+    }
+    if (m.find("SlsProjectName") != m.end() && !m["SlsProjectName"].empty()) {
+      slsProjectName = make_shared<string>(boost::any_cast<string>(m["SlsProjectName"]));
+    }
+    if (m.find("SlsRegionId") != m.end() && !m["SlsRegionId"].empty()) {
+      slsRegionId = make_shared<string>(boost::any_cast<string>(m["SlsRegionId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeLogStoreOfEndpointGroupResponseBody() = default;
+};
+class DescribeLogStoreOfEndpointGroupResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeLogStoreOfEndpointGroupResponseBody> body{};
+
+  DescribeLogStoreOfEndpointGroupResponse() {}
+
+  explicit DescribeLogStoreOfEndpointGroupResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeLogStoreOfEndpointGroupResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeLogStoreOfEndpointGroupResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeLogStoreOfEndpointGroupResponse() = default;
 };
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
@@ -28664,6 +28875,7 @@ public:
   shared_ptr<string> endpointId{};
   shared_ptr<long> probePort{};
   shared_ptr<string> probeProtocol{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -28692,6 +28904,9 @@ public:
     if (probeProtocol) {
       res["ProbeProtocol"] = boost::any(*probeProtocol);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -28716,6 +28931,9 @@ public:
     }
     if (m.find("ProbeProtocol") != m.end() && !m["ProbeProtocol"].empty()) {
       probeProtocol = make_shared<string>(boost::any_cast<string>(m["ProbeProtocol"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -36451,6 +36669,7 @@ public:
   shared_ptr<bool> enableClientIPPreservation{};
   shared_ptr<bool> enableProxyProtocol{};
   shared_ptr<string> endpoint{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -36473,6 +36692,9 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -36491,6 +36713,9 @@ public:
     }
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -36943,6 +37168,7 @@ public:
 class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
 public:
   shared_ptr<string> endpoint{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -36959,6 +37185,9 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -36971,6 +37200,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -38932,6 +39164,8 @@ public:
   DescribeIpSetResponse describeIpSet(shared_ptr<DescribeIpSetRequest> request);
   DescribeListenerResponse describeListenerWithOptions(shared_ptr<DescribeListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeListenerResponse describeListener(shared_ptr<DescribeListenerRequest> request);
+  DescribeLogStoreOfEndpointGroupResponse describeLogStoreOfEndpointGroupWithOptions(shared_ptr<DescribeLogStoreOfEndpointGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeLogStoreOfEndpointGroupResponse describeLogStoreOfEndpointGroup(shared_ptr<DescribeLogStoreOfEndpointGroupRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   DetachDdosFromAcceleratorResponse detachDdosFromAcceleratorWithOptions(shared_ptr<DetachDdosFromAcceleratorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
