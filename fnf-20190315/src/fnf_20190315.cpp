@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Fnf20190315;
 
 Alibabacloud_Fnf20190315::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-beijing", "cn-beijing.fnf.aliyuncs.com"},
