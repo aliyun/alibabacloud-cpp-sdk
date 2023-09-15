@@ -119,11 +119,29 @@ AddressGetResponse Alibabacloud_BtripOpen20220520::Client::addressGetWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->actionType)) {
     query->insert(pair<string, long>("action_type", *request->actionType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->arrCityCode)) {
+    query->insert(pair<string, string>("arr_city_code", *request->arrCityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->arrCityName)) {
+    query->insert(pair<string, string>("arr_city_name", *request->arrCityName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->carScenesCode)) {
     query->insert(pair<string, string>("car_scenes_code", *request->carScenesCode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->depCityCode)) {
+    query->insert(pair<string, string>("dep_city_code", *request->depCityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->depCityName)) {
+    query->insert(pair<string, string>("dep_city_name", *request->depCityName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->depDate)) {
+    query->insert(pair<string, string>("dep_date", *request->depDate));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->itineraryId)) {
     query->insert(pair<string, string>("itinerary_id", *request->itineraryId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
+    query->insert(pair<string, string>("order_Id", *request->orderId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->phone)) {
     query->insert(pair<string, string>("phone", *request->phone));
