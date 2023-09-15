@@ -632,6 +632,9 @@ DeleteEaisEiResponse Alibabacloud_Eais20190624::Client::deleteEaisEi(shared_ptr<
 DescribeEaisResponse Alibabacloud_Eais20190624::Client::describeEaisWithOptions(shared_ptr<DescribeEaisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientInstanceId)) {
+    query->insert(pair<string, string>("ClientInstanceId", *request->clientInstanceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->elasticAcceleratedInstanceIds)) {
     query->insert(pair<string, string>("ElasticAcceleratedInstanceIds", *request->elasticAcceleratedInstanceIds));
   }

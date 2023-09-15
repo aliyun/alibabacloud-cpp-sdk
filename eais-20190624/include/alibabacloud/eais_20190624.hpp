@@ -2512,6 +2512,7 @@ public:
 };
 class DescribeEaisRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientInstanceId{};
   shared_ptr<string> elasticAcceleratedInstanceIds{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
@@ -2532,6 +2533,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientInstanceId) {
+      res["ClientInstanceId"] = boost::any(*clientInstanceId);
+    }
     if (elasticAcceleratedInstanceIds) {
       res["ElasticAcceleratedInstanceIds"] = boost::any(*elasticAcceleratedInstanceIds);
     }
@@ -2567,6 +2571,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientInstanceId") != m.end() && !m["ClientInstanceId"].empty()) {
+      clientInstanceId = make_shared<string>(boost::any_cast<string>(m["ClientInstanceId"]));
+    }
     if (m.find("ElasticAcceleratedInstanceIds") != m.end() && !m["ElasticAcceleratedInstanceIds"].empty()) {
       elasticAcceleratedInstanceIds = make_shared<string>(boost::any_cast<string>(m["ElasticAcceleratedInstanceIds"]));
     }
