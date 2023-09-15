@@ -28050,6 +28050,161 @@ public:
 
   virtual ~DeleteVSwitchResponse() = default;
 };
+class DeleteVSwitchCidrReservationRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> vSwitchCidrReservationId{};
+
+  DeleteVSwitchCidrReservationRequest() {}
+
+  explicit DeleteVSwitchCidrReservationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (vSwitchCidrReservationId) {
+      res["VSwitchCidrReservationId"] = boost::any(*vSwitchCidrReservationId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("VSwitchCidrReservationId") != m.end() && !m["VSwitchCidrReservationId"].empty()) {
+      vSwitchCidrReservationId = make_shared<string>(boost::any_cast<string>(m["VSwitchCidrReservationId"]));
+    }
+  }
+
+
+  virtual ~DeleteVSwitchCidrReservationRequest() = default;
+};
+class DeleteVSwitchCidrReservationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteVSwitchCidrReservationResponseBody() {}
+
+  explicit DeleteVSwitchCidrReservationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteVSwitchCidrReservationResponseBody() = default;
+};
+class DeleteVSwitchCidrReservationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteVSwitchCidrReservationResponseBody> body{};
+
+  DeleteVSwitchCidrReservationResponse() {}
+
+  explicit DeleteVSwitchCidrReservationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteVSwitchCidrReservationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteVSwitchCidrReservationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteVSwitchCidrReservationResponse() = default;
+};
 class DeleteVbrHaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -81791,6 +81946,8 @@ public:
 class ModifyRouteEntryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> newNextHopId{};
+  shared_ptr<string> newNextHopType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -81811,6 +81968,12 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (newNextHopId) {
+      res["NewNextHopId"] = boost::any(*newNextHopId);
+    }
+    if (newNextHopType) {
+      res["NewNextHopType"] = boost::any(*newNextHopType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -81839,6 +82002,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("NewNextHopId") != m.end() && !m["NewNextHopId"].empty()) {
+      newNextHopId = make_shared<string>(boost::any_cast<string>(m["NewNextHopId"]));
+    }
+    if (m.find("NewNextHopType") != m.end() && !m["NewNextHopType"].empty()) {
+      newNextHopType = make_shared<string>(boost::any_cast<string>(m["NewNextHopType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -97343,6 +97512,8 @@ public:
   DeleteTrafficMirrorSessionResponse deleteTrafficMirrorSession(shared_ptr<DeleteTrafficMirrorSessionRequest> request);
   DeleteVSwitchResponse deleteVSwitchWithOptions(shared_ptr<DeleteVSwitchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVSwitchResponse deleteVSwitch(shared_ptr<DeleteVSwitchRequest> request);
+  DeleteVSwitchCidrReservationResponse deleteVSwitchCidrReservationWithOptions(shared_ptr<DeleteVSwitchCidrReservationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteVSwitchCidrReservationResponse deleteVSwitchCidrReservation(shared_ptr<DeleteVSwitchCidrReservationRequest> request);
   DeleteVbrHaResponse deleteVbrHaWithOptions(shared_ptr<DeleteVbrHaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVbrHaResponse deleteVbrHa(shared_ptr<DeleteVbrHaRequest> request);
   DeleteVcoRouteEntryResponse deleteVcoRouteEntryWithOptions(shared_ptr<DeleteVcoRouteEntryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

@@ -7421,6 +7421,49 @@ DeleteVSwitchResponse Alibabacloud_Vpc20160428::Client::deleteVSwitch(shared_ptr
   return deleteVSwitchWithOptions(request, runtime);
 }
 
+DeleteVSwitchCidrReservationResponse Alibabacloud_Vpc20160428::Client::deleteVSwitchCidrReservationWithOptions(shared_ptr<DeleteVSwitchCidrReservationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchCidrReservationId)) {
+    query->insert(pair<string, string>("VSwitchCidrReservationId", *request->vSwitchCidrReservationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteVSwitchCidrReservation"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteVSwitchCidrReservationResponse(callApi(params, req, runtime));
+}
+
+DeleteVSwitchCidrReservationResponse Alibabacloud_Vpc20160428::Client::deleteVSwitchCidrReservation(shared_ptr<DeleteVSwitchCidrReservationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteVSwitchCidrReservationWithOptions(request, runtime);
+}
+
 DeleteVbrHaResponse Alibabacloud_Vpc20160428::Client::deleteVbrHaWithOptions(shared_ptr<DeleteVbrHaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -15869,6 +15912,12 @@ ModifyRouteEntryResponse Alibabacloud_Vpc20160428::Client::modifyRouteEntryWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newNextHopId)) {
+    query->insert(pair<string, string>("NewNextHopId", *request->newNextHopId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newNextHopType)) {
+    query->insert(pair<string, string>("NewNextHopType", *request->newNextHopType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
