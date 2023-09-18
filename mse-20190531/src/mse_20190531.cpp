@@ -2767,11 +2767,11 @@ GetApplicationInstanceListResponse Alibabacloud_Mse20190531::Client::getApplicat
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageNumber)) {
-    query->insert(pair<string, string>("PageNumber", *request->pageNumber));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
-    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -2857,55 +2857,6 @@ GetApplicationListResponse Alibabacloud_Mse20190531::Client::getApplicationListW
 GetApplicationListResponse Alibabacloud_Mse20190531::Client::getApplicationList(shared_ptr<GetApplicationListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getApplicationListWithOptions(request, runtime);
-}
-
-GetApplicationListWithMetircsResponse Alibabacloud_Mse20190531::Client::getApplicationListWithMetircsWithOptions(shared_ptr<GetApplicationListWithMetircsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
-    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
-    query->insert(pair<string, string>("AppId", *request->appId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
-    query->insert(pair<string, string>("AppName", *request->appName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
-    query->insert(pair<string, string>("Namespace_", *request->namespace_));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    query->insert(pair<string, long>("PageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
-    query->insert(pair<string, string>("Region", *request->region));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
-    query->insert(pair<string, string>("Source", *request->source));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetApplicationListWithMetircs"))},
-    {"version", boost::any(string("2019-05-31"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetApplicationListWithMetircsResponse(callApi(params, req, runtime));
-}
-
-GetApplicationListWithMetircsResponse Alibabacloud_Mse20190531::Client::getApplicationListWithMetircs(shared_ptr<GetApplicationListWithMetircsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getApplicationListWithMetircsWithOptions(request, runtime);
 }
 
 GetBlackWhiteListResponse Alibabacloud_Mse20190531::Client::getBlackWhiteListWithOptions(shared_ptr<GetBlackWhiteListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
