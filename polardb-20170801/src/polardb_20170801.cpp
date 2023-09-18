@@ -3559,6 +3559,9 @@ DescribeMetaListResponse Alibabacloud_Polardb20170801::Client::describeMetaListW
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionCode)) {
+    query->insert(pair<string, string>("RegionCode", *request->regionCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
