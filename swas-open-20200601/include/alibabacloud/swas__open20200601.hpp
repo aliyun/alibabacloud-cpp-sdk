@@ -4560,6 +4560,7 @@ public:
 };
 class DescribeDatabaseSlowLogRecordsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsProduct{};
   shared_ptr<string> databaseInstanceId{};
   shared_ptr<string> endTime{};
   shared_ptr<long> pageNumber{};
@@ -4577,6 +4578,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsProduct) {
+      res["AcsProduct"] = boost::any(*acsProduct);
+    }
     if (databaseInstanceId) {
       res["DatabaseInstanceId"] = boost::any(*databaseInstanceId);
     }
@@ -4599,6 +4603,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsProduct") != m.end() && !m["AcsProduct"].empty()) {
+      acsProduct = make_shared<string>(boost::any_cast<string>(m["AcsProduct"]));
+    }
     if (m.find("DatabaseInstanceId") != m.end() && !m["DatabaseInstanceId"].empty()) {
       databaseInstanceId = make_shared<string>(boost::any_cast<string>(m["DatabaseInstanceId"]));
     }
@@ -9026,6 +9033,7 @@ public:
 };
 class ListInstancesTrafficPackagesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsProduct{};
   shared_ptr<string> instanceIds{};
   shared_ptr<string> regionId{};
 
@@ -9039,6 +9047,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsProduct) {
+      res["AcsProduct"] = boost::any(*acsProduct);
+    }
     if (instanceIds) {
       res["InstanceIds"] = boost::any(*instanceIds);
     }
@@ -9049,6 +9060,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsProduct") != m.end() && !m["AcsProduct"].empty()) {
+      acsProduct = make_shared<string>(boost::any_cast<string>(m["AcsProduct"]));
+    }
     if (m.find("InstanceIds") != m.end() && !m["InstanceIds"].empty()) {
       instanceIds = make_shared<string>(boost::any_cast<string>(m["InstanceIds"]));
     }
@@ -9619,6 +9633,7 @@ public:
 };
 class ListSnapshotsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsProduct{};
   shared_ptr<string> diskId{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> pageNumber{};
@@ -9637,6 +9652,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsProduct) {
+      res["AcsProduct"] = boost::any(*acsProduct);
+    }
     if (diskId) {
       res["DiskId"] = boost::any(*diskId);
     }
@@ -9662,6 +9680,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsProduct") != m.end() && !m["AcsProduct"].empty()) {
+      acsProduct = make_shared<string>(boost::any_cast<string>(m["AcsProduct"]));
+    }
     if (m.find("DiskId") != m.end() && !m["DiskId"].empty()) {
       diskId = make_shared<string>(boost::any_cast<string>(m["DiskId"]));
     }

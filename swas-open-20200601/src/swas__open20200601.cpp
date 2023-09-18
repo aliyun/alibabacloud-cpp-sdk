@@ -913,6 +913,9 @@ DescribeDatabaseInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::descri
 DescribeDatabaseSlowLogRecordsResponse Alibabacloud_SWAS-OPEN20200601::Client::describeDatabaseSlowLogRecordsWithOptions(shared_ptr<DescribeDatabaseSlowLogRecordsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsProduct)) {
+    query->insert(pair<string, string>("AcsProduct", *request->acsProduct));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->databaseInstanceId)) {
     query->insert(pair<string, string>("DatabaseInstanceId", *request->databaseInstanceId));
   }
@@ -1696,6 +1699,9 @@ ListInstancesResponse Alibabacloud_SWAS-OPEN20200601::Client::listInstances(shar
 ListInstancesTrafficPackagesResponse Alibabacloud_SWAS-OPEN20200601::Client::listInstancesTrafficPackagesWithOptions(shared_ptr<ListInstancesTrafficPackagesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsProduct)) {
+    query->insert(pair<string, string>("AcsProduct", *request->acsProduct));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceIds)) {
     query->insert(pair<string, string>("InstanceIds", *request->instanceIds));
   }
@@ -1776,6 +1782,9 @@ ListRegionsResponse Alibabacloud_SWAS-OPEN20200601::Client::listRegions() {
 ListSnapshotsResponse Alibabacloud_SWAS-OPEN20200601::Client::listSnapshotsWithOptions(shared_ptr<ListSnapshotsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsProduct)) {
+    query->insert(pair<string, string>("AcsProduct", *request->acsProduct));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->diskId)) {
     query->insert(pair<string, string>("DiskId", *request->diskId));
   }
