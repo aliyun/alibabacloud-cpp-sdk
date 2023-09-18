@@ -103,7 +103,7 @@ CancelRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::cancelRefundO
     {"action", boost::any(string("CancelRefundOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(disputeId)) + string("/commands/cancel"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(disputeId)) + string("/commands/cancel"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -129,7 +129,7 @@ ConfirmDisburseResponse Alibabacloud_Linkedmall20230930::Client::confirmDisburse
     {"action", boost::any(string("ConfirmDisburse"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/confirmDisburse"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/confirmDisburse"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -155,7 +155,7 @@ CreateGoodsShippingNoticeResponse Alibabacloud_Linkedmall20230930::Client::creat
     {"action", boost::any(string("CreateGoodsShippingNotice"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/command/createGoodsShippingNotice"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/command/createGoodsShippingNotice"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -181,7 +181,7 @@ CreatePurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::createPurch
     {"action", boost::any(string("CreatePurchaseOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -207,7 +207,7 @@ CreateRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::createRefundO
     {"action", boost::any(string("CreateRefundOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -231,7 +231,7 @@ GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrderWithOptions(sh
     {"action", boost::any(string("GetOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -247,78 +247,6 @@ GetOrderResponse Alibabacloud_Linkedmall20230930::Client::getOrder(shared_ptr<st
   return getOrderWithOptions(orderId, headers, runtime);
 }
 
-GetProductResponse Alibabacloud_Linkedmall20230930::Client::getProductWithOptions(shared_ptr<string> productId,
-                                                                                  shared_ptr<GetProductRequest> request,
-                                                                                  shared_ptr<map<string, string>> headers,
-                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->distributorShopId)) {
-    query->insert(pair<string, string>("distributorShopId", *request->distributorShopId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->divisionCode)) {
-    query->insert(pair<string, string>("divisionCode", *request->divisionCode));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetProduct"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(productId)))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetProductResponse(callApi(params, req, runtime));
-}
-
-GetProductResponse Alibabacloud_Linkedmall20230930::Client::getProduct(shared_ptr<string> productId, shared_ptr<GetProductRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProductWithOptions(productId, request, headers, runtime);
-}
-
-GetProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getProductSaleInfoWithOptions(shared_ptr<string> productId,
-                                                                                                  shared_ptr<GetProductSaleInfoRequest> request,
-                                                                                                  shared_ptr<map<string, string>> headers,
-                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->distributorShopId)) {
-    query->insert(pair<string, string>("distributorShopId", *request->distributorShopId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->divisionCode)) {
-    query->insert(pair<string, string>("divisionCode", *request->divisionCode));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetProductSaleInfo"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(productId)) + string("/saleInfo"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return GetProductSaleInfoResponse(callApi(params, req, runtime));
-}
-
-GetProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getProductSaleInfo(shared_ptr<string> productId, shared_ptr<GetProductSaleInfoRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getProductSaleInfoWithOptions(productId, request, headers, runtime);
-}
-
 GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurchaseOrderStatusWithOptions(shared_ptr<string> purchaseOrderId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -327,7 +255,7 @@ GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurch
     {"action", boost::any(string("GetPurchaseOrderStatus"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(purchaseOrderId)) + string("/status"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(purchaseOrderId)) + string("/status"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -343,6 +271,30 @@ GetPurchaseOrderStatusResponse Alibabacloud_Linkedmall20230930::Client::getPurch
   return getPurchaseOrderStatusWithOptions(purchaseOrderId, headers, runtime);
 }
 
+GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserShopWithOptions(shared_ptr<string> purchaserId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPurchaserShop"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(purchaserId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPurchaserShopResponse(callApi(params, req, runtime));
+}
+
+GetPurchaserShopResponse Alibabacloud_Linkedmall20230930::Client::getPurchaserShop(shared_ptr<string> purchaserId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getPurchaserShopWithOptions(purchaserId, headers, runtime);
+}
+
 GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrderWithOptions(shared_ptr<string> disputeId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -351,7 +303,7 @@ GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrderWi
     {"action", boost::any(string("GetRefundOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(disputeId)))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(disputeId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -367,28 +319,76 @@ GetRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::getRefundOrder(s
   return getRefundOrderWithOptions(disputeId, headers, runtime);
 }
 
-GetShopResponse Alibabacloud_Linkedmall20230930::Client::getShopWithOptions(shared_ptr<string> shopId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProductWithOptions(shared_ptr<string> productId,
+                                                                                                    shared_ptr<GetSelectionProductRequest> request,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->divisionCode)) {
+    query->insert(pair<string, string>("divisionCode", *request->divisionCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    query->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("GetShop"))},
+    {"action", boost::any(string("GetSelectionProduct"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shopId)))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(productId)))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return GetShopResponse(callApi(params, req, runtime));
+  return GetSelectionProductResponse(callApi(params, req, runtime));
 }
 
-GetShopResponse Alibabacloud_Linkedmall20230930::Client::getShop(shared_ptr<string> shopId) {
+GetSelectionProductResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProduct(shared_ptr<string> productId, shared_ptr<GetSelectionProductRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getShopWithOptions(shopId, headers, runtime);
+  return getSelectionProductWithOptions(productId, request, headers, runtime);
+}
+
+GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProductSaleInfoWithOptions(shared_ptr<string> productId,
+                                                                                                                    shared_ptr<GetSelectionProductSaleInfoRequest> request,
+                                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->divisionCode)) {
+    query->insert(pair<string, string>("divisionCode", *request->divisionCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    query->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetSelectionProductSaleInfo"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(productId)) + string("/saleInfo"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetSelectionProductSaleInfoResponse(callApi(params, req, runtime));
+}
+
+GetSelectionProductSaleInfoResponse Alibabacloud_Linkedmall20230930::Client::getSelectionProductSaleInfo(shared_ptr<string> productId, shared_ptr<GetSelectionProductSaleInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getSelectionProductSaleInfoWithOptions(productId, request, headers, runtime);
 }
 
 ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisticsOrdersWithOptions(shared_ptr<string> orderId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -399,7 +399,7 @@ ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisti
     {"action", boost::any(string("ListLogisticsOrders"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)) + string("/logisticsOrders"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(orderId)) + string("/logisticsOrders"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -415,64 +415,9 @@ ListLogisticsOrdersResponse Alibabacloud_Linkedmall20230930::Client::listLogisti
   return listLogisticsOrdersWithOptions(orderId, headers, runtime);
 }
 
-ListProductGeneralBillsResponse Alibabacloud_Linkedmall20230930::Client::listProductGeneralBillsWithOptions(shared_ptr<ListProductGeneralBillsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListProductGeneralBills"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/productGeneralBills"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListProductGeneralBillsResponse(callApi(params, req, runtime));
-}
-
-ListProductGeneralBillsResponse Alibabacloud_Linkedmall20230930::Client::listProductGeneralBills(shared_ptr<ListProductGeneralBillsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProductGeneralBillsWithOptions(request, headers, runtime);
-}
-
-ListProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listProductSaleInfosWithOptions(shared_ptr<ListProductSaleInfosRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListProductSaleInfos"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/saleInfo/commands/list"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListProductSaleInfosResponse(callApi(params, req, runtime));
-}
-
-ListProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listProductSaleInfos(shared_ptr<ListProductSaleInfosRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProductSaleInfosWithOptions(request, headers, runtime);
-}
-
-ListProductsResponse Alibabacloud_Linkedmall20230930::Client::listProductsWithOptions(shared_ptr<ListProductsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchaserShopsWithOptions(shared_ptr<ListPurchaserShopsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->distributorShopId)) {
-    query->insert(pair<string, string>("distributorShopId", *request->distributorShopId));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("pageNumber", *request->pageNumber));
   }
@@ -484,97 +429,111 @@ ListProductsResponse Alibabacloud_Linkedmall20230930::Client::listProductsWithOp
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListProducts"))},
+    {"action", boost::any(string("ListPurchaserShops"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/products"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListProductsResponse(callApi(params, req, runtime));
+  return ListPurchaserShopsResponse(callApi(params, req, runtime));
 }
 
-ListProductsResponse Alibabacloud_Linkedmall20230930::Client::listProducts(shared_ptr<ListProductsRequest> request) {
+ListPurchaserShopsResponse Alibabacloud_Linkedmall20230930::Client::listPurchaserShops(shared_ptr<ListPurchaserShopsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listProductsWithOptions(request, headers, runtime);
+  return listPurchaserShopsWithOptions(request, headers, runtime);
 }
 
-ListShopsResponse Alibabacloud_Linkedmall20230930::Client::listShopsWithOptions(shared_ptr<ListShopsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->channelSupplierId)) {
-    query->insert(pair<string, string>("channelSupplierId", *request->channelSupplierId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->endDate)) {
-    query->insert(pair<string, string>("endDate", *request->endDate));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
-    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
-    query->insert(pair<string, long>("pageSize", *request->pageSize));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->shopId)) {
-    query->insert(pair<string, string>("shopId", *request->shopId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->shopName)) {
-    query->insert(pair<string, string>("shopName", *request->shopName));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->startDate)) {
-    query->insert(pair<string, string>("startDate", *request->startDate));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)},
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListShops"))},
-    {"version", boost::any(string("2023-09-30"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops"))},
-    {"method", boost::any(string("GET"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ListShopsResponse(callApi(params, req, runtime));
-}
-
-ListShopsResponse Alibabacloud_Linkedmall20230930::Client::listShops(shared_ptr<ListShopsRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listShopsWithOptions(request, headers, runtime);
-}
-
-ListSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSkuSaleInfosWithOptions(shared_ptr<ListSkuSaleInfosRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProductSaleInfosWithOptions(shared_ptr<ListSelectionProductSaleInfosRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ListSkuSaleInfos"))},
+    {"action", boost::any(string("ListSelectionProductSaleInfos"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/skus/saleInfo/commands/list"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/saleInfo/commands/list"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
     {"bodyType", boost::any(string("json"))}
   }));
-  return ListSkuSaleInfosResponse(callApi(params, req, runtime));
+  return ListSelectionProductSaleInfosResponse(callApi(params, req, runtime));
 }
 
-ListSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSkuSaleInfos(shared_ptr<ListSkuSaleInfosRequest> request) {
+ListSelectionProductSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProductSaleInfos(shared_ptr<ListSelectionProductSaleInfosRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listSkuSaleInfosWithOptions(request, headers, runtime);
+  return listSelectionProductSaleInfosWithOptions(request, headers, runtime);
+}
+
+ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProductsWithOptions(shared_ptr<ListSelectionProductsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("pageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->purchaserId)) {
+    query->insert(pair<string, string>("purchaserId", *request->purchaserId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSelectionProducts"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSelectionProductsResponse(callApi(params, req, runtime));
+}
+
+ListSelectionProductsResponse Alibabacloud_Linkedmall20230930::Client::listSelectionProducts(shared_ptr<ListSelectionProductsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSelectionProductsWithOptions(request, headers, runtime);
+}
+
+ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionSkuSaleInfosWithOptions(shared_ptr<ListSelectionSkuSaleInfosRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListSelectionSkuSaleInfos"))},
+    {"version", boost::any(string("2023-09-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/skus/saleInfo/commands/list"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListSelectionSkuSaleInfosResponse(callApi(params, req, runtime));
+}
+
+ListSelectionSkuSaleInfosResponse Alibabacloud_Linkedmall20230930::Client::listSelectionSkuSaleInfos(shared_ptr<ListSelectionSkuSaleInfosRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listSelectionSkuSaleInfosWithOptions(request, headers, runtime);
 }
 
 QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChildDivisionCodeWithOptions(shared_ptr<QueryChildDivisionCodeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -587,7 +546,7 @@ QueryChildDivisionCodeResponse Alibabacloud_Linkedmall20230930::Client::queryChi
     {"action", boost::any(string("QueryChildDivisionCode"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/division/commands/queryChildDivisionCode"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/division/commands/queryChildDivisionCode"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -613,7 +572,7 @@ QueryOrdersResponse Alibabacloud_Linkedmall20230930::Client::queryOrdersWithOpti
     {"action", boost::any(string("QueryOrders"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/query"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/query"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -639,7 +598,7 @@ RenderPurchaseOrderResponse Alibabacloud_Linkedmall20230930::Client::renderPurch
     {"action", boost::any(string("RenderPurchaseOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/commands/render"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/render"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -665,7 +624,7 @@ RenderRefundOrderResponse Alibabacloud_Linkedmall20230930::Client::renderRefundO
     {"action", boost::any(string("RenderRefundOrder"))},
     {"version", boost::any(string("2023-09-30"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/commands/render"))},
+    {"pathname", boost::any(string("/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/commands/render"))},
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
