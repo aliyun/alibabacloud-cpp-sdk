@@ -1973,6 +1973,7 @@ public:
   shared_ptr<CreateServerGroupRequestHealthCheckConfig> healthCheckConfig{};
   shared_ptr<bool> preserveClientIpEnabled{};
   shared_ptr<string> protocol{};
+  shared_ptr<string> quicVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scheduler{};
@@ -2017,6 +2018,9 @@ public:
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
+    }
+    if (quicVersion) {
+      res["QuicVersion"] = boost::any(*quicVersion);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -2077,6 +2081,9 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QuicVersion") != m.end() && !m["QuicVersion"].empty()) {
+      quicVersion = make_shared<string>(boost::any_cast<string>(m["QuicVersion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -8094,6 +8101,7 @@ public:
   shared_ptr<ListServerGroupsResponseBodyServerGroupsHealthCheck> healthCheck{};
   shared_ptr<bool> preserveClientIpEnabled{};
   shared_ptr<string> protocol{};
+  shared_ptr<string> quicVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<string>> relatedLoadBalancerIds{};
   shared_ptr<string> resourceGroupId{};
@@ -8139,6 +8147,9 @@ public:
     }
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
+    }
+    if (quicVersion) {
+      res["QuicVersion"] = boost::any(*quicVersion);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -8208,6 +8219,9 @@ public:
     }
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("QuicVersion") != m.end() && !m["QuicVersion"].empty()) {
+      quicVersion = make_shared<string>(boost::any_cast<string>(m["QuicVersion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -11908,6 +11922,7 @@ public:
   shared_ptr<bool> dryRun{};
   shared_ptr<UpdateServerGroupAttributeRequestHealthCheckConfig> healthCheckConfig{};
   shared_ptr<bool> preserveClientIpEnabled{};
+  shared_ptr<string> quicVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<string> scheduler{};
   shared_ptr<string> serverGroupId{};
@@ -11940,6 +11955,9 @@ public:
     }
     if (preserveClientIpEnabled) {
       res["PreserveClientIpEnabled"] = boost::any(*preserveClientIpEnabled);
+    }
+    if (quicVersion) {
+      res["QuicVersion"] = boost::any(*quicVersion);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -11978,6 +11996,9 @@ public:
     }
     if (m.find("PreserveClientIpEnabled") != m.end() && !m["PreserveClientIpEnabled"].empty()) {
       preserveClientIpEnabled = make_shared<bool>(boost::any_cast<bool>(m["PreserveClientIpEnabled"]));
+    }
+    if (m.find("QuicVersion") != m.end() && !m["QuicVersion"].empty()) {
+      quicVersion = make_shared<string>(boost::any_cast<string>(m["QuicVersion"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
