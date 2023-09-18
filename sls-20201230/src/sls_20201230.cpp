@@ -2602,8 +2602,8 @@ ListLogtailPipelineConfigResponse Alibabacloud_Sls20201230::Client::listLogtailP
   if (!Darabonba_Util::Client::isUnset<string>(request->configName)) {
     query->insert(pair<string, string>("configName", *request->configName));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->logstore)) {
-    query->insert(pair<string, string>("logstore", *request->logstore));
+  if (!Darabonba_Util::Client::isUnset<string>(request->logstoreName)) {
+    query->insert(pair<string, string>("logstoreName", *request->logstoreName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->offset)) {
     query->insert(pair<string, long>("offset", *request->offset));

@@ -10632,7 +10632,7 @@ public:
 class ListLogtailPipelineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> configName{};
-  shared_ptr<string> logstore{};
+  shared_ptr<string> logstoreName{};
   shared_ptr<long> offset{};
   shared_ptr<long> size{};
 
@@ -10649,8 +10649,8 @@ public:
     if (configName) {
       res["configName"] = boost::any(*configName);
     }
-    if (logstore) {
-      res["logstore"] = boost::any(*logstore);
+    if (logstoreName) {
+      res["logstoreName"] = boost::any(*logstoreName);
     }
     if (offset) {
       res["offset"] = boost::any(*offset);
@@ -10665,8 +10665,8 @@ public:
     if (m.find("configName") != m.end() && !m["configName"].empty()) {
       configName = make_shared<string>(boost::any_cast<string>(m["configName"]));
     }
-    if (m.find("logstore") != m.end() && !m["logstore"].empty()) {
-      logstore = make_shared<string>(boost::any_cast<string>(m["logstore"]));
+    if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
+      logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
     }
     if (m.find("offset") != m.end() && !m["offset"].empty()) {
       offset = make_shared<long>(boost::any_cast<long>(m["offset"]));
