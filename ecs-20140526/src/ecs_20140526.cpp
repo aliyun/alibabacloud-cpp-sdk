@@ -17289,6 +17289,9 @@ ModifySnapshotAttributeResponse Alibabacloud_Ecs20140526::Client::modifySnapshot
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->retentionDays)) {
+    query->insert(pair<string, long>("RetentionDays", *request->retentionDays));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotId)) {
     query->insert(pair<string, string>("SnapshotId", *request->snapshotId));
   }
@@ -19795,6 +19798,9 @@ StartInstancesResponse Alibabacloud_Ecs20140526::Client::startInstances(shared_p
 StartTerminalSessionResponse Alibabacloud_Ecs20140526::Client::startTerminalSessionWithOptions(shared_ptr<StartTerminalSessionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->commandLine)) {
+    query->insert(pair<string, string>("CommandLine", *request->commandLine));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceId)) {
     query->insert(pair<string, vector<string>>("InstanceId", *request->instanceId));
   }
@@ -19818,6 +19824,9 @@ StartTerminalSessionResponse Alibabacloud_Ecs20140526::Client::startTerminalSess
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetServer)) {
+    query->insert(pair<string, string>("TargetServer", *request->targetServer));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

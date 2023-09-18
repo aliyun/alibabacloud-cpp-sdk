@@ -73538,6 +73538,7 @@ public:
 };
 class DescribeSnapshotGroupsResponseBodySnapshotGroupsSnapshotGroupSnapshotsSnapshot : public Darabonba::Model {
 public:
+  shared_ptr<bool> available{};
   shared_ptr<bool> instantAccess{};
   shared_ptr<long> instantAccessRetentionDays{};
   shared_ptr<string> progress{};
@@ -73556,6 +73557,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (available) {
+      res["Available"] = boost::any(*available);
+    }
     if (instantAccess) {
       res["InstantAccess"] = boost::any(*instantAccess);
     }
@@ -73581,6 +73585,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Available") != m.end() && !m["Available"].empty()) {
+      available = make_shared<bool>(boost::any_cast<bool>(m["Available"]));
+    }
     if (m.find("InstantAccess") != m.end() && !m["InstantAccess"].empty()) {
       instantAccess = make_shared<bool>(boost::any_cast<bool>(m["InstantAccess"]));
     }
@@ -75280,6 +75287,7 @@ public:
 };
 class DescribeSnapshotsResponseBodySnapshotsSnapshot : public Darabonba::Model {
 public:
+  shared_ptr<bool> available{};
   shared_ptr<string> category{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
@@ -75317,6 +75325,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (available) {
+      res["Available"] = boost::any(*available);
+    }
     if (category) {
       res["Category"] = boost::any(*category);
     }
@@ -75399,6 +75410,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Available") != m.end() && !m["Available"].empty()) {
+      available = make_shared<bool>(boost::any_cast<bool>(m["Available"]));
+    }
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
@@ -99207,6 +99221,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<long> retentionDays{};
   shared_ptr<string> snapshotId{};
   shared_ptr<string> snapshotName{};
 
@@ -99238,6 +99253,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (retentionDays) {
+      res["RetentionDays"] = boost::any(*retentionDays);
+    }
     if (snapshotId) {
       res["SnapshotId"] = boost::any(*snapshotId);
     }
@@ -99265,6 +99283,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RetentionDays") != m.end() && !m["RetentionDays"].empty()) {
+      retentionDays = make_shared<long>(boost::any_cast<long>(m["RetentionDays"]));
     }
     if (m.find("SnapshotId") != m.end() && !m["SnapshotId"].empty()) {
       snapshotId = make_shared<string>(boost::any_cast<string>(m["SnapshotId"]));
@@ -109834,6 +109855,7 @@ public:
 };
 class StartTerminalSessionRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> commandLine{};
   shared_ptr<vector<string>> instanceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -109841,6 +109863,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> targetServer{};
 
   StartTerminalSessionRequest() {}
 
@@ -109852,6 +109875,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (commandLine) {
+      res["CommandLine"] = boost::any(*commandLine);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
@@ -109873,10 +109899,16 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (targetServer) {
+      res["TargetServer"] = boost::any(*targetServer);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CommandLine") != m.end() && !m["CommandLine"].empty()) {
+      commandLine = make_shared<string>(boost::any_cast<string>(m["CommandLine"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["InstanceId"].type()) {
@@ -109904,6 +109936,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TargetServer") != m.end() && !m["TargetServer"].empty()) {
+      targetServer = make_shared<string>(boost::any_cast<string>(m["TargetServer"]));
     }
   }
 
