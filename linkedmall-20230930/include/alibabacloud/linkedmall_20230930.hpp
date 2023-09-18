@@ -261,10 +261,10 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (cooperationCompanyId) {
-      res["CooperationCompanyId"] = boost::any(*cooperationCompanyId);
+      res["cooperationCompanyId"] = boost::any(*cooperationCompanyId);
     }
     if (cooperationShopId) {
-      res["CooperationShopId"] = boost::any(*cooperationShopId);
+      res["cooperationShopId"] = boost::any(*cooperationShopId);
     }
     if (shopId) {
       res["shopId"] = boost::any(*shopId);
@@ -273,11 +273,11 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("CooperationCompanyId") != m.end() && !m["CooperationCompanyId"].empty()) {
-      cooperationCompanyId = make_shared<string>(boost::any_cast<string>(m["CooperationCompanyId"]));
+    if (m.find("cooperationCompanyId") != m.end() && !m["cooperationCompanyId"].empty()) {
+      cooperationCompanyId = make_shared<string>(boost::any_cast<string>(m["cooperationCompanyId"]));
     }
-    if (m.find("CooperationShopId") != m.end() && !m["CooperationShopId"].empty()) {
-      cooperationShopId = make_shared<string>(boost::any_cast<string>(m["CooperationShopId"]));
+    if (m.find("cooperationShopId") != m.end() && !m["cooperationShopId"].empty()) {
+      cooperationShopId = make_shared<string>(boost::any_cast<string>(m["cooperationShopId"]));
     }
     if (m.find("shopId") != m.end() && !m["shopId"].empty()) {
       shopId = make_shared<string>(boost::any_cast<string>(m["shopId"]));
