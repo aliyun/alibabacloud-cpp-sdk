@@ -13557,6 +13557,7 @@ public:
   shared_ptr<string> discountAmount{};
   shared_ptr<string> originalAmount{};
   shared_ptr<DescribePriceResponseBodyOrderRuleIds> ruleIds{};
+  shared_ptr<bool> showDiscountInfo{};
   shared_ptr<string> tradeAmount{};
 
   DescribePriceResponseBodyOrder() {}
@@ -13583,6 +13584,9 @@ public:
     }
     if (ruleIds) {
       res["RuleIds"] = ruleIds ? boost::any(ruleIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (showDiscountInfo) {
+      res["ShowDiscountInfo"] = boost::any(*showDiscountInfo);
     }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
@@ -13613,6 +13617,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleIds"]));
         ruleIds = make_shared<DescribePriceResponseBodyOrderRuleIds>(model1);
       }
+    }
+    if (m.find("ShowDiscountInfo") != m.end() && !m["ShowDiscountInfo"].empty()) {
+      showDiscountInfo = make_shared<bool>(boost::any_cast<bool>(m["ShowDiscountInfo"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<string>(boost::any_cast<string>(m["TradeAmount"]));
