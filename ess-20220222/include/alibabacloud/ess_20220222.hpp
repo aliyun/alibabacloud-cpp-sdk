@@ -14231,42 +14231,6 @@ public:
 
   virtual ~DescribeScalingConfigurationsRequest() = default;
 };
-class DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions : public Darabonba::Model {
-public:
-  shared_ptr<string> id{};
-  shared_ptr<string> matchCriteria{};
-
-  DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions() {}
-
-  explicit DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (id) {
-      res["Id"] = boost::any(*id);
-    }
-    if (matchCriteria) {
-      res["MatchCriteria"] = boost::any(*matchCriteria);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Id") != m.end() && !m["Id"].empty()) {
-      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
-    }
-    if (m.find("MatchCriteria") != m.end() && !m["MatchCriteria"].empty()) {
-      matchCriteria = make_shared<string>(boost::any_cast<string>(m["MatchCriteria"]));
-    }
-  }
-
-
-  virtual ~DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions() = default;
-};
 class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks : public Darabonba::Model {
 public:
   shared_ptr<string> autoSnapshotPolicyId{};
@@ -14582,7 +14546,6 @@ public:
 };
 class DescribeScalingConfigurationsResponseBodyScalingConfigurations : public Darabonba::Model {
 public:
-  shared_ptr<DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions> privatePoolOptions{};
   shared_ptr<string> affinity{};
   shared_ptr<long> cpu{};
   shared_ptr<string> creationTime{};
@@ -14614,6 +14577,8 @@ public:
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<long> memory{};
   shared_ptr<bool> passwordInherit{};
+  shared_ptr<string> privatePoolOptions_id{};
+  shared_ptr<string> privatePoolOptions_matchCriteria{};
   shared_ptr<string> ramRoleName{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> scalingConfigurationId{};
@@ -14655,9 +14620,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (privatePoolOptions) {
-      res["PrivatePoolOptions"] = privatePoolOptions ? boost::any(privatePoolOptions->toMap()) : boost::any(map<string,boost::any>({}));
-    }
     if (affinity) {
       res["Affinity"] = boost::any(*affinity);
     }
@@ -14758,6 +14720,12 @@ public:
     }
     if (passwordInherit) {
       res["PasswordInherit"] = boost::any(*passwordInherit);
+    }
+    if (privatePoolOptions_id) {
+      res["PrivatePoolOptions.Id"] = boost::any(*privatePoolOptions_id);
+    }
+    if (privatePoolOptions_matchCriteria) {
+      res["PrivatePoolOptions.MatchCriteria"] = boost::any(*privatePoolOptions_matchCriteria);
     }
     if (ramRoleName) {
       res["RamRoleName"] = boost::any(*ramRoleName);
@@ -14861,13 +14829,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("PrivatePoolOptions") != m.end() && !m["PrivatePoolOptions"].empty()) {
-      if (typeid(map<string, boost::any>) == m["PrivatePoolOptions"].type()) {
-        DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PrivatePoolOptions"]));
-        privatePoolOptions = make_shared<DescribeScalingConfigurationsResponseBodyScalingConfigurationsPrivatePoolOptions>(model1);
-      }
-    }
     if (m.find("Affinity") != m.end() && !m["Affinity"].empty()) {
       affinity = make_shared<string>(boost::any_cast<string>(m["Affinity"]));
     }
@@ -14987,6 +14948,12 @@ public:
     }
     if (m.find("PasswordInherit") != m.end() && !m["PasswordInherit"].empty()) {
       passwordInherit = make_shared<bool>(boost::any_cast<bool>(m["PasswordInherit"]));
+    }
+    if (m.find("PrivatePoolOptions.Id") != m.end() && !m["PrivatePoolOptions.Id"].empty()) {
+      privatePoolOptions_id = make_shared<string>(boost::any_cast<string>(m["PrivatePoolOptions.Id"]));
+    }
+    if (m.find("PrivatePoolOptions.MatchCriteria") != m.end() && !m["PrivatePoolOptions.MatchCriteria"].empty()) {
+      privatePoolOptions_matchCriteria = make_shared<string>(boost::any_cast<string>(m["PrivatePoolOptions.MatchCriteria"]));
     }
     if (m.find("RamRoleName") != m.end() && !m["RamRoleName"].empty()) {
       ramRoleName = make_shared<string>(boost::any_cast<string>(m["RamRoleName"]));
@@ -15261,6 +15228,42 @@ public:
 
   virtual ~DescribeScalingConfigurationsResponse() = default;
 };
+class DescribeScalingGroupsRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeScalingGroupsRequestTags() {}
+
+  explicit DescribeScalingGroupsRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupsRequestTags() = default;
+};
 class DescribeScalingGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupType{};
@@ -15275,6 +15278,7 @@ public:
   shared_ptr<vector<string>> scalingGroupIds{};
   shared_ptr<string> scalingGroupName{};
   shared_ptr<vector<string>> scalingGroupNames{};
+  shared_ptr<vector<DescribeScalingGroupsRequestTags>> tags{};
 
   DescribeScalingGroupsRequest() {}
 
@@ -15321,6 +15325,13 @@ public:
     }
     if (scalingGroupNames) {
       res["ScalingGroupNames"] = boost::any(*scalingGroupNames);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     return res;
   }
@@ -15375,6 +15386,19 @@ public:
         }
       }
       scalingGroupNames = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeScalingGroupsRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupsRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeScalingGroupsRequestTags>>(expect1);
+      }
     }
   }
 

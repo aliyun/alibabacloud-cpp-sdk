@@ -2208,6 +2208,9 @@ DescribeScalingGroupsResponse Alibabacloud_Ess20220222::Client::describeScalingG
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->scalingGroupNames)) {
     query->insert(pair<string, vector<string>>("ScalingGroupNames", *request->scalingGroupNames));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeScalingGroupsRequestTags>>(request->tags)) {
+    query->insert(pair<string, vector<DescribeScalingGroupsRequestTags>>("Tags", *request->tags));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
