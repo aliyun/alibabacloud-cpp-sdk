@@ -24017,8 +24017,10 @@ public:
   shared_ptr<string> billDate{};
   shared_ptr<long> billId{};
   shared_ptr<long> invoiceSubTaskId{};
+  shared_ptr<string> itineraryNum{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> ticketNo{};
 
   FlightItineraryScanQueryRequest() {}
 
@@ -24039,11 +24041,17 @@ public:
     if (invoiceSubTaskId) {
       res["invoice_sub_task_id"] = boost::any(*invoiceSubTaskId);
     }
+    if (itineraryNum) {
+      res["itinerary_num"] = boost::any(*itineraryNum);
+    }
     if (pageNo) {
       res["page_no"] = boost::any(*pageNo);
     }
     if (pageSize) {
       res["page_size"] = boost::any(*pageSize);
+    }
+    if (ticketNo) {
+      res["ticket_no"] = boost::any(*ticketNo);
     }
     return res;
   }
@@ -24058,11 +24066,17 @@ public:
     if (m.find("invoice_sub_task_id") != m.end() && !m["invoice_sub_task_id"].empty()) {
       invoiceSubTaskId = make_shared<long>(boost::any_cast<long>(m["invoice_sub_task_id"]));
     }
+    if (m.find("itinerary_num") != m.end() && !m["itinerary_num"].empty()) {
+      itineraryNum = make_shared<string>(boost::any_cast<string>(m["itinerary_num"]));
+    }
     if (m.find("page_no") != m.end() && !m["page_no"].empty()) {
       pageNo = make_shared<long>(boost::any_cast<long>(m["page_no"]));
     }
     if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+    if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
+      ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
     }
   }
 
@@ -58625,6 +58639,120 @@ public:
 
   virtual ~HotelGoodsQueryResponseBodyModuleRoomsRatesBtripHotelCancelDesc() = default;
 };
+class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> labelName{};
+  shared_ptr<string> moneyDesc{};
+
+  HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail() {}
+
+  explicit HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelName) {
+      res["label_name"] = boost::any(*labelName);
+    }
+    if (moneyDesc) {
+      res["money_desc"] = boost::any(*moneyDesc);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("label_name") != m.end() && !m["label_name"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["label_name"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["label_name"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labelName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("money_desc") != m.end() && !m["money_desc"].empty()) {
+      moneyDesc = make_shared<string>(boost::any_cast<string>(m["money_desc"]));
+    }
+  }
+
+
+  virtual ~HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail() = default;
+};
+class HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc : public Darabonba::Model {
+public:
+  shared_ptr<string> cashReduceTotal{};
+  shared_ptr<string> dinamicLabel{};
+  shared_ptr<vector<HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail>> discountDetail{};
+  shared_ptr<string> subTitle{};
+  shared_ptr<string> title{};
+
+  HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc() {}
+
+  explicit HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cashReduceTotal) {
+      res["cash_reduce_total"] = boost::any(*cashReduceTotal);
+    }
+    if (dinamicLabel) {
+      res["dinamic_label"] = boost::any(*dinamicLabel);
+    }
+    if (discountDetail) {
+      vector<boost::any> temp1;
+      for(auto item1:*discountDetail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["discount_detail"] = boost::any(temp1);
+    }
+    if (subTitle) {
+      res["sub_title"] = boost::any(*subTitle);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cash_reduce_total") != m.end() && !m["cash_reduce_total"].empty()) {
+      cashReduceTotal = make_shared<string>(boost::any_cast<string>(m["cash_reduce_total"]));
+    }
+    if (m.find("dinamic_label") != m.end() && !m["dinamic_label"].empty()) {
+      dinamicLabel = make_shared<string>(boost::any_cast<string>(m["dinamic_label"]));
+    }
+    if (m.find("discount_detail") != m.end() && !m["discount_detail"].empty()) {
+      if (typeid(vector<boost::any>) == m["discount_detail"].type()) {
+        vector<HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["discount_detail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        discountDetail = make_shared<vector<HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDescDiscountDetail>>(expect1);
+      }
+    }
+    if (m.find("sub_title") != m.end() && !m["sub_title"].empty()) {
+      subTitle = make_shared<string>(boost::any_cast<string>(m["sub_title"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc() = default;
+};
 class HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO : public Darabonba::Model {
 public:
   shared_ptr<long> beforeDiscountPrice{};
@@ -58718,6 +58846,7 @@ public:
   shared_ptr<string> currencyCode{};
   shared_ptr<string> dailyPriceFormatYuan{};
   shared_ptr<string> dailyPriceView{};
+  shared_ptr<HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc> discountDesc{};
   shared_ptr<string> endTimeDaily{};
   shared_ptr<vector<HotelGoodsQueryResponseBodyModuleRoomsRatesHotelDetailRatePriceDTO>> hotelDetailRatePriceDTO{};
   shared_ptr<bool> instantConfirm{};
@@ -58799,6 +58928,9 @@ public:
     }
     if (dailyPriceView) {
       res["daily_price_view"] = boost::any(*dailyPriceView);
+    }
+    if (discountDesc) {
+      res["discount_desc"] = discountDesc ? boost::any(discountDesc->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (endTimeDaily) {
       res["end_time_daily"] = boost::any(*endTimeDaily);
@@ -58944,6 +59076,13 @@ public:
     }
     if (m.find("daily_price_view") != m.end() && !m["daily_price_view"].empty()) {
       dailyPriceView = make_shared<string>(boost::any_cast<string>(m["daily_price_view"]));
+    }
+    if (m.find("discount_desc") != m.end() && !m["discount_desc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["discount_desc"].type()) {
+        HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["discount_desc"]));
+        discountDesc = make_shared<HotelGoodsQueryResponseBodyModuleRoomsRatesDiscountDesc>(model1);
+      }
     }
     if (m.find("end_time_daily") != m.end() && !m["end_time_daily"].empty()) {
       endTimeDaily = make_shared<string>(boost::any_cast<string>(m["end_time_daily"]));
@@ -66050,11 +66189,126 @@ public:
 
   virtual ~HotelSearchShrinkRequest() = default;
 };
+class HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> labelName{};
+  shared_ptr<string> moneyDesc{};
+
+  HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail() {}
+
+  explicit HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (labelName) {
+      res["label_name"] = boost::any(*labelName);
+    }
+    if (moneyDesc) {
+      res["money_desc"] = boost::any(*moneyDesc);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("label_name") != m.end() && !m["label_name"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["label_name"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["label_name"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      labelName = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("money_desc") != m.end() && !m["money_desc"].empty()) {
+      moneyDesc = make_shared<string>(boost::any_cast<string>(m["money_desc"]));
+    }
+  }
+
+
+  virtual ~HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail() = default;
+};
+class HotelSearchResponseBodyModuleItemsDiscountDesc : public Darabonba::Model {
+public:
+  shared_ptr<string> cashReduceTotal{};
+  shared_ptr<string> dinamicLabel{};
+  shared_ptr<vector<HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail>> discountDetail{};
+  shared_ptr<string> subTitle{};
+  shared_ptr<string> title{};
+
+  HotelSearchResponseBodyModuleItemsDiscountDesc() {}
+
+  explicit HotelSearchResponseBodyModuleItemsDiscountDesc(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cashReduceTotal) {
+      res["cash_reduce_total"] = boost::any(*cashReduceTotal);
+    }
+    if (dinamicLabel) {
+      res["dinamic_label"] = boost::any(*dinamicLabel);
+    }
+    if (discountDetail) {
+      vector<boost::any> temp1;
+      for(auto item1:*discountDetail){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["discount_detail"] = boost::any(temp1);
+    }
+    if (subTitle) {
+      res["sub_title"] = boost::any(*subTitle);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cash_reduce_total") != m.end() && !m["cash_reduce_total"].empty()) {
+      cashReduceTotal = make_shared<string>(boost::any_cast<string>(m["cash_reduce_total"]));
+    }
+    if (m.find("dinamic_label") != m.end() && !m["dinamic_label"].empty()) {
+      dinamicLabel = make_shared<string>(boost::any_cast<string>(m["dinamic_label"]));
+    }
+    if (m.find("discount_detail") != m.end() && !m["discount_detail"].empty()) {
+      if (typeid(vector<boost::any>) == m["discount_detail"].type()) {
+        vector<HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["discount_detail"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        discountDetail = make_shared<vector<HotelSearchResponseBodyModuleItemsDiscountDescDiscountDetail>>(expect1);
+      }
+    }
+    if (m.find("sub_title") != m.end() && !m["sub_title"].empty()) {
+      subTitle = make_shared<string>(boost::any_cast<string>(m["sub_title"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+  }
+
+
+  virtual ~HotelSearchResponseBodyModuleItemsDiscountDesc() = default;
+};
 class HotelSearchResponseBodyModuleItems : public Darabonba::Model {
 public:
   shared_ptr<string> brandName{};
   shared_ptr<string> btandCode{};
   shared_ptr<string> cityCode{};
+  shared_ptr<HotelSearchResponseBodyModuleItemsDiscountDesc> discountDesc{};
   shared_ptr<long> distance{};
   shared_ptr<string> districtCode{};
   shared_ptr<string> hotelAddress{};
@@ -66089,6 +66343,9 @@ public:
     }
     if (cityCode) {
       res["city_code"] = boost::any(*cityCode);
+    }
+    if (discountDesc) {
+      res["discount_desc"] = discountDesc ? boost::any(discountDesc->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (distance) {
       res["distance"] = boost::any(*distance);
@@ -66147,6 +66404,13 @@ public:
     }
     if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
       cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("discount_desc") != m.end() && !m["discount_desc"].empty()) {
+      if (typeid(map<string, boost::any>) == m["discount_desc"].type()) {
+        HotelSearchResponseBodyModuleItemsDiscountDesc model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["discount_desc"]));
+        discountDesc = make_shared<HotelSearchResponseBodyModuleItemsDiscountDesc>(model1);
+      }
     }
     if (m.find("distance") != m.end() && !m["distance"].empty()) {
       distance = make_shared<long>(boost::any_cast<long>(m["distance"]));
@@ -84289,6 +84553,8 @@ public:
   shared_ptr<long> invoiceSubTaskId{};
   shared_ptr<long> pageNo{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> serialNumber{};
+  shared_ptr<string> ticketNo{};
 
   TrainTicketScanQueryRequest() {}
 
@@ -84315,6 +84581,12 @@ public:
     if (pageSize) {
       res["page_size"] = boost::any(*pageSize);
     }
+    if (serialNumber) {
+      res["serial_number"] = boost::any(*serialNumber);
+    }
+    if (ticketNo) {
+      res["ticket_no"] = boost::any(*ticketNo);
+    }
     return res;
   }
 
@@ -84333,6 +84605,12 @@ public:
     }
     if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+    if (m.find("serial_number") != m.end() && !m["serial_number"].empty()) {
+      serialNumber = make_shared<string>(boost::any_cast<string>(m["serial_number"]));
+    }
+    if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
+      ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
     }
   }
 

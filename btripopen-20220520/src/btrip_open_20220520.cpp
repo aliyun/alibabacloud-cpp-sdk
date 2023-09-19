@@ -2313,11 +2313,17 @@ FlightItineraryScanQueryResponse Alibabacloud_BtripOpen20220520::Client::flightI
   if (!Darabonba_Util::Client::isUnset<long>(request->invoiceSubTaskId)) {
     query->insert(pair<string, long>("invoice_sub_task_id", *request->invoiceSubTaskId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->itineraryNum)) {
+    query->insert(pair<string, string>("itinerary_num", *request->itineraryNum));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
     query->insert(pair<string, long>("page_no", *request->pageNo));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("page_size", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ticketNo)) {
+    query->insert(pair<string, string>("ticket_no", *request->ticketNo));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -6381,6 +6387,12 @@ TrainTicketScanQueryResponse Alibabacloud_BtripOpen20220520::Client::trainTicket
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("page_size", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serialNumber)) {
+    query->insert(pair<string, string>("serial_number", *request->serialNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ticketNo)) {
+    query->insert(pair<string, string>("ticket_no", *request->ticketNo));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
