@@ -26,6 +26,8 @@ public:
   shared_ptr<bool> delayNotice{};
   shared_ptr<string> delayPhone{};
   shared_ptr<long> delayRuleTime{};
+  shared_ptr<string> destCaCertificateOssUrl{};
+  shared_ptr<string> destCaCertificatePassword{};
   shared_ptr<string> destinationEndpointDataBaseName{};
   shared_ptr<string> destinationEndpointEngineName{};
   shared_ptr<string> destinationEndpointIP{};
@@ -63,6 +65,8 @@ public:
   shared_ptr<string> sourceEndpointRole{};
   shared_ptr<string> sourceEndpointUserName{};
   shared_ptr<string> sourceEndpointVSwitchID{};
+  shared_ptr<string> srcCaCertificateOssUrl{};
+  shared_ptr<string> srcCaCertificatePassword{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
 
@@ -102,6 +106,12 @@ public:
     }
     if (delayRuleTime) {
       res["DelayRuleTime"] = boost::any(*delayRuleTime);
+    }
+    if (destCaCertificateOssUrl) {
+      res["DestCaCertificateOssUrl"] = boost::any(*destCaCertificateOssUrl);
+    }
+    if (destCaCertificatePassword) {
+      res["DestCaCertificatePassword"] = boost::any(*destCaCertificatePassword);
     }
     if (destinationEndpointDataBaseName) {
       res["DestinationEndpointDataBaseName"] = boost::any(*destinationEndpointDataBaseName);
@@ -214,6 +224,12 @@ public:
     if (sourceEndpointVSwitchID) {
       res["SourceEndpointVSwitchID"] = boost::any(*sourceEndpointVSwitchID);
     }
+    if (srcCaCertificateOssUrl) {
+      res["SrcCaCertificateOssUrl"] = boost::any(*srcCaCertificateOssUrl);
+    }
+    if (srcCaCertificatePassword) {
+      res["SrcCaCertificatePassword"] = boost::any(*srcCaCertificatePassword);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
@@ -250,6 +266,12 @@ public:
     }
     if (m.find("DelayRuleTime") != m.end() && !m["DelayRuleTime"].empty()) {
       delayRuleTime = make_shared<long>(boost::any_cast<long>(m["DelayRuleTime"]));
+    }
+    if (m.find("DestCaCertificateOssUrl") != m.end() && !m["DestCaCertificateOssUrl"].empty()) {
+      destCaCertificateOssUrl = make_shared<string>(boost::any_cast<string>(m["DestCaCertificateOssUrl"]));
+    }
+    if (m.find("DestCaCertificatePassword") != m.end() && !m["DestCaCertificatePassword"].empty()) {
+      destCaCertificatePassword = make_shared<string>(boost::any_cast<string>(m["DestCaCertificatePassword"]));
     }
     if (m.find("DestinationEndpointDataBaseName") != m.end() && !m["DestinationEndpointDataBaseName"].empty()) {
       destinationEndpointDataBaseName = make_shared<string>(boost::any_cast<string>(m["DestinationEndpointDataBaseName"]));
@@ -362,6 +384,12 @@ public:
     if (m.find("SourceEndpointVSwitchID") != m.end() && !m["SourceEndpointVSwitchID"].empty()) {
       sourceEndpointVSwitchID = make_shared<string>(boost::any_cast<string>(m["SourceEndpointVSwitchID"]));
     }
+    if (m.find("SrcCaCertificateOssUrl") != m.end() && !m["SrcCaCertificateOssUrl"].empty()) {
+      srcCaCertificateOssUrl = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificateOssUrl"]));
+    }
+    if (m.find("SrcCaCertificatePassword") != m.end() && !m["SrcCaCertificatePassword"].empty()) {
+      srcCaCertificatePassword = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificatePassword"]));
+    }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
     }
@@ -384,6 +412,8 @@ public:
   shared_ptr<bool> delayNotice{};
   shared_ptr<string> delayPhone{};
   shared_ptr<long> delayRuleTime{};
+  shared_ptr<string> destCaCertificateOssUrl{};
+  shared_ptr<string> destCaCertificatePassword{};
   shared_ptr<string> destinationEndpointDataBaseName{};
   shared_ptr<string> destinationEndpointEngineName{};
   shared_ptr<string> destinationEndpointIP{};
@@ -421,6 +451,8 @@ public:
   shared_ptr<string> sourceEndpointRole{};
   shared_ptr<string> sourceEndpointUserName{};
   shared_ptr<string> sourceEndpointVSwitchID{};
+  shared_ptr<string> srcCaCertificateOssUrl{};
+  shared_ptr<string> srcCaCertificatePassword{};
   shared_ptr<bool> structureInitialization{};
   shared_ptr<string> synchronizationDirection{};
 
@@ -460,6 +492,12 @@ public:
     }
     if (delayRuleTime) {
       res["DelayRuleTime"] = boost::any(*delayRuleTime);
+    }
+    if (destCaCertificateOssUrl) {
+      res["DestCaCertificateOssUrl"] = boost::any(*destCaCertificateOssUrl);
+    }
+    if (destCaCertificatePassword) {
+      res["DestCaCertificatePassword"] = boost::any(*destCaCertificatePassword);
     }
     if (destinationEndpointDataBaseName) {
       res["DestinationEndpointDataBaseName"] = boost::any(*destinationEndpointDataBaseName);
@@ -572,6 +610,12 @@ public:
     if (sourceEndpointVSwitchID) {
       res["SourceEndpointVSwitchID"] = boost::any(*sourceEndpointVSwitchID);
     }
+    if (srcCaCertificateOssUrl) {
+      res["SrcCaCertificateOssUrl"] = boost::any(*srcCaCertificateOssUrl);
+    }
+    if (srcCaCertificatePassword) {
+      res["SrcCaCertificatePassword"] = boost::any(*srcCaCertificatePassword);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
@@ -608,6 +652,12 @@ public:
     }
     if (m.find("DelayRuleTime") != m.end() && !m["DelayRuleTime"].empty()) {
       delayRuleTime = make_shared<long>(boost::any_cast<long>(m["DelayRuleTime"]));
+    }
+    if (m.find("DestCaCertificateOssUrl") != m.end() && !m["DestCaCertificateOssUrl"].empty()) {
+      destCaCertificateOssUrl = make_shared<string>(boost::any_cast<string>(m["DestCaCertificateOssUrl"]));
+    }
+    if (m.find("DestCaCertificatePassword") != m.end() && !m["DestCaCertificatePassword"].empty()) {
+      destCaCertificatePassword = make_shared<string>(boost::any_cast<string>(m["DestCaCertificatePassword"]));
     }
     if (m.find("DestinationEndpointDataBaseName") != m.end() && !m["DestinationEndpointDataBaseName"].empty()) {
       destinationEndpointDataBaseName = make_shared<string>(boost::any_cast<string>(m["DestinationEndpointDataBaseName"]));
@@ -719,6 +769,12 @@ public:
     }
     if (m.find("SourceEndpointVSwitchID") != m.end() && !m["SourceEndpointVSwitchID"].empty()) {
       sourceEndpointVSwitchID = make_shared<string>(boost::any_cast<string>(m["SourceEndpointVSwitchID"]));
+    }
+    if (m.find("SrcCaCertificateOssUrl") != m.end() && !m["SrcCaCertificateOssUrl"].empty()) {
+      srcCaCertificateOssUrl = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificateOssUrl"]));
+    }
+    if (m.find("SrcCaCertificatePassword") != m.end() && !m["SrcCaCertificatePassword"].empty()) {
+      srcCaCertificatePassword = make_shared<string>(boost::any_cast<string>(m["SrcCaCertificatePassword"]));
     }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));

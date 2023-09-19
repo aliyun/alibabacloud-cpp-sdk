@@ -127,6 +127,12 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   if (!Darabonba_Util::Client::isUnset<long>(request->delayRuleTime)) {
     query->insert(pair<string, long>("DelayRuleTime", *request->delayRuleTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destCaCertificateOssUrl)) {
+    query->insert(pair<string, string>("DestCaCertificateOssUrl", *request->destCaCertificateOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->destCaCertificatePassword)) {
+    query->insert(pair<string, string>("DestCaCertificatePassword", *request->destCaCertificatePassword));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationEndpointDataBaseName)) {
     query->insert(pair<string, string>("DestinationEndpointDataBaseName", *request->destinationEndpointDataBaseName));
   }
@@ -234,6 +240,12 @@ ConfigureDtsJobResponse Alibabacloud_Dts20200101::Client::configureDtsJobWithOpt
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceEndpointVSwitchID)) {
     query->insert(pair<string, string>("SourceEndpointVSwitchID", *request->sourceEndpointVSwitchID));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcCaCertificateOssUrl)) {
+    query->insert(pair<string, string>("SrcCaCertificateOssUrl", *request->srcCaCertificateOssUrl));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->srcCaCertificatePassword)) {
+    query->insert(pair<string, string>("SrcCaCertificatePassword", *request->srcCaCertificatePassword));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->structureInitialization)) {
     query->insert(pair<string, bool>("StructureInitialization", *request->structureInitialization));
