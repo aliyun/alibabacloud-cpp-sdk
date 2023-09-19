@@ -2599,6 +2599,9 @@ DescribeEventRuleListResponse Alibabacloud_Cms20190101::Client::describeEventRul
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isEnable)) {
+    query->insert(pair<string, bool>("IsEnable", *request->isEnable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->namePrefix)) {
     query->insert(pair<string, string>("NamePrefix", *request->namePrefix));
   }
@@ -4229,8 +4232,17 @@ DescribeSiteMonitorListResponse Alibabacloud_Cms20190101::Client::describeSiteMo
 DescribeSiteMonitorLogResponse Alibabacloud_Cms20190101::Client::describeSiteMonitorLogWithOptions(shared_ptr<DescribeSiteMonitorLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->browser)) {
+    query->insert(pair<string, string>("Browser", *request->browser));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->browserInfo)) {
+    query->insert(pair<string, string>("BrowserInfo", *request->browserInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->city)) {
     query->insert(pair<string, string>("City", *request->city));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->device)) {
+    query->insert(pair<string, string>("Device", *request->device));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
