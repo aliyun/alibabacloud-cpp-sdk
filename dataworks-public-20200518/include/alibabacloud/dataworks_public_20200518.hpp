@@ -1107,6 +1107,154 @@ public:
 
   virtual ~ApprovePermissionApplyOrderResponse() = default;
 };
+class CallbackExtensionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> checkMessage{};
+  shared_ptr<string> checkResult{};
+  shared_ptr<string> extensionCode{};
+  shared_ptr<string> messageId{};
+
+  CallbackExtensionRequest() {}
+
+  explicit CallbackExtensionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkMessage) {
+      res["CheckMessage"] = boost::any(*checkMessage);
+    }
+    if (checkResult) {
+      res["CheckResult"] = boost::any(*checkResult);
+    }
+    if (extensionCode) {
+      res["ExtensionCode"] = boost::any(*extensionCode);
+    }
+    if (messageId) {
+      res["MessageId"] = boost::any(*messageId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckMessage") != m.end() && !m["CheckMessage"].empty()) {
+      checkMessage = make_shared<string>(boost::any_cast<string>(m["CheckMessage"]));
+    }
+    if (m.find("CheckResult") != m.end() && !m["CheckResult"].empty()) {
+      checkResult = make_shared<string>(boost::any_cast<string>(m["CheckResult"]));
+    }
+    if (m.find("ExtensionCode") != m.end() && !m["ExtensionCode"].empty()) {
+      extensionCode = make_shared<string>(boost::any_cast<string>(m["ExtensionCode"]));
+    }
+    if (m.find("MessageId") != m.end() && !m["MessageId"].empty()) {
+      messageId = make_shared<string>(boost::any_cast<string>(m["MessageId"]));
+    }
+  }
+
+
+  virtual ~CallbackExtensionRequest() = default;
+};
+class CallbackExtensionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CallbackExtensionResponseBody() {}
+
+  explicit CallbackExtensionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CallbackExtensionResponseBody() = default;
+};
+class CallbackExtensionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CallbackExtensionResponseBody> body{};
+
+  CallbackExtensionResponse() {}
+
+  explicit CallbackExtensionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CallbackExtensionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CallbackExtensionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CallbackExtensionResponse() = default;
+};
 class ChangeResourceManagerResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> resourceId{};
@@ -20874,6 +21022,7 @@ public:
   shared_ptr<string> deletedStatus{};
   shared_ptr<string> fileDescription{};
   shared_ptr<string> fileFolderId{};
+  shared_ptr<long> fileId{};
   shared_ptr<string> fileName{};
   shared_ptr<long> fileType{};
   shared_ptr<bool> isMaxCompute{};
@@ -20932,6 +21081,9 @@ public:
     }
     if (fileFolderId) {
       res["FileFolderId"] = boost::any(*fileFolderId);
+    }
+    if (fileId) {
+      res["FileId"] = boost::any(*fileId);
     }
     if (fileName) {
       res["FileName"] = boost::any(*fileName);
@@ -21002,6 +21154,9 @@ public:
     }
     if (m.find("FileFolderId") != m.end() && !m["FileFolderId"].empty()) {
       fileFolderId = make_shared<string>(boost::any_cast<string>(m["FileFolderId"]));
+    }
+    if (m.find("FileId") != m.end() && !m["FileId"].empty()) {
+      fileId = make_shared<long>(boost::any_cast<long>(m["FileId"]));
     }
     if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
       fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
@@ -33215,6 +33370,7 @@ public:
 class GetProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<long> projectId{};
+  shared_ptr<string> projectIdentifier{};
 
   GetProjectRequest() {}
 
@@ -33229,12 +33385,18 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (projectIdentifier) {
+      res["ProjectIdentifier"] = boost::any(*projectIdentifier);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("ProjectIdentifier") != m.end() && !m["ProjectIdentifier"].empty()) {
+      projectIdentifier = make_shared<string>(boost::any_cast<string>(m["ProjectIdentifier"]));
     }
   }
 
@@ -71958,6 +72120,8 @@ public:
   AddToMetaCategoryResponse addToMetaCategory(shared_ptr<AddToMetaCategoryRequest> request);
   ApprovePermissionApplyOrderResponse approvePermissionApplyOrderWithOptions(shared_ptr<ApprovePermissionApplyOrderRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ApprovePermissionApplyOrderResponse approvePermissionApplyOrder(shared_ptr<ApprovePermissionApplyOrderRequest> request);
+  CallbackExtensionResponse callbackExtensionWithOptions(shared_ptr<CallbackExtensionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CallbackExtensionResponse callbackExtension(shared_ptr<CallbackExtensionRequest> request);
   ChangeResourceManagerResourceGroupResponse changeResourceManagerResourceGroupWithOptions(shared_ptr<ChangeResourceManagerResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceManagerResourceGroupResponse changeResourceManagerResourceGroup(shared_ptr<ChangeResourceManagerResourceGroupRequest> request);
   CheckFileDeploymentResponse checkFileDeploymentWithOptions(shared_ptr<CheckFileDeploymentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
