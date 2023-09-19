@@ -15,6 +15,253 @@
 using namespace std;
 
 namespace Alibabacloud_Docmind-api20220711 {
+class AyncTradeDocumentPackageExtractSmartAppRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> customExtractionRange{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> option{};
+  shared_ptr<string> templateName{};
+
+  AyncTradeDocumentPackageExtractSmartAppRequest() {}
+
+  explicit AyncTradeDocumentPackageExtractSmartAppRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExtractionRange) {
+      res["CustomExtractionRange"] = boost::any(*customExtractionRange);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExtractionRange") != m.end() && !m["CustomExtractionRange"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CustomExtractionRange"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CustomExtractionRange"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      customExtractionRange = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~AyncTradeDocumentPackageExtractSmartAppRequest() = default;
+};
+class AyncTradeDocumentPackageExtractSmartAppShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> customExtractionRangeShrink{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileUrl{};
+  shared_ptr<string> option{};
+  shared_ptr<string> templateName{};
+
+  AyncTradeDocumentPackageExtractSmartAppShrinkRequest() {}
+
+  explicit AyncTradeDocumentPackageExtractSmartAppShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customExtractionRangeShrink) {
+      res["CustomExtractionRange"] = boost::any(*customExtractionRangeShrink);
+    }
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    if (option) {
+      res["Option"] = boost::any(*option);
+    }
+    if (templateName) {
+      res["TemplateName"] = boost::any(*templateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomExtractionRange") != m.end() && !m["CustomExtractionRange"].empty()) {
+      customExtractionRangeShrink = make_shared<string>(boost::any_cast<string>(m["CustomExtractionRange"]));
+    }
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+    if (m.find("Option") != m.end() && !m["Option"].empty()) {
+      option = make_shared<string>(boost::any_cast<string>(m["Option"]));
+    }
+    if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
+      templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+  }
+
+
+  virtual ~AyncTradeDocumentPackageExtractSmartAppShrinkRequest() = default;
+};
+class AyncTradeDocumentPackageExtractSmartAppResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> completed{};
+  shared_ptr<string> createTime{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+  shared_ptr<bool> success{};
+
+  AyncTradeDocumentPackageExtractSmartAppResponseBody() {}
+
+  explicit AyncTradeDocumentPackageExtractSmartAppResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (completed) {
+      res["Completed"] = boost::any(*completed);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Completed") != m.end() && !m["Completed"].empty()) {
+      completed = make_shared<bool>(boost::any_cast<bool>(m["Completed"]));
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~AyncTradeDocumentPackageExtractSmartAppResponseBody() = default;
+};
+class AyncTradeDocumentPackageExtractSmartAppResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AyncTradeDocumentPackageExtractSmartAppResponseBody> body{};
+
+  AyncTradeDocumentPackageExtractSmartAppResponse() {}
+
+  explicit AyncTradeDocumentPackageExtractSmartAppResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AyncTradeDocumentPackageExtractSmartAppResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AyncTradeDocumentPackageExtractSmartAppResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AyncTradeDocumentPackageExtractSmartAppResponse() = default;
+};
 class GetDocStructureResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -2311,6 +2558,218 @@ public:
 
   virtual ~SubmitConvertPdfToWordJobResponse() = default;
 };
+class SubmitDigitalDocStructureJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileNameExtension{};
+  shared_ptr<string> fileUrl{};
+
+  SubmitDigitalDocStructureJobRequest() {}
+
+  explicit SubmitDigitalDocStructureJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileNameExtension) {
+      res["FileNameExtension"] = boost::any(*fileNameExtension);
+    }
+    if (fileUrl) {
+      res["FileUrl"] = boost::any(*fileUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileNameExtension") != m.end() && !m["FileNameExtension"].empty()) {
+      fileNameExtension = make_shared<string>(boost::any_cast<string>(m["FileNameExtension"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrl = make_shared<string>(boost::any_cast<string>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~SubmitDigitalDocStructureJobRequest() = default;
+};
+class SubmitDigitalDocStructureJobAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileNameExtension{};
+  shared_ptr<Darabonba::Stream> fileUrlObject{};
+
+  SubmitDigitalDocStructureJobAdvanceRequest() {}
+
+  explicit SubmitDigitalDocStructureJobAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (fileName) {
+      res["FileName"] = boost::any(*fileName);
+    }
+    if (fileNameExtension) {
+      res["FileNameExtension"] = boost::any(*fileNameExtension);
+    }
+    if (fileUrlObject) {
+      res["FileUrl"] = boost::any(*fileUrlObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FileName") != m.end() && !m["FileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["FileName"]));
+    }
+    if (m.find("FileNameExtension") != m.end() && !m["FileNameExtension"].empty()) {
+      fileNameExtension = make_shared<string>(boost::any_cast<string>(m["FileNameExtension"]));
+    }
+    if (m.find("FileUrl") != m.end() && !m["FileUrl"].empty()) {
+      fileUrlObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["FileUrl"]));
+    }
+  }
+
+
+  virtual ~SubmitDigitalDocStructureJobAdvanceRequest() = default;
+};
+class SubmitDigitalDocStructureJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<boost::any> data{};
+  shared_ptr<string> id{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> status{};
+
+  SubmitDigitalDocStructureJobResponseBody() {}
+
+  explicit SubmitDigitalDocStructureJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<boost::any>(boost::any_cast<boost::any>(m["Data"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~SubmitDigitalDocStructureJobResponseBody() = default;
+};
+class SubmitDigitalDocStructureJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitDigitalDocStructureJobResponseBody> body{};
+
+  SubmitDigitalDocStructureJobResponse() {}
+
+  explicit SubmitDigitalDocStructureJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitDigitalDocStructureJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitDigitalDocStructureJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitDigitalDocStructureJobResponse() = default;
+};
 class SubmitDocStructureJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> fileName{};
@@ -3223,6 +3682,8 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AyncTradeDocumentPackageExtractSmartAppResponse ayncTradeDocumentPackageExtractSmartAppWithOptions(shared_ptr<AyncTradeDocumentPackageExtractSmartAppRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AyncTradeDocumentPackageExtractSmartAppResponse ayncTradeDocumentPackageExtractSmartApp(shared_ptr<AyncTradeDocumentPackageExtractSmartAppRequest> request);
   GetDocStructureResultResponse getDocStructureResultWithOptions(shared_ptr<GetDocStructureResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDocStructureResultResponse getDocStructureResult(shared_ptr<GetDocStructureResultRequest> request);
   GetDocumentCompareResultResponse getDocumentCompareResultWithOptions(shared_ptr<GetDocumentCompareResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3248,6 +3709,9 @@ public:
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJobWithOptions(shared_ptr<SubmitConvertPdfToWordJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJob(shared_ptr<SubmitConvertPdfToWordJobRequest> request);
   SubmitConvertPdfToWordJobResponse submitConvertPdfToWordJobAdvance(shared_ptr<SubmitConvertPdfToWordJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitDigitalDocStructureJobResponse submitDigitalDocStructureJobWithOptions(shared_ptr<SubmitDigitalDocStructureJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitDigitalDocStructureJobResponse submitDigitalDocStructureJob(shared_ptr<SubmitDigitalDocStructureJobRequest> request);
+  SubmitDigitalDocStructureJobResponse submitDigitalDocStructureJobAdvance(shared_ptr<SubmitDigitalDocStructureJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDocStructureJobResponse submitDocStructureJobWithOptions(shared_ptr<SubmitDocStructureJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDocStructureJobResponse submitDocStructureJob(shared_ptr<SubmitDocStructureJobRequest> request);
   SubmitDocStructureJobResponse submitDocStructureJobAdvance(shared_ptr<SubmitDocStructureJobAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
