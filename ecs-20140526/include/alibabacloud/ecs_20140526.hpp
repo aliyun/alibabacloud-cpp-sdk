@@ -72648,6 +72648,7 @@ public:
 class DescribeSendFileResultsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> invocationStatus{};
   shared_ptr<string> invokeId{};
   shared_ptr<string> name{};
   shared_ptr<string> ownerAccount{};
@@ -72672,6 +72673,9 @@ public:
     map<string, boost::any> res;
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (invocationStatus) {
+      res["InvocationStatus"] = boost::any(*invocationStatus);
     }
     if (invokeId) {
       res["InvokeId"] = boost::any(*invokeId);
@@ -72716,6 +72720,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InvocationStatus") != m.end() && !m["InvocationStatus"].empty()) {
+      invocationStatus = make_shared<string>(boost::any_cast<string>(m["InvocationStatus"]));
     }
     if (m.find("InvokeId") != m.end() && !m["InvokeId"].empty()) {
       invokeId = make_shared<string>(boost::any_cast<string>(m["InvokeId"]));

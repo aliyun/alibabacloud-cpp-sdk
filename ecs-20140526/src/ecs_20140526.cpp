@@ -11673,6 +11673,9 @@ DescribeSendFileResultsResponse Alibabacloud_Ecs20140526::Client::describeSendFi
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->invocationStatus)) {
+    query->insert(pair<string, string>("InvocationStatus", *request->invocationStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->invokeId)) {
     query->insert(pair<string, string>("InvokeId", *request->invokeId));
   }
