@@ -7915,6 +7915,72 @@ UpdateGatewayRouteWafStatusResponse Alibabacloud_Mse20190531::Client::updateGate
   return updateGatewayRouteWafStatusWithOptions(request, runtime);
 }
 
+UpdateGatewayServiceCheckResponse Alibabacloud_Mse20190531::Client::updateGatewayServiceCheckWithOptions(shared_ptr<UpdateGatewayServiceCheckRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateGatewayServiceCheckShrinkRequest> request = make_shared<UpdateGatewayServiceCheckShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->expectedStatuses)) {
+    request->expectedStatusesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->expectedStatuses, make_shared<string>("ExpectedStatuses"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->check)) {
+    query->insert(pair<string, bool>("Check", *request->check));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->expectedStatusesShrink)) {
+    query->insert(pair<string, string>("ExpectedStatuses", *request->expectedStatusesShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
+    query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->healthyThreshold)) {
+    query->insert(pair<string, long>("HealthyThreshold", *request->healthyThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpHost)) {
+    query->insert(pair<string, string>("HttpHost", *request->httpHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpPath)) {
+    query->insert(pair<string, string>("HttpPath", *request->httpPath));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
+    query->insert(pair<string, string>("Protocol", *request->protocol));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->unhealthyThreshold)) {
+    query->insert(pair<string, long>("UnhealthyThreshold", *request->unhealthyThreshold));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGatewayServiceCheck"))},
+    {"version", boost::any(string("2019-05-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGatewayServiceCheckResponse(callApi(params, req, runtime));
+}
+
+UpdateGatewayServiceCheckResponse Alibabacloud_Mse20190531::Client::updateGatewayServiceCheck(shared_ptr<UpdateGatewayServiceCheckRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGatewayServiceCheckWithOptions(request, runtime);
+}
+
 UpdateGatewayServiceTrafficPolicyResponse Alibabacloud_Mse20190531::Client::updateGatewayServiceTrafficPolicyWithOptions(shared_ptr<UpdateGatewayServiceTrafficPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<UpdateGatewayServiceTrafficPolicyShrinkRequest> request = make_shared<UpdateGatewayServiceTrafficPolicyShrinkRequest>();

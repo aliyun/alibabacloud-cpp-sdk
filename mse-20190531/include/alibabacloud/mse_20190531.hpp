@@ -153,7 +153,10 @@ public:
 class GatewayOptionTraceDetails : public Darabonba::Model {
 public:
   shared_ptr<long> sample{};
+  shared_ptr<long> serviceId{};
+  shared_ptr<string> servicePort{};
   shared_ptr<bool> traceEnabled{};
+  shared_ptr<string> traceType{};
 
   GatewayOptionTraceDetails() {}
 
@@ -168,8 +171,17 @@ public:
     if (sample) {
       res["Sample"] = boost::any(*sample);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (servicePort) {
+      res["ServicePort"] = boost::any(*servicePort);
+    }
     if (traceEnabled) {
       res["TraceEnabled"] = boost::any(*traceEnabled);
+    }
+    if (traceType) {
+      res["TraceType"] = boost::any(*traceType);
     }
     return res;
   }
@@ -178,8 +190,17 @@ public:
     if (m.find("Sample") != m.end() && !m["Sample"].empty()) {
       sample = make_shared<long>(boost::any_cast<long>(m["Sample"]));
     }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<long>(boost::any_cast<long>(m["ServiceId"]));
+    }
+    if (m.find("ServicePort") != m.end() && !m["ServicePort"].empty()) {
+      servicePort = make_shared<string>(boost::any_cast<string>(m["ServicePort"]));
+    }
     if (m.find("TraceEnabled") != m.end() && !m["TraceEnabled"].empty()) {
       traceEnabled = make_shared<bool>(boost::any_cast<bool>(m["TraceEnabled"]));
+    }
+    if (m.find("TraceType") != m.end() && !m["TraceType"].empty()) {
+      traceType = make_shared<string>(boost::any_cast<string>(m["TraceType"]));
     }
   }
 
@@ -60615,6 +60636,351 @@ public:
 
   virtual ~UpdateGatewayRouteWafStatusResponse() = default;
 };
+class UpdateGatewayServiceCheckRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> check{};
+  shared_ptr<vector<long>> expectedStatuses{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<long> healthyThreshold{};
+  shared_ptr<string> httpHost{};
+  shared_ptr<string> httpPath{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<long> timeout{};
+  shared_ptr<long> unhealthyThreshold{};
+
+  UpdateGatewayServiceCheckRequest() {}
+
+  explicit UpdateGatewayServiceCheckRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (check) {
+      res["Check"] = boost::any(*check);
+    }
+    if (expectedStatuses) {
+      res["ExpectedStatuses"] = boost::any(*expectedStatuses);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (healthyThreshold) {
+      res["HealthyThreshold"] = boost::any(*healthyThreshold);
+    }
+    if (httpHost) {
+      res["HttpHost"] = boost::any(*httpHost);
+    }
+    if (httpPath) {
+      res["HttpPath"] = boost::any(*httpPath);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (unhealthyThreshold) {
+      res["UnhealthyThreshold"] = boost::any(*unhealthyThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Check") != m.end() && !m["Check"].empty()) {
+      check = make_shared<bool>(boost::any_cast<bool>(m["Check"]));
+    }
+    if (m.find("ExpectedStatuses") != m.end() && !m["ExpectedStatuses"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["ExpectedStatuses"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExpectedStatuses"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      expectedStatuses = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
+      healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
+    }
+    if (m.find("HttpHost") != m.end() && !m["HttpHost"].empty()) {
+      httpHost = make_shared<string>(boost::any_cast<string>(m["HttpHost"]));
+    }
+    if (m.find("HttpPath") != m.end() && !m["HttpPath"].empty()) {
+      httpPath = make_shared<string>(boost::any_cast<string>(m["HttpPath"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+    if (m.find("UnhealthyThreshold") != m.end() && !m["UnhealthyThreshold"].empty()) {
+      unhealthyThreshold = make_shared<long>(boost::any_cast<long>(m["UnhealthyThreshold"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceCheckRequest() = default;
+};
+class UpdateGatewayServiceCheckShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> check{};
+  shared_ptr<string> expectedStatusesShrink{};
+  shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<long> healthyThreshold{};
+  shared_ptr<string> httpHost{};
+  shared_ptr<string> httpPath{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> protocol{};
+  shared_ptr<string> serviceId{};
+  shared_ptr<long> timeout{};
+  shared_ptr<long> unhealthyThreshold{};
+
+  UpdateGatewayServiceCheckShrinkRequest() {}
+
+  explicit UpdateGatewayServiceCheckShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (check) {
+      res["Check"] = boost::any(*check);
+    }
+    if (expectedStatusesShrink) {
+      res["ExpectedStatuses"] = boost::any(*expectedStatusesShrink);
+    }
+    if (gatewayUniqueId) {
+      res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
+    }
+    if (healthyThreshold) {
+      res["HealthyThreshold"] = boost::any(*healthyThreshold);
+    }
+    if (httpHost) {
+      res["HttpHost"] = boost::any(*httpHost);
+    }
+    if (httpPath) {
+      res["HttpPath"] = boost::any(*httpPath);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (protocol) {
+      res["Protocol"] = boost::any(*protocol);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    if (unhealthyThreshold) {
+      res["UnhealthyThreshold"] = boost::any(*unhealthyThreshold);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Check") != m.end() && !m["Check"].empty()) {
+      check = make_shared<bool>(boost::any_cast<bool>(m["Check"]));
+    }
+    if (m.find("ExpectedStatuses") != m.end() && !m["ExpectedStatuses"].empty()) {
+      expectedStatusesShrink = make_shared<string>(boost::any_cast<string>(m["ExpectedStatuses"]));
+    }
+    if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
+      gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("HealthyThreshold") != m.end() && !m["HealthyThreshold"].empty()) {
+      healthyThreshold = make_shared<long>(boost::any_cast<long>(m["HealthyThreshold"]));
+    }
+    if (m.find("HttpHost") != m.end() && !m["HttpHost"].empty()) {
+      httpHost = make_shared<string>(boost::any_cast<string>(m["HttpHost"]));
+    }
+    if (m.find("HttpPath") != m.end() && !m["HttpPath"].empty()) {
+      httpPath = make_shared<string>(boost::any_cast<string>(m["HttpPath"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
+      protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+    if (m.find("UnhealthyThreshold") != m.end() && !m["UnhealthyThreshold"].empty()) {
+      unhealthyThreshold = make_shared<long>(boost::any_cast<long>(m["UnhealthyThreshold"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceCheckShrinkRequest() = default;
+};
+class UpdateGatewayServiceCheckResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<long> data{};
+  shared_ptr<long> httpStatusCode{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateGatewayServiceCheckResponseBody() {}
+
+  explicit UpdateGatewayServiceCheckResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<long>(boost::any_cast<long>(m["Data"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<long>(boost::any_cast<long>(m["HttpStatusCode"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceCheckResponseBody() = default;
+};
+class UpdateGatewayServiceCheckResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGatewayServiceCheckResponseBody> body{};
+
+  UpdateGatewayServiceCheckResponse() {}
+
+  explicit UpdateGatewayServiceCheckResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGatewayServiceCheckResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGatewayServiceCheckResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGatewayServiceCheckResponse() = default;
+};
 class UpdateGatewayServiceTrafficPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -64359,6 +64725,8 @@ public:
   UpdateGatewayRouteTimeoutResponse updateGatewayRouteTimeout(shared_ptr<UpdateGatewayRouteTimeoutRequest> request);
   UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatusWithOptions(shared_ptr<UpdateGatewayRouteWafStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayRouteWafStatusResponse updateGatewayRouteWafStatus(shared_ptr<UpdateGatewayRouteWafStatusRequest> request);
+  UpdateGatewayServiceCheckResponse updateGatewayServiceCheckWithOptions(shared_ptr<UpdateGatewayServiceCheckRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGatewayServiceCheckResponse updateGatewayServiceCheck(shared_ptr<UpdateGatewayServiceCheckRequest> request);
   UpdateGatewayServiceTrafficPolicyResponse updateGatewayServiceTrafficPolicyWithOptions(shared_ptr<UpdateGatewayServiceTrafficPolicyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateGatewayServiceTrafficPolicyResponse updateGatewayServiceTrafficPolicy(shared_ptr<UpdateGatewayServiceTrafficPolicyRequest> request);
   UpdateGatewayServiceVersionResponse updateGatewayServiceVersionWithOptions(shared_ptr<UpdateGatewayServiceVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
