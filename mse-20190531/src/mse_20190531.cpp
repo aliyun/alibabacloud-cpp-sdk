@@ -3920,6 +3920,9 @@ ImportServicesResponse Alibabacloud_Mse20190531::Client::importServicesWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fcAlias)) {
+    query->insert(pair<string, string>("FcAlias", *request->fcAlias));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fcServiceName)) {
     query->insert(pair<string, string>("FcServiceName", *request->fcServiceName));
   }

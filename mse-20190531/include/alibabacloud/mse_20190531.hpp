@@ -27884,6 +27884,7 @@ public:
 class ImportServicesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> fcAlias{};
   shared_ptr<string> fcServiceName{};
   shared_ptr<string> fcVersion{};
   shared_ptr<string> gatewayUniqueId{};
@@ -27903,6 +27904,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (fcAlias) {
+      res["FcAlias"] = boost::any(*fcAlias);
     }
     if (fcServiceName) {
       res["FcServiceName"] = boost::any(*fcServiceName);
@@ -27932,6 +27936,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("FcAlias") != m.end() && !m["FcAlias"].empty()) {
+      fcAlias = make_shared<string>(boost::any_cast<string>(m["FcAlias"]));
     }
     if (m.find("FcServiceName") != m.end() && !m["FcServiceName"].empty()) {
       fcServiceName = make_shared<string>(boost::any_cast<string>(m["FcServiceName"]));
@@ -27969,6 +27976,7 @@ public:
 class ImportServicesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> fcAlias{};
   shared_ptr<string> fcServiceName{};
   shared_ptr<string> fcVersion{};
   shared_ptr<string> gatewayUniqueId{};
@@ -27988,6 +27996,9 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (fcAlias) {
+      res["FcAlias"] = boost::any(*fcAlias);
     }
     if (fcServiceName) {
       res["FcServiceName"] = boost::any(*fcServiceName);
@@ -28013,6 +28024,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("FcAlias") != m.end() && !m["FcAlias"].empty()) {
+      fcAlias = make_shared<string>(boost::any_cast<string>(m["FcAlias"]));
     }
     if (m.find("FcServiceName") != m.end() && !m["FcServiceName"].empty()) {
       fcServiceName = make_shared<string>(boost::any_cast<string>(m["FcServiceName"]));
