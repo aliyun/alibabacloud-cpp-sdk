@@ -39290,6 +39290,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> ownerAccountId{};
   shared_ptr<string> type{};
+  shared_ptr<string> uuid{};
 
   ListServiceConnectionsResponseBodyServiceConnections() {}
 
@@ -39316,6 +39317,9 @@ public:
     if (type) {
       res["type"] = boost::any(*type);
     }
+    if (uuid) {
+      res["uuid"] = boost::any(*uuid);
+    }
     return res;
   }
 
@@ -39334,6 +39338,9 @@ public:
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("uuid") != m.end() && !m["uuid"].empty()) {
+      uuid = make_shared<string>(boost::any_cast<string>(m["uuid"]));
     }
   }
 
