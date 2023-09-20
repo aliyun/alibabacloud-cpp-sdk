@@ -1263,6 +1263,9 @@ DescribeDBInstanceErrorLogResponse Alibabacloud_Gpdb20160503::Client::describeDB
 DescribeDBInstanceIPArrayListResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanceIPArrayListWithOptions(shared_ptr<DescribeDBInstanceIPArrayListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceIPArrayName)) {
+    query->insert(pair<string, string>("DBInstanceIPArrayName", *request->DBInstanceIPArrayName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }

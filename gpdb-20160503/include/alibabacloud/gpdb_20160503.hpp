@@ -6581,6 +6581,7 @@ public:
 };
 class DescribeDBInstanceIPArrayListRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> DBInstanceIPArrayName{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> resourceGroupId{};
 
@@ -6594,6 +6595,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (DBInstanceIPArrayName) {
+      res["DBInstanceIPArrayName"] = boost::any(*DBInstanceIPArrayName);
+    }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
@@ -6604,6 +6608,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceIPArrayName") != m.end() && !m["DBInstanceIPArrayName"].empty()) {
+      DBInstanceIPArrayName = make_shared<string>(boost::any_cast<string>(m["DBInstanceIPArrayName"]));
+    }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
