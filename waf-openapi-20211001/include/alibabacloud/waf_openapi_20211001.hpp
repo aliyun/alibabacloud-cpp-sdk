@@ -2559,6 +2559,9 @@ public:
 };
 class DescribeDefenseResourcesResponseBodyResources : public Darabonba::Model {
 public:
+  shared_ptr<long> acwCookieStatus{};
+  shared_ptr<long> acwSecureStatus{};
+  shared_ptr<long> acwV3SecureStatus{};
   shared_ptr<vector<string>> customHeaders{};
   shared_ptr<string> description{};
   shared_ptr<map<string, boost::any>> detail{};
@@ -2582,6 +2585,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acwCookieStatus) {
+      res["AcwCookieStatus"] = boost::any(*acwCookieStatus);
+    }
+    if (acwSecureStatus) {
+      res["AcwSecureStatus"] = boost::any(*acwSecureStatus);
+    }
+    if (acwV3SecureStatus) {
+      res["AcwV3SecureStatus"] = boost::any(*acwV3SecureStatus);
+    }
     if (customHeaders) {
       res["CustomHeaders"] = boost::any(*customHeaders);
     }
@@ -2622,6 +2634,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcwCookieStatus") != m.end() && !m["AcwCookieStatus"].empty()) {
+      acwCookieStatus = make_shared<long>(boost::any_cast<long>(m["AcwCookieStatus"]));
+    }
+    if (m.find("AcwSecureStatus") != m.end() && !m["AcwSecureStatus"].empty()) {
+      acwSecureStatus = make_shared<long>(boost::any_cast<long>(m["AcwSecureStatus"]));
+    }
+    if (m.find("AcwV3SecureStatus") != m.end() && !m["AcwV3SecureStatus"].empty()) {
+      acwV3SecureStatus = make_shared<long>(boost::any_cast<long>(m["AcwV3SecureStatus"]));
+    }
     if (m.find("CustomHeaders") != m.end() && !m["CustomHeaders"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["CustomHeaders"].type()) {
@@ -3352,6 +3373,7 @@ public:
 class DescribeDefenseTemplateResponseBodyTemplate : public Darabonba::Model {
 public:
   shared_ptr<string> defenseScene{};
+  shared_ptr<string> defenseSubScene{};
   shared_ptr<string> description{};
   shared_ptr<long> gmtModified{};
   shared_ptr<long> templateId{};
@@ -3372,6 +3394,9 @@ public:
     map<string, boost::any> res;
     if (defenseScene) {
       res["DefenseScene"] = boost::any(*defenseScene);
+    }
+    if (defenseSubScene) {
+      res["DefenseSubScene"] = boost::any(*defenseSubScene);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -3400,6 +3425,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DefenseScene") != m.end() && !m["DefenseScene"].empty()) {
       defenseScene = make_shared<string>(boost::any_cast<string>(m["DefenseScene"]));
+    }
+    if (m.find("DefenseSubScene") != m.end() && !m["DefenseSubScene"].empty()) {
+      defenseSubScene = make_shared<string>(boost::any_cast<string>(m["DefenseSubScene"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -4847,8 +4875,11 @@ public:
   shared_ptr<long> index{};
   shared_ptr<long> maxPv{};
   shared_ptr<long> outBytes{};
+  shared_ptr<long> ratelimitBlockSum{};
+  shared_ptr<long> ratelimitReportSum{};
   shared_ptr<long> regionBlockBlocksSum{};
   shared_ptr<long> regionBlockReportsSum{};
+  shared_ptr<long> robotCount{};
   shared_ptr<long> wafBlockSum{};
   shared_ptr<string> wafReportSum{};
 
@@ -4913,11 +4944,20 @@ public:
     if (outBytes) {
       res["OutBytes"] = boost::any(*outBytes);
     }
+    if (ratelimitBlockSum) {
+      res["RatelimitBlockSum"] = boost::any(*ratelimitBlockSum);
+    }
+    if (ratelimitReportSum) {
+      res["RatelimitReportSum"] = boost::any(*ratelimitReportSum);
+    }
     if (regionBlockBlocksSum) {
       res["RegionBlockBlocksSum"] = boost::any(*regionBlockBlocksSum);
     }
     if (regionBlockReportsSum) {
       res["RegionBlockReportsSum"] = boost::any(*regionBlockReportsSum);
+    }
+    if (robotCount) {
+      res["RobotCount"] = boost::any(*robotCount);
     }
     if (wafBlockSum) {
       res["WafBlockSum"] = boost::any(*wafBlockSum);
@@ -4980,11 +5020,20 @@ public:
     if (m.find("OutBytes") != m.end() && !m["OutBytes"].empty()) {
       outBytes = make_shared<long>(boost::any_cast<long>(m["OutBytes"]));
     }
+    if (m.find("RatelimitBlockSum") != m.end() && !m["RatelimitBlockSum"].empty()) {
+      ratelimitBlockSum = make_shared<long>(boost::any_cast<long>(m["RatelimitBlockSum"]));
+    }
+    if (m.find("RatelimitReportSum") != m.end() && !m["RatelimitReportSum"].empty()) {
+      ratelimitReportSum = make_shared<long>(boost::any_cast<long>(m["RatelimitReportSum"]));
+    }
     if (m.find("RegionBlockBlocksSum") != m.end() && !m["RegionBlockBlocksSum"].empty()) {
       regionBlockBlocksSum = make_shared<long>(boost::any_cast<long>(m["RegionBlockBlocksSum"]));
     }
     if (m.find("RegionBlockReportsSum") != m.end() && !m["RegionBlockReportsSum"].empty()) {
       regionBlockReportsSum = make_shared<long>(boost::any_cast<long>(m["RegionBlockReportsSum"]));
+    }
+    if (m.find("RobotCount") != m.end() && !m["RobotCount"].empty()) {
+      robotCount = make_shared<long>(boost::any_cast<long>(m["RobotCount"]));
     }
     if (m.find("WafBlockSum") != m.end() && !m["WafBlockSum"].empty()) {
       wafBlockSum = make_shared<long>(boost::any_cast<long>(m["WafBlockSum"]));
@@ -12078,6 +12127,140 @@ public:
 
   virtual ~ModifyDomainResponse() = default;
 };
+class ModifyHybridCloudClusterBypassStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterResourceId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> ruleStatus{};
+
+  ModifyHybridCloudClusterBypassStatusRequest() {}
+
+  explicit ModifyHybridCloudClusterBypassStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterResourceId) {
+      res["ClusterResourceId"] = boost::any(*clusterResourceId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (ruleStatus) {
+      res["RuleStatus"] = boost::any(*ruleStatus);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterResourceId") != m.end() && !m["ClusterResourceId"].empty()) {
+      clusterResourceId = make_shared<string>(boost::any_cast<string>(m["ClusterResourceId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RuleStatus") != m.end() && !m["RuleStatus"].empty()) {
+      ruleStatus = make_shared<string>(boost::any_cast<string>(m["RuleStatus"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterBypassStatusRequest() = default;
+};
+class ModifyHybridCloudClusterBypassStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ModifyHybridCloudClusterBypassStatusResponseBody() {}
+
+  explicit ModifyHybridCloudClusterBypassStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterBypassStatusResponseBody() = default;
+};
+class ModifyHybridCloudClusterBypassStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyHybridCloudClusterBypassStatusResponseBody> body{};
+
+  ModifyHybridCloudClusterBypassStatusResponse() {}
+
+  explicit ModifyHybridCloudClusterBypassStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyHybridCloudClusterBypassStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyHybridCloudClusterBypassStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyHybridCloudClusterBypassStatusResponse() = default;
+};
 class ModifyMajorProtectionBlackIpRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -12703,6 +12886,8 @@ public:
   ModifyDefenseTemplateStatusResponse modifyDefenseTemplateStatus(shared_ptr<ModifyDefenseTemplateStatusRequest> request);
   ModifyDomainResponse modifyDomainWithOptions(shared_ptr<ModifyDomainRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDomainResponse modifyDomain(shared_ptr<ModifyDomainRequest> request);
+  ModifyHybridCloudClusterBypassStatusResponse modifyHybridCloudClusterBypassStatusWithOptions(shared_ptr<ModifyHybridCloudClusterBypassStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyHybridCloudClusterBypassStatusResponse modifyHybridCloudClusterBypassStatus(shared_ptr<ModifyHybridCloudClusterBypassStatusRequest> request);
   ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIpWithOptions(shared_ptr<ModifyMajorProtectionBlackIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyMajorProtectionBlackIpResponse modifyMajorProtectionBlackIp(shared_ptr<ModifyMajorProtectionBlackIpRequest> request);
   ModifyResourceLogStatusResponse modifyResourceLogStatusWithOptions(shared_ptr<ModifyResourceLogStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
