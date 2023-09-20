@@ -71578,6 +71578,7 @@ public:
   shared_ptr<long> departId{};
   shared_ptr<string> email{};
   shared_ptr<string> gender{};
+  shared_ptr<bool> isAdmin{};
   shared_ptr<string> jobNo{};
   shared_ptr<long> leaveStatus{};
   shared_ptr<string> managerUserId{};
@@ -71618,6 +71619,9 @@ public:
     }
     if (gender) {
       res["gender"] = boost::any(*gender);
+    }
+    if (isAdmin) {
+      res["is_admin"] = boost::any(*isAdmin);
     }
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
@@ -71680,6 +71684,9 @@ public:
     }
     if (m.find("gender") != m.end() && !m["gender"].empty()) {
       gender = make_shared<string>(boost::any_cast<string>(m["gender"]));
+    }
+    if (m.find("is_admin") != m.end() && !m["is_admin"].empty()) {
+      isAdmin = make_shared<bool>(boost::any_cast<bool>(m["is_admin"]));
     }
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
