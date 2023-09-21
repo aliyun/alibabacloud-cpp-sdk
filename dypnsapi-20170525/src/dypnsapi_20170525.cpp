@@ -39,6 +39,116 @@ string Alibabacloud_Dypnsapi20170525::Client::getEndpoint(shared_ptr<string> pro
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
+CheckSmsVerifyCodeResponse Alibabacloud_Dypnsapi20170525::Client::checkSmsVerifyCodeWithOptions(shared_ptr<CheckSmsVerifyCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->caseAuthPolicy)) {
+    query->insert(pair<string, long>("CaseAuthPolicy", *request->caseAuthPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->countryCode)) {
+    query->insert(pair<string, string>("CountryCode", *request->countryCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemeName)) {
+    query->insert(pair<string, string>("SchemeName", *request->schemeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verifyCode)) {
+    query->insert(pair<string, string>("VerifyCode", *request->verifyCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CheckSmsVerifyCode"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CheckSmsVerifyCodeResponse(callApi(params, req, runtime));
+}
+
+CheckSmsVerifyCodeResponse Alibabacloud_Dypnsapi20170525::Client::checkSmsVerifyCode(shared_ptr<CheckSmsVerifyCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return checkSmsVerifyCodeWithOptions(request, runtime);
+}
+
+CreateSchemeConfigResponse Alibabacloud_Dypnsapi20170525::Client::createSchemeConfigWithOptions(shared_ptr<CreateSchemeConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidPackageName)) {
+    query->insert(pair<string, string>("AndroidPackageName", *request->androidPackageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidPackageSign)) {
+    query->insert(pair<string, string>("AndroidPackageSign", *request->androidPackageSign));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->appName)) {
+    query->insert(pair<string, string>("AppName", *request->appName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->h5Origin)) {
+    query->insert(pair<string, string>("H5Origin", *request->h5Origin));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->h5Url)) {
+    query->insert(pair<string, string>("H5Url", *request->h5Url));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->iosBundleId)) {
+    query->insert(pair<string, string>("IosBundleId", *request->iosBundleId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->platform)) {
+    query->insert(pair<string, string>("Platform", *request->platform));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemeName)) {
+    query->insert(pair<string, string>("SchemeName", *request->schemeName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateSchemeConfig"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateSchemeConfigResponse(callApi(params, req, runtime));
+}
+
+CreateSchemeConfigResponse Alibabacloud_Dypnsapi20170525::Client::createSchemeConfig(shared_ptr<CreateSchemeConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createSchemeConfigWithOptions(request, runtime);
+}
+
 CreateVerifySchemeResponse Alibabacloud_Dypnsapi20170525::Client::createVerifySchemeWithOptions(shared_ptr<CreateVerifySchemeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -552,6 +662,131 @@ QueryGateVerifyStatisticPublicResponse Alibabacloud_Dypnsapi20170525::Client::qu
 QueryGateVerifyStatisticPublicResponse Alibabacloud_Dypnsapi20170525::Client::queryGateVerifyStatisticPublic(shared_ptr<QueryGateVerifyStatisticPublicRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return queryGateVerifyStatisticPublicWithOptions(request, runtime);
+}
+
+QuerySendDetailsResponse Alibabacloud_Dypnsapi20170525::Client::querySendDetailsWithOptions(shared_ptr<QuerySendDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("BizId", *request->bizId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sendDate)) {
+    query->insert(pair<string, string>("SendDate", *request->sendDate));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QuerySendDetails"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QuerySendDetailsResponse(callApi(params, req, runtime));
+}
+
+QuerySendDetailsResponse Alibabacloud_Dypnsapi20170525::Client::querySendDetails(shared_ptr<QuerySendDetailsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return querySendDetailsWithOptions(request, runtime);
+}
+
+SendSmsVerifyCodeResponse Alibabacloud_Dypnsapi20170525::Client::sendSmsVerifyCodeWithOptions(shared_ptr<SendSmsVerifyCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->codeLength)) {
+    query->insert(pair<string, long>("CodeLength", *request->codeLength));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->codeType)) {
+    query->insert(pair<string, long>("CodeType", *request->codeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->countryCode)) {
+    query->insert(pair<string, string>("CountryCode", *request->countryCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->duplicatePolicy)) {
+    query->insert(pair<string, long>("DuplicatePolicy", *request->duplicatePolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->interval)) {
+    query->insert(pair<string, long>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outId)) {
+    query->insert(pair<string, string>("OutId", *request->outId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->phoneNumber)) {
+    query->insert(pair<string, string>("PhoneNumber", *request->phoneNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->returnVerifyCode)) {
+    query->insert(pair<string, bool>("ReturnVerifyCode", *request->returnVerifyCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemeName)) {
+    query->insert(pair<string, string>("SchemeName", *request->schemeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->signName)) {
+    query->insert(pair<string, string>("SignName", *request->signName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->smsUpExtendCode)) {
+    query->insert(pair<string, string>("SmsUpExtendCode", *request->smsUpExtendCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateCode)) {
+    query->insert(pair<string, string>("TemplateCode", *request->templateCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateParam)) {
+    query->insert(pair<string, string>("TemplateParam", *request->templateParam));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->validTime)) {
+    query->insert(pair<string, long>("ValidTime", *request->validTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SendSmsVerifyCode"))},
+    {"version", boost::any(string("2017-05-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SendSmsVerifyCodeResponse(callApi(params, req, runtime));
+}
+
+SendSmsVerifyCodeResponse Alibabacloud_Dypnsapi20170525::Client::sendSmsVerifyCode(shared_ptr<SendSmsVerifyCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return sendSmsVerifyCodeWithOptions(request, runtime);
 }
 
 VerifyMobileResponse Alibabacloud_Dypnsapi20170525::Client::verifyMobileWithOptions(shared_ptr<VerifyMobileRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
