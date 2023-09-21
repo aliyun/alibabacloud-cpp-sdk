@@ -11951,6 +11951,9 @@ ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->attachTypes)) {
     query->insert(pair<string, string>("AttachTypes", *request->attachTypes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cveId)) {
+    query->insert(pair<string, string>("CveId", *request->cveId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dealed)) {
     query->insert(pair<string, string>("Dealed", *request->dealed));
   }
