@@ -174,6 +174,9 @@ CreateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::createSe
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->resellable)) {
+    query->insert(pair<string, bool>("Resellable", *request->resellable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -1136,6 +1139,9 @@ UpdateServiceResponse Alibabacloud_ComputeNestSupplier20210521::Client::updateSe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->resellable)) {
+    query->insert(pair<string, bool>("Resellable", *request->resellable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
     query->insert(pair<string, string>("ServiceId", *request->serviceId));

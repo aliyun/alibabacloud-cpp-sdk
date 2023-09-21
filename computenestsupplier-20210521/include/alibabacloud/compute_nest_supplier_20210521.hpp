@@ -900,6 +900,7 @@ public:
   shared_ptr<string> operationMetadata{};
   shared_ptr<string> policyNames{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> resellable{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
   shared_ptr<vector<CreateServiceRequestServiceInfo>> serviceInfo{};
@@ -958,6 +959,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellable) {
+      res["Resellable"] = boost::any(*resellable);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -1042,6 +1046,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Resellable") != m.end() && !m["Resellable"].empty()) {
+      resellable = make_shared<bool>(boost::any_cast<bool>(m["Resellable"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -3095,6 +3102,7 @@ public:
   shared_ptr<string> publishTime{};
   shared_ptr<string> registrationId{};
   shared_ptr<string> requestId{};
+  shared_ptr<bool> resellable{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceDocUrl{};
   shared_ptr<string> serviceId{};
@@ -3119,6 +3127,7 @@ public:
   shared_ptr<string> upgradeMetadata{};
   shared_ptr<string> version{};
   shared_ptr<string> versionName{};
+  shared_ptr<string> virtualInternetService{};
 
   GetServiceResponseBody() {}
 
@@ -3204,6 +3213,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resellable) {
+      res["Resellable"] = boost::any(*resellable);
+    }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
@@ -3283,6 +3295,9 @@ public:
     }
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
+    }
+    if (virtualInternetService) {
+      res["VirtualInternetService"] = boost::any(*virtualInternetService);
     }
     return res;
   }
@@ -3373,6 +3388,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Resellable") != m.end() && !m["Resellable"].empty()) {
+      resellable = make_shared<bool>(boost::any_cast<bool>(m["Resellable"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -3469,6 +3487,9 @@ public:
     }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+    if (m.find("VirtualInternetService") != m.end() && !m["VirtualInternetService"].empty()) {
+      virtualInternetService = make_shared<string>(boost::any_cast<string>(m["VirtualInternetService"]));
     }
   }
 
@@ -6914,11 +6935,21 @@ public:
 class ListServiceUsagesResponseBodyServiceUsagesUserInformation : public Darabonba::Model {
 public:
   shared_ptr<string> company{};
+  shared_ptr<string> contactEmail{};
+  shared_ptr<string> contactNumber{};
+  shared_ptr<string> contactPerson{};
+  shared_ptr<string> contactPersonTitle{};
   shared_ptr<string> country{};
   shared_ptr<string> emailAddress{};
   shared_ptr<string> industry{};
   shared_ptr<string> name{};
+  shared_ptr<string> productBusiness{};
+  shared_ptr<string> productDeliveryTypes{};
+  shared_ptr<string> productSellTypes{};
   shared_ptr<string> source{};
+  shared_ptr<string> supplierDesc{};
+  shared_ptr<string> supplierName{};
+  shared_ptr<string> supplierUrl{};
   shared_ptr<string> telephone{};
   shared_ptr<string> title{};
 
@@ -6935,6 +6966,18 @@ public:
     if (company) {
       res["Company"] = boost::any(*company);
     }
+    if (contactEmail) {
+      res["ContactEmail"] = boost::any(*contactEmail);
+    }
+    if (contactNumber) {
+      res["ContactNumber"] = boost::any(*contactNumber);
+    }
+    if (contactPerson) {
+      res["ContactPerson"] = boost::any(*contactPerson);
+    }
+    if (contactPersonTitle) {
+      res["ContactPersonTitle"] = boost::any(*contactPersonTitle);
+    }
     if (country) {
       res["Country"] = boost::any(*country);
     }
@@ -6947,8 +6990,26 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (productBusiness) {
+      res["ProductBusiness"] = boost::any(*productBusiness);
+    }
+    if (productDeliveryTypes) {
+      res["ProductDeliveryTypes"] = boost::any(*productDeliveryTypes);
+    }
+    if (productSellTypes) {
+      res["ProductSellTypes"] = boost::any(*productSellTypes);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
+    }
+    if (supplierDesc) {
+      res["SupplierDesc"] = boost::any(*supplierDesc);
+    }
+    if (supplierName) {
+      res["SupplierName"] = boost::any(*supplierName);
+    }
+    if (supplierUrl) {
+      res["SupplierUrl"] = boost::any(*supplierUrl);
     }
     if (telephone) {
       res["Telephone"] = boost::any(*telephone);
@@ -6963,6 +7024,18 @@ public:
     if (m.find("Company") != m.end() && !m["Company"].empty()) {
       company = make_shared<string>(boost::any_cast<string>(m["Company"]));
     }
+    if (m.find("ContactEmail") != m.end() && !m["ContactEmail"].empty()) {
+      contactEmail = make_shared<string>(boost::any_cast<string>(m["ContactEmail"]));
+    }
+    if (m.find("ContactNumber") != m.end() && !m["ContactNumber"].empty()) {
+      contactNumber = make_shared<string>(boost::any_cast<string>(m["ContactNumber"]));
+    }
+    if (m.find("ContactPerson") != m.end() && !m["ContactPerson"].empty()) {
+      contactPerson = make_shared<string>(boost::any_cast<string>(m["ContactPerson"]));
+    }
+    if (m.find("ContactPersonTitle") != m.end() && !m["ContactPersonTitle"].empty()) {
+      contactPersonTitle = make_shared<string>(boost::any_cast<string>(m["ContactPersonTitle"]));
+    }
     if (m.find("Country") != m.end() && !m["Country"].empty()) {
       country = make_shared<string>(boost::any_cast<string>(m["Country"]));
     }
@@ -6975,8 +7048,26 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("ProductBusiness") != m.end() && !m["ProductBusiness"].empty()) {
+      productBusiness = make_shared<string>(boost::any_cast<string>(m["ProductBusiness"]));
+    }
+    if (m.find("ProductDeliveryTypes") != m.end() && !m["ProductDeliveryTypes"].empty()) {
+      productDeliveryTypes = make_shared<string>(boost::any_cast<string>(m["ProductDeliveryTypes"]));
+    }
+    if (m.find("ProductSellTypes") != m.end() && !m["ProductSellTypes"].empty()) {
+      productSellTypes = make_shared<string>(boost::any_cast<string>(m["ProductSellTypes"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SupplierDesc") != m.end() && !m["SupplierDesc"].empty()) {
+      supplierDesc = make_shared<string>(boost::any_cast<string>(m["SupplierDesc"]));
+    }
+    if (m.find("SupplierName") != m.end() && !m["SupplierName"].empty()) {
+      supplierName = make_shared<string>(boost::any_cast<string>(m["SupplierName"]));
+    }
+    if (m.find("SupplierUrl") != m.end() && !m["SupplierUrl"].empty()) {
+      supplierUrl = make_shared<string>(boost::any_cast<string>(m["SupplierUrl"]));
     }
     if (m.find("Telephone") != m.end() && !m["Telephone"].empty()) {
       telephone = make_shared<string>(boost::any_cast<string>(m["Telephone"]));
@@ -7487,6 +7578,7 @@ public:
   shared_ptr<string> latestResellSourceServiceVersion{};
   shared_ptr<string> publishTime{};
   shared_ptr<string> relationType{};
+  shared_ptr<string> resellApplyStatus{};
   shared_ptr<string> resellServiceId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> serviceId{};
@@ -7506,6 +7598,7 @@ public:
   shared_ptr<string> updateTime{};
   shared_ptr<string> version{};
   shared_ptr<string> versionName{};
+  shared_ptr<string> virtualInternetService{};
 
   ListServicesResponseBodyServices() {}
 
@@ -7546,6 +7639,9 @@ public:
     }
     if (relationType) {
       res["RelationType"] = boost::any(*relationType);
+    }
+    if (resellApplyStatus) {
+      res["ResellApplyStatus"] = boost::any(*resellApplyStatus);
     }
     if (resellServiceId) {
       res["ResellServiceId"] = boost::any(*resellServiceId);
@@ -7612,6 +7708,9 @@ public:
     if (versionName) {
       res["VersionName"] = boost::any(*versionName);
     }
+    if (virtualInternetService) {
+      res["VirtualInternetService"] = boost::any(*virtualInternetService);
+    }
     return res;
   }
 
@@ -7645,6 +7744,9 @@ public:
     }
     if (m.find("RelationType") != m.end() && !m["RelationType"].empty()) {
       relationType = make_shared<string>(boost::any_cast<string>(m["RelationType"]));
+    }
+    if (m.find("ResellApplyStatus") != m.end() && !m["ResellApplyStatus"].empty()) {
+      resellApplyStatus = make_shared<string>(boost::any_cast<string>(m["ResellApplyStatus"]));
     }
     if (m.find("ResellServiceId") != m.end() && !m["ResellServiceId"].empty()) {
       resellServiceId = make_shared<string>(boost::any_cast<string>(m["ResellServiceId"]));
@@ -7722,6 +7824,9 @@ public:
     }
     if (m.find("VersionName") != m.end() && !m["VersionName"].empty()) {
       versionName = make_shared<string>(boost::any_cast<string>(m["VersionName"]));
+    }
+    if (m.find("VirtualInternetService") != m.end() && !m["VirtualInternetService"].empty()) {
+      virtualInternetService = make_shared<string>(boost::any_cast<string>(m["VirtualInternetService"]));
     }
   }
 
@@ -8866,6 +8971,7 @@ public:
   shared_ptr<string> operationMetadata{};
   shared_ptr<string> policyNames{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> resellable{};
   shared_ptr<string> serviceId{};
   shared_ptr<vector<UpdateServiceRequestServiceInfo>> serviceInfo{};
   shared_ptr<string> serviceType{};
@@ -8917,6 +9023,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resellable) {
+      res["Resellable"] = boost::any(*resellable);
     }
     if (serviceId) {
       res["ServiceId"] = boost::any(*serviceId);
@@ -8982,6 +9091,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Resellable") != m.end() && !m["Resellable"].empty()) {
+      resellable = make_shared<bool>(boost::any_cast<bool>(m["Resellable"]));
     }
     if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
       serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
