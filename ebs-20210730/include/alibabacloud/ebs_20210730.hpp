@@ -6170,6 +6170,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaGroupId{};
+  shared_ptr<bool> reverseReplicate{};
 
   ReprotectDiskReplicaGroupRequest() {}
 
@@ -6190,6 +6191,9 @@ public:
     if (replicaGroupId) {
       res["ReplicaGroupId"] = boost::any(*replicaGroupId);
     }
+    if (reverseReplicate) {
+      res["ReverseReplicate"] = boost::any(*reverseReplicate);
+    }
     return res;
   }
 
@@ -6202,6 +6206,9 @@ public:
     }
     if (m.find("ReplicaGroupId") != m.end() && !m["ReplicaGroupId"].empty()) {
       replicaGroupId = make_shared<string>(boost::any_cast<string>(m["ReplicaGroupId"]));
+    }
+    if (m.find("ReverseReplicate") != m.end() && !m["ReverseReplicate"].empty()) {
+      reverseReplicate = make_shared<bool>(boost::any_cast<bool>(m["ReverseReplicate"]));
     }
   }
 
@@ -6304,6 +6311,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> regionId{};
   shared_ptr<string> replicaPairId{};
+  shared_ptr<bool> reverseReplicate{};
 
   ReprotectDiskReplicaPairRequest() {}
 
@@ -6324,6 +6332,9 @@ public:
     if (replicaPairId) {
       res["ReplicaPairId"] = boost::any(*replicaPairId);
     }
+    if (reverseReplicate) {
+      res["ReverseReplicate"] = boost::any(*reverseReplicate);
+    }
     return res;
   }
 
@@ -6336,6 +6347,9 @@ public:
     }
     if (m.find("ReplicaPairId") != m.end() && !m["ReplicaPairId"].empty()) {
       replicaPairId = make_shared<string>(boost::any_cast<string>(m["ReplicaPairId"]));
+    }
+    if (m.find("ReverseReplicate") != m.end() && !m["ReverseReplicate"].empty()) {
+      reverseReplicate = make_shared<bool>(boost::any_cast<bool>(m["ReverseReplicate"]));
     }
   }
 

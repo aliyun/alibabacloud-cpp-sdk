@@ -1134,6 +1134,9 @@ ReprotectDiskReplicaGroupResponse Alibabacloud_Ebs20210730::Client::reprotectDis
   if (!Darabonba_Util::Client::isUnset<string>(request->replicaGroupId)) {
     query->insert(pair<string, string>("ReplicaGroupId", *request->replicaGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reverseReplicate)) {
+    query->insert(pair<string, bool>("ReverseReplicate", *request->reverseReplicate));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1167,6 +1170,9 @@ ReprotectDiskReplicaPairResponse Alibabacloud_Ebs20210730::Client::reprotectDisk
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->replicaPairId)) {
     query->insert(pair<string, string>("ReplicaPairId", *request->replicaPairId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->reverseReplicate)) {
+    query->insert(pair<string, bool>("ReverseReplicate", *request->reverseReplicate));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
