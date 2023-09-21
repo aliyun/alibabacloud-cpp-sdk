@@ -985,8 +985,10 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<vector<CreateClusterRequestComponents>> components{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<CreateClusterRequestNetworks> networks{};
+  shared_ptr<vector<string>> nimizVSwitches{};
   shared_ptr<vector<CreateClusterRequestNodeGroups>> nodeGroups{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateClusterRequestTag>> tag{};
@@ -1017,11 +1019,17 @@ public:
       }
       res["Components"] = boost::any(temp1);
     }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
+    }
     if (ignoreFailedNodeTasks) {
       res["IgnoreFailedNodeTasks"] = boost::any(*ignoreFailedNodeTasks);
     }
     if (networks) {
       res["Networks"] = networks ? boost::any(networks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (nimizVSwitches) {
+      res["NimizVSwitches"] = boost::any(*nimizVSwitches);
     }
     if (nodeGroups) {
       vector<boost::any> temp1;
@@ -1066,6 +1074,9 @@ public:
         components = make_shared<vector<CreateClusterRequestComponents>>(expect1);
       }
     }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
+    }
     if (m.find("IgnoreFailedNodeTasks") != m.end() && !m["IgnoreFailedNodeTasks"].empty()) {
       ignoreFailedNodeTasks = make_shared<bool>(boost::any_cast<bool>(m["IgnoreFailedNodeTasks"]));
     }
@@ -1075,6 +1086,16 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Networks"]));
         networks = make_shared<CreateClusterRequestNetworks>(model1);
       }
+    }
+    if (m.find("NimizVSwitches") != m.end() && !m["NimizVSwitches"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["NimizVSwitches"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["NimizVSwitches"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      nimizVSwitches = make_shared<vector<string>>(toVec1);
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       if (typeid(vector<boost::any>) == m["NodeGroups"].type()) {
@@ -1152,8 +1173,10 @@ public:
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> componentsShrink{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<string> networksShrink{};
+  shared_ptr<string> nimizVSwitchesShrink{};
   shared_ptr<string> nodeGroupsShrink{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<CreateClusterShrinkRequestTag>> tag{};
@@ -1180,11 +1203,17 @@ public:
     if (componentsShrink) {
       res["Components"] = boost::any(*componentsShrink);
     }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
+    }
     if (ignoreFailedNodeTasks) {
       res["IgnoreFailedNodeTasks"] = boost::any(*ignoreFailedNodeTasks);
     }
     if (networksShrink) {
       res["Networks"] = boost::any(*networksShrink);
+    }
+    if (nimizVSwitchesShrink) {
+      res["NimizVSwitches"] = boost::any(*nimizVSwitchesShrink);
     }
     if (nodeGroupsShrink) {
       res["NodeGroups"] = boost::any(*nodeGroupsShrink);
@@ -1215,11 +1244,17 @@ public:
     if (m.find("Components") != m.end() && !m["Components"].empty()) {
       componentsShrink = make_shared<string>(boost::any_cast<string>(m["Components"]));
     }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
+    }
     if (m.find("IgnoreFailedNodeTasks") != m.end() && !m["IgnoreFailedNodeTasks"].empty()) {
       ignoreFailedNodeTasks = make_shared<bool>(boost::any_cast<bool>(m["IgnoreFailedNodeTasks"]));
     }
     if (m.find("Networks") != m.end() && !m["Networks"].empty()) {
       networksShrink = make_shared<string>(boost::any_cast<string>(m["Networks"]));
+    }
+    if (m.find("NimizVSwitches") != m.end() && !m["NimizVSwitches"].empty()) {
+      nimizVSwitchesShrink = make_shared<string>(boost::any_cast<string>(m["NimizVSwitches"]));
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       nodeGroupsShrink = make_shared<string>(boost::any_cast<string>(m["NodeGroups"]));
@@ -1572,6 +1607,7 @@ public:
   shared_ptr<string> clusterType{};
   shared_ptr<vector<DescribeClusterResponseBodyComponents>> components{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<vector<DescribeClusterResponseBodyNetworks>> networks{};
   shared_ptr<long> nodeCount{};
   shared_ptr<long> nodeGroupCount{};
@@ -1613,6 +1649,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
     }
     if (networks) {
       vector<boost::any> temp1;
@@ -1676,6 +1715,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("Networks") != m.end() && !m["Networks"].empty()) {
       if (typeid(vector<boost::any>) == m["Networks"].type()) {
@@ -1867,6 +1909,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> hostname{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageName{};
   shared_ptr<string> machineType{};
@@ -1903,6 +1946,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -1959,6 +2005,9 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -3122,6 +3171,8 @@ public:
   shared_ptr<string> hostname{};
   shared_ptr<string> loginPassword{};
   shared_ptr<string> nodeId{};
+  shared_ptr<string> vSwitchId{};
+  shared_ptr<string> vpcId{};
 
   ExtendClusterRequestNodeGroupsNodes() {}
 
@@ -3142,6 +3193,12 @@ public:
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
+    if (vSwitchId) {
+      res["VSwitchId"] = boost::any(*vSwitchId);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -3154,6 +3211,12 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
+      vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 
@@ -3569,6 +3632,7 @@ public:
   shared_ptr<string> createTime{};
   shared_ptr<string> expiredTime{};
   shared_ptr<string> hostname{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<string> imageId{};
   shared_ptr<string> machineType{};
   shared_ptr<vector<ListClusterNodesResponseBodyNodesNetworks>> networks{};
@@ -3597,6 +3661,9 @@ public:
     }
     if (hostname) {
       res["Hostname"] = boost::any(*hostname);
+    }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
     }
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
@@ -3641,6 +3708,9 @@ public:
     }
     if (m.find("Hostname") != m.end() && !m["Hostname"].empty()) {
       hostname = make_shared<string>(boost::any_cast<string>(m["Hostname"]));
+    }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
@@ -3854,6 +3924,7 @@ public:
   shared_ptr<string> clusterType{};
   shared_ptr<boost::any> components{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<long> nodeCount{};
   shared_ptr<long> nodeGroupCount{};
   shared_ptr<string> operatingState{};
@@ -3889,6 +3960,9 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
     }
     if (nodeCount) {
       res["NodeCount"] = boost::any(*nodeCount);
@@ -3932,6 +4006,9 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("NodeCount") != m.end() && !m["NodeCount"].empty()) {
       nodeCount = make_shared<long>(boost::any_cast<long>(m["NodeCount"]));
@@ -4080,6 +4157,7 @@ public:
 };
 class ListFreeNodesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> hpnZone{};
   shared_ptr<string> machineType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
@@ -4094,6 +4172,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
+    }
     if (machineType) {
       res["MachineType"] = boost::any(*machineType);
     }
@@ -4107,6 +4188,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
+    }
     if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
       machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));
     }
@@ -4125,6 +4209,7 @@ class ListFreeNodesResponseBodyNodes : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<string> hpnZone{};
   shared_ptr<string> machineType{};
   shared_ptr<string> nodeId{};
   shared_ptr<string> sn{};
@@ -4145,6 +4230,9 @@ public:
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (hpnZone) {
+      res["HpnZone"] = boost::any(*hpnZone);
     }
     if (machineType) {
       res["MachineType"] = boost::any(*machineType);
@@ -4167,6 +4255,9 @@ public:
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("HpnZone") != m.end() && !m["HpnZone"].empty()) {
+      hpnZone = make_shared<string>(boost::any_cast<string>(m["HpnZone"]));
     }
     if (m.find("MachineType") != m.end() && !m["MachineType"].empty()) {
       machineType = make_shared<string>(boost::any_cast<string>(m["MachineType"]));

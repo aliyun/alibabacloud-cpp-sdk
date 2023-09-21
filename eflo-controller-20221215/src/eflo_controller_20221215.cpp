@@ -82,6 +82,9 @@ CreateClusterResponse Alibabacloud_Eflo-controller20221215::Client::createCluste
   if (!Darabonba_Util::Client::isUnset<CreateClusterRequestNetworks>(tmpReq->networks)) {
     request->networksShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->networks, make_shared<string>("Networks"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->nimizVSwitches)) {
+    request->nimizVSwitchesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nimizVSwitches, make_shared<string>("NimizVSwitches"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateClusterRequestNodeGroups>>(tmpReq->nodeGroups)) {
     request->nodeGroupsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->nodeGroups, make_shared<string>("NodeGroups"), make_shared<string>("json")));
   }
@@ -102,11 +105,17 @@ CreateClusterResponse Alibabacloud_Eflo-controller20221215::Client::createCluste
   if (!Darabonba_Util::Client::isUnset<string>(request->componentsShrink)) {
     body->insert(pair<string, string>("Components", *request->componentsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->hpnZone)) {
+    body->insert(pair<string, string>("HpnZone", *request->hpnZone));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->ignoreFailedNodeTasks)) {
     body->insert(pair<string, bool>("IgnoreFailedNodeTasks", *request->ignoreFailedNodeTasks));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networksShrink)) {
     body->insert(pair<string, string>("Networks", *request->networksShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nimizVSwitchesShrink)) {
+    body->insert(pair<string, string>("NimizVSwitches", *request->nimizVSwitchesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupsShrink)) {
     body->insert(pair<string, string>("NodeGroups", *request->nodeGroupsShrink));
@@ -430,6 +439,9 @@ ListClustersResponse Alibabacloud_Eflo-controller20221215::Client::listClusters(
 ListFreeNodesResponse Alibabacloud_Eflo-controller20221215::Client::listFreeNodesWithOptions(shared_ptr<ListFreeNodesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->hpnZone)) {
+    body->insert(pair<string, string>("HpnZone", *request->hpnZone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->machineType)) {
     body->insert(pair<string, string>("MachineType", *request->machineType));
   }
