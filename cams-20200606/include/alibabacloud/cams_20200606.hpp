@@ -9546,6 +9546,7 @@ public:
   shared_ptr<string> fallBackContent{};
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
+  shared_ptr<string> fallBackRule{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -9583,6 +9584,9 @@ public:
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
+    }
+    if (fallBackRule) {
+      res["FallBackRule"] = boost::any(*fallBackRule);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -9637,6 +9641,9 @@ public:
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
     }
+    if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
+      fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
+    }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
     }
@@ -9687,6 +9694,7 @@ public:
   shared_ptr<string> fallBackContent{};
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
+  shared_ptr<string> fallBackRule{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -9724,6 +9732,9 @@ public:
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
+    }
+    if (fallBackRule) {
+      res["FallBackRule"] = boost::any(*fallBackRule);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -9773,6 +9784,9 @@ public:
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
+    }
+    if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
+      fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
@@ -10064,6 +10078,7 @@ public:
   shared_ptr<string> fallBackContent{};
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
+  shared_ptr<string> fallBackRule{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -10113,6 +10128,9 @@ public:
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
+    }
+    if (fallBackRule) {
+      res["FallBackRule"] = boost::any(*fallBackRule);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -10186,6 +10204,9 @@ public:
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
+    }
+    if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
+      fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
@@ -10263,6 +10284,7 @@ public:
   shared_ptr<string> fallBackContent{};
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
+  shared_ptr<string> fallBackRule{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -10312,6 +10334,9 @@ public:
     }
     if (fallBackId) {
       res["FallBackId"] = boost::any(*fallBackId);
+    }
+    if (fallBackRule) {
+      res["FallBackRule"] = boost::any(*fallBackRule);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -10385,6 +10410,9 @@ public:
     }
     if (m.find("FallBackId") != m.end() && !m["FallBackId"].empty()) {
       fallBackId = make_shared<string>(boost::any_cast<string>(m["FallBackId"]));
+    }
+    if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
+      fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));

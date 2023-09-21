@@ -1403,6 +1403,9 @@ SendChatappMassMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMas
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
     body->insert(pair<string, string>("FallBackId", *request->fallBackId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
+    body->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
   }
@@ -1493,6 +1496,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackId)) {
     body->insert(pair<string, string>("FallBackId", *request->fallBackId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
+    body->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));
