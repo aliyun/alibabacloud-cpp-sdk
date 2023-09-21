@@ -12250,6 +12250,9 @@ public:
   shared_ptr<long> redirection{};
   shared_ptr<string> targetUrl{};
   shared_ptr<long> transmissionSize{};
+  shared_ptr<string> validateKeywords{};
+  shared_ptr<long> verifyWay{};
+  shared_ptr<string> whiteList{};
 
   CreateTimingSyntheticTaskRequestMonitorConfFileDownload() {}
 
@@ -12306,6 +12309,15 @@ public:
     if (transmissionSize) {
       res["TransmissionSize"] = boost::any(*transmissionSize);
     }
+    if (validateKeywords) {
+      res["ValidateKeywords"] = boost::any(*validateKeywords);
+    }
+    if (verifyWay) {
+      res["VerifyWay"] = boost::any(*verifyWay);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
     return res;
   }
 
@@ -12359,6 +12371,15 @@ public:
     }
     if (m.find("TransmissionSize") != m.end() && !m["TransmissionSize"].empty()) {
       transmissionSize = make_shared<long>(boost::any_cast<long>(m["TransmissionSize"]));
+    }
+    if (m.find("ValidateKeywords") != m.end() && !m["ValidateKeywords"].empty()) {
+      validateKeywords = make_shared<string>(boost::any_cast<string>(m["ValidateKeywords"]));
+    }
+    if (m.find("VerifyWay") != m.end() && !m["VerifyWay"].empty()) {
+      verifyWay = make_shared<long>(boost::any_cast<long>(m["VerifyWay"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
     }
   }
 
@@ -12578,19 +12599,102 @@ public:
 
   virtual ~CreateTimingSyntheticTaskRequestMonitorConfNetTCP() = default;
 };
+class CreateTimingSyntheticTaskRequestMonitorConfStream : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<long> playerType{};
+  shared_ptr<long> streamAddressType{};
+  shared_ptr<long> streamMonitorTimeout{};
+  shared_ptr<long> streamType{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> whiteList{};
+
+  CreateTimingSyntheticTaskRequestMonitorConfStream() {}
+
+  explicit CreateTimingSyntheticTaskRequestMonitorConfStream(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customHeaderContent) {
+      res["CustomHeaderContent"] = boost::any(*customHeaderContent);
+    }
+    if (playerType) {
+      res["PlayerType"] = boost::any(*playerType);
+    }
+    if (streamAddressType) {
+      res["StreamAddressType"] = boost::any(*streamAddressType);
+    }
+    if (streamMonitorTimeout) {
+      res["StreamMonitorTimeout"] = boost::any(*streamMonitorTimeout);
+    }
+    if (streamType) {
+      res["StreamType"] = boost::any(*streamType);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomHeaderContent") != m.end() && !m["CustomHeaderContent"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["CustomHeaderContent"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      customHeaderContent = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("PlayerType") != m.end() && !m["PlayerType"].empty()) {
+      playerType = make_shared<long>(boost::any_cast<long>(m["PlayerType"]));
+    }
+    if (m.find("StreamAddressType") != m.end() && !m["StreamAddressType"].empty()) {
+      streamAddressType = make_shared<long>(boost::any_cast<long>(m["StreamAddressType"]));
+    }
+    if (m.find("StreamMonitorTimeout") != m.end() && !m["StreamMonitorTimeout"].empty()) {
+      streamMonitorTimeout = make_shared<long>(boost::any_cast<long>(m["StreamMonitorTimeout"]));
+    }
+    if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
+      streamType = make_shared<long>(boost::any_cast<long>(m["StreamType"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
+    }
+  }
+
+
+  virtual ~CreateTimingSyntheticTaskRequestMonitorConfStream() = default;
+};
 class CreateTimingSyntheticTaskRequestMonitorConfWebsite : public Darabonba::Model {
 public:
   shared_ptr<long> automaticScrolling{};
   shared_ptr<long> customHeader{};
   shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<string> DNSHijackWhitelist{};
   shared_ptr<long> disableCache{};
   shared_ptr<long> disableCompression{};
+  shared_ptr<string> elementBlacklist{};
   shared_ptr<long> filterInvalidIP{};
+  shared_ptr<long> flowHijackJumpTimes{};
+  shared_ptr<string> flowHijackLogo{};
   shared_ptr<long> ignoreCertificateError{};
   shared_ptr<long> monitorTimeout{};
+  shared_ptr<string> pageTamper{};
   shared_ptr<long> redirection{};
   shared_ptr<long> slowElementThreshold{};
   shared_ptr<string> targetUrl{};
+  shared_ptr<string> verifyStringBlacklist{};
+  shared_ptr<string> verifyStringWhitelist{};
   shared_ptr<long> waitCompletionTime{};
 
   CreateTimingSyntheticTaskRequestMonitorConfWebsite() {}
@@ -12612,20 +12716,35 @@ public:
     if (customHeaderContent) {
       res["CustomHeaderContent"] = boost::any(*customHeaderContent);
     }
+    if (DNSHijackWhitelist) {
+      res["DNSHijackWhitelist"] = boost::any(*DNSHijackWhitelist);
+    }
     if (disableCache) {
       res["DisableCache"] = boost::any(*disableCache);
     }
     if (disableCompression) {
       res["DisableCompression"] = boost::any(*disableCompression);
     }
+    if (elementBlacklist) {
+      res["ElementBlacklist"] = boost::any(*elementBlacklist);
+    }
     if (filterInvalidIP) {
       res["FilterInvalidIP"] = boost::any(*filterInvalidIP);
+    }
+    if (flowHijackJumpTimes) {
+      res["FlowHijackJumpTimes"] = boost::any(*flowHijackJumpTimes);
+    }
+    if (flowHijackLogo) {
+      res["FlowHijackLogo"] = boost::any(*flowHijackLogo);
     }
     if (ignoreCertificateError) {
       res["IgnoreCertificateError"] = boost::any(*ignoreCertificateError);
     }
     if (monitorTimeout) {
       res["MonitorTimeout"] = boost::any(*monitorTimeout);
+    }
+    if (pageTamper) {
+      res["PageTamper"] = boost::any(*pageTamper);
     }
     if (redirection) {
       res["Redirection"] = boost::any(*redirection);
@@ -12635,6 +12754,12 @@ public:
     }
     if (targetUrl) {
       res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (verifyStringBlacklist) {
+      res["VerifyStringBlacklist"] = boost::any(*verifyStringBlacklist);
+    }
+    if (verifyStringWhitelist) {
+      res["VerifyStringWhitelist"] = boost::any(*verifyStringWhitelist);
     }
     if (waitCompletionTime) {
       res["WaitCompletionTime"] = boost::any(*waitCompletionTime);
@@ -12657,20 +12782,35 @@ public:
       }
       customHeaderContent = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("DNSHijackWhitelist") != m.end() && !m["DNSHijackWhitelist"].empty()) {
+      DNSHijackWhitelist = make_shared<string>(boost::any_cast<string>(m["DNSHijackWhitelist"]));
+    }
     if (m.find("DisableCache") != m.end() && !m["DisableCache"].empty()) {
       disableCache = make_shared<long>(boost::any_cast<long>(m["DisableCache"]));
     }
     if (m.find("DisableCompression") != m.end() && !m["DisableCompression"].empty()) {
       disableCompression = make_shared<long>(boost::any_cast<long>(m["DisableCompression"]));
     }
+    if (m.find("ElementBlacklist") != m.end() && !m["ElementBlacklist"].empty()) {
+      elementBlacklist = make_shared<string>(boost::any_cast<string>(m["ElementBlacklist"]));
+    }
     if (m.find("FilterInvalidIP") != m.end() && !m["FilterInvalidIP"].empty()) {
       filterInvalidIP = make_shared<long>(boost::any_cast<long>(m["FilterInvalidIP"]));
+    }
+    if (m.find("FlowHijackJumpTimes") != m.end() && !m["FlowHijackJumpTimes"].empty()) {
+      flowHijackJumpTimes = make_shared<long>(boost::any_cast<long>(m["FlowHijackJumpTimes"]));
+    }
+    if (m.find("FlowHijackLogo") != m.end() && !m["FlowHijackLogo"].empty()) {
+      flowHijackLogo = make_shared<string>(boost::any_cast<string>(m["FlowHijackLogo"]));
     }
     if (m.find("IgnoreCertificateError") != m.end() && !m["IgnoreCertificateError"].empty()) {
       ignoreCertificateError = make_shared<long>(boost::any_cast<long>(m["IgnoreCertificateError"]));
     }
     if (m.find("MonitorTimeout") != m.end() && !m["MonitorTimeout"].empty()) {
       monitorTimeout = make_shared<long>(boost::any_cast<long>(m["MonitorTimeout"]));
+    }
+    if (m.find("PageTamper") != m.end() && !m["PageTamper"].empty()) {
+      pageTamper = make_shared<string>(boost::any_cast<string>(m["PageTamper"]));
     }
     if (m.find("Redirection") != m.end() && !m["Redirection"].empty()) {
       redirection = make_shared<long>(boost::any_cast<long>(m["Redirection"]));
@@ -12680,6 +12820,12 @@ public:
     }
     if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
       targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("VerifyStringBlacklist") != m.end() && !m["VerifyStringBlacklist"].empty()) {
+      verifyStringBlacklist = make_shared<string>(boost::any_cast<string>(m["VerifyStringBlacklist"]));
+    }
+    if (m.find("VerifyStringWhitelist") != m.end() && !m["VerifyStringWhitelist"].empty()) {
+      verifyStringWhitelist = make_shared<string>(boost::any_cast<string>(m["VerifyStringWhitelist"]));
     }
     if (m.find("WaitCompletionTime") != m.end() && !m["WaitCompletionTime"].empty()) {
       waitCompletionTime = make_shared<long>(boost::any_cast<long>(m["WaitCompletionTime"]));
@@ -12696,6 +12842,7 @@ public:
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfNetDNS> netDNS{};
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfNetICMP> netICMP{};
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfNetTCP> netTCP{};
+  shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfStream> stream{};
   shared_ptr<CreateTimingSyntheticTaskRequestMonitorConfWebsite> website{};
 
   CreateTimingSyntheticTaskRequestMonitorConf() {}
@@ -12722,6 +12869,9 @@ public:
     }
     if (netTCP) {
       res["NetTCP"] = netTCP ? boost::any(netTCP->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stream) {
+      res["Stream"] = stream ? boost::any(stream->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (website) {
       res["Website"] = website ? boost::any(website->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12763,6 +12913,13 @@ public:
         CreateTimingSyntheticTaskRequestMonitorConfNetTCP model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetTCP"]));
         netTCP = make_shared<CreateTimingSyntheticTaskRequestMonitorConfNetTCP>(model1);
+      }
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Stream"].type()) {
+        CreateTimingSyntheticTaskRequestMonitorConfStream model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Stream"]));
+        stream = make_shared<CreateTimingSyntheticTaskRequestMonitorConfStream>(model1);
       }
     }
     if (m.find("Website") != m.end() && !m["Website"].empty()) {
@@ -29521,6 +29678,9 @@ public:
   shared_ptr<long> redirection{};
   shared_ptr<string> targetUrl{};
   shared_ptr<long> transmissionSize{};
+  shared_ptr<string> validateKeywords{};
+  shared_ptr<long> verifyWay{};
+  shared_ptr<string> whiteList{};
 
   GetTimingSyntheticTaskResponseBodyDataMonitorConfFileDownload() {}
 
@@ -29577,6 +29737,15 @@ public:
     if (transmissionSize) {
       res["TransmissionSize"] = boost::any(*transmissionSize);
     }
+    if (validateKeywords) {
+      res["ValidateKeywords"] = boost::any(*validateKeywords);
+    }
+    if (verifyWay) {
+      res["VerifyWay"] = boost::any(*verifyWay);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
     return res;
   }
 
@@ -29630,6 +29799,15 @@ public:
     }
     if (m.find("TransmissionSize") != m.end() && !m["TransmissionSize"].empty()) {
       transmissionSize = make_shared<long>(boost::any_cast<long>(m["TransmissionSize"]));
+    }
+    if (m.find("ValidateKeywords") != m.end() && !m["ValidateKeywords"].empty()) {
+      validateKeywords = make_shared<string>(boost::any_cast<string>(m["ValidateKeywords"]));
+    }
+    if (m.find("VerifyWay") != m.end() && !m["VerifyWay"].empty()) {
+      verifyWay = make_shared<long>(boost::any_cast<long>(m["VerifyWay"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
     }
   }
 
@@ -29849,19 +30027,102 @@ public:
 
   virtual ~GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP() = default;
 };
+class GetTimingSyntheticTaskResponseBodyDataMonitorConfStream : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<long> playerType{};
+  shared_ptr<long> streamAddressType{};
+  shared_ptr<long> streamMonitorTimeout{};
+  shared_ptr<long> streamType{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> whiteList{};
+
+  GetTimingSyntheticTaskResponseBodyDataMonitorConfStream() {}
+
+  explicit GetTimingSyntheticTaskResponseBodyDataMonitorConfStream(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customHeaderContent) {
+      res["CustomHeaderContent"] = boost::any(*customHeaderContent);
+    }
+    if (playerType) {
+      res["PlayerType"] = boost::any(*playerType);
+    }
+    if (streamAddressType) {
+      res["StreamAddressType"] = boost::any(*streamAddressType);
+    }
+    if (streamMonitorTimeout) {
+      res["StreamMonitorTimeout"] = boost::any(*streamMonitorTimeout);
+    }
+    if (streamType) {
+      res["StreamType"] = boost::any(*streamType);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomHeaderContent") != m.end() && !m["CustomHeaderContent"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["CustomHeaderContent"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      customHeaderContent = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("PlayerType") != m.end() && !m["PlayerType"].empty()) {
+      playerType = make_shared<long>(boost::any_cast<long>(m["PlayerType"]));
+    }
+    if (m.find("StreamAddressType") != m.end() && !m["StreamAddressType"].empty()) {
+      streamAddressType = make_shared<long>(boost::any_cast<long>(m["StreamAddressType"]));
+    }
+    if (m.find("StreamMonitorTimeout") != m.end() && !m["StreamMonitorTimeout"].empty()) {
+      streamMonitorTimeout = make_shared<long>(boost::any_cast<long>(m["StreamMonitorTimeout"]));
+    }
+    if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
+      streamType = make_shared<long>(boost::any_cast<long>(m["StreamType"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
+    }
+  }
+
+
+  virtual ~GetTimingSyntheticTaskResponseBodyDataMonitorConfStream() = default;
+};
 class GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite : public Darabonba::Model {
 public:
   shared_ptr<long> automaticScrolling{};
   shared_ptr<long> customHeader{};
   shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<string> DNSHijackWhitelist{};
   shared_ptr<long> disableCache{};
   shared_ptr<long> disableCompression{};
+  shared_ptr<string> elementBlacklist{};
   shared_ptr<long> filterInvalidIP{};
+  shared_ptr<long> flowHijackJumpTimes{};
+  shared_ptr<string> flowHijackLogo{};
   shared_ptr<long> ignoreCertificateError{};
   shared_ptr<long> monitorTimeout{};
+  shared_ptr<string> pageTamper{};
   shared_ptr<long> redirection{};
   shared_ptr<long> slowElementThreshold{};
   shared_ptr<string> targetUrl{};
+  shared_ptr<string> verifyStringBlacklist{};
+  shared_ptr<string> verifyStringWhitelist{};
   shared_ptr<long> waitCompletionTime{};
 
   GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite() {}
@@ -29883,20 +30144,35 @@ public:
     if (customHeaderContent) {
       res["CustomHeaderContent"] = boost::any(*customHeaderContent);
     }
+    if (DNSHijackWhitelist) {
+      res["DNSHijackWhitelist"] = boost::any(*DNSHijackWhitelist);
+    }
     if (disableCache) {
       res["DisableCache"] = boost::any(*disableCache);
     }
     if (disableCompression) {
       res["DisableCompression"] = boost::any(*disableCompression);
     }
+    if (elementBlacklist) {
+      res["ElementBlacklist"] = boost::any(*elementBlacklist);
+    }
     if (filterInvalidIP) {
       res["FilterInvalidIP"] = boost::any(*filterInvalidIP);
+    }
+    if (flowHijackJumpTimes) {
+      res["FlowHijackJumpTimes"] = boost::any(*flowHijackJumpTimes);
+    }
+    if (flowHijackLogo) {
+      res["FlowHijackLogo"] = boost::any(*flowHijackLogo);
     }
     if (ignoreCertificateError) {
       res["IgnoreCertificateError"] = boost::any(*ignoreCertificateError);
     }
     if (monitorTimeout) {
       res["MonitorTimeout"] = boost::any(*monitorTimeout);
+    }
+    if (pageTamper) {
+      res["PageTamper"] = boost::any(*pageTamper);
     }
     if (redirection) {
       res["Redirection"] = boost::any(*redirection);
@@ -29906,6 +30182,12 @@ public:
     }
     if (targetUrl) {
       res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (verifyStringBlacklist) {
+      res["VerifyStringBlacklist"] = boost::any(*verifyStringBlacklist);
+    }
+    if (verifyStringWhitelist) {
+      res["VerifyStringWhitelist"] = boost::any(*verifyStringWhitelist);
     }
     if (waitCompletionTime) {
       res["WaitCompletionTime"] = boost::any(*waitCompletionTime);
@@ -29928,20 +30210,35 @@ public:
       }
       customHeaderContent = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("DNSHijackWhitelist") != m.end() && !m["DNSHijackWhitelist"].empty()) {
+      DNSHijackWhitelist = make_shared<string>(boost::any_cast<string>(m["DNSHijackWhitelist"]));
+    }
     if (m.find("DisableCache") != m.end() && !m["DisableCache"].empty()) {
       disableCache = make_shared<long>(boost::any_cast<long>(m["DisableCache"]));
     }
     if (m.find("DisableCompression") != m.end() && !m["DisableCompression"].empty()) {
       disableCompression = make_shared<long>(boost::any_cast<long>(m["DisableCompression"]));
     }
+    if (m.find("ElementBlacklist") != m.end() && !m["ElementBlacklist"].empty()) {
+      elementBlacklist = make_shared<string>(boost::any_cast<string>(m["ElementBlacklist"]));
+    }
     if (m.find("FilterInvalidIP") != m.end() && !m["FilterInvalidIP"].empty()) {
       filterInvalidIP = make_shared<long>(boost::any_cast<long>(m["FilterInvalidIP"]));
+    }
+    if (m.find("FlowHijackJumpTimes") != m.end() && !m["FlowHijackJumpTimes"].empty()) {
+      flowHijackJumpTimes = make_shared<long>(boost::any_cast<long>(m["FlowHijackJumpTimes"]));
+    }
+    if (m.find("FlowHijackLogo") != m.end() && !m["FlowHijackLogo"].empty()) {
+      flowHijackLogo = make_shared<string>(boost::any_cast<string>(m["FlowHijackLogo"]));
     }
     if (m.find("IgnoreCertificateError") != m.end() && !m["IgnoreCertificateError"].empty()) {
       ignoreCertificateError = make_shared<long>(boost::any_cast<long>(m["IgnoreCertificateError"]));
     }
     if (m.find("MonitorTimeout") != m.end() && !m["MonitorTimeout"].empty()) {
       monitorTimeout = make_shared<long>(boost::any_cast<long>(m["MonitorTimeout"]));
+    }
+    if (m.find("PageTamper") != m.end() && !m["PageTamper"].empty()) {
+      pageTamper = make_shared<string>(boost::any_cast<string>(m["PageTamper"]));
     }
     if (m.find("Redirection") != m.end() && !m["Redirection"].empty()) {
       redirection = make_shared<long>(boost::any_cast<long>(m["Redirection"]));
@@ -29951,6 +30248,12 @@ public:
     }
     if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
       targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("VerifyStringBlacklist") != m.end() && !m["VerifyStringBlacklist"].empty()) {
+      verifyStringBlacklist = make_shared<string>(boost::any_cast<string>(m["VerifyStringBlacklist"]));
+    }
+    if (m.find("VerifyStringWhitelist") != m.end() && !m["VerifyStringWhitelist"].empty()) {
+      verifyStringWhitelist = make_shared<string>(boost::any_cast<string>(m["VerifyStringWhitelist"]));
     }
     if (m.find("WaitCompletionTime") != m.end() && !m["WaitCompletionTime"].empty()) {
       waitCompletionTime = make_shared<long>(boost::any_cast<long>(m["WaitCompletionTime"]));
@@ -29967,6 +30270,7 @@ public:
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfNetDNS> netDNS{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfNetICMP> netICMP{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP> netTCP{};
+  shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfStream> stream{};
   shared_ptr<GetTimingSyntheticTaskResponseBodyDataMonitorConfWebsite> website{};
 
   GetTimingSyntheticTaskResponseBodyDataMonitorConf() {}
@@ -29993,6 +30297,9 @@ public:
     }
     if (netTCP) {
       res["NetTCP"] = netTCP ? boost::any(netTCP->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stream) {
+      res["Stream"] = stream ? boost::any(stream->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (website) {
       res["Website"] = website ? boost::any(website->toMap()) : boost::any(map<string,boost::any>({}));
@@ -30034,6 +30341,13 @@ public:
         GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetTCP"]));
         netTCP = make_shared<GetTimingSyntheticTaskResponseBodyDataMonitorConfNetTCP>(model1);
+      }
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Stream"].type()) {
+        GetTimingSyntheticTaskResponseBodyDataMonitorConfStream model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Stream"]));
+        stream = make_shared<GetTimingSyntheticTaskResponseBodyDataMonitorConfStream>(model1);
       }
     }
     if (m.find("Website") != m.end() && !m["Website"].empty()) {
@@ -52579,6 +52893,9 @@ public:
   shared_ptr<long> redirection{};
   shared_ptr<string> targetUrl{};
   shared_ptr<long> transmissionSize{};
+  shared_ptr<string> validateKeywords{};
+  shared_ptr<long> verifyWay{};
+  shared_ptr<string> whiteList{};
 
   UpdateTimingSyntheticTaskRequestMonitorConfFileDownload() {}
 
@@ -52635,6 +52952,15 @@ public:
     if (transmissionSize) {
       res["TransmissionSize"] = boost::any(*transmissionSize);
     }
+    if (validateKeywords) {
+      res["ValidateKeywords"] = boost::any(*validateKeywords);
+    }
+    if (verifyWay) {
+      res["VerifyWay"] = boost::any(*verifyWay);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
     return res;
   }
 
@@ -52688,6 +53014,15 @@ public:
     }
     if (m.find("TransmissionSize") != m.end() && !m["TransmissionSize"].empty()) {
       transmissionSize = make_shared<long>(boost::any_cast<long>(m["TransmissionSize"]));
+    }
+    if (m.find("ValidateKeywords") != m.end() && !m["ValidateKeywords"].empty()) {
+      validateKeywords = make_shared<string>(boost::any_cast<string>(m["ValidateKeywords"]));
+    }
+    if (m.find("VerifyWay") != m.end() && !m["VerifyWay"].empty()) {
+      verifyWay = make_shared<long>(boost::any_cast<long>(m["VerifyWay"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
     }
   }
 
@@ -52919,14 +53254,21 @@ public:
   shared_ptr<long> automaticScrolling{};
   shared_ptr<long> customHeader{};
   shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<string> DNSHijackWhitelist{};
   shared_ptr<long> disableCache{};
   shared_ptr<long> disableCompression{};
+  shared_ptr<string> elementBlacklist{};
   shared_ptr<long> filterInvalidIP{};
+  shared_ptr<long> flowHijackJumpTimes{};
+  shared_ptr<string> flowHijackLogo{};
   shared_ptr<long> ignoreCertificateError{};
   shared_ptr<long> monitorTimeout{};
+  shared_ptr<string> pageTamper{};
   shared_ptr<long> redirection{};
   shared_ptr<long> slowElementThreshold{};
   shared_ptr<string> targetUrl{};
+  shared_ptr<string> verifyStringBlacklist{};
+  shared_ptr<string> verifyStringWhitelist{};
   shared_ptr<long> waitCompletionTime{};
 
   UpdateTimingSyntheticTaskRequestMonitorConfWebsite() {}
@@ -52948,20 +53290,35 @@ public:
     if (customHeaderContent) {
       res["CustomHeaderContent"] = boost::any(*customHeaderContent);
     }
+    if (DNSHijackWhitelist) {
+      res["DNSHijackWhitelist"] = boost::any(*DNSHijackWhitelist);
+    }
     if (disableCache) {
       res["DisableCache"] = boost::any(*disableCache);
     }
     if (disableCompression) {
       res["DisableCompression"] = boost::any(*disableCompression);
     }
+    if (elementBlacklist) {
+      res["ElementBlacklist"] = boost::any(*elementBlacklist);
+    }
     if (filterInvalidIP) {
       res["FilterInvalidIP"] = boost::any(*filterInvalidIP);
+    }
+    if (flowHijackJumpTimes) {
+      res["FlowHijackJumpTimes"] = boost::any(*flowHijackJumpTimes);
+    }
+    if (flowHijackLogo) {
+      res["FlowHijackLogo"] = boost::any(*flowHijackLogo);
     }
     if (ignoreCertificateError) {
       res["IgnoreCertificateError"] = boost::any(*ignoreCertificateError);
     }
     if (monitorTimeout) {
       res["MonitorTimeout"] = boost::any(*monitorTimeout);
+    }
+    if (pageTamper) {
+      res["PageTamper"] = boost::any(*pageTamper);
     }
     if (redirection) {
       res["Redirection"] = boost::any(*redirection);
@@ -52971,6 +53328,12 @@ public:
     }
     if (targetUrl) {
       res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (verifyStringBlacklist) {
+      res["VerifyStringBlacklist"] = boost::any(*verifyStringBlacklist);
+    }
+    if (verifyStringWhitelist) {
+      res["VerifyStringWhitelist"] = boost::any(*verifyStringWhitelist);
     }
     if (waitCompletionTime) {
       res["WaitCompletionTime"] = boost::any(*waitCompletionTime);
@@ -52993,20 +53356,35 @@ public:
       }
       customHeaderContent = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("DNSHijackWhitelist") != m.end() && !m["DNSHijackWhitelist"].empty()) {
+      DNSHijackWhitelist = make_shared<string>(boost::any_cast<string>(m["DNSHijackWhitelist"]));
+    }
     if (m.find("DisableCache") != m.end() && !m["DisableCache"].empty()) {
       disableCache = make_shared<long>(boost::any_cast<long>(m["DisableCache"]));
     }
     if (m.find("DisableCompression") != m.end() && !m["DisableCompression"].empty()) {
       disableCompression = make_shared<long>(boost::any_cast<long>(m["DisableCompression"]));
     }
+    if (m.find("ElementBlacklist") != m.end() && !m["ElementBlacklist"].empty()) {
+      elementBlacklist = make_shared<string>(boost::any_cast<string>(m["ElementBlacklist"]));
+    }
     if (m.find("FilterInvalidIP") != m.end() && !m["FilterInvalidIP"].empty()) {
       filterInvalidIP = make_shared<long>(boost::any_cast<long>(m["FilterInvalidIP"]));
+    }
+    if (m.find("FlowHijackJumpTimes") != m.end() && !m["FlowHijackJumpTimes"].empty()) {
+      flowHijackJumpTimes = make_shared<long>(boost::any_cast<long>(m["FlowHijackJumpTimes"]));
+    }
+    if (m.find("FlowHijackLogo") != m.end() && !m["FlowHijackLogo"].empty()) {
+      flowHijackLogo = make_shared<string>(boost::any_cast<string>(m["FlowHijackLogo"]));
     }
     if (m.find("IgnoreCertificateError") != m.end() && !m["IgnoreCertificateError"].empty()) {
       ignoreCertificateError = make_shared<long>(boost::any_cast<long>(m["IgnoreCertificateError"]));
     }
     if (m.find("MonitorTimeout") != m.end() && !m["MonitorTimeout"].empty()) {
       monitorTimeout = make_shared<long>(boost::any_cast<long>(m["MonitorTimeout"]));
+    }
+    if (m.find("PageTamper") != m.end() && !m["PageTamper"].empty()) {
+      pageTamper = make_shared<string>(boost::any_cast<string>(m["PageTamper"]));
     }
     if (m.find("Redirection") != m.end() && !m["Redirection"].empty()) {
       redirection = make_shared<long>(boost::any_cast<long>(m["Redirection"]));
@@ -53016,6 +53394,12 @@ public:
     }
     if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
       targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("VerifyStringBlacklist") != m.end() && !m["VerifyStringBlacklist"].empty()) {
+      verifyStringBlacklist = make_shared<string>(boost::any_cast<string>(m["VerifyStringBlacklist"]));
+    }
+    if (m.find("VerifyStringWhitelist") != m.end() && !m["VerifyStringWhitelist"].empty()) {
+      verifyStringWhitelist = make_shared<string>(boost::any_cast<string>(m["VerifyStringWhitelist"]));
     }
     if (m.find("WaitCompletionTime") != m.end() && !m["WaitCompletionTime"].empty()) {
       waitCompletionTime = make_shared<long>(boost::any_cast<long>(m["WaitCompletionTime"]));
