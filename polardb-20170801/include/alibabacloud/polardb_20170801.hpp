@@ -27577,8 +27577,11 @@ class ModifyDBClusterServerlessConfRequest : public Darabonba::Model {
 public:
   shared_ptr<string> allowShutDown{};
   shared_ptr<string> DBClusterId{};
+  shared_ptr<bool> fromTimeService{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> plannedEndTime{};
+  shared_ptr<string> plannedStartTime{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> scaleMax{};
@@ -27603,11 +27606,20 @@ public:
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
+    if (fromTimeService) {
+      res["FromTimeService"] = boost::any(*fromTimeService);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (plannedEndTime) {
+      res["PlannedEndTime"] = boost::any(*plannedEndTime);
+    }
+    if (plannedStartTime) {
+      res["PlannedStartTime"] = boost::any(*plannedStartTime);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -27640,11 +27652,20 @@ public:
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
+    if (m.find("FromTimeService") != m.end() && !m["FromTimeService"].empty()) {
+      fromTimeService = make_shared<bool>(boost::any_cast<bool>(m["FromTimeService"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PlannedEndTime") != m.end() && !m["PlannedEndTime"].empty()) {
+      plannedEndTime = make_shared<string>(boost::any_cast<string>(m["PlannedEndTime"]));
+    }
+    if (m.find("PlannedStartTime") != m.end() && !m["PlannedStartTime"].empty()) {
+      plannedStartTime = make_shared<string>(boost::any_cast<string>(m["PlannedStartTime"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));

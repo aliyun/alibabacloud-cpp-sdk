@@ -5511,11 +5511,20 @@ ModifyDBClusterServerlessConfResponse Alibabacloud_Polardb20170801::Client::modi
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->fromTimeService)) {
+    query->insert(pair<string, bool>("FromTimeService", *request->fromTimeService));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedEndTime)) {
+    query->insert(pair<string, string>("PlannedEndTime", *request->plannedEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->plannedStartTime)) {
+    query->insert(pair<string, string>("PlannedStartTime", *request->plannedStartTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
