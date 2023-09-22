@@ -42589,6 +42589,7 @@ public:
   shared_ptr<string> identifier{};
   shared_ptr<string> iotInstanceId{};
   shared_ptr<string> productKey{};
+  shared_ptr<long> qos{};
 
   InvokeThingsServiceRequest() {}
 
@@ -42615,6 +42616,9 @@ public:
     if (productKey) {
       res["ProductKey"] = boost::any(*productKey);
     }
+    if (qos) {
+      res["Qos"] = boost::any(*qos);
+    }
     return res;
   }
 
@@ -42640,6 +42644,9 @@ public:
     }
     if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
       productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("Qos") != m.end() && !m["Qos"].empty()) {
+      qos = make_shared<long>(boost::any_cast<long>(m["Qos"]));
     }
   }
 
@@ -87423,6 +87430,161 @@ public:
 
   virtual ~ResetConsumerGroupPositionResponse() = default;
 };
+class ResetDeviceTimelineRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> deviceName{};
+  shared_ptr<string> iotInstanceId{};
+  shared_ptr<string> productKey{};
+
+  ResetDeviceTimelineRequest() {}
+
+  explicit ResetDeviceTimelineRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deviceName) {
+      res["DeviceName"] = boost::any(*deviceName);
+    }
+    if (iotInstanceId) {
+      res["IotInstanceId"] = boost::any(*iotInstanceId);
+    }
+    if (productKey) {
+      res["ProductKey"] = boost::any(*productKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DeviceName") != m.end() && !m["DeviceName"].empty()) {
+      deviceName = make_shared<string>(boost::any_cast<string>(m["DeviceName"]));
+    }
+    if (m.find("IotInstanceId") != m.end() && !m["IotInstanceId"].empty()) {
+      iotInstanceId = make_shared<string>(boost::any_cast<string>(m["IotInstanceId"]));
+    }
+    if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
+      productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+  }
+
+
+  virtual ~ResetDeviceTimelineRequest() = default;
+};
+class ResetDeviceTimelineResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ResetDeviceTimelineResponseBody() {}
+
+  explicit ResetDeviceTimelineResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ResetDeviceTimelineResponseBody() = default;
+};
+class ResetDeviceTimelineResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ResetDeviceTimelineResponseBody> body{};
+
+  ResetDeviceTimelineResponse() {}
+
+  explicit ResetDeviceTimelineResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ResetDeviceTimelineResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ResetDeviceTimelineResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ResetDeviceTimelineResponse() = default;
+};
 class ResetThingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> deviceName{};
@@ -88833,6 +88995,7 @@ public:
   shared_ptr<string> iotInstanceId{};
   shared_ptr<string> items{};
   shared_ptr<string> productKey{};
+  shared_ptr<long> qos{};
 
   SetDevicesPropertyRequest() {}
 
@@ -88856,6 +89019,9 @@ public:
     if (productKey) {
       res["ProductKey"] = boost::any(*productKey);
     }
+    if (qos) {
+      res["Qos"] = boost::any(*qos);
+    }
     return res;
   }
 
@@ -88878,6 +89044,9 @@ public:
     }
     if (m.find("ProductKey") != m.end() && !m["ProductKey"].empty()) {
       productKey = make_shared<string>(boost::any_cast<string>(m["ProductKey"]));
+    }
+    if (m.find("Qos") != m.end() && !m["Qos"].empty()) {
+      qos = make_shared<long>(boost::any_cast<long>(m["Qos"]));
     }
   }
 
@@ -99205,6 +99374,8 @@ public:
   RerunJobResponse rerunJob(shared_ptr<RerunJobRequest> request);
   ResetConsumerGroupPositionResponse resetConsumerGroupPositionWithOptions(shared_ptr<ResetConsumerGroupPositionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetConsumerGroupPositionResponse resetConsumerGroupPosition(shared_ptr<ResetConsumerGroupPositionRequest> request);
+  ResetDeviceTimelineResponse resetDeviceTimelineWithOptions(shared_ptr<ResetDeviceTimelineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ResetDeviceTimelineResponse resetDeviceTimeline(shared_ptr<ResetDeviceTimelineRequest> request);
   ResetThingResponse resetThingWithOptions(shared_ptr<ResetThingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResetThingResponse resetThing(shared_ptr<ResetThingRequest> request);
   RetrySoundCodeLabelBatchResponse retrySoundCodeLabelBatchWithOptions(shared_ptr<RetrySoundCodeLabelBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
