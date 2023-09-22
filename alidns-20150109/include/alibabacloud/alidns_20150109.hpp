@@ -13263,6 +13263,7 @@ public:
 };
 class DescribeDnsProductInstancesResponseBodyDnsProductsDnsProduct : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoRenewal{};
   shared_ptr<long> bindCount{};
   shared_ptr<long> bindDomainCount{};
   shared_ptr<long> bindDomainUsedCount{};
@@ -13306,6 +13307,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRenewal) {
+      res["AutoRenewal"] = boost::any(*autoRenewal);
+    }
     if (bindCount) {
       res["BindCount"] = boost::any(*bindCount);
     }
@@ -13406,6 +13410,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRenewal") != m.end() && !m["AutoRenewal"].empty()) {
+      autoRenewal = make_shared<bool>(boost::any_cast<bool>(m["AutoRenewal"]));
+    }
     if (m.find("BindCount") != m.end() && !m["BindCount"].empty()) {
       bindCount = make_shared<long>(boost::any_cast<long>(m["BindCount"]));
     }
@@ -15771,6 +15778,7 @@ public:
   shared_ptr<string> requestId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> slaveDns{};
+  shared_ptr<bool> subDomain{};
   shared_ptr<string> versionCode{};
   shared_ptr<string> versionName{};
 
@@ -15846,6 +15854,9 @@ public:
     }
     if (slaveDns) {
       res["SlaveDns"] = boost::any(*slaveDns);
+    }
+    if (subDomain) {
+      res["SubDomain"] = boost::any(*subDomain);
     }
     if (versionCode) {
       res["VersionCode"] = boost::any(*versionCode);
@@ -15931,6 +15942,9 @@ public:
     }
     if (m.find("SlaveDns") != m.end() && !m["SlaveDns"].empty()) {
       slaveDns = make_shared<bool>(boost::any_cast<bool>(m["SlaveDns"]));
+    }
+    if (m.find("SubDomain") != m.end() && !m["SubDomain"].empty()) {
+      subDomain = make_shared<bool>(boost::any_cast<bool>(m["SubDomain"]));
     }
     if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
       versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
@@ -16930,6 +16944,7 @@ public:
 };
 class DescribeDomainRecordsResponseBodyDomainRecordsRecord : public Darabonba::Model {
 public:
+  shared_ptr<long> createTimestamp{};
   shared_ptr<string> domainName{};
   shared_ptr<string> line{};
   shared_ptr<bool> locked{};
@@ -16940,6 +16955,7 @@ public:
   shared_ptr<string> status{};
   shared_ptr<long> TTL{};
   shared_ptr<string> type{};
+  shared_ptr<long> updateTimestamp{};
   shared_ptr<string> value{};
   shared_ptr<long> weight{};
 
@@ -16953,6 +16969,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTimestamp) {
+      res["CreateTimestamp"] = boost::any(*createTimestamp);
+    }
     if (domainName) {
       res["DomainName"] = boost::any(*domainName);
     }
@@ -16983,6 +17002,9 @@ public:
     if (type) {
       res["Type"] = boost::any(*type);
     }
+    if (updateTimestamp) {
+      res["UpdateTimestamp"] = boost::any(*updateTimestamp);
+    }
     if (value) {
       res["Value"] = boost::any(*value);
     }
@@ -16993,6 +17015,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTimestamp") != m.end() && !m["CreateTimestamp"].empty()) {
+      createTimestamp = make_shared<long>(boost::any_cast<long>(m["CreateTimestamp"]));
+    }
     if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
       domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
     }
@@ -17022,6 +17047,9 @@ public:
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+    if (m.find("UpdateTimestamp") != m.end() && !m["UpdateTimestamp"].empty()) {
+      updateTimestamp = make_shared<long>(boost::any_cast<long>(m["UpdateTimestamp"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
