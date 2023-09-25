@@ -396,6 +396,12 @@ CreateDBClusterResponse Alibabacloud_Adb20211201::Client::createDBCluster(shared
 CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResourceGroupWithOptions(shared_ptr<CreateDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
+    query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSizeResource)) {
+    query->insert(pair<string, string>("ClusterSizeResource", *request->clusterSizeResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
@@ -405,8 +411,14 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->groupType)) {
     query->insert(pair<string, string>("GroupType", *request->groupType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxClusterCount)) {
+    query->insert(pair<string, long>("MaxClusterCount", *request->maxClusterCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
     query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
+    query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
@@ -3777,6 +3789,12 @@ ModifyDBClusterMaintainTimeResponse Alibabacloud_Adb20211201::Client::modifyDBCl
 ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResourceGroupWithOptions(shared_ptr<ModifyDBResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterMode)) {
+    query->insert(pair<string, string>("ClusterMode", *request->clusterMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSizeResource)) {
+    query->insert(pair<string, string>("ClusterSizeResource", *request->clusterSizeResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
@@ -3786,8 +3804,14 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->groupType)) {
     query->insert(pair<string, string>("GroupType", *request->groupType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxClusterCount)) {
+    query->insert(pair<string, long>("MaxClusterCount", *request->maxClusterCount));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->maxComputeResource)) {
     query->insert(pair<string, string>("MaxComputeResource", *request->maxComputeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->minClusterCount)) {
+    query->insert(pair<string, long>("MinClusterCount", *request->minClusterCount));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));

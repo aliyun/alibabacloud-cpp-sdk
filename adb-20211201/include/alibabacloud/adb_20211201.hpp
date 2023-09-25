@@ -3372,10 +3372,14 @@ public:
 };
 class CreateDBResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
 
   CreateDBResourceGroupRequest() {}
@@ -3388,6 +3392,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -3397,8 +3407,14 @@ public:
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
     }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
@@ -3407,6 +3423,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
@@ -3416,8 +3438,14 @@ public:
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
     }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
@@ -10898,13 +10926,18 @@ public:
 };
 class DescribeDBResourceGroupResponseBodyGroupsInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> createTime{};
   shared_ptr<string> elasticMinComputeResource{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
   shared_ptr<string> groupUsers{};
+  shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<long> runningClusterCount{};
   shared_ptr<string> status{};
   shared_ptr<string> updateTime{};
 
@@ -10918,6 +10951,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -10933,11 +10972,20 @@ public:
     if (groupUsers) {
       res["GroupUsers"] = boost::any(*groupUsers);
     }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
     }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
+    }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
+    }
+    if (runningClusterCount) {
+      res["RunningClusterCount"] = boost::any(*runningClusterCount);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -10949,6 +10997,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -10964,11 +11018,20 @@ public:
     if (m.find("GroupUsers") != m.end() && !m["GroupUsers"].empty()) {
       groupUsers = make_shared<string>(boost::any_cast<string>(m["GroupUsers"]));
     }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
     }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
+    }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("RunningClusterCount") != m.end() && !m["RunningClusterCount"].empty()) {
+      runningClusterCount = make_shared<long>(boost::any_cast<long>(m["RunningClusterCount"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -23180,10 +23243,14 @@ public:
 };
 class ModifyDBResourceGroupRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterMode{};
+  shared_ptr<string> clusterSizeResource{};
   shared_ptr<string> DBClusterId{};
   shared_ptr<string> groupName{};
   shared_ptr<string> groupType{};
+  shared_ptr<long> maxClusterCount{};
   shared_ptr<string> maxComputeResource{};
+  shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
 
   ModifyDBResourceGroupRequest() {}
@@ -23196,6 +23263,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterMode) {
+      res["ClusterMode"] = boost::any(*clusterMode);
+    }
+    if (clusterSizeResource) {
+      res["ClusterSizeResource"] = boost::any(*clusterSizeResource);
+    }
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
     }
@@ -23205,8 +23278,14 @@ public:
     if (groupType) {
       res["GroupType"] = boost::any(*groupType);
     }
+    if (maxClusterCount) {
+      res["MaxClusterCount"] = boost::any(*maxClusterCount);
+    }
     if (maxComputeResource) {
       res["MaxComputeResource"] = boost::any(*maxComputeResource);
+    }
+    if (minClusterCount) {
+      res["MinClusterCount"] = boost::any(*minClusterCount);
     }
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
@@ -23215,6 +23294,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterMode") != m.end() && !m["ClusterMode"].empty()) {
+      clusterMode = make_shared<string>(boost::any_cast<string>(m["ClusterMode"]));
+    }
+    if (m.find("ClusterSizeResource") != m.end() && !m["ClusterSizeResource"].empty()) {
+      clusterSizeResource = make_shared<string>(boost::any_cast<string>(m["ClusterSizeResource"]));
+    }
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
@@ -23224,8 +23309,14 @@ public:
     if (m.find("GroupType") != m.end() && !m["GroupType"].empty()) {
       groupType = make_shared<string>(boost::any_cast<string>(m["GroupType"]));
     }
+    if (m.find("MaxClusterCount") != m.end() && !m["MaxClusterCount"].empty()) {
+      maxClusterCount = make_shared<long>(boost::any_cast<long>(m["MaxClusterCount"]));
+    }
     if (m.find("MaxComputeResource") != m.end() && !m["MaxComputeResource"].empty()) {
       maxComputeResource = make_shared<string>(boost::any_cast<string>(m["MaxComputeResource"]));
+    }
+    if (m.find("MinClusterCount") != m.end() && !m["MinClusterCount"].empty()) {
+      minClusterCount = make_shared<long>(boost::any_cast<long>(m["MinClusterCount"]));
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
