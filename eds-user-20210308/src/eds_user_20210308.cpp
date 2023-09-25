@@ -257,6 +257,9 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->excludeEndUserIds)) {
     body->insert(pair<string, vector<string>>("ExcludeEndUserIds", *request->excludeEndUserIds));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    body->insert(pair<string, string>("GroupId", *request->groupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
     body->insert(pair<string, string>("OrgId", *request->orgId));
   }
@@ -344,6 +347,34 @@ FilterUsersResponse Alibabacloud_Eds-user20210308::Client::filterUsersWithOption
 FilterUsersResponse Alibabacloud_Eds-user20210308::Client::filterUsers(shared_ptr<FilterUsersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return filterUsersWithOptions(request, runtime);
+}
+
+GetManagerInfoByAuthCodeResponse Alibabacloud_Eds-user20210308::Client::getManagerInfoByAuthCodeWithOptions(shared_ptr<GetManagerInfoByAuthCodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->authCode)) {
+    query->insert(pair<string, string>("AuthCode", *request->authCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetManagerInfoByAuthCode"))},
+    {"version", boost::any(string("2021-03-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetManagerInfoByAuthCodeResponse(callApi(params, req, runtime));
+}
+
+GetManagerInfoByAuthCodeResponse Alibabacloud_Eds-user20210308::Client::getManagerInfoByAuthCode(shared_ptr<GetManagerInfoByAuthCodeRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getManagerInfoByAuthCodeWithOptions(request, runtime);
 }
 
 ListPropertyResponse Alibabacloud_Eds-user20210308::Client::listPropertyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
