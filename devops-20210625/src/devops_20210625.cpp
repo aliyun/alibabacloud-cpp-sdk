@@ -818,6 +818,47 @@ CreateProtectdBranchResponse Alibabacloud_Devops20210625::Client::createProtectd
   return createProtectdBranchWithOptions(repositoryId, request, headers, runtime);
 }
 
+CreatePushRuleResponse Alibabacloud_Devops20210625::Client::createPushRuleWithOptions(shared_ptr<string> repositoryId,
+                                                                                      shared_ptr<CreatePushRuleRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<CreatePushRuleRequestRuleInfos>>(request->ruleInfos)) {
+    body->insert(pair<string, vector<CreatePushRuleRequestRuleInfos>>("ruleInfos", *request->ruleInfos));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreatePushRule"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/push_rule"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreatePushRuleResponse(callApi(params, req, runtime));
+}
+
+CreatePushRuleResponse Alibabacloud_Devops20210625::Client::createPushRule(shared_ptr<string> repositoryId, shared_ptr<CreatePushRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return createPushRuleWithOptions(repositoryId, request, headers, runtime);
+}
+
 CreateRepositoryResponse Alibabacloud_Devops20210625::Client::createRepositoryWithOptions(shared_ptr<CreateRepositoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2089,6 +2130,43 @@ DeleteProtectedBranchResponse Alibabacloud_Devops20210625::Client::deleteProtect
   return deleteProtectedBranchWithOptions(repositoryId, protectedBranchId, request, headers, runtime);
 }
 
+DeletePushRuleResponse Alibabacloud_Devops20210625::Client::deletePushRuleWithOptions(shared_ptr<string> repositoryId,
+                                                                                      shared_ptr<string> pushRuleId,
+                                                                                      shared_ptr<DeletePushRuleRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeletePushRule"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/push_rule/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(pushRuleId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeletePushRuleResponse(callApi(params, req, runtime));
+}
+
+DeletePushRuleResponse Alibabacloud_Devops20210625::Client::deletePushRule(shared_ptr<string> repositoryId, shared_ptr<string> pushRuleId, shared_ptr<DeletePushRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return deletePushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
+}
+
 DeleteRepositoryResponse Alibabacloud_Devops20210625::Client::deleteRepositoryWithOptions(shared_ptr<string> repositoryId,
                                                                                           shared_ptr<DeleteRepositoryRequest> request,
                                                                                           shared_ptr<map<string, string>> headers,
@@ -2827,6 +2905,39 @@ GetFlowTagGroupResponse Alibabacloud_Devops20210625::Client::getFlowTagGroup(sha
   return getFlowTagGroupWithOptions(organizationId, id, headers, runtime);
 }
 
+GetGroupByPathResponse Alibabacloud_Devops20210625::Client::getGroupByPathWithOptions(shared_ptr<GetGroupByPathRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->identity)) {
+    query->insert(pair<string, string>("identity", *request->identity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetGroupByPath"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/4/groups/find_by_path"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetGroupByPathResponse(callApi(params, req, runtime));
+}
+
+GetGroupByPathResponse Alibabacloud_Devops20210625::Client::getGroupByPath(shared_ptr<GetGroupByPathRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getGroupByPathWithOptions(request, headers, runtime);
+}
+
 GetGroupDetailResponse Alibabacloud_Devops20210625::Client::getGroupDetailWithOptions(shared_ptr<GetGroupDetailRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3209,6 +3320,43 @@ GetProjectMemberResponse Alibabacloud_Devops20210625::Client::getProjectMember(s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return getProjectMemberWithOptions(repositoryId, aliyunPk, request, headers, runtime);
+}
+
+GetPushRuleResponse Alibabacloud_Devops20210625::Client::getPushRuleWithOptions(shared_ptr<string> repositoryId,
+                                                                                shared_ptr<string> pushRuleId,
+                                                                                shared_ptr<GetPushRuleRequest> request,
+                                                                                shared_ptr<map<string, string>> headers,
+                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPushRule"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/push_rule/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(pushRuleId)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPushRuleResponse(callApi(params, req, runtime));
+}
+
+GetPushRuleResponse Alibabacloud_Devops20210625::Client::getPushRule(shared_ptr<string> repositoryId, shared_ptr<string> pushRuleId, shared_ptr<GetPushRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getPushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
 }
 
 GetRepositoryResponse Alibabacloud_Devops20210625::Client::getRepositoryWithOptions(shared_ptr<GetRepositoryRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -4641,6 +4789,42 @@ ListProtectedBranchesResponse Alibabacloud_Devops20210625::Client::listProtected
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listProtectedBranchesWithOptions(repositoryId, request, headers, runtime);
+}
+
+ListPushRulesResponse Alibabacloud_Devops20210625::Client::listPushRulesWithOptions(shared_ptr<string> repositoryId,
+                                                                                    shared_ptr<ListPushRulesRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListPushRules"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/push_rule/push_rules/list"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListPushRulesResponse(callApi(params, req, runtime));
+}
+
+ListPushRulesResponse Alibabacloud_Devops20210625::Client::listPushRules(shared_ptr<string> repositoryId, shared_ptr<ListPushRulesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listPushRulesWithOptions(repositoryId, request, headers, runtime);
 }
 
 ListRepositoriesResponse Alibabacloud_Devops20210625::Client::listRepositoriesWithOptions(shared_ptr<ListRepositoriesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7163,6 +7347,48 @@ UpdatePushReviewOnOffResponse Alibabacloud_Devops20210625::Client::updatePushRev
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return updatePushReviewOnOffWithOptions(repositoryId, request, headers, runtime);
+}
+
+UpdatePushRuleResponse Alibabacloud_Devops20210625::Client::updatePushRuleWithOptions(shared_ptr<string> repositoryId,
+                                                                                      shared_ptr<string> pushRuleId,
+                                                                                      shared_ptr<UpdatePushRuleRequest> request,
+                                                                                      shared_ptr<map<string, string>> headers,
+                                                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessToken)) {
+    query->insert(pair<string, string>("accessToken", *request->accessToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->organizationId)) {
+    query->insert(pair<string, string>("organizationId", *request->organizationId));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<UpdatePushRuleRequestRuleInfos>>(request->ruleInfos)) {
+    body->insert(pair<string, vector<UpdatePushRuleRequestRuleInfos>>("ruleInfos", *request->ruleInfos));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdatePushRule"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v4/projects/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(repositoryId)) + string("/push_rule/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(pushRuleId)))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdatePushRuleResponse(callApi(params, req, runtime));
+}
+
+UpdatePushRuleResponse Alibabacloud_Devops20210625::Client::updatePushRule(shared_ptr<string> repositoryId, shared_ptr<string> pushRuleId, shared_ptr<UpdatePushRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return updatePushRuleWithOptions(repositoryId, pushRuleId, request, headers, runtime);
 }
 
 UpdateRepositoryResponse Alibabacloud_Devops20210625::Client::updateRepositoryWithOptions(shared_ptr<string> repositoryId,
