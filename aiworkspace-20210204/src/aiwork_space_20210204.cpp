@@ -1058,6 +1058,9 @@ GetMemberResponse Alibabacloud_AIWorkSpace20210204::Client::getMemberWithOptions
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->memberId)) {
+    query->insert(pair<string, string>("MemberId", *request->memberId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     query->insert(pair<string, string>("UserId", *request->userId));
   }

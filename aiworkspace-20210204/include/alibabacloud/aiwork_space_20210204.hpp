@@ -5683,6 +5683,7 @@ public:
 };
 class GetMemberRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> memberId{};
   shared_ptr<string> userId{};
 
   GetMemberRequest() {}
@@ -5695,6 +5696,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (memberId) {
+      res["MemberId"] = boost::any(*memberId);
+    }
     if (userId) {
       res["UserId"] = boost::any(*userId);
     }
@@ -5702,6 +5706,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
+      memberId = make_shared<string>(boost::any_cast<string>(m["MemberId"]));
+    }
     if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["UserId"]));
     }
