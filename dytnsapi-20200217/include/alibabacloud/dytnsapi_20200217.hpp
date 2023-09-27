@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_DYTNSAPI20200217_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -93,9 +92,46 @@ public:
 
   virtual ~CompanyFourElementsVerificationRequest() = default;
 };
+class CompanyFourElementsVerificationResponseBodyDataDetailInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> enterpriseStatus{};
+  shared_ptr<string> openTime{};
+
+  CompanyFourElementsVerificationResponseBodyDataDetailInfo() {}
+
+  explicit CompanyFourElementsVerificationResponseBodyDataDetailInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enterpriseStatus) {
+      res["EnterpriseStatus"] = boost::any(*enterpriseStatus);
+    }
+    if (openTime) {
+      res["OpenTime"] = boost::any(*openTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnterpriseStatus") != m.end() && !m["EnterpriseStatus"].empty()) {
+      enterpriseStatus = make_shared<string>(boost::any_cast<string>(m["EnterpriseStatus"]));
+    }
+    if (m.find("OpenTime") != m.end() && !m["OpenTime"].empty()) {
+      openTime = make_shared<string>(boost::any_cast<string>(m["OpenTime"]));
+    }
+  }
+
+
+  virtual ~CompanyFourElementsVerificationResponseBodyDataDetailInfo() = default;
+};
 class CompanyFourElementsVerificationResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> detailInfo{};
+  shared_ptr<CompanyFourElementsVerificationResponseBodyDataDetailInfo> detailInfo{};
+  shared_ptr<vector<string>> inconsistentData{};
   shared_ptr<long> reasonCode{};
   shared_ptr<string> verifyResult{};
 
@@ -110,7 +146,10 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (detailInfo) {
-      res["DetailInfo"] = boost::any(*detailInfo);
+      res["DetailInfo"] = detailInfo ? boost::any(detailInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (inconsistentData) {
+      res["InconsistentData"] = boost::any(*inconsistentData);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -123,12 +162,21 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DetailInfo"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DetailInfo"].type()) {
+        CompanyFourElementsVerificationResponseBodyDataDetailInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetailInfo"]));
+        detailInfo = make_shared<CompanyFourElementsVerificationResponseBodyDataDetailInfo>(model1);
       }
-      detailInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("InconsistentData") != m.end() && !m["InconsistentData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InconsistentData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InconsistentData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inconsistentData = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<long>(boost::any_cast<long>(m["ReasonCode"]));
@@ -335,9 +383,46 @@ public:
 
   virtual ~CompanyThreeElementsVerificationRequest() = default;
 };
+class CompanyThreeElementsVerificationResponseBodyDataDetailInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> enterpriseStatus{};
+  shared_ptr<string> openTime{};
+
+  CompanyThreeElementsVerificationResponseBodyDataDetailInfo() {}
+
+  explicit CompanyThreeElementsVerificationResponseBodyDataDetailInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enterpriseStatus) {
+      res["EnterpriseStatus"] = boost::any(*enterpriseStatus);
+    }
+    if (openTime) {
+      res["OpenTime"] = boost::any(*openTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnterpriseStatus") != m.end() && !m["EnterpriseStatus"].empty()) {
+      enterpriseStatus = make_shared<string>(boost::any_cast<string>(m["EnterpriseStatus"]));
+    }
+    if (m.find("OpenTime") != m.end() && !m["OpenTime"].empty()) {
+      openTime = make_shared<string>(boost::any_cast<string>(m["OpenTime"]));
+    }
+  }
+
+
+  virtual ~CompanyThreeElementsVerificationResponseBodyDataDetailInfo() = default;
+};
 class CompanyThreeElementsVerificationResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> detailInfo{};
+  shared_ptr<CompanyThreeElementsVerificationResponseBodyDataDetailInfo> detailInfo{};
+  shared_ptr<vector<string>> inconsistentData{};
   shared_ptr<long> reasonCode{};
   shared_ptr<string> verifyResult{};
 
@@ -352,7 +437,10 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (detailInfo) {
-      res["DetailInfo"] = boost::any(*detailInfo);
+      res["DetailInfo"] = detailInfo ? boost::any(detailInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (inconsistentData) {
+      res["InconsistentData"] = boost::any(*inconsistentData);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -365,12 +453,21 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DetailInfo"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DetailInfo"].type()) {
+        CompanyThreeElementsVerificationResponseBodyDataDetailInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetailInfo"]));
+        detailInfo = make_shared<CompanyThreeElementsVerificationResponseBodyDataDetailInfo>(model1);
       }
-      detailInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("InconsistentData") != m.end() && !m["InconsistentData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InconsistentData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InconsistentData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inconsistentData = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<long>(boost::any_cast<long>(m["ReasonCode"]));
@@ -570,9 +667,46 @@ public:
 
   virtual ~CompanyTwoElementsVerificationRequest() = default;
 };
+class CompanyTwoElementsVerificationResponseBodyDataDetailInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> enterpriseStatus{};
+  shared_ptr<string> openTime{};
+
+  CompanyTwoElementsVerificationResponseBodyDataDetailInfo() {}
+
+  explicit CompanyTwoElementsVerificationResponseBodyDataDetailInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enterpriseStatus) {
+      res["EnterpriseStatus"] = boost::any(*enterpriseStatus);
+    }
+    if (openTime) {
+      res["OpenTime"] = boost::any(*openTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnterpriseStatus") != m.end() && !m["EnterpriseStatus"].empty()) {
+      enterpriseStatus = make_shared<string>(boost::any_cast<string>(m["EnterpriseStatus"]));
+    }
+    if (m.find("OpenTime") != m.end() && !m["OpenTime"].empty()) {
+      openTime = make_shared<string>(boost::any_cast<string>(m["OpenTime"]));
+    }
+  }
+
+
+  virtual ~CompanyTwoElementsVerificationResponseBodyDataDetailInfo() = default;
+};
 class CompanyTwoElementsVerificationResponseBodyData : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> detailInfo{};
+  shared_ptr<CompanyTwoElementsVerificationResponseBodyDataDetailInfo> detailInfo{};
+  shared_ptr<vector<string>> inconsistentData{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> verifyResult{};
 
@@ -587,7 +721,10 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (detailInfo) {
-      res["DetailInfo"] = boost::any(*detailInfo);
+      res["DetailInfo"] = detailInfo ? boost::any(detailInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (inconsistentData) {
+      res["InconsistentData"] = boost::any(*inconsistentData);
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -600,12 +737,21 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DetailInfo") != m.end() && !m["DetailInfo"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["DetailInfo"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      if (typeid(map<string, boost::any>) == m["DetailInfo"].type()) {
+        CompanyTwoElementsVerificationResponseBodyDataDetailInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DetailInfo"]));
+        detailInfo = make_shared<CompanyTwoElementsVerificationResponseBodyDataDetailInfo>(model1);
       }
-      detailInfo = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("InconsistentData") != m.end() && !m["InconsistentData"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InconsistentData"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InconsistentData"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      inconsistentData = make_shared<vector<string>>(toVec1);
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
       reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
