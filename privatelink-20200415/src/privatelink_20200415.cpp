@@ -280,40 +280,6 @@ CheckProductOpenResponse Alibabacloud_Privatelink20200415::Client::checkProductO
   return checkProductOpenWithOptions(runtime);
 }
 
-CheckResourceSupportOperateResponse Alibabacloud_Privatelink20200415::Client::checkResourceSupportOperateWithOptions(shared_ptr<CheckResourceSupportOperateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
-    query->insert(pair<string, string>("ResourceId", *request->resourceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    query->insert(pair<string, string>("ResourceType", *request->resourceType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->zoneId)) {
-    query->insert(pair<string, string>("ZoneId", *request->zoneId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("CheckResourceSupportOperate"))},
-    {"version", boost::any(string("2020-04-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return CheckResourceSupportOperateResponse(callApi(params, req, runtime));
-}
-
-CheckResourceSupportOperateResponse Alibabacloud_Privatelink20200415::Client::checkResourceSupportOperate(shared_ptr<CheckResourceSupportOperateRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return checkResourceSupportOperateWithOptions(request, runtime);
-}
-
 CreateVpcEndpointResponse Alibabacloud_Privatelink20200415::Client::createVpcEndpointWithOptions(shared_ptr<CreateVpcEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -940,9 +906,6 @@ GetVpcEndpointServiceAttributeResponse Alibabacloud_Privatelink20200415::Client:
 ListVpcEndpointConnectionsResponse Alibabacloud_Privatelink20200415::Client::listVpcEndpointConnectionsWithOptions(shared_ptr<ListVpcEndpointConnectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<long>(request->connectionId)) {
-    query->insert(pair<string, long>("ConnectionId", *request->connectionId));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->connectionStatus)) {
     query->insert(pair<string, string>("ConnectionStatus", *request->connectionStatus));
   }
@@ -1348,43 +1311,6 @@ ListVpcEndpointsResponse Alibabacloud_Privatelink20200415::Client::listVpcEndpoi
 ListVpcEndpointsResponse Alibabacloud_Privatelink20200415::Client::listVpcEndpoints(shared_ptr<ListVpcEndpointsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listVpcEndpointsWithOptions(request, runtime);
-}
-
-NotifyResourceAddressFamilyResponse Alibabacloud_Privatelink20200415::Client::notifyResourceAddressFamilyWithOptions(shared_ptr<NotifyResourceAddressFamilyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->addressFamily)) {
-    query->insert(pair<string, string>("AddressFamily", *request->addressFamily));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6Address)) {
-    query->insert(pair<string, string>("Ipv6Address", *request->ipv6Address));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceId)) {
-    query->insert(pair<string, string>("ResourceId", *request->resourceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
-    query->insert(pair<string, string>("ResourceType", *request->resourceType));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("NotifyResourceAddressFamily"))},
-    {"version", boost::any(string("2020-04-15"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return NotifyResourceAddressFamilyResponse(callApi(params, req, runtime));
-}
-
-NotifyResourceAddressFamilyResponse Alibabacloud_Privatelink20200415::Client::notifyResourceAddressFamily(shared_ptr<NotifyResourceAddressFamilyRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return notifyResourceAddressFamilyWithOptions(request, runtime);
 }
 
 OpenPrivateLinkServiceResponse Alibabacloud_Privatelink20200415::Client::openPrivateLinkServiceWithOptions(shared_ptr<OpenPrivateLinkServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

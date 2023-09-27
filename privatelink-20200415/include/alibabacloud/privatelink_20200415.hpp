@@ -873,154 +873,6 @@ public:
 
   virtual ~CheckProductOpenResponse() = default;
 };
-class CheckResourceSupportOperateRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> resourceId{};
-  shared_ptr<string> resourceType{};
-  shared_ptr<string> zoneId{};
-
-  CheckResourceSupportOperateRequest() {}
-
-  explicit CheckResourceSupportOperateRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (resourceId) {
-      res["ResourceId"] = boost::any(*resourceId);
-    }
-    if (resourceType) {
-      res["ResourceType"] = boost::any(*resourceType);
-    }
-    if (zoneId) {
-      res["ZoneId"] = boost::any(*zoneId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
-      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
-    }
-    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
-      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
-    }
-    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
-      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
-    }
-  }
-
-
-  virtual ~CheckResourceSupportOperateRequest() = default;
-};
-class CheckResourceSupportOperateResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-  shared_ptr<bool> resourceCanBeDowngraded{};
-  shared_ptr<bool> resourceZoneCanBeDeleted{};
-
-  CheckResourceSupportOperateResponseBody() {}
-
-  explicit CheckResourceSupportOperateResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    if (resourceCanBeDowngraded) {
-      res["ResourceCanBeDowngraded"] = boost::any(*resourceCanBeDowngraded);
-    }
-    if (resourceZoneCanBeDeleted) {
-      res["ResourceZoneCanBeDeleted"] = boost::any(*resourceZoneCanBeDeleted);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("ResourceCanBeDowngraded") != m.end() && !m["ResourceCanBeDowngraded"].empty()) {
-      resourceCanBeDowngraded = make_shared<bool>(boost::any_cast<bool>(m["ResourceCanBeDowngraded"]));
-    }
-    if (m.find("ResourceZoneCanBeDeleted") != m.end() && !m["ResourceZoneCanBeDeleted"].empty()) {
-      resourceZoneCanBeDeleted = make_shared<bool>(boost::any_cast<bool>(m["ResourceZoneCanBeDeleted"]));
-    }
-  }
-
-
-  virtual ~CheckResourceSupportOperateResponseBody() = default;
-};
-class CheckResourceSupportOperateResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<CheckResourceSupportOperateResponseBody> body{};
-
-  CheckResourceSupportOperateResponse() {}
-
-  explicit CheckResourceSupportOperateResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        CheckResourceSupportOperateResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<CheckResourceSupportOperateResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~CheckResourceSupportOperateResponse() = default;
-};
 class CreateVpcEndpointRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -3986,7 +3838,6 @@ public:
 };
 class ListVpcEndpointConnectionsRequest : public Darabonba::Model {
 public:
-  shared_ptr<long> connectionId{};
   shared_ptr<string> connectionStatus{};
   shared_ptr<string> endpointId{};
   shared_ptr<long> endpointOwnerId{};
@@ -4009,9 +3860,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (connectionId) {
-      res["ConnectionId"] = boost::any(*connectionId);
-    }
     if (connectionStatus) {
       res["ConnectionStatus"] = boost::any(*connectionStatus);
     }
@@ -4049,9 +3897,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ConnectionId") != m.end() && !m["ConnectionId"].empty()) {
-      connectionId = make_shared<long>(boost::any_cast<long>(m["ConnectionId"]));
-    }
     if (m.find("ConnectionStatus") != m.end() && !m["ConnectionStatus"].empty()) {
       connectionStatus = make_shared<string>(boost::any_cast<string>(m["ConnectionStatus"]));
     }
@@ -4092,8 +3937,6 @@ public:
 };
 class ListVpcEndpointConnectionsResponseBodyConnectionsZones : public Darabonba::Model {
 public:
-  shared_ptr<long> connectionId{};
-  shared_ptr<string> connectionStringId{};
   shared_ptr<string> eniId{};
   shared_ptr<string> replacedEniId{};
   shared_ptr<string> replacedResourceId{};
@@ -4113,12 +3956,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (connectionId) {
-      res["ConnectionId"] = boost::any(*connectionId);
-    }
-    if (connectionStringId) {
-      res["ConnectionStringId"] = boost::any(*connectionStringId);
-    }
     if (eniId) {
       res["EniId"] = boost::any(*eniId);
     }
@@ -4147,12 +3984,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("ConnectionId") != m.end() && !m["ConnectionId"].empty()) {
-      connectionId = make_shared<long>(boost::any_cast<long>(m["ConnectionId"]));
-    }
-    if (m.find("ConnectionStringId") != m.end() && !m["ConnectionStringId"].empty()) {
-      connectionStringId = make_shared<string>(boost::any_cast<string>(m["ConnectionStringId"]));
-    }
     if (m.find("EniId") != m.end() && !m["EniId"].empty()) {
       eniId = make_shared<string>(boost::any_cast<string>(m["EniId"]));
     }
@@ -6143,7 +5974,6 @@ public:
   shared_ptr<string> eniId{};
   shared_ptr<string> eniIp{};
   shared_ptr<string> regionId{};
-  shared_ptr<string> serviceStatus{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneDomain{};
   shared_ptr<string> zoneId{};
@@ -6168,9 +5998,6 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
-    }
-    if (serviceStatus) {
-      res["ServiceStatus"] = boost::any(*serviceStatus);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -6199,9 +6026,6 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ServiceStatus") != m.end() && !m["ServiceStatus"].empty()) {
-      serviceStatus = make_shared<string>(boost::any_cast<string>(m["ServiceStatus"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -6835,147 +6659,6 @@ public:
 
 
   virtual ~ListVpcEndpointsResponse() = default;
-};
-class NotifyResourceAddressFamilyRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> addressFamily{};
-  shared_ptr<string> ipv6Address{};
-  shared_ptr<string> resourceId{};
-  shared_ptr<string> resourceType{};
-
-  NotifyResourceAddressFamilyRequest() {}
-
-  explicit NotifyResourceAddressFamilyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (addressFamily) {
-      res["AddressFamily"] = boost::any(*addressFamily);
-    }
-    if (ipv6Address) {
-      res["Ipv6Address"] = boost::any(*ipv6Address);
-    }
-    if (resourceId) {
-      res["ResourceId"] = boost::any(*resourceId);
-    }
-    if (resourceType) {
-      res["ResourceType"] = boost::any(*resourceType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AddressFamily") != m.end() && !m["AddressFamily"].empty()) {
-      addressFamily = make_shared<string>(boost::any_cast<string>(m["AddressFamily"]));
-    }
-    if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
-      ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
-    }
-    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
-      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
-    }
-    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
-      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
-    }
-  }
-
-
-  virtual ~NotifyResourceAddressFamilyRequest() = default;
-};
-class NotifyResourceAddressFamilyResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  NotifyResourceAddressFamilyResponseBody() {}
-
-  explicit NotifyResourceAddressFamilyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~NotifyResourceAddressFamilyResponseBody() = default;
-};
-class NotifyResourceAddressFamilyResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<NotifyResourceAddressFamilyResponseBody> body{};
-
-  NotifyResourceAddressFamilyResponse() {}
-
-  explicit NotifyResourceAddressFamilyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        NotifyResourceAddressFamilyResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<NotifyResourceAddressFamilyResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~NotifyResourceAddressFamilyResponse() = default;
 };
 class OpenPrivateLinkServiceRequest : public Darabonba::Model {
 public:
@@ -8472,8 +8155,6 @@ public:
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CheckProductOpenResponse checkProductOpenWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckProductOpenResponse checkProductOpen();
-  CheckResourceSupportOperateResponse checkResourceSupportOperateWithOptions(shared_ptr<CheckResourceSupportOperateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CheckResourceSupportOperateResponse checkResourceSupportOperate(shared_ptr<CheckResourceSupportOperateRequest> request);
   CreateVpcEndpointResponse createVpcEndpointWithOptions(shared_ptr<CreateVpcEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateVpcEndpointResponse createVpcEndpoint(shared_ptr<CreateVpcEndpointRequest> request);
   CreateVpcEndpointServiceResponse createVpcEndpointServiceWithOptions(shared_ptr<CreateVpcEndpointServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8518,8 +8199,6 @@ public:
   ListVpcEndpointZonesResponse listVpcEndpointZones(shared_ptr<ListVpcEndpointZonesRequest> request);
   ListVpcEndpointsResponse listVpcEndpointsWithOptions(shared_ptr<ListVpcEndpointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpcEndpointsResponse listVpcEndpoints(shared_ptr<ListVpcEndpointsRequest> request);
-  NotifyResourceAddressFamilyResponse notifyResourceAddressFamilyWithOptions(shared_ptr<NotifyResourceAddressFamilyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  NotifyResourceAddressFamilyResponse notifyResourceAddressFamily(shared_ptr<NotifyResourceAddressFamilyRequest> request);
   OpenPrivateLinkServiceResponse openPrivateLinkServiceWithOptions(shared_ptr<OpenPrivateLinkServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   OpenPrivateLinkServiceResponse openPrivateLinkService(shared_ptr<OpenPrivateLinkServiceRequest> request);
   RemoveUserFromVpcEndpointServiceResponse removeUserFromVpcEndpointServiceWithOptions(shared_ptr<RemoveUserFromVpcEndpointServiceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
