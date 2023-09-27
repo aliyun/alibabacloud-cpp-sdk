@@ -174,6 +174,40 @@ CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactB
   return createArtifactBuildRuleWithOptions(request, runtime);
 }
 
+CreateBuildRecordByRecordResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRecordWithOptions(shared_ptr<CreateBuildRecordByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->buildRecordId)) {
+    query->insert(pair<string, string>("BuildRecordId", *request->buildRecordId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
+    query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repoId)) {
+    query->insert(pair<string, string>("RepoId", *request->repoId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateBuildRecordByRecord"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateBuildRecordByRecordResponse(callApi(params, req, runtime));
+}
+
+CreateBuildRecordByRecordResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRecord(shared_ptr<CreateBuildRecordByRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createBuildRecordByRecordWithOptions(request, runtime);
+}
+
 CreateBuildRecordByRuleResponse Alibabacloud_Cr20181201::Client::createBuildRecordByRuleWithOptions(shared_ptr<CreateBuildRecordByRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1311,6 +1345,31 @@ DeleteRepositoryResponse Alibabacloud_Cr20181201::Client::deleteRepositoryWithOp
 DeleteRepositoryResponse Alibabacloud_Cr20181201::Client::deleteRepository(shared_ptr<DeleteRepositoryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteRepositoryWithOptions(request, runtime);
+}
+
+GetArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::getArtifactBuildRuleWithOptions(shared_ptr<GetArtifactBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetArtifactBuildRule"))},
+    {"version", boost::any(string("2018-12-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetArtifactBuildRuleResponse(callApi(params, req, runtime));
+}
+
+GetArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::getArtifactBuildRule(shared_ptr<GetArtifactBuildRuleRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getArtifactBuildRuleWithOptions(request, runtime);
 }
 
 GetArtifactBuildTaskResponse Alibabacloud_Cr20181201::Client::getArtifactBuildTaskWithOptions(shared_ptr<GetArtifactBuildTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

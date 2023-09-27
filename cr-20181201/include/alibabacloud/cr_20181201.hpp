@@ -600,6 +600,161 @@ public:
 
   virtual ~CreateArtifactBuildRuleResponse() = default;
 };
+class CreateBuildRecordByRecordRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> buildRecordId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> repoId{};
+
+  CreateBuildRecordByRecordRequest() {}
+
+  explicit CreateBuildRecordByRecordRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildRecordId) {
+      res["BuildRecordId"] = boost::any(*buildRecordId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (repoId) {
+      res["RepoId"] = boost::any(*repoId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuildRecordId") != m.end() && !m["BuildRecordId"].empty()) {
+      buildRecordId = make_shared<string>(boost::any_cast<string>(m["BuildRecordId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RepoId") != m.end() && !m["RepoId"].empty()) {
+      repoId = make_shared<string>(boost::any_cast<string>(m["RepoId"]));
+    }
+  }
+
+
+  virtual ~CreateBuildRecordByRecordRequest() = default;
+};
+class CreateBuildRecordByRecordResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> buildRecordId{};
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+
+  CreateBuildRecordByRecordResponseBody() {}
+
+  explicit CreateBuildRecordByRecordResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (buildRecordId) {
+      res["BuildRecordId"] = boost::any(*buildRecordId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BuildRecordId") != m.end() && !m["BuildRecordId"].empty()) {
+      buildRecordId = make_shared<string>(boost::any_cast<string>(m["BuildRecordId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateBuildRecordByRecordResponseBody() = default;
+};
+class CreateBuildRecordByRecordResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateBuildRecordByRecordResponseBody> body{};
+
+  CreateBuildRecordByRecordResponse() {}
+
+  explicit CreateBuildRecordByRecordResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateBuildRecordByRecordResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateBuildRecordByRecordResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateBuildRecordByRecordResponse() = default;
+};
 class CreateBuildRecordByRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> buildRuleId{};
@@ -5325,6 +5480,196 @@ public:
 
 
   virtual ~DeleteRepositoryResponse() = default;
+};
+class GetArtifactBuildRuleRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> artifactType{};
+  shared_ptr<string> buildRuleId{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> scopeId{};
+  shared_ptr<string> scopeType{};
+
+  GetArtifactBuildRuleRequest() {}
+
+  explicit GetArtifactBuildRuleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (artifactType) {
+      res["ArtifactType"] = boost::any(*artifactType);
+    }
+    if (buildRuleId) {
+      res["BuildRuleId"] = boost::any(*buildRuleId);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (scopeId) {
+      res["ScopeId"] = boost::any(*scopeId);
+    }
+    if (scopeType) {
+      res["ScopeType"] = boost::any(*scopeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtifactType") != m.end() && !m["ArtifactType"].empty()) {
+      artifactType = make_shared<string>(boost::any_cast<string>(m["ArtifactType"]));
+    }
+    if (m.find("BuildRuleId") != m.end() && !m["BuildRuleId"].empty()) {
+      buildRuleId = make_shared<string>(boost::any_cast<string>(m["BuildRuleId"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("ScopeId") != m.end() && !m["ScopeId"].empty()) {
+      scopeId = make_shared<string>(boost::any_cast<string>(m["ScopeId"]));
+    }
+    if (m.find("ScopeType") != m.end() && !m["ScopeType"].empty()) {
+      scopeType = make_shared<string>(boost::any_cast<string>(m["ScopeType"]));
+    }
+  }
+
+
+  virtual ~GetArtifactBuildRuleRequest() = default;
+};
+class GetArtifactBuildRuleResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> artifactType{};
+  shared_ptr<string> buildRuleId{};
+  shared_ptr<string> code{};
+  shared_ptr<bool> isSuccess{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> scopeId{};
+  shared_ptr<string> scopeType{};
+
+  GetArtifactBuildRuleResponseBody() {}
+
+  explicit GetArtifactBuildRuleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (artifactType) {
+      res["ArtifactType"] = boost::any(*artifactType);
+    }
+    if (buildRuleId) {
+      res["BuildRuleId"] = boost::any(*buildRuleId);
+    }
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (isSuccess) {
+      res["IsSuccess"] = boost::any(*isSuccess);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (scopeId) {
+      res["ScopeId"] = boost::any(*scopeId);
+    }
+    if (scopeType) {
+      res["ScopeType"] = boost::any(*scopeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtifactType") != m.end() && !m["ArtifactType"].empty()) {
+      artifactType = make_shared<string>(boost::any_cast<string>(m["ArtifactType"]));
+    }
+    if (m.find("BuildRuleId") != m.end() && !m["BuildRuleId"].empty()) {
+      buildRuleId = make_shared<string>(boost::any_cast<string>(m["BuildRuleId"]));
+    }
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("IsSuccess") != m.end() && !m["IsSuccess"].empty()) {
+      isSuccess = make_shared<bool>(boost::any_cast<bool>(m["IsSuccess"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ScopeId") != m.end() && !m["ScopeId"].empty()) {
+      scopeId = make_shared<string>(boost::any_cast<string>(m["ScopeId"]));
+    }
+    if (m.find("ScopeType") != m.end() && !m["ScopeType"].empty()) {
+      scopeType = make_shared<string>(boost::any_cast<string>(m["ScopeType"]));
+    }
+  }
+
+
+  virtual ~GetArtifactBuildRuleResponseBody() = default;
+};
+class GetArtifactBuildRuleResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetArtifactBuildRuleResponseBody> body{};
+
+  GetArtifactBuildRuleResponse() {}
+
+  explicit GetArtifactBuildRuleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetArtifactBuildRuleResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetArtifactBuildRuleResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetArtifactBuildRuleResponse() = default;
 };
 class GetArtifactBuildTaskRequest : public Darabonba::Model {
 public:
@@ -18738,6 +19083,8 @@ public:
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CreateArtifactBuildRuleResponse createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateArtifactBuildRuleResponse createArtifactBuildRule(shared_ptr<CreateArtifactBuildRuleRequest> request);
+  CreateBuildRecordByRecordResponse createBuildRecordByRecordWithOptions(shared_ptr<CreateBuildRecordByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateBuildRecordByRecordResponse createBuildRecordByRecord(shared_ptr<CreateBuildRecordByRecordRequest> request);
   CreateBuildRecordByRuleResponse createBuildRecordByRuleWithOptions(shared_ptr<CreateBuildRecordByRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBuildRecordByRuleResponse createBuildRecordByRule(shared_ptr<CreateBuildRecordByRuleRequest> request);
   CreateChainResponse createChainWithOptions(shared_ptr<CreateChainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -18796,6 +19143,8 @@ public:
   DeleteRepoTriggerResponse deleteRepoTrigger(shared_ptr<DeleteRepoTriggerRequest> request);
   DeleteRepositoryResponse deleteRepositoryWithOptions(shared_ptr<DeleteRepositoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteRepositoryResponse deleteRepository(shared_ptr<DeleteRepositoryRequest> request);
+  GetArtifactBuildRuleResponse getArtifactBuildRuleWithOptions(shared_ptr<GetArtifactBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetArtifactBuildRuleResponse getArtifactBuildRule(shared_ptr<GetArtifactBuildRuleRequest> request);
   GetArtifactBuildTaskResponse getArtifactBuildTaskWithOptions(shared_ptr<GetArtifactBuildTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetArtifactBuildTaskResponse getArtifactBuildTask(shared_ptr<GetArtifactBuildTaskRequest> request);
   GetAuthorizationTokenResponse getAuthorizationTokenWithOptions(shared_ptr<GetAuthorizationTokenRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
