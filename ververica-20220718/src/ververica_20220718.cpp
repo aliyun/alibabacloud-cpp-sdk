@@ -38,12 +38,6 @@ string Alibabacloud_Ververica20220718::Client::getEndpoint(shared_ptr<string> pr
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeployment(shared_ptr<string> namespace_, shared_ptr<CreateDeploymentRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateDeploymentHeaders> headers = make_shared<CreateDeploymentHeaders>();
-  return createDeploymentWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
-}
-
 CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeploymentWithOptions(shared_ptr<string> namespace_,
                                                                                              shared_ptr<CreateDeploymentRequest> request,
                                                                                              shared_ptr<CreateDeploymentHeaders> headers,
@@ -58,7 +52,7 @@ CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeploymen
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateDeployment"))},
@@ -74,10 +68,10 @@ CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeploymen
   return CreateDeploymentResponse(callApi(params, req, runtime));
 }
 
-CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepoint(shared_ptr<string> namespace_, shared_ptr<CreateSavepointRequest> request) {
+CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeployment(shared_ptr<string> namespace_, shared_ptr<CreateDeploymentRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateSavepointHeaders> headers = make_shared<CreateSavepointHeaders>();
-  return createSavepointWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<CreateDeploymentHeaders> headers = make_shared<CreateDeploymentHeaders>();
+  return createDeploymentWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepointWithOptions(shared_ptr<string> namespace_,
@@ -120,10 +114,10 @@ CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepointW
   return CreateSavepointResponse(callApi(params, req, runtime));
 }
 
-CreateVariableResponse Alibabacloud_Ververica20220718::Client::createVariable(shared_ptr<string> namespace_, shared_ptr<CreateVariableRequest> request) {
+CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepoint(shared_ptr<string> namespace_, shared_ptr<CreateSavepointRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<CreateVariableHeaders> headers = make_shared<CreateVariableHeaders>();
-  return createVariableWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<CreateSavepointHeaders> headers = make_shared<CreateSavepointHeaders>();
+  return createSavepointWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 CreateVariableResponse Alibabacloud_Ververica20220718::Client::createVariableWithOptions(shared_ptr<string> namespace_,
@@ -140,7 +134,7 @@ CreateVariableResponse Alibabacloud_Ververica20220718::Client::createVariableWit
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("CreateVariable"))},
@@ -156,10 +150,10 @@ CreateVariableResponse Alibabacloud_Ververica20220718::Client::createVariableWit
   return CreateVariableResponse(callApi(params, req, runtime));
 }
 
-DeleteDeploymentResponse Alibabacloud_Ververica20220718::Client::deleteDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId) {
+CreateVariableResponse Alibabacloud_Ververica20220718::Client::createVariable(shared_ptr<string> namespace_, shared_ptr<CreateVariableRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteDeploymentHeaders> headers = make_shared<DeleteDeploymentHeaders>();
-  return deleteDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, headers, runtime);
+  shared_ptr<CreateVariableHeaders> headers = make_shared<CreateVariableHeaders>();
+  return createVariableWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 DeleteDeploymentResponse Alibabacloud_Ververica20220718::Client::deleteDeploymentWithOptions(shared_ptr<string> namespace_,
@@ -190,10 +184,10 @@ DeleteDeploymentResponse Alibabacloud_Ververica20220718::Client::deleteDeploymen
   return DeleteDeploymentResponse(callApi(params, req, runtime));
 }
 
-DeleteJobResponse Alibabacloud_Ververica20220718::Client::deleteJob(shared_ptr<string> namespace_, shared_ptr<string> jobId) {
+DeleteDeploymentResponse Alibabacloud_Ververica20220718::Client::deleteDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteJobHeaders> headers = make_shared<DeleteJobHeaders>();
-  return deleteJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
+  shared_ptr<DeleteDeploymentHeaders> headers = make_shared<DeleteDeploymentHeaders>();
+  return deleteDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, headers, runtime);
 }
 
 DeleteJobResponse Alibabacloud_Ververica20220718::Client::deleteJobWithOptions(shared_ptr<string> namespace_,
@@ -224,10 +218,10 @@ DeleteJobResponse Alibabacloud_Ververica20220718::Client::deleteJobWithOptions(s
   return DeleteJobResponse(callApi(params, req, runtime));
 }
 
-DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId) {
+DeleteJobResponse Alibabacloud_Ververica20220718::Client::deleteJob(shared_ptr<string> namespace_, shared_ptr<string> jobId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteSavepointHeaders> headers = make_shared<DeleteSavepointHeaders>();
-  return deleteSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
+  shared_ptr<DeleteJobHeaders> headers = make_shared<DeleteJobHeaders>();
+  return deleteJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
 }
 
 DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepointWithOptions(shared_ptr<string> namespace_,
@@ -258,10 +252,10 @@ DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepointW
   return DeleteSavepointResponse(callApi(params, req, runtime));
 }
 
-DeleteVariableResponse Alibabacloud_Ververica20220718::Client::deleteVariable(shared_ptr<string> namespace_, shared_ptr<string> name) {
+DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<DeleteVariableHeaders> headers = make_shared<DeleteVariableHeaders>();
-  return deleteVariableWithOptions(shared_ptr<string> namespace_, name, headers, runtime);
+  shared_ptr<DeleteSavepointHeaders> headers = make_shared<DeleteSavepointHeaders>();
+  return deleteSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
 }
 
 DeleteVariableResponse Alibabacloud_Ververica20220718::Client::deleteVariableWithOptions(shared_ptr<string> namespace_,
@@ -292,10 +286,10 @@ DeleteVariableResponse Alibabacloud_Ververica20220718::Client::deleteVariableWit
   return DeleteVariableResponse(callApi(params, req, runtime));
 }
 
-FlinkApiProxyResponse Alibabacloud_Ververica20220718::Client::flinkApiProxy(shared_ptr<FlinkApiProxyRequest> request) {
+DeleteVariableResponse Alibabacloud_Ververica20220718::Client::deleteVariable(shared_ptr<string> namespace_, shared_ptr<string> name) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<FlinkApiProxyHeaders> headers = make_shared<FlinkApiProxyHeaders>();
-  return flinkApiProxyWithOptions(request, headers, runtime);
+  shared_ptr<DeleteVariableHeaders> headers = make_shared<DeleteVariableHeaders>();
+  return deleteVariableWithOptions(shared_ptr<string> namespace_, name, headers, runtime);
 }
 
 FlinkApiProxyResponse Alibabacloud_Ververica20220718::Client::flinkApiProxyWithOptions(shared_ptr<FlinkApiProxyRequest> request, shared_ptr<FlinkApiProxyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -338,10 +332,10 @@ FlinkApiProxyResponse Alibabacloud_Ververica20220718::Client::flinkApiProxyWithO
   return FlinkApiProxyResponse(callApi(params, req, runtime));
 }
 
-GenerateResourcePlanWithFlinkConfAsyncResponse Alibabacloud_Ververica20220718::Client::generateResourcePlanWithFlinkConfAsync(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<GenerateResourcePlanWithFlinkConfAsyncRequest> request) {
+FlinkApiProxyResponse Alibabacloud_Ververica20220718::Client::flinkApiProxy(shared_ptr<FlinkApiProxyRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GenerateResourcePlanWithFlinkConfAsyncHeaders> headers = make_shared<GenerateResourcePlanWithFlinkConfAsyncHeaders>();
-  return generateResourcePlanWithFlinkConfAsyncWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
+  shared_ptr<FlinkApiProxyHeaders> headers = make_shared<FlinkApiProxyHeaders>();
+  return flinkApiProxyWithOptions(request, headers, runtime);
 }
 
 GenerateResourcePlanWithFlinkConfAsyncResponse Alibabacloud_Ververica20220718::Client::generateResourcePlanWithFlinkConfAsyncWithOptions(shared_ptr<string> namespace_,
@@ -375,10 +369,10 @@ GenerateResourcePlanWithFlinkConfAsyncResponse Alibabacloud_Ververica20220718::C
   return GenerateResourcePlanWithFlinkConfAsyncResponse(callApi(params, req, runtime));
 }
 
-GetDeploymentResponse Alibabacloud_Ververica20220718::Client::getDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId) {
+GenerateResourcePlanWithFlinkConfAsyncResponse Alibabacloud_Ververica20220718::Client::generateResourcePlanWithFlinkConfAsync(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<GenerateResourcePlanWithFlinkConfAsyncRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetDeploymentHeaders> headers = make_shared<GetDeploymentHeaders>();
-  return getDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, headers, runtime);
+  shared_ptr<GenerateResourcePlanWithFlinkConfAsyncHeaders> headers = make_shared<GenerateResourcePlanWithFlinkConfAsyncHeaders>();
+  return generateResourcePlanWithFlinkConfAsyncWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
 }
 
 GetDeploymentResponse Alibabacloud_Ververica20220718::Client::getDeploymentWithOptions(shared_ptr<string> namespace_,
@@ -409,10 +403,10 @@ GetDeploymentResponse Alibabacloud_Ververica20220718::Client::getDeploymentWithO
   return GetDeploymentResponse(callApi(params, req, runtime));
 }
 
-GetGenerateResourcePlanResultResponse Alibabacloud_Ververica20220718::Client::getGenerateResourcePlanResult(shared_ptr<string> namespace_, shared_ptr<string> ticketId) {
+GetDeploymentResponse Alibabacloud_Ververica20220718::Client::getDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetGenerateResourcePlanResultHeaders> headers = make_shared<GetGenerateResourcePlanResultHeaders>();
-  return getGenerateResourcePlanResultWithOptions(shared_ptr<string> namespace_, ticketId, headers, runtime);
+  shared_ptr<GetDeploymentHeaders> headers = make_shared<GetDeploymentHeaders>();
+  return getDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, headers, runtime);
 }
 
 GetGenerateResourcePlanResultResponse Alibabacloud_Ververica20220718::Client::getGenerateResourcePlanResultWithOptions(shared_ptr<string> namespace_,
@@ -443,10 +437,10 @@ GetGenerateResourcePlanResultResponse Alibabacloud_Ververica20220718::Client::ge
   return GetGenerateResourcePlanResultResponse(callApi(params, req, runtime));
 }
 
-GetJobResponse Alibabacloud_Ververica20220718::Client::getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId) {
+GetGenerateResourcePlanResultResponse Alibabacloud_Ververica20220718::Client::getGenerateResourcePlanResult(shared_ptr<string> namespace_, shared_ptr<string> ticketId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetJobHeaders> headers = make_shared<GetJobHeaders>();
-  return getJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
+  shared_ptr<GetGenerateResourcePlanResultHeaders> headers = make_shared<GetGenerateResourcePlanResultHeaders>();
+  return getGenerateResourcePlanResultWithOptions(shared_ptr<string> namespace_, ticketId, headers, runtime);
 }
 
 GetJobResponse Alibabacloud_Ververica20220718::Client::getJobWithOptions(shared_ptr<string> namespace_,
@@ -477,10 +471,10 @@ GetJobResponse Alibabacloud_Ververica20220718::Client::getJobWithOptions(shared_
   return GetJobResponse(callApi(params, req, runtime));
 }
 
-GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId) {
+GetJobResponse Alibabacloud_Ververica20220718::Client::getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<GetSavepointHeaders> headers = make_shared<GetSavepointHeaders>();
-  return getSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
+  shared_ptr<GetJobHeaders> headers = make_shared<GetJobHeaders>();
+  return getJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
 }
 
 GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepointWithOptions(shared_ptr<string> namespace_,
@@ -511,10 +505,10 @@ GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepointWithOpt
   return GetSavepointResponse(callApi(params, req, runtime));
 }
 
-ListDeploymentTargetsResponse Alibabacloud_Ververica20220718::Client::listDeploymentTargets(shared_ptr<string> namespace_, shared_ptr<ListDeploymentTargetsRequest> request) {
+GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListDeploymentTargetsHeaders> headers = make_shared<ListDeploymentTargetsHeaders>();
-  return listDeploymentTargetsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<GetSavepointHeaders> headers = make_shared<GetSavepointHeaders>();
+  return getSavepointWithOptions(shared_ptr<string> namespace_, savepointId, headers, runtime);
 }
 
 ListDeploymentTargetsResponse Alibabacloud_Ververica20220718::Client::listDeploymentTargetsWithOptions(shared_ptr<string> namespace_,
@@ -554,10 +548,10 @@ ListDeploymentTargetsResponse Alibabacloud_Ververica20220718::Client::listDeploy
   return ListDeploymentTargetsResponse(callApi(params, req, runtime));
 }
 
-ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeployments(shared_ptr<string> namespace_, shared_ptr<ListDeploymentsRequest> request) {
+ListDeploymentTargetsResponse Alibabacloud_Ververica20220718::Client::listDeploymentTargets(shared_ptr<string> namespace_, shared_ptr<ListDeploymentTargetsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListDeploymentsHeaders> headers = make_shared<ListDeploymentsHeaders>();
-  return listDeploymentsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<ListDeploymentTargetsHeaders> headers = make_shared<ListDeploymentTargetsHeaders>();
+  return listDeploymentTargetsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsWithOptions(shared_ptr<string> namespace_,
@@ -566,6 +560,12 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsW
                                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->executionMode)) {
+    query->insert(pair<string, string>("executionMode", *request->executionMode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("name", *request->name));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
     query->insert(pair<string, long>("pageIndex", *request->pageIndex));
   }
@@ -597,10 +597,10 @@ ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeploymentsW
   return ListDeploymentsResponse(callApi(params, req, runtime));
 }
 
-ListEngineVersionMetadataResponse Alibabacloud_Ververica20220718::Client::listEngineVersionMetadata() {
+ListDeploymentsResponse Alibabacloud_Ververica20220718::Client::listDeployments(shared_ptr<string> namespace_, shared_ptr<ListDeploymentsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListEngineVersionMetadataHeaders> headers = make_shared<ListEngineVersionMetadataHeaders>();
-  return listEngineVersionMetadataWithOptions(headers, runtime);
+  shared_ptr<ListDeploymentsHeaders> headers = make_shared<ListDeploymentsHeaders>();
+  return listDeploymentsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 ListEngineVersionMetadataResponse Alibabacloud_Ververica20220718::Client::listEngineVersionMetadataWithOptions(shared_ptr<ListEngineVersionMetadataHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -628,10 +628,10 @@ ListEngineVersionMetadataResponse Alibabacloud_Ververica20220718::Client::listEn
   return ListEngineVersionMetadataResponse(callApi(params, req, runtime));
 }
 
-ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobs(shared_ptr<string> namespace_, shared_ptr<ListJobsRequest> request) {
+ListEngineVersionMetadataResponse Alibabacloud_Ververica20220718::Client::listEngineVersionMetadata() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListJobsHeaders> headers = make_shared<ListJobsHeaders>();
-  return listJobsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<ListEngineVersionMetadataHeaders> headers = make_shared<ListEngineVersionMetadataHeaders>();
+  return listEngineVersionMetadataWithOptions(headers, runtime);
 }
 
 ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobsWithOptions(shared_ptr<string> namespace_,
@@ -674,10 +674,10 @@ ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobsWithOptions(sha
   return ListJobsResponse(callApi(params, req, runtime));
 }
 
-ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepoints(shared_ptr<string> namespace_, shared_ptr<ListSavepointsRequest> request) {
+ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobs(shared_ptr<string> namespace_, shared_ptr<ListJobsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListSavepointsHeaders> headers = make_shared<ListSavepointsHeaders>();
-  return listSavepointsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<ListJobsHeaders> headers = make_shared<ListJobsHeaders>();
+  return listJobsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepointsWithOptions(shared_ptr<string> namespace_,
@@ -723,10 +723,10 @@ ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepointsWit
   return ListSavepointsResponse(callApi(params, req, runtime));
 }
 
-ListVariablesResponse Alibabacloud_Ververica20220718::Client::listVariables(shared_ptr<string> namespace_, shared_ptr<ListVariablesRequest> request) {
+ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepoints(shared_ptr<string> namespace_, shared_ptr<ListSavepointsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<ListVariablesHeaders> headers = make_shared<ListVariablesHeaders>();
-  return listVariablesWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<ListSavepointsHeaders> headers = make_shared<ListSavepointsHeaders>();
+  return listSavepointsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 ListVariablesResponse Alibabacloud_Ververica20220718::Client::listVariablesWithOptions(shared_ptr<string> namespace_,
@@ -766,10 +766,10 @@ ListVariablesResponse Alibabacloud_Ververica20220718::Client::listVariablesWithO
   return ListVariablesResponse(callApi(params, req, runtime));
 }
 
-StartJobResponse Alibabacloud_Ververica20220718::Client::startJob(shared_ptr<string> namespace_, shared_ptr<StartJobRequest> request) {
+ListVariablesResponse Alibabacloud_Ververica20220718::Client::listVariables(shared_ptr<string> namespace_, shared_ptr<ListVariablesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<StartJobHeaders> headers = make_shared<StartJobHeaders>();
-  return startJobWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+  shared_ptr<ListVariablesHeaders> headers = make_shared<ListVariablesHeaders>();
+  return listVariablesWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 StartJobResponse Alibabacloud_Ververica20220718::Client::startJobWithOptions(shared_ptr<string> namespace_,
@@ -786,7 +786,7 @@ StartJobResponse Alibabacloud_Ververica20220718::Client::startJobWithOptions(sha
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("StartJob"))},
@@ -802,10 +802,46 @@ StartJobResponse Alibabacloud_Ververica20220718::Client::startJobWithOptions(sha
   return StartJobResponse(callApi(params, req, runtime));
 }
 
-StopJobResponse Alibabacloud_Ververica20220718::Client::stopJob(shared_ptr<string> namespace_, shared_ptr<string> jobId, shared_ptr<StopJobRequest> request) {
+StartJobResponse Alibabacloud_Ververica20220718::Client::startJob(shared_ptr<string> namespace_, shared_ptr<StartJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<StopJobHeaders> headers = make_shared<StopJobHeaders>();
-  return stopJobWithOptions(shared_ptr<string> namespace_, jobId, request, headers, runtime);
+  shared_ptr<StartJobHeaders> headers = make_shared<StartJobHeaders>();
+  return startJobWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+StartJobWithParamsResponse Alibabacloud_Ververica20220718::Client::startJobWithParamsWithOptions(shared_ptr<string> namespace_,
+                                                                                                 shared_ptr<StartJobWithParamsRequest> request,
+                                                                                                 shared_ptr<StartJobWithParamsHeaders> headers,
+                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartJobWithParams"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/api/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/jobs%3Astart"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartJobWithParamsResponse(callApi(params, req, runtime));
+}
+
+StartJobWithParamsResponse Alibabacloud_Ververica20220718::Client::startJobWithParams(shared_ptr<string> namespace_, shared_ptr<StartJobWithParamsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<StartJobWithParamsHeaders> headers = make_shared<StartJobWithParamsHeaders>();
+  return startJobWithParamsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 StopJobResponse Alibabacloud_Ververica20220718::Client::stopJobWithOptions(shared_ptr<string> namespace_,
@@ -823,7 +859,7 @@ StopJobResponse Alibabacloud_Ververica20220718::Client::stopJobWithOptions(share
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("StopJob"))},
@@ -839,10 +875,10 @@ StopJobResponse Alibabacloud_Ververica20220718::Client::stopJobWithOptions(share
   return StopJobResponse(callApi(params, req, runtime));
 }
 
-UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<UpdateDeploymentRequest> request) {
+StopJobResponse Alibabacloud_Ververica20220718::Client::stopJob(shared_ptr<string> namespace_, shared_ptr<string> jobId, shared_ptr<StopJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<UpdateDeploymentHeaders> headers = make_shared<UpdateDeploymentHeaders>();
-  return updateDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
+  shared_ptr<StopJobHeaders> headers = make_shared<StopJobHeaders>();
+  return stopJobWithOptions(shared_ptr<string> namespace_, jobId, request, headers, runtime);
 }
 
 UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeploymentWithOptions(shared_ptr<string> namespace_,
@@ -860,7 +896,7 @@ UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeploymen
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
-    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(make_shared<map<string, boost::any>>(request->body->toMap())))}
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("UpdateDeployment"))},
@@ -874,5 +910,11 @@ UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeploymen
     {"bodyType", boost::any(string("json"))}
   }));
   return UpdateDeploymentResponse(callApi(params, req, runtime));
+}
+
+UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<UpdateDeploymentRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateDeploymentHeaders> headers = make_shared<UpdateDeploymentHeaders>();
+  return updateDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
 }
 

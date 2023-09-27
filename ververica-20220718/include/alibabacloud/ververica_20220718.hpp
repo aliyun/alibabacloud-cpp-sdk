@@ -822,6 +822,9 @@ public:
 class Deployment : public Darabonba::Model {
 public:
   shared_ptr<Artifact> artifact{};
+  shared_ptr<BatchResourceSetting> batchResourceSetting{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> creatorName{};
   shared_ptr<bool> deploymentHasChanged{};
   shared_ptr<string> deploymentId{};
   shared_ptr<BriefDeploymentTarget> deploymentTarget{};
@@ -831,8 +834,11 @@ public:
   shared_ptr<map<string, boost::any>> flinkConf{};
   shared_ptr<JobSummary> jobSummary{};
   shared_ptr<Logging> logging{};
+  shared_ptr<string> modifier{};
+  shared_ptr<string> modifierName{};
   shared_ptr<string> name{};
   shared_ptr<string> namespace_{};
+  shared_ptr<StreamingResourceSetting> streamingResourceSetting{};
 
   Deployment() {}
 
@@ -846,6 +852,15 @@ public:
     map<string, boost::any> res;
     if (artifact) {
       res["artifact"] = artifact ? boost::any(artifact->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (batchResourceSetting) {
+      res["batchResourceSetting"] = batchResourceSetting ? boost::any(batchResourceSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (creatorName) {
+      res["creatorName"] = boost::any(*creatorName);
     }
     if (deploymentHasChanged) {
       res["deploymentHasChanged"] = boost::any(*deploymentHasChanged);
@@ -874,11 +889,20 @@ public:
     if (logging) {
       res["logging"] = logging ? boost::any(logging->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (modifier) {
+      res["modifier"] = boost::any(*modifier);
+    }
+    if (modifierName) {
+      res["modifierName"] = boost::any(*modifierName);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
+    }
+    if (streamingResourceSetting) {
+      res["streamingResourceSetting"] = streamingResourceSetting ? boost::any(streamingResourceSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -890,6 +914,19 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["artifact"]));
         artifact = make_shared<Artifact>(model1);
       }
+    }
+    if (m.find("batchResourceSetting") != m.end() && !m["batchResourceSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["batchResourceSetting"].type()) {
+        BatchResourceSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["batchResourceSetting"]));
+        batchResourceSetting = make_shared<BatchResourceSetting>(model1);
+      }
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("creatorName") != m.end() && !m["creatorName"].empty()) {
+      creatorName = make_shared<string>(boost::any_cast<string>(m["creatorName"]));
     }
     if (m.find("deploymentHasChanged") != m.end() && !m["deploymentHasChanged"].empty()) {
       deploymentHasChanged = make_shared<bool>(boost::any_cast<bool>(m["deploymentHasChanged"]));
@@ -935,11 +972,24 @@ public:
         logging = make_shared<Logging>(model1);
       }
     }
+    if (m.find("modifier") != m.end() && !m["modifier"].empty()) {
+      modifier = make_shared<string>(boost::any_cast<string>(m["modifier"]));
+    }
+    if (m.find("modifierName") != m.end() && !m["modifierName"].empty()) {
+      modifierName = make_shared<string>(boost::any_cast<string>(m["modifierName"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
+    }
+    if (m.find("streamingResourceSetting") != m.end() && !m["streamingResourceSetting"].empty()) {
+      if (typeid(map<string, boost::any>) == m["streamingResourceSetting"].type()) {
+        StreamingResourceSetting model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["streamingResourceSetting"]));
+        streamingResourceSetting = make_shared<StreamingResourceSetting>(model1);
+      }
     }
   }
 
@@ -1335,6 +1385,8 @@ class Job : public Darabonba::Model {
 public:
   shared_ptr<Artifact> artifact{};
   shared_ptr<BatchResourceSetting> batchResourceSetting{};
+  shared_ptr<string> creator{};
+  shared_ptr<string> creatorName{};
   shared_ptr<string> deploymentId{};
   shared_ptr<string> deploymentName{};
   shared_ptr<long> endTime{};
@@ -1344,12 +1396,15 @@ public:
   shared_ptr<string> jobId{};
   shared_ptr<Logging> logging{};
   shared_ptr<JobMetric> metric{};
+  shared_ptr<string> modifier{};
+  shared_ptr<string> modifierName{};
   shared_ptr<string> namespace_{};
   shared_ptr<DeploymentRestoreStrategy> restoreStrategy{};
   shared_ptr<string> sessionClusterName{};
   shared_ptr<long> startTime{};
   shared_ptr<JobStatus> status{};
   shared_ptr<StreamingResourceSetting> streamingResourceSetting{};
+  shared_ptr<map<string, boost::any>> userFlinkConf{};
 
   Job() {}
 
@@ -1366,6 +1421,12 @@ public:
     }
     if (batchResourceSetting) {
       res["batchResourceSetting"] = batchResourceSetting ? boost::any(batchResourceSetting->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (creatorName) {
+      res["creatorName"] = boost::any(*creatorName);
     }
     if (deploymentId) {
       res["deploymentId"] = boost::any(*deploymentId);
@@ -1394,6 +1455,12 @@ public:
     if (metric) {
       res["metric"] = metric ? boost::any(metric->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (modifier) {
+      res["modifier"] = boost::any(*modifier);
+    }
+    if (modifierName) {
+      res["modifierName"] = boost::any(*modifierName);
+    }
     if (namespace_) {
       res["namespace"] = boost::any(*namespace_);
     }
@@ -1412,6 +1479,9 @@ public:
     if (streamingResourceSetting) {
       res["streamingResourceSetting"] = streamingResourceSetting ? boost::any(streamingResourceSetting->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (userFlinkConf) {
+      res["userFlinkConf"] = boost::any(*userFlinkConf);
+    }
     return res;
   }
 
@@ -1429,6 +1499,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["batchResourceSetting"]));
         batchResourceSetting = make_shared<BatchResourceSetting>(model1);
       }
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("creatorName") != m.end() && !m["creatorName"].empty()) {
+      creatorName = make_shared<string>(boost::any_cast<string>(m["creatorName"]));
     }
     if (m.find("deploymentId") != m.end() && !m["deploymentId"].empty()) {
       deploymentId = make_shared<string>(boost::any_cast<string>(m["deploymentId"]));
@@ -1470,6 +1546,12 @@ public:
         metric = make_shared<JobMetric>(model1);
       }
     }
+    if (m.find("modifier") != m.end() && !m["modifier"].empty()) {
+      modifier = make_shared<string>(boost::any_cast<string>(m["modifier"]));
+    }
+    if (m.find("modifierName") != m.end() && !m["modifierName"].empty()) {
+      modifierName = make_shared<string>(boost::any_cast<string>(m["modifierName"]));
+    }
     if (m.find("namespace") != m.end() && !m["namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["namespace"]));
     }
@@ -1500,10 +1582,58 @@ public:
         streamingResourceSetting = make_shared<StreamingResourceSetting>(model1);
       }
     }
+    if (m.find("userFlinkConf") != m.end() && !m["userFlinkConf"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["userFlinkConf"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      userFlinkConf = make_shared<map<string, boost::any>>(toMap1);
+    }
   }
 
 
   virtual ~Job() = default;
+};
+class JobStartParameters : public Darabonba::Model {
+public:
+  shared_ptr<string> deploymentId{};
+  shared_ptr<DeploymentRestoreStrategy> restoreStrategy{};
+
+  JobStartParameters() {}
+
+  explicit JobStartParameters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deploymentId) {
+      res["deploymentId"] = boost::any(*deploymentId);
+    }
+    if (restoreStrategy) {
+      res["restoreStrategy"] = restoreStrategy ? boost::any(restoreStrategy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("deploymentId") != m.end() && !m["deploymentId"].empty()) {
+      deploymentId = make_shared<string>(boost::any_cast<string>(m["deploymentId"]));
+    }
+    if (m.find("restoreStrategy") != m.end() && !m["restoreStrategy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["restoreStrategy"].type()) {
+        DeploymentRestoreStrategy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["restoreStrategy"]));
+        restoreStrategy = make_shared<DeploymentRestoreStrategy>(model1);
+      }
+    }
+  }
+
+
+  virtual ~JobStartParameters() = default;
 };
 class SavepointFailure : public Darabonba::Model {
 public:
@@ -4506,6 +4636,8 @@ public:
 };
 class ListDeploymentsRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> executionMode{};
+  shared_ptr<string> name{};
   shared_ptr<long> pageIndex{};
   shared_ptr<long> pageSize{};
 
@@ -4519,6 +4651,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (executionMode) {
+      res["executionMode"] = boost::any(*executionMode);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
     if (pageIndex) {
       res["pageIndex"] = boost::any(*pageIndex);
     }
@@ -4529,6 +4667,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("executionMode") != m.end() && !m["executionMode"].empty()) {
+      executionMode = make_shared<string>(boost::any_cast<string>(m["executionMode"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
     if (m.find("pageIndex") != m.end() && !m["pageIndex"].empty()) {
       pageIndex = make_shared<long>(boost::any_cast<long>(m["pageIndex"]));
     }
@@ -5811,6 +5955,210 @@ public:
 
   virtual ~StartJobResponse() = default;
 };
+class StartJobWithParamsHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> workspace{};
+
+  StartJobWithParamsHeaders() {}
+
+  explicit StartJobWithParamsHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (workspace) {
+      res["workspace"] = boost::any(*workspace);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("workspace") != m.end() && !m["workspace"].empty()) {
+      workspace = make_shared<string>(boost::any_cast<string>(m["workspace"]));
+    }
+  }
+
+
+  virtual ~StartJobWithParamsHeaders() = default;
+};
+class StartJobWithParamsRequest : public Darabonba::Model {
+public:
+  shared_ptr<JobStartParameters> body{};
+
+  StartJobWithParamsRequest() {}
+
+  explicit StartJobWithParamsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        JobStartParameters model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<JobStartParameters>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartJobWithParamsRequest() = default;
+};
+class StartJobWithParamsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<Job> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  StartJobWithParamsResponseBody() {}
+
+  explicit StartJobWithParamsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("data") != m.end() && !m["data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["data"].type()) {
+        Job model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
+        data = make_shared<Job>(model1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~StartJobWithParamsResponseBody() = default;
+};
+class StartJobWithParamsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartJobWithParamsResponseBody> body{};
+
+  StartJobWithParamsResponse() {}
+
+  explicit StartJobWithParamsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartJobWithParamsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartJobWithParamsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartJobWithParamsResponse() = default;
+};
 class StopJobHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -6229,113 +6577,118 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  CreateDeploymentResponse createDeployment(shared_ptr<string> namespace_, shared_ptr<CreateDeploymentRequest> request);
   CreateDeploymentResponse createDeploymentWithOptions(shared_ptr<string> namespace_,
                                                        shared_ptr<CreateDeploymentRequest> request,
                                                        shared_ptr<CreateDeploymentHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateSavepointResponse createSavepoint(shared_ptr<string> namespace_, shared_ptr<CreateSavepointRequest> request);
+  CreateDeploymentResponse createDeployment(shared_ptr<string> namespace_, shared_ptr<CreateDeploymentRequest> request);
   CreateSavepointResponse createSavepointWithOptions(shared_ptr<string> namespace_,
                                                      shared_ptr<CreateSavepointRequest> request,
                                                      shared_ptr<CreateSavepointHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateVariableResponse createVariable(shared_ptr<string> namespace_, shared_ptr<CreateVariableRequest> request);
+  CreateSavepointResponse createSavepoint(shared_ptr<string> namespace_, shared_ptr<CreateSavepointRequest> request);
   CreateVariableResponse createVariableWithOptions(shared_ptr<string> namespace_,
                                                    shared_ptr<CreateVariableRequest> request,
                                                    shared_ptr<CreateVariableHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteDeploymentResponse deleteDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId);
+  CreateVariableResponse createVariable(shared_ptr<string> namespace_, shared_ptr<CreateVariableRequest> request);
   DeleteDeploymentResponse deleteDeploymentWithOptions(shared_ptr<string> namespace_,
                                                        shared_ptr<string> deploymentId,
                                                        shared_ptr<DeleteDeploymentHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteJobResponse deleteJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
+  DeleteDeploymentResponse deleteDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId);
   DeleteJobResponse deleteJobWithOptions(shared_ptr<string> namespace_,
                                          shared_ptr<string> jobId,
                                          shared_ptr<DeleteJobHeaders> headers,
                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteSavepointResponse deleteSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId);
+  DeleteJobResponse deleteJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
   DeleteSavepointResponse deleteSavepointWithOptions(shared_ptr<string> namespace_,
                                                      shared_ptr<string> savepointId,
                                                      shared_ptr<DeleteSavepointHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DeleteVariableResponse deleteVariable(shared_ptr<string> namespace_, shared_ptr<string> name);
+  DeleteSavepointResponse deleteSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId);
   DeleteVariableResponse deleteVariableWithOptions(shared_ptr<string> namespace_,
                                                    shared_ptr<string> name,
                                                    shared_ptr<DeleteVariableHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  FlinkApiProxyResponse flinkApiProxy(shared_ptr<FlinkApiProxyRequest> request);
+  DeleteVariableResponse deleteVariable(shared_ptr<string> namespace_, shared_ptr<string> name);
   FlinkApiProxyResponse flinkApiProxyWithOptions(shared_ptr<FlinkApiProxyRequest> request, shared_ptr<FlinkApiProxyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GenerateResourcePlanWithFlinkConfAsyncResponse generateResourcePlanWithFlinkConfAsync(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<GenerateResourcePlanWithFlinkConfAsyncRequest> request);
+  FlinkApiProxyResponse flinkApiProxy(shared_ptr<FlinkApiProxyRequest> request);
   GenerateResourcePlanWithFlinkConfAsyncResponse generateResourcePlanWithFlinkConfAsyncWithOptions(shared_ptr<string> namespace_,
                                                                                                    shared_ptr<string> deploymentId,
                                                                                                    shared_ptr<GenerateResourcePlanWithFlinkConfAsyncRequest> request,
                                                                                                    shared_ptr<GenerateResourcePlanWithFlinkConfAsyncHeaders> headers,
                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetDeploymentResponse getDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId);
+  GenerateResourcePlanWithFlinkConfAsyncResponse generateResourcePlanWithFlinkConfAsync(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<GenerateResourcePlanWithFlinkConfAsyncRequest> request);
   GetDeploymentResponse getDeploymentWithOptions(shared_ptr<string> namespace_,
                                                  shared_ptr<string> deploymentId,
                                                  shared_ptr<GetDeploymentHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetGenerateResourcePlanResultResponse getGenerateResourcePlanResult(shared_ptr<string> namespace_, shared_ptr<string> ticketId);
+  GetDeploymentResponse getDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId);
   GetGenerateResourcePlanResultResponse getGenerateResourcePlanResultWithOptions(shared_ptr<string> namespace_,
                                                                                  shared_ptr<string> ticketId,
                                                                                  shared_ptr<GetGenerateResourcePlanResultHeaders> headers,
                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetJobResponse getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
+  GetGenerateResourcePlanResultResponse getGenerateResourcePlanResult(shared_ptr<string> namespace_, shared_ptr<string> ticketId);
   GetJobResponse getJobWithOptions(shared_ptr<string> namespace_,
                                    shared_ptr<string> jobId,
                                    shared_ptr<GetJobHeaders> headers,
                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetSavepointResponse getSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId);
+  GetJobResponse getJob(shared_ptr<string> namespace_, shared_ptr<string> jobId);
   GetSavepointResponse getSavepointWithOptions(shared_ptr<string> namespace_,
                                                shared_ptr<string> savepointId,
                                                shared_ptr<GetSavepointHeaders> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDeploymentTargetsResponse listDeploymentTargets(shared_ptr<string> namespace_, shared_ptr<ListDeploymentTargetsRequest> request);
+  GetSavepointResponse getSavepoint(shared_ptr<string> namespace_, shared_ptr<string> savepointId);
   ListDeploymentTargetsResponse listDeploymentTargetsWithOptions(shared_ptr<string> namespace_,
                                                                  shared_ptr<ListDeploymentTargetsRequest> request,
                                                                  shared_ptr<ListDeploymentTargetsHeaders> headers,
                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListDeploymentsResponse listDeployments(shared_ptr<string> namespace_, shared_ptr<ListDeploymentsRequest> request);
+  ListDeploymentTargetsResponse listDeploymentTargets(shared_ptr<string> namespace_, shared_ptr<ListDeploymentTargetsRequest> request);
   ListDeploymentsResponse listDeploymentsWithOptions(shared_ptr<string> namespace_,
                                                      shared_ptr<ListDeploymentsRequest> request,
                                                      shared_ptr<ListDeploymentsHeaders> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListEngineVersionMetadataResponse listEngineVersionMetadata();
+  ListDeploymentsResponse listDeployments(shared_ptr<string> namespace_, shared_ptr<ListDeploymentsRequest> request);
   ListEngineVersionMetadataResponse listEngineVersionMetadataWithOptions(shared_ptr<ListEngineVersionMetadataHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListJobsResponse listJobs(shared_ptr<string> namespace_, shared_ptr<ListJobsRequest> request);
+  ListEngineVersionMetadataResponse listEngineVersionMetadata();
   ListJobsResponse listJobsWithOptions(shared_ptr<string> namespace_,
                                        shared_ptr<ListJobsRequest> request,
                                        shared_ptr<ListJobsHeaders> headers,
                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListSavepointsResponse listSavepoints(shared_ptr<string> namespace_, shared_ptr<ListSavepointsRequest> request);
+  ListJobsResponse listJobs(shared_ptr<string> namespace_, shared_ptr<ListJobsRequest> request);
   ListSavepointsResponse listSavepointsWithOptions(shared_ptr<string> namespace_,
                                                    shared_ptr<ListSavepointsRequest> request,
                                                    shared_ptr<ListSavepointsHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListVariablesResponse listVariables(shared_ptr<string> namespace_, shared_ptr<ListVariablesRequest> request);
+  ListSavepointsResponse listSavepoints(shared_ptr<string> namespace_, shared_ptr<ListSavepointsRequest> request);
   ListVariablesResponse listVariablesWithOptions(shared_ptr<string> namespace_,
                                                  shared_ptr<ListVariablesRequest> request,
                                                  shared_ptr<ListVariablesHeaders> headers,
                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StartJobResponse startJob(shared_ptr<string> namespace_, shared_ptr<StartJobRequest> request);
+  ListVariablesResponse listVariables(shared_ptr<string> namespace_, shared_ptr<ListVariablesRequest> request);
   StartJobResponse startJobWithOptions(shared_ptr<string> namespace_,
                                        shared_ptr<StartJobRequest> request,
                                        shared_ptr<StartJobHeaders> headers,
                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  StopJobResponse stopJob(shared_ptr<string> namespace_, shared_ptr<string> jobId, shared_ptr<StopJobRequest> request);
+  StartJobResponse startJob(shared_ptr<string> namespace_, shared_ptr<StartJobRequest> request);
+  StartJobWithParamsResponse startJobWithParamsWithOptions(shared_ptr<string> namespace_,
+                                                           shared_ptr<StartJobWithParamsRequest> request,
+                                                           shared_ptr<StartJobWithParamsHeaders> headers,
+                                                           shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartJobWithParamsResponse startJobWithParams(shared_ptr<string> namespace_, shared_ptr<StartJobWithParamsRequest> request);
   StopJobResponse stopJobWithOptions(shared_ptr<string> namespace_,
                                      shared_ptr<string> jobId,
                                      shared_ptr<StopJobRequest> request,
                                      shared_ptr<StopJobHeaders> headers,
                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateDeploymentResponse updateDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<UpdateDeploymentRequest> request);
+  StopJobResponse stopJob(shared_ptr<string> namespace_, shared_ptr<string> jobId, shared_ptr<StopJobRequest> request);
   UpdateDeploymentResponse updateDeploymentWithOptions(shared_ptr<string> namespace_,
                                                        shared_ptr<string> deploymentId,
                                                        shared_ptr<UpdateDeploymentRequest> request,
                                                        shared_ptr<UpdateDeploymentHeaders> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateDeploymentResponse updateDeployment(shared_ptr<string> namespace_, shared_ptr<string> deploymentId, shared_ptr<UpdateDeploymentRequest> request);
 
   virtual ~Client() = default;
 };
