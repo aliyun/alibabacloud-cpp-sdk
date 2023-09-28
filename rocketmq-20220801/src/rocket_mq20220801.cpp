@@ -381,6 +381,33 @@ GetTopicResponse Alibabacloud_RocketMQ20220801::Client::getTopic(shared_ptr<stri
   return getTopicWithOptions(instanceId, topicName, headers, runtime);
 }
 
+ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupSubscriptionsWithOptions(shared_ptr<string> instanceId,
+                                                                                                                        shared_ptr<string> consumerGroupId,
+                                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListConsumerGroupSubscriptions"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)) + string("/subscriptions"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListConsumerGroupSubscriptionsResponse(callApi(params, req, runtime));
+}
+
+ListConsumerGroupSubscriptionsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupSubscriptions(shared_ptr<string> instanceId, shared_ptr<string> consumerGroupId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, headers, runtime);
+}
+
 ListConsumerGroupsResponse Alibabacloud_RocketMQ20220801::Client::listConsumerGroupsWithOptions(shared_ptr<string> instanceId,
                                                                                                 shared_ptr<ListConsumerGroupsRequest> request,
                                                                                                 shared_ptr<map<string, string>> headers,
@@ -434,6 +461,9 @@ ListInstancesResponse Alibabacloud_RocketMQ20220801::Client::listInstancesWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tags)) {
+    query->insert(pair<string, string>("tags", *request->tags));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
@@ -504,6 +534,47 @@ ListTopicsResponse Alibabacloud_RocketMQ20220801::Client::listTopics(shared_ptr<
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return listTopicsWithOptions(instanceId, request, headers, runtime);
+}
+
+ResetConsumeOffsetResponse Alibabacloud_RocketMQ20220801::Client::resetConsumeOffsetWithOptions(shared_ptr<string> instanceId,
+                                                                                                shared_ptr<string> consumerGroupId,
+                                                                                                shared_ptr<string> topicName,
+                                                                                                shared_ptr<ResetConsumeOffsetRequest> request,
+                                                                                                shared_ptr<map<string, string>> headers,
+                                                                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetTime)) {
+    body->insert(pair<string, string>("resetTime", *request->resetTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resetType)) {
+    body->insert(pair<string, string>("resetType", *request->resetType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResetConsumeOffset"))},
+    {"version", boost::any(string("2022-08-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/consumerGroups/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(consumerGroupId)) + string("/consumeOffsets/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(topicName)))},
+    {"method", boost::any(string("PATCH"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResetConsumeOffsetResponse(callApi(params, req, runtime));
+}
+
+ResetConsumeOffsetResponse Alibabacloud_RocketMQ20220801::Client::resetConsumeOffset(shared_ptr<string> instanceId,
+                                                                                     shared_ptr<string> consumerGroupId,
+                                                                                     shared_ptr<string> topicName,
+                                                                                     shared_ptr<ResetConsumeOffsetRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return resetConsumeOffsetWithOptions(instanceId, consumerGroupId, topicName, request, headers, runtime);
 }
 
 UpdateConsumerGroupResponse Alibabacloud_RocketMQ20220801::Client::updateConsumerGroupWithOptions(shared_ptr<string> instanceId,
