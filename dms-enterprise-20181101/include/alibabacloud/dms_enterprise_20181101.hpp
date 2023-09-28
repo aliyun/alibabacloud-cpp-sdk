@@ -25142,6 +25142,370 @@ public:
 
   virtual ~GetOwnerApplyOrderDetailResponse() = default;
 };
+class GetPagedInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetPagedInstanceRequest() {}
+
+  explicit GetPagedInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetPagedInstanceRequest() = default;
+};
+class GetPagedInstanceResponseBodyDataInstance : public Darabonba::Model {
+public:
+  shared_ptr<string> businessTime{};
+  shared_ptr<long> checkStatus{};
+  shared_ptr<long> dagId{};
+  shared_ptr<string> delete_{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> historyDagId{};
+  shared_ptr<long> id{};
+  shared_ptr<string> lastRunningContext{};
+  shared_ptr<string> msg{};
+  shared_ptr<long> status{};
+  shared_ptr<long> taskType{};
+  shared_ptr<string> tenantId{};
+  shared_ptr<long> triggerType{};
+  shared_ptr<string> version{};
+
+  GetPagedInstanceResponseBodyDataInstance() {}
+
+  explicit GetPagedInstanceResponseBodyDataInstance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (businessTime) {
+      res["BusinessTime"] = boost::any(*businessTime);
+    }
+    if (checkStatus) {
+      res["CheckStatus"] = boost::any(*checkStatus);
+    }
+    if (dagId) {
+      res["DagId"] = boost::any(*dagId);
+    }
+    if (delete_) {
+      res["Delete"] = boost::any(*delete_);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (historyDagId) {
+      res["HistoryDagId"] = boost::any(*historyDagId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (lastRunningContext) {
+      res["LastRunningContext"] = boost::any(*lastRunningContext);
+    }
+    if (msg) {
+      res["Msg"] = boost::any(*msg);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (taskType) {
+      res["TaskType"] = boost::any(*taskType);
+    }
+    if (tenantId) {
+      res["TenantId"] = boost::any(*tenantId);
+    }
+    if (triggerType) {
+      res["TriggerType"] = boost::any(*triggerType);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BusinessTime") != m.end() && !m["BusinessTime"].empty()) {
+      businessTime = make_shared<string>(boost::any_cast<string>(m["BusinessTime"]));
+    }
+    if (m.find("CheckStatus") != m.end() && !m["CheckStatus"].empty()) {
+      checkStatus = make_shared<long>(boost::any_cast<long>(m["CheckStatus"]));
+    }
+    if (m.find("DagId") != m.end() && !m["DagId"].empty()) {
+      dagId = make_shared<long>(boost::any_cast<long>(m["DagId"]));
+    }
+    if (m.find("Delete") != m.end() && !m["Delete"].empty()) {
+      delete_ = make_shared<string>(boost::any_cast<string>(m["Delete"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("HistoryDagId") != m.end() && !m["HistoryDagId"].empty()) {
+      historyDagId = make_shared<long>(boost::any_cast<long>(m["HistoryDagId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("LastRunningContext") != m.end() && !m["LastRunningContext"].empty()) {
+      lastRunningContext = make_shared<string>(boost::any_cast<string>(m["LastRunningContext"]));
+    }
+    if (m.find("Msg") != m.end() && !m["Msg"].empty()) {
+      msg = make_shared<string>(boost::any_cast<string>(m["Msg"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("TaskType") != m.end() && !m["TaskType"].empty()) {
+      taskType = make_shared<long>(boost::any_cast<long>(m["TaskType"]));
+    }
+    if (m.find("TenantId") != m.end() && !m["TenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["TenantId"]));
+    }
+    if (m.find("TriggerType") != m.end() && !m["TriggerType"].empty()) {
+      triggerType = make_shared<long>(boost::any_cast<long>(m["TriggerType"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetPagedInstanceResponseBodyDataInstance() = default;
+};
+class GetPagedInstanceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetPagedInstanceResponseBodyDataInstance>> instance{};
+
+  GetPagedInstanceResponseBodyData() {}
+
+  explicit GetPagedInstanceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instance) {
+      vector<boost::any> temp1;
+      for(auto item1:*instance){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Instance"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Instance") != m.end() && !m["Instance"].empty()) {
+      if (typeid(vector<boost::any>) == m["Instance"].type()) {
+        vector<GetPagedInstanceResponseBodyDataInstance> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Instance"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetPagedInstanceResponseBodyDataInstance model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        instance = make_shared<vector<GetPagedInstanceResponseBodyDataInstance>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~GetPagedInstanceResponseBodyData() = default;
+};
+class GetPagedInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetPagedInstanceResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<long> pageIndex{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> total{};
+  shared_ptr<string> traceId{};
+
+  GetPagedInstanceResponseBody() {}
+
+  explicit GetPagedInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (pageIndex) {
+      res["PageIndex"] = boost::any(*pageIndex);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (total) {
+      res["Total"] = boost::any(*total);
+    }
+    if (traceId) {
+      res["TraceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetPagedInstanceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetPagedInstanceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("PageIndex") != m.end() && !m["PageIndex"].empty()) {
+      pageIndex = make_shared<long>(boost::any_cast<long>(m["PageIndex"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Total") != m.end() && !m["Total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["Total"]));
+    }
+    if (m.find("TraceId") != m.end() && !m["TraceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["TraceId"]));
+    }
+  }
+
+
+  virtual ~GetPagedInstanceResponseBody() = default;
+};
+class GetPagedInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPagedInstanceResponseBody> body{};
+
+  GetPagedInstanceResponse() {}
+
+  explicit GetPagedInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPagedInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPagedInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPagedInstanceResponse() = default;
+};
 class GetPermApplyOrderDetailRequest : public Darabonba::Model {
 public:
   shared_ptr<long> orderId{};
@@ -49570,6 +49934,395 @@ public:
 
   virtual ~PauseDataCorrectSQLJobResponse() = default;
 };
+class PreviewWorkflowRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  PreviewWorkflowRequest() {}
+
+  explicit PreviewWorkflowRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~PreviewWorkflowRequest() = default;
+};
+class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser : public Darabonba::Model {
+public:
+  shared_ptr<string> nickName{};
+  shared_ptr<string> realName{};
+  shared_ptr<long> userId{};
+
+  PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser() {}
+
+  explicit PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nickName) {
+      res["NickName"] = boost::any(*nickName);
+    }
+    if (realName) {
+      res["RealName"] = boost::any(*realName);
+    }
+    if (userId) {
+      res["UserId"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NickName") != m.end() && !m["NickName"].empty()) {
+      nickName = make_shared<string>(boost::any_cast<string>(m["NickName"]));
+    }
+    if (m.find("RealName") != m.end() && !m["RealName"].empty()) {
+      realName = make_shared<string>(boost::any_cast<string>(m["RealName"]));
+    }
+    if (m.find("UserId") != m.end() && !m["UserId"].empty()) {
+      userId = make_shared<long>(boost::any_cast<long>(m["UserId"]));
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser() = default;
+};
+class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList : public Darabonba::Model {
+public:
+  shared_ptr<vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser>> auditUser{};
+
+  PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList() {}
+
+  explicit PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditUser) {
+      vector<boost::any> temp1;
+      for(auto item1:*auditUser){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuditUser"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditUser") != m.end() && !m["AuditUser"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuditUser"].type()) {
+        vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuditUser"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        auditUser = make_shared<vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserListAuditUser>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList() = default;
+};
+class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode : public Darabonba::Model {
+public:
+  shared_ptr<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList> auditUserList{};
+  shared_ptr<string> comment{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<string> nodeType{};
+
+  PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode() {}
+
+  explicit PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (auditUserList) {
+      res["AuditUserList"] = auditUserList ? boost::any(auditUserList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (nodeName) {
+      res["NodeName"] = boost::any(*nodeName);
+    }
+    if (nodeType) {
+      res["NodeType"] = boost::any(*nodeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuditUserList") != m.end() && !m["AuditUserList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["AuditUserList"].type()) {
+        PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["AuditUserList"]));
+        auditUserList = make_shared<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNodeAuditUserList>(model1);
+      }
+    }
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
+      nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode() = default;
+};
+class PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList : public Darabonba::Model {
+public:
+  shared_ptr<vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode>> workflowNode{};
+
+  PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList() {}
+
+  explicit PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (workflowNode) {
+      vector<boost::any> temp1;
+      for(auto item1:*workflowNode){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["WorkflowNode"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("WorkflowNode") != m.end() && !m["WorkflowNode"].empty()) {
+      if (typeid(vector<boost::any>) == m["WorkflowNode"].type()) {
+        vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["WorkflowNode"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        workflowNode = make_shared<vector<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeListWorkflowNode>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList() = default;
+};
+class PreviewWorkflowResponseBodyWorkflowDetail : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> wfCateName{};
+  shared_ptr<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList> workflowNodeList{};
+
+  PreviewWorkflowResponseBodyWorkflowDetail() {}
+
+  explicit PreviewWorkflowResponseBodyWorkflowDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["Comment"] = boost::any(*comment);
+    }
+    if (wfCateName) {
+      res["WfCateName"] = boost::any(*wfCateName);
+    }
+    if (workflowNodeList) {
+      res["WorkflowNodeList"] = workflowNodeList ? boost::any(workflowNodeList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
+    }
+    if (m.find("WfCateName") != m.end() && !m["WfCateName"].empty()) {
+      wfCateName = make_shared<string>(boost::any_cast<string>(m["WfCateName"]));
+    }
+    if (m.find("WorkflowNodeList") != m.end() && !m["WorkflowNodeList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WorkflowNodeList"].type()) {
+        PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WorkflowNodeList"]));
+        workflowNodeList = make_shared<PreviewWorkflowResponseBodyWorkflowDetailWorkflowNodeList>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBodyWorkflowDetail() = default;
+};
+class PreviewWorkflowResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<PreviewWorkflowResponseBodyWorkflowDetail> workflowDetail{};
+
+  PreviewWorkflowResponseBody() {}
+
+  explicit PreviewWorkflowResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    if (workflowDetail) {
+      res["WorkflowDetail"] = workflowDetail ? boost::any(workflowDetail->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("WorkflowDetail") != m.end() && !m["WorkflowDetail"].empty()) {
+      if (typeid(map<string, boost::any>) == m["WorkflowDetail"].type()) {
+        PreviewWorkflowResponseBodyWorkflowDetail model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["WorkflowDetail"]));
+        workflowDetail = make_shared<PreviewWorkflowResponseBodyWorkflowDetail>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponseBody() = default;
+};
+class PreviewWorkflowResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<PreviewWorkflowResponseBody> body{};
+
+  PreviewWorkflowResponse() {}
+
+  explicit PreviewWorkflowResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        PreviewWorkflowResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<PreviewWorkflowResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~PreviewWorkflowResponse() = default;
+};
 class PublishAndDeployTaskFlowRequest : public Darabonba::Model {
 public:
   shared_ptr<long> dagId{};
@@ -58451,6 +59204,8 @@ public:
   GetOrderBaseInfoResponse getOrderBaseInfo(shared_ptr<GetOrderBaseInfoRequest> request);
   GetOwnerApplyOrderDetailResponse getOwnerApplyOrderDetailWithOptions(shared_ptr<GetOwnerApplyOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetOwnerApplyOrderDetailResponse getOwnerApplyOrderDetail(shared_ptr<GetOwnerApplyOrderDetailRequest> request);
+  GetPagedInstanceResponse getPagedInstanceWithOptions(shared_ptr<GetPagedInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPagedInstanceResponse getPagedInstance(shared_ptr<GetPagedInstanceRequest> request);
   GetPermApplyOrderDetailResponse getPermApplyOrderDetailWithOptions(shared_ptr<GetPermApplyOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetPermApplyOrderDetailResponse getPermApplyOrderDetail(shared_ptr<GetPermApplyOrderDetailRequest> request);
   GetPhysicalDatabaseResponse getPhysicalDatabaseWithOptions(shared_ptr<GetPhysicalDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -58609,6 +59364,8 @@ public:
   OfflineTaskFlowResponse offlineTaskFlow(shared_ptr<OfflineTaskFlowRequest> request);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJobWithOptions(shared_ptr<PauseDataCorrectSQLJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PauseDataCorrectSQLJobResponse pauseDataCorrectSQLJob(shared_ptr<PauseDataCorrectSQLJobRequest> request);
+  PreviewWorkflowResponse previewWorkflowWithOptions(shared_ptr<PreviewWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PreviewWorkflowResponse previewWorkflow(shared_ptr<PreviewWorkflowRequest> request);
   PublishAndDeployTaskFlowResponse publishAndDeployTaskFlowWithOptions(shared_ptr<PublishAndDeployTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PublishAndDeployTaskFlowResponse publishAndDeployTaskFlow(shared_ptr<PublishAndDeployTaskFlowRequest> request);
   QueryDataTrackResultDownloadStatusResponse queryDataTrackResultDownloadStatusWithOptions(shared_ptr<QueryDataTrackResultDownloadStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

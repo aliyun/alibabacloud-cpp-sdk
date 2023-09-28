@@ -3470,6 +3470,31 @@ GetOwnerApplyOrderDetailResponse Alibabacloud_Dms-enterprise20181101::Client::ge
   return getOwnerApplyOrderDetailWithOptions(request, runtime);
 }
 
+GetPagedInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::getPagedInstanceWithOptions(shared_ptr<GetPagedInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPagedInstance"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPagedInstanceResponse(callApi(params, req, runtime));
+}
+
+GetPagedInstanceResponse Alibabacloud_Dms-enterprise20181101::Client::getPagedInstance(shared_ptr<GetPagedInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPagedInstanceWithOptions(request, runtime);
+}
+
 GetPermApplyOrderDetailResponse Alibabacloud_Dms-enterprise20181101::Client::getPermApplyOrderDetailWithOptions(shared_ptr<GetPermApplyOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -6353,6 +6378,37 @@ PauseDataCorrectSQLJobResponse Alibabacloud_Dms-enterprise20181101::Client::paus
 PauseDataCorrectSQLJobResponse Alibabacloud_Dms-enterprise20181101::Client::pauseDataCorrectSQLJob(shared_ptr<PauseDataCorrectSQLJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return pauseDataCorrectSQLJobWithOptions(request, runtime);
+}
+
+PreviewWorkflowResponse Alibabacloud_Dms-enterprise20181101::Client::previewWorkflowWithOptions(shared_ptr<PreviewWorkflowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->orderId)) {
+    query->insert(pair<string, long>("OrderId", *request->orderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->tid)) {
+    query->insert(pair<string, long>("Tid", *request->tid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PreviewWorkflow"))},
+    {"version", boost::any(string("2018-11-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return PreviewWorkflowResponse(callApi(params, req, runtime));
+}
+
+PreviewWorkflowResponse Alibabacloud_Dms-enterprise20181101::Client::previewWorkflow(shared_ptr<PreviewWorkflowRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return previewWorkflowWithOptions(request, runtime);
 }
 
 PublishAndDeployTaskFlowResponse Alibabacloud_Dms-enterprise20181101::Client::publishAndDeployTaskFlowWithOptions(shared_ptr<PublishAndDeployTaskFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
