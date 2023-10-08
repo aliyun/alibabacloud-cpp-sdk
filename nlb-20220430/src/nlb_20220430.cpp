@@ -443,9 +443,6 @@ CreateServerGroupResponse Alibabacloud_Nlb20220430::Client::createServerGroupWit
   if (!Darabonba_Util::Client::isUnset<string>(request->protocol)) {
     body->insert(pair<string, string>("Protocol", *request->protocol));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->quicVersion)) {
-    body->insert(pair<string, string>("QuicVersion", *request->quicVersion));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -2069,9 +2066,6 @@ UpdateServerGroupAttributeResponse Alibabacloud_Nlb20220430::Client::updateServe
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->preserveClientIpEnabled)) {
     body->insert(pair<string, bool>("PreserveClientIpEnabled", *request->preserveClientIpEnabled));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->quicVersion)) {
-    body->insert(pair<string, string>("QuicVersion", *request->quicVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
