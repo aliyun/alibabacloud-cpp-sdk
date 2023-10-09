@@ -6928,6 +6928,7 @@ public:
 class StartInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> config{};
+  shared_ptr<bool> crossZone{};
   shared_ptr<string> deployModule{};
   shared_ptr<string> instanceId{};
   shared_ptr<bool> isEipInner{};
@@ -6959,6 +6960,9 @@ public:
     map<string, boost::any> res;
     if (config) {
       res["Config"] = boost::any(*config);
+    }
+    if (crossZone) {
+      res["CrossZone"] = boost::any(*crossZone);
     }
     if (deployModule) {
       res["DeployModule"] = boost::any(*deployModule);
@@ -7020,6 +7024,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Config") != m.end() && !m["Config"].empty()) {
       config = make_shared<string>(boost::any_cast<string>(m["Config"]));
+    }
+    if (m.find("CrossZone") != m.end() && !m["CrossZone"].empty()) {
+      crossZone = make_shared<bool>(boost::any_cast<bool>(m["CrossZone"]));
     }
     if (m.find("DeployModule") != m.end() && !m["DeployModule"].empty()) {
       deployModule = make_shared<string>(boost::any_cast<string>(m["DeployModule"]));

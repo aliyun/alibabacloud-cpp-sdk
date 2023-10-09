@@ -1128,6 +1128,9 @@ StartInstanceResponse Alibabacloud_Alikafka20190916::Client::startInstanceWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->config)) {
     query->insert(pair<string, string>("Config", *request->config));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->crossZone)) {
+    query->insert(pair<string, bool>("CrossZone", *request->crossZone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deployModule)) {
     query->insert(pair<string, string>("DeployModule", *request->deployModule));
   }
