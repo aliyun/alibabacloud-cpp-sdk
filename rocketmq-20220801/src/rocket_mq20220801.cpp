@@ -130,6 +130,9 @@ CreateInstanceResponse Alibabacloud_RocketMQ20220801::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<long>(request->autoRenewPeriod)) {
     body->insert(pair<string, long>("autoRenewPeriod", *request->autoRenewPeriod));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->commodityCode)) {
+    body->insert(pair<string, string>("commodityCode", *request->commodityCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("instanceName", *request->instanceName));
   }

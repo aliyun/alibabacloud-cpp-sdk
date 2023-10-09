@@ -493,6 +493,7 @@ public:
 };
 class CreateInstanceRequestNetworkInfoVpcInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> securityGroupIds{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
@@ -506,6 +507,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityGroupIds) {
+      res["securityGroupIds"] = boost::any(*securityGroupIds);
+    }
     if (vSwitchId) {
       res["vSwitchId"] = boost::any(*vSwitchId);
     }
@@ -516,6 +520,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("securityGroupIds") != m.end() && !m["securityGroupIds"].empty()) {
+      securityGroupIds = make_shared<string>(boost::any_cast<string>(m["securityGroupIds"]));
+    }
     if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
     }
@@ -574,6 +581,8 @@ public:
 class CreateInstanceRequestProductInfo : public Darabonba::Model {
 public:
   shared_ptr<bool> autoScaling{};
+  shared_ptr<string> chargeType{};
+  shared_ptr<string> intranetSpec{};
   shared_ptr<long> messageRetentionTime{};
   shared_ptr<string> msgProcessSpec{};
   shared_ptr<double> sendReceiveRatio{};
@@ -591,6 +600,12 @@ public:
     if (autoScaling) {
       res["autoScaling"] = boost::any(*autoScaling);
     }
+    if (chargeType) {
+      res["chargeType"] = boost::any(*chargeType);
+    }
+    if (intranetSpec) {
+      res["intranetSpec"] = boost::any(*intranetSpec);
+    }
     if (messageRetentionTime) {
       res["messageRetentionTime"] = boost::any(*messageRetentionTime);
     }
@@ -606,6 +621,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("autoScaling") != m.end() && !m["autoScaling"].empty()) {
       autoScaling = make_shared<bool>(boost::any_cast<bool>(m["autoScaling"]));
+    }
+    if (m.find("chargeType") != m.end() && !m["chargeType"].empty()) {
+      chargeType = make_shared<string>(boost::any_cast<string>(m["chargeType"]));
+    }
+    if (m.find("intranetSpec") != m.end() && !m["intranetSpec"].empty()) {
+      intranetSpec = make_shared<string>(boost::any_cast<string>(m["intranetSpec"]));
     }
     if (m.find("messageRetentionTime") != m.end() && !m["messageRetentionTime"].empty()) {
       messageRetentionTime = make_shared<long>(boost::any_cast<long>(m["messageRetentionTime"]));
@@ -625,6 +646,7 @@ class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRenew{};
   shared_ptr<long> autoRenewPeriod{};
+  shared_ptr<string> commodityCode{};
   shared_ptr<string> instanceName{};
   shared_ptr<CreateInstanceRequestNetworkInfo> networkInfo{};
   shared_ptr<string> paymentType{};
@@ -653,6 +675,9 @@ public:
     }
     if (autoRenewPeriod) {
       res["autoRenewPeriod"] = boost::any(*autoRenewPeriod);
+    }
+    if (commodityCode) {
+      res["commodityCode"] = boost::any(*commodityCode);
     }
     if (instanceName) {
       res["instanceName"] = boost::any(*instanceName);
@@ -699,6 +724,9 @@ public:
     }
     if (m.find("autoRenewPeriod") != m.end() && !m["autoRenewPeriod"].empty()) {
       autoRenewPeriod = make_shared<long>(boost::any_cast<long>(m["autoRenewPeriod"]));
+    }
+    if (m.find("commodityCode") != m.end() && !m["commodityCode"].empty()) {
+      commodityCode = make_shared<string>(boost::any_cast<string>(m["commodityCode"]));
     }
     if (m.find("instanceName") != m.end() && !m["instanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["instanceName"]));
@@ -2063,6 +2091,7 @@ public:
 };
 class GetInstanceResponseBodyDataNetworkInfoVpcInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> securityGroupIds{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
@@ -2076,6 +2105,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (securityGroupIds) {
+      res["securityGroupIds"] = boost::any(*securityGroupIds);
+    }
     if (vSwitchId) {
       res["vSwitchId"] = boost::any(*vSwitchId);
     }
@@ -2086,6 +2118,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("securityGroupIds") != m.end() && !m["securityGroupIds"].empty()) {
+      securityGroupIds = make_shared<string>(boost::any_cast<string>(m["securityGroupIds"]));
+    }
     if (m.find("vSwitchId") != m.end() && !m["vSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["vSwitchId"]));
     }
@@ -2169,6 +2204,7 @@ public:
   shared_ptr<string> msgProcessSpec{};
   shared_ptr<double> sendReceiveRatio{};
   shared_ptr<bool> supportAutoScaling{};
+  shared_ptr<bool> traceOn{};
 
   GetInstanceResponseBodyDataProductInfo() {}
 
@@ -2195,6 +2231,9 @@ public:
     if (supportAutoScaling) {
       res["supportAutoScaling"] = boost::any(*supportAutoScaling);
     }
+    if (traceOn) {
+      res["traceOn"] = boost::any(*traceOn);
+    }
     return res;
   }
 
@@ -2213,6 +2252,9 @@ public:
     }
     if (m.find("supportAutoScaling") != m.end() && !m["supportAutoScaling"].empty()) {
       supportAutoScaling = make_shared<bool>(boost::any_cast<bool>(m["supportAutoScaling"]));
+    }
+    if (m.find("traceOn") != m.end() && !m["traceOn"].empty()) {
+      traceOn = make_shared<bool>(boost::any_cast<bool>(m["traceOn"]));
     }
   }
 
@@ -3538,6 +3580,35 @@ public:
 
   virtual ~ListInstancesRequest() = default;
 };
+class ListInstancesResponseBodyDataListProductInfo : public Darabonba::Model {
+public:
+  shared_ptr<bool> traceOn{};
+
+  ListInstancesResponseBodyDataListProductInfo() {}
+
+  explicit ListInstancesResponseBodyDataListProductInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (traceOn) {
+      res["traceOn"] = boost::any(*traceOn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("traceOn") != m.end() && !m["traceOn"].empty()) {
+      traceOn = make_shared<bool>(boost::any_cast<bool>(m["traceOn"]));
+    }
+  }
+
+
+  virtual ~ListInstancesResponseBodyDataListProductInfo() = default;
+};
 class ListInstancesResponseBodyDataListTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -3583,6 +3654,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> paymentType{};
+  shared_ptr<ListInstancesResponseBodyDataListProductInfo> productInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<string> releaseTime{};
   shared_ptr<string> remark{};
@@ -3627,6 +3699,9 @@ public:
     }
     if (paymentType) {
       res["paymentType"] = boost::any(*paymentType);
+    }
+    if (productInfo) {
+      res["productInfo"] = productInfo ? boost::any(productInfo->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
@@ -3695,6 +3770,13 @@ public:
     }
     if (m.find("paymentType") != m.end() && !m["paymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["paymentType"]));
+    }
+    if (m.find("productInfo") != m.end() && !m["productInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["productInfo"].type()) {
+        ListInstancesResponseBodyDataListProductInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["productInfo"]));
+        productInfo = make_shared<ListInstancesResponseBodyDataListProductInfo>(model1);
+      }
     }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
@@ -4824,6 +4906,7 @@ public:
   shared_ptr<bool> autoScaling{};
   shared_ptr<long> messageRetentionTime{};
   shared_ptr<double> sendReceiveRatio{};
+  shared_ptr<bool> traceOn{};
 
   UpdateInstanceRequestProductInfo() {}
 
@@ -4844,6 +4927,9 @@ public:
     if (sendReceiveRatio) {
       res["sendReceiveRatio"] = boost::any(*sendReceiveRatio);
     }
+    if (traceOn) {
+      res["traceOn"] = boost::any(*traceOn);
+    }
     return res;
   }
 
@@ -4856,6 +4942,9 @@ public:
     }
     if (m.find("sendReceiveRatio") != m.end() && !m["sendReceiveRatio"].empty()) {
       sendReceiveRatio = make_shared<double>(boost::any_cast<double>(m["sendReceiveRatio"]));
+    }
+    if (m.find("traceOn") != m.end() && !m["traceOn"].empty()) {
+      traceOn = make_shared<bool>(boost::any_cast<bool>(m["traceOn"]));
     }
   }
 
