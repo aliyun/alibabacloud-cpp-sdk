@@ -11604,6 +11604,7 @@ public:
   shared_ptr<vector<MergeImageFaceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> modelVersion{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> watermarkType{};
 
   MergeImageFaceRequest() {}
 
@@ -11634,6 +11635,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -11662,6 +11666,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
     }
   }
 
@@ -11711,6 +11718,7 @@ public:
   shared_ptr<vector<MergeImageFaceAdvanceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> modelVersion{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> watermarkType{};
 
   MergeImageFaceAdvanceRequest() {}
 
@@ -11741,6 +11749,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -11769,6 +11780,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
     }
   }
 

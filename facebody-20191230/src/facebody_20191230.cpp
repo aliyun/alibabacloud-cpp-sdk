@@ -3428,6 +3428,9 @@ MergeImageFaceResponse Alibabacloud_Facebody20191230::Client::mergeImageFaceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->templateId)) {
     body->insert(pair<string, string>("TemplateId", *request->templateId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->watermarkType)) {
+    body->insert(pair<string, string>("WatermarkType", *request->watermarkType));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
