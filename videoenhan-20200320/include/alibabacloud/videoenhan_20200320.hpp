@@ -3812,6 +3812,7 @@ public:
   shared_ptr<bool> enhance{};
   shared_ptr<string> referenceURL{};
   shared_ptr<string> videoURL{};
+  shared_ptr<string> watermarkType{};
 
   MergeVideoFaceRequest() {}
 
@@ -3835,6 +3836,9 @@ public:
     if (videoURL) {
       res["VideoURL"] = boost::any(*videoURL);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -3851,6 +3855,9 @@ public:
     if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
       videoURL = make_shared<string>(boost::any_cast<string>(m["VideoURL"]));
     }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
+    }
   }
 
 
@@ -3862,6 +3869,7 @@ public:
   shared_ptr<bool> enhance{};
   shared_ptr<Darabonba::Stream> referenceURLObject{};
   shared_ptr<Darabonba::Stream> videoURLObject{};
+  shared_ptr<string> watermarkType{};
 
   MergeVideoFaceAdvanceRequest() {}
 
@@ -3885,6 +3893,9 @@ public:
     if (videoURLObject) {
       res["VideoURL"] = boost::any(*videoURLObject);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -3900,6 +3911,9 @@ public:
     }
     if (m.find("VideoURL") != m.end() && !m["VideoURL"].empty()) {
       videoURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["VideoURL"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
     }
   }
 
@@ -4094,6 +4108,7 @@ public:
   shared_ptr<string> faceImageURL{};
   shared_ptr<vector<MergeVideoModelFaceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> watermarkType{};
 
   MergeVideoModelFaceRequest() {}
 
@@ -4124,6 +4139,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -4152,6 +4170,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
     }
   }
 
@@ -4208,6 +4229,7 @@ public:
   shared_ptr<Darabonba::Stream> faceImageURLObject{};
   shared_ptr<vector<MergeVideoModelFaceAdvanceRequestMergeInfos>> mergeInfos{};
   shared_ptr<string> templateId{};
+  shared_ptr<string> watermarkType{};
 
   MergeVideoModelFaceAdvanceRequest() {}
 
@@ -4238,6 +4260,9 @@ public:
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
     }
+    if (watermarkType) {
+      res["WatermarkType"] = boost::any(*watermarkType);
+    }
     return res;
   }
 
@@ -4266,6 +4291,9 @@ public:
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<string>(boost::any_cast<string>(m["TemplateId"]));
+    }
+    if (m.find("WatermarkType") != m.end() && !m["WatermarkType"].empty()) {
+      watermarkType = make_shared<string>(boost::any_cast<string>(m["WatermarkType"]));
     }
   }
 
