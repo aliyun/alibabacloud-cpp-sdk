@@ -38,9 +38,18 @@ string Alibabacloud_Sgx-dcap-server20200726::Client::getEndpoint(shared_ptr<stri
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-GetQeIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQeIdentityWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetQeIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQeIdentityWithOptions(shared_ptr<GetQeIdentityRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetQeIdentity"))},
@@ -56,15 +65,24 @@ GetQeIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQeIdentit
   return GetQeIdentityResponse(callApi(params, req, runtime));
 }
 
-GetQeIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQeIdentity() {
+GetQeIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQeIdentity(shared_ptr<GetQeIdentityRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getQeIdentityWithOptions(headers, runtime);
+  return getQeIdentityWithOptions(request, headers, runtime);
 }
 
-GetQveIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQveIdentityWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+GetQveIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQveIdentityWithOptions(shared_ptr<GetQveIdentityRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetQveIdentity"))},
@@ -80,15 +98,21 @@ GetQveIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQveIdent
   return GetQveIdentityResponse(callApi(params, req, runtime));
 }
 
-GetQveIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQveIdentity() {
+GetQveIdentityResponse Alibabacloud_Sgx-dcap-server20200726::Client::getQveIdentity(shared_ptr<GetQveIdentityRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return getQveIdentityWithOptions(headers, runtime);
+  return getQveIdentityWithOptions(request, headers, runtime);
 }
 
 GetTcbInfoResponse Alibabacloud_Sgx-dcap-server20200726::Client::getTcbInfoWithOptions(shared_ptr<GetTcbInfoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fmspc)) {
     query->insert(pair<string, string>("fmspc", *request->fmspc));
   }
@@ -119,6 +143,12 @@ GetTcbInfoResponse Alibabacloud_Sgx-dcap-server20200726::Client::getTcbInfo(shar
 PckCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::pckCrlWithOptions(shared_ptr<PckCrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ca)) {
     query->insert(pair<string, string>("ca", *request->ca));
   }
@@ -146,9 +176,18 @@ PckCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::pckCrl(shared_ptr<P
   return pckCrlWithOptions(request, headers, runtime);
 }
 
-RootCaCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::rootCaCrlWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+RootCaCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::rootCaCrlWithOptions(shared_ptr<RootCaCrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"headers", !headers ? boost::any() : boost::any(*headers)}
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("RootCaCrl"))},
@@ -164,15 +203,21 @@ RootCaCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::rootCaCrlWithOpt
   return RootCaCrlResponse(callApi(params, req, runtime));
 }
 
-RootCaCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::rootCaCrl() {
+RootCaCrlResponse Alibabacloud_Sgx-dcap-server20200726::Client::rootCaCrl(shared_ptr<RootCaCrlRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return rootCaCrlWithOptions(headers, runtime);
+  return rootCaCrlWithOptions(request, headers, runtime);
 }
 
 SimplePackagePckCertResponse Alibabacloud_Sgx-dcap-server20200726::Client::simplePackagePckCertWithOptions(shared_ptr<SimplePackagePckCertRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acsHost)) {
+    query->insert(pair<string, string>("AcsHost", *request->acsHost));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientVpcId)) {
+    query->insert(pair<string, string>("ClientVpcId", *request->clientVpcId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cpusvn)) {
     query->insert(pair<string, string>("cpusvn", *request->cpusvn));
   }

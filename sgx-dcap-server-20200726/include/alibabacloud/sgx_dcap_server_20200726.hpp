@@ -13,6 +13,42 @@
 using namespace std;
 
 namespace Alibabacloud_Sgx-dcap-server20200726 {
+class GetQeIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
+
+  GetQeIdentityRequest() {}
+
+  explicit GetQeIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
+  }
+
+
+  virtual ~GetQeIdentityRequest() = default;
+};
 class GetQeIdentityResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -70,6 +106,42 @@ public:
 
 
   virtual ~GetQeIdentityResponse() = default;
+};
+class GetQveIdentityRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
+
+  GetQveIdentityRequest() {}
+
+  explicit GetQveIdentityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
+  }
+
+
+  virtual ~GetQveIdentityRequest() = default;
 };
 class GetQveIdentityResponse : public Darabonba::Model {
 public:
@@ -131,6 +203,8 @@ public:
 };
 class GetTcbInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
   shared_ptr<string> fmspc{};
 
   GetTcbInfoRequest() {}
@@ -143,6 +217,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
     if (fmspc) {
       res["fmspc"] = boost::any(*fmspc);
     }
@@ -150,6 +230,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
     if (m.find("fmspc") != m.end() && !m["fmspc"].empty()) {
       fmspc = make_shared<string>(boost::any_cast<string>(m["fmspc"]));
     }
@@ -218,6 +304,8 @@ public:
 };
 class PckCrlRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
   shared_ptr<string> ca{};
 
   PckCrlRequest() {}
@@ -230,6 +318,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
     if (ca) {
       res["ca"] = boost::any(*ca);
     }
@@ -237,6 +331,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
     if (m.find("ca") != m.end() && !m["ca"].empty()) {
       ca = make_shared<string>(boost::any_cast<string>(m["ca"]));
     }
@@ -303,6 +403,42 @@ public:
 
   virtual ~PckCrlResponse() = default;
 };
+class RootCaCrlRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
+
+  RootCaCrlRequest() {}
+
+  explicit RootCaCrlRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
+  }
+
+
+  virtual ~RootCaCrlRequest() = default;
+};
 class RootCaCrlResponse : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> headers{};
@@ -363,6 +499,8 @@ public:
 };
 class SimplePackagePckCertRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> acsHost{};
+  shared_ptr<string> clientVpcId{};
   shared_ptr<string> cpusvn{};
   shared_ptr<string> encryptedPpid{};
   shared_ptr<string> pceid{};
@@ -379,6 +517,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acsHost) {
+      res["AcsHost"] = boost::any(*acsHost);
+    }
+    if (clientVpcId) {
+      res["ClientVpcId"] = boost::any(*clientVpcId);
+    }
     if (cpusvn) {
       res["cpusvn"] = boost::any(*cpusvn);
     }
@@ -398,6 +542,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcsHost") != m.end() && !m["AcsHost"].empty()) {
+      acsHost = make_shared<string>(boost::any_cast<string>(m["AcsHost"]));
+    }
+    if (m.find("ClientVpcId") != m.end() && !m["ClientVpcId"].empty()) {
+      clientVpcId = make_shared<string>(boost::any_cast<string>(m["ClientVpcId"]));
+    }
     if (m.find("cpusvn") != m.end() && !m["cpusvn"].empty()) {
       cpusvn = make_shared<string>(boost::any_cast<string>(m["cpusvn"]));
     }
@@ -486,16 +636,16 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  GetQeIdentityResponse getQeIdentityWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetQeIdentityResponse getQeIdentity();
-  GetQveIdentityResponse getQveIdentityWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  GetQveIdentityResponse getQveIdentity();
+  GetQeIdentityResponse getQeIdentityWithOptions(shared_ptr<GetQeIdentityRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetQeIdentityResponse getQeIdentity(shared_ptr<GetQeIdentityRequest> request);
+  GetQveIdentityResponse getQveIdentityWithOptions(shared_ptr<GetQveIdentityRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetQveIdentityResponse getQveIdentity(shared_ptr<GetQveIdentityRequest> request);
   GetTcbInfoResponse getTcbInfoWithOptions(shared_ptr<GetTcbInfoRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTcbInfoResponse getTcbInfo(shared_ptr<GetTcbInfoRequest> request);
   PckCrlResponse pckCrlWithOptions(shared_ptr<PckCrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PckCrlResponse pckCrl(shared_ptr<PckCrlRequest> request);
-  RootCaCrlResponse rootCaCrlWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  RootCaCrlResponse rootCaCrl();
+  RootCaCrlResponse rootCaCrlWithOptions(shared_ptr<RootCaCrlRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  RootCaCrlResponse rootCaCrl(shared_ptr<RootCaCrlRequest> request);
   SimplePackagePckCertResponse simplePackagePckCertWithOptions(shared_ptr<SimplePackagePckCertRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SimplePackagePckCertResponse simplePackagePckCert(shared_ptr<SimplePackagePckCertRequest> request);
 
