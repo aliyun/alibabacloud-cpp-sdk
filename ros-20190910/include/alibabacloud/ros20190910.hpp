@@ -2945,6 +2945,7 @@ public:
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<vector<CreateTemplateScratchRequestPreferenceParameters>> preferenceParameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<CreateTemplateScratchRequestSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<CreateTemplateScratchRequestSourceResources>> sourceResources{};
   shared_ptr<CreateTemplateScratchRequestSourceTag> sourceTag{};
@@ -2982,6 +2983,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroup) {
       res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3037,6 +3041,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
@@ -3130,6 +3137,7 @@ public:
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<string> preferenceParametersShrink{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceResourceGroupShrink{};
   shared_ptr<string> sourceResourcesShrink{};
   shared_ptr<string> sourceTagShrink{};
@@ -3163,6 +3171,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroupShrink) {
       res["SourceResourceGroup"] = boost::any(*sourceResourceGroupShrink);
@@ -3204,6 +3215,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       sourceResourceGroupShrink = make_shared<string>(boost::any_cast<string>(m["SourceResourceGroup"]));
@@ -6652,6 +6666,7 @@ public:
   shared_ptr<bool> sourceResourcesSupported{};
   shared_ptr<bool> sourceSupported{};
   shared_ptr<bool> sourceTagSupported{};
+  shared_ptr<vector<string>> supportedTemplateScratchTypes{};
 
   GetFeatureDetailsResponseBodyTemplateScratchSupportedResourceTypes() {}
 
@@ -6678,6 +6693,9 @@ public:
     if (sourceTagSupported) {
       res["SourceTagSupported"] = boost::any(*sourceTagSupported);
     }
+    if (supportedTemplateScratchTypes) {
+      res["SupportedTemplateScratchTypes"] = boost::any(*supportedTemplateScratchTypes);
+    }
     return res;
   }
 
@@ -6696,6 +6714,16 @@ public:
     }
     if (m.find("SourceTagSupported") != m.end() && !m["SourceTagSupported"].empty()) {
       sourceTagSupported = make_shared<bool>(boost::any_cast<bool>(m["SourceTagSupported"]));
+    }
+    if (m.find("SupportedTemplateScratchTypes") != m.end() && !m["SupportedTemplateScratchTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SupportedTemplateScratchTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SupportedTemplateScratchTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      supportedTemplateScratchTypes = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -12869,6 +12897,7 @@ public:
   shared_ptr<string> failedCode{};
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters>> preferenceParameters{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<GetTemplateScratchResponseBodyTemplateScratchSourceResources>> sourceResources{};
   shared_ptr<GetTemplateScratchResponseBodyTemplateScratchSourceTag> sourceTag{};
@@ -12909,6 +12938,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroup) {
       res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
@@ -12979,6 +13011,9 @@ public:
         }
         preferenceParameters = make_shared<vector<GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters>>(expect1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
@@ -18335,6 +18370,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
   shared_ptr<vector<ListTemplateScratchesRequestTags>> tags{};
   shared_ptr<string> templateScratchId{};
@@ -18358,6 +18394,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -18387,6 +18426,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -18621,6 +18663,7 @@ public:
   shared_ptr<string> failedCode{};
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters>> preferenceParameters{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<ListTemplateScratchesResponseBodyTemplateScratchesSourceResources>> sourceResources{};
   shared_ptr<ListTemplateScratchesResponseBodyTemplateScratchesSourceTag> sourceTag{};
@@ -18659,6 +18702,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PreferenceParameters"] = boost::any(temp1);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroup) {
       res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
@@ -18723,6 +18769,9 @@ public:
         }
         preferenceParameters = make_shared<vector<ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters>>(expect1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
@@ -23861,6 +23910,7 @@ public:
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<vector<UpdateTemplateScratchRequestPreferenceParameters>> preferenceParameters{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<UpdateTemplateScratchRequestSourceResourceGroup> sourceResourceGroup{};
   shared_ptr<vector<UpdateTemplateScratchRequestSourceResources>> sourceResources{};
   shared_ptr<UpdateTemplateScratchRequestSourceTag> sourceTag{};
@@ -23897,6 +23947,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroup) {
       res["SourceResourceGroup"] = sourceResourceGroup ? boost::any(sourceResourceGroup->toMap()) : boost::any(map<string,boost::any>({}));
@@ -23946,6 +23999,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       if (typeid(map<string, boost::any>) == m["SourceResourceGroup"].type()) {
         UpdateTemplateScratchRequestSourceResourceGroup model1;
@@ -23989,6 +24045,7 @@ public:
   shared_ptr<string> logicalIdStrategy{};
   shared_ptr<string> preferenceParametersShrink{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceResourceGroupShrink{};
   shared_ptr<string> sourceResourcesShrink{};
   shared_ptr<string> sourceTagShrink{};
@@ -24021,6 +24078,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceResourceGroupShrink) {
       res["SourceResourceGroup"] = boost::any(*sourceResourceGroupShrink);
@@ -24055,6 +24115,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceResourceGroup") != m.end() && !m["SourceResourceGroup"].empty()) {
       sourceResourceGroupShrink = make_shared<string>(boost::any_cast<string>(m["SourceResourceGroup"]));

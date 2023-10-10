@@ -592,6 +592,9 @@ CreateTemplateScratchResponse Alibabacloud_ROS20190910::Client::createTemplateSc
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceResourceGroupShrink)) {
     query->insert(pair<string, string>("SourceResourceGroup", *request->sourceResourceGroupShrink));
   }
@@ -2553,6 +2556,9 @@ ListTemplateScratchesResponse Alibabacloud_ROS20190910::Client::listTemplateScra
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }
@@ -3500,6 +3506,9 @@ UpdateTemplateScratchResponse Alibabacloud_ROS20190910::Client::updateTemplateSc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceResourceGroupShrink)) {
     query->insert(pair<string, string>("SourceResourceGroup", *request->sourceResourceGroupShrink));
