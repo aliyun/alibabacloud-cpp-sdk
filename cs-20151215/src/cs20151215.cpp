@@ -391,6 +391,9 @@ CreateAutoscalingConfigResponse Alibabacloud_CS20151215::Client::createAutoscali
 CreateClusterResponse Alibabacloud_CS20151215::Client::createClusterWithOptions(shared_ptr<CreateClusterRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->accessControlList)) {
+    body->insert(pair<string, vector<string>>("access_control_list", *request->accessControlList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<Addon>>(request->addons)) {
     body->insert(pair<string, vector<Addon>>("addons", *request->addons));
   }
@@ -2878,11 +2881,17 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->accessControlList)) {
+    body->insert(pair<string, vector<string>>("access_control_list", *request->accessControlList));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->apiServerEip)) {
     body->insert(pair<string, bool>("api_server_eip", *request->apiServerEip));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->apiServerEipId)) {
     body->insert(pair<string, string>("api_server_eip_id", *request->apiServerEipId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
+    body->insert(pair<string, string>("cluster_name", *request->clusterName));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->deletionProtection)) {
     body->insert(pair<string, bool>("deletion_protection", *request->deletionProtection));
@@ -2890,8 +2899,8 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableRrsa)) {
     body->insert(pair<string, bool>("enable_rrsa", *request->enableRrsa));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ingressDomainRebinding)) {
-    body->insert(pair<string, string>("ingress_domain_rebinding", *request->ingressDomainRebinding));
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ingressDomainRebinding)) {
+    body->insert(pair<string, bool>("ingress_domain_rebinding", *request->ingressDomainRebinding));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ingressLoadbalancerId)) {
     body->insert(pair<string, string>("ingress_loadbalancer_id", *request->ingressLoadbalancerId));
@@ -3084,8 +3093,8 @@ ModifyNodePoolNodeConfigResponse Alibabacloud_CS20151215::Client::modifyNodePool
                                                                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestKubeletConfig>(request->kubeletConfig)) {
-    body->insert(pair<string, ModifyNodePoolNodeConfigRequestKubeletConfig>("kubelet_config", *request->kubeletConfig));
+  if (!Darabonba_Util::Client::isUnset<KubeletConfig>(request->kubeletConfig)) {
+    body->insert(pair<string, KubeletConfig>("kubelet_config", *request->kubeletConfig));
   }
   if (!Darabonba_Util::Client::isUnset<ModifyNodePoolNodeConfigRequestRollingPolicy>(request->rollingPolicy)) {
     body->insert(pair<string, ModifyNodePoolNodeConfigRequestRollingPolicy>("rolling_policy", *request->rollingPolicy));

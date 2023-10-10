@@ -129,6 +129,198 @@ public:
 
   virtual ~DataDisk() = default;
 };
+class KubeletConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> allowedUnsafeSysctls{};
+  shared_ptr<long> containerLogMaxFiles{};
+  shared_ptr<string> containerLogMaxSize{};
+  shared_ptr<string> cpuManagerPolicy{};
+  shared_ptr<long> eventBurst{};
+  shared_ptr<long> eventRecordQPS{};
+  shared_ptr<map<string, boost::any>> evictionHard{};
+  shared_ptr<map<string, boost::any>> evictionSoft{};
+  shared_ptr<map<string, boost::any>> evictionSoftGracePeriod{};
+  shared_ptr<map<string, boost::any>> featureGates{};
+  shared_ptr<long> kubeAPIBurst{};
+  shared_ptr<long> kubeAPIQPS{};
+  shared_ptr<map<string, boost::any>> kubeReserved{};
+  shared_ptr<long> maxPods{};
+  shared_ptr<long> readOnlyPort{};
+  shared_ptr<long> registryBurst{};
+  shared_ptr<long> registryPullQPS{};
+  shared_ptr<bool> serializeImagePulls{};
+  shared_ptr<map<string, boost::any>> systemReserved{};
+
+  KubeletConfig() {}
+
+  explicit KubeletConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (allowedUnsafeSysctls) {
+      res["allowedUnsafeSysctls"] = boost::any(*allowedUnsafeSysctls);
+    }
+    if (containerLogMaxFiles) {
+      res["containerLogMaxFiles"] = boost::any(*containerLogMaxFiles);
+    }
+    if (containerLogMaxSize) {
+      res["containerLogMaxSize"] = boost::any(*containerLogMaxSize);
+    }
+    if (cpuManagerPolicy) {
+      res["cpuManagerPolicy"] = boost::any(*cpuManagerPolicy);
+    }
+    if (eventBurst) {
+      res["eventBurst"] = boost::any(*eventBurst);
+    }
+    if (eventRecordQPS) {
+      res["eventRecordQPS"] = boost::any(*eventRecordQPS);
+    }
+    if (evictionHard) {
+      res["evictionHard"] = boost::any(*evictionHard);
+    }
+    if (evictionSoft) {
+      res["evictionSoft"] = boost::any(*evictionSoft);
+    }
+    if (evictionSoftGracePeriod) {
+      res["evictionSoftGracePeriod"] = boost::any(*evictionSoftGracePeriod);
+    }
+    if (featureGates) {
+      res["featureGates"] = boost::any(*featureGates);
+    }
+    if (kubeAPIBurst) {
+      res["kubeAPIBurst"] = boost::any(*kubeAPIBurst);
+    }
+    if (kubeAPIQPS) {
+      res["kubeAPIQPS"] = boost::any(*kubeAPIQPS);
+    }
+    if (kubeReserved) {
+      res["kubeReserved"] = boost::any(*kubeReserved);
+    }
+    if (maxPods) {
+      res["maxPods"] = boost::any(*maxPods);
+    }
+    if (readOnlyPort) {
+      res["readOnlyPort"] = boost::any(*readOnlyPort);
+    }
+    if (registryBurst) {
+      res["registryBurst"] = boost::any(*registryBurst);
+    }
+    if (registryPullQPS) {
+      res["registryPullQPS"] = boost::any(*registryPullQPS);
+    }
+    if (serializeImagePulls) {
+      res["serializeImagePulls"] = boost::any(*serializeImagePulls);
+    }
+    if (systemReserved) {
+      res["systemReserved"] = boost::any(*systemReserved);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("allowedUnsafeSysctls") != m.end() && !m["allowedUnsafeSysctls"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["allowedUnsafeSysctls"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["allowedUnsafeSysctls"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      allowedUnsafeSysctls = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("containerLogMaxFiles") != m.end() && !m["containerLogMaxFiles"].empty()) {
+      containerLogMaxFiles = make_shared<long>(boost::any_cast<long>(m["containerLogMaxFiles"]));
+    }
+    if (m.find("containerLogMaxSize") != m.end() && !m["containerLogMaxSize"].empty()) {
+      containerLogMaxSize = make_shared<string>(boost::any_cast<string>(m["containerLogMaxSize"]));
+    }
+    if (m.find("cpuManagerPolicy") != m.end() && !m["cpuManagerPolicy"].empty()) {
+      cpuManagerPolicy = make_shared<string>(boost::any_cast<string>(m["cpuManagerPolicy"]));
+    }
+    if (m.find("eventBurst") != m.end() && !m["eventBurst"].empty()) {
+      eventBurst = make_shared<long>(boost::any_cast<long>(m["eventBurst"]));
+    }
+    if (m.find("eventRecordQPS") != m.end() && !m["eventRecordQPS"].empty()) {
+      eventRecordQPS = make_shared<long>(boost::any_cast<long>(m["eventRecordQPS"]));
+    }
+    if (m.find("evictionHard") != m.end() && !m["evictionHard"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionHard"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionHard = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("evictionSoft") != m.end() && !m["evictionSoft"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoft"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionSoft = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("evictionSoftGracePeriod") != m.end() && !m["evictionSoftGracePeriod"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoftGracePeriod"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      evictionSoftGracePeriod = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("featureGates") != m.end() && !m["featureGates"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["featureGates"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      featureGates = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("kubeAPIBurst") != m.end() && !m["kubeAPIBurst"].empty()) {
+      kubeAPIBurst = make_shared<long>(boost::any_cast<long>(m["kubeAPIBurst"]));
+    }
+    if (m.find("kubeAPIQPS") != m.end() && !m["kubeAPIQPS"].empty()) {
+      kubeAPIQPS = make_shared<long>(boost::any_cast<long>(m["kubeAPIQPS"]));
+    }
+    if (m.find("kubeReserved") != m.end() && !m["kubeReserved"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["kubeReserved"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      kubeReserved = make_shared<map<string, boost::any>>(toMap1);
+    }
+    if (m.find("maxPods") != m.end() && !m["maxPods"].empty()) {
+      maxPods = make_shared<long>(boost::any_cast<long>(m["maxPods"]));
+    }
+    if (m.find("readOnlyPort") != m.end() && !m["readOnlyPort"].empty()) {
+      readOnlyPort = make_shared<long>(boost::any_cast<long>(m["readOnlyPort"]));
+    }
+    if (m.find("registryBurst") != m.end() && !m["registryBurst"].empty()) {
+      registryBurst = make_shared<long>(boost::any_cast<long>(m["registryBurst"]));
+    }
+    if (m.find("registryPullQPS") != m.end() && !m["registryPullQPS"].empty()) {
+      registryPullQPS = make_shared<long>(boost::any_cast<long>(m["registryPullQPS"]));
+    }
+    if (m.find("serializeImagePulls") != m.end() && !m["serializeImagePulls"].empty()) {
+      serializeImagePulls = make_shared<bool>(boost::any_cast<bool>(m["serializeImagePulls"]));
+    }
+    if (m.find("systemReserved") != m.end() && !m["systemReserved"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["systemReserved"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      systemReserved = make_shared<map<string, boost::any>>(toMap1);
+    }
+  }
+
+
+  virtual ~KubeletConfig() = default;
+};
 class MaintenanceWindow : public Darabonba::Model {
 public:
   shared_ptr<string> duration{};
@@ -2395,6 +2587,7 @@ public:
 };
 class CreateClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accessControlList{};
   shared_ptr<vector<Addon>> addons{};
   shared_ptr<string> apiAudiences{};
   shared_ptr<string> chargeType{};
@@ -2495,6 +2688,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessControlList) {
+      res["access_control_list"] = boost::any(*accessControlList);
+    }
     if (addons) {
       vector<boost::any> temp1;
       for(auto item1:*addons){
@@ -2786,6 +2982,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("access_control_list") != m.end() && !m["access_control_list"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["access_control_list"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["access_control_list"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessControlList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("addons") != m.end() && !m["addons"].empty()) {
       if (typeid(vector<boost::any>) == m["addons"].type()) {
         vector<Addon> expect1;
@@ -4269,6 +4475,7 @@ public:
 class CreateClusterNodePoolResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> nodepoolId{};
+  shared_ptr<string> taskId{};
 
   CreateClusterNodePoolResponseBody() {}
 
@@ -4283,12 +4490,18 @@ public:
     if (nodepoolId) {
       res["nodepool_id"] = boost::any(*nodepoolId);
     }
+    if (taskId) {
+      res["task_id"] = boost::any(*taskId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("nodepool_id") != m.end() && !m["nodepool_id"].empty()) {
       nodepoolId = make_shared<string>(boost::any_cast<string>(m["nodepool_id"]));
+    }
+    if (m.find("task_id") != m.end() && !m["task_id"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["task_id"]));
     }
   }
 
@@ -8160,6 +8373,39 @@ public:
 
   virtual ~DescribeClusterNodePoolDetailResponseBodyManagement() = default;
 };
+class DescribeClusterNodePoolDetailResponseBodyNodeConfig : public Darabonba::Model {
+public:
+  shared_ptr<KubeletConfig> kubeletConfiguration{};
+
+  DescribeClusterNodePoolDetailResponseBodyNodeConfig() {}
+
+  explicit DescribeClusterNodePoolDetailResponseBodyNodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kubeletConfiguration) {
+      res["kubelet_configuration"] = kubeletConfiguration ? boost::any(kubeletConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("kubelet_configuration") != m.end() && !m["kubelet_configuration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["kubelet_configuration"].type()) {
+        KubeletConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_configuration"]));
+        kubeletConfiguration = make_shared<KubeletConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolDetailResponseBodyNodeConfig() = default;
+};
 class DescribeClusterNodePoolDetailResponseBodyNodepoolInfo : public Darabonba::Model {
 public:
   shared_ptr<string> created{};
@@ -8766,6 +9012,7 @@ public:
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyKubernetesConfig> kubernetesConfig{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagement> management{};
   shared_ptr<long> maxNodes{};
+  shared_ptr<DescribeClusterNodePoolDetailResponseBodyNodeConfig> nodeConfig{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyNodepoolInfo> nodepoolInfo{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyScalingGroup> scalingGroup{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyStatus> status{};
@@ -8798,6 +9045,9 @@ public:
     }
     if (maxNodes) {
       res["max_nodes"] = boost::any(*maxNodes);
+    }
+    if (nodeConfig) {
+      res["node_config"] = nodeConfig ? boost::any(nodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -8848,6 +9098,13 @@ public:
     }
     if (m.find("max_nodes") != m.end() && !m["max_nodes"].empty()) {
       maxNodes = make_shared<long>(boost::any_cast<long>(m["max_nodes"]));
+    }
+    if (m.find("node_config") != m.end() && !m["node_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["node_config"].type()) {
+        DescribeClusterNodePoolDetailResponseBodyNodeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["node_config"]));
+        nodeConfig = make_shared<DescribeClusterNodePoolDetailResponseBodyNodeConfig>(model1);
+      }
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["nodepool_info"].type()) {
@@ -9274,6 +9531,39 @@ public:
 
 
   virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsManagement() = default;
+};
+class DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig : public Darabonba::Model {
+public:
+  shared_ptr<KubeletConfig> kubeletConfiguration{};
+
+  DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig() {}
+
+  explicit DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (kubeletConfiguration) {
+      res["kubelet_configuration"] = kubeletConfiguration ? boost::any(kubeletConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("kubelet_configuration") != m.end() && !m["kubelet_configuration"].empty()) {
+      if (typeid(map<string, boost::any>) == m["kubelet_configuration"].type()) {
+        KubeletConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_configuration"]));
+        kubeletConfiguration = make_shared<KubeletConfig>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig() = default;
 };
 class DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo : public Darabonba::Model {
 public:
@@ -9881,6 +10171,7 @@ public:
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig> kubernetesConfig{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagement> management{};
   shared_ptr<long> maxNodes{};
+  shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig> nodeConfig{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsNodepoolInfo> nodepoolInfo{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup> scalingGroup{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsStatus> status{};
@@ -9913,6 +10204,9 @@ public:
     }
     if (maxNodes) {
       res["max_nodes"] = boost::any(*maxNodes);
+    }
+    if (nodeConfig) {
+      res["node_config"] = nodeConfig ? boost::any(nodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (nodepoolInfo) {
       res["nodepool_info"] = nodepoolInfo ? boost::any(nodepoolInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9963,6 +10257,13 @@ public:
     }
     if (m.find("max_nodes") != m.end() && !m["max_nodes"].empty()) {
       maxNodes = make_shared<long>(boost::any_cast<long>(m["max_nodes"]));
+    }
+    if (m.find("node_config") != m.end() && !m["node_config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["node_config"].type()) {
+        DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["node_config"]));
+        nodeConfig = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsNodeConfig>(model1);
+      }
     }
     if (m.find("nodepool_info") != m.end() && !m["nodepool_info"].empty()) {
       if (typeid(map<string, boost::any>) == m["nodepool_info"].type()) {
@@ -18382,11 +18683,13 @@ public:
 };
 class ModifyClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> accessControlList{};
   shared_ptr<bool> apiServerEip{};
   shared_ptr<string> apiServerEipId{};
+  shared_ptr<string> clusterName{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableRrsa{};
-  shared_ptr<string> ingressDomainRebinding{};
+  shared_ptr<bool> ingressDomainRebinding{};
   shared_ptr<string> ingressLoadbalancerId{};
   shared_ptr<bool> instanceDeletionProtection{};
   shared_ptr<MaintenanceWindow> maintenanceWindow{};
@@ -18402,11 +18705,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessControlList) {
+      res["access_control_list"] = boost::any(*accessControlList);
+    }
     if (apiServerEip) {
       res["api_server_eip"] = boost::any(*apiServerEip);
     }
     if (apiServerEipId) {
       res["api_server_eip_id"] = boost::any(*apiServerEipId);
+    }
+    if (clusterName) {
+      res["cluster_name"] = boost::any(*clusterName);
     }
     if (deletionProtection) {
       res["deletion_protection"] = boost::any(*deletionProtection);
@@ -18433,11 +18742,24 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("access_control_list") != m.end() && !m["access_control_list"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["access_control_list"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["access_control_list"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      accessControlList = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("api_server_eip") != m.end() && !m["api_server_eip"].empty()) {
       apiServerEip = make_shared<bool>(boost::any_cast<bool>(m["api_server_eip"]));
     }
     if (m.find("api_server_eip_id") != m.end() && !m["api_server_eip_id"].empty()) {
       apiServerEipId = make_shared<string>(boost::any_cast<string>(m["api_server_eip_id"]));
+    }
+    if (m.find("cluster_name") != m.end() && !m["cluster_name"].empty()) {
+      clusterName = make_shared<string>(boost::any_cast<string>(m["cluster_name"]));
     }
     if (m.find("deletion_protection") != m.end() && !m["deletion_protection"].empty()) {
       deletionProtection = make_shared<bool>(boost::any_cast<bool>(m["deletion_protection"]));
@@ -18446,7 +18768,7 @@ public:
       enableRrsa = make_shared<bool>(boost::any_cast<bool>(m["enable_rrsa"]));
     }
     if (m.find("ingress_domain_rebinding") != m.end() && !m["ingress_domain_rebinding"].empty()) {
-      ingressDomainRebinding = make_shared<string>(boost::any_cast<string>(m["ingress_domain_rebinding"]));
+      ingressDomainRebinding = make_shared<bool>(boost::any_cast<bool>(m["ingress_domain_rebinding"]));
     }
     if (m.find("ingress_loadbalancer_id") != m.end() && !m["ingress_loadbalancer_id"].empty()) {
       ingressLoadbalancerId = make_shared<string>(boost::any_cast<string>(m["ingress_loadbalancer_id"]));
@@ -19815,144 +20137,6 @@ public:
 
   virtual ~ModifyClusterTagsResponse() = default;
 };
-class ModifyNodePoolNodeConfigRequestKubeletConfig : public Darabonba::Model {
-public:
-  shared_ptr<string> cpuManagerPolicy{};
-  shared_ptr<long> eventBurst{};
-  shared_ptr<long> eventRecordQPS{};
-  shared_ptr<map<string, boost::any>> evictionHard{};
-  shared_ptr<map<string, boost::any>> evictionSoft{};
-  shared_ptr<map<string, boost::any>> evictionSoftGracePeriod{};
-  shared_ptr<long> kubeAPIBurst{};
-  shared_ptr<long> kubeAPIQPS{};
-  shared_ptr<map<string, boost::any>> kubeReserved{};
-  shared_ptr<long> registryBurst{};
-  shared_ptr<long> registryPullQPS{};
-  shared_ptr<bool> serializeImagePulls{};
-  shared_ptr<map<string, boost::any>> systemReserved{};
-
-  ModifyNodePoolNodeConfigRequestKubeletConfig() {}
-
-  explicit ModifyNodePoolNodeConfigRequestKubeletConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (cpuManagerPolicy) {
-      res["cpuManagerPolicy"] = boost::any(*cpuManagerPolicy);
-    }
-    if (eventBurst) {
-      res["eventBurst"] = boost::any(*eventBurst);
-    }
-    if (eventRecordQPS) {
-      res["eventRecordQPS"] = boost::any(*eventRecordQPS);
-    }
-    if (evictionHard) {
-      res["evictionHard"] = boost::any(*evictionHard);
-    }
-    if (evictionSoft) {
-      res["evictionSoft"] = boost::any(*evictionSoft);
-    }
-    if (evictionSoftGracePeriod) {
-      res["evictionSoftGracePeriod"] = boost::any(*evictionSoftGracePeriod);
-    }
-    if (kubeAPIBurst) {
-      res["kubeAPIBurst"] = boost::any(*kubeAPIBurst);
-    }
-    if (kubeAPIQPS) {
-      res["kubeAPIQPS"] = boost::any(*kubeAPIQPS);
-    }
-    if (kubeReserved) {
-      res["kubeReserved"] = boost::any(*kubeReserved);
-    }
-    if (registryBurst) {
-      res["registryBurst"] = boost::any(*registryBurst);
-    }
-    if (registryPullQPS) {
-      res["registryPullQPS"] = boost::any(*registryPullQPS);
-    }
-    if (serializeImagePulls) {
-      res["serializeImagePulls"] = boost::any(*serializeImagePulls);
-    }
-    if (systemReserved) {
-      res["systemReserved"] = boost::any(*systemReserved);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("cpuManagerPolicy") != m.end() && !m["cpuManagerPolicy"].empty()) {
-      cpuManagerPolicy = make_shared<string>(boost::any_cast<string>(m["cpuManagerPolicy"]));
-    }
-    if (m.find("eventBurst") != m.end() && !m["eventBurst"].empty()) {
-      eventBurst = make_shared<long>(boost::any_cast<long>(m["eventBurst"]));
-    }
-    if (m.find("eventRecordQPS") != m.end() && !m["eventRecordQPS"].empty()) {
-      eventRecordQPS = make_shared<long>(boost::any_cast<long>(m["eventRecordQPS"]));
-    }
-    if (m.find("evictionHard") != m.end() && !m["evictionHard"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionHard"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionHard = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("evictionSoft") != m.end() && !m["evictionSoft"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoft"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionSoft = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("evictionSoftGracePeriod") != m.end() && !m["evictionSoftGracePeriod"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["evictionSoftGracePeriod"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      evictionSoftGracePeriod = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("kubeAPIBurst") != m.end() && !m["kubeAPIBurst"].empty()) {
-      kubeAPIBurst = make_shared<long>(boost::any_cast<long>(m["kubeAPIBurst"]));
-    }
-    if (m.find("kubeAPIQPS") != m.end() && !m["kubeAPIQPS"].empty()) {
-      kubeAPIQPS = make_shared<long>(boost::any_cast<long>(m["kubeAPIQPS"]));
-    }
-    if (m.find("kubeReserved") != m.end() && !m["kubeReserved"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["kubeReserved"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      kubeReserved = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("registryBurst") != m.end() && !m["registryBurst"].empty()) {
-      registryBurst = make_shared<long>(boost::any_cast<long>(m["registryBurst"]));
-    }
-    if (m.find("registryPullQPS") != m.end() && !m["registryPullQPS"].empty()) {
-      registryPullQPS = make_shared<long>(boost::any_cast<long>(m["registryPullQPS"]));
-    }
-    if (m.find("serializeImagePulls") != m.end() && !m["serializeImagePulls"].empty()) {
-      serializeImagePulls = make_shared<bool>(boost::any_cast<bool>(m["serializeImagePulls"]));
-    }
-    if (m.find("systemReserved") != m.end() && !m["systemReserved"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["systemReserved"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      systemReserved = make_shared<map<string, boost::any>>(toMap1);
-    }
-  }
-
-
-  virtual ~ModifyNodePoolNodeConfigRequestKubeletConfig() = default;
-};
 class ModifyNodePoolNodeConfigRequestRollingPolicy : public Darabonba::Model {
 public:
   shared_ptr<long> maxParallelism{};
@@ -19984,7 +20168,7 @@ public:
 };
 class ModifyNodePoolNodeConfigRequest : public Darabonba::Model {
 public:
-  shared_ptr<ModifyNodePoolNodeConfigRequestKubeletConfig> kubeletConfig{};
+  shared_ptr<KubeletConfig> kubeletConfig{};
   shared_ptr<ModifyNodePoolNodeConfigRequestRollingPolicy> rollingPolicy{};
 
   ModifyNodePoolNodeConfigRequest() {}
@@ -20009,9 +20193,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("kubelet_config") != m.end() && !m["kubelet_config"].empty()) {
       if (typeid(map<string, boost::any>) == m["kubelet_config"].type()) {
-        ModifyNodePoolNodeConfigRequestKubeletConfig model1;
+        KubeletConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["kubelet_config"]));
-        kubeletConfig = make_shared<ModifyNodePoolNodeConfigRequestKubeletConfig>(model1);
+        kubeletConfig = make_shared<KubeletConfig>(model1);
       }
     }
     if (m.find("rolling_policy") != m.end() && !m["rolling_policy"].empty()) {
@@ -22935,6 +23119,7 @@ public:
 };
 class UnInstallClusterAddonsRequestAddons : public Darabonba::Model {
 public:
+  shared_ptr<bool> cleanupCloudResources{};
   shared_ptr<string> name{};
 
   UnInstallClusterAddonsRequestAddons() {}
@@ -22947,6 +23132,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (cleanupCloudResources) {
+      res["cleanup_cloud_resources"] = boost::any(*cleanupCloudResources);
+    }
     if (name) {
       res["name"] = boost::any(*name);
     }
@@ -22954,6 +23142,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cleanup_cloud_resources") != m.end() && !m["cleanup_cloud_resources"].empty()) {
+      cleanupCloudResources = make_shared<bool>(boost::any_cast<bool>(m["cleanup_cloud_resources"]));
+    }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
