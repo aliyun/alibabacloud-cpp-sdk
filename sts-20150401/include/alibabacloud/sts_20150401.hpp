@@ -422,8 +422,11 @@ public:
 class AssumeRoleWithOIDCResponseBodyOIDCTokenInfo : public Darabonba::Model {
 public:
   shared_ptr<string> clientIds{};
+  shared_ptr<string> expirationTime{};
+  shared_ptr<string> issuanceTime{};
   shared_ptr<string> issuer{};
   shared_ptr<string> subject{};
+  shared_ptr<string> verificationInfo{};
 
   AssumeRoleWithOIDCResponseBodyOIDCTokenInfo() {}
 
@@ -438,11 +441,20 @@ public:
     if (clientIds) {
       res["ClientIds"] = boost::any(*clientIds);
     }
+    if (expirationTime) {
+      res["ExpirationTime"] = boost::any(*expirationTime);
+    }
+    if (issuanceTime) {
+      res["IssuanceTime"] = boost::any(*issuanceTime);
+    }
     if (issuer) {
       res["Issuer"] = boost::any(*issuer);
     }
     if (subject) {
       res["Subject"] = boost::any(*subject);
+    }
+    if (verificationInfo) {
+      res["VerificationInfo"] = boost::any(*verificationInfo);
     }
     return res;
   }
@@ -451,11 +463,20 @@ public:
     if (m.find("ClientIds") != m.end() && !m["ClientIds"].empty()) {
       clientIds = make_shared<string>(boost::any_cast<string>(m["ClientIds"]));
     }
+    if (m.find("ExpirationTime") != m.end() && !m["ExpirationTime"].empty()) {
+      expirationTime = make_shared<string>(boost::any_cast<string>(m["ExpirationTime"]));
+    }
+    if (m.find("IssuanceTime") != m.end() && !m["IssuanceTime"].empty()) {
+      issuanceTime = make_shared<string>(boost::any_cast<string>(m["IssuanceTime"]));
+    }
     if (m.find("Issuer") != m.end() && !m["Issuer"].empty()) {
       issuer = make_shared<string>(boost::any_cast<string>(m["Issuer"]));
     }
     if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
       subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("VerificationInfo") != m.end() && !m["VerificationInfo"].empty()) {
+      verificationInfo = make_shared<string>(boost::any_cast<string>(m["VerificationInfo"]));
     }
   }
 
