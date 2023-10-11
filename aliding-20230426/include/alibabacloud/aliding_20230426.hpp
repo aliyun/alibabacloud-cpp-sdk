@@ -30963,8 +30963,9 @@ public:
   shared_ptr<long> duration{};
   shared_ptr<long> endTime{};
   shared_ptr<string> introduction{};
-  shared_ptr<long> liveId{};
+  shared_ptr<string> liveId{};
   shared_ptr<string> livePlayUrl{};
+  shared_ptr<long> liveStatus{};
   shared_ptr<long> playbackDuration{};
   shared_ptr<string> requestId{};
   shared_ptr<long> startTime{};
@@ -30999,6 +31000,9 @@ public:
     }
     if (livePlayUrl) {
       res["livePlayUrl"] = boost::any(*livePlayUrl);
+    }
+    if (liveStatus) {
+      res["liveStatus"] = boost::any(*liveStatus);
     }
     if (playbackDuration) {
       res["playbackDuration"] = boost::any(*playbackDuration);
@@ -31035,10 +31039,13 @@ public:
       introduction = make_shared<string>(boost::any_cast<string>(m["introduction"]));
     }
     if (m.find("liveId") != m.end() && !m["liveId"].empty()) {
-      liveId = make_shared<long>(boost::any_cast<long>(m["liveId"]));
+      liveId = make_shared<string>(boost::any_cast<string>(m["liveId"]));
     }
     if (m.find("livePlayUrl") != m.end() && !m["livePlayUrl"].empty()) {
       livePlayUrl = make_shared<string>(boost::any_cast<string>(m["livePlayUrl"]));
+    }
+    if (m.find("liveStatus") != m.end() && !m["liveStatus"].empty()) {
+      liveStatus = make_shared<long>(boost::any_cast<long>(m["liveStatus"]));
     }
     if (m.find("playbackDuration") != m.end() && !m["playbackDuration"].empty()) {
       playbackDuration = make_shared<long>(boost::any_cast<long>(m["playbackDuration"]));
