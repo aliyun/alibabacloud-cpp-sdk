@@ -3676,18 +3676,56 @@ public:
 
   virtual ~CreateDataArchiveOrderRequestParamTableIncludes() = default;
 };
+class CreateDataArchiveOrderRequestParamVariables : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> pattern{};
+
+  CreateDataArchiveOrderRequestParamVariables() {}
+
+  explicit CreateDataArchiveOrderRequestParamVariables(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (pattern) {
+      res["Pattern"] = boost::any(*pattern);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Pattern") != m.end() && !m["Pattern"].empty()) {
+      pattern = make_shared<string>(boost::any_cast<string>(m["Pattern"]));
+    }
+  }
+
+
+  virtual ~CreateDataArchiveOrderRequestParamVariables() = default;
+};
 class CreateDataArchiveOrderRequestParam : public Darabonba::Model {
 public:
   shared_ptr<string> archiveMethod{};
-  shared_ptr<string> dbSchema{};
+  shared_ptr<string> cronStr{};
   shared_ptr<bool> logic{};
   shared_ptr<vector<string>> orderAfter{};
   shared_ptr<string> runMethod{};
-  shared_ptr<long> sourceDatabaseId{};
+  shared_ptr<string> sourceCatalogName{};
+  shared_ptr<string> sourceInstanceName{};
+  shared_ptr<string> sourceSchemaName{};
   shared_ptr<vector<CreateDataArchiveOrderRequestParamTableIncludes>> tableIncludes{};
   shared_ptr<vector<string>> tableMapping{};
-  shared_ptr<string> targetInstanceId{};
-  shared_ptr<vector<string>> variables{};
+  shared_ptr<string> targetInstanceHost{};
+  shared_ptr<vector<CreateDataArchiveOrderRequestParamVariables>> variables{};
 
   CreateDataArchiveOrderRequestParam() {}
 
@@ -3702,8 +3740,8 @@ public:
     if (archiveMethod) {
       res["ArchiveMethod"] = boost::any(*archiveMethod);
     }
-    if (dbSchema) {
-      res["DbSchema"] = boost::any(*dbSchema);
+    if (cronStr) {
+      res["CronStr"] = boost::any(*cronStr);
     }
     if (logic) {
       res["Logic"] = boost::any(*logic);
@@ -3714,8 +3752,14 @@ public:
     if (runMethod) {
       res["RunMethod"] = boost::any(*runMethod);
     }
-    if (sourceDatabaseId) {
-      res["SourceDatabaseId"] = boost::any(*sourceDatabaseId);
+    if (sourceCatalogName) {
+      res["SourceCatalogName"] = boost::any(*sourceCatalogName);
+    }
+    if (sourceInstanceName) {
+      res["SourceInstanceName"] = boost::any(*sourceInstanceName);
+    }
+    if (sourceSchemaName) {
+      res["SourceSchemaName"] = boost::any(*sourceSchemaName);
     }
     if (tableIncludes) {
       vector<boost::any> temp1;
@@ -3727,11 +3771,15 @@ public:
     if (tableMapping) {
       res["TableMapping"] = boost::any(*tableMapping);
     }
-    if (targetInstanceId) {
-      res["TargetInstanceId"] = boost::any(*targetInstanceId);
+    if (targetInstanceHost) {
+      res["TargetInstanceHost"] = boost::any(*targetInstanceHost);
     }
     if (variables) {
-      res["Variables"] = boost::any(*variables);
+      vector<boost::any> temp1;
+      for(auto item1:*variables){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Variables"] = boost::any(temp1);
     }
     return res;
   }
@@ -3740,8 +3788,8 @@ public:
     if (m.find("ArchiveMethod") != m.end() && !m["ArchiveMethod"].empty()) {
       archiveMethod = make_shared<string>(boost::any_cast<string>(m["ArchiveMethod"]));
     }
-    if (m.find("DbSchema") != m.end() && !m["DbSchema"].empty()) {
-      dbSchema = make_shared<string>(boost::any_cast<string>(m["DbSchema"]));
+    if (m.find("CronStr") != m.end() && !m["CronStr"].empty()) {
+      cronStr = make_shared<string>(boost::any_cast<string>(m["CronStr"]));
     }
     if (m.find("Logic") != m.end() && !m["Logic"].empty()) {
       logic = make_shared<bool>(boost::any_cast<bool>(m["Logic"]));
@@ -3759,8 +3807,14 @@ public:
     if (m.find("RunMethod") != m.end() && !m["RunMethod"].empty()) {
       runMethod = make_shared<string>(boost::any_cast<string>(m["RunMethod"]));
     }
-    if (m.find("SourceDatabaseId") != m.end() && !m["SourceDatabaseId"].empty()) {
-      sourceDatabaseId = make_shared<long>(boost::any_cast<long>(m["SourceDatabaseId"]));
+    if (m.find("SourceCatalogName") != m.end() && !m["SourceCatalogName"].empty()) {
+      sourceCatalogName = make_shared<string>(boost::any_cast<string>(m["SourceCatalogName"]));
+    }
+    if (m.find("SourceInstanceName") != m.end() && !m["SourceInstanceName"].empty()) {
+      sourceInstanceName = make_shared<string>(boost::any_cast<string>(m["SourceInstanceName"]));
+    }
+    if (m.find("SourceSchemaName") != m.end() && !m["SourceSchemaName"].empty()) {
+      sourceSchemaName = make_shared<string>(boost::any_cast<string>(m["SourceSchemaName"]));
     }
     if (m.find("TableIncludes") != m.end() && !m["TableIncludes"].empty()) {
       if (typeid(vector<boost::any>) == m["TableIncludes"].type()) {
@@ -3785,18 +3839,21 @@ public:
       }
       tableMapping = make_shared<vector<string>>(toVec1);
     }
-    if (m.find("TargetInstanceId") != m.end() && !m["TargetInstanceId"].empty()) {
-      targetInstanceId = make_shared<string>(boost::any_cast<string>(m["TargetInstanceId"]));
+    if (m.find("TargetInstanceHost") != m.end() && !m["TargetInstanceHost"].empty()) {
+      targetInstanceHost = make_shared<string>(boost::any_cast<string>(m["TargetInstanceHost"]));
     }
     if (m.find("Variables") != m.end() && !m["Variables"].empty()) {
-      vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Variables"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Variables"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+        vector<CreateDataArchiveOrderRequestParamVariables> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Variables"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateDataArchiveOrderRequestParamVariables model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
         }
+        variables = make_shared<vector<CreateDataArchiveOrderRequestParamVariables>>(expect1);
       }
-      variables = make_shared<vector<string>>(toVec1);
     }
   }
 
