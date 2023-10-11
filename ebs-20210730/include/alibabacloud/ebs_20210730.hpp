@@ -485,6 +485,274 @@ public:
 
   virtual ~ChangeResourceGroupResponse() = default;
 };
+class ClearPairDrillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> pairId{};
+  shared_ptr<string> regionId{};
+
+  ClearPairDrillRequest() {}
+
+  explicit ClearPairDrillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (pairId) {
+      res["PairId"] = boost::any(*pairId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("PairId") != m.end() && !m["PairId"].empty()) {
+      pairId = make_shared<string>(boost::any_cast<string>(m["PairId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ClearPairDrillRequest() = default;
+};
+class ClearPairDrillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ClearPairDrillResponseBody() {}
+
+  explicit ClearPairDrillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ClearPairDrillResponseBody() = default;
+};
+class ClearPairDrillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ClearPairDrillResponseBody> body{};
+
+  ClearPairDrillResponse() {}
+
+  explicit ClearPairDrillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ClearPairDrillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ClearPairDrillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ClearPairDrillResponse() = default;
+};
+class ClearReplicaGroupDrillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> regionId{};
+
+  ClearReplicaGroupDrillRequest() {}
+
+  explicit ClearReplicaGroupDrillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ClearReplicaGroupDrillRequest() = default;
+};
+class ClearReplicaGroupDrillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  ClearReplicaGroupDrillResponseBody() {}
+
+  explicit ClearReplicaGroupDrillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ClearReplicaGroupDrillResponseBody() = default;
+};
+class ClearReplicaGroupDrillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ClearReplicaGroupDrillResponseBody> body{};
+
+  ClearReplicaGroupDrillResponse() {}
+
+  explicit ClearReplicaGroupDrillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ClearReplicaGroupDrillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ClearReplicaGroupDrillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ClearReplicaGroupDrillResponse() = default;
+};
 class CreateDedicatedBlockStorageClusterRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -4725,6 +4993,288 @@ public:
 
   virtual ~DescribeLensServiceStatusResponse() = default;
 };
+class DescribePairDrillsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> pairId{};
+  shared_ptr<string> regionId{};
+
+  DescribePairDrillsRequest() {}
+
+  explicit DescribePairDrillsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (pairId) {
+      res["PairId"] = boost::any(*pairId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PairId") != m.end() && !m["PairId"].empty()) {
+      pairId = make_shared<string>(boost::any_cast<string>(m["PairId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribePairDrillsRequest() = default;
+};
+class DescribePairDrillsResponseBodyDrills : public Darabonba::Model {
+public:
+  shared_ptr<string> drillDiskId{};
+  shared_ptr<string> drillDiskStatus{};
+  shared_ptr<string> drillId{};
+  shared_ptr<long> recoverPoint{};
+  shared_ptr<long> startAt{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusMessage{};
+
+  DescribePairDrillsResponseBodyDrills() {}
+
+  explicit DescribePairDrillsResponseBodyDrills(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillDiskId) {
+      res["DrillDiskId"] = boost::any(*drillDiskId);
+    }
+    if (drillDiskStatus) {
+      res["DrillDiskStatus"] = boost::any(*drillDiskStatus);
+    }
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (recoverPoint) {
+      res["RecoverPoint"] = boost::any(*recoverPoint);
+    }
+    if (startAt) {
+      res["StartAt"] = boost::any(*startAt);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusMessage) {
+      res["StatusMessage"] = boost::any(*statusMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillDiskId") != m.end() && !m["DrillDiskId"].empty()) {
+      drillDiskId = make_shared<string>(boost::any_cast<string>(m["DrillDiskId"]));
+    }
+    if (m.find("DrillDiskStatus") != m.end() && !m["DrillDiskStatus"].empty()) {
+      drillDiskStatus = make_shared<string>(boost::any_cast<string>(m["DrillDiskStatus"]));
+    }
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("RecoverPoint") != m.end() && !m["RecoverPoint"].empty()) {
+      recoverPoint = make_shared<long>(boost::any_cast<long>(m["RecoverPoint"]));
+    }
+    if (m.find("StartAt") != m.end() && !m["StartAt"].empty()) {
+      startAt = make_shared<long>(boost::any_cast<long>(m["StartAt"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusMessage") != m.end() && !m["StatusMessage"].empty()) {
+      statusMessage = make_shared<string>(boost::any_cast<string>(m["StatusMessage"]));
+    }
+  }
+
+
+  virtual ~DescribePairDrillsResponseBodyDrills() = default;
+};
+class DescribePairDrillsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribePairDrillsResponseBodyDrills>> drills{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribePairDrillsResponseBody() {}
+
+  explicit DescribePairDrillsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drills) {
+      vector<boost::any> temp1;
+      for(auto item1:*drills){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Drills"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Drills") != m.end() && !m["Drills"].empty()) {
+      if (typeid(vector<boost::any>) == m["Drills"].type()) {
+        vector<DescribePairDrillsResponseBodyDrills> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Drills"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribePairDrillsResponseBodyDrills model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        drills = make_shared<vector<DescribePairDrillsResponseBodyDrills>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribePairDrillsResponseBody() = default;
+};
+class DescribePairDrillsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribePairDrillsResponseBody> body{};
+
+  DescribePairDrillsResponse() {}
+
+  explicit DescribePairDrillsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribePairDrillsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribePairDrillsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribePairDrillsResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -4993,6 +5543,345 @@ public:
 
 
   virtual ~DescribeRegionsResponse() = default;
+};
+class DescribeReplicaGroupDrillsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+
+  DescribeReplicaGroupDrillsRequest() {}
+
+  explicit DescribeReplicaGroupDrillsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~DescribeReplicaGroupDrillsRequest() = default;
+};
+class DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> drillDiskId{};
+  shared_ptr<string> drillDiskStatus{};
+  shared_ptr<string> pairId{};
+
+  DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo() {}
+
+  explicit DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillDiskId) {
+      res["DrillDiskId"] = boost::any(*drillDiskId);
+    }
+    if (drillDiskStatus) {
+      res["DrillDiskStatus"] = boost::any(*drillDiskStatus);
+    }
+    if (pairId) {
+      res["PairId"] = boost::any(*pairId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillDiskId") != m.end() && !m["DrillDiskId"].empty()) {
+      drillDiskId = make_shared<string>(boost::any_cast<string>(m["DrillDiskId"]));
+    }
+    if (m.find("DrillDiskStatus") != m.end() && !m["DrillDiskStatus"].empty()) {
+      drillDiskStatus = make_shared<string>(boost::any_cast<string>(m["DrillDiskStatus"]));
+    }
+    if (m.find("PairId") != m.end() && !m["PairId"].empty()) {
+      pairId = make_shared<string>(boost::any_cast<string>(m["PairId"]));
+    }
+  }
+
+
+  virtual ~DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo() = default;
+};
+class DescribeReplicaGroupDrillsResponseBodyDrills : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> groupId{};
+  shared_ptr<vector<DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo>> pairsInfo{};
+  shared_ptr<long> recoverPoint{};
+  shared_ptr<long> startAt{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusMessage{};
+
+  DescribeReplicaGroupDrillsResponseBodyDrills() {}
+
+  explicit DescribeReplicaGroupDrillsResponseBodyDrills(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (pairsInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*pairsInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["PairsInfo"] = boost::any(temp1);
+    }
+    if (recoverPoint) {
+      res["RecoverPoint"] = boost::any(*recoverPoint);
+    }
+    if (startAt) {
+      res["StartAt"] = boost::any(*startAt);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusMessage) {
+      res["StatusMessage"] = boost::any(*statusMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("PairsInfo") != m.end() && !m["PairsInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["PairsInfo"].type()) {
+        vector<DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["PairsInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        pairsInfo = make_shared<vector<DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo>>(expect1);
+      }
+    }
+    if (m.find("RecoverPoint") != m.end() && !m["RecoverPoint"].empty()) {
+      recoverPoint = make_shared<long>(boost::any_cast<long>(m["RecoverPoint"]));
+    }
+    if (m.find("StartAt") != m.end() && !m["StartAt"].empty()) {
+      startAt = make_shared<long>(boost::any_cast<long>(m["StartAt"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusMessage") != m.end() && !m["StatusMessage"].empty()) {
+      statusMessage = make_shared<string>(boost::any_cast<string>(m["StatusMessage"]));
+    }
+  }
+
+
+  virtual ~DescribeReplicaGroupDrillsResponseBodyDrills() = default;
+};
+class DescribeReplicaGroupDrillsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeReplicaGroupDrillsResponseBodyDrills>> drills{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+
+  DescribeReplicaGroupDrillsResponseBody() {}
+
+  explicit DescribeReplicaGroupDrillsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drills) {
+      vector<boost::any> temp1;
+      for(auto item1:*drills){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Drills"] = boost::any(temp1);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Drills") != m.end() && !m["Drills"].empty()) {
+      if (typeid(vector<boost::any>) == m["Drills"].type()) {
+        vector<DescribeReplicaGroupDrillsResponseBodyDrills> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Drills"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeReplicaGroupDrillsResponseBodyDrills model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        drills = make_shared<vector<DescribeReplicaGroupDrillsResponseBodyDrills>>(expect1);
+      }
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeReplicaGroupDrillsResponseBody() = default;
+};
+class DescribeReplicaGroupDrillsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeReplicaGroupDrillsResponseBody> body{};
+
+  DescribeReplicaGroupDrillsResponse() {}
+
+  explicit DescribeReplicaGroupDrillsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeReplicaGroupDrillsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeReplicaGroupDrillsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeReplicaGroupDrillsResponse() = default;
 };
 class FailoverDiskReplicaGroupRequest : public Darabonba::Model {
 public:
@@ -6899,6 +7788,288 @@ public:
 
   virtual ~StartDiskReplicaPairResponse() = default;
 };
+class StartPairDrillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> pairId{};
+  shared_ptr<string> regionId{};
+
+  StartPairDrillRequest() {}
+
+  explicit StartPairDrillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (pairId) {
+      res["PairId"] = boost::any(*pairId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("PairId") != m.end() && !m["PairId"].empty()) {
+      pairId = make_shared<string>(boost::any_cast<string>(m["PairId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StartPairDrillRequest() = default;
+};
+class StartPairDrillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> requestId{};
+
+  StartPairDrillResponseBody() {}
+
+  explicit StartPairDrillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartPairDrillResponseBody() = default;
+};
+class StartPairDrillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartPairDrillResponseBody> body{};
+
+  StartPairDrillResponse() {}
+
+  explicit StartPairDrillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartPairDrillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartPairDrillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartPairDrillResponse() = default;
+};
+class StartReplicaGroupDrillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> regionId{};
+
+  StartReplicaGroupDrillRequest() {}
+
+  explicit StartReplicaGroupDrillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~StartReplicaGroupDrillRequest() = default;
+};
+class StartReplicaGroupDrillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> drillId{};
+  shared_ptr<string> requestId{};
+
+  StartReplicaGroupDrillResponseBody() {}
+
+  explicit StartReplicaGroupDrillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (drillId) {
+      res["DrillId"] = boost::any(*drillId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DrillId") != m.end() && !m["DrillId"].empty()) {
+      drillId = make_shared<string>(boost::any_cast<string>(m["DrillId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartReplicaGroupDrillResponseBody() = default;
+};
+class StartReplicaGroupDrillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartReplicaGroupDrillResponseBody> body{};
+
+  StartReplicaGroupDrillResponse() {}
+
+  explicit StartReplicaGroupDrillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartReplicaGroupDrillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartReplicaGroupDrillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartReplicaGroupDrillResponse() = default;
+};
 class StopDiskMonitorRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> diskIds{};
@@ -7729,6 +8900,10 @@ public:
   CancelLensServiceResponse cancelLensService();
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
+  ClearPairDrillResponse clearPairDrillWithOptions(shared_ptr<ClearPairDrillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ClearPairDrillResponse clearPairDrill(shared_ptr<ClearPairDrillRequest> request);
+  ClearReplicaGroupDrillResponse clearReplicaGroupDrillWithOptions(shared_ptr<ClearReplicaGroupDrillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ClearReplicaGroupDrillResponse clearReplicaGroupDrill(shared_ptr<ClearReplicaGroupDrillRequest> request);
   CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageClusterWithOptions(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDedicatedBlockStorageClusterResponse createDedicatedBlockStorageCluster(shared_ptr<CreateDedicatedBlockStorageClusterRequest> request);
   CreateDiskReplicaGroupResponse createDiskReplicaGroupWithOptions(shared_ptr<CreateDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7757,8 +8932,12 @@ public:
   DescribeDiskReplicaPairsResponse describeDiskReplicaPairs(shared_ptr<DescribeDiskReplicaPairsRequest> request);
   DescribeLensServiceStatusResponse describeLensServiceStatusWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeLensServiceStatusResponse describeLensServiceStatus();
+  DescribePairDrillsResponse describePairDrillsWithOptions(shared_ptr<DescribePairDrillsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribePairDrillsResponse describePairDrills(shared_ptr<DescribePairDrillsRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
+  DescribeReplicaGroupDrillsResponse describeReplicaGroupDrillsWithOptions(shared_ptr<DescribeReplicaGroupDrillsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeReplicaGroupDrillsResponse describeReplicaGroupDrills(shared_ptr<DescribeReplicaGroupDrillsRequest> request);
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroupWithOptions(shared_ptr<FailoverDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FailoverDiskReplicaGroupResponse failoverDiskReplicaGroup(shared_ptr<FailoverDiskReplicaGroupRequest> request);
   FailoverDiskReplicaPairResponse failoverDiskReplicaPairWithOptions(shared_ptr<FailoverDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -7783,6 +8962,10 @@ public:
   StartDiskReplicaGroupResponse startDiskReplicaGroup(shared_ptr<StartDiskReplicaGroupRequest> request);
   StartDiskReplicaPairResponse startDiskReplicaPairWithOptions(shared_ptr<StartDiskReplicaPairRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartDiskReplicaPairResponse startDiskReplicaPair(shared_ptr<StartDiskReplicaPairRequest> request);
+  StartPairDrillResponse startPairDrillWithOptions(shared_ptr<StartPairDrillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartPairDrillResponse startPairDrill(shared_ptr<StartPairDrillRequest> request);
+  StartReplicaGroupDrillResponse startReplicaGroupDrillWithOptions(shared_ptr<StartReplicaGroupDrillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartReplicaGroupDrillResponse startReplicaGroupDrill(shared_ptr<StartReplicaGroupDrillRequest> request);
   StopDiskMonitorResponse stopDiskMonitorWithOptions(shared_ptr<StopDiskMonitorRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopDiskMonitorResponse stopDiskMonitor(shared_ptr<StopDiskMonitorRequest> request);
   StopDiskReplicaGroupResponse stopDiskReplicaGroupWithOptions(shared_ptr<StopDiskReplicaGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
