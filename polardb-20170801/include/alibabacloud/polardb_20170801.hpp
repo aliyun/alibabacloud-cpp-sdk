@@ -1514,6 +1514,182 @@ public:
 
   virtual ~CreateBackupResponse() = default;
 };
+class CreateColdStorageInstanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> coldStorageInstanceDescription{};
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+
+  CreateColdStorageInstanceRequest() {}
+
+  explicit CreateColdStorageInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (coldStorageInstanceDescription) {
+      res["ColdStorageInstanceDescription"] = boost::any(*coldStorageInstanceDescription);
+    }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("ColdStorageInstanceDescription") != m.end() && !m["ColdStorageInstanceDescription"].empty()) {
+      coldStorageInstanceDescription = make_shared<string>(boost::any_cast<string>(m["ColdStorageInstanceDescription"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~CreateColdStorageInstanceRequest() = default;
+};
+class CreateColdStorageInstanceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> coldStorageInstanceId{};
+  shared_ptr<string> requestId{};
+
+  CreateColdStorageInstanceResponseBody() {}
+
+  explicit CreateColdStorageInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (coldStorageInstanceId) {
+      res["ColdStorageInstanceId"] = boost::any(*coldStorageInstanceId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ColdStorageInstanceId") != m.end() && !m["ColdStorageInstanceId"].empty()) {
+      coldStorageInstanceId = make_shared<string>(boost::any_cast<string>(m["ColdStorageInstanceId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateColdStorageInstanceResponseBody() = default;
+};
+class CreateColdStorageInstanceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateColdStorageInstanceResponseBody> body{};
+
+  CreateColdStorageInstanceResponse() {}
+
+  explicit CreateColdStorageInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateColdStorageInstanceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateColdStorageInstanceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateColdStorageInstanceResponse() = default;
+};
 class CreateDBClusterRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -9428,6 +9604,7 @@ public:
   shared_ptr<string> lockMode{};
   shared_ptr<string> maintainTime{};
   shared_ptr<string> payType{};
+  shared_ptr<string> provisionedIops{};
   shared_ptr<string> proxyCpuCores{};
   shared_ptr<string> proxyServerlessType{};
   shared_ptr<string> proxyStandardCpuCores{};
@@ -9557,6 +9734,9 @@ public:
     }
     if (payType) {
       res["PayType"] = boost::any(*payType);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
     }
     if (proxyCpuCores) {
       res["ProxyCpuCores"] = boost::any(*proxyCpuCores);
@@ -9734,6 +9914,9 @@ public:
     }
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<string>(boost::any_cast<string>(m["ProvisionedIops"]));
     }
     if (m.find("ProxyCpuCores") != m.end() && !m["ProxyCpuCores"].empty()) {
       proxyCpuCores = make_shared<string>(boost::any_cast<string>(m["ProxyCpuCores"]));
@@ -23329,6 +23512,203 @@ public:
 
   virtual ~DisableDBClusterServerlessResponse() = default;
 };
+class EnableDBClusterServerlessRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> scaleApRoNumMax{};
+  shared_ptr<string> scaleApRoNumMin{};
+  shared_ptr<string> scaleMax{};
+  shared_ptr<string> scaleMin{};
+  shared_ptr<string> scaleRoNumMax{};
+  shared_ptr<string> scaleRoNumMin{};
+
+  EnableDBClusterServerlessRequest() {}
+
+  explicit EnableDBClusterServerlessRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (scaleApRoNumMax) {
+      res["ScaleApRoNumMax"] = boost::any(*scaleApRoNumMax);
+    }
+    if (scaleApRoNumMin) {
+      res["ScaleApRoNumMin"] = boost::any(*scaleApRoNumMin);
+    }
+    if (scaleMax) {
+      res["ScaleMax"] = boost::any(*scaleMax);
+    }
+    if (scaleMin) {
+      res["ScaleMin"] = boost::any(*scaleMin);
+    }
+    if (scaleRoNumMax) {
+      res["ScaleRoNumMax"] = boost::any(*scaleRoNumMax);
+    }
+    if (scaleRoNumMin) {
+      res["ScaleRoNumMin"] = boost::any(*scaleRoNumMin);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ScaleApRoNumMax") != m.end() && !m["ScaleApRoNumMax"].empty()) {
+      scaleApRoNumMax = make_shared<string>(boost::any_cast<string>(m["ScaleApRoNumMax"]));
+    }
+    if (m.find("ScaleApRoNumMin") != m.end() && !m["ScaleApRoNumMin"].empty()) {
+      scaleApRoNumMin = make_shared<string>(boost::any_cast<string>(m["ScaleApRoNumMin"]));
+    }
+    if (m.find("ScaleMax") != m.end() && !m["ScaleMax"].empty()) {
+      scaleMax = make_shared<string>(boost::any_cast<string>(m["ScaleMax"]));
+    }
+    if (m.find("ScaleMin") != m.end() && !m["ScaleMin"].empty()) {
+      scaleMin = make_shared<string>(boost::any_cast<string>(m["ScaleMin"]));
+    }
+    if (m.find("ScaleRoNumMax") != m.end() && !m["ScaleRoNumMax"].empty()) {
+      scaleRoNumMax = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMax"]));
+    }
+    if (m.find("ScaleRoNumMin") != m.end() && !m["ScaleRoNumMin"].empty()) {
+      scaleRoNumMin = make_shared<string>(boost::any_cast<string>(m["ScaleRoNumMin"]));
+    }
+  }
+
+
+  virtual ~EnableDBClusterServerlessRequest() = default;
+};
+class EnableDBClusterServerlessResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBClusterId{};
+  shared_ptr<string> requestId{};
+
+  EnableDBClusterServerlessResponseBody() {}
+
+  explicit EnableDBClusterServerlessResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~EnableDBClusterServerlessResponseBody() = default;
+};
+class EnableDBClusterServerlessResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<EnableDBClusterServerlessResponseBody> body{};
+
+  EnableDBClusterServerlessResponse() {}
+
+  explicit EnableDBClusterServerlessResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        EnableDBClusterServerlessResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<EnableDBClusterServerlessResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~EnableDBClusterServerlessResponse() = default;
+};
 class EnableFirewallRulesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
@@ -33785,6 +34165,8 @@ public:
   CreateAccountResponse createAccount(shared_ptr<CreateAccountRequest> request);
   CreateBackupResponse createBackupWithOptions(shared_ptr<CreateBackupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBackupResponse createBackup(shared_ptr<CreateBackupRequest> request);
+  CreateColdStorageInstanceResponse createColdStorageInstanceWithOptions(shared_ptr<CreateColdStorageInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateColdStorageInstanceResponse createColdStorageInstance(shared_ptr<CreateColdStorageInstanceRequest> request);
   CreateDBClusterResponse createDBClusterWithOptions(shared_ptr<CreateDBClusterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateDBClusterResponse createDBCluster(shared_ptr<CreateDBClusterRequest> request);
   CreateDBClusterEndpointResponse createDBClusterEndpointWithOptions(shared_ptr<CreateDBClusterEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -33937,6 +34319,8 @@ public:
   DescribeVSwitchesResponse describeVSwitches(shared_ptr<DescribeVSwitchesRequest> request);
   DisableDBClusterServerlessResponse disableDBClusterServerlessWithOptions(shared_ptr<DisableDBClusterServerlessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableDBClusterServerlessResponse disableDBClusterServerless(shared_ptr<DisableDBClusterServerlessRequest> request);
+  EnableDBClusterServerlessResponse enableDBClusterServerlessWithOptions(shared_ptr<EnableDBClusterServerlessRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  EnableDBClusterServerlessResponse enableDBClusterServerless(shared_ptr<EnableDBClusterServerlessRequest> request);
   EnableFirewallRulesResponse enableFirewallRulesWithOptions(shared_ptr<EnableFirewallRulesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableFirewallRulesResponse enableFirewallRules(shared_ptr<EnableFirewallRulesRequest> request);
   EvaluateRegionResourceResponse evaluateRegionResourceWithOptions(shared_ptr<EvaluateRegionResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
