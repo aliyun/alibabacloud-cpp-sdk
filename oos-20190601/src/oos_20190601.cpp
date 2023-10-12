@@ -172,6 +172,9 @@ CreateApplicationResponse Alibabacloud_Oos20190601::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceId)) {
+    query->insert(pair<string, string>("ServiceId", *request->serviceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
     query->insert(pair<string, string>("Tags", *request->tagsShrink));
   }

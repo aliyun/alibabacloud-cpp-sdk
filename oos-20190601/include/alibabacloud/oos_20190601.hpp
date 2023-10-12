@@ -489,6 +489,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceId{};
   shared_ptr<map<string, boost::any>> tags{};
 
   CreateApplicationRequest() {}
@@ -519,6 +520,9 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
     if (tags) {
       res["Tags"] = boost::any(*tags);
     }
@@ -548,6 +552,9 @@ public:
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
+    }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
       map<string, boost::any> toMap1;
@@ -569,6 +576,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceId{};
   shared_ptr<string> tagsShrink{};
 
   CreateApplicationShrinkRequest() {}
@@ -599,6 +607,9 @@ public:
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
+    }
     if (tagsShrink) {
       res["Tags"] = boost::any(*tagsShrink);
     }
@@ -623,6 +634,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
@@ -5544,6 +5558,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> serviceId{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> updateDate{};
 
@@ -5574,6 +5589,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (serviceId) {
+      res["ServiceId"] = boost::any(*serviceId);
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
@@ -5606,6 +5624,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ServiceId") != m.end() && !m["ServiceId"].empty()) {
+      serviceId = make_shared<string>(boost::any_cast<string>(m["ServiceId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Tags"]);
