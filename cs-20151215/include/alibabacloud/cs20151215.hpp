@@ -10788,6 +10788,49 @@ public:
 
   virtual ~DescribeClusterNodesResponse() = default;
 };
+class DescribeClusterResourcesResponseBodyDependencies : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> instanceId{};
+
+  DescribeClusterResourcesResponseBodyDependencies() {}
+
+  explicit DescribeClusterResourcesResponseBodyDependencies(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
+    if (resourceType) {
+      res["resource_type"] = boost::any(*resourceType);
+    }
+    if (instanceId) {
+      res["instance_id"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
+    if (m.find("resource_type") != m.end() && !m["resource_type"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resource_type"]));
+    }
+    if (m.find("instance_id") != m.end() && !m["instance_id"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instance_id"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterResourcesResponseBodyDependencies() = default;
+};
 class DescribeClusterResourcesResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> clusterId{};
@@ -10797,6 +10840,7 @@ public:
   shared_ptr<string> resourceType{};
   shared_ptr<string> state{};
   shared_ptr<long> autoCreate{};
+  shared_ptr<DescribeClusterResourcesResponseBodyDependencies> dependencies{};
 
   DescribeClusterResourcesResponseBody() {}
 
@@ -10829,6 +10873,9 @@ public:
     if (autoCreate) {
       res["auto_create"] = boost::any(*autoCreate);
     }
+    if (dependencies) {
+      res["dependencies"] = dependencies ? boost::any(dependencies->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -10853,6 +10900,13 @@ public:
     }
     if (m.find("auto_create") != m.end() && !m["auto_create"].empty()) {
       autoCreate = make_shared<long>(boost::any_cast<long>(m["auto_create"]));
+    }
+    if (m.find("dependencies") != m.end() && !m["dependencies"].empty()) {
+      if (typeid(map<string, boost::any>) == m["dependencies"].type()) {
+        DescribeClusterResourcesResponseBodyDependencies model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["dependencies"]));
+        dependencies = make_shared<DescribeClusterResourcesResponseBodyDependencies>(model1);
+      }
     }
   }
 
