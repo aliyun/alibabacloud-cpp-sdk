@@ -2082,7 +2082,9 @@ public:
   shared_ptr<bool> enableXtrace{};
   shared_ptr<bool> enterpriseSecurityGroup{};
   shared_ptr<string> internetSlbSpec{};
+  shared_ptr<string> mserVersion{};
   shared_ptr<string> name{};
+  shared_ptr<string> nlbNetworkType{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
   shared_ptr<string> requestPars{};
@@ -2127,8 +2129,14 @@ public:
     if (internetSlbSpec) {
       res["InternetSlbSpec"] = boost::any(*internetSlbSpec);
     }
+    if (mserVersion) {
+      res["MserVersion"] = boost::any(*mserVersion);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (nlbNetworkType) {
+      res["NlbNetworkType"] = boost::any(*nlbNetworkType);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -2199,8 +2207,14 @@ public:
     if (m.find("InternetSlbSpec") != m.end() && !m["InternetSlbSpec"].empty()) {
       internetSlbSpec = make_shared<string>(boost::any_cast<string>(m["InternetSlbSpec"]));
     }
+    if (m.find("MserVersion") != m.end() && !m["MserVersion"].empty()) {
+      mserVersion = make_shared<string>(boost::any_cast<string>(m["MserVersion"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NlbNetworkType") != m.end() && !m["NlbNetworkType"].empty()) {
+      nlbNetworkType = make_shared<string>(boost::any_cast<string>(m["NlbNetworkType"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -2308,7 +2322,9 @@ public:
   shared_ptr<bool> enableXtrace{};
   shared_ptr<bool> enterpriseSecurityGroup{};
   shared_ptr<string> internetSlbSpec{};
+  shared_ptr<string> mserVersion{};
   shared_ptr<string> name{};
+  shared_ptr<string> nlbNetworkType{};
   shared_ptr<string> region{};
   shared_ptr<long> replica{};
   shared_ptr<string> requestPars{};
@@ -2353,8 +2369,14 @@ public:
     if (internetSlbSpec) {
       res["InternetSlbSpec"] = boost::any(*internetSlbSpec);
     }
+    if (mserVersion) {
+      res["MserVersion"] = boost::any(*mserVersion);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
+    }
+    if (nlbNetworkType) {
+      res["NlbNetworkType"] = boost::any(*nlbNetworkType);
     }
     if (region) {
       res["Region"] = boost::any(*region);
@@ -2421,8 +2443,14 @@ public:
     if (m.find("InternetSlbSpec") != m.end() && !m["InternetSlbSpec"].empty()) {
       internetSlbSpec = make_shared<string>(boost::any_cast<string>(m["InternetSlbSpec"]));
     }
+    if (m.find("MserVersion") != m.end() && !m["MserVersion"].empty()) {
+      mserVersion = make_shared<string>(boost::any_cast<string>(m["MserVersion"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NlbNetworkType") != m.end() && !m["NlbNetworkType"].empty()) {
+      nlbNetworkType = make_shared<string>(boost::any_cast<string>(m["NlbNetworkType"]));
     }
     if (m.find("Region") != m.end() && !m["Region"].empty()) {
       region = make_shared<string>(boost::any_cast<string>(m["Region"]));
@@ -35998,6 +36026,49 @@ public:
 
   virtual ~ListGatewayResponseBodyDataResultInternetSlb() = default;
 };
+class ListGatewayResponseBodyDataResultMaintenancePeriod : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> timeZone{};
+
+  ListGatewayResponseBodyDataResultMaintenancePeriod() {}
+
+  explicit ListGatewayResponseBodyDataResultMaintenancePeriod(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (timeZone) {
+      res["TimeZone"] = boost::any(*timeZone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
+      timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+  }
+
+
+  virtual ~ListGatewayResponseBodyDataResultMaintenancePeriod() = default;
+};
 class ListGatewayResponseBodyDataResultSlb : public Darabonba::Model {
 public:
   shared_ptr<string> gatewaySlbMode{};
@@ -36099,7 +36170,9 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<vector<ListGatewayResponseBodyDataResultInternetSlb>> internetSlb{};
   shared_ptr<string> latestVersion{};
+  shared_ptr<ListGatewayResponseBodyDataResultMaintenancePeriod> maintenancePeriod{};
   shared_ptr<string> mseTag{};
+  shared_ptr<string> mseVersion{};
   shared_ptr<bool> mustUpgrade{};
   shared_ptr<string> name{};
   shared_ptr<string> primaryUser{};
@@ -36195,8 +36268,14 @@ public:
     if (latestVersion) {
       res["LatestVersion"] = boost::any(*latestVersion);
     }
+    if (maintenancePeriod) {
+      res["MaintenancePeriod"] = maintenancePeriod ? boost::any(maintenancePeriod->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (mseTag) {
       res["MseTag"] = boost::any(*mseTag);
+    }
+    if (mseVersion) {
+      res["MseVersion"] = boost::any(*mseVersion);
     }
     if (mustUpgrade) {
       res["MustUpgrade"] = boost::any(*mustUpgrade);
@@ -36338,8 +36417,18 @@ public:
     if (m.find("LatestVersion") != m.end() && !m["LatestVersion"].empty()) {
       latestVersion = make_shared<string>(boost::any_cast<string>(m["LatestVersion"]));
     }
+    if (m.find("MaintenancePeriod") != m.end() && !m["MaintenancePeriod"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MaintenancePeriod"].type()) {
+        ListGatewayResponseBodyDataResultMaintenancePeriod model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MaintenancePeriod"]));
+        maintenancePeriod = make_shared<ListGatewayResponseBodyDataResultMaintenancePeriod>(model1);
+      }
+    }
     if (m.find("MseTag") != m.end() && !m["MseTag"].empty()) {
       mseTag = make_shared<string>(boost::any_cast<string>(m["MseTag"]));
+    }
+    if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
+      mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
     }
     if (m.find("MustUpgrade") != m.end() && !m["MustUpgrade"].empty()) {
       mustUpgrade = make_shared<bool>(boost::any_cast<bool>(m["MustUpgrade"]));
@@ -40510,6 +40599,7 @@ public:
   shared_ptr<string> slbId{};
   shared_ptr<string> slbIp{};
   shared_ptr<string> slbPort{};
+  shared_ptr<string> slbType{};
   shared_ptr<string> statusDesc{};
   shared_ptr<string> type{};
   shared_ptr<string> VServerGroupId{};
@@ -40564,6 +40654,9 @@ public:
     }
     if (slbPort) {
       res["SlbPort"] = boost::any(*slbPort);
+    }
+    if (slbType) {
+      res["SlbType"] = boost::any(*slbType);
     }
     if (statusDesc) {
       res["StatusDesc"] = boost::any(*statusDesc);
@@ -40626,6 +40719,9 @@ public:
     }
     if (m.find("SlbPort") != m.end() && !m["SlbPort"].empty()) {
       slbPort = make_shared<string>(boost::any_cast<string>(m["SlbPort"]));
+    }
+    if (m.find("SlbType") != m.end() && !m["SlbType"].empty()) {
+      slbType = make_shared<string>(boost::any_cast<string>(m["SlbType"]));
     }
     if (m.find("StatusDesc") != m.end() && !m["StatusDesc"].empty()) {
       statusDesc = make_shared<string>(boost::any_cast<string>(m["StatusDesc"]));
@@ -43599,6 +43695,7 @@ class ListServiceSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> gatewayUniqueId{};
+  shared_ptr<string> source{};
 
   ListServiceSourceRequest() {}
 
@@ -43616,6 +43713,9 @@ public:
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
     return res;
   }
 
@@ -43625,6 +43725,9 @@ public:
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
   }
 
@@ -48277,6 +48380,42 @@ public:
 
   virtual ~QueryClusterInfoResponseBodyDataInstanceModels() = default;
 };
+class QueryClusterInfoResponseBodyDataMaintenancePeriod : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+
+  QueryClusterInfoResponseBodyDataMaintenancePeriod() {}
+
+  explicit QueryClusterInfoResponseBodyDataMaintenancePeriod(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~QueryClusterInfoResponseBodyDataMaintenancePeriod() = default;
+};
 class QueryClusterInfoResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> aclEntryList{};
@@ -48308,6 +48447,7 @@ public:
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> intranetDomain{};
   shared_ptr<string> intranetPort{};
+  shared_ptr<QueryClusterInfoResponseBodyDataMaintenancePeriod> maintenancePeriod{};
   shared_ptr<long> memoryCapacity{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> netType{};
@@ -48420,6 +48560,9 @@ public:
     }
     if (intranetPort) {
       res["IntranetPort"] = boost::any(*intranetPort);
+    }
+    if (maintenancePeriod) {
+      res["MaintenancePeriod"] = maintenancePeriod ? boost::any(maintenancePeriod->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (memoryCapacity) {
       res["MemoryCapacity"] = boost::any(*memoryCapacity);
@@ -48561,6 +48704,13 @@ public:
     }
     if (m.find("IntranetPort") != m.end() && !m["IntranetPort"].empty()) {
       intranetPort = make_shared<string>(boost::any_cast<string>(m["IntranetPort"]));
+    }
+    if (m.find("MaintenancePeriod") != m.end() && !m["MaintenancePeriod"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MaintenancePeriod"].type()) {
+        QueryClusterInfoResponseBodyDataMaintenancePeriod model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MaintenancePeriod"]));
+        maintenancePeriod = make_shared<QueryClusterInfoResponseBodyDataMaintenancePeriod>(model1);
+      }
     }
     if (m.find("MemoryCapacity") != m.end() && !m["MemoryCapacity"].empty()) {
       memoryCapacity = make_shared<long>(boost::any_cast<long>(m["MemoryCapacity"]));
@@ -54008,6 +54158,8 @@ public:
   shared_ptr<string> acceptLanguage{};
   shared_ptr<string> clusterAliasName{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> maintenanceEndTime{};
+  shared_ptr<string> maintenanceStartTime{};
   shared_ptr<string> requestPars{};
 
   UpdateClusterRequest() {}
@@ -54029,6 +54181,12 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (maintenanceEndTime) {
+      res["MaintenanceEndTime"] = boost::any(*maintenanceEndTime);
+    }
+    if (maintenanceStartTime) {
+      res["MaintenanceStartTime"] = boost::any(*maintenanceStartTime);
+    }
     if (requestPars) {
       res["RequestPars"] = boost::any(*requestPars);
     }
@@ -54044,6 +54202,12 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MaintenanceEndTime") != m.end() && !m["MaintenanceEndTime"].empty()) {
+      maintenanceEndTime = make_shared<string>(boost::any_cast<string>(m["MaintenanceEndTime"]));
+    }
+    if (m.find("MaintenanceStartTime") != m.end() && !m["MaintenanceStartTime"].empty()) {
+      maintenanceStartTime = make_shared<string>(boost::any_cast<string>(m["MaintenanceStartTime"]));
     }
     if (m.find("RequestPars") != m.end() && !m["RequestPars"].empty()) {
       requestPars = make_shared<string>(boost::any_cast<string>(m["RequestPars"]));

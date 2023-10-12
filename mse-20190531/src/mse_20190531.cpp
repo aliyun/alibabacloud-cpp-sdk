@@ -235,8 +235,14 @@ AddGatewayResponse Alibabacloud_Mse20190531::Client::addGatewayWithOptions(share
   if (!Darabonba_Util::Client::isUnset<string>(request->internetSlbSpec)) {
     query->insert(pair<string, string>("InternetSlbSpec", *request->internetSlbSpec));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mserVersion)) {
+    query->insert(pair<string, string>("MserVersion", *request->mserVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nlbNetworkType)) {
+    query->insert(pair<string, string>("NlbNetworkType", *request->nlbNetworkType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->region)) {
     query->insert(pair<string, string>("Region", *request->region));
@@ -5488,6 +5494,9 @@ ListServiceSourceResponse Alibabacloud_Mse20190531::Client::listServiceSourceWit
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -6957,6 +6966,12 @@ UpdateClusterResponse Alibabacloud_Mse20190531::Client::updateClusterWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maintenanceEndTime)) {
+    query->insert(pair<string, string>("MaintenanceEndTime", *request->maintenanceEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maintenanceStartTime)) {
+    query->insert(pair<string, string>("MaintenanceStartTime", *request->maintenanceStartTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->requestPars)) {
     query->insert(pair<string, string>("RequestPars", *request->requestPars));
