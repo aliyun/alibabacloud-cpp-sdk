@@ -21822,6 +21822,208 @@ public:
 
   virtual ~GetDatabaseExportOrderDetailResponse() = default;
 };
+class GetDbExportDownloadURLRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> orderId{};
+  shared_ptr<long> tid{};
+
+  GetDbExportDownloadURLRequest() {}
+
+  explicit GetDbExportDownloadURLRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
+    }
+  }
+
+
+  virtual ~GetDbExportDownloadURLRequest() = default;
+};
+class GetDbExportDownloadURLResponseBodyDownloadURLResult : public Darabonba::Model {
+public:
+  shared_ptr<bool> hasResult{};
+  shared_ptr<string> tipMessage{};
+  shared_ptr<string> URL{};
+
+  GetDbExportDownloadURLResponseBodyDownloadURLResult() {}
+
+  explicit GetDbExportDownloadURLResponseBodyDownloadURLResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hasResult) {
+      res["HasResult"] = boost::any(*hasResult);
+    }
+    if (tipMessage) {
+      res["TipMessage"] = boost::any(*tipMessage);
+    }
+    if (URL) {
+      res["URL"] = boost::any(*URL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HasResult") != m.end() && !m["HasResult"].empty()) {
+      hasResult = make_shared<bool>(boost::any_cast<bool>(m["HasResult"]));
+    }
+    if (m.find("TipMessage") != m.end() && !m["TipMessage"].empty()) {
+      tipMessage = make_shared<string>(boost::any_cast<string>(m["TipMessage"]));
+    }
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URL = make_shared<string>(boost::any_cast<string>(m["URL"]));
+    }
+  }
+
+
+  virtual ~GetDbExportDownloadURLResponseBodyDownloadURLResult() = default;
+};
+class GetDbExportDownloadURLResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetDbExportDownloadURLResponseBodyDownloadURLResult> downloadURLResult{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetDbExportDownloadURLResponseBody() {}
+
+  explicit GetDbExportDownloadURLResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (downloadURLResult) {
+      res["DownloadURLResult"] = downloadURLResult ? boost::any(downloadURLResult->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DownloadURLResult") != m.end() && !m["DownloadURLResult"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DownloadURLResult"].type()) {
+        GetDbExportDownloadURLResponseBodyDownloadURLResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DownloadURLResult"]));
+        downloadURLResult = make_shared<GetDbExportDownloadURLResponseBodyDownloadURLResult>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetDbExportDownloadURLResponseBody() = default;
+};
+class GetDbExportDownloadURLResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDbExportDownloadURLResponseBody> body{};
+
+  GetDbExportDownloadURLResponse() {}
+
+  explicit GetDbExportDownloadURLResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDbExportDownloadURLResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDbExportDownloadURLResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDbExportDownloadURLResponse() = default;
+};
 class GetInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
@@ -24623,12 +24825,14 @@ public:
 };
 class GetOrderBaseInfoResponseBodyOrderBaseInfo : public Darabonba::Model {
 public:
+  shared_ptr<string> attachmentKey{};
   shared_ptr<string> comment{};
   shared_ptr<string> committer{};
   shared_ptr<long> committerId{};
   shared_ptr<string> createTime{};
   shared_ptr<string> lastModifyTime{};
   shared_ptr<long> orderId{};
+  shared_ptr<string> originAttachmentName{};
   shared_ptr<string> pluginType{};
   shared_ptr<GetOrderBaseInfoResponseBodyOrderBaseInfoRelatedUserList> relatedUserList{};
   shared_ptr<GetOrderBaseInfoResponseBodyOrderBaseInfoRelatedUserNickList> relatedUserNickList{};
@@ -24647,6 +24851,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (attachmentKey) {
+      res["AttachmentKey"] = boost::any(*attachmentKey);
+    }
     if (comment) {
       res["Comment"] = boost::any(*comment);
     }
@@ -24664,6 +24871,9 @@ public:
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
+    }
+    if (originAttachmentName) {
+      res["OriginAttachmentName"] = boost::any(*originAttachmentName);
     }
     if (pluginType) {
       res["PluginType"] = boost::any(*pluginType);
@@ -24690,6 +24900,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AttachmentKey") != m.end() && !m["AttachmentKey"].empty()) {
+      attachmentKey = make_shared<string>(boost::any_cast<string>(m["AttachmentKey"]));
+    }
     if (m.find("Comment") != m.end() && !m["Comment"].empty()) {
       comment = make_shared<string>(boost::any_cast<string>(m["Comment"]));
     }
@@ -24707,6 +24920,9 @@ public:
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<long>(boost::any_cast<long>(m["OrderId"]));
+    }
+    if (m.find("OriginAttachmentName") != m.end() && !m["OriginAttachmentName"].empty()) {
+      originAttachmentName = make_shared<string>(boost::any_cast<string>(m["OriginAttachmentName"]));
     }
     if (m.find("PluginType") != m.end() && !m["PluginType"].empty()) {
       pluginType = make_shared<string>(boost::any_cast<string>(m["PluginType"]));
@@ -59239,6 +59455,8 @@ public:
   GetDatabaseResponse getDatabase(shared_ptr<GetDatabaseRequest> request);
   GetDatabaseExportOrderDetailResponse getDatabaseExportOrderDetailWithOptions(shared_ptr<GetDatabaseExportOrderDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDatabaseExportOrderDetailResponse getDatabaseExportOrderDetail(shared_ptr<GetDatabaseExportOrderDetailRequest> request);
+  GetDbExportDownloadURLResponse getDbExportDownloadURLWithOptions(shared_ptr<GetDbExportDownloadURLRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDbExportDownloadURLResponse getDbExportDownloadURL(shared_ptr<GetDbExportDownloadURLRequest> request);
   GetInstanceResponse getInstanceWithOptions(shared_ptr<GetInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetInstanceResponse getInstance(shared_ptr<GetInstanceRequest> request);
   GetIntervalLimitOfSLAResponse getIntervalLimitOfSLAWithOptions(shared_ptr<GetIntervalLimitOfSLARequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
