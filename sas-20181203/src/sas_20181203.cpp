@@ -1426,6 +1426,34 @@ CreateFileProtectRuleResponse Alibabacloud_Sas20181203::Client::createFileProtec
   return createFileProtectRuleWithOptions(request, runtime);
 }
 
+CreateFileUploadLimitResponse Alibabacloud_Sas20181203::Client::createFileUploadLimitWithOptions(shared_ptr<CreateFileUploadLimitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    query->insert(pair<string, long>("Limit", *request->limit));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateFileUploadLimit"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateFileUploadLimitResponse(callApi(params, req, runtime));
+}
+
+CreateFileUploadLimitResponse Alibabacloud_Sas20181203::Client::createFileUploadLimit(shared_ptr<CreateFileUploadLimitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createFileUploadLimitWithOptions(request, runtime);
+}
+
 CreateHoneypotResponse Alibabacloud_Sas20181203::Client::createHoneypotWithOptions(shared_ptr<CreateHoneypotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -11887,6 +11915,9 @@ ExportSuspEventsResponse Alibabacloud_Sas20181203::Client::exportSuspEventsWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     query->insert(pair<string, string>("From", *request->from));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -11895,6 +11926,9 @@ ExportSuspEventsResponse Alibabacloud_Sas20181203::Client::exportSuspEventsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->operateErrorCodeList)) {
+    query->insert(pair<string, vector<string>>("OperateErrorCodeList", *request->operateErrorCodeList));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
@@ -11919,6 +11953,12 @@ ExportSuspEventsResponse Alibabacloud_Sas20181203::Client::exportSuspEventsWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->timeStart)) {
     query->insert(pair<string, string>("TimeStart", *request->timeStart));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uniqueInfo)) {
+    query->insert(pair<string, string>("UniqueInfo", *request->uniqueInfo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -11951,6 +11991,9 @@ ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->attachTypes)) {
     query->insert(pair<string, string>("AttachTypes", *request->attachTypes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->containerName)) {
+    query->insert(pair<string, string>("ContainerName", *request->containerName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cveId)) {
     query->insert(pair<string, string>("CveId", *request->cveId));
   }
@@ -11960,11 +12003,17 @@ ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
     query->insert(pair<string, string>("GroupId", *request->groupId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->imageName)) {
+    query->insert(pair<string, string>("ImageName", *request->imageName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->necessity)) {
     query->insert(pair<string, string>("Necessity", *request->necessity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->path)) {
+    query->insert(pair<string, string>("Path", *request->path));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchTags)) {
     query->insert(pair<string, string>("SearchTags", *request->searchTags));
@@ -13082,6 +13131,27 @@ GetFileProtectRuleResponse Alibabacloud_Sas20181203::Client::getFileProtectRule(
   return getFileProtectRuleWithOptions(request, runtime);
 }
 
+GetFileUploadLimitResponse Alibabacloud_Sas20181203::Client::getFileUploadLimitWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetFileUploadLimit"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetFileUploadLimitResponse(callApi(params, req, runtime));
+}
+
+GetFileUploadLimitResponse Alibabacloud_Sas20181203::Client::getFileUploadLimit() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getFileUploadLimitWithOptions(runtime);
+}
+
 GetHoneypotAttackStatisticsResponse Alibabacloud_Sas20181203::Client::getHoneypotAttackStatisticsWithOptions(shared_ptr<GetHoneypotAttackStatisticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -13439,6 +13509,34 @@ GetLastOnceTaskInfoResponse Alibabacloud_Sas20181203::Client::getLastOnceTaskInf
 GetLastOnceTaskInfoResponse Alibabacloud_Sas20181203::Client::getLastOnceTaskInfo(shared_ptr<GetLastOnceTaskInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getLastOnceTaskInfoWithOptions(request, runtime);
+}
+
+GetLogMetaResponse Alibabacloud_Sas20181203::Client::getLogMetaWithOptions(shared_ptr<GetLogMetaRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->logStore)) {
+    query->insert(pair<string, string>("LogStore", *request->logStore));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetLogMeta"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetLogMetaResponse(callApi(params, req, runtime));
+}
+
+GetLogMetaResponse Alibabacloud_Sas20181203::Client::getLogMeta(shared_ptr<GetLogMetaRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getLogMetaWithOptions(request, runtime);
 }
 
 GetModuleConfigResponse Alibabacloud_Sas20181203::Client::getModuleConfigWithOptions(shared_ptr<GetModuleConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -20500,6 +20598,34 @@ UpdateFileProtectRuleResponse Alibabacloud_Sas20181203::Client::updateFileProtec
 UpdateFileProtectRuleResponse Alibabacloud_Sas20181203::Client::updateFileProtectRule(shared_ptr<UpdateFileProtectRuleRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateFileProtectRuleWithOptions(request, runtime);
+}
+
+UpdateFileUploadLimitResponse Alibabacloud_Sas20181203::Client::updateFileUploadLimitWithOptions(shared_ptr<UpdateFileUploadLimitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    query->insert(pair<string, long>("Limit", *request->limit));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateFileUploadLimit"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateFileUploadLimitResponse(callApi(params, req, runtime));
+}
+
+UpdateFileUploadLimitResponse Alibabacloud_Sas20181203::Client::updateFileUploadLimit(shared_ptr<UpdateFileUploadLimitRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateFileUploadLimitWithOptions(request, runtime);
 }
 
 UpdateHoneypotResponse Alibabacloud_Sas20181203::Client::updateHoneypotWithOptions(shared_ptr<UpdateHoneypotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
