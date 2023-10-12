@@ -1802,6 +1802,7 @@ public:
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
   shared_ptr<string> androidExtParameters{};
+  shared_ptr<long> androidHonorTargetUserType{};
   shared_ptr<string> androidHuaweiReceiptId{};
   shared_ptr<long> androidHuaweiTargetUserType{};
   shared_ptr<string> androidImageUrl{};
@@ -1827,6 +1828,7 @@ public:
   shared_ptr<string> androidPopupTitle{};
   shared_ptr<bool> androidRemind{};
   shared_ptr<string> androidRenderStyle{};
+  shared_ptr<long> androidTargetUserType{};
   shared_ptr<long> androidVivoPushMode{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
@@ -1886,6 +1888,9 @@ public:
     }
     if (androidExtParameters) {
       res["AndroidExtParameters"] = boost::any(*androidExtParameters);
+    }
+    if (androidHonorTargetUserType) {
+      res["AndroidHonorTargetUserType"] = boost::any(*androidHonorTargetUserType);
     }
     if (androidHuaweiReceiptId) {
       res["AndroidHuaweiReceiptId"] = boost::any(*androidHuaweiReceiptId);
@@ -1961,6 +1966,9 @@ public:
     }
     if (androidRenderStyle) {
       res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
+    }
+    if (androidTargetUserType) {
+      res["AndroidTargetUserType"] = boost::any(*androidTargetUserType);
     }
     if (androidVivoPushMode) {
       res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
@@ -2083,6 +2091,9 @@ public:
     if (m.find("AndroidExtParameters") != m.end() && !m["AndroidExtParameters"].empty()) {
       androidExtParameters = make_shared<string>(boost::any_cast<string>(m["AndroidExtParameters"]));
     }
+    if (m.find("AndroidHonorTargetUserType") != m.end() && !m["AndroidHonorTargetUserType"].empty()) {
+      androidHonorTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidHonorTargetUserType"]));
+    }
     if (m.find("AndroidHuaweiReceiptId") != m.end() && !m["AndroidHuaweiReceiptId"].empty()) {
       androidHuaweiReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidHuaweiReceiptId"]));
     }
@@ -2157,6 +2168,9 @@ public:
     }
     if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
       androidRenderStyle = make_shared<string>(boost::any_cast<string>(m["AndroidRenderStyle"]));
+    }
+    if (m.find("AndroidTargetUserType") != m.end() && !m["AndroidTargetUserType"].empty()) {
+      androidTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidTargetUserType"]));
     }
     if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
       androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
@@ -2460,6 +2474,7 @@ public:
   shared_ptr<string> androidBigPictureUrl{};
   shared_ptr<string> androidBigTitle{};
   shared_ptr<string> androidExtParameters{};
+  shared_ptr<long> androidHonorTargetUserType{};
   shared_ptr<string> androidHuaweiReceiptId{};
   shared_ptr<long> androidHuaweiTargetUserType{};
   shared_ptr<string> androidImageUrl{};
@@ -2485,6 +2500,7 @@ public:
   shared_ptr<string> androidPopupTitle{};
   shared_ptr<bool> androidRemind{};
   shared_ptr<long> androidRenderStyle{};
+  shared_ptr<long> androidTargetUserType{};
   shared_ptr<long> androidVivoPushMode{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
@@ -2550,6 +2566,9 @@ public:
     }
     if (androidExtParameters) {
       res["AndroidExtParameters"] = boost::any(*androidExtParameters);
+    }
+    if (androidHonorTargetUserType) {
+      res["AndroidHonorTargetUserType"] = boost::any(*androidHonorTargetUserType);
     }
     if (androidHuaweiReceiptId) {
       res["AndroidHuaweiReceiptId"] = boost::any(*androidHuaweiReceiptId);
@@ -2625,6 +2644,9 @@ public:
     }
     if (androidRenderStyle) {
       res["AndroidRenderStyle"] = boost::any(*androidRenderStyle);
+    }
+    if (androidTargetUserType) {
+      res["AndroidTargetUserType"] = boost::any(*androidTargetUserType);
     }
     if (androidVivoPushMode) {
       res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
@@ -2765,6 +2787,9 @@ public:
     if (m.find("AndroidExtParameters") != m.end() && !m["AndroidExtParameters"].empty()) {
       androidExtParameters = make_shared<string>(boost::any_cast<string>(m["AndroidExtParameters"]));
     }
+    if (m.find("AndroidHonorTargetUserType") != m.end() && !m["AndroidHonorTargetUserType"].empty()) {
+      androidHonorTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidHonorTargetUserType"]));
+    }
     if (m.find("AndroidHuaweiReceiptId") != m.end() && !m["AndroidHuaweiReceiptId"].empty()) {
       androidHuaweiReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidHuaweiReceiptId"]));
     }
@@ -2839,6 +2864,9 @@ public:
     }
     if (m.find("AndroidRenderStyle") != m.end() && !m["AndroidRenderStyle"].empty()) {
       androidRenderStyle = make_shared<long>(boost::any_cast<long>(m["AndroidRenderStyle"]));
+    }
+    if (m.find("AndroidTargetUserType") != m.end() && !m["AndroidTargetUserType"].empty()) {
+      androidTargetUserType = make_shared<long>(boost::any_cast<long>(m["AndroidTargetUserType"]));
     }
     if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
       androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
@@ -3068,6 +3096,7 @@ public:
   shared_ptr<long> appKey{};
   shared_ptr<string> body{};
   shared_ptr<string> jobKey{};
+  shared_ptr<bool> storeOffline{};
   shared_ptr<string> target{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> title{};
@@ -3091,6 +3120,9 @@ public:
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
     }
+    if (storeOffline) {
+      res["StoreOffline"] = boost::any(*storeOffline);
+    }
     if (target) {
       res["Target"] = boost::any(*target);
     }
@@ -3112,6 +3144,9 @@ public:
     }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
+    }
+    if (m.find("StoreOffline") != m.end() && !m["StoreOffline"].empty()) {
+      storeOffline = make_shared<bool>(boost::any_cast<bool>(m["StoreOffline"]));
     }
     if (m.find("Target") != m.end() && !m["Target"].empty()) {
       target = make_shared<string>(boost::any_cast<string>(m["Target"]));
@@ -3230,6 +3265,7 @@ public:
   shared_ptr<long> appKey{};
   shared_ptr<string> body{};
   shared_ptr<string> jobKey{};
+  shared_ptr<bool> storeOffline{};
   shared_ptr<string> target{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> title{};
@@ -3253,6 +3289,9 @@ public:
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
     }
+    if (storeOffline) {
+      res["StoreOffline"] = boost::any(*storeOffline);
+    }
     if (target) {
       res["Target"] = boost::any(*target);
     }
@@ -3274,6 +3313,9 @@ public:
     }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
+    }
+    if (m.find("StoreOffline") != m.end() && !m["StoreOffline"].empty()) {
+      storeOffline = make_shared<bool>(boost::any_cast<bool>(m["StoreOffline"]));
     }
     if (m.find("Target") != m.end() && !m["Target"].empty()) {
       target = make_shared<string>(boost::any_cast<string>(m["Target"]));
@@ -3393,6 +3435,7 @@ public:
   shared_ptr<string> body{};
   shared_ptr<string> extParameters{};
   shared_ptr<string> jobKey{};
+  shared_ptr<bool> storeOffline{};
   shared_ptr<string> target{};
   shared_ptr<string> targetValue{};
   shared_ptr<string> title{};
@@ -3419,6 +3462,9 @@ public:
     if (jobKey) {
       res["JobKey"] = boost::any(*jobKey);
     }
+    if (storeOffline) {
+      res["StoreOffline"] = boost::any(*storeOffline);
+    }
     if (target) {
       res["Target"] = boost::any(*target);
     }
@@ -3443,6 +3489,9 @@ public:
     }
     if (m.find("JobKey") != m.end() && !m["JobKey"].empty()) {
       jobKey = make_shared<string>(boost::any_cast<string>(m["JobKey"]));
+    }
+    if (m.find("StoreOffline") != m.end() && !m["StoreOffline"].empty()) {
+      storeOffline = make_shared<bool>(boost::any_cast<bool>(m["StoreOffline"]));
     }
     if (m.find("Target") != m.end() && !m["Target"].empty()) {
       target = make_shared<string>(boost::any_cast<string>(m["Target"]));
@@ -3982,10 +4031,12 @@ class QueryDeviceInfoResponseBodyDeviceInfo : public Darabonba::Model {
 public:
   shared_ptr<string> account{};
   shared_ptr<string> alias{};
+  shared_ptr<string> brand{};
   shared_ptr<string> deviceId{};
   shared_ptr<string> deviceToken{};
   shared_ptr<string> deviceType{};
   shared_ptr<string> lastOnlineTime{};
+  shared_ptr<string> model{};
   shared_ptr<bool> online{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<bool> pushEnabled{};
@@ -4007,6 +4058,9 @@ public:
     if (alias) {
       res["Alias"] = boost::any(*alias);
     }
+    if (brand) {
+      res["Brand"] = boost::any(*brand);
+    }
     if (deviceId) {
       res["DeviceId"] = boost::any(*deviceId);
     }
@@ -4018,6 +4072,9 @@ public:
     }
     if (lastOnlineTime) {
       res["LastOnlineTime"] = boost::any(*lastOnlineTime);
+    }
+    if (model) {
+      res["Model"] = boost::any(*model);
     }
     if (online) {
       res["Online"] = boost::any(*online);
@@ -4041,6 +4098,9 @@ public:
     if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
       alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
     }
+    if (m.find("Brand") != m.end() && !m["Brand"].empty()) {
+      brand = make_shared<string>(boost::any_cast<string>(m["Brand"]));
+    }
     if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
     }
@@ -4052,6 +4112,9 @@ public:
     }
     if (m.find("LastOnlineTime") != m.end() && !m["LastOnlineTime"].empty()) {
       lastOnlineTime = make_shared<string>(boost::any_cast<string>(m["LastOnlineTime"]));
+    }
+    if (m.find("Model") != m.end() && !m["Model"].empty()) {
+      model = make_shared<string>(boost::any_cast<string>(m["Model"]));
     }
     if (m.find("Online") != m.end() && !m["Online"].empty()) {
       online = make_shared<bool>(boost::any_cast<bool>(m["Online"]));

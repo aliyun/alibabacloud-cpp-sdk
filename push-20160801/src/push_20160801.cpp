@@ -489,6 +489,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<string>(request->androidExtParameters)) {
     query->insert(pair<string, string>("AndroidExtParameters", *request->androidExtParameters));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidHonorTargetUserType)) {
+    query->insert(pair<string, long>("AndroidHonorTargetUserType", *request->androidHonorTargetUserType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidHuaweiReceiptId)) {
     query->insert(pair<string, string>("AndroidHuaweiReceiptId", *request->androidHuaweiReceiptId));
   }
@@ -563,6 +566,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->androidRenderStyle)) {
     query->insert(pair<string, long>("AndroidRenderStyle", *request->androidRenderStyle));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->androidTargetUserType)) {
+    query->insert(pair<string, long>("AndroidTargetUserType", *request->androidTargetUserType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->androidVivoPushMode)) {
     query->insert(pair<string, long>("AndroidVivoPushMode", *request->androidVivoPushMode));
@@ -718,6 +724,9 @@ PushMessageToAndroidResponse Alibabacloud_Push20160801::Client::pushMessageToAnd
   if (!Darabonba_Util::Client::isUnset<string>(request->jobKey)) {
     query->insert(pair<string, string>("JobKey", *request->jobKey));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->storeOffline)) {
+    query->insert(pair<string, bool>("StoreOffline", *request->storeOffline));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
     query->insert(pair<string, string>("Target", *request->target));
   }
@@ -760,6 +769,9 @@ PushMessageToiOSResponse Alibabacloud_Push20160801::Client::pushMessageToiOSWith
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobKey)) {
     query->insert(pair<string, string>("JobKey", *request->jobKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->storeOffline)) {
+    query->insert(pair<string, bool>("StoreOffline", *request->storeOffline));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
     query->insert(pair<string, string>("Target", *request->target));
@@ -806,6 +818,9 @@ PushNoticeToAndroidResponse Alibabacloud_Push20160801::Client::pushNoticeToAndro
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobKey)) {
     query->insert(pair<string, string>("JobKey", *request->jobKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->storeOffline)) {
+    query->insert(pair<string, bool>("StoreOffline", *request->storeOffline));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->target)) {
     query->insert(pair<string, string>("Target", *request->target));
