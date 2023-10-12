@@ -12703,6 +12703,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<long> silenceTime{};
+  shared_ptr<string> state{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskName{};
 
@@ -12752,6 +12753,9 @@ public:
     }
     if (silenceTime) {
       res["SilenceTime"] = boost::any(*silenceTime);
+    }
+    if (state) {
+      res["State"] = boost::any(*state);
     }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
@@ -12805,6 +12809,9 @@ public:
     }
     if (m.find("SilenceTime") != m.end() && !m["SilenceTime"].empty()) {
       silenceTime = make_shared<long>(boost::any_cast<long>(m["SilenceTime"]));
+    }
+    if (m.find("State") != m.end() && !m["State"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["State"]));
     }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
