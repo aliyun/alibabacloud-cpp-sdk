@@ -804,6 +804,9 @@ UpdateHubClusterFeatureResponse Alibabacloud_Adcp20220101::Client::updateHubClus
   if (!Darabonba_Util::Client::isUnset<bool>(request->enableMesh)) {
     query->insert(pair<string, bool>("EnableMesh", *request->enableMesh));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->MSEEnabled)) {
+    query->insert(pair<string, bool>("MSEEnabled", *request->MSEEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->monitorEnabled)) {
     query->insert(pair<string, bool>("MonitorEnabled", *request->monitorEnabled));
   }

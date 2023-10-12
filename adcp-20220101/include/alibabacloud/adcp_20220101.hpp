@@ -5876,6 +5876,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> MSEEnabled{};
   shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
@@ -5923,6 +5924,9 @@ public:
     }
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (MSEEnabled) {
+      res["MSEEnabled"] = boost::any(*MSEEnabled);
     }
     if (monitorEnabled) {
       res["MonitorEnabled"] = boost::any(*monitorEnabled);
@@ -5986,6 +5990,9 @@ public:
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
     }
+    if (m.find("MSEEnabled") != m.end() && !m["MSEEnabled"].empty()) {
+      MSEEnabled = make_shared<bool>(boost::any_cast<bool>(m["MSEEnabled"]));
+    }
     if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
       monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
     }
@@ -6031,6 +6038,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<bool> deletionProtection{};
   shared_ptr<bool> enableMesh{};
+  shared_ptr<bool> MSEEnabled{};
   shared_ptr<bool> monitorEnabled{};
   shared_ptr<string> name{};
   shared_ptr<string> priceLimit{};
@@ -6078,6 +6086,9 @@ public:
     }
     if (enableMesh) {
       res["EnableMesh"] = boost::any(*enableMesh);
+    }
+    if (MSEEnabled) {
+      res["MSEEnabled"] = boost::any(*MSEEnabled);
     }
     if (monitorEnabled) {
       res["MonitorEnabled"] = boost::any(*monitorEnabled);
@@ -6133,6 +6144,9 @@ public:
     }
     if (m.find("EnableMesh") != m.end() && !m["EnableMesh"].empty()) {
       enableMesh = make_shared<bool>(boost::any_cast<bool>(m["EnableMesh"]));
+    }
+    if (m.find("MSEEnabled") != m.end() && !m["MSEEnabled"].empty()) {
+      MSEEnabled = make_shared<bool>(boost::any_cast<bool>(m["MSEEnabled"]));
     }
     if (m.find("MonitorEnabled") != m.end() && !m["MonitorEnabled"].empty()) {
       monitorEnabled = make_shared<bool>(boost::any_cast<bool>(m["MonitorEnabled"]));
