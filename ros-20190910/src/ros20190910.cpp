@@ -273,6 +273,40 @@ CreateChangeSetResponse Alibabacloud_ROS20190910::Client::createChangeSet(shared
   return createChangeSetWithOptions(request, runtime);
 }
 
+CreateDiagnosticResponse Alibabacloud_ROS20190910::Client::createDiagnosticWithOptions(shared_ptr<CreateDiagnosticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticKey)) {
+    query->insert(pair<string, string>("DiagnosticKey", *request->diagnosticKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticType)) {
+    query->insert(pair<string, string>("DiagnosticType", *request->diagnosticType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
+    query->insert(pair<string, string>("Product", *request->product));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateDiagnostic"))},
+    {"version", boost::any(string("2019-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateDiagnosticResponse(callApi(params, req, runtime));
+}
+
+CreateDiagnosticResponse Alibabacloud_ROS20190910::Client::createDiagnostic(shared_ptr<CreateDiagnosticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createDiagnosticWithOptions(request, runtime);
+}
+
 CreateStackResponse Alibabacloud_ROS20190910::Client::createStackWithOptions(shared_ptr<CreateStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -661,6 +695,34 @@ DeleteChangeSetResponse Alibabacloud_ROS20190910::Client::deleteChangeSetWithOpt
 DeleteChangeSetResponse Alibabacloud_ROS20190910::Client::deleteChangeSet(shared_ptr<DeleteChangeSetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteChangeSetWithOptions(request, runtime);
+}
+
+DeleteDiagnosticResponse Alibabacloud_ROS20190910::Client::deleteDiagnosticWithOptions(shared_ptr<DeleteDiagnosticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->reportId)) {
+    query->insert(pair<string, string>("ReportId", *request->reportId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteDiagnostic"))},
+    {"version", boost::any(string("2019-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteDiagnosticResponse(callApi(params, req, runtime));
+}
+
+DeleteDiagnosticResponse Alibabacloud_ROS20190910::Client::deleteDiagnostic(shared_ptr<DeleteDiagnosticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteDiagnosticWithOptions(request, runtime);
 }
 
 DeleteStackResponse Alibabacloud_ROS20190910::Client::deleteStackWithOptions(shared_ptr<DeleteStackRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1180,6 +1242,34 @@ GetChangeSetResponse Alibabacloud_ROS20190910::Client::getChangeSetWithOptions(s
 GetChangeSetResponse Alibabacloud_ROS20190910::Client::getChangeSet(shared_ptr<GetChangeSetRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getChangeSetWithOptions(request, runtime);
+}
+
+GetDiagnosticResponse Alibabacloud_ROS20190910::Client::getDiagnosticWithOptions(shared_ptr<GetDiagnosticRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->reportId)) {
+    query->insert(pair<string, string>("ReportId", *request->reportId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDiagnostic"))},
+    {"version", boost::any(string("2019-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDiagnosticResponse(callApi(params, req, runtime));
+}
+
+GetDiagnosticResponse Alibabacloud_ROS20190910::Client::getDiagnostic(shared_ptr<GetDiagnosticRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDiagnosticWithOptions(request, runtime);
 }
 
 GetFeatureDetailsResponse Alibabacloud_ROS20190910::Client::getFeatureDetailsWithOptions(shared_ptr<GetFeatureDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1927,6 +2017,46 @@ ListChangeSetsResponse Alibabacloud_ROS20190910::Client::listChangeSetsWithOptio
 ListChangeSetsResponse Alibabacloud_ROS20190910::Client::listChangeSets(shared_ptr<ListChangeSetsRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listChangeSetsWithOptions(request, runtime);
+}
+
+ListDiagnosticsResponse Alibabacloud_ROS20190910::Client::listDiagnosticsWithOptions(shared_ptr<ListDiagnosticsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticKey)) {
+    query->insert(pair<string, string>("DiagnosticKey", *request->diagnosticKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->diagnosticProduct)) {
+    query->insert(pair<string, string>("DiagnosticProduct", *request->diagnosticProduct));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->maxResults)) {
+    query->insert(pair<string, string>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListDiagnostics"))},
+    {"version", boost::any(string("2019-09-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListDiagnosticsResponse(callApi(params, req, runtime));
+}
+
+ListDiagnosticsResponse Alibabacloud_ROS20190910::Client::listDiagnostics(shared_ptr<ListDiagnosticsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listDiagnosticsWithOptions(request, runtime);
 }
 
 ListResourceTypeRegistrationsResponse Alibabacloud_ROS20190910::Client::listResourceTypeRegistrationsWithOptions(shared_ptr<ListResourceTypeRegistrationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
