@@ -12852,6 +12852,7 @@ public:
 };
 class DescribeDnsProductInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoRenewal{};
   shared_ptr<long> bindCount{};
   shared_ptr<long> bindDomainCount{};
   shared_ptr<long> bindDomainUsedCount{};
@@ -12898,6 +12899,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRenewal) {
+      res["AutoRenewal"] = boost::any(*autoRenewal);
+    }
     if (bindCount) {
       res["BindCount"] = boost::any(*bindCount);
     }
@@ -13007,6 +13011,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoRenewal") != m.end() && !m["AutoRenewal"].empty()) {
+      autoRenewal = make_shared<bool>(boost::any_cast<bool>(m["AutoRenewal"]));
+    }
     if (m.find("BindCount") != m.end() && !m["BindCount"].empty()) {
       bindCount = make_shared<long>(boost::any_cast<long>(m["BindCount"]));
     }
