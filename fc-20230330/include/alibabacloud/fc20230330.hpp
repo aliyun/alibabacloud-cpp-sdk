@@ -2648,6 +2648,7 @@ public:
 };
 class GetResourceTagsOutput : public Darabonba::Model {
 public:
+  shared_ptr<string> resouceType{};
   shared_ptr<string> resourceArn{};
   shared_ptr<map<string, string>> tags{};
 
@@ -2661,6 +2662,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resouceType) {
+      res["resouceType"] = boost::any(*resouceType);
+    }
     if (resourceArn) {
       res["resourceArn"] = boost::any(*resourceArn);
     }
@@ -2671,6 +2675,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("resouceType") != m.end() && !m["resouceType"].empty()) {
+      resouceType = make_shared<string>(boost::any_cast<string>(m["resouceType"]));
+    }
     if (m.find("resourceArn") != m.end() && !m["resourceArn"].empty()) {
       resourceArn = make_shared<string>(boost::any_cast<string>(m["resourceArn"]));
     }
@@ -3577,6 +3584,7 @@ public:
 };
 class Resource : public Darabonba::Model {
 public:
+  shared_ptr<string> resouceType{};
   shared_ptr<string> resourceArn{};
   shared_ptr<map<string, string>> tags{};
 
@@ -3590,6 +3598,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (resouceType) {
+      res["resouceType"] = boost::any(*resouceType);
+    }
     if (resourceArn) {
       res["resourceArn"] = boost::any(*resourceArn);
     }
@@ -3600,6 +3611,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("resouceType") != m.end() && !m["resouceType"].empty()) {
+      resouceType = make_shared<string>(boost::any_cast<string>(m["resouceType"]));
+    }
     if (m.find("resourceArn") != m.end() && !m["resourceArn"].empty()) {
       resourceArn = make_shared<string>(boost::any_cast<string>(m["resourceArn"]));
     }
@@ -7774,6 +7788,7 @@ class ListTaggedResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<long> limit{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceType{};
 
   ListTaggedResourcesRequest() {}
 
@@ -7791,6 +7806,9 @@ public:
     if (nextToken) {
       res["nextToken"] = boost::any(*nextToken);
     }
+    if (resourceType) {
+      res["resourceType"] = boost::any(*resourceType);
+    }
     return res;
   }
 
@@ -7800,6 +7818,9 @@ public:
     }
     if (m.find("nextToken") != m.end() && !m["nextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["nextToken"]));
+    }
+    if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
     }
   }
 
