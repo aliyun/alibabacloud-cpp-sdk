@@ -5998,6 +5998,35 @@ public:
 
   virtual ~ApplyAddRequestHotelShare() = default;
 };
+class ApplyAddRequestItineraryListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyAddRequestItineraryListItineraryTravelStandard() {}
+
+  explicit ApplyAddRequestItineraryListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyAddRequestItineraryListItineraryTravelStandard() = default;
+};
 class ApplyAddRequestItineraryList : public Darabonba::Model {
 public:
   shared_ptr<string> arrCity{};
@@ -6009,6 +6038,7 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<long> invoiceId{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyAddRequestItineraryListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<bool> needHotel{};
   shared_ptr<bool> needTraffic{};
   shared_ptr<string> projectCode{};
@@ -6054,6 +6084,9 @@ public:
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (needHotel) {
       res["need_hotel"] = boost::any(*needHotel);
@@ -6110,6 +6143,13 @@ public:
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
     }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyAddRequestItineraryListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyAddRequestItineraryListItineraryTravelStandard>(model1);
+      }
+    }
     if (m.find("need_hotel") != m.end() && !m["need_hotel"].empty()) {
       needHotel = make_shared<bool>(boost::any_cast<bool>(m["need_hotel"]));
     }
@@ -6139,6 +6179,35 @@ public:
 
   virtual ~ApplyAddRequestItineraryList() = default;
 };
+class ApplyAddRequestItinerarySetListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyAddRequestItinerarySetListItineraryTravelStandard() {}
+
+  explicit ApplyAddRequestItinerarySetListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyAddRequestItinerarySetListItineraryTravelStandard() = default;
+};
 class ApplyAddRequestItinerarySetList : public Darabonba::Model {
 public:
   shared_ptr<string> arrDate{};
@@ -6148,6 +6217,7 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<long> invoiceId{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyAddRequestItinerarySetListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
   shared_ptr<string> thirdPartInvoiceId{};
@@ -6184,6 +6254,9 @@ public:
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (projectCode) {
       res["project_code"] = boost::any(*projectCode);
@@ -6224,6 +6297,13 @@ public:
     }
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
+    }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyAddRequestItinerarySetListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyAddRequestItinerarySetListItineraryTravelStandard>(model1);
+      }
     }
     if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
       projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
@@ -8077,6 +8157,7 @@ public:
   shared_ptr<string> itineraryId{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
+  shared_ptr<string> thirdpartItineraryId{};
   shared_ptr<long> trafficType{};
   shared_ptr<long> tripWay{};
 
@@ -8117,6 +8198,9 @@ public:
     if (projectTitle) {
       res["project_title"] = boost::any(*projectTitle);
     }
+    if (thirdpartItineraryId) {
+      res["thirdpart_itinerary_id"] = boost::any(*thirdpartItineraryId);
+    }
     if (trafficType) {
       res["traffic_type"] = boost::any(*trafficType);
     }
@@ -8154,6 +8238,9 @@ public:
     if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
       projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
     }
+    if (m.find("thirdpart_itinerary_id") != m.end() && !m["thirdpart_itinerary_id"].empty()) {
+      thirdpartItineraryId = make_shared<string>(boost::any_cast<string>(m["thirdpart_itinerary_id"]));
+    }
     if (m.find("traffic_type") != m.end() && !m["traffic_type"].empty()) {
       trafficType = make_shared<long>(boost::any_cast<long>(m["traffic_type"]));
     }
@@ -8176,6 +8263,7 @@ public:
   shared_ptr<string> itineraryId{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
+  shared_ptr<string> thirdpartItineraryId{};
   shared_ptr<long> trafficType{};
 
   ApplyListQueryResponseBodyModuleListItinerarySetList() {}
@@ -8215,6 +8303,9 @@ public:
     if (projectTitle) {
       res["project_title"] = boost::any(*projectTitle);
     }
+    if (thirdpartItineraryId) {
+      res["thirdpart_itinerary_id"] = boost::any(*thirdpartItineraryId);
+    }
     if (trafficType) {
       res["traffic_type"] = boost::any(*trafficType);
     }
@@ -8248,6 +8339,9 @@ public:
     }
     if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
       projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
+    }
+    if (m.find("thirdpart_itinerary_id") != m.end() && !m["thirdpart_itinerary_id"].empty()) {
+      thirdpartItineraryId = make_shared<string>(boost::any_cast<string>(m["thirdpart_itinerary_id"]));
     }
     if (m.find("traffic_type") != m.end() && !m["traffic_type"].empty()) {
       trafficType = make_shared<long>(boost::any_cast<long>(m["traffic_type"]));
@@ -8962,6 +9056,35 @@ public:
 
   virtual ~ApplyModifyRequestHotelShare() = default;
 };
+class ApplyModifyRequestItineraryListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyModifyRequestItineraryListItineraryTravelStandard() {}
+
+  explicit ApplyModifyRequestItineraryListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyModifyRequestItineraryListItineraryTravelStandard() = default;
+};
 class ApplyModifyRequestItineraryList : public Darabonba::Model {
 public:
   shared_ptr<string> arrCity{};
@@ -8973,6 +9096,7 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<long> invoiceId{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyModifyRequestItineraryListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<bool> needHotel{};
   shared_ptr<bool> needTraffic{};
   shared_ptr<string> projectCode{};
@@ -9018,6 +9142,9 @@ public:
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (needHotel) {
       res["need_hotel"] = boost::any(*needHotel);
@@ -9074,6 +9201,13 @@ public:
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
     }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyModifyRequestItineraryListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyModifyRequestItineraryListItineraryTravelStandard>(model1);
+      }
+    }
     if (m.find("need_hotel") != m.end() && !m["need_hotel"].empty()) {
       needHotel = make_shared<bool>(boost::any_cast<bool>(m["need_hotel"]));
     }
@@ -9103,6 +9237,35 @@ public:
 
   virtual ~ApplyModifyRequestItineraryList() = default;
 };
+class ApplyModifyRequestItinerarySetListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyModifyRequestItinerarySetListItineraryTravelStandard() {}
+
+  explicit ApplyModifyRequestItinerarySetListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyModifyRequestItinerarySetListItineraryTravelStandard() = default;
+};
 class ApplyModifyRequestItinerarySetList : public Darabonba::Model {
 public:
   shared_ptr<string> arrDate{};
@@ -9112,6 +9275,7 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<long> invoiceId{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyModifyRequestItinerarySetListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
   shared_ptr<string> thirdPartInvoiceId{};
@@ -9148,6 +9312,9 @@ public:
     }
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
+    }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (projectCode) {
       res["project_code"] = boost::any(*projectCode);
@@ -9188,6 +9355,13 @@ public:
     }
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
+    }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyModifyRequestItinerarySetListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyModifyRequestItinerarySetListItineraryTravelStandard>(model1);
+      }
     }
     if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
       projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
@@ -10463,6 +10637,35 @@ public:
 
   virtual ~ApplyQueryResponseBodyModuleHotelShare() = default;
 };
+class ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard() {}
+
+  explicit ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard() = default;
+};
 class ApplyQueryResponseBodyModuleItineraryList : public Darabonba::Model {
 public:
   shared_ptr<string> arrCity{};
@@ -10474,8 +10677,10 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<string> invoiceName{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
+  shared_ptr<string> thirdpartItineraryId{};
   shared_ptr<long> trafficType{};
   shared_ptr<long> tripWay{};
 
@@ -10516,11 +10721,17 @@ public:
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
     }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (projectCode) {
       res["project_code"] = boost::any(*projectCode);
     }
     if (projectTitle) {
       res["project_title"] = boost::any(*projectTitle);
+    }
+    if (thirdpartItineraryId) {
+      res["thirdpart_itinerary_id"] = boost::any(*thirdpartItineraryId);
     }
     if (trafficType) {
       res["traffic_type"] = boost::any(*trafficType);
@@ -10559,11 +10770,21 @@ public:
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
     }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyQueryResponseBodyModuleItineraryListItineraryTravelStandard>(model1);
+      }
+    }
     if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
       projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
     }
     if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
       projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
+    }
+    if (m.find("thirdpart_itinerary_id") != m.end() && !m["thirdpart_itinerary_id"].empty()) {
+      thirdpartItineraryId = make_shared<string>(boost::any_cast<string>(m["thirdpart_itinerary_id"]));
     }
     if (m.find("traffic_type") != m.end() && !m["traffic_type"].empty()) {
       trafficType = make_shared<long>(boost::any_cast<long>(m["traffic_type"]));
@@ -10576,6 +10797,35 @@ public:
 
   virtual ~ApplyQueryResponseBodyModuleItineraryList() = default;
 };
+class ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard : public Darabonba::Model {
+public:
+  shared_ptr<long> hotelAvailableNightsPerDay{};
+
+  ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard() {}
+
+  explicit ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (hotelAvailableNightsPerDay) {
+      res["hotel_available_nights_per_day"] = boost::any(*hotelAvailableNightsPerDay);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("hotel_available_nights_per_day") != m.end() && !m["hotel_available_nights_per_day"].empty()) {
+      hotelAvailableNightsPerDay = make_shared<long>(boost::any_cast<long>(m["hotel_available_nights_per_day"]));
+    }
+  }
+
+
+  virtual ~ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard() = default;
+};
 class ApplyQueryResponseBodyModuleItinerarySetList : public Darabonba::Model {
 public:
   shared_ptr<string> arrDate{};
@@ -10585,8 +10835,10 @@ public:
   shared_ptr<string> depDate{};
   shared_ptr<string> invoiceName{};
   shared_ptr<string> itineraryId{};
+  shared_ptr<ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard> itineraryTravelStandard{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectTitle{};
+  shared_ptr<string> thirdpartItineraryId{};
   shared_ptr<long> trafficType{};
 
   ApplyQueryResponseBodyModuleItinerarySetList() {}
@@ -10620,11 +10872,17 @@ public:
     if (itineraryId) {
       res["itinerary_id"] = boost::any(*itineraryId);
     }
+    if (itineraryTravelStandard) {
+      res["itinerary_travel_standard"] = itineraryTravelStandard ? boost::any(itineraryTravelStandard->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (projectCode) {
       res["project_code"] = boost::any(*projectCode);
     }
     if (projectTitle) {
       res["project_title"] = boost::any(*projectTitle);
+    }
+    if (thirdpartItineraryId) {
+      res["thirdpart_itinerary_id"] = boost::any(*thirdpartItineraryId);
     }
     if (trafficType) {
       res["traffic_type"] = boost::any(*trafficType);
@@ -10654,11 +10912,21 @@ public:
     if (m.find("itinerary_id") != m.end() && !m["itinerary_id"].empty()) {
       itineraryId = make_shared<string>(boost::any_cast<string>(m["itinerary_id"]));
     }
+    if (m.find("itinerary_travel_standard") != m.end() && !m["itinerary_travel_standard"].empty()) {
+      if (typeid(map<string, boost::any>) == m["itinerary_travel_standard"].type()) {
+        ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["itinerary_travel_standard"]));
+        itineraryTravelStandard = make_shared<ApplyQueryResponseBodyModuleItinerarySetListItineraryTravelStandard>(model1);
+      }
+    }
     if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
       projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
     }
     if (m.find("project_title") != m.end() && !m["project_title"].empty()) {
       projectTitle = make_shared<string>(boost::any_cast<string>(m["project_title"]));
+    }
+    if (m.find("thirdpart_itinerary_id") != m.end() && !m["thirdpart_itinerary_id"].empty()) {
+      thirdpartItineraryId = make_shared<string>(boost::any_cast<string>(m["thirdpart_itinerary_id"]));
     }
     if (m.find("traffic_type") != m.end() && !m["traffic_type"].empty()) {
       trafficType = make_shared<long>(boost::any_cast<long>(m["traffic_type"]));
@@ -73419,6 +73687,7 @@ public:
   shared_ptr<long> billSettlementId{};
   shared_ptr<string> capitalDirection{};
   shared_ptr<string> feeType{};
+  shared_ptr<string> orderId{};
   shared_ptr<string> remark{};
   shared_ptr<vector<string>> remindTagList{};
   shared_ptr<string> settlementAmount{};
@@ -73443,6 +73712,9 @@ public:
     }
     if (feeType) {
       res["fee_type"] = boost::any(*feeType);
+    }
+    if (orderId) {
+      res["order_id"] = boost::any(*orderId);
     }
     if (remark) {
       res["remark"] = boost::any(*remark);
@@ -73471,6 +73743,9 @@ public:
     }
     if (m.find("fee_type") != m.end() && !m["fee_type"].empty()) {
       feeType = make_shared<string>(boost::any_cast<string>(m["fee_type"]));
+    }
+    if (m.find("order_id") != m.end() && !m["order_id"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["order_id"]));
     }
     if (m.find("remark") != m.end() && !m["remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["remark"]));
@@ -73710,13 +73985,20 @@ public:
   shared_ptr<string> companyAmount{};
   shared_ptr<string> companyPayAmount{};
   shared_ptr<string> corpId{};
+  shared_ptr<string> costCenterCode{};
+  shared_ptr<string> costCenterName{};
   shared_ptr<vector<QueryReimbursementOrderResponseBodyModuleExpenses>> expenses{};
+  shared_ptr<string> expensesCoverDeptId{};
+  shared_ptr<string> expensesCoverDeptName{};
+  shared_ptr<string> expensesCoverInvoiceTitle{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModified{};
   shared_ptr<string> isDeleted{};
   shared_ptr<vector<QueryReimbursementOrderResponseBodyModuleItineraries>> itineraries{};
   shared_ptr<vector<QueryReimbursementOrderResponseBodyModulePaymentInfos>> paymentInfos{};
   shared_ptr<string> personalAmount{};
+  shared_ptr<string> projectCode{};
+  shared_ptr<string> projectName{};
   shared_ptr<string> reason{};
   shared_ptr<string> reimbursementNo{};
   shared_ptr<string> remark{};
@@ -73744,12 +74026,27 @@ public:
     if (corpId) {
       res["corp_id"] = boost::any(*corpId);
     }
+    if (costCenterCode) {
+      res["cost_center_code"] = boost::any(*costCenterCode);
+    }
+    if (costCenterName) {
+      res["cost_center_name"] = boost::any(*costCenterName);
+    }
     if (expenses) {
       vector<boost::any> temp1;
       for(auto item1:*expenses){
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["expenses"] = boost::any(temp1);
+    }
+    if (expensesCoverDeptId) {
+      res["expenses_cover_dept_id"] = boost::any(*expensesCoverDeptId);
+    }
+    if (expensesCoverDeptName) {
+      res["expenses_cover_dept_name"] = boost::any(*expensesCoverDeptName);
+    }
+    if (expensesCoverInvoiceTitle) {
+      res["expenses_cover_invoice_title"] = boost::any(*expensesCoverInvoiceTitle);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -73776,6 +74073,12 @@ public:
     }
     if (personalAmount) {
       res["personal_amount"] = boost::any(*personalAmount);
+    }
+    if (projectCode) {
+      res["project_code"] = boost::any(*projectCode);
+    }
+    if (projectName) {
+      res["project_name"] = boost::any(*projectName);
     }
     if (reason) {
       res["reason"] = boost::any(*reason);
@@ -73811,6 +74114,12 @@ public:
     if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
       corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
     }
+    if (m.find("cost_center_code") != m.end() && !m["cost_center_code"].empty()) {
+      costCenterCode = make_shared<string>(boost::any_cast<string>(m["cost_center_code"]));
+    }
+    if (m.find("cost_center_name") != m.end() && !m["cost_center_name"].empty()) {
+      costCenterName = make_shared<string>(boost::any_cast<string>(m["cost_center_name"]));
+    }
     if (m.find("expenses") != m.end() && !m["expenses"].empty()) {
       if (typeid(vector<boost::any>) == m["expenses"].type()) {
         vector<QueryReimbursementOrderResponseBodyModuleExpenses> expect1;
@@ -73823,6 +74132,15 @@ public:
         }
         expenses = make_shared<vector<QueryReimbursementOrderResponseBodyModuleExpenses>>(expect1);
       }
+    }
+    if (m.find("expenses_cover_dept_id") != m.end() && !m["expenses_cover_dept_id"].empty()) {
+      expensesCoverDeptId = make_shared<string>(boost::any_cast<string>(m["expenses_cover_dept_id"]));
+    }
+    if (m.find("expenses_cover_dept_name") != m.end() && !m["expenses_cover_dept_name"].empty()) {
+      expensesCoverDeptName = make_shared<string>(boost::any_cast<string>(m["expenses_cover_dept_name"]));
+    }
+    if (m.find("expenses_cover_invoice_title") != m.end() && !m["expenses_cover_invoice_title"].empty()) {
+      expensesCoverInvoiceTitle = make_shared<string>(boost::any_cast<string>(m["expenses_cover_invoice_title"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
@@ -73861,6 +74179,12 @@ public:
     }
     if (m.find("personal_amount") != m.end() && !m["personal_amount"].empty()) {
       personalAmount = make_shared<string>(boost::any_cast<string>(m["personal_amount"]));
+    }
+    if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
+      projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
+    }
+    if (m.find("project_name") != m.end() && !m["project_name"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["project_name"]));
     }
     if (m.find("reason") != m.end() && !m["reason"].empty()) {
       reason = make_shared<string>(boost::any_cast<string>(m["reason"]));
