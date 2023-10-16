@@ -11970,6 +11970,12 @@ ExportVulResponse Alibabacloud_Sas20181203::Client::exportVulWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<string>(request->containerName)) {
     query->insert(pair<string, string>("ContainerName", *request->containerName));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTsEnd)) {
+    query->insert(pair<string, long>("CreateTsEnd", *request->createTsEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->createTsStart)) {
+    query->insert(pair<string, long>("CreateTsStart", *request->createTsStart));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->cveId)) {
     query->insert(pair<string, string>("CveId", *request->cveId));
   }
