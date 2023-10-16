@@ -4595,6 +4595,9 @@ DescribeDcdnUserDomainsByFuncResponse Alibabacloud_Dcdn20180115::Client::describ
   if (!Darabonba_Util::Client::isUnset<long>(request->funcId)) {
     query->insert(pair<string, long>("FuncId", *request->funcId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->matchType)) {
+    query->insert(pair<string, string>("MatchType", *request->matchType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }

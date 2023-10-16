@@ -29516,6 +29516,7 @@ public:
   shared_ptr<string> domainName{};
   shared_ptr<string> funcFilter{};
   shared_ptr<long> funcId{};
+  shared_ptr<string> matchType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> resourceGroupId{};
@@ -29539,6 +29540,9 @@ public:
     if (funcId) {
       res["FuncId"] = boost::any(*funcId);
     }
+    if (matchType) {
+      res["MatchType"] = boost::any(*matchType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -29560,6 +29564,9 @@ public:
     }
     if (m.find("FuncId") != m.end() && !m["FuncId"].empty()) {
       funcId = make_shared<long>(boost::any_cast<long>(m["FuncId"]));
+    }
+    if (m.find("MatchType") != m.end() && !m["MatchType"].empty()) {
+      matchType = make_shared<string>(boost::any_cast<string>(m["MatchType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
