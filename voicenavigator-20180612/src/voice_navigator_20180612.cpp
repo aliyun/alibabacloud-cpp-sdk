@@ -50,6 +50,12 @@ AssociateChatbotInstanceResponse Alibabacloud_VoiceNavigator20180612::Client::as
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nluServiceParamsJson)) {
+    query->insert(pair<string, string>("NluServiceParamsJson", *request->nluServiceParamsJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unionSource)) {
+    query->insert(pair<string, string>("UnionSource", *request->unionSource));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -158,6 +164,9 @@ BeginDialogueResponse Alibabacloud_VoiceNavigator20180612::Client::beginDialogue
 CollectedNumberResponse Alibabacloud_VoiceNavigator20180612::Client::collectedNumberWithOptions(shared_ptr<CollectedNumberRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->additionalContext)) {
+    query->insert(pair<string, string>("AdditionalContext", *request->additionalContext));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->conversationId)) {
     query->insert(pair<string, string>("ConversationId", *request->conversationId));
   }
@@ -228,6 +237,15 @@ CreateInstanceResponse Alibabacloud_VoiceNavigator20180612::Client::createInstan
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nluServiceParamsJson)) {
+    query->insert(pair<string, string>("NluServiceParamsJson", *request->nluServiceParamsJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unionInstanceId)) {
+    query->insert(pair<string, string>("UnionInstanceId", *request->unionInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->unionSource)) {
+    query->insert(pair<string, string>("UnionSource", *request->unionSource));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -749,6 +767,9 @@ ExportConversationDetailsResponse Alibabacloud_VoiceNavigator20180612::Client::e
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->options)) {
     query->insert(pair<string, vector<string>>("Options", *request->options));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->result)) {
+    query->insert(pair<string, long>("Result", *request->result));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->roundsLeftRange)) {
     query->insert(pair<string, long>("RoundsLeftRange", *request->roundsLeftRange));

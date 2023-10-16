@@ -19,6 +19,8 @@ public:
   shared_ptr<string> chatbotInstanceId{};
   shared_ptr<string> chatbotName{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> nluServiceParamsJson{};
+  shared_ptr<string> unionSource{};
 
   AssociateChatbotInstanceRequest() {}
 
@@ -39,6 +41,12 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (nluServiceParamsJson) {
+      res["NluServiceParamsJson"] = boost::any(*nluServiceParamsJson);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
+    }
     return res;
   }
 
@@ -51,6 +59,12 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NluServiceParamsJson") != m.end() && !m["NluServiceParamsJson"].empty()) {
+      nluServiceParamsJson = make_shared<string>(boost::any_cast<string>(m["NluServiceParamsJson"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
@@ -488,6 +502,7 @@ public:
 };
 class CollectedNumberRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> additionalContext{};
   shared_ptr<string> conversationId{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> instanceOwnerId{};
@@ -503,6 +518,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalContext) {
+      res["AdditionalContext"] = boost::any(*additionalContext);
+    }
     if (conversationId) {
       res["ConversationId"] = boost::any(*conversationId);
     }
@@ -519,6 +537,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalContext") != m.end() && !m["AdditionalContext"].empty()) {
+      additionalContext = make_shared<string>(boost::any_cast<string>(m["AdditionalContext"]));
+    }
     if (m.find("ConversationId") != m.end() && !m["ConversationId"].empty()) {
       conversationId = make_shared<string>(boost::any_cast<string>(m["ConversationId"]));
     }
@@ -822,6 +843,9 @@ public:
   shared_ptr<long> concurrency{};
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<string> nluServiceParamsJson{};
+  shared_ptr<string> unionInstanceId{};
+  shared_ptr<string> unionSource{};
 
   CreateInstanceRequest() {}
 
@@ -842,6 +866,15 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (nluServiceParamsJson) {
+      res["NluServiceParamsJson"] = boost::any(*nluServiceParamsJson);
+    }
+    if (unionInstanceId) {
+      res["UnionInstanceId"] = boost::any(*unionInstanceId);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
+    }
     return res;
   }
 
@@ -854,6 +887,15 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NluServiceParamsJson") != m.end() && !m["NluServiceParamsJson"].empty()) {
+      nluServiceParamsJson = make_shared<string>(boost::any_cast<string>(m["NluServiceParamsJson"]));
+    }
+    if (m.find("UnionInstanceId") != m.end() && !m["UnionInstanceId"].empty()) {
+      unionInstanceId = make_shared<string>(boost::any_cast<string>(m["UnionInstanceId"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
@@ -2074,6 +2116,7 @@ public:
 };
 class DescribeInstanceResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> abilityType{};
   shared_ptr<vector<string>> applicableOperations{};
   shared_ptr<long> concurrency{};
   shared_ptr<string> description{};
@@ -2081,8 +2124,11 @@ public:
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUserName{};
   shared_ptr<string> name{};
+  shared_ptr<string> nluServiceParamsJson{};
   shared_ptr<string> requestId{};
   shared_ptr<string> status{};
+  shared_ptr<string> unionInstanceId{};
+  shared_ptr<string> unionSource{};
 
   DescribeInstanceResponseBody() {}
 
@@ -2094,6 +2140,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abilityType) {
+      res["AbilityType"] = boost::any(*abilityType);
+    }
     if (applicableOperations) {
       res["ApplicableOperations"] = boost::any(*applicableOperations);
     }
@@ -2115,16 +2164,28 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (nluServiceParamsJson) {
+      res["NluServiceParamsJson"] = boost::any(*nluServiceParamsJson);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (unionInstanceId) {
+      res["UnionInstanceId"] = boost::any(*unionInstanceId);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbilityType") != m.end() && !m["AbilityType"].empty()) {
+      abilityType = make_shared<string>(boost::any_cast<string>(m["AbilityType"]));
+    }
     if (m.find("ApplicableOperations") != m.end() && !m["ApplicableOperations"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ApplicableOperations"].type()) {
@@ -2153,11 +2214,20 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("NluServiceParamsJson") != m.end() && !m["NluServiceParamsJson"].empty()) {
+      nluServiceParamsJson = make_shared<string>(boost::any_cast<string>(m["NluServiceParamsJson"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UnionInstanceId") != m.end() && !m["UnionInstanceId"].empty()) {
+      unionInstanceId = make_shared<string>(boost::any_cast<string>(m["UnionInstanceId"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
@@ -3748,6 +3818,7 @@ public:
   shared_ptr<string> callingNumber{};
   shared_ptr<string> instanceId{};
   shared_ptr<vector<string>> options{};
+  shared_ptr<long> result{};
   shared_ptr<long> roundsLeftRange{};
   shared_ptr<long> roundsRightRange{};
 
@@ -3775,6 +3846,9 @@ public:
     }
     if (options) {
       res["Options"] = boost::any(*options);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
     }
     if (roundsLeftRange) {
       res["RoundsLeftRange"] = boost::any(*roundsLeftRange);
@@ -3807,6 +3881,9 @@ public:
         }
       }
       options = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<long>(boost::any_cast<long>(m["Result"]));
     }
     if (m.find("RoundsLeftRange") != m.end() && !m["RoundsLeftRange"].empty()) {
       roundsLeftRange = make_shared<long>(boost::any_cast<long>(m["RoundsLeftRange"]));
@@ -4830,8 +4907,11 @@ public:
 class ListChatbotInstancesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> nluServiceParamsJson{};
+  shared_ptr<string> nluServiceType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> unionSource{};
 
   ListChatbotInstancesRequest() {}
 
@@ -4846,11 +4926,20 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (nluServiceParamsJson) {
+      res["NluServiceParamsJson"] = boost::any(*nluServiceParamsJson);
+    }
+    if (nluServiceType) {
+      res["NluServiceType"] = boost::any(*nluServiceType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
     }
     return res;
   }
@@ -4859,11 +4948,20 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("NluServiceParamsJson") != m.end() && !m["NluServiceParamsJson"].empty()) {
+      nluServiceParamsJson = make_shared<string>(boost::any_cast<string>(m["NluServiceParamsJson"]));
+    }
+    if (m.find("NluServiceType") != m.end() && !m["NluServiceType"].empty()) {
+      nluServiceType = make_shared<string>(boost::any_cast<string>(m["NluServiceType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
@@ -5977,9 +6075,15 @@ public:
 };
 class ListInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> instanceIdListJsonString{};
+  shared_ptr<string> name{};
   shared_ptr<string> nluServiceTypeListJsonString{};
+  shared_ptr<string> number{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> status{};
+  shared_ptr<string> unionInstanceId{};
+  shared_ptr<string> unionSource{};
 
   ListInstancesRequest() {}
 
@@ -5991,8 +6095,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (instanceIdListJsonString) {
+      res["InstanceIdListJsonString"] = boost::any(*instanceIdListJsonString);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
     if (nluServiceTypeListJsonString) {
       res["NluServiceTypeListJsonString"] = boost::any(*nluServiceTypeListJsonString);
+    }
+    if (number) {
+      res["Number"] = boost::any(*number);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -6000,18 +6113,45 @@ public:
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
     }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (unionInstanceId) {
+      res["UnionInstanceId"] = boost::any(*unionInstanceId);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceIdListJsonString") != m.end() && !m["InstanceIdListJsonString"].empty()) {
+      instanceIdListJsonString = make_shared<string>(boost::any_cast<string>(m["InstanceIdListJsonString"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
     if (m.find("NluServiceTypeListJsonString") != m.end() && !m["NluServiceTypeListJsonString"].empty()) {
       nluServiceTypeListJsonString = make_shared<string>(boost::any_cast<string>(m["NluServiceTypeListJsonString"]));
+    }
+    if (m.find("Number") != m.end() && !m["Number"].empty()) {
+      number = make_shared<string>(boost::any_cast<string>(m["Number"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UnionInstanceId") != m.end() && !m["UnionInstanceId"].empty()) {
+      unionInstanceId = make_shared<string>(boost::any_cast<string>(m["UnionInstanceId"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
@@ -6022,12 +6162,17 @@ class ListInstancesResponseBodyInstances : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> applicableOperations{};
   shared_ptr<long> concurrency{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> modifyTime{};
   shared_ptr<string> modifyUserName{};
   shared_ptr<string> name{};
+  shared_ptr<string> nluServiceParamsJson{};
+  shared_ptr<vector<string>> numbers{};
   shared_ptr<string> status{};
+  shared_ptr<string> unionInstanceId{};
+  shared_ptr<string> unionSource{};
 
   ListInstancesResponseBodyInstances() {}
 
@@ -6045,6 +6190,9 @@ public:
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
     }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -6060,8 +6208,20 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (nluServiceParamsJson) {
+      res["NluServiceParamsJson"] = boost::any(*nluServiceParamsJson);
+    }
+    if (numbers) {
+      res["Numbers"] = boost::any(*numbers);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (unionInstanceId) {
+      res["UnionInstanceId"] = boost::any(*unionInstanceId);
+    }
+    if (unionSource) {
+      res["UnionSource"] = boost::any(*unionSource);
     }
     return res;
   }
@@ -6080,6 +6240,9 @@ public:
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
     }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -6095,8 +6258,27 @@ public:
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
+    if (m.find("NluServiceParamsJson") != m.end() && !m["NluServiceParamsJson"].empty()) {
+      nluServiceParamsJson = make_shared<string>(boost::any_cast<string>(m["NluServiceParamsJson"]));
+    }
+    if (m.find("Numbers") != m.end() && !m["Numbers"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Numbers"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Numbers"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      numbers = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UnionInstanceId") != m.end() && !m["UnionInstanceId"].empty()) {
+      unionInstanceId = make_shared<string>(boost::any_cast<string>(m["UnionInstanceId"]));
+    }
+    if (m.find("UnionSource") != m.end() && !m["UnionSource"].empty()) {
+      unionSource = make_shared<string>(boost::any_cast<string>(m["UnionSource"]));
     }
   }
 
