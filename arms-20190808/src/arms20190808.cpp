@@ -535,6 +535,80 @@ BindPrometheusGrafanaInstanceResponse Alibabacloud_ARMS20190808::Client::bindPro
   return bindPrometheusGrafanaInstanceWithOptions(request, runtime);
 }
 
+BlockAlarmNotificationResponse Alibabacloud_ARMS20190808::Client::blockAlarmNotificationWithOptions(shared_ptr<BlockAlarmNotificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->alarmId)) {
+    query->insert(pair<string, long>("AlarmId", *request->alarmId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->handlerId)) {
+    query->insert(pair<string, long>("HandlerId", *request->handlerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->timeout)) {
+    query->insert(pair<string, long>("Timeout", *request->timeout));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BlockAlarmNotification"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BlockAlarmNotificationResponse(callApi(params, req, runtime));
+}
+
+BlockAlarmNotificationResponse Alibabacloud_ARMS20190808::Client::blockAlarmNotification(shared_ptr<BlockAlarmNotificationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return blockAlarmNotificationWithOptions(request, runtime);
+}
+
+ChangeAlarmSeverityResponse Alibabacloud_ARMS20190808::Client::changeAlarmSeverityWithOptions(shared_ptr<ChangeAlarmSeverityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->alarmId)) {
+    query->insert(pair<string, long>("AlarmId", *request->alarmId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->handlerId)) {
+    query->insert(pair<string, long>("HandlerId", *request->handlerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->severity)) {
+    query->insert(pair<string, string>("Severity", *request->severity));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ChangeAlarmSeverity"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ChangeAlarmSeverityResponse(callApi(params, req, runtime));
+}
+
+ChangeAlarmSeverityResponse Alibabacloud_ARMS20190808::Client::changeAlarmSeverity(shared_ptr<ChangeAlarmSeverityRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return changeAlarmSeverityWithOptions(request, runtime);
+}
+
 ChangeResourceGroupResponse Alibabacloud_ARMS20190808::Client::changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -601,6 +675,77 @@ CheckServiceStatusResponse Alibabacloud_ARMS20190808::Client::checkServiceStatus
 CheckServiceStatusResponse Alibabacloud_ARMS20190808::Client::checkServiceStatus(shared_ptr<CheckServiceStatusRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return checkServiceStatusWithOptions(request, runtime);
+}
+
+ClaimAlarmResponse Alibabacloud_ARMS20190808::Client::claimAlarmWithOptions(shared_ptr<ClaimAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->alarmId)) {
+    query->insert(pair<string, long>("AlarmId", *request->alarmId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->handlerId)) {
+    query->insert(pair<string, long>("HandlerId", *request->handlerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ClaimAlarm"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ClaimAlarmResponse(callApi(params, req, runtime));
+}
+
+ClaimAlarmResponse Alibabacloud_ARMS20190808::Client::claimAlarm(shared_ptr<ClaimAlarmRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return claimAlarmWithOptions(request, runtime);
+}
+
+CloseAlarmResponse Alibabacloud_ARMS20190808::Client::closeAlarmWithOptions(shared_ptr<CloseAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->alarmId)) {
+    query->insert(pair<string, long>("AlarmId", *request->alarmId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->handlerId)) {
+    query->insert(pair<string, long>("HandlerId", *request->handlerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->solution)) {
+    query->insert(pair<string, string>("Solution", *request->solution));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CloseAlarm"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CloseAlarmResponse(callApi(params, req, runtime));
+}
+
+CloseAlarmResponse Alibabacloud_ARMS20190808::Client::closeAlarm(shared_ptr<CloseAlarmRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return closeAlarmWithOptions(request, runtime);
 }
 
 ConfigAppResponse Alibabacloud_ARMS20190808::Client::configAppWithOptions(shared_ptr<ConfigAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -856,6 +1001,9 @@ CreateOrUpdateAlertRuleResponse Alibabacloud_ARMS20190808::Client::createOrUpdat
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notice)) {
     body->insert(pair<string, string>("Notice", *request->notice));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notifyMode)) {
+    body->insert(pair<string, string>("NotifyMode", *request->notifyMode));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->notifyStrategy)) {
     body->insert(pair<string, string>("NotifyStrategy", *request->notifyStrategy));

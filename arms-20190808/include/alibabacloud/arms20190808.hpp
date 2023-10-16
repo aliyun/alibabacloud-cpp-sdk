@@ -4594,6 +4594,344 @@ public:
 
   virtual ~BindPrometheusGrafanaInstanceResponse() = default;
 };
+class BlockAlarmNotificationRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> alarmId{};
+  shared_ptr<long> handlerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> timeout{};
+
+  BlockAlarmNotificationRequest() {}
+
+  explicit BlockAlarmNotificationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmId) {
+      res["AlarmId"] = boost::any(*alarmId);
+    }
+    if (handlerId) {
+      res["HandlerId"] = boost::any(*handlerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmId") != m.end() && !m["AlarmId"].empty()) {
+      alarmId = make_shared<long>(boost::any_cast<long>(m["AlarmId"]));
+    }
+    if (m.find("HandlerId") != m.end() && !m["HandlerId"].empty()) {
+      handlerId = make_shared<long>(boost::any_cast<long>(m["HandlerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+  }
+
+
+  virtual ~BlockAlarmNotificationRequest() = default;
+};
+class BlockAlarmNotificationResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+  shared_ptr<bool> success{};
+
+  BlockAlarmNotificationResponseBody() {}
+
+  explicit BlockAlarmNotificationResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~BlockAlarmNotificationResponseBody() = default;
+};
+class BlockAlarmNotificationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<BlockAlarmNotificationResponseBody> body{};
+
+  BlockAlarmNotificationResponse() {}
+
+  explicit BlockAlarmNotificationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        BlockAlarmNotificationResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<BlockAlarmNotificationResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~BlockAlarmNotificationResponse() = default;
+};
+class ChangeAlarmSeverityRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> alarmId{};
+  shared_ptr<long> handlerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> severity{};
+
+  ChangeAlarmSeverityRequest() {}
+
+  explicit ChangeAlarmSeverityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmId) {
+      res["AlarmId"] = boost::any(*alarmId);
+    }
+    if (handlerId) {
+      res["HandlerId"] = boost::any(*handlerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (severity) {
+      res["Severity"] = boost::any(*severity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmId") != m.end() && !m["AlarmId"].empty()) {
+      alarmId = make_shared<long>(boost::any_cast<long>(m["AlarmId"]));
+    }
+    if (m.find("HandlerId") != m.end() && !m["HandlerId"].empty()) {
+      handlerId = make_shared<long>(boost::any_cast<long>(m["HandlerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Severity") != m.end() && !m["Severity"].empty()) {
+      severity = make_shared<string>(boost::any_cast<string>(m["Severity"]));
+    }
+  }
+
+
+  virtual ~ChangeAlarmSeverityRequest() = default;
+};
+class ChangeAlarmSeverityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+  shared_ptr<bool> success{};
+
+  ChangeAlarmSeverityResponseBody() {}
+
+  explicit ChangeAlarmSeverityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ChangeAlarmSeverityResponseBody() = default;
+};
+class ChangeAlarmSeverityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ChangeAlarmSeverityResponseBody> body{};
+
+  ChangeAlarmSeverityResponse() {}
+
+  explicit ChangeAlarmSeverityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ChangeAlarmSeverityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ChangeAlarmSeverityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ChangeAlarmSeverityResponse() = default;
+};
 class ChangeResourceGroupRequest : public Darabonba::Model {
 public:
   shared_ptr<string> newResourceGroupId{};
@@ -4929,6 +5267,337 @@ public:
 
 
   virtual ~CheckServiceStatusResponse() = default;
+};
+class ClaimAlarmRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> alarmId{};
+  shared_ptr<long> handlerId{};
+  shared_ptr<string> regionId{};
+
+  ClaimAlarmRequest() {}
+
+  explicit ClaimAlarmRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmId) {
+      res["AlarmId"] = boost::any(*alarmId);
+    }
+    if (handlerId) {
+      res["HandlerId"] = boost::any(*handlerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmId") != m.end() && !m["AlarmId"].empty()) {
+      alarmId = make_shared<long>(boost::any_cast<long>(m["AlarmId"]));
+    }
+    if (m.find("HandlerId") != m.end() && !m["HandlerId"].empty()) {
+      handlerId = make_shared<long>(boost::any_cast<long>(m["HandlerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~ClaimAlarmRequest() = default;
+};
+class ClaimAlarmResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+  shared_ptr<bool> success{};
+
+  ClaimAlarmResponseBody() {}
+
+  explicit ClaimAlarmResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ClaimAlarmResponseBody() = default;
+};
+class ClaimAlarmResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ClaimAlarmResponseBody> body{};
+
+  ClaimAlarmResponse() {}
+
+  explicit ClaimAlarmResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ClaimAlarmResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ClaimAlarmResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ClaimAlarmResponse() = default;
+};
+class CloseAlarmRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> alarmId{};
+  shared_ptr<long> handlerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> solution{};
+
+  CloseAlarmRequest() {}
+
+  explicit CloseAlarmRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alarmId) {
+      res["AlarmId"] = boost::any(*alarmId);
+    }
+    if (handlerId) {
+      res["HandlerId"] = boost::any(*handlerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (solution) {
+      res["Solution"] = boost::any(*solution);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlarmId") != m.end() && !m["AlarmId"].empty()) {
+      alarmId = make_shared<long>(boost::any_cast<long>(m["AlarmId"]));
+    }
+    if (m.find("HandlerId") != m.end() && !m["HandlerId"].empty()) {
+      handlerId = make_shared<long>(boost::any_cast<long>(m["HandlerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Solution") != m.end() && !m["Solution"].empty()) {
+      solution = make_shared<string>(boost::any_cast<string>(m["Solution"]));
+    }
+  }
+
+
+  virtual ~CloseAlarmRequest() = default;
+};
+class CloseAlarmResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> result{};
+  shared_ptr<bool> success{};
+
+  CloseAlarmResponseBody() {}
+
+  explicit CloseAlarmResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["Result"] = boost::any(*result);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      result = make_shared<bool>(boost::any_cast<bool>(m["Result"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CloseAlarmResponseBody() = default;
+};
+class CloseAlarmResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CloseAlarmResponseBody> body{};
+
+  CloseAlarmResponse() {}
+
+  explicit CloseAlarmResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CloseAlarmResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CloseAlarmResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CloseAlarmResponse() = default;
 };
 class ConfigAppRequest : public Darabonba::Model {
 public:
@@ -5840,6 +6509,7 @@ public:
   shared_ptr<string> metricsKey{};
   shared_ptr<string> metricsType{};
   shared_ptr<string> notice{};
+  shared_ptr<string> notifyMode{};
   shared_ptr<string> notifyStrategy{};
   shared_ptr<string> pids{};
   shared_ptr<string> promQL{};
@@ -5922,6 +6592,9 @@ public:
     }
     if (notice) {
       res["Notice"] = boost::any(*notice);
+    }
+    if (notifyMode) {
+      res["NotifyMode"] = boost::any(*notifyMode);
     }
     if (notifyStrategy) {
       res["NotifyStrategy"] = boost::any(*notifyStrategy);
@@ -6018,6 +6691,9 @@ public:
     }
     if (m.find("Notice") != m.end() && !m["Notice"].empty()) {
       notice = make_shared<string>(boost::any_cast<string>(m["Notice"]));
+    }
+    if (m.find("NotifyMode") != m.end() && !m["NotifyMode"].empty()) {
+      notifyMode = make_shared<string>(boost::any_cast<string>(m["NotifyMode"]));
     }
     if (m.find("NotifyStrategy") != m.end() && !m["NotifyStrategy"].empty()) {
       notifyStrategy = make_shared<string>(boost::any_cast<string>(m["NotifyStrategy"]));
@@ -41117,6 +41793,7 @@ public:
   shared_ptr<string> clusterId{};
   shared_ptr<long> createTime{};
   shared_ptr<vector<string>> labels{};
+  shared_ptr<string> language{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> pid{};
   shared_ptr<string> regionId{};
@@ -41154,6 +41831,9 @@ public:
     }
     if (labels) {
       res["Labels"] = boost::any(*labels);
+    }
+    if (language) {
+      res["Language"] = boost::any(*language);
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
@@ -41220,6 +41900,9 @@ public:
         }
       }
       labels = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Language") != m.end() && !m["Language"].empty()) {
+      language = make_shared<string>(boost::any_cast<string>(m["Language"]));
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
@@ -54434,10 +55117,18 @@ public:
   ApplyScenarioResponse applyScenario(shared_ptr<ApplyScenarioRequest> request);
   BindPrometheusGrafanaInstanceResponse bindPrometheusGrafanaInstanceWithOptions(shared_ptr<BindPrometheusGrafanaInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BindPrometheusGrafanaInstanceResponse bindPrometheusGrafanaInstance(shared_ptr<BindPrometheusGrafanaInstanceRequest> request);
+  BlockAlarmNotificationResponse blockAlarmNotificationWithOptions(shared_ptr<BlockAlarmNotificationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  BlockAlarmNotificationResponse blockAlarmNotification(shared_ptr<BlockAlarmNotificationRequest> request);
+  ChangeAlarmSeverityResponse changeAlarmSeverityWithOptions(shared_ptr<ChangeAlarmSeverityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ChangeAlarmSeverityResponse changeAlarmSeverity(shared_ptr<ChangeAlarmSeverityRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
   CheckServiceStatusResponse checkServiceStatusWithOptions(shared_ptr<CheckServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CheckServiceStatusResponse checkServiceStatus(shared_ptr<CheckServiceStatusRequest> request);
+  ClaimAlarmResponse claimAlarmWithOptions(shared_ptr<ClaimAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ClaimAlarmResponse claimAlarm(shared_ptr<ClaimAlarmRequest> request);
+  CloseAlarmResponse closeAlarmWithOptions(shared_ptr<CloseAlarmRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CloseAlarmResponse closeAlarm(shared_ptr<CloseAlarmRequest> request);
   ConfigAppResponse configAppWithOptions(shared_ptr<ConfigAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ConfigAppResponse configApp(shared_ptr<ConfigAppRequest> request);
   CreateAlertContactResponse createAlertContactWithOptions(shared_ptr<CreateAlertContactRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
