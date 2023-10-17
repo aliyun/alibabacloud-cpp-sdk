@@ -1,3 +1,6 @@
+2023-10-17 Version: 1.1.0
+- Generated cpp 2018-05-10 for Cdn.
+
 2023-09-04 Version: 1.0.1
 - Generated cpp 2018-05-10 for Cdn.
 
