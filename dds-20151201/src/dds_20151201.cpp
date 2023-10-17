@@ -280,6 +280,9 @@ CheckRecoveryConditionResponse Alibabacloud_Dds20151201::Client::checkRecoveryCo
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstance)) {
     query->insert(pair<string, string>("SourceDBInstance", *request->sourceDBInstance));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstance)) {
+    query->insert(pair<string, string>("SourceDBInstance", *request->sourceDBInstance));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1465,6 +1468,9 @@ DescribeBackupDBsResponse Alibabacloud_Dds20151201::Client::describeBackupDBsWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstance)) {
+    query->insert(pair<string, string>("SourceDBInstance", *request->sourceDBInstance));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceDBInstance)) {
     query->insert(pair<string, string>("SourceDBInstance", *request->sourceDBInstance));
@@ -3785,6 +3791,9 @@ ModifyDBInstanceMonitorResponse Alibabacloud_Dds20151201::Client::modifyDBInstan
 ModifyDBInstanceNetExpireTimeResponse Alibabacloud_Dds20151201::Client::modifyDBInstanceNetExpireTimeWithOptions(shared_ptr<ModifyDBInstanceNetExpireTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
+    query->insert(pair<string, string>("Category", *request->category));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->classicExpendExpiredDays)) {
     query->insert(pair<string, long>("ClassicExpendExpiredDays", *request->classicExpendExpiredDays));
   }

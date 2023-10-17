@@ -7413,6 +7413,7 @@ public:
   shared_ptr<string> storageType{};
   shared_ptr<string> syncPercent{};
   shared_ptr<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags> tags{};
+  shared_ptr<bool> useClusterBackup{};
   shared_ptr<string> VPCCloudInstanceIds{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -7563,6 +7564,9 @@ public:
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (useClusterBackup) {
+      res["UseClusterBackup"] = boost::any(*useClusterBackup);
     }
     if (VPCCloudInstanceIds) {
       res["VPCCloudInstanceIds"] = boost::any(*VPCCloudInstanceIds);
@@ -7737,6 +7741,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
         tags = make_shared<DescribeDBInstanceAttributeResponseBodyDBInstancesDBInstanceTags>(model1);
       }
+    }
+    if (m.find("UseClusterBackup") != m.end() && !m["UseClusterBackup"].empty()) {
+      useClusterBackup = make_shared<bool>(boost::any_cast<bool>(m["UseClusterBackup"]));
     }
     if (m.find("VPCCloudInstanceIds") != m.end() && !m["VPCCloudInstanceIds"].empty()) {
       VPCCloudInstanceIds = make_shared<string>(boost::any_cast<string>(m["VPCCloudInstanceIds"]));
@@ -20166,6 +20173,7 @@ public:
 };
 class ModifyDBInstanceNetExpireTimeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> category{};
   shared_ptr<long> classicExpendExpiredDays{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceId{};
@@ -20185,6 +20193,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (category) {
+      res["Category"] = boost::any(*category);
+    }
     if (classicExpendExpiredDays) {
       res["ClassicExpendExpiredDays"] = boost::any(*classicExpendExpiredDays);
     }
@@ -20213,6 +20224,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Category") != m.end() && !m["Category"].empty()) {
+      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
+    }
     if (m.find("ClassicExpendExpiredDays") != m.end() && !m["ClassicExpendExpiredDays"].empty()) {
       classicExpendExpiredDays = make_shared<long>(boost::any_cast<long>(m["ClassicExpendExpiredDays"]));
     }
