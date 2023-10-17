@@ -31244,6 +31244,187 @@ public:
 
   virtual ~DescribeDcdnUserTagsResponse() = default;
 };
+class DescribeDcdnUserVipsByDomainRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> available{};
+  shared_ptr<string> domainName{};
+
+  DescribeDcdnUserVipsByDomainRequest() {}
+
+  explicit DescribeDcdnUserVipsByDomainRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (available) {
+      res["Available"] = boost::any(*available);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Available") != m.end() && !m["Available"].empty()) {
+      available = make_shared<string>(boost::any_cast<string>(m["Available"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+  }
+
+
+  virtual ~DescribeDcdnUserVipsByDomainRequest() = default;
+};
+class DescribeDcdnUserVipsByDomainResponseBodyVips : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> vip{};
+
+  DescribeDcdnUserVipsByDomainResponseBodyVips() {}
+
+  explicit DescribeDcdnUserVipsByDomainResponseBodyVips(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (vip) {
+      res["Vip"] = boost::any(*vip);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Vip") != m.end() && !m["Vip"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Vip"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Vip"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vip = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~DescribeDcdnUserVipsByDomainResponseBodyVips() = default;
+};
+class DescribeDcdnUserVipsByDomainResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> domainName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeDcdnUserVipsByDomainResponseBodyVips> vips{};
+
+  DescribeDcdnUserVipsByDomainResponseBody() {}
+
+  explicit DescribeDcdnUserVipsByDomainResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (vips) {
+      res["Vips"] = vips ? boost::any(vips->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Vips") != m.end() && !m["Vips"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Vips"].type()) {
+        DescribeDcdnUserVipsByDomainResponseBodyVips model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Vips"]));
+        vips = make_shared<DescribeDcdnUserVipsByDomainResponseBodyVips>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDcdnUserVipsByDomainResponseBody() = default;
+};
+class DescribeDcdnUserVipsByDomainResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDcdnUserVipsByDomainResponseBody> body{};
+
+  DescribeDcdnUserVipsByDomainResponse() {}
+
+  explicit DescribeDcdnUserVipsByDomainResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDcdnUserVipsByDomainResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDcdnUserVipsByDomainResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDcdnUserVipsByDomainResponse() = default;
+};
 class DescribeDcdnVerifyContentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> domainName{};
@@ -41790,6 +41971,7 @@ public:
 };
 class RefreshDcdnObjectCachesRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> force{};
   shared_ptr<string> objectPath{};
   shared_ptr<string> objectType{};
   shared_ptr<long> ownerId{};
@@ -41805,6 +41987,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (force) {
+      res["Force"] = boost::any(*force);
+    }
     if (objectPath) {
       res["ObjectPath"] = boost::any(*objectPath);
     }
@@ -41821,6 +42006,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Force") != m.end() && !m["Force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["Force"]));
+    }
     if (m.find("ObjectPath") != m.end() && !m["ObjectPath"].empty()) {
       objectPath = make_shared<string>(boost::any_cast<string>(m["ObjectPath"]));
     }
@@ -45750,6 +45938,8 @@ public:
   DescribeDcdnUserSecDropByMinuteResponse describeDcdnUserSecDropByMinute(shared_ptr<DescribeDcdnUserSecDropByMinuteRequest> request);
   DescribeDcdnUserTagsResponse describeDcdnUserTagsWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDcdnUserTagsResponse describeDcdnUserTags();
+  DescribeDcdnUserVipsByDomainResponse describeDcdnUserVipsByDomainWithOptions(shared_ptr<DescribeDcdnUserVipsByDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDcdnUserVipsByDomainResponse describeDcdnUserVipsByDomain(shared_ptr<DescribeDcdnUserVipsByDomainRequest> request);
   DescribeDcdnVerifyContentResponse describeDcdnVerifyContentWithOptions(shared_ptr<DescribeDcdnVerifyContentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDcdnVerifyContentResponse describeDcdnVerifyContent(shared_ptr<DescribeDcdnVerifyContentRequest> request);
   DescribeDcdnWafBotAppKeyResponse describeDcdnWafBotAppKeyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
