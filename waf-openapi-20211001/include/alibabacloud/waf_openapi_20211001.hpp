@@ -9058,6 +9058,7 @@ class DescribeRuleHitsTopRuleIdRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTimestamp{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> isGroupResource{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
   shared_ptr<string> resourceManagerResourceGroupId{};
@@ -9079,6 +9080,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (isGroupResource) {
+      res["IsGroupResource"] = boost::any(*isGroupResource);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -9104,6 +9108,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("IsGroupResource") != m.end() && !m["IsGroupResource"].empty()) {
+      isGroupResource = make_shared<string>(boost::any_cast<string>(m["IsGroupResource"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));

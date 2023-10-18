@@ -1510,6 +1510,9 @@ DescribeRuleHitsTopRuleIdResponse Alibabacloud_Waf-openapi20211001::Client::desc
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isGroupResource)) {
+    query->insert(pair<string, string>("IsGroupResource", *request->isGroupResource));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
