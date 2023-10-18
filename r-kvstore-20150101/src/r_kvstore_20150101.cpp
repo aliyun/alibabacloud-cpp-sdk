@@ -21,13 +21,14 @@ Alibabacloud_R-kvstore20150101::Client::Client(const shared_ptr<Alibabacloud_Ope
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-qingdao", "r-kvstore.aliyuncs.com"},
     {"cn-beijing", "r-kvstore.aliyuncs.com"},
+    {"cn-wulanchabu", "r-kvstore.aliyuncs.com"},
     {"cn-hangzhou", "r-kvstore.aliyuncs.com"},
     {"cn-shanghai", "r-kvstore.aliyuncs.com"},
     {"cn-shenzhen", "r-kvstore.aliyuncs.com"},
     {"cn-heyuan", "r-kvstore.aliyuncs.com"},
+    {"cn-guangzhou", "r-kvstore.aliyuncs.com"},
+    {"cn-hongkong", "r-kvstore.aliyuncs.com"},
     {"ap-southeast-1", "r-kvstore.aliyuncs.com"},
-    {"us-west-1", "r-kvstore.aliyuncs.com"},
-    {"us-east-1", "r-kvstore.aliyuncs.com"},
     {"cn-hangzhou-finance", "r-kvstore.aliyuncs.com"},
     {"cn-shanghai-finance-1", "r-kvstore.aliyuncs.com"},
     {"cn-shenzhen-finance-1", "r-kvstore.aliyuncs.com"},
@@ -47,7 +48,6 @@ Alibabacloud_R-kvstore20150101::Client::Client(const shared_ptr<Alibabacloud_Ope
     {"cn-hangzhou-internal-test-3", "r-kvstore.aliyuncs.com"},
     {"cn-hangzhou-test-306", "r-kvstore.aliyuncs.com"},
     {"cn-hongkong-finance-pop", "r-kvstore.aliyuncs.com"},
-    {"cn-huhehaote-nebula-1", "r-kvstore.aliyuncs.com"},
     {"cn-qingdao-nebula", "r-kvstore.aliyuncs.com"},
     {"cn-shanghai-et15-b01", "r-kvstore.aliyuncs.com"},
     {"cn-shanghai-et2-b01", "r-kvstore.aliyuncs.com"},
@@ -57,8 +57,8 @@ Alibabacloud_R-kvstore20150101::Client::Client(const shared_ptr<Alibabacloud_Ope
     {"cn-shenzhen-st4-d01", "r-kvstore.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "r-kvstore.aliyuncs.com"},
     {"cn-wuhan", "r-kvstore.aliyuncs.com"},
-    {"cn-wulanchabu", "r-kvstore.aliyuncs.com"},
     {"cn-yushanfang", "r-kvstore.aliyuncs.com"},
+    {"cn-zhangbei", "r-kvstore.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "r-kvstore.aliyuncs.com"},
     {"cn-zhangjiakou-na62-a01", "r-kvstore.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1", "r-kvstore.aliyuncs.com"},
@@ -3672,6 +3672,52 @@ ListTagResourcesResponse Alibabacloud_R-kvstore20150101::Client::listTagResource
   return listTagResourcesWithOptions(request, runtime);
 }
 
+LockDBInstanceWriteResponse Alibabacloud_R-kvstore20150101::Client::lockDBInstanceWriteWithOptions(shared_ptr<LockDBInstanceWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lockReason)) {
+    query->insert(pair<string, string>("LockReason", *request->lockReason));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("LockDBInstanceWrite"))},
+    {"version", boost::any(string("2015-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return LockDBInstanceWriteResponse(callApi(params, req, runtime));
+}
+
+LockDBInstanceWriteResponse Alibabacloud_R-kvstore20150101::Client::lockDBInstanceWrite(shared_ptr<LockDBInstanceWriteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return lockDBInstanceWriteWithOptions(request, runtime);
+}
+
 MigrateToOtherZoneResponse Alibabacloud_R-kvstore20150101::Client::migrateToOtherZoneWithOptions(shared_ptr<MigrateToOtherZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -5616,6 +5662,49 @@ TransformToPrePaidResponse Alibabacloud_R-kvstore20150101::Client::transformToPr
 TransformToPrePaidResponse Alibabacloud_R-kvstore20150101::Client::transformToPrePaid(shared_ptr<TransformToPrePaidRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return transformToPrePaidWithOptions(request, runtime);
+}
+
+UnlockDBInstanceWriteResponse Alibabacloud_R-kvstore20150101::Client::unlockDBInstanceWriteWithOptions(shared_ptr<UnlockDBInstanceWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
+    query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UnlockDBInstanceWrite"))},
+    {"version", boost::any(string("2015-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UnlockDBInstanceWriteResponse(callApi(params, req, runtime));
+}
+
+UnlockDBInstanceWriteResponse Alibabacloud_R-kvstore20150101::Client::unlockDBInstanceWrite(shared_ptr<UnlockDBInstanceWriteRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return unlockDBInstanceWriteWithOptions(request, runtime);
 }
 
 UntagResourcesResponse Alibabacloud_R-kvstore20150101::Client::untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

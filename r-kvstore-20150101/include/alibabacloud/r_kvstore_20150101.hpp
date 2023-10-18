@@ -9271,18 +9271,395 @@ public:
 
   virtual ~DescribeEngineVersionRequest() = default;
 };
+class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> level{};
+  shared_ptr<string> releaseNote{};
+  shared_ptr<string> releaseNoteEn{};
+  shared_ptr<string> releaseVersion{};
+
+  DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList() {}
+
+  explicit DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (releaseNote) {
+      res["ReleaseNote"] = boost::any(*releaseNote);
+    }
+    if (releaseNoteEn) {
+      res["ReleaseNoteEn"] = boost::any(*releaseNoteEn);
+    }
+    if (releaseVersion) {
+      res["ReleaseVersion"] = boost::any(*releaseVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("ReleaseNote") != m.end() && !m["ReleaseNote"].empty()) {
+      releaseNote = make_shared<string>(boost::any_cast<string>(m["ReleaseNote"]));
+    }
+    if (m.find("ReleaseNoteEn") != m.end() && !m["ReleaseNoteEn"].empty()) {
+      releaseNoteEn = make_shared<string>(boost::any_cast<string>(m["ReleaseNoteEn"]));
+    }
+    if (m.find("ReleaseVersion") != m.end() && !m["ReleaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["ReleaseVersion"]));
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList() = default;
+};
+class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList>> releaseInfoList{};
+
+  DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo() {}
+
+  explicit DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (releaseInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*releaseInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReleaseInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReleaseInfoList") != m.end() && !m["ReleaseInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReleaseInfoList"].type()) {
+        vector<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReleaseInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        releaseInfoList = make_shared<vector<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo() = default;
+};
+class DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease : public Darabonba::Model {
+public:
+  shared_ptr<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo> releaseInfo{};
+  shared_ptr<string> versionChangesLevel{};
+
+  DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease() {}
+
+  explicit DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (releaseInfo) {
+      res["ReleaseInfo"] = releaseInfo ? boost::any(releaseInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (versionChangesLevel) {
+      res["VersionChangesLevel"] = boost::any(*versionChangesLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReleaseInfo") != m.end() && !m["ReleaseInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReleaseInfo"].type()) {
+        DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReleaseInfo"]));
+        releaseInfo = make_shared<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionReleaseReleaseInfo>(model1);
+      }
+    }
+    if (m.find("VersionChangesLevel") != m.end() && !m["VersionChangesLevel"].empty()) {
+      versionChangesLevel = make_shared<string>(boost::any_cast<string>(m["VersionChangesLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease() = default;
+};
+class DescribeEngineVersionResponseBodyDBLatestMinorVersion : public Darabonba::Model {
+public:
+  shared_ptr<string> level{};
+  shared_ptr<string> minorVersion{};
+  shared_ptr<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease> versionRelease{};
+
+  DescribeEngineVersionResponseBodyDBLatestMinorVersion() {}
+
+  explicit DescribeEngineVersionResponseBodyDBLatestMinorVersion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (minorVersion) {
+      res["MinorVersion"] = boost::any(*minorVersion);
+    }
+    if (versionRelease) {
+      res["VersionRelease"] = versionRelease ? boost::any(versionRelease->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("MinorVersion") != m.end() && !m["MinorVersion"].empty()) {
+      minorVersion = make_shared<string>(boost::any_cast<string>(m["MinorVersion"]));
+    }
+    if (m.find("VersionRelease") != m.end() && !m["VersionRelease"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VersionRelease"].type()) {
+        DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VersionRelease"]));
+        versionRelease = make_shared<DescribeEngineVersionResponseBodyDBLatestMinorVersionVersionRelease>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyDBLatestMinorVersion() = default;
+};
+class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> level{};
+  shared_ptr<string> releaseNote{};
+  shared_ptr<string> releaseNoteEn{};
+  shared_ptr<string> releaseVersion{};
+
+  DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList() {}
+
+  explicit DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (releaseNote) {
+      res["ReleaseNote"] = boost::any(*releaseNote);
+    }
+    if (releaseNoteEn) {
+      res["ReleaseNoteEn"] = boost::any(*releaseNoteEn);
+    }
+    if (releaseVersion) {
+      res["ReleaseVersion"] = boost::any(*releaseVersion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("ReleaseNote") != m.end() && !m["ReleaseNote"].empty()) {
+      releaseNote = make_shared<string>(boost::any_cast<string>(m["ReleaseNote"]));
+    }
+    if (m.find("ReleaseNoteEn") != m.end() && !m["ReleaseNoteEn"].empty()) {
+      releaseNoteEn = make_shared<string>(boost::any_cast<string>(m["ReleaseNoteEn"]));
+    }
+    if (m.find("ReleaseVersion") != m.end() && !m["ReleaseVersion"].empty()) {
+      releaseVersion = make_shared<string>(boost::any_cast<string>(m["ReleaseVersion"]));
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList() = default;
+};
+class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList>> releaseInfoList{};
+
+  DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo() {}
+
+  explicit DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (releaseInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*releaseInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ReleaseInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReleaseInfoList") != m.end() && !m["ReleaseInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ReleaseInfoList"].type()) {
+        vector<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ReleaseInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        releaseInfoList = make_shared<vector<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfoReleaseInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo() = default;
+};
+class DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease : public Darabonba::Model {
+public:
+  shared_ptr<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo> releaseInfo{};
+  shared_ptr<string> versionChangesLevel{};
+
+  DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease() {}
+
+  explicit DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (releaseInfo) {
+      res["ReleaseInfo"] = releaseInfo ? boost::any(releaseInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (versionChangesLevel) {
+      res["VersionChangesLevel"] = boost::any(*versionChangesLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ReleaseInfo") != m.end() && !m["ReleaseInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReleaseInfo"].type()) {
+        DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReleaseInfo"]));
+        releaseInfo = make_shared<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionReleaseReleaseInfo>(model1);
+      }
+    }
+    if (m.find("VersionChangesLevel") != m.end() && !m["VersionChangesLevel"].empty()) {
+      versionChangesLevel = make_shared<string>(boost::any_cast<string>(m["VersionChangesLevel"]));
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease() = default;
+};
+class DescribeEngineVersionResponseBodyProxyLatestMinorVersion : public Darabonba::Model {
+public:
+  shared_ptr<string> level{};
+  shared_ptr<string> minorVersion{};
+  shared_ptr<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease> versionRelease{};
+
+  DescribeEngineVersionResponseBodyProxyLatestMinorVersion() {}
+
+  explicit DescribeEngineVersionResponseBodyProxyLatestMinorVersion(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (minorVersion) {
+      res["MinorVersion"] = boost::any(*minorVersion);
+    }
+    if (versionRelease) {
+      res["VersionRelease"] = versionRelease ? boost::any(versionRelease->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
+    }
+    if (m.find("MinorVersion") != m.end() && !m["MinorVersion"].empty()) {
+      minorVersion = make_shared<string>(boost::any_cast<string>(m["MinorVersion"]));
+    }
+    if (m.find("VersionRelease") != m.end() && !m["VersionRelease"].empty()) {
+      if (typeid(map<string, boost::any>) == m["VersionRelease"].type()) {
+        DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["VersionRelease"]));
+        versionRelease = make_shared<DescribeEngineVersionResponseBodyProxyLatestMinorVersionVersionRelease>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeEngineVersionResponseBodyProxyLatestMinorVersion() = default;
+};
 class DescribeEngineVersionResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<DescribeEngineVersionResponseBodyDBLatestMinorVersion> DBLatestMinorVersion{};
   shared_ptr<string> DBVersionRelease{};
   shared_ptr<bool> enableUpgradeMajorVersion{};
   shared_ptr<bool> enableUpgradeMinorVersion{};
   shared_ptr<string> engine{};
+  shared_ptr<string> isAutoUpgradeOpen{};
   shared_ptr<bool> isLatestVersion{};
   shared_ptr<string> isNewSSLMode{};
   shared_ptr<string> isRedisCompatibleVersion{};
   shared_ptr<string> isSSLEnable{};
   shared_ptr<string> majorVersion{};
   shared_ptr<string> minorVersion{};
+  shared_ptr<DescribeEngineVersionResponseBodyProxyLatestMinorVersion> proxyLatestMinorVersion{};
   shared_ptr<string> proxyMinorVersion{};
   shared_ptr<string> proxyVersionRelease{};
   shared_ptr<string> requestId{};
@@ -9297,6 +9674,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (DBLatestMinorVersion) {
+      res["DBLatestMinorVersion"] = DBLatestMinorVersion ? boost::any(DBLatestMinorVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (DBVersionRelease) {
       res["DBVersionRelease"] = boost::any(*DBVersionRelease);
     }
@@ -9308,6 +9688,9 @@ public:
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
+    }
+    if (isAutoUpgradeOpen) {
+      res["IsAutoUpgradeOpen"] = boost::any(*isAutoUpgradeOpen);
     }
     if (isLatestVersion) {
       res["IsLatestVersion"] = boost::any(*isLatestVersion);
@@ -9327,6 +9710,9 @@ public:
     if (minorVersion) {
       res["MinorVersion"] = boost::any(*minorVersion);
     }
+    if (proxyLatestMinorVersion) {
+      res["ProxyLatestMinorVersion"] = proxyLatestMinorVersion ? boost::any(proxyLatestMinorVersion->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (proxyMinorVersion) {
       res["ProxyMinorVersion"] = boost::any(*proxyMinorVersion);
     }
@@ -9340,6 +9726,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBLatestMinorVersion") != m.end() && !m["DBLatestMinorVersion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["DBLatestMinorVersion"].type()) {
+        DescribeEngineVersionResponseBodyDBLatestMinorVersion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DBLatestMinorVersion"]));
+        DBLatestMinorVersion = make_shared<DescribeEngineVersionResponseBodyDBLatestMinorVersion>(model1);
+      }
+    }
     if (m.find("DBVersionRelease") != m.end() && !m["DBVersionRelease"].empty()) {
       DBVersionRelease = make_shared<string>(boost::any_cast<string>(m["DBVersionRelease"]));
     }
@@ -9351,6 +9744,9 @@ public:
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
+    }
+    if (m.find("IsAutoUpgradeOpen") != m.end() && !m["IsAutoUpgradeOpen"].empty()) {
+      isAutoUpgradeOpen = make_shared<string>(boost::any_cast<string>(m["IsAutoUpgradeOpen"]));
     }
     if (m.find("IsLatestVersion") != m.end() && !m["IsLatestVersion"].empty()) {
       isLatestVersion = make_shared<bool>(boost::any_cast<bool>(m["IsLatestVersion"]));
@@ -9369,6 +9765,13 @@ public:
     }
     if (m.find("MinorVersion") != m.end() && !m["MinorVersion"].empty()) {
       minorVersion = make_shared<string>(boost::any_cast<string>(m["MinorVersion"]));
+    }
+    if (m.find("ProxyLatestMinorVersion") != m.end() && !m["ProxyLatestMinorVersion"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyLatestMinorVersion"].type()) {
+        DescribeEngineVersionResponseBodyProxyLatestMinorVersion model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyLatestMinorVersion"]));
+        proxyLatestMinorVersion = make_shared<DescribeEngineVersionResponseBodyProxyLatestMinorVersion>(model1);
+      }
     }
     if (m.find("ProxyMinorVersion") != m.end() && !m["ProxyMinorVersion"].empty()) {
       proxyMinorVersion = make_shared<string>(boost::any_cast<string>(m["ProxyMinorVersion"]));
@@ -10839,6 +11242,8 @@ public:
   shared_ptr<string> secondaryZoneId{};
   shared_ptr<string> securityIPList{};
   shared_ptr<long> shardCount{};
+  shared_ptr<string> storage{};
+  shared_ptr<string> storageType{};
   shared_ptr<DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags> tags{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcAuthMode{};
@@ -10985,6 +11390,12 @@ public:
     }
     if (shardCount) {
       res["ShardCount"] = boost::any(*shardCount);
+    }
+    if (storage) {
+      res["Storage"] = boost::any(*storage);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
@@ -11139,6 +11550,12 @@ public:
     }
     if (m.find("ShardCount") != m.end() && !m["ShardCount"].empty()) {
       shardCount = make_shared<long>(boost::any_cast<long>(m["ShardCount"]));
+    }
+    if (m.find("Storage") != m.end() && !m["Storage"].empty()) {
+      storage = make_shared<string>(boost::any_cast<string>(m["Storage"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
@@ -15545,6 +15962,7 @@ public:
   shared_ptr<string> handlingFeeAmount{};
   shared_ptr<string> originalAmount{};
   shared_ptr<DescribePriceResponseBodyOrderRuleIds> ruleIds{};
+  shared_ptr<bool> showDiscountInfo{};
   shared_ptr<string> tradeAmount{};
 
   DescribePriceResponseBodyOrder() {}
@@ -15574,6 +15992,9 @@ public:
     }
     if (ruleIds) {
       res["RuleIds"] = ruleIds ? boost::any(ruleIds->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (showDiscountInfo) {
+      res["ShowDiscountInfo"] = boost::any(*showDiscountInfo);
     }
     if (tradeAmount) {
       res["TradeAmount"] = boost::any(*tradeAmount);
@@ -15607,6 +16028,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RuleIds"]));
         ruleIds = make_shared<DescribePriceResponseBodyOrderRuleIds>(model1);
       }
+    }
+    if (m.find("ShowDiscountInfo") != m.end() && !m["ShowDiscountInfo"].empty()) {
+      showDiscountInfo = make_shared<bool>(boost::any_cast<bool>(m["ShowDiscountInfo"]));
     }
     if (m.find("TradeAmount") != m.end() && !m["TradeAmount"].empty()) {
       tradeAmount = make_shared<string>(boost::any_cast<string>(m["TradeAmount"]));
@@ -19927,6 +20351,189 @@ public:
 
 
   virtual ~ListTagResourcesResponse() = default;
+};
+class LockDBInstanceWriteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> lockReason{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  LockDBInstanceWriteRequest() {}
+
+  explicit LockDBInstanceWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (lockReason) {
+      res["LockReason"] = boost::any(*lockReason);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
+      lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~LockDBInstanceWriteRequest() = default;
+};
+class LockDBInstanceWriteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> lockReason{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> taskId{};
+
+  LockDBInstanceWriteResponseBody() {}
+
+  explicit LockDBInstanceWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (lockReason) {
+      res["LockReason"] = boost::any(*lockReason);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("LockReason") != m.end() && !m["LockReason"].empty()) {
+      lockReason = make_shared<string>(boost::any_cast<string>(m["LockReason"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~LockDBInstanceWriteResponseBody() = default;
+};
+class LockDBInstanceWriteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<LockDBInstanceWriteResponseBody> body{};
+
+  LockDBInstanceWriteResponse() {}
+
+  explicit LockDBInstanceWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        LockDBInstanceWriteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<LockDBInstanceWriteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~LockDBInstanceWriteResponse() = default;
 };
 class MigrateToOtherZoneRequest : public Darabonba::Model {
 public:
@@ -26833,6 +27440,175 @@ public:
 
   virtual ~TransformToPrePaidResponse() = default;
 };
+class UnlockDBInstanceWriteRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityToken{};
+
+  UnlockDBInstanceWriteRequest() {}
+
+  explicit UnlockDBInstanceWriteRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceId) {
+      res["DBInstanceId"] = boost::any(*DBInstanceId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
+      DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~UnlockDBInstanceWriteRequest() = default;
+};
+class UnlockDBInstanceWriteResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> DBInstanceName{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> taskId{};
+
+  UnlockDBInstanceWriteResponseBody() {}
+
+  explicit UnlockDBInstanceWriteResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (DBInstanceName) {
+      res["DBInstanceName"] = boost::any(*DBInstanceName);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceName") != m.end() && !m["DBInstanceName"].empty()) {
+      DBInstanceName = make_shared<string>(boost::any_cast<string>(m["DBInstanceName"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<long>(boost::any_cast<long>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~UnlockDBInstanceWriteResponseBody() = default;
+};
+class UnlockDBInstanceWriteResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UnlockDBInstanceWriteResponseBody> body{};
+
+  UnlockDBInstanceWriteResponse() {}
+
+  explicit UnlockDBInstanceWriteResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UnlockDBInstanceWriteResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UnlockDBInstanceWriteResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UnlockDBInstanceWriteResponse() = default;
+};
 class UntagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
@@ -27161,6 +27937,8 @@ public:
   InitializeKvstorePermissionResponse initializeKvstorePermission(shared_ptr<InitializeKvstorePermissionRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  LockDBInstanceWriteResponse lockDBInstanceWriteWithOptions(shared_ptr<LockDBInstanceWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  LockDBInstanceWriteResponse lockDBInstanceWrite(shared_ptr<LockDBInstanceWriteRequest> request);
   MigrateToOtherZoneResponse migrateToOtherZoneWithOptions(shared_ptr<MigrateToOtherZoneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   MigrateToOtherZoneResponse migrateToOtherZone(shared_ptr<MigrateToOtherZoneRequest> request);
   ModifyAccountDescriptionResponse modifyAccountDescriptionWithOptions(shared_ptr<ModifyAccountDescriptionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -27237,6 +28015,8 @@ public:
   TransformInstanceChargeTypeResponse transformInstanceChargeType(shared_ptr<TransformInstanceChargeTypeRequest> request);
   TransformToPrePaidResponse transformToPrePaidWithOptions(shared_ptr<TransformToPrePaidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TransformToPrePaidResponse transformToPrePaid(shared_ptr<TransformToPrePaidRequest> request);
+  UnlockDBInstanceWriteResponse unlockDBInstanceWriteWithOptions(shared_ptr<UnlockDBInstanceWriteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UnlockDBInstanceWriteResponse unlockDBInstanceWrite(shared_ptr<UnlockDBInstanceWriteRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
 
