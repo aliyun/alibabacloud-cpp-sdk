@@ -9157,6 +9157,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> storageResource{};
   shared_ptr<string> storageResourceTotal{};
+  shared_ptr<map<string, string>> supportedFeatures{};
   shared_ptr<DescribeDBClusterAttributeResponseBodyItemsDBClusterTags> tags{};
   shared_ptr<bool> userENIStatus{};
   shared_ptr<string> VPCId{};
@@ -9250,6 +9251,9 @@ public:
     }
     if (storageResourceTotal) {
       res["StorageResourceTotal"] = boost::any(*storageResourceTotal);
+    }
+    if (supportedFeatures) {
+      res["SupportedFeatures"] = boost::any(*supportedFeatures);
     }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
@@ -9347,6 +9351,14 @@ public:
     }
     if (m.find("StorageResourceTotal") != m.end() && !m["StorageResourceTotal"].empty()) {
       storageResourceTotal = make_shared<string>(boost::any_cast<string>(m["StorageResourceTotal"]));
+    }
+    if (m.find("SupportedFeatures") != m.end() && !m["SupportedFeatures"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["SupportedFeatures"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      supportedFeatures = make_shared<map<string, string>>(toMap1);
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
