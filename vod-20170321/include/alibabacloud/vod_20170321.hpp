@@ -16572,6 +16572,253 @@ public:
 
   virtual ~GetDefaultAITemplateResponse() = default;
 };
+class GetDigitalWatermarkExtractResultRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> extractType{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> resourceOwnerId{};
+
+  GetDigitalWatermarkExtractResultRequest() {}
+
+  explicit GetDigitalWatermarkExtractResultRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extractType) {
+      res["ExtractType"] = boost::any(*extractType);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtractType") != m.end() && !m["ExtractType"].empty()) {
+      extractType = make_shared<string>(boost::any_cast<string>(m["ExtractType"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~GetDigitalWatermarkExtractResultRequest() = default;
+};
+class GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> jobId{};
+  shared_ptr<string> modifyTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> waterMarkText{};
+
+  GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList() {}
+
+  explicit GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (waterMarkText) {
+      res["WaterMarkText"] = boost::any(*waterMarkText);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<string>(boost::any_cast<string>(m["ModifyTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("WaterMarkText") != m.end() && !m["WaterMarkText"].empty()) {
+      waterMarkText = make_shared<string>(boost::any_cast<string>(m["WaterMarkText"]));
+    }
+  }
+
+
+  virtual ~GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList() = default;
+};
+class GetDigitalWatermarkExtractResultResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList>> aiExtractResultList{};
+  shared_ptr<string> requestId{};
+
+  GetDigitalWatermarkExtractResultResponseBody() {}
+
+  explicit GetDigitalWatermarkExtractResultResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aiExtractResultList) {
+      vector<boost::any> temp1;
+      for(auto item1:*aiExtractResultList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AiExtractResultList"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AiExtractResultList") != m.end() && !m["AiExtractResultList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AiExtractResultList"].type()) {
+        vector<GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AiExtractResultList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        aiExtractResultList = make_shared<vector<GetDigitalWatermarkExtractResultResponseBodyAiExtractResultList>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDigitalWatermarkExtractResultResponseBody() = default;
+};
+class GetDigitalWatermarkExtractResultResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDigitalWatermarkExtractResultResponseBody> body{};
+
+  GetDigitalWatermarkExtractResultResponse() {}
+
+  explicit GetDigitalWatermarkExtractResultResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDigitalWatermarkExtractResultResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDigitalWatermarkExtractResultResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDigitalWatermarkExtractResultResponse() = default;
+};
 class GetEditingProjectRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ownerAccount{};
@@ -21921,12 +22168,14 @@ public:
   shared_ptr<string> additionType{};
   shared_ptr<long> authTimeout{};
   shared_ptr<string> definition{};
+  shared_ptr<string> digitalWatermarkType{};
   shared_ptr<string> formats{};
   shared_ptr<string> outputType{};
   shared_ptr<string> playConfig{};
   shared_ptr<string> reAuthInfo{};
   shared_ptr<string> resultType{};
   shared_ptr<string> streamType{};
+  shared_ptr<string> trace{};
   shared_ptr<string> videoId{};
 
   GetPlayInfoRequest() {}
@@ -21948,6 +22197,9 @@ public:
     if (definition) {
       res["Definition"] = boost::any(*definition);
     }
+    if (digitalWatermarkType) {
+      res["DigitalWatermarkType"] = boost::any(*digitalWatermarkType);
+    }
     if (formats) {
       res["Formats"] = boost::any(*formats);
     }
@@ -21966,6 +22218,9 @@ public:
     if (streamType) {
       res["StreamType"] = boost::any(*streamType);
     }
+    if (trace) {
+      res["Trace"] = boost::any(*trace);
+    }
     if (videoId) {
       res["VideoId"] = boost::any(*videoId);
     }
@@ -21981,6 +22236,9 @@ public:
     }
     if (m.find("Definition") != m.end() && !m["Definition"].empty()) {
       definition = make_shared<string>(boost::any_cast<string>(m["Definition"]));
+    }
+    if (m.find("DigitalWatermarkType") != m.end() && !m["DigitalWatermarkType"].empty()) {
+      digitalWatermarkType = make_shared<string>(boost::any_cast<string>(m["DigitalWatermarkType"]));
     }
     if (m.find("Formats") != m.end() && !m["Formats"].empty()) {
       formats = make_shared<string>(boost::any_cast<string>(m["Formats"]));
@@ -21999,6 +22257,9 @@ public:
     }
     if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
       streamType = make_shared<string>(boost::any_cast<string>(m["StreamType"]));
+    }
+    if (m.find("Trace") != m.end() && !m["Trace"].empty()) {
+      trace = make_shared<string>(boost::any_cast<string>(m["Trace"]));
     }
     if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
       videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
@@ -22021,7 +22282,9 @@ public:
   shared_ptr<string> fps{};
   shared_ptr<string> HDRType{};
   shared_ptr<long> height{};
+  shared_ptr<string> jobExt{};
   shared_ptr<string> jobId{};
+  shared_ptr<long> jobType{};
   shared_ptr<string> modificationTime{};
   shared_ptr<string> narrowBandType{};
   shared_ptr<string> playURL{};
@@ -22075,8 +22338,14 @@ public:
     if (height) {
       res["Height"] = boost::any(*height);
     }
+    if (jobExt) {
+      res["JobExt"] = boost::any(*jobExt);
+    }
     if (jobId) {
       res["JobId"] = boost::any(*jobId);
+    }
+    if (jobType) {
+      res["JobType"] = boost::any(*jobType);
     }
     if (modificationTime) {
       res["ModificationTime"] = boost::any(*modificationTime);
@@ -22142,8 +22411,14 @@ public:
     if (m.find("Height") != m.end() && !m["Height"].empty()) {
       height = make_shared<long>(boost::any_cast<long>(m["Height"]));
     }
+    if (m.find("JobExt") != m.end() && !m["JobExt"].empty()) {
+      jobExt = make_shared<string>(boost::any_cast<string>(m["JobExt"]));
+    }
     if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
       jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("JobType") != m.end() && !m["JobType"].empty()) {
+      jobType = make_shared<long>(boost::any_cast<long>(m["JobType"]));
     }
     if (m.find("ModificationTime") != m.end() && !m["ModificationTime"].empty()) {
       modificationTime = make_shared<string>(boost::any_cast<string>(m["ModificationTime"]));
@@ -23265,6 +23540,7 @@ public:
   shared_ptr<string> audio{};
   shared_ptr<string> clip{};
   shared_ptr<string> container{};
+  shared_ptr<string> copyrightMark{};
   shared_ptr<string> definition{};
   shared_ptr<string> encryptSetting{};
   shared_ptr<string> muxConfig{};
@@ -23272,6 +23548,7 @@ public:
   shared_ptr<string> rotate{};
   shared_ptr<string> subtitleList{};
   shared_ptr<string> templateName{};
+  shared_ptr<string> traceMark{};
   shared_ptr<string> transConfig{};
   shared_ptr<string> transcodeFileRegular{};
   shared_ptr<string> transcodeTemplateId{};
@@ -23298,6 +23575,9 @@ public:
     if (container) {
       res["Container"] = boost::any(*container);
     }
+    if (copyrightMark) {
+      res["CopyrightMark"] = boost::any(*copyrightMark);
+    }
     if (definition) {
       res["Definition"] = boost::any(*definition);
     }
@@ -23318,6 +23598,9 @@ public:
     }
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
+    }
+    if (traceMark) {
+      res["TraceMark"] = boost::any(*traceMark);
     }
     if (transConfig) {
       res["TransConfig"] = boost::any(*transConfig);
@@ -23350,6 +23633,9 @@ public:
     if (m.find("Container") != m.end() && !m["Container"].empty()) {
       container = make_shared<string>(boost::any_cast<string>(m["Container"]));
     }
+    if (m.find("CopyrightMark") != m.end() && !m["CopyrightMark"].empty()) {
+      copyrightMark = make_shared<string>(boost::any_cast<string>(m["CopyrightMark"]));
+    }
     if (m.find("Definition") != m.end() && !m["Definition"].empty()) {
       definition = make_shared<string>(boost::any_cast<string>(m["Definition"]));
     }
@@ -23370,6 +23656,9 @@ public:
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
+    }
+    if (m.find("TraceMark") != m.end() && !m["TraceMark"].empty()) {
+      traceMark = make_shared<string>(boost::any_cast<string>(m["TraceMark"]));
     }
     if (m.find("TransConfig") != m.end() && !m["TransConfig"].empty()) {
       transConfig = make_shared<string>(boost::any_cast<string>(m["TransConfig"]));
@@ -34193,6 +34482,168 @@ public:
 
   virtual ~SubmitAIMediaAuditJobResponse() = default;
 };
+class SubmitDigitalWatermarkExtractJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> extractType{};
+  shared_ptr<string> mediaId{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> resourceOwnerId{};
+
+  SubmitDigitalWatermarkExtractJobRequest() {}
+
+  explicit SubmitDigitalWatermarkExtractJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extractType) {
+      res["ExtractType"] = boost::any(*extractType);
+    }
+    if (mediaId) {
+      res["MediaId"] = boost::any(*mediaId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExtractType") != m.end() && !m["ExtractType"].empty()) {
+      extractType = make_shared<string>(boost::any_cast<string>(m["ExtractType"]));
+    }
+    if (m.find("MediaId") != m.end() && !m["MediaId"].empty()) {
+      mediaId = make_shared<string>(boost::any_cast<string>(m["MediaId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerId"]));
+    }
+  }
+
+
+  virtual ~SubmitDigitalWatermarkExtractJobRequest() = default;
+};
+class SubmitDigitalWatermarkExtractJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> jobId{};
+  shared_ptr<string> requestId{};
+
+  SubmitDigitalWatermarkExtractJobResponseBody() {}
+
+  explicit SubmitDigitalWatermarkExtractJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (jobId) {
+      res["JobId"] = boost::any(*jobId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("JobId") != m.end() && !m["JobId"].empty()) {
+      jobId = make_shared<string>(boost::any_cast<string>(m["JobId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SubmitDigitalWatermarkExtractJobResponseBody() = default;
+};
+class SubmitDigitalWatermarkExtractJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SubmitDigitalWatermarkExtractJobResponseBody> body{};
+
+  SubmitDigitalWatermarkExtractJobResponse() {}
+
+  explicit SubmitDigitalWatermarkExtractJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SubmitDigitalWatermarkExtractJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SubmitDigitalWatermarkExtractJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SubmitDigitalWatermarkExtractJobResponse() = default;
+};
 class SubmitDynamicImageJobRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dynamicImageTemplateId{};
@@ -38147,6 +38598,8 @@ public:
   GetCategoriesResponse getCategories(shared_ptr<GetCategoriesRequest> request);
   GetDefaultAITemplateResponse getDefaultAITemplateWithOptions(shared_ptr<GetDefaultAITemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDefaultAITemplateResponse getDefaultAITemplate(shared_ptr<GetDefaultAITemplateRequest> request);
+  GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResultWithOptions(shared_ptr<GetDigitalWatermarkExtractResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDigitalWatermarkExtractResultResponse getDigitalWatermarkExtractResult(shared_ptr<GetDigitalWatermarkExtractResultRequest> request);
   GetEditingProjectResponse getEditingProjectWithOptions(shared_ptr<GetEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetEditingProjectResponse getEditingProject(shared_ptr<GetEditingProjectRequest> request);
   GetEditingProjectMaterialsResponse getEditingProjectMaterialsWithOptions(shared_ptr<GetEditingProjectMaterialsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -38265,6 +38718,8 @@ public:
   SubmitAIJobResponse submitAIJob(shared_ptr<SubmitAIJobRequest> request);
   SubmitAIMediaAuditJobResponse submitAIMediaAuditJobWithOptions(shared_ptr<SubmitAIMediaAuditJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitAIMediaAuditJobResponse submitAIMediaAuditJob(shared_ptr<SubmitAIMediaAuditJobRequest> request);
+  SubmitDigitalWatermarkExtractJobResponse submitDigitalWatermarkExtractJobWithOptions(shared_ptr<SubmitDigitalWatermarkExtractJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitDigitalWatermarkExtractJobResponse submitDigitalWatermarkExtractJob(shared_ptr<SubmitDigitalWatermarkExtractJobRequest> request);
   SubmitDynamicImageJobResponse submitDynamicImageJobWithOptions(shared_ptr<SubmitDynamicImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitDynamicImageJobResponse submitDynamicImageJob(shared_ptr<SubmitDynamicImageJobRequest> request);
   SubmitMediaDNADeleteJobResponse submitMediaDNADeleteJobWithOptions(shared_ptr<SubmitMediaDNADeleteJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

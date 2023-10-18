@@ -2704,6 +2704,52 @@ GetDefaultAITemplateResponse Alibabacloud_Vod20170321::Client::getDefaultAITempl
   return getDefaultAITemplateWithOptions(request, runtime);
 }
 
+GetDigitalWatermarkExtractResultResponse Alibabacloud_Vod20170321::Client::getDigitalWatermarkExtractResultWithOptions(shared_ptr<GetDigitalWatermarkExtractResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->extractType)) {
+    query->insert(pair<string, string>("ExtractType", *request->extractType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->jobId)) {
+    query->insert(pair<string, string>("JobId", *request->jobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    query->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetDigitalWatermarkExtractResult"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetDigitalWatermarkExtractResultResponse(callApi(params, req, runtime));
+}
+
+GetDigitalWatermarkExtractResultResponse Alibabacloud_Vod20170321::Client::getDigitalWatermarkExtractResult(shared_ptr<GetDigitalWatermarkExtractResultRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getDigitalWatermarkExtractResultWithOptions(request, runtime);
+}
+
 GetEditingProjectResponse Alibabacloud_Vod20170321::Client::getEditingProjectWithOptions(shared_ptr<GetEditingProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3133,6 +3179,9 @@ GetPlayInfoResponse Alibabacloud_Vod20170321::Client::getPlayInfoWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<string>(request->definition)) {
     query->insert(pair<string, string>("Definition", *request->definition));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->digitalWatermarkType)) {
+    query->insert(pair<string, string>("DigitalWatermarkType", *request->digitalWatermarkType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->formats)) {
     query->insert(pair<string, string>("Formats", *request->formats));
   }
@@ -3150,6 +3199,9 @@ GetPlayInfoResponse Alibabacloud_Vod20170321::Client::getPlayInfoWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->streamType)) {
     query->insert(pair<string, string>("StreamType", *request->streamType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trace)) {
+    query->insert(pair<string, string>("Trace", *request->trace));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->videoId)) {
     query->insert(pair<string, string>("VideoId", *request->videoId));
@@ -4870,6 +4922,49 @@ SubmitAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIMediaAud
 SubmitAIMediaAuditJobResponse Alibabacloud_Vod20170321::Client::submitAIMediaAuditJob(shared_ptr<SubmitAIMediaAuditJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return submitAIMediaAuditJobWithOptions(request, runtime);
+}
+
+SubmitDigitalWatermarkExtractJobResponse Alibabacloud_Vod20170321::Client::submitDigitalWatermarkExtractJobWithOptions(shared_ptr<SubmitDigitalWatermarkExtractJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->extractType)) {
+    query->insert(pair<string, string>("ExtractType", *request->extractType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaId)) {
+    query->insert(pair<string, string>("MediaId", *request->mediaId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerId)) {
+    query->insert(pair<string, string>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerId)) {
+    query->insert(pair<string, string>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SubmitDigitalWatermarkExtractJob"))},
+    {"version", boost::any(string("2017-03-21"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SubmitDigitalWatermarkExtractJobResponse(callApi(params, req, runtime));
+}
+
+SubmitDigitalWatermarkExtractJobResponse Alibabacloud_Vod20170321::Client::submitDigitalWatermarkExtractJob(shared_ptr<SubmitDigitalWatermarkExtractJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return submitDigitalWatermarkExtractJobWithOptions(request, runtime);
 }
 
 SubmitDynamicImageJobResponse Alibabacloud_Vod20170321::Client::submitDynamicImageJobWithOptions(shared_ptr<SubmitDynamicImageJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
