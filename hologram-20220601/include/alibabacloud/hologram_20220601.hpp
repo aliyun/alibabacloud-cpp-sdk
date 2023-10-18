@@ -23,6 +23,7 @@ public:
   shared_ptr<long> cpu{};
   shared_ptr<long> duration{};
   shared_ptr<long> gatewayCount{};
+  shared_ptr<string> initialDatabases{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> instanceType{};
   shared_ptr<string> leaderInstanceId{};
@@ -64,6 +65,9 @@ public:
     }
     if (gatewayCount) {
       res["gatewayCount"] = boost::any(*gatewayCount);
+    }
+    if (initialDatabases) {
+      res["initialDatabases"] = boost::any(*initialDatabases);
     }
     if (instanceName) {
       res["instanceName"] = boost::any(*instanceName);
@@ -119,6 +123,9 @@ public:
     }
     if (m.find("gatewayCount") != m.end() && !m["gatewayCount"].empty()) {
       gatewayCount = make_shared<long>(boost::any_cast<long>(m["gatewayCount"]));
+    }
+    if (m.find("initialDatabases") != m.end() && !m["initialDatabases"].empty()) {
+      initialDatabases = make_shared<string>(boost::any_cast<string>(m["initialDatabases"]));
     }
     if (m.find("instanceName") != m.end() && !m["instanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["instanceName"]));

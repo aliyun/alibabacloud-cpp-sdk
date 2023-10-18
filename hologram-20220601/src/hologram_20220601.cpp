@@ -62,6 +62,9 @@ CreateInstanceResponse Alibabacloud_Hologram20220601::Client::createInstanceWith
   if (!Darabonba_Util::Client::isUnset<long>(request->gatewayCount)) {
     body->insert(pair<string, long>("gatewayCount", *request->gatewayCount));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->initialDatabases)) {
+    body->insert(pair<string, string>("initialDatabases", *request->initialDatabases));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("instanceName", *request->instanceName));
   }
