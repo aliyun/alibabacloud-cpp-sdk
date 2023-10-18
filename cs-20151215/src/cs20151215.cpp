@@ -2914,6 +2914,9 @@ ModifyClusterResponse Alibabacloud_CS20151215::Client::modifyClusterWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resource_group_id", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<ModifyClusterRequestSystemEventsLogging>(request->systemEventsLogging)) {
+    body->insert(pair<string, ModifyClusterRequestSystemEventsLogging>("system_events_logging", *request->systemEventsLogging));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

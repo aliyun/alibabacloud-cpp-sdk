@@ -60,10 +60,13 @@ public:
 };
 class DataDisk : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoFormat{};
   shared_ptr<string> autoSnapshotPolicyId{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
   shared_ptr<string> encrypted{};
+  shared_ptr<string> fileSystem{};
+  shared_ptr<string> mountTarget{};
   shared_ptr<string> performanceLevel{};
   shared_ptr<long> provisionedIops{};
   shared_ptr<long> size{};
@@ -78,6 +81,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoFormat) {
+      res["auto_format"] = boost::any(*autoFormat);
+    }
     if (autoSnapshotPolicyId) {
       res["auto_snapshot_policy_id"] = boost::any(*autoSnapshotPolicyId);
     }
@@ -89,6 +95,12 @@ public:
     }
     if (encrypted) {
       res["encrypted"] = boost::any(*encrypted);
+    }
+    if (fileSystem) {
+      res["file_system"] = boost::any(*fileSystem);
+    }
+    if (mountTarget) {
+      res["mount_target"] = boost::any(*mountTarget);
     }
     if (performanceLevel) {
       res["performance_level"] = boost::any(*performanceLevel);
@@ -103,6 +115,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_format") != m.end() && !m["auto_format"].empty()) {
+      autoFormat = make_shared<bool>(boost::any_cast<bool>(m["auto_format"]));
+    }
     if (m.find("auto_snapshot_policy_id") != m.end() && !m["auto_snapshot_policy_id"].empty()) {
       autoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["auto_snapshot_policy_id"]));
     }
@@ -114,6 +129,12 @@ public:
     }
     if (m.find("encrypted") != m.end() && !m["encrypted"].empty()) {
       encrypted = make_shared<string>(boost::any_cast<string>(m["encrypted"]));
+    }
+    if (m.find("file_system") != m.end() && !m["file_system"].empty()) {
+      fileSystem = make_shared<string>(boost::any_cast<string>(m["file_system"]));
+    }
+    if (m.find("mount_target") != m.end() && !m["mount_target"].empty()) {
+      mountTarget = make_shared<string>(boost::any_cast<string>(m["mount_target"]));
     }
     if (m.find("performance_level") != m.end() && !m["performance_level"].empty()) {
       performanceLevel = make_shared<string>(boost::any_cast<string>(m["performance_level"]));
@@ -3727,6 +3748,100 @@ public:
 
   virtual ~CreateClusterNodePoolRequestKubernetesConfig() = default;
 };
+class CreateClusterNodePoolRequestManagementAutoRepairPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+
+  CreateClusterNodePoolRequestManagementAutoRepairPolicy() {}
+
+  explicit CreateClusterNodePoolRequestManagementAutoRepairPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestManagementAutoRepairPolicy() = default;
+};
+class CreateClusterNodePoolRequestManagementAutoUpgradePolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoUpgradeKubelet{};
+
+  CreateClusterNodePoolRequestManagementAutoUpgradePolicy() {}
+
+  explicit CreateClusterNodePoolRequestManagementAutoUpgradePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoUpgradeKubelet) {
+      res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
+      autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestManagementAutoUpgradePolicy() = default;
+};
+class CreateClusterNodePoolRequestManagementAutoVulFixPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+  shared_ptr<string> vulLevel{};
+
+  CreateClusterNodePoolRequestManagementAutoVulFixPolicy() {}
+
+  explicit CreateClusterNodePoolRequestManagementAutoVulFixPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    if (vulLevel) {
+      res["vul_level"] = boost::any(*vulLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+    if (m.find("vul_level") != m.end() && !m["vul_level"].empty()) {
+      vulLevel = make_shared<string>(boost::any_cast<string>(m["vul_level"]));
+    }
+  }
+
+
+  virtual ~CreateClusterNodePoolRequestManagementAutoVulFixPolicy() = default;
+};
 class CreateClusterNodePoolRequestManagementUpgradeConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgrade{};
@@ -3780,6 +3895,11 @@ public:
 class CreateClusterNodePoolRequestManagement : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRepair{};
+  shared_ptr<CreateClusterNodePoolRequestManagementAutoRepairPolicy> autoRepairPolicy{};
+  shared_ptr<bool> autoUpgrade{};
+  shared_ptr<CreateClusterNodePoolRequestManagementAutoUpgradePolicy> autoUpgradePolicy{};
+  shared_ptr<bool> autoVulFix{};
+  shared_ptr<CreateClusterNodePoolRequestManagementAutoVulFixPolicy> autoVulFixPolicy{};
   shared_ptr<bool> enable{};
   shared_ptr<CreateClusterNodePoolRequestManagementUpgradeConfig> upgradeConfig{};
 
@@ -3796,6 +3916,21 @@ public:
     if (autoRepair) {
       res["auto_repair"] = boost::any(*autoRepair);
     }
+    if (autoRepairPolicy) {
+      res["auto_repair_policy"] = autoRepairPolicy ? boost::any(autoRepairPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoUpgrade) {
+      res["auto_upgrade"] = boost::any(*autoUpgrade);
+    }
+    if (autoUpgradePolicy) {
+      res["auto_upgrade_policy"] = autoUpgradePolicy ? boost::any(autoUpgradePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoVulFix) {
+      res["auto_vul_fix"] = boost::any(*autoVulFix);
+    }
+    if (autoVulFixPolicy) {
+      res["auto_vul_fix_policy"] = autoVulFixPolicy ? boost::any(autoVulFixPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (enable) {
       res["enable"] = boost::any(*enable);
     }
@@ -3808,6 +3943,33 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_repair") != m.end() && !m["auto_repair"].empty()) {
       autoRepair = make_shared<bool>(boost::any_cast<bool>(m["auto_repair"]));
+    }
+    if (m.find("auto_repair_policy") != m.end() && !m["auto_repair_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_repair_policy"].type()) {
+        CreateClusterNodePoolRequestManagementAutoRepairPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_repair_policy"]));
+        autoRepairPolicy = make_shared<CreateClusterNodePoolRequestManagementAutoRepairPolicy>(model1);
+      }
+    }
+    if (m.find("auto_upgrade") != m.end() && !m["auto_upgrade"].empty()) {
+      autoUpgrade = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade"]));
+    }
+    if (m.find("auto_upgrade_policy") != m.end() && !m["auto_upgrade_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_upgrade_policy"].type()) {
+        CreateClusterNodePoolRequestManagementAutoUpgradePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_upgrade_policy"]));
+        autoUpgradePolicy = make_shared<CreateClusterNodePoolRequestManagementAutoUpgradePolicy>(model1);
+      }
+    }
+    if (m.find("auto_vul_fix") != m.end() && !m["auto_vul_fix"].empty()) {
+      autoVulFix = make_shared<bool>(boost::any_cast<bool>(m["auto_vul_fix"]));
+    }
+    if (m.find("auto_vul_fix_policy") != m.end() && !m["auto_vul_fix_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_vul_fix_policy"].type()) {
+        CreateClusterNodePoolRequestManagementAutoVulFixPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_vul_fix_policy"]));
+        autoVulFixPolicy = make_shared<CreateClusterNodePoolRequestManagementAutoVulFixPolicy>(model1);
+      }
     }
     if (m.find("enable") != m.end() && !m["enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
@@ -8276,6 +8438,100 @@ public:
 
   virtual ~DescribeClusterNodePoolDetailResponseBodyKubernetesConfig() = default;
 };
+class DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+
+  DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy() {}
+
+  explicit DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy() = default;
+};
+class DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoUpgradeKubelet{};
+
+  DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy() {}
+
+  explicit DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoUpgradeKubelet) {
+      res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
+      autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy() = default;
+};
+class DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+  shared_ptr<string> vulLevel{};
+
+  DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy() {}
+
+  explicit DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    if (vulLevel) {
+      res["vul_level"] = boost::any(*vulLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+    if (m.find("vul_level") != m.end() && !m["vul_level"].empty()) {
+      vulLevel = make_shared<string>(boost::any_cast<string>(m["vul_level"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy() = default;
+};
 class DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgrade{};
@@ -8329,6 +8585,11 @@ public:
 class DescribeClusterNodePoolDetailResponseBodyManagement : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRepair{};
+  shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy> autoRepairPolicy{};
+  shared_ptr<bool> autoUpgrade{};
+  shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy> autoUpgradePolicy{};
+  shared_ptr<bool> autoVulFix{};
+  shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy> autoVulFixPolicy{};
   shared_ptr<bool> enable{};
   shared_ptr<DescribeClusterNodePoolDetailResponseBodyManagementUpgradeConfig> upgradeConfig{};
 
@@ -8345,6 +8606,21 @@ public:
     if (autoRepair) {
       res["auto_repair"] = boost::any(*autoRepair);
     }
+    if (autoRepairPolicy) {
+      res["auto_repair_policy"] = autoRepairPolicy ? boost::any(autoRepairPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoUpgrade) {
+      res["auto_upgrade"] = boost::any(*autoUpgrade);
+    }
+    if (autoUpgradePolicy) {
+      res["auto_upgrade_policy"] = autoUpgradePolicy ? boost::any(autoUpgradePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoVulFix) {
+      res["auto_vul_fix"] = boost::any(*autoVulFix);
+    }
+    if (autoVulFixPolicy) {
+      res["auto_vul_fix_policy"] = autoVulFixPolicy ? boost::any(autoVulFixPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (enable) {
       res["enable"] = boost::any(*enable);
     }
@@ -8357,6 +8633,33 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_repair") != m.end() && !m["auto_repair"].empty()) {
       autoRepair = make_shared<bool>(boost::any_cast<bool>(m["auto_repair"]));
+    }
+    if (m.find("auto_repair_policy") != m.end() && !m["auto_repair_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_repair_policy"].type()) {
+        DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_repair_policy"]));
+        autoRepairPolicy = make_shared<DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy>(model1);
+      }
+    }
+    if (m.find("auto_upgrade") != m.end() && !m["auto_upgrade"].empty()) {
+      autoUpgrade = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade"]));
+    }
+    if (m.find("auto_upgrade_policy") != m.end() && !m["auto_upgrade_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_upgrade_policy"].type()) {
+        DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_upgrade_policy"]));
+        autoUpgradePolicy = make_shared<DescribeClusterNodePoolDetailResponseBodyManagementAutoUpgradePolicy>(model1);
+      }
+    }
+    if (m.find("auto_vul_fix") != m.end() && !m["auto_vul_fix"].empty()) {
+      autoVulFix = make_shared<bool>(boost::any_cast<bool>(m["auto_vul_fix"]));
+    }
+    if (m.find("auto_vul_fix_policy") != m.end() && !m["auto_vul_fix_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_vul_fix_policy"].type()) {
+        DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_vul_fix_policy"]));
+        autoVulFixPolicy = make_shared<DescribeClusterNodePoolDetailResponseBodyManagementAutoVulFixPolicy>(model1);
+      }
     }
     if (m.find("enable") != m.end() && !m["enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
@@ -9435,6 +9738,100 @@ public:
 
   virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig() = default;
 };
+class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+
+  DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy() {}
+
+  explicit DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy() = default;
+};
+class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoUpgradeKubelet{};
+
+  DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy() {}
+
+  explicit DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoUpgradeKubelet) {
+      res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
+      autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy() = default;
+};
+class DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+  shared_ptr<string> vulLevel{};
+
+  DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy() {}
+
+  explicit DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    if (vulLevel) {
+      res["vul_level"] = boost::any(*vulLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+    if (m.find("vul_level") != m.end() && !m["vul_level"].empty()) {
+      vulLevel = make_shared<string>(boost::any_cast<string>(m["vul_level"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy() = default;
+};
 class DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgrade{};
@@ -9488,6 +9885,11 @@ public:
 class DescribeClusterNodePoolsResponseBodyNodepoolsManagement : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRepair{};
+  shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy> autoRepairPolicy{};
+  shared_ptr<bool> autoUpgrade{};
+  shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy> autoUpgradePolicy{};
+  shared_ptr<bool> autoVulFix{};
+  shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy> autoVulFixPolicy{};
   shared_ptr<bool> enable{};
   shared_ptr<DescribeClusterNodePoolsResponseBodyNodepoolsManagementUpgradeConfig> upgradeConfig{};
 
@@ -9504,6 +9906,21 @@ public:
     if (autoRepair) {
       res["auto_repair"] = boost::any(*autoRepair);
     }
+    if (autoRepairPolicy) {
+      res["auto_repair_policy"] = autoRepairPolicy ? boost::any(autoRepairPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoUpgrade) {
+      res["auto_upgrade"] = boost::any(*autoUpgrade);
+    }
+    if (autoUpgradePolicy) {
+      res["auto_upgrade_policy"] = autoUpgradePolicy ? boost::any(autoUpgradePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoVulFix) {
+      res["auto_vul_fix"] = boost::any(*autoVulFix);
+    }
+    if (autoVulFixPolicy) {
+      res["auto_vul_fix_policy"] = autoVulFixPolicy ? boost::any(autoVulFixPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (enable) {
       res["enable"] = boost::any(*enable);
     }
@@ -9516,6 +9933,33 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_repair") != m.end() && !m["auto_repair"].empty()) {
       autoRepair = make_shared<bool>(boost::any_cast<bool>(m["auto_repair"]));
+    }
+    if (m.find("auto_repair_policy") != m.end() && !m["auto_repair_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_repair_policy"].type()) {
+        DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_repair_policy"]));
+        autoRepairPolicy = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy>(model1);
+      }
+    }
+    if (m.find("auto_upgrade") != m.end() && !m["auto_upgrade"].empty()) {
+      autoUpgrade = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade"]));
+    }
+    if (m.find("auto_upgrade_policy") != m.end() && !m["auto_upgrade_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_upgrade_policy"].type()) {
+        DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_upgrade_policy"]));
+        autoUpgradePolicy = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoUpgradePolicy>(model1);
+      }
+    }
+    if (m.find("auto_vul_fix") != m.end() && !m["auto_vul_fix"].empty()) {
+      autoVulFix = make_shared<bool>(boost::any_cast<bool>(m["auto_vul_fix"]));
+    }
+    if (m.find("auto_vul_fix_policy") != m.end() && !m["auto_vul_fix_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_vul_fix_policy"].type()) {
+        DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_vul_fix_policy"]));
+        autoVulFixPolicy = make_shared<DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoVulFixPolicy>(model1);
+      }
     }
     if (m.find("enable") != m.end() && !m["enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
@@ -18735,6 +19179,42 @@ public:
 
   virtual ~MigrateClusterResponse() = default;
 };
+class ModifyClusterRequestSystemEventsLogging : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<string> loggingProject{};
+
+  ModifyClusterRequestSystemEventsLogging() {}
+
+  explicit ModifyClusterRequestSystemEventsLogging(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    if (loggingProject) {
+      res["logging_project"] = boost::any(*loggingProject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+    if (m.find("logging_project") != m.end() && !m["logging_project"].empty()) {
+      loggingProject = make_shared<string>(boost::any_cast<string>(m["logging_project"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterRequestSystemEventsLogging() = default;
+};
 class ModifyClusterRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> accessControlList{};
@@ -18748,6 +19228,7 @@ public:
   shared_ptr<bool> instanceDeletionProtection{};
   shared_ptr<MaintenanceWindow> maintenanceWindow{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<ModifyClusterRequestSystemEventsLogging> systemEventsLogging{};
 
   ModifyClusterRequest() {}
 
@@ -18791,6 +19272,9 @@ public:
     }
     if (resourceGroupId) {
       res["resource_group_id"] = boost::any(*resourceGroupId);
+    }
+    if (systemEventsLogging) {
+      res["system_events_logging"] = systemEventsLogging ? boost::any(systemEventsLogging->toMap()) : boost::any(map<string,boost::any>({}));
     }
     return res;
   }
@@ -18839,6 +19323,13 @@ public:
     }
     if (m.find("resource_group_id") != m.end() && !m["resource_group_id"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resource_group_id"]));
+    }
+    if (m.find("system_events_logging") != m.end() && !m["system_events_logging"].empty()) {
+      if (typeid(map<string, boost::any>) == m["system_events_logging"].type()) {
+        ModifyClusterRequestSystemEventsLogging model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["system_events_logging"]));
+        systemEventsLogging = make_shared<ModifyClusterRequestSystemEventsLogging>(model1);
+      }
     }
   }
 
@@ -19374,6 +19865,100 @@ public:
 
   virtual ~ModifyClusterNodePoolRequestKubernetesConfig() = default;
 };
+class ModifyClusterNodePoolRequestManagementAutoRepairPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+
+  ModifyClusterNodePoolRequestManagementAutoRepairPolicy() {}
+
+  explicit ModifyClusterNodePoolRequestManagementAutoRepairPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterNodePoolRequestManagementAutoRepairPolicy() = default;
+};
+class ModifyClusterNodePoolRequestManagementAutoUpgradePolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> autoUpgradeKubelet{};
+
+  ModifyClusterNodePoolRequestManagementAutoUpgradePolicy() {}
+
+  explicit ModifyClusterNodePoolRequestManagementAutoUpgradePolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoUpgradeKubelet) {
+      res["auto_upgrade_kubelet"] = boost::any(*autoUpgradeKubelet);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("auto_upgrade_kubelet") != m.end() && !m["auto_upgrade_kubelet"].empty()) {
+      autoUpgradeKubelet = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade_kubelet"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterNodePoolRequestManagementAutoUpgradePolicy() = default;
+};
+class ModifyClusterNodePoolRequestManagementAutoVulFixPolicy : public Darabonba::Model {
+public:
+  shared_ptr<bool> restartNode{};
+  shared_ptr<string> vulLevel{};
+
+  ModifyClusterNodePoolRequestManagementAutoVulFixPolicy() {}
+
+  explicit ModifyClusterNodePoolRequestManagementAutoVulFixPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (restartNode) {
+      res["restart_node"] = boost::any(*restartNode);
+    }
+    if (vulLevel) {
+      res["vul_level"] = boost::any(*vulLevel);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("restart_node") != m.end() && !m["restart_node"].empty()) {
+      restartNode = make_shared<bool>(boost::any_cast<bool>(m["restart_node"]));
+    }
+    if (m.find("vul_level") != m.end() && !m["vul_level"].empty()) {
+      vulLevel = make_shared<string>(boost::any_cast<string>(m["vul_level"]));
+    }
+  }
+
+
+  virtual ~ModifyClusterNodePoolRequestManagementAutoVulFixPolicy() = default;
+};
 class ModifyClusterNodePoolRequestManagementUpgradeConfig : public Darabonba::Model {
 public:
   shared_ptr<bool> autoUpgrade{};
@@ -19427,6 +20012,11 @@ public:
 class ModifyClusterNodePoolRequestManagement : public Darabonba::Model {
 public:
   shared_ptr<bool> autoRepair{};
+  shared_ptr<ModifyClusterNodePoolRequestManagementAutoRepairPolicy> autoRepairPolicy{};
+  shared_ptr<bool> autoUpgrade{};
+  shared_ptr<ModifyClusterNodePoolRequestManagementAutoUpgradePolicy> autoUpgradePolicy{};
+  shared_ptr<bool> autoVulFix{};
+  shared_ptr<ModifyClusterNodePoolRequestManagementAutoVulFixPolicy> autoVulFixPolicy{};
   shared_ptr<bool> enable{};
   shared_ptr<ModifyClusterNodePoolRequestManagementUpgradeConfig> upgradeConfig{};
 
@@ -19443,6 +20033,21 @@ public:
     if (autoRepair) {
       res["auto_repair"] = boost::any(*autoRepair);
     }
+    if (autoRepairPolicy) {
+      res["auto_repair_policy"] = autoRepairPolicy ? boost::any(autoRepairPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoUpgrade) {
+      res["auto_upgrade"] = boost::any(*autoUpgrade);
+    }
+    if (autoUpgradePolicy) {
+      res["auto_upgrade_policy"] = autoUpgradePolicy ? boost::any(autoUpgradePolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (autoVulFix) {
+      res["auto_vul_fix"] = boost::any(*autoVulFix);
+    }
+    if (autoVulFixPolicy) {
+      res["auto_vul_fix_policy"] = autoVulFixPolicy ? boost::any(autoVulFixPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (enable) {
       res["enable"] = boost::any(*enable);
     }
@@ -19455,6 +20060,33 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("auto_repair") != m.end() && !m["auto_repair"].empty()) {
       autoRepair = make_shared<bool>(boost::any_cast<bool>(m["auto_repair"]));
+    }
+    if (m.find("auto_repair_policy") != m.end() && !m["auto_repair_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_repair_policy"].type()) {
+        ModifyClusterNodePoolRequestManagementAutoRepairPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_repair_policy"]));
+        autoRepairPolicy = make_shared<ModifyClusterNodePoolRequestManagementAutoRepairPolicy>(model1);
+      }
+    }
+    if (m.find("auto_upgrade") != m.end() && !m["auto_upgrade"].empty()) {
+      autoUpgrade = make_shared<bool>(boost::any_cast<bool>(m["auto_upgrade"]));
+    }
+    if (m.find("auto_upgrade_policy") != m.end() && !m["auto_upgrade_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_upgrade_policy"].type()) {
+        ModifyClusterNodePoolRequestManagementAutoUpgradePolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_upgrade_policy"]));
+        autoUpgradePolicy = make_shared<ModifyClusterNodePoolRequestManagementAutoUpgradePolicy>(model1);
+      }
+    }
+    if (m.find("auto_vul_fix") != m.end() && !m["auto_vul_fix"].empty()) {
+      autoVulFix = make_shared<bool>(boost::any_cast<bool>(m["auto_vul_fix"]));
+    }
+    if (m.find("auto_vul_fix_policy") != m.end() && !m["auto_vul_fix_policy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["auto_vul_fix_policy"].type()) {
+        ModifyClusterNodePoolRequestManagementAutoVulFixPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["auto_vul_fix_policy"]));
+        autoVulFixPolicy = make_shared<ModifyClusterNodePoolRequestManagementAutoVulFixPolicy>(model1);
+      }
     }
     if (m.find("enable") != m.end() && !m["enable"].empty()) {
       enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
