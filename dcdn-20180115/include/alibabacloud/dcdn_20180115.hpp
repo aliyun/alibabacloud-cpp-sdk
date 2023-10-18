@@ -39838,6 +39838,147 @@ public:
 
   virtual ~GetDcdnKvResponse() = default;
 };
+class GetDcdnKvStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> namespace_{};
+
+  GetDcdnKvStatusRequest() {}
+
+  explicit GetDcdnKvStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~GetDcdnKvStatusRequest() = default;
+};
+class GetDcdnKvStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<bool> complete{};
+  shared_ptr<string> expire{};
+  shared_ptr<string> requestId{};
+
+  GetDcdnKvStatusResponseBody() {}
+
+  explicit GetDcdnKvStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (complete) {
+      res["Complete"] = boost::any(*complete);
+    }
+    if (expire) {
+      res["Expire"] = boost::any(*expire);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Complete") != m.end() && !m["Complete"].empty()) {
+      complete = make_shared<bool>(boost::any_cast<bool>(m["Complete"]));
+    }
+    if (m.find("Expire") != m.end() && !m["Expire"].empty()) {
+      expire = make_shared<string>(boost::any_cast<string>(m["Expire"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~GetDcdnKvStatusResponseBody() = default;
+};
+class GetDcdnKvStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetDcdnKvStatusResponseBody> body{};
+
+  GetDcdnKvStatusResponse() {}
+
+  explicit GetDcdnKvStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetDcdnKvStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetDcdnKvStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetDcdnKvStatusResponse() = default;
+};
 class ListDcdnKvRequest : public Darabonba::Model {
 public:
   shared_ptr<string> namespace_{};
@@ -46020,6 +46161,8 @@ public:
   EditRoutineConfResponse editRoutineConf(shared_ptr<EditRoutineConfRequest> request);
   GetDcdnKvResponse getDcdnKvWithOptions(shared_ptr<GetDcdnKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDcdnKvResponse getDcdnKv(shared_ptr<GetDcdnKvRequest> request);
+  GetDcdnKvStatusResponse getDcdnKvStatusWithOptions(shared_ptr<GetDcdnKvStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetDcdnKvStatusResponse getDcdnKvStatus(shared_ptr<GetDcdnKvStatusRequest> request);
   ListDcdnKvResponse listDcdnKvWithOptions(shared_ptr<ListDcdnKvRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListDcdnKvResponse listDcdnKv(shared_ptr<ListDcdnKvRequest> request);
   ListDcdnRealTimeDeliveryProjectResponse listDcdnRealTimeDeliveryProjectWithOptions(shared_ptr<ListDcdnRealTimeDeliveryProjectRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
