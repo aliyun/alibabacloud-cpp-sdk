@@ -3191,6 +3191,9 @@ CreateLaunchTemplateResponse Alibabacloud_Ecs20140526::Client::createLaunchTempl
   if (!Darabonba_Util::Client::isUnset<string>(request->autoReleaseTime)) {
     query->insert(pair<string, string>("AutoReleaseTime", *request->autoReleaseTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->creditSpecification)) {
+    query->insert(pair<string, string>("CreditSpecification", *request->creditSpecification));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<CreateLaunchTemplateRequestDataDisk>>(request->dataDisk)) {
     query->insert(pair<string, vector<CreateLaunchTemplateRequestDataDisk>>("DataDisk", *request->dataDisk));
   }
@@ -3356,6 +3359,9 @@ CreateLaunchTemplateVersionResponse Alibabacloud_Ecs20140526::Client::createLaun
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->autoReleaseTime)) {
     query->insert(pair<string, string>("AutoReleaseTime", *request->autoReleaseTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->creditSpecification)) {
+    query->insert(pair<string, string>("CreditSpecification", *request->creditSpecification));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateLaunchTemplateVersionRequestDataDisk>>(request->dataDisk)) {
     query->insert(pair<string, vector<CreateLaunchTemplateVersionRequestDataDisk>>("DataDisk", *request->dataDisk));
