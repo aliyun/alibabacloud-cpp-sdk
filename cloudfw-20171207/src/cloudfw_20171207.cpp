@@ -128,6 +128,9 @@ AddControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::addControlPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("Direction", *request->direction));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
     query->insert(pair<string, string>("IpVersion", *request->ipVersion));
   }
@@ -143,6 +146,18 @@ AddControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::addControlPolicyW
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
@@ -151,6 +166,9 @@ AddControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::addControlPolicyW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -272,6 +290,9 @@ CreateNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   if (!Darabonba_Util::Client::isUnset<long>(request->domainResolveType)) {
     query->insert(pair<string, long>("DomainResolveType", *request->domainResolveType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ipVersion)) {
     query->insert(pair<string, string>("IpVersion", *request->ipVersion));
   }
@@ -290,11 +311,26 @@ CreateNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -354,8 +390,14 @@ CreateTrFirewallV2Response Alibabacloud_Cloudfw20171207::Client::createTrFirewal
   if (!Darabonba_Util::Client::isUnset<string>(request->trAttachmentMasterCidr)) {
     query->insert(pair<string, string>("TrAttachmentMasterCidr", *request->trAttachmentMasterCidr));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trAttachmentMasterZone)) {
+    query->insert(pair<string, string>("TrAttachmentMasterZone", *request->trAttachmentMasterZone));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->trAttachmentSlaveCidr)) {
     query->insert(pair<string, string>("TrAttachmentSlaveCidr", *request->trAttachmentSlaveCidr));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->trAttachmentSlaveZone)) {
+    query->insert(pair<string, string>("TrAttachmentSlaveZone", *request->trAttachmentSlaveZone));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transitRouterId)) {
     query->insert(pair<string, string>("TransitRouterId", *request->transitRouterId));
@@ -558,6 +600,9 @@ CreateVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationName)) {
     query->insert(pair<string, string>("ApplicationName", *request->applicationName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->applicationNameList)) {
+    query->insert(pair<string, vector<string>>("ApplicationNameList", *request->applicationNameList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -576,6 +621,9 @@ CreateVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -591,11 +639,26 @@ CreateVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::cre
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcFirewallId)) {
     query->insert(pair<string, string>("VpcFirewallId", *request->vpcFirewallId));
@@ -925,6 +988,46 @@ DeleteVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::del
   return deleteVpcFirewallControlPolicyWithOptions(request, runtime);
 }
 
+DescribeACLProtectTrendResponse Alibabacloud_Cloudfw20171207::Client::describeACLProtectTrendWithOptions(shared_ptr<DescribeACLProtectTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
+    query->insert(pair<string, string>("SourceIp", *request->sourceIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeACLProtectTrend"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeACLProtectTrendResponse(callApi(params, req, runtime));
+}
+
+DescribeACLProtectTrendResponse Alibabacloud_Cloudfw20171207::Client::describeACLProtectTrend(shared_ptr<DescribeACLProtectTrendRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeACLProtectTrendWithOptions(request, runtime);
+}
+
 DescribeAddressBookResponse Alibabacloud_Cloudfw20171207::Client::describeAddressBookWithOptions(shared_ptr<DescribeAddressBookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1071,6 +1174,9 @@ DescribeControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::describeCont
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
@@ -1205,6 +1311,70 @@ DescribeInstanceMembersResponse Alibabacloud_Cloudfw20171207::Client::describeIn
 DescribeInstanceMembersResponse Alibabacloud_Cloudfw20171207::Client::describeInstanceMembers(shared_ptr<DescribeInstanceMembersRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeInstanceMembersWithOptions(request, runtime);
+}
+
+DescribeInternetOpenIpResponse Alibabacloud_Cloudfw20171207::Client::describeInternetOpenIpWithOptions(shared_ptr<DescribeInternetOpenIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->assetsInstanceId)) {
+    query->insert(pair<string, string>("AssetsInstanceId", *request->assetsInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->assetsInstanceName)) {
+    query->insert(pair<string, string>("AssetsInstanceName", *request->assetsInstanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->assetsType)) {
+    query->insert(pair<string, string>("AssetsType", *request->assetsType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->currentPage)) {
+    query->insert(pair<string, string>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
+    query->insert(pair<string, string>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->port)) {
+    query->insert(pair<string, string>("Port", *request->port));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->publicIp)) {
+    query->insert(pair<string, string>("PublicIp", *request->publicIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionNo)) {
+    query->insert(pair<string, string>("RegionNo", *request->regionNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->riskLevel)) {
+    query->insert(pair<string, string>("RiskLevel", *request->riskLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceName)) {
+    query->insert(pair<string, string>("ServiceName", *request->serviceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInternetOpenIp"))},
+    {"version", boost::any(string("2017-12-07"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInternetOpenIpResponse(callApi(params, req, runtime));
+}
+
+DescribeInternetOpenIpResponse Alibabacloud_Cloudfw20171207::Client::describeInternetOpenIp(shared_ptr<DescribeInternetOpenIpRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInternetOpenIpWithOptions(request, runtime);
 }
 
 DescribeInternetTrafficTrendResponse Alibabacloud_Cloudfw20171207::Client::describeInternetTrafficTrendWithOptions(shared_ptr<DescribeInternetTrafficTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1370,6 +1540,9 @@ DescribeNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::d
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
@@ -2214,6 +2387,9 @@ DescribeVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::d
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
@@ -2572,6 +2748,9 @@ ModifyControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::modifyControlP
   if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
     query->insert(pair<string, string>("Direction", *request->direction));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -2581,11 +2760,26 @@ ModifyControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::modifyControlP
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2805,6 +2999,9 @@ ModifyNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->domainResolveType)) {
     query->insert(pair<string, string>("DomainResolveType", *request->domainResolveType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -2817,11 +3014,26 @@ ModifyNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3176,6 +3388,9 @@ ModifyVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->applicationName)) {
     query->insert(pair<string, string>("ApplicationName", *request->applicationName));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->applicationNameList)) {
+    query->insert(pair<string, vector<string>>("ApplicationNameList", *request->applicationNameList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -3194,6 +3409,9 @@ ModifyVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
@@ -3203,11 +3421,26 @@ ModifyVpcFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->release)) {
     query->insert(pair<string, string>("Release", *request->release));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->repeatDays)) {
+    query->insert(pair<string, vector<long>>("RepeatDays", *request->repeatDays));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatEndTime)) {
+    query->insert(pair<string, string>("RepeatEndTime", *request->repeatEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatStartTime)) {
+    query->insert(pair<string, string>("RepeatStartTime", *request->repeatStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->repeatType)) {
+    query->insert(pair<string, string>("RepeatType", *request->repeatType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
     query->insert(pair<string, string>("SourceType", *request->sourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcFirewallId)) {
     query->insert(pair<string, string>("VpcFirewallId", *request->vpcFirewallId));

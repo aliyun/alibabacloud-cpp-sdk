@@ -259,14 +259,20 @@ public:
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> ipVersion{};
   shared_ptr<string> lang{};
   shared_ptr<string> newOrder{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceIp{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
 
   AddControlPolicyRequest() {}
 
@@ -308,6 +314,9 @@ public:
     if (direction) {
       res["Direction"] = boost::any(*direction);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
     }
@@ -323,6 +332,18 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -331,6 +352,9 @@ public:
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -373,6 +397,9 @@ public:
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
@@ -388,6 +415,25 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -396,6 +442,9 @@ public:
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -823,14 +872,20 @@ public:
   shared_ptr<string> destinationType{};
   shared_ptr<string> direction{};
   shared_ptr<long> domainResolveType{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> ipVersion{};
   shared_ptr<string> lang{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> newOrder{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
 
   CreateNatFirewallControlPolicyRequest() {}
 
@@ -872,6 +927,9 @@ public:
     if (domainResolveType) {
       res["DomainResolveType"] = boost::any(*domainResolveType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (ipVersion) {
       res["IpVersion"] = boost::any(*ipVersion);
     }
@@ -890,11 +948,26 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -937,6 +1010,9 @@ public:
     if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
       domainResolveType = make_shared<long>(boost::any_cast<long>(m["DomainResolveType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
       ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
@@ -955,11 +1031,33 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -1077,7 +1175,9 @@ public:
   shared_ptr<string> regionNo{};
   shared_ptr<string> routeMode{};
   shared_ptr<string> trAttachmentMasterCidr{};
+  shared_ptr<string> trAttachmentMasterZone{};
   shared_ptr<string> trAttachmentSlaveCidr{};
+  shared_ptr<string> trAttachmentSlaveZone{};
   shared_ptr<string> transitRouterId{};
 
   CreateTrFirewallV2Request() {}
@@ -1123,8 +1223,14 @@ public:
     if (trAttachmentMasterCidr) {
       res["TrAttachmentMasterCidr"] = boost::any(*trAttachmentMasterCidr);
     }
+    if (trAttachmentMasterZone) {
+      res["TrAttachmentMasterZone"] = boost::any(*trAttachmentMasterZone);
+    }
     if (trAttachmentSlaveCidr) {
       res["TrAttachmentSlaveCidr"] = boost::any(*trAttachmentSlaveCidr);
+    }
+    if (trAttachmentSlaveZone) {
+      res["TrAttachmentSlaveZone"] = boost::any(*trAttachmentSlaveZone);
     }
     if (transitRouterId) {
       res["TransitRouterId"] = boost::any(*transitRouterId);
@@ -1166,8 +1272,14 @@ public:
     if (m.find("TrAttachmentMasterCidr") != m.end() && !m["TrAttachmentMasterCidr"].empty()) {
       trAttachmentMasterCidr = make_shared<string>(boost::any_cast<string>(m["TrAttachmentMasterCidr"]));
     }
+    if (m.find("TrAttachmentMasterZone") != m.end() && !m["TrAttachmentMasterZone"].empty()) {
+      trAttachmentMasterZone = make_shared<string>(boost::any_cast<string>(m["TrAttachmentMasterZone"]));
+    }
     if (m.find("TrAttachmentSlaveCidr") != m.end() && !m["TrAttachmentSlaveCidr"].empty()) {
       trAttachmentSlaveCidr = make_shared<string>(boost::any_cast<string>(m["TrAttachmentSlaveCidr"]));
+    }
+    if (m.find("TrAttachmentSlaveZone") != m.end() && !m["TrAttachmentSlaveZone"].empty()) {
+      trAttachmentSlaveZone = make_shared<string>(boost::any_cast<string>(m["TrAttachmentSlaveZone"]));
     }
     if (m.find("TransitRouterId") != m.end() && !m["TransitRouterId"].empty()) {
       transitRouterId = make_shared<string>(boost::any_cast<string>(m["TransitRouterId"]));
@@ -2006,19 +2118,26 @@ class CreateVpcFirewallControlPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclAction{};
   shared_ptr<string> applicationName{};
+  shared_ptr<vector<string>> applicationNameList{};
   shared_ptr<string> description{};
   shared_ptr<string> destPort{};
   shared_ptr<string> destPortGroup{};
   shared_ptr<string> destPortType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> memberUid{};
   shared_ptr<string> newOrder{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> vpcFirewallId{};
 
   CreateVpcFirewallControlPolicyRequest() {}
@@ -2036,6 +2155,9 @@ public:
     }
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (applicationNameList) {
+      res["ApplicationNameList"] = boost::any(*applicationNameList);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -2055,6 +2177,9 @@ public:
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -2070,11 +2195,26 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     if (vpcFirewallId) {
       res["VpcFirewallId"] = boost::any(*vpcFirewallId);
@@ -2088,6 +2228,16 @@ public:
     }
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("ApplicationNameList") != m.end() && !m["ApplicationNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -2107,6 +2257,9 @@ public:
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
@@ -2122,11 +2275,33 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("VpcFirewallId") != m.end() && !m["VpcFirewallId"].empty()) {
       vpcFirewallId = make_shared<string>(boost::any_cast<string>(m["VpcFirewallId"]));
@@ -3454,6 +3629,239 @@ public:
 
   virtual ~DeleteVpcFirewallControlPolicyResponse() = default;
 };
+class DescribeACLProtectTrendRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> sourceIp{};
+  shared_ptr<string> startTime{};
+
+  DescribeACLProtectTrendRequest() {}
+
+  explicit DescribeACLProtectTrendRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (sourceIp) {
+      res["SourceIp"] = boost::any(*sourceIp);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("SourceIp") != m.end() && !m["SourceIp"].empty()) {
+      sourceIp = make_shared<string>(boost::any_cast<string>(m["SourceIp"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeACLProtectTrendRequest() = default;
+};
+class DescribeACLProtectTrendResponseBodyTrendList : public Darabonba::Model {
+public:
+  shared_ptr<long> protectCnt{};
+  shared_ptr<long> time{};
+
+  DescribeACLProtectTrendResponseBodyTrendList() {}
+
+  explicit DescribeACLProtectTrendResponseBodyTrendList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (protectCnt) {
+      res["ProtectCnt"] = boost::any(*protectCnt);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ProtectCnt") != m.end() && !m["ProtectCnt"].empty()) {
+      protectCnt = make_shared<long>(boost::any_cast<long>(m["ProtectCnt"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+  }
+
+
+  virtual ~DescribeACLProtectTrendResponseBodyTrendList() = default;
+};
+class DescribeACLProtectTrendResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> inProtectCnt{};
+  shared_ptr<long> interVPCProtectCnt{};
+  shared_ptr<long> interval{};
+  shared_ptr<long> outProtectCnt{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalProtectCnt{};
+  shared_ptr<vector<DescribeACLProtectTrendResponseBodyTrendList>> trendList{};
+
+  DescribeACLProtectTrendResponseBody() {}
+
+  explicit DescribeACLProtectTrendResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (inProtectCnt) {
+      res["InProtectCnt"] = boost::any(*inProtectCnt);
+    }
+    if (interVPCProtectCnt) {
+      res["InterVPCProtectCnt"] = boost::any(*interVPCProtectCnt);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (outProtectCnt) {
+      res["OutProtectCnt"] = boost::any(*outProtectCnt);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalProtectCnt) {
+      res["TotalProtectCnt"] = boost::any(*totalProtectCnt);
+    }
+    if (trendList) {
+      vector<boost::any> temp1;
+      for(auto item1:*trendList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TrendList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InProtectCnt") != m.end() && !m["InProtectCnt"].empty()) {
+      inProtectCnt = make_shared<long>(boost::any_cast<long>(m["InProtectCnt"]));
+    }
+    if (m.find("InterVPCProtectCnt") != m.end() && !m["InterVPCProtectCnt"].empty()) {
+      interVPCProtectCnt = make_shared<long>(boost::any_cast<long>(m["InterVPCProtectCnt"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("OutProtectCnt") != m.end() && !m["OutProtectCnt"].empty()) {
+      outProtectCnt = make_shared<long>(boost::any_cast<long>(m["OutProtectCnt"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalProtectCnt") != m.end() && !m["TotalProtectCnt"].empty()) {
+      totalProtectCnt = make_shared<long>(boost::any_cast<long>(m["TotalProtectCnt"]));
+    }
+    if (m.find("TrendList") != m.end() && !m["TrendList"].empty()) {
+      if (typeid(vector<boost::any>) == m["TrendList"].type()) {
+        vector<DescribeACLProtectTrendResponseBodyTrendList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TrendList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeACLProtectTrendResponseBodyTrendList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        trendList = make_shared<vector<DescribeACLProtectTrendResponseBodyTrendList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeACLProtectTrendResponseBody() = default;
+};
+class DescribeACLProtectTrendResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeACLProtectTrendResponseBody> body{};
+
+  DescribeACLProtectTrendResponse() {}
+
+  explicit DescribeACLProtectTrendResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeACLProtectTrendResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeACLProtectTrendResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeACLProtectTrendResponse() = default;
+};
 class DescribeAddressBookRequest : public Darabonba::Model {
 public:
   shared_ptr<string> containPort{};
@@ -4214,6 +4622,7 @@ public:
   shared_ptr<string> pageSize{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
 
   DescribeControlPolicyRequest() {}
@@ -4259,6 +4668,9 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -4299,6 +4711,9 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -4327,6 +4742,7 @@ public:
   shared_ptr<string> direction{};
   shared_ptr<string> dnsResult{};
   shared_ptr<long> dnsResultTime{};
+  shared_ptr<long> endTime{};
   shared_ptr<long> hitLastTime{};
   shared_ptr<long> hitTimes{};
   shared_ptr<long> ipVersion{};
@@ -4334,11 +4750,16 @@ public:
   shared_ptr<long> order{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<vector<string>> sourceGroupCidrs{};
   shared_ptr<string> sourceGroupType{};
   shared_ptr<string> sourceType{};
   shared_ptr<long> spreadCnt{};
+  shared_ptr<long> startTime{};
 
   DescribeControlPolicyResponseBodyPolicys() {}
 
@@ -4404,6 +4825,9 @@ public:
     if (dnsResultTime) {
       res["DnsResultTime"] = boost::any(*dnsResultTime);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (hitLastTime) {
       res["HitLastTime"] = boost::any(*hitLastTime);
     }
@@ -4425,6 +4849,18 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -4439,6 +4875,9 @@ public:
     }
     if (spreadCnt) {
       res["SpreadCnt"] = boost::any(*spreadCnt);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -4519,6 +4958,9 @@ public:
     if (m.find("DnsResultTime") != m.end() && !m["DnsResultTime"].empty()) {
       dnsResultTime = make_shared<long>(boost::any_cast<long>(m["DnsResultTime"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("HitLastTime") != m.end() && !m["HitLastTime"].empty()) {
       hitLastTime = make_shared<long>(boost::any_cast<long>(m["HitLastTime"]));
     }
@@ -4539,6 +4981,25 @@ public:
     }
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
+    }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -4561,6 +5022,9 @@ public:
     }
     if (m.find("SpreadCnt") != m.end() && !m["SpreadCnt"].empty()) {
       spreadCnt = make_shared<long>(boost::any_cast<long>(m["SpreadCnt"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -5358,6 +5822,426 @@ public:
 
   virtual ~DescribeInstanceMembersResponse() = default;
 };
+class DescribeInternetOpenIpRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> assetsInstanceId{};
+  shared_ptr<string> assetsInstanceName{};
+  shared_ptr<string> assetsType{};
+  shared_ptr<string> currentPage{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> lang{};
+  shared_ptr<string> pageSize{};
+  shared_ptr<string> port{};
+  shared_ptr<string> publicIp{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<string> riskLevel{};
+  shared_ptr<string> serviceName{};
+  shared_ptr<string> startTime{};
+
+  DescribeInternetOpenIpRequest() {}
+
+  explicit DescribeInternetOpenIpRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (assetsInstanceId) {
+      res["AssetsInstanceId"] = boost::any(*assetsInstanceId);
+    }
+    if (assetsInstanceName) {
+      res["AssetsInstanceName"] = boost::any(*assetsInstanceName);
+    }
+    if (assetsType) {
+      res["AssetsType"] = boost::any(*assetsType);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (lang) {
+      res["Lang"] = boost::any(*lang);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (publicIp) {
+      res["PublicIp"] = boost::any(*publicIp);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssetsInstanceId") != m.end() && !m["AssetsInstanceId"].empty()) {
+      assetsInstanceId = make_shared<string>(boost::any_cast<string>(m["AssetsInstanceId"]));
+    }
+    if (m.find("AssetsInstanceName") != m.end() && !m["AssetsInstanceName"].empty()) {
+      assetsInstanceName = make_shared<string>(boost::any_cast<string>(m["AssetsInstanceName"]));
+    }
+    if (m.find("AssetsType") != m.end() && !m["AssetsType"].empty()) {
+      assetsType = make_shared<string>(boost::any_cast<string>(m["AssetsType"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<string>(boost::any_cast<string>(m["CurrentPage"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
+      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<string>(boost::any_cast<string>(m["PageSize"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("PublicIp") != m.end() && !m["PublicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["PublicIp"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<string>(boost::any_cast<string>(m["RiskLevel"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeInternetOpenIpRequest() = default;
+};
+class DescribeInternetOpenIpResponseBodyDataList : public Darabonba::Model {
+public:
+  shared_ptr<string> aclRecommendDetail{};
+  shared_ptr<string> assetsInstanceId{};
+  shared_ptr<string> assetsName{};
+  shared_ptr<string> assetsType{};
+  shared_ptr<long> detailNum{};
+  shared_ptr<bool> hasAclRecommend{};
+  shared_ptr<vector<string>> portList{};
+  shared_ptr<string> publicIp{};
+  shared_ptr<string> regionNo{};
+  shared_ptr<long> riskLevel{};
+  shared_ptr<string> riskReason{};
+  shared_ptr<vector<string>> serviceNameList{};
+  shared_ptr<string> trafficPercent1Day{};
+  shared_ptr<string> trafficPercent30Day{};
+  shared_ptr<string> trafficPercent7Day{};
+
+  DescribeInternetOpenIpResponseBodyDataList() {}
+
+  explicit DescribeInternetOpenIpResponseBodyDataList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aclRecommendDetail) {
+      res["AclRecommendDetail"] = boost::any(*aclRecommendDetail);
+    }
+    if (assetsInstanceId) {
+      res["AssetsInstanceId"] = boost::any(*assetsInstanceId);
+    }
+    if (assetsName) {
+      res["AssetsName"] = boost::any(*assetsName);
+    }
+    if (assetsType) {
+      res["AssetsType"] = boost::any(*assetsType);
+    }
+    if (detailNum) {
+      res["DetailNum"] = boost::any(*detailNum);
+    }
+    if (hasAclRecommend) {
+      res["HasAclRecommend"] = boost::any(*hasAclRecommend);
+    }
+    if (portList) {
+      res["PortList"] = boost::any(*portList);
+    }
+    if (publicIp) {
+      res["PublicIp"] = boost::any(*publicIp);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    if (riskLevel) {
+      res["RiskLevel"] = boost::any(*riskLevel);
+    }
+    if (riskReason) {
+      res["RiskReason"] = boost::any(*riskReason);
+    }
+    if (serviceNameList) {
+      res["ServiceNameList"] = boost::any(*serviceNameList);
+    }
+    if (trafficPercent1Day) {
+      res["TrafficPercent1Day"] = boost::any(*trafficPercent1Day);
+    }
+    if (trafficPercent30Day) {
+      res["TrafficPercent30Day"] = boost::any(*trafficPercent30Day);
+    }
+    if (trafficPercent7Day) {
+      res["TrafficPercent7Day"] = boost::any(*trafficPercent7Day);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AclRecommendDetail") != m.end() && !m["AclRecommendDetail"].empty()) {
+      aclRecommendDetail = make_shared<string>(boost::any_cast<string>(m["AclRecommendDetail"]));
+    }
+    if (m.find("AssetsInstanceId") != m.end() && !m["AssetsInstanceId"].empty()) {
+      assetsInstanceId = make_shared<string>(boost::any_cast<string>(m["AssetsInstanceId"]));
+    }
+    if (m.find("AssetsName") != m.end() && !m["AssetsName"].empty()) {
+      assetsName = make_shared<string>(boost::any_cast<string>(m["AssetsName"]));
+    }
+    if (m.find("AssetsType") != m.end() && !m["AssetsType"].empty()) {
+      assetsType = make_shared<string>(boost::any_cast<string>(m["AssetsType"]));
+    }
+    if (m.find("DetailNum") != m.end() && !m["DetailNum"].empty()) {
+      detailNum = make_shared<long>(boost::any_cast<long>(m["DetailNum"]));
+    }
+    if (m.find("HasAclRecommend") != m.end() && !m["HasAclRecommend"].empty()) {
+      hasAclRecommend = make_shared<bool>(boost::any_cast<bool>(m["HasAclRecommend"]));
+    }
+    if (m.find("PortList") != m.end() && !m["PortList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["PortList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["PortList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      portList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PublicIp") != m.end() && !m["PublicIp"].empty()) {
+      publicIp = make_shared<string>(boost::any_cast<string>(m["PublicIp"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+    if (m.find("RiskLevel") != m.end() && !m["RiskLevel"].empty()) {
+      riskLevel = make_shared<long>(boost::any_cast<long>(m["RiskLevel"]));
+    }
+    if (m.find("RiskReason") != m.end() && !m["RiskReason"].empty()) {
+      riskReason = make_shared<string>(boost::any_cast<string>(m["RiskReason"]));
+    }
+    if (m.find("ServiceNameList") != m.end() && !m["ServiceNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ServiceNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ServiceNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      serviceNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("TrafficPercent1Day") != m.end() && !m["TrafficPercent1Day"].empty()) {
+      trafficPercent1Day = make_shared<string>(boost::any_cast<string>(m["TrafficPercent1Day"]));
+    }
+    if (m.find("TrafficPercent30Day") != m.end() && !m["TrafficPercent30Day"].empty()) {
+      trafficPercent30Day = make_shared<string>(boost::any_cast<string>(m["TrafficPercent30Day"]));
+    }
+    if (m.find("TrafficPercent7Day") != m.end() && !m["TrafficPercent7Day"].empty()) {
+      trafficPercent7Day = make_shared<string>(boost::any_cast<string>(m["TrafficPercent7Day"]));
+    }
+  }
+
+
+  virtual ~DescribeInternetOpenIpResponseBodyDataList() = default;
+};
+class DescribeInternetOpenIpResponseBodyPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  DescribeInternetOpenIpResponseBodyPageInfo() {}
+
+  explicit DescribeInternetOpenIpResponseBodyPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeInternetOpenIpResponseBodyPageInfo() = default;
+};
+class DescribeInternetOpenIpResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeInternetOpenIpResponseBodyDataList>> dataList{};
+  shared_ptr<DescribeInternetOpenIpResponseBodyPageInfo> pageInfo{};
+  shared_ptr<string> requestId{};
+
+  DescribeInternetOpenIpResponseBody() {}
+
+  explicit DescribeInternetOpenIpResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataList) {
+      vector<boost::any> temp1;
+      for(auto item1:*dataList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DataList"] = boost::any(temp1);
+    }
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataList") != m.end() && !m["DataList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DataList"].type()) {
+        vector<DescribeInternetOpenIpResponseBodyDataList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DataList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeInternetOpenIpResponseBodyDataList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        dataList = make_shared<vector<DescribeInternetOpenIpResponseBodyDataList>>(expect1);
+      }
+    }
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        DescribeInternetOpenIpResponseBodyPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<DescribeInternetOpenIpResponseBodyPageInfo>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeInternetOpenIpResponseBody() = default;
+};
+class DescribeInternetOpenIpResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeInternetOpenIpResponseBody> body{};
+
+  DescribeInternetOpenIpResponse() {}
+
+  explicit DescribeInternetOpenIpResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeInternetOpenIpResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeInternetOpenIpResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeInternetOpenIpResponse() = default;
+};
 class DescribeInternetTrafficTrendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> direction{};
@@ -5454,6 +6338,7 @@ public:
   shared_ptr<long> outPps{};
   shared_ptr<long> sessionCount{};
   shared_ptr<long> time{};
+  shared_ptr<long> totalBps{};
 
   DescribeInternetTrafficTrendResponseBodyDataList() {}
 
@@ -5492,6 +6377,9 @@ public:
     if (time) {
       res["Time"] = boost::any(*time);
     }
+    if (totalBps) {
+      res["TotalBps"] = boost::any(*totalBps);
+    }
     return res;
   }
 
@@ -5522,6 +6410,9 @@ public:
     }
     if (m.find("Time") != m.end() && !m["Time"].empty()) {
       time = make_shared<long>(boost::any_cast<long>(m["Time"]));
+    }
+    if (m.find("TotalBps") != m.end() && !m["TotalBps"].empty()) {
+      totalBps = make_shared<long>(boost::any_cast<long>(m["TotalBps"]));
     }
   }
 
@@ -6213,6 +7104,7 @@ public:
   shared_ptr<string> pageSize{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
 
   DescribeNatFirewallControlPolicyRequest() {}
@@ -6258,6 +7150,9 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -6298,6 +7193,9 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -6324,6 +7222,7 @@ public:
   shared_ptr<string> dnsResult{};
   shared_ptr<long> dnsResultTime{};
   shared_ptr<long> domainResolveType{};
+  shared_ptr<long> endTime{};
   shared_ptr<long> hitLastTime{};
   shared_ptr<long> hitTimes{};
   shared_ptr<long> modifyTime{};
@@ -6331,11 +7230,16 @@ public:
   shared_ptr<long> order{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<vector<string>> sourceGroupCidrs{};
   shared_ptr<string> sourceGroupType{};
   shared_ptr<string> sourceType{};
   shared_ptr<string> spreadCnt{};
+  shared_ptr<long> startTime{};
 
   DescribeNatFirewallControlPolicyResponseBodyPolicys() {}
 
@@ -6395,6 +7299,9 @@ public:
     if (domainResolveType) {
       res["DomainResolveType"] = boost::any(*domainResolveType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (hitLastTime) {
       res["HitLastTime"] = boost::any(*hitLastTime);
     }
@@ -6416,6 +7323,18 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -6430,6 +7349,9 @@ public:
     }
     if (spreadCnt) {
       res["SpreadCnt"] = boost::any(*spreadCnt);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -6504,6 +7426,9 @@ public:
     if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
       domainResolveType = make_shared<long>(boost::any_cast<long>(m["DomainResolveType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("HitLastTime") != m.end() && !m["HitLastTime"].empty()) {
       hitLastTime = make_shared<long>(boost::any_cast<long>(m["HitLastTime"]));
     }
@@ -6524,6 +7449,25 @@ public:
     }
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
+    }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -6546,6 +7490,9 @@ public:
     }
     if (m.find("SpreadCnt") != m.end() && !m["SpreadCnt"].empty()) {
       spreadCnt = make_shared<string>(boost::any_cast<string>(m["SpreadCnt"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -11293,6 +12240,7 @@ class DescribeVpcFirewallAclGroupListResponseBodyAclGroupList : public Darabonba
 public:
   shared_ptr<string> aclGroupId{};
   shared_ptr<string> aclGroupName{};
+  shared_ptr<long> aclRuleCount{};
   shared_ptr<string> memberUid{};
 
   DescribeVpcFirewallAclGroupListResponseBodyAclGroupList() {}
@@ -11311,6 +12259,9 @@ public:
     if (aclGroupName) {
       res["AclGroupName"] = boost::any(*aclGroupName);
     }
+    if (aclRuleCount) {
+      res["AclRuleCount"] = boost::any(*aclRuleCount);
+    }
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
     }
@@ -11323,6 +12274,9 @@ public:
     }
     if (m.find("AclGroupName") != m.end() && !m["AclGroupName"].empty()) {
       aclGroupName = make_shared<string>(boost::any_cast<string>(m["AclGroupName"]));
+    }
+    if (m.find("AclRuleCount") != m.end() && !m["AclRuleCount"].empty()) {
+      aclRuleCount = make_shared<long>(boost::any_cast<long>(m["AclRuleCount"]));
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
@@ -12632,6 +13586,7 @@ public:
   shared_ptr<string> pageSize{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> vpcFirewallId{};
 
@@ -12675,6 +13630,9 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
@@ -12715,6 +13673,9 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
@@ -12732,6 +13693,8 @@ public:
   shared_ptr<string> aclUuid{};
   shared_ptr<string> applicationId{};
   shared_ptr<string> applicationName{};
+  shared_ptr<vector<string>> applicationNameList{};
+  shared_ptr<long> createTime{};
   shared_ptr<string> description{};
   shared_ptr<string> destPort{};
   shared_ptr<string> destPortGroup{};
@@ -12741,15 +13704,24 @@ public:
   shared_ptr<vector<string>> destinationGroupCidrs{};
   shared_ptr<string> destinationGroupType{};
   shared_ptr<string> destinationType{};
+  shared_ptr<long> endTime{};
+  shared_ptr<long> hitLastTime{};
   shared_ptr<long> hitTimes{};
   shared_ptr<string> memberUid{};
+  shared_ptr<long> modifyTime{};
   shared_ptr<long> order{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<vector<string>> sourceGroupCidrs{};
   shared_ptr<string> sourceGroupType{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> spreadCnt{};
+  shared_ptr<long> startTime{};
 
   DescribeVpcFirewallControlPolicyResponseBodyPolicys() {}
 
@@ -12772,6 +13744,12 @@ public:
     }
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (applicationNameList) {
+      res["ApplicationNameList"] = boost::any(*applicationNameList);
+    }
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -12800,11 +13778,20 @@ public:
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (hitLastTime) {
+      res["HitLastTime"] = boost::any(*hitLastTime);
+    }
     if (hitTimes) {
       res["HitTimes"] = boost::any(*hitTimes);
     }
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
+    }
+    if (modifyTime) {
+      res["ModifyTime"] = boost::any(*modifyTime);
     }
     if (order) {
       res["Order"] = boost::any(*order);
@@ -12814,6 +13801,18 @@ public:
     }
     if (release) {
       res["Release"] = boost::any(*release);
+    }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
     }
     if (source) {
       res["Source"] = boost::any(*source);
@@ -12826,6 +13825,12 @@ public:
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (spreadCnt) {
+      res["SpreadCnt"] = boost::any(*spreadCnt);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -12842,6 +13847,19 @@ public:
     }
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("ApplicationNameList") != m.end() && !m["ApplicationNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationNameList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<long>(boost::any_cast<long>(m["CreateTime"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -12884,11 +13902,20 @@ public:
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("HitLastTime") != m.end() && !m["HitLastTime"].empty()) {
+      hitLastTime = make_shared<long>(boost::any_cast<long>(m["HitLastTime"]));
+    }
     if (m.find("HitTimes") != m.end() && !m["HitTimes"].empty()) {
       hitTimes = make_shared<long>(boost::any_cast<long>(m["HitTimes"]));
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
+    }
+    if (m.find("ModifyTime") != m.end() && !m["ModifyTime"].empty()) {
+      modifyTime = make_shared<long>(boost::any_cast<long>(m["ModifyTime"]));
     }
     if (m.find("Order") != m.end() && !m["Order"].empty()) {
       order = make_shared<long>(boost::any_cast<long>(m["Order"]));
@@ -12898,6 +13925,25 @@ public:
     }
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
+    }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
@@ -12917,6 +13963,12 @@ public:
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("SpreadCnt") != m.end() && !m["SpreadCnt"].empty()) {
+      spreadCnt = make_shared<long>(boost::any_cast<long>(m["SpreadCnt"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -15359,11 +16411,17 @@ public:
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> direction{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
 
   ModifyControlPolicyRequest() {}
 
@@ -15408,6 +16466,9 @@ public:
     if (direction) {
       res["Direction"] = boost::any(*direction);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -15417,11 +16478,26 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -15467,6 +16543,9 @@ public:
     if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
       direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
@@ -15476,11 +16555,33 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -16239,12 +17340,18 @@ public:
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
   shared_ptr<string> domainResolveType{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
 
   ModifyNatFirewallControlPolicyRequest() {}
 
@@ -16286,6 +17393,9 @@ public:
     if (domainResolveType) {
       res["DomainResolveType"] = boost::any(*domainResolveType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -16298,11 +17408,26 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     return res;
   }
@@ -16345,6 +17470,9 @@ public:
     if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
       domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
@@ -16357,11 +17485,33 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
   }
 
@@ -17784,17 +18934,24 @@ public:
   shared_ptr<string> aclAction{};
   shared_ptr<string> aclUuid{};
   shared_ptr<string> applicationName{};
+  shared_ptr<vector<string>> applicationNameList{};
   shared_ptr<string> description{};
   shared_ptr<string> destPort{};
   shared_ptr<string> destPortGroup{};
   shared_ptr<string> destPortType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
+  shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
   shared_ptr<string> proto{};
   shared_ptr<string> release{};
+  shared_ptr<vector<long>> repeatDays{};
+  shared_ptr<string> repeatEndTime{};
+  shared_ptr<string> repeatStartTime{};
+  shared_ptr<string> repeatType{};
   shared_ptr<string> source{};
   shared_ptr<string> sourceType{};
+  shared_ptr<long> startTime{};
   shared_ptr<string> vpcFirewallId{};
 
   ModifyVpcFirewallControlPolicyRequest() {}
@@ -17816,6 +18973,9 @@ public:
     if (applicationName) {
       res["ApplicationName"] = boost::any(*applicationName);
     }
+    if (applicationNameList) {
+      res["ApplicationNameList"] = boost::any(*applicationNameList);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -17834,6 +18994,9 @@ public:
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
     }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -17843,11 +19006,26 @@ public:
     if (release) {
       res["Release"] = boost::any(*release);
     }
+    if (repeatDays) {
+      res["RepeatDays"] = boost::any(*repeatDays);
+    }
+    if (repeatEndTime) {
+      res["RepeatEndTime"] = boost::any(*repeatEndTime);
+    }
+    if (repeatStartTime) {
+      res["RepeatStartTime"] = boost::any(*repeatStartTime);
+    }
+    if (repeatType) {
+      res["RepeatType"] = boost::any(*repeatType);
+    }
     if (source) {
       res["Source"] = boost::any(*source);
     }
     if (sourceType) {
       res["SourceType"] = boost::any(*sourceType);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
     }
     if (vpcFirewallId) {
       res["VpcFirewallId"] = boost::any(*vpcFirewallId);
@@ -17864,6 +19042,16 @@ public:
     }
     if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
       applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("ApplicationNameList") != m.end() && !m["ApplicationNameList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ApplicationNameList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ApplicationNameList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      applicationNameList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
@@ -17883,6 +19071,9 @@ public:
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
     }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
     }
@@ -17892,11 +19083,33 @@ public:
     if (m.find("Release") != m.end() && !m["Release"].empty()) {
       release = make_shared<string>(boost::any_cast<string>(m["Release"]));
     }
+    if (m.find("RepeatDays") != m.end() && !m["RepeatDays"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["RepeatDays"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RepeatDays"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      repeatDays = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("RepeatEndTime") != m.end() && !m["RepeatEndTime"].empty()) {
+      repeatEndTime = make_shared<string>(boost::any_cast<string>(m["RepeatEndTime"]));
+    }
+    if (m.find("RepeatStartTime") != m.end() && !m["RepeatStartTime"].empty()) {
+      repeatStartTime = make_shared<string>(boost::any_cast<string>(m["RepeatStartTime"]));
+    }
+    if (m.find("RepeatType") != m.end() && !m["RepeatType"].empty()) {
+      repeatType = make_shared<string>(boost::any_cast<string>(m["RepeatType"]));
+    }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
     if (m.find("SourceType") != m.end() && !m["SourceType"].empty()) {
       sourceType = make_shared<string>(boost::any_cast<string>(m["SourceType"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
     if (m.find("VpcFirewallId") != m.end() && !m["VpcFirewallId"].empty()) {
       vpcFirewallId = make_shared<string>(boost::any_cast<string>(m["VpcFirewallId"]));
@@ -19293,6 +20506,8 @@ public:
   DeleteVpcFirewallConfigureResponse deleteVpcFirewallConfigure(shared_ptr<DeleteVpcFirewallConfigureRequest> request);
   DeleteVpcFirewallControlPolicyResponse deleteVpcFirewallControlPolicyWithOptions(shared_ptr<DeleteVpcFirewallControlPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteVpcFirewallControlPolicyResponse deleteVpcFirewallControlPolicy(shared_ptr<DeleteVpcFirewallControlPolicyRequest> request);
+  DescribeACLProtectTrendResponse describeACLProtectTrendWithOptions(shared_ptr<DescribeACLProtectTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeACLProtectTrendResponse describeACLProtectTrend(shared_ptr<DescribeACLProtectTrendRequest> request);
   DescribeAddressBookResponse describeAddressBookWithOptions(shared_ptr<DescribeAddressBookRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAddressBookResponse describeAddressBook(shared_ptr<DescribeAddressBookRequest> request);
   DescribeAssetListResponse describeAssetListWithOptions(shared_ptr<DescribeAssetListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -19305,6 +20520,8 @@ public:
   DescribeDomainResolveResponse describeDomainResolve(shared_ptr<DescribeDomainResolveRequest> request);
   DescribeInstanceMembersResponse describeInstanceMembersWithOptions(shared_ptr<DescribeInstanceMembersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInstanceMembersResponse describeInstanceMembers(shared_ptr<DescribeInstanceMembersRequest> request);
+  DescribeInternetOpenIpResponse describeInternetOpenIpWithOptions(shared_ptr<DescribeInternetOpenIpRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeInternetOpenIpResponse describeInternetOpenIp(shared_ptr<DescribeInternetOpenIpRequest> request);
   DescribeInternetTrafficTrendResponse describeInternetTrafficTrendWithOptions(shared_ptr<DescribeInternetTrafficTrendRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeInternetTrafficTrendResponse describeInternetTrafficTrend(shared_ptr<DescribeInternetTrafficTrendRequest> request);
   DescribeInvadeEventListResponse describeInvadeEventListWithOptions(shared_ptr<DescribeInvadeEventListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
