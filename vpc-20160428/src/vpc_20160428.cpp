@@ -1068,58 +1068,6 @@ AssociateEipAddressBatchResponse Alibabacloud_Vpc20160428::Client::associateEipA
   return associateEipAddressBatchWithOptions(request, runtime);
 }
 
-AssociateGlobalAccelerationInstanceResponse Alibabacloud_Vpc20160428::Client::associateGlobalAccelerationInstanceWithOptions(shared_ptr<AssociateGlobalAccelerationInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->backendServerId)) {
-    query->insert(pair<string, string>("BackendServerId", *request->backendServerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->backendServerRegionId)) {
-    query->insert(pair<string, string>("BackendServerRegionId", *request->backendServerRegionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->backendServerType)) {
-    query->insert(pair<string, string>("BackendServerType", *request->backendServerType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->globalAccelerationInstanceId)) {
-    query->insert(pair<string, string>("GlobalAccelerationInstanceId", *request->globalAccelerationInstanceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("AssociateGlobalAccelerationInstance"))},
-    {"version", boost::any(string("2016-04-28"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return AssociateGlobalAccelerationInstanceResponse(callApi(params, req, runtime));
-}
-
-AssociateGlobalAccelerationInstanceResponse Alibabacloud_Vpc20160428::Client::associateGlobalAccelerationInstance(shared_ptr<AssociateGlobalAccelerationInstanceRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return associateGlobalAccelerationInstanceWithOptions(request, runtime);
-}
-
 AssociateHaVipResponse Alibabacloud_Vpc20160428::Client::associateHaVipWithOptions(shared_ptr<AssociateHaVipRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2950,6 +2898,76 @@ CreateHaVipResponse Alibabacloud_Vpc20160428::Client::createHaVip(shared_ptr<Cre
   return createHaVipWithOptions(request, runtime);
 }
 
+CreateHighReliablePhysicalConnectionResponse Alibabacloud_Vpc20160428::Client::createHighReliablePhysicalConnectionWithOptions(shared_ptr<CreateHighReliablePhysicalConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
+    query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateHighReliablePhysicalConnectionRequestApList>>(request->apList)) {
+    query->insert(pair<string, vector<CreateHighReliablePhysicalConnectionRequestApList>>("ApList", *request->apList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceAdvancedCapacity)) {
+    query->insert(pair<string, vector<string>>("DeviceAdvancedCapacity", *request->deviceAdvancedCapacity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dryRun)) {
+    query->insert(pair<string, string>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->highReliableType)) {
+    query->insert(pair<string, string>("HighReliableType", *request->highReliableType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->portType)) {
+    query->insert(pair<string, string>("PortType", *request->portType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateHighReliablePhysicalConnectionRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateHighReliablePhysicalConnectionRequestTag>>("Tag", *request->tag));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateHighReliablePhysicalConnection"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateHighReliablePhysicalConnectionResponse(callApi(params, req, runtime));
+}
+
+CreateHighReliablePhysicalConnectionResponse Alibabacloud_Vpc20160428::Client::createHighReliablePhysicalConnection(shared_ptr<CreateHighReliablePhysicalConnectionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createHighReliablePhysicalConnectionWithOptions(request, runtime);
+}
+
 CreateIPv6TranslatorResponse Alibabacloud_Vpc20160428::Client::createIPv6TranslatorWithOptions(shared_ptr<CreateIPv6TranslatorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3668,6 +3686,9 @@ CreatePhysicalConnectionResponse Alibabacloud_Vpc20160428::Client::createPhysica
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->deviceAdvancedCapacity)) {
+    query->insert(pair<string, vector<string>>("DeviceAdvancedCapacity", *request->deviceAdvancedCapacity));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lineOperator)) {
     query->insert(pair<string, string>("LineOperator", *request->lineOperator));
@@ -15447,58 +15468,6 @@ ModifyIpv6GatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyIpv6G
 ModifyIpv6GatewayAttributeResponse Alibabacloud_Vpc20160428::Client::modifyIpv6GatewayAttribute(shared_ptr<ModifyIpv6GatewayAttributeRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyIpv6GatewayAttributeWithOptions(request, runtime);
-}
-
-ModifyIpv6GatewaySpecResponse Alibabacloud_Vpc20160428::Client::modifyIpv6GatewaySpecWithOptions(shared_ptr<ModifyIpv6GatewaySpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
-  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
-    query->insert(pair<string, string>("ClientToken", *request->clientToken));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6GatewayId)) {
-    query->insert(pair<string, string>("Ipv6GatewayId", *request->ipv6GatewayId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
-    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
-    query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
-    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
-  }
-  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
-    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
-    query->insert(pair<string, string>("Spec", *request->spec));
-  }
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
-    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
-  }));
-  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
-    {"action", boost::any(string("ModifyIpv6GatewaySpec"))},
-    {"version", boost::any(string("2016-04-28"))},
-    {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/"))},
-    {"method", boost::any(string("POST"))},
-    {"authType", boost::any(string("AK"))},
-    {"style", boost::any(string("RPC"))},
-    {"reqBodyType", boost::any(string("formData"))},
-    {"bodyType", boost::any(string("json"))}
-  }));
-  return ModifyIpv6GatewaySpecResponse(callApi(params, req, runtime));
-}
-
-ModifyIpv6GatewaySpecResponse Alibabacloud_Vpc20160428::Client::modifyIpv6GatewaySpec(shared_ptr<ModifyIpv6GatewaySpecRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return modifyIpv6GatewaySpecWithOptions(request, runtime);
 }
 
 ModifyIpv6InternetBandwidthResponse Alibabacloud_Vpc20160428::Client::modifyIpv6InternetBandwidthWithOptions(shared_ptr<ModifyIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

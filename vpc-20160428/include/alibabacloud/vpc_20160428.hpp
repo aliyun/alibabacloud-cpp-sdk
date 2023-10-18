@@ -3413,182 +3413,6 @@ public:
 
   virtual ~AssociateEipAddressBatchResponse() = default;
 };
-class AssociateGlobalAccelerationInstanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> backendServerId{};
-  shared_ptr<string> backendServerRegionId{};
-  shared_ptr<string> backendServerType{};
-  shared_ptr<string> globalAccelerationInstanceId{};
-  shared_ptr<string> ownerAccount{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-
-  AssociateGlobalAccelerationInstanceRequest() {}
-
-  explicit AssociateGlobalAccelerationInstanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (backendServerId) {
-      res["BackendServerId"] = boost::any(*backendServerId);
-    }
-    if (backendServerRegionId) {
-      res["BackendServerRegionId"] = boost::any(*backendServerRegionId);
-    }
-    if (backendServerType) {
-      res["BackendServerType"] = boost::any(*backendServerType);
-    }
-    if (globalAccelerationInstanceId) {
-      res["GlobalAccelerationInstanceId"] = boost::any(*globalAccelerationInstanceId);
-    }
-    if (ownerAccount) {
-      res["OwnerAccount"] = boost::any(*ownerAccount);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("BackendServerId") != m.end() && !m["BackendServerId"].empty()) {
-      backendServerId = make_shared<string>(boost::any_cast<string>(m["BackendServerId"]));
-    }
-    if (m.find("BackendServerRegionId") != m.end() && !m["BackendServerRegionId"].empty()) {
-      backendServerRegionId = make_shared<string>(boost::any_cast<string>(m["BackendServerRegionId"]));
-    }
-    if (m.find("BackendServerType") != m.end() && !m["BackendServerType"].empty()) {
-      backendServerType = make_shared<string>(boost::any_cast<string>(m["BackendServerType"]));
-    }
-    if (m.find("GlobalAccelerationInstanceId") != m.end() && !m["GlobalAccelerationInstanceId"].empty()) {
-      globalAccelerationInstanceId = make_shared<string>(boost::any_cast<string>(m["GlobalAccelerationInstanceId"]));
-    }
-    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
-      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-  }
-
-
-  virtual ~AssociateGlobalAccelerationInstanceRequest() = default;
-};
-class AssociateGlobalAccelerationInstanceResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  AssociateGlobalAccelerationInstanceResponseBody() {}
-
-  explicit AssociateGlobalAccelerationInstanceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~AssociateGlobalAccelerationInstanceResponseBody() = default;
-};
-class AssociateGlobalAccelerationInstanceResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<AssociateGlobalAccelerationInstanceResponseBody> body{};
-
-  AssociateGlobalAccelerationInstanceResponse() {}
-
-  explicit AssociateGlobalAccelerationInstanceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        AssociateGlobalAccelerationInstanceResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<AssociateGlobalAccelerationInstanceResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~AssociateGlobalAccelerationInstanceResponse() = default;
-};
 class AssociateHaVipRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -10088,6 +9912,567 @@ public:
 
   virtual ~CreateHaVipResponse() = default;
 };
+class CreateHighReliablePhysicalConnectionRequestApList : public Darabonba::Model {
+public:
+  shared_ptr<string> accessPointId{};
+  shared_ptr<long> bandwidth{};
+  shared_ptr<string> circuitCode{};
+  shared_ptr<string> description{};
+  shared_ptr<string> lineOperator{};
+  shared_ptr<string> name{};
+  shared_ptr<string> peerLocation{};
+  shared_ptr<long> portNum{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> type{};
+
+  CreateHighReliablePhysicalConnectionRequestApList() {}
+
+  explicit CreateHighReliablePhysicalConnectionRequestApList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessPointId) {
+      res["AccessPointId"] = boost::any(*accessPointId);
+    }
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
+    }
+    if (circuitCode) {
+      res["CircuitCode"] = boost::any(*circuitCode);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (lineOperator) {
+      res["LineOperator"] = boost::any(*lineOperator);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (peerLocation) {
+      res["PeerLocation"] = boost::any(*peerLocation);
+    }
+    if (portNum) {
+      res["PortNum"] = boost::any(*portNum);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessPointId") != m.end() && !m["AccessPointId"].empty()) {
+      accessPointId = make_shared<string>(boost::any_cast<string>(m["AccessPointId"]));
+    }
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
+    }
+    if (m.find("CircuitCode") != m.end() && !m["CircuitCode"].empty()) {
+      circuitCode = make_shared<string>(boost::any_cast<string>(m["CircuitCode"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("LineOperator") != m.end() && !m["LineOperator"].empty()) {
+      lineOperator = make_shared<string>(boost::any_cast<string>(m["LineOperator"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("PeerLocation") != m.end() && !m["PeerLocation"].empty()) {
+      peerLocation = make_shared<string>(boost::any_cast<string>(m["PeerLocation"]));
+    }
+    if (m.find("PortNum") != m.end() && !m["PortNum"].empty()) {
+      portNum = make_shared<long>(boost::any_cast<long>(m["PortNum"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionRequestApList() = default;
+};
+class CreateHighReliablePhysicalConnectionRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateHighReliablePhysicalConnectionRequestTag() {}
+
+  explicit CreateHighReliablePhysicalConnectionRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionRequestTag() = default;
+};
+class CreateHighReliablePhysicalConnectionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<vector<CreateHighReliablePhysicalConnectionRequestApList>> apList{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<vector<string>> deviceAdvancedCapacity{};
+  shared_ptr<string> dryRun{};
+  shared_ptr<string> highReliableType{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> portType{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<CreateHighReliablePhysicalConnectionRequestTag>> tag{};
+
+  CreateHighReliablePhysicalConnectionRequest() {}
+
+  explicit CreateHighReliablePhysicalConnectionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (apList) {
+      vector<boost::any> temp1;
+      for(auto item1:*apList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApList"] = boost::any(temp1);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (deviceAdvancedCapacity) {
+      res["DeviceAdvancedCapacity"] = boost::any(*deviceAdvancedCapacity);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (highReliableType) {
+      res["HighReliableType"] = boost::any(*highReliableType);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (portType) {
+      res["PortType"] = boost::any(*portType);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("ApList") != m.end() && !m["ApList"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApList"].type()) {
+        vector<CreateHighReliablePhysicalConnectionRequestApList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHighReliablePhysicalConnectionRequestApList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        apList = make_shared<vector<CreateHighReliablePhysicalConnectionRequestApList>>(expect1);
+      }
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DeviceAdvancedCapacity") != m.end() && !m["DeviceAdvancedCapacity"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceAdvancedCapacity"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceAdvancedCapacity"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceAdvancedCapacity = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<string>(boost::any_cast<string>(m["DryRun"]));
+    }
+    if (m.find("HighReliableType") != m.end() && !m["HighReliableType"].empty()) {
+      highReliableType = make_shared<string>(boost::any_cast<string>(m["HighReliableType"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PortType") != m.end() && !m["PortType"].empty()) {
+      portType = make_shared<string>(boost::any_cast<string>(m["PortType"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateHighReliablePhysicalConnectionRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHighReliablePhysicalConnectionRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateHighReliablePhysicalConnectionRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionRequest() = default;
+};
+class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> instanceId{};
+
+  CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList() = default;
+};
+class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList>> errorInfoList{};
+
+  CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*errorInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["errorInfoList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorInfoList") != m.end() && !m["errorInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["errorInfoList"].type()) {
+        vector<CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["errorInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        errorInfoList = make_shared<vector<CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList() = default;
+};
+class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> regionNo{};
+
+  CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (regionNo) {
+      res["RegionNo"] = boost::any(*regionNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("RegionNo") != m.end() && !m["RegionNo"].empty()) {
+      regionNo = make_shared<string>(boost::any_cast<string>(m["RegionNo"]));
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList() = default;
+};
+class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList>> physicalConnectionList{};
+
+  CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (physicalConnectionList) {
+      vector<boost::any> temp1;
+      for(auto item1:*physicalConnectionList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["physicalConnectionList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("physicalConnectionList") != m.end() && !m["physicalConnectionList"].empty()) {
+      if (typeid(vector<boost::any>) == m["physicalConnectionList"].type()) {
+        vector<CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["physicalConnectionList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        physicalConnectionList = make_shared<vector<CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList() = default;
+};
+class CreateHighReliablePhysicalConnectionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList> errorInfoList{};
+  shared_ptr<CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList> physicalConnectionList{};
+  shared_ptr<string> requestId{};
+
+  CreateHighReliablePhysicalConnectionResponseBody() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorInfoList) {
+      res["ErrorInfoList"] = errorInfoList ? boost::any(errorInfoList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (physicalConnectionList) {
+      res["PhysicalConnectionList"] = physicalConnectionList ? boost::any(physicalConnectionList->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorInfoList") != m.end() && !m["ErrorInfoList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ErrorInfoList"].type()) {
+        CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ErrorInfoList"]));
+        errorInfoList = make_shared<CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList>(model1);
+      }
+    }
+    if (m.find("PhysicalConnectionList") != m.end() && !m["PhysicalConnectionList"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PhysicalConnectionList"].type()) {
+        CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PhysicalConnectionList"]));
+        physicalConnectionList = make_shared<CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponseBody() = default;
+};
+class CreateHighReliablePhysicalConnectionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateHighReliablePhysicalConnectionResponseBody> body{};
+
+  CreateHighReliablePhysicalConnectionResponse() {}
+
+  explicit CreateHighReliablePhysicalConnectionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateHighReliablePhysicalConnectionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateHighReliablePhysicalConnectionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateHighReliablePhysicalConnectionResponse() = default;
+};
 class CreateIPv6TranslatorRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> autoPay{};
@@ -13242,6 +13627,7 @@ public:
   shared_ptr<string> circuitCode{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<vector<string>> deviceAdvancedCapacity{};
   shared_ptr<string> lineOperator{};
   shared_ptr<string> name{};
   shared_ptr<string> ownerAccount{};
@@ -13278,6 +13664,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (deviceAdvancedCapacity) {
+      res["DeviceAdvancedCapacity"] = boost::any(*deviceAdvancedCapacity);
     }
     if (lineOperator) {
       res["LineOperator"] = boost::any(*lineOperator);
@@ -13340,6 +13729,16 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DeviceAdvancedCapacity") != m.end() && !m["DeviceAdvancedCapacity"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceAdvancedCapacity"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceAdvancedCapacity"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceAdvancedCapacity = make_shared<vector<string>>(toVec1);
     }
     if (m.find("LineOperator") != m.end() && !m["LineOperator"].empty()) {
       lineOperator = make_shared<string>(boost::any_cast<string>(m["LineOperator"]));
@@ -80479,175 +80878,6 @@ public:
 
   virtual ~ModifyIpv6GatewayAttributeResponse() = default;
 };
-class ModifyIpv6GatewaySpecRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> clientToken{};
-  shared_ptr<string> ipv6GatewayId{};
-  shared_ptr<string> ownerAccount{};
-  shared_ptr<long> ownerId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> resourceOwnerAccount{};
-  shared_ptr<long> resourceOwnerId{};
-  shared_ptr<string> spec{};
-
-  ModifyIpv6GatewaySpecRequest() {}
-
-  explicit ModifyIpv6GatewaySpecRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (clientToken) {
-      res["ClientToken"] = boost::any(*clientToken);
-    }
-    if (ipv6GatewayId) {
-      res["Ipv6GatewayId"] = boost::any(*ipv6GatewayId);
-    }
-    if (ownerAccount) {
-      res["OwnerAccount"] = boost::any(*ownerAccount);
-    }
-    if (ownerId) {
-      res["OwnerId"] = boost::any(*ownerId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (resourceOwnerAccount) {
-      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
-    }
-    if (resourceOwnerId) {
-      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
-    }
-    if (spec) {
-      res["Spec"] = boost::any(*spec);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
-      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
-    }
-    if (m.find("Ipv6GatewayId") != m.end() && !m["Ipv6GatewayId"].empty()) {
-      ipv6GatewayId = make_shared<string>(boost::any_cast<string>(m["Ipv6GatewayId"]));
-    }
-    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
-      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
-    }
-    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
-      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
-      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
-    }
-    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
-      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
-    }
-    if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
-      spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
-    }
-  }
-
-
-  virtual ~ModifyIpv6GatewaySpecRequest() = default;
-};
-class ModifyIpv6GatewaySpecResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<string> requestId{};
-
-  ModifyIpv6GatewaySpecResponseBody() {}
-
-  explicit ModifyIpv6GatewaySpecResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~ModifyIpv6GatewaySpecResponseBody() = default;
-};
-class ModifyIpv6GatewaySpecResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<ModifyIpv6GatewaySpecResponseBody> body{};
-
-  ModifyIpv6GatewaySpecResponse() {}
-
-  explicit ModifyIpv6GatewaySpecResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        ModifyIpv6GatewaySpecResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<ModifyIpv6GatewaySpecResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~ModifyIpv6GatewaySpecResponse() = default;
-};
 class ModifyIpv6InternetBandwidthRequest : public Darabonba::Model {
 public:
   shared_ptr<long> bandwidth{};
@@ -97288,8 +97518,6 @@ public:
   AssociateEipAddressResponse associateEipAddress(shared_ptr<AssociateEipAddressRequest> request);
   AssociateEipAddressBatchResponse associateEipAddressBatchWithOptions(shared_ptr<AssociateEipAddressBatchRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssociateEipAddressBatchResponse associateEipAddressBatch(shared_ptr<AssociateEipAddressBatchRequest> request);
-  AssociateGlobalAccelerationInstanceResponse associateGlobalAccelerationInstanceWithOptions(shared_ptr<AssociateGlobalAccelerationInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  AssociateGlobalAccelerationInstanceResponse associateGlobalAccelerationInstance(shared_ptr<AssociateGlobalAccelerationInstanceRequest> request);
   AssociateHaVipResponse associateHaVipWithOptions(shared_ptr<AssociateHaVipRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AssociateHaVipResponse associateHaVip(shared_ptr<AssociateHaVipRequest> request);
   AssociateNetworkAclResponse associateNetworkAclWithOptions(shared_ptr<AssociateNetworkAclRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -97356,6 +97584,8 @@ public:
   CreateGlobalAccelerationInstanceResponse createGlobalAccelerationInstance(shared_ptr<CreateGlobalAccelerationInstanceRequest> request);
   CreateHaVipResponse createHaVipWithOptions(shared_ptr<CreateHaVipRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateHaVipResponse createHaVip(shared_ptr<CreateHaVipRequest> request);
+  CreateHighReliablePhysicalConnectionResponse createHighReliablePhysicalConnectionWithOptions(shared_ptr<CreateHighReliablePhysicalConnectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateHighReliablePhysicalConnectionResponse createHighReliablePhysicalConnection(shared_ptr<CreateHighReliablePhysicalConnectionRequest> request);
   CreateIPv6TranslatorResponse createIPv6TranslatorWithOptions(shared_ptr<CreateIPv6TranslatorRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateIPv6TranslatorResponse createIPv6Translator(shared_ptr<CreateIPv6TranslatorRequest> request);
   CreateIPv6TranslatorAclListResponse createIPv6TranslatorAclListWithOptions(shared_ptr<CreateIPv6TranslatorAclListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -97810,8 +98040,6 @@ public:
   ModifyIpv6AddressAttributeResponse modifyIpv6AddressAttribute(shared_ptr<ModifyIpv6AddressAttributeRequest> request);
   ModifyIpv6GatewayAttributeResponse modifyIpv6GatewayAttributeWithOptions(shared_ptr<ModifyIpv6GatewayAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyIpv6GatewayAttributeResponse modifyIpv6GatewayAttribute(shared_ptr<ModifyIpv6GatewayAttributeRequest> request);
-  ModifyIpv6GatewaySpecResponse modifyIpv6GatewaySpecWithOptions(shared_ptr<ModifyIpv6GatewaySpecRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ModifyIpv6GatewaySpecResponse modifyIpv6GatewaySpec(shared_ptr<ModifyIpv6GatewaySpecRequest> request);
   ModifyIpv6InternetBandwidthResponse modifyIpv6InternetBandwidthWithOptions(shared_ptr<ModifyIpv6InternetBandwidthRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyIpv6InternetBandwidthResponse modifyIpv6InternetBandwidth(shared_ptr<ModifyIpv6InternetBandwidthRequest> request);
   ModifyNatGatewayAttributeResponse modifyNatGatewayAttributeWithOptions(shared_ptr<ModifyNatGatewayAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
