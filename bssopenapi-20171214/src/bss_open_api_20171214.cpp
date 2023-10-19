@@ -1002,6 +1002,61 @@ DescribeInstanceBillResponse Alibabacloud_BssOpenApi20171214::Client::describeIn
   return describeInstanceBillWithOptions(request, runtime);
 }
 
+DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse Alibabacloud_BssOpenApi20171214::Client::describeInstanceDeductAmortizedCostByAmortizationPeriodWithOptions(shared_ptr<DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->billOwnerIdList)) {
+    body->insert(pair<string, vector<string>>("BillOwnerIdList", *request->billOwnerIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->billUserIdList)) {
+    body->insert(pair<string, vector<string>>("BillUserIdList", *request->billUserIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->billingCycle)) {
+    body->insert(pair<string, string>("BillingCycle", *request->billingCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->costUnitCode)) {
+    body->insert(pair<string, string>("CostUnitCode", *request->costUnitCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceIdList)) {
+    body->insert(pair<string, vector<string>>("InstanceIdList", *request->instanceIdList));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    body->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    body->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
+    body->insert(pair<string, string>("ProductCode", *request->productCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->productDetail)) {
+    body->insert(pair<string, string>("ProductDetail", *request->productDetail));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subscriptionType)) {
+    body->insert(pair<string, string>("SubscriptionType", *request->subscriptionType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeInstanceDeductAmortizedCostByAmortizationPeriod"))},
+    {"version", boost::any(string("2017-12-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse(callApi(params, req, runtime));
+}
+
+DescribeInstanceDeductAmortizedCostByAmortizationPeriodResponse Alibabacloud_BssOpenApi20171214::Client::describeInstanceDeductAmortizedCostByAmortizationPeriod(shared_ptr<DescribeInstanceDeductAmortizedCostByAmortizationPeriodRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeInstanceDeductAmortizedCostByAmortizationPeriodWithOptions(request, runtime);
+}
+
 DescribePricingModuleResponse Alibabacloud_BssOpenApi20171214::Client::describePricingModuleWithOptions(shared_ptr<DescribePricingModuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3703,6 +3758,9 @@ RenewChangeInstanceResponse Alibabacloud_BssOpenApi20171214::Client::renewChange
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
   if (!Darabonba_Util::Client::isUnset<vector<RenewChangeInstanceRequestParameter>>(request->parameter)) {
     query->insert(pair<string, vector<RenewChangeInstanceRequestParameter>>("Parameter", *request->parameter));
