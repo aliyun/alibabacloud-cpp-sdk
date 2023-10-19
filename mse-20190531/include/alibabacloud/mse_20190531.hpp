@@ -33315,6 +33315,42 @@ public:
 
   virtual ~ListClustersRequest() = default;
 };
+class ListClustersResponseBodyDataMaintenancePeriod : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> startTime{};
+
+  ListClustersResponseBodyDataMaintenancePeriod() {}
+
+  explicit ListClustersResponseBodyDataMaintenancePeriod(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~ListClustersResponseBodyDataMaintenancePeriod() = default;
+};
 class ListClustersResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> appVersion{};
@@ -33332,6 +33368,7 @@ public:
   shared_ptr<string> internetDomain{};
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> intranetDomain{};
+  shared_ptr<ListClustersResponseBodyDataMaintenancePeriod> maintenancePeriod{};
   shared_ptr<string> mseVersion{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -33392,6 +33429,9 @@ public:
     }
     if (intranetDomain) {
       res["IntranetDomain"] = boost::any(*intranetDomain);
+    }
+    if (maintenancePeriod) {
+      res["MaintenancePeriod"] = maintenancePeriod ? boost::any(maintenancePeriod->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (mseVersion) {
       res["MseVersion"] = boost::any(*mseVersion);
@@ -33456,6 +33496,13 @@ public:
     }
     if (m.find("IntranetDomain") != m.end() && !m["IntranetDomain"].empty()) {
       intranetDomain = make_shared<string>(boost::any_cast<string>(m["IntranetDomain"]));
+    }
+    if (m.find("MaintenancePeriod") != m.end() && !m["MaintenancePeriod"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MaintenancePeriod"].type()) {
+        ListClustersResponseBodyDataMaintenancePeriod model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MaintenancePeriod"]));
+        maintenancePeriod = make_shared<ListClustersResponseBodyDataMaintenancePeriod>(model1);
+      }
     }
     if (m.find("MseVersion") != m.end() && !m["MseVersion"].empty()) {
       mseVersion = make_shared<string>(boost::any_cast<string>(m["MseVersion"]));
@@ -49214,6 +49261,7 @@ public:
   shared_ptr<long> configContentLimit{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<bool> configSecretSupported{};
+  shared_ptr<bool> consoleUIEnabled{};
   shared_ptr<bool> eurekaSupported{};
   shared_ptr<bool> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
@@ -49270,6 +49318,9 @@ public:
     }
     if (configSecretSupported) {
       res["ConfigSecretSupported"] = boost::any(*configSecretSupported);
+    }
+    if (consoleUIEnabled) {
+      res["ConsoleUIEnabled"] = boost::any(*consoleUIEnabled);
     }
     if (eurekaSupported) {
       res["EurekaSupported"] = boost::any(*eurekaSupported);
@@ -49364,6 +49415,9 @@ public:
     }
     if (m.find("ConfigSecretSupported") != m.end() && !m["ConfigSecretSupported"].empty()) {
       configSecretSupported = make_shared<bool>(boost::any_cast<bool>(m["ConfigSecretSupported"]));
+    }
+    if (m.find("ConsoleUIEnabled") != m.end() && !m["ConsoleUIEnabled"].empty()) {
+      consoleUIEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConsoleUIEnabled"]));
     }
     if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
       eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));
@@ -54542,6 +54596,7 @@ public:
   shared_ptr<bool> configAuthEnabled{};
   shared_ptr<bool> configSecretEnabled{};
   shared_ptr<string> configType{};
+  shared_ptr<bool> consoleUIEnabled{};
   shared_ptr<bool> eurekaSupported{};
   shared_ptr<string> extendedTypesEnable{};
   shared_ptr<string> initLimit{};
@@ -54591,6 +54646,9 @@ public:
     }
     if (configType) {
       res["ConfigType"] = boost::any(*configType);
+    }
+    if (consoleUIEnabled) {
+      res["ConsoleUIEnabled"] = boost::any(*consoleUIEnabled);
     }
     if (eurekaSupported) {
       res["EurekaSupported"] = boost::any(*eurekaSupported);
@@ -54670,6 +54728,9 @@ public:
     }
     if (m.find("ConfigType") != m.end() && !m["ConfigType"].empty()) {
       configType = make_shared<string>(boost::any_cast<string>(m["ConfigType"]));
+    }
+    if (m.find("ConsoleUIEnabled") != m.end() && !m["ConsoleUIEnabled"].empty()) {
+      consoleUIEnabled = make_shared<bool>(boost::any_cast<bool>(m["ConsoleUIEnabled"]));
     }
     if (m.find("EurekaSupported") != m.end() && !m["EurekaSupported"].empty()) {
       eurekaSupported = make_shared<bool>(boost::any_cast<bool>(m["EurekaSupported"]));
