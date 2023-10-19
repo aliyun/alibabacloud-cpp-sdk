@@ -3524,6 +3524,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<long> tid{};
 
   CreateAuthorityTemplateResponseBody() {}
 
@@ -3550,6 +3551,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
     return res;
   }
 
@@ -3572,6 +3576,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
   }
 
@@ -14889,6 +14896,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<long> tid{};
 
   GetAuthorityTemplateResponseBody() {}
 
@@ -14915,6 +14923,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
     return res;
   }
 
@@ -14937,6 +14948,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
   }
 
@@ -15169,6 +15183,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<long> tid{};
 
   GetAuthorityTemplateItemResponseBody() {}
 
@@ -15195,6 +15210,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
     return res;
   }
 
@@ -15217,6 +15235,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
   }
 
@@ -55670,6 +55691,7 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> success{};
+  shared_ptr<long> tid{};
 
   UpdateAuthorityTemplateResponseBody() {}
 
@@ -55696,6 +55718,9 @@ public:
     if (success) {
       res["Success"] = boost::any(*success);
     }
+    if (tid) {
+      res["Tid"] = boost::any(*tid);
+    }
     return res;
   }
 
@@ -55718,6 +55743,9 @@ public:
     }
     if (m.find("Success") != m.end() && !m["Success"].empty()) {
       success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+    if (m.find("Tid") != m.end() && !m["Tid"].empty()) {
+      tid = make_shared<long>(boost::any_cast<long>(m["Tid"]));
     }
   }
 
