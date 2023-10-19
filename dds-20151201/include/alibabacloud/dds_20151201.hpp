@@ -8930,7 +8930,10 @@ public:
 };
 class DescribeDBInstanceTDEInfoResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> encryptionKey{};
+  shared_ptr<string> encryptorName{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> roleARN{};
   shared_ptr<string> TDEStatus{};
 
   DescribeDBInstanceTDEInfoResponseBody() {}
@@ -8943,8 +8946,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (encryptionKey) {
+      res["EncryptionKey"] = boost::any(*encryptionKey);
+    }
+    if (encryptorName) {
+      res["EncryptorName"] = boost::any(*encryptorName);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (roleARN) {
+      res["RoleARN"] = boost::any(*roleARN);
     }
     if (TDEStatus) {
       res["TDEStatus"] = boost::any(*TDEStatus);
@@ -8953,8 +8965,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EncryptionKey") != m.end() && !m["EncryptionKey"].empty()) {
+      encryptionKey = make_shared<string>(boost::any_cast<string>(m["EncryptionKey"]));
+    }
+    if (m.find("EncryptorName") != m.end() && !m["EncryptorName"].empty()) {
+      encryptorName = make_shared<string>(boost::any_cast<string>(m["EncryptorName"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RoleARN") != m.end() && !m["RoleARN"].empty()) {
+      roleARN = make_shared<string>(boost::any_cast<string>(m["RoleARN"]));
     }
     if (m.find("TDEStatus") != m.end() && !m["TDEStatus"].empty()) {
       TDEStatus = make_shared<string>(boost::any_cast<string>(m["TDEStatus"]));
