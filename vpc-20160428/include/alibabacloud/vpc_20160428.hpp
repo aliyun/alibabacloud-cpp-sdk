@@ -7572,6 +7572,7 @@ public:
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<CreateCustomerGatewayRequestTags>> tags{};
@@ -7612,6 +7613,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -7656,6 +7660,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -20116,6 +20123,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> remoteCaCert{};
   shared_ptr<string> remoteSubnet{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<CreateVpnAttachmentRequestTags>> tags{};
@@ -20180,6 +20188,9 @@ public:
     }
     if (remoteSubnet) {
       res["RemoteSubnet"] = boost::any(*remoteSubnet);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -20248,6 +20259,9 @@ public:
     }
     if (m.find("RemoteSubnet") != m.end() && !m["RemoteSubnet"].empty()) {
       remoteSubnet = make_shared<string>(boost::any_cast<string>(m["RemoteSubnet"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -21048,6 +21062,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<long> period{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<long> sslConnections{};
@@ -21103,6 +21118,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -21164,6 +21182,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -33105,6 +33126,7 @@ public:
   shared_ptr<string> ipAddress{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeCustomerGatewayResponseBodyTags> tags{};
 
   DescribeCustomerGatewayResponseBody() {}
@@ -33141,6 +33163,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -33171,6 +33196,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
@@ -33290,6 +33318,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<DescribeCustomerGatewaysRequestTag>> tag{};
@@ -33321,6 +33350,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -33356,6 +33388,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -33469,6 +33504,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> ipAddress{};
   shared_ptr<string> name{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGatewayTags> tags{};
 
   DescribeCustomerGatewaysResponseBodyCustomerGatewaysCustomerGateway() {}
@@ -33502,6 +33538,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (tags) {
       res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -33529,6 +33568,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(map<string, boost::any>) == m["Tags"].type()) {
@@ -49811,6 +49853,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sslVpnClientCertId{};
   shared_ptr<string> sslVpnServerId{};
   shared_ptr<string> status{};
@@ -49852,6 +49895,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sslVpnClientCertId) {
       res["SslVpnClientCertId"] = boost::any(*sslVpnClientCertId);
     }
@@ -49891,6 +49937,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SslVpnClientCertId") != m.end() && !m["SslVpnClientCertId"].empty()) {
       sslVpnClientCertId = make_shared<string>(boost::any_cast<string>(m["SslVpnClientCertId"]));
@@ -49976,6 +50025,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sslVpnClientCertId{};
@@ -50008,6 +50058,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -50043,6 +50096,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -50066,6 +50122,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> name{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sslVpnClientCertId{};
   shared_ptr<string> sslVpnServerId{};
   shared_ptr<string> status{};
@@ -50092,6 +50149,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sslVpnClientCertId) {
       res["SslVpnClientCertId"] = boost::any(*sslVpnClientCertId);
     }
@@ -50116,6 +50176,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SslVpnClientCertId") != m.end() && !m["SslVpnClientCertId"].empty()) {
       sslVpnClientCertId = make_shared<string>(boost::any_cast<string>(m["SslVpnClientCertId"]));
@@ -50608,6 +50671,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> sslVpnServerId{};
@@ -50640,6 +50704,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -50675,6 +50742,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -50709,6 +50779,7 @@ public:
   shared_ptr<long> port{};
   shared_ptr<string> proto{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sslVpnServerId{};
   shared_ptr<string> vpnGatewayId{};
 
@@ -50767,6 +50838,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sslVpnServerId) {
       res["SslVpnServerId"] = boost::any(*sslVpnServerId);
     }
@@ -50821,6 +50895,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SslVpnServerId") != m.end() && !m["SslVpnServerId"].empty()) {
       sslVpnServerId = make_shared<string>(boost::any_cast<string>(m["SslVpnServerId"]));
@@ -58107,6 +58184,7 @@ public:
   shared_ptr<string> remoteCaCertificate{};
   shared_ptr<string> remoteSubnet{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> state{};
   shared_ptr<string> status{};
@@ -58183,6 +58261,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -58285,6 +58366,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -58721,6 +58805,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<vector<DescribeVpnConnectionsRequestTag>> tag{};
@@ -58754,6 +58839,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -58795,6 +58883,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -59568,6 +59659,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<string> remoteCaCertificate{};
   shared_ptr<string> remoteSubnet{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> state{};
   shared_ptr<string> status{};
@@ -59640,6 +59732,9 @@ public:
     }
     if (remoteSubnet) {
       res["RemoteSubnet"] = boost::any(*remoteSubnet);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -59736,6 +59831,9 @@ public:
     }
     if (m.find("RemoteSubnet") != m.end() && !m["RemoteSubnet"].empty()) {
       remoteSubnet = make_shared<string>(boost::any_cast<string>(m["RemoteSubnet"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -60470,6 +60568,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<string> requestId{};
   shared_ptr<DescribeVpnGatewayResponseBodyReservationData> reservationData{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<long> sslMaxConnections{};
   shared_ptr<string> sslVpn{};
@@ -60536,6 +60635,9 @@ public:
     }
     if (reservationData) {
       res["ReservationData"] = reservationData ? boost::any(reservationData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -60622,6 +60724,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReservationData"]));
         reservationData = make_shared<DescribeVpnGatewayResponseBodyReservationData>(model1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -60772,6 +60877,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> status{};
@@ -60809,6 +60915,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
@@ -60856,6 +60965,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -61056,6 +61168,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> networkType{};
   shared_ptr<DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData> reservationData{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<long> sslMaxConnections{};
   shared_ptr<string> sslVpn{};
@@ -61119,6 +61232,9 @@ public:
     }
     if (reservationData) {
       res["ReservationData"] = reservationData ? boost::any(reservationData->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -61202,6 +61318,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReservationData"]));
         reservationData = make_shared<DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGatewayReservationData>(model1);
       }
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -70554,6 +70673,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> vpnGatewayId{};
 
   ListIpsecServersRequest() {}
@@ -70580,6 +70700,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (vpnGatewayId) {
       res["VpnGatewayId"] = boost::any(*vpnGatewayId);
@@ -70609,6 +70732,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
       vpnGatewayId = make_shared<string>(boost::any_cast<string>(m["VpnGatewayId"]));
@@ -70764,6 +70890,7 @@ public:
   shared_ptr<string> psk{};
   shared_ptr<bool> pskEnabled{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> vpnGatewayId{};
 
   ListIpsecServersResponseBodyIpsecServers() {}
@@ -70823,6 +70950,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (vpnGatewayId) {
       res["VpnGatewayId"] = boost::any(*vpnGatewayId);
@@ -70886,6 +71016,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
       vpnGatewayId = make_shared<string>(boost::any_cast<string>(m["VpnGatewayId"]));
@@ -77832,6 +77965,7 @@ public:
   shared_ptr<string> ipAddress{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
 
   ModifyCustomerGatewayAttributeResponseBody() {}
 
@@ -77861,6 +77995,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -77882,6 +78019,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
   }
 
@@ -83450,6 +83590,7 @@ public:
   shared_ptr<string> proto{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sslVpnServerId{};
   shared_ptr<string> vpnGatewayId{};
 
@@ -83508,6 +83649,9 @@ public:
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sslVpnServerId) {
       res["SslVpnServerId"] = boost::any(*sslVpnServerId);
     }
@@ -83562,6 +83706,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SslVpnServerId") != m.end() && !m["SslVpnServerId"].empty()) {
       sslVpnServerId = make_shared<string>(boost::any_cast<string>(m["SslVpnServerId"]));
@@ -86145,6 +86292,7 @@ public:
   shared_ptr<string> networkType{};
   shared_ptr<string> remoteSubnet{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> status{};
   shared_ptr<ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck> vcoHealthCheck{};
@@ -86206,6 +86354,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -86281,6 +86432,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
@@ -86558,6 +86712,7 @@ public:
   shared_ptr<bool> enableDpd{};
   shared_ptr<bool> enableNatTraversal{};
   shared_ptr<string> remoteCaCertificate{};
+  shared_ptr<string> role{};
   shared_ptr<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig> tunnelBgpConfig{};
   shared_ptr<string> tunnelId{};
   shared_ptr<ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig> tunnelIkeConfig{};
@@ -86581,6 +86736,9 @@ public:
     }
     if (remoteCaCertificate) {
       res["RemoteCaCertificate"] = boost::any(*remoteCaCertificate);
+    }
+    if (role) {
+      res["Role"] = boost::any(*role);
     }
     if (tunnelBgpConfig) {
       res["TunnelBgpConfig"] = tunnelBgpConfig ? boost::any(tunnelBgpConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -86606,6 +86764,9 @@ public:
     }
     if (m.find("RemoteCaCertificate") != m.end() && !m["RemoteCaCertificate"].empty()) {
       remoteCaCertificate = make_shared<string>(boost::any_cast<string>(m["RemoteCaCertificate"]));
+    }
+    if (m.find("Role") != m.end() && !m["Role"].empty()) {
+      role = make_shared<string>(boost::any_cast<string>(m["Role"]));
     }
     if (m.find("TunnelBgpConfig") != m.end() && !m["TunnelBgpConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["TunnelBgpConfig"].type()) {
@@ -87450,6 +87611,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> remoteSubnet{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyTunnelOptionsSpecification> tunnelOptionsSpecification{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyVcoHealthCheck> vcoHealthCheck{};
   shared_ptr<ModifyVpnConnectionAttributeResponseBodyVpnBgpConfig> vpnBgpConfig{};
@@ -87504,6 +87666,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (tunnelOptionsSpecification) {
       res["TunnelOptionsSpecification"] = tunnelOptionsSpecification ? boost::any(tunnelOptionsSpecification->toMap()) : boost::any(map<string,boost::any>({}));
@@ -87570,6 +87735,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("TunnelOptionsSpecification") != m.end() && !m["TunnelOptionsSpecification"].empty()) {
       if (typeid(map<string, boost::any>) == m["TunnelOptionsSpecification"].type()) {
@@ -87771,6 +87939,7 @@ public:
   shared_ptr<string> intranetIp{};
   shared_ptr<string> name{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> spec{};
   shared_ptr<string> sslVpnInternetIp{};
   shared_ptr<string> status{};
@@ -87823,6 +87992,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (spec) {
       res["Spec"] = boost::any(*spec);
@@ -87881,6 +88053,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
