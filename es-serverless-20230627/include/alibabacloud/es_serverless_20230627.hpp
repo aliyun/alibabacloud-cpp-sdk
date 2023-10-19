@@ -208,6 +208,49 @@ public:
 
   virtual ~CreateAppRequestNetwork() = default;
 };
+class CreateAppRequestQuotaInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> appType{};
+  shared_ptr<long> cu{};
+  shared_ptr<long> storage{};
+
+  CreateAppRequestQuotaInfo() {}
+
+  explicit CreateAppRequestQuotaInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appType) {
+      res["appType"] = boost::any(*appType);
+    }
+    if (cu) {
+      res["cu"] = boost::any(*cu);
+    }
+    if (storage) {
+      res["storage"] = boost::any(*storage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("appType") != m.end() && !m["appType"].empty()) {
+      appType = make_shared<string>(boost::any_cast<string>(m["appType"]));
+    }
+    if (m.find("cu") != m.end() && !m["cu"].empty()) {
+      cu = make_shared<long>(boost::any_cast<long>(m["cu"]));
+    }
+    if (m.find("storage") != m.end() && !m["storage"].empty()) {
+      storage = make_shared<long>(boost::any_cast<long>(m["storage"]));
+    }
+  }
+
+
+  virtual ~CreateAppRequestQuotaInfo() = default;
+};
 class CreateAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appName{};
@@ -215,8 +258,10 @@ public:
   shared_ptr<string> chargeType{};
   shared_ptr<string> description{};
   shared_ptr<vector<CreateAppRequestNetwork>> network{};
+  shared_ptr<CreateAppRequestQuotaInfo> quotaInfo{};
   shared_ptr<string> regionId{};
   shared_ptr<string> version{};
+  shared_ptr<bool> dryRun{};
 
   CreateAppRequest() {}
 
@@ -247,11 +292,17 @@ public:
       }
       res["network"] = boost::any(temp1);
     }
+    if (quotaInfo) {
+      res["quotaInfo"] = quotaInfo ? boost::any(quotaInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (regionId) {
       res["regionId"] = boost::any(*regionId);
     }
     if (version) {
       res["version"] = boost::any(*version);
+    }
+    if (dryRun) {
+      res["dryRun"] = boost::any(*dryRun);
     }
     return res;
   }
@@ -286,11 +337,21 @@ public:
         network = make_shared<vector<CreateAppRequestNetwork>>(expect1);
       }
     }
+    if (m.find("quotaInfo") != m.end() && !m["quotaInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["quotaInfo"].type()) {
+        CreateAppRequestQuotaInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["quotaInfo"]));
+        quotaInfo = make_shared<CreateAppRequestQuotaInfo>(model1);
+      }
+    }
     if (m.find("regionId") != m.end() && !m["regionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["regionId"]));
     }
     if (m.find("version") != m.end() && !m["version"].empty()) {
       version = make_shared<string>(boost::any_cast<string>(m["version"]));
+    }
+    if (m.find("dryRun") != m.end() && !m["dryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["dryRun"]));
     }
   }
 
