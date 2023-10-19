@@ -2995,6 +2995,7 @@ public:
 };
 class CreateTemplateScratchRequestSourceResources : public Darabonba::Model {
 public:
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceId{};
   shared_ptr<string> resourceType{};
 
@@ -3008,6 +3009,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceId) {
       res["ResourceId"] = boost::any(*resourceId);
     }
@@ -3018,6 +3022,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
       resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
