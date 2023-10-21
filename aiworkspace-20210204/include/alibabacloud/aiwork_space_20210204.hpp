@@ -3292,6 +3292,42 @@ public:
 
   virtual ~CreateWorkspaceResponse() = default;
 };
+class CreateWorkspaceResourceRequestResourcesLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateWorkspaceResourceRequestResourcesLabels() {}
+
+  explicit CreateWorkspaceResourceRequestResourcesLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateWorkspaceResourceRequestResourcesLabels() = default;
+};
 class CreateWorkspaceResourceRequestResourcesQuotas : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -3326,6 +3362,7 @@ public:
   shared_ptr<string> envType{};
   shared_ptr<string> groupName{};
   shared_ptr<bool> isDefault{};
+  shared_ptr<vector<CreateWorkspaceResourceRequestResourcesLabels>> labels{};
   shared_ptr<string> name{};
   shared_ptr<string> productType{};
   shared_ptr<vector<CreateWorkspaceResourceRequestResourcesQuotas>> quotas{};
@@ -3351,6 +3388,13 @@ public:
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -3386,6 +3430,19 @@ public:
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<CreateWorkspaceResourceRequestResourcesLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateWorkspaceResourceRequestResourcesLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<CreateWorkspaceResourceRequestResourcesLabels>>(expect1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -4582,8 +4639,10 @@ public:
 class DeleteWorkspaceResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupName{};
+  shared_ptr<string> labels{};
   shared_ptr<string> option{};
   shared_ptr<string> productType{};
+  shared_ptr<string> resourceIds{};
   shared_ptr<string> resourceType{};
 
   DeleteWorkspaceResourceRequest() {}
@@ -4599,11 +4658,17 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (option) {
       res["Option"] = boost::any(*option);
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
+    }
+    if (resourceIds) {
+      res["ResourceIds"] = boost::any(*resourceIds);
     }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
@@ -4615,11 +4680,17 @@ public:
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
+    }
     if (m.find("Option") != m.end() && !m["Option"].empty()) {
       option = make_shared<string>(boost::any_cast<string>(m["Option"]));
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
+    }
+    if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
+      resourceIds = make_shared<string>(boost::any_cast<string>(m["ResourceIds"]));
     }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
@@ -9432,13 +9503,16 @@ public:
 class ListResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupName{};
+  shared_ptr<string> labels{};
   shared_ptr<string> option{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> productTypes{};
+  shared_ptr<string> quotaIds{};
   shared_ptr<string> resourceName{};
   shared_ptr<string> resourceTypes{};
   shared_ptr<bool> verbose{};
+  shared_ptr<string> verboseFields{};
   shared_ptr<string> workspaceId{};
 
   ListResourcesRequest() {}
@@ -9454,6 +9528,9 @@ public:
     if (groupName) {
       res["GroupName"] = boost::any(*groupName);
     }
+    if (labels) {
+      res["Labels"] = boost::any(*labels);
+    }
     if (option) {
       res["Option"] = boost::any(*option);
     }
@@ -9466,6 +9543,9 @@ public:
     if (productTypes) {
       res["ProductTypes"] = boost::any(*productTypes);
     }
+    if (quotaIds) {
+      res["QuotaIds"] = boost::any(*quotaIds);
+    }
     if (resourceName) {
       res["ResourceName"] = boost::any(*resourceName);
     }
@@ -9474,6 +9554,9 @@ public:
     }
     if (verbose) {
       res["Verbose"] = boost::any(*verbose);
+    }
+    if (verboseFields) {
+      res["VerboseFields"] = boost::any(*verboseFields);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -9484,6 +9567,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
       groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      labels = make_shared<string>(boost::any_cast<string>(m["Labels"]));
     }
     if (m.find("Option") != m.end() && !m["Option"].empty()) {
       option = make_shared<string>(boost::any_cast<string>(m["Option"]));
@@ -9497,6 +9583,9 @@ public:
     if (m.find("ProductTypes") != m.end() && !m["ProductTypes"].empty()) {
       productTypes = make_shared<string>(boost::any_cast<string>(m["ProductTypes"]));
     }
+    if (m.find("QuotaIds") != m.end() && !m["QuotaIds"].empty()) {
+      quotaIds = make_shared<string>(boost::any_cast<string>(m["QuotaIds"]));
+    }
     if (m.find("ResourceName") != m.end() && !m["ResourceName"].empty()) {
       resourceName = make_shared<string>(boost::any_cast<string>(m["ResourceName"]));
     }
@@ -9505,6 +9594,9 @@ public:
     }
     if (m.find("Verbose") != m.end() && !m["Verbose"].empty()) {
       verbose = make_shared<bool>(boost::any_cast<bool>(m["Verbose"]));
+    }
+    if (m.find("VerboseFields") != m.end() && !m["VerboseFields"].empty()) {
+      verboseFields = make_shared<string>(boost::any_cast<string>(m["VerboseFields"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
@@ -9585,6 +9677,42 @@ public:
 
 
   virtual ~ListResourcesResponseBodyResourcesExecutor() = default;
+};
+class ListResourcesResponseBodyResourcesLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListResourcesResponseBodyResourcesLabels() {}
+
+  explicit ListResourcesResponseBodyResourcesLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListResourcesResponseBodyResourcesLabels() = default;
 };
 class ListResourcesResponseBodyResourcesQuotasSpecs : public Darabonba::Model {
 public:
@@ -9723,6 +9851,7 @@ public:
   shared_ptr<string> groupName{};
   shared_ptr<string> id{};
   shared_ptr<bool> isDefault{};
+  shared_ptr<vector<ListResourcesResponseBodyResourcesLabels>> labels{};
   shared_ptr<string> name{};
   shared_ptr<string> productType{};
   shared_ptr<vector<ListResourcesResponseBodyResourcesQuotas>> quotas{};
@@ -9760,6 +9889,13 @@ public:
     }
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
     }
     if (name) {
       res["Name"] = boost::any(*name);
@@ -9815,6 +9951,19 @@ public:
     }
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<ListResourcesResponseBodyResourcesLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourcesResponseBodyResourcesLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<ListResourcesResponseBodyResourcesLabels>>(expect1);
+      }
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -12010,12 +12159,51 @@ public:
 
   virtual ~UpdateWorkspaceResponse() = default;
 };
+class UpdateWorkspaceResourceRequestLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  UpdateWorkspaceResourceRequestLabels() {}
+
+  explicit UpdateWorkspaceResourceRequestLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~UpdateWorkspaceResourceRequestLabels() = default;
+};
 class UpdateWorkspaceResourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> groupName{};
   shared_ptr<bool> isDefault{};
+  shared_ptr<vector<UpdateWorkspaceResourceRequestLabels>> labels{};
   shared_ptr<string> productType{};
+  shared_ptr<vector<string>> resourceIds{};
   shared_ptr<string> resourceType{};
+  shared_ptr<map<string, boost::any>> spec{};
 
   UpdateWorkspaceResourceRequest() {}
 
@@ -12033,11 +12221,24 @@ public:
     if (isDefault) {
       res["IsDefault"] = boost::any(*isDefault);
     }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
+    }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
     }
+    if (resourceIds) {
+      res["ResourceIds"] = boost::any(*resourceIds);
+    }
     if (resourceType) {
       res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (spec) {
+      res["Spec"] = boost::any(*spec);
     }
     return res;
   }
@@ -12049,11 +12250,42 @@ public:
     if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
       isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
     }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<UpdateWorkspaceResourceRequestLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateWorkspaceResourceRequestLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<UpdateWorkspaceResourceRequestLabels>>(expect1);
+      }
+    }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
     }
+    if (m.find("ResourceIds") != m.end() && !m["ResourceIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceIds = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Spec"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      spec = make_shared<map<string, boost::any>>(toMap1);
     }
   }
 

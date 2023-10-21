@@ -908,11 +908,17 @@ DeleteWorkspaceResourceResponse Alibabacloud_AIWorkSpace20210204::Client::delete
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
+    query->insert(pair<string, string>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
     query->insert(pair<string, string>("Option", *request->option));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     query->insert(pair<string, string>("ProductType", *request->productType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceIds)) {
+    query->insert(pair<string, string>("ResourceIds", *request->resourceIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     query->insert(pair<string, string>("ResourceType", *request->resourceType));
@@ -1713,6 +1719,9 @@ ListResourcesResponse Alibabacloud_AIWorkSpace20210204::Client::listResourcesWit
   if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
     query->insert(pair<string, string>("GroupName", *request->groupName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->labels)) {
+    query->insert(pair<string, string>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->option)) {
     query->insert(pair<string, string>("Option", *request->option));
   }
@@ -1725,6 +1734,9 @@ ListResourcesResponse Alibabacloud_AIWorkSpace20210204::Client::listResourcesWit
   if (!Darabonba_Util::Client::isUnset<string>(request->productTypes)) {
     query->insert(pair<string, string>("ProductTypes", *request->productTypes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->quotaIds)) {
+    query->insert(pair<string, string>("QuotaIds", *request->quotaIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceName)) {
     query->insert(pair<string, string>("ResourceName", *request->resourceName));
   }
@@ -1733,6 +1745,9 @@ ListResourcesResponse Alibabacloud_AIWorkSpace20210204::Client::listResourcesWit
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->verbose)) {
     query->insert(pair<string, bool>("Verbose", *request->verbose));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->verboseFields)) {
+    query->insert(pair<string, string>("VerboseFields", *request->verboseFields));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->workspaceId)) {
     query->insert(pair<string, string>("WorkspaceId", *request->workspaceId));
@@ -2288,11 +2303,20 @@ UpdateWorkspaceResourceResponse Alibabacloud_AIWorkSpace20210204::Client::update
   if (!Darabonba_Util::Client::isUnset<bool>(request->isDefault)) {
     body->insert(pair<string, bool>("IsDefault", *request->isDefault));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateWorkspaceResourceRequestLabels>>(request->labels)) {
+    body->insert(pair<string, vector<UpdateWorkspaceResourceRequestLabels>>("Labels", *request->labels));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     body->insert(pair<string, string>("ProductType", *request->productType));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->resourceIds)) {
+    body->insert(pair<string, vector<string>>("ResourceIds", *request->resourceIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
     body->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->spec)) {
+    body->insert(pair<string, map<string, boost::any>>("Spec", *request->spec));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
