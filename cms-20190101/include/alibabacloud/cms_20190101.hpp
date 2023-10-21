@@ -17995,6 +17995,7 @@ public:
 };
 class DescribeAlertingMetricRuleResourcesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> alertBeforeTime{};
   shared_ptr<string> dimensions{};
   shared_ptr<string> groupId{};
   shared_ptr<string> namespace_{};
@@ -18013,6 +18014,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (alertBeforeTime) {
+      res["AlertBeforeTime"] = boost::any(*alertBeforeTime);
+    }
     if (dimensions) {
       res["Dimensions"] = boost::any(*dimensions);
     }
@@ -18038,6 +18042,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertBeforeTime") != m.end() && !m["AlertBeforeTime"].empty()) {
+      alertBeforeTime = make_shared<string>(boost::any_cast<string>(m["AlertBeforeTime"]));
+    }
     if (m.find("Dimensions") != m.end() && !m["Dimensions"].empty()) {
       dimensions = make_shared<string>(boost::any_cast<string>(m["Dimensions"]));
     }
@@ -35157,6 +35164,49 @@ public:
 
   virtual ~DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS() = default;
 };
+class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser : public Darabonba::Model {
+public:
+  shared_ptr<long> quotaLimit{};
+  shared_ptr<long> quotaPackage{};
+  shared_ptr<long> quotaUsed{};
+
+  DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser() {}
+
+  explicit DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (quotaLimit) {
+      res["QuotaLimit"] = boost::any(*quotaLimit);
+    }
+    if (quotaPackage) {
+      res["QuotaPackage"] = boost::any(*quotaPackage);
+    }
+    if (quotaUsed) {
+      res["QuotaUsed"] = boost::any(*quotaUsed);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QuotaLimit") != m.end() && !m["QuotaLimit"].empty()) {
+      quotaLimit = make_shared<long>(boost::any_cast<long>(m["QuotaLimit"]));
+    }
+    if (m.find("QuotaPackage") != m.end() && !m["QuotaPackage"].empty()) {
+      quotaPackage = make_shared<long>(boost::any_cast<long>(m["QuotaPackage"]));
+    }
+    if (m.find("QuotaUsed") != m.end() && !m["QuotaUsed"].empty()) {
+      quotaUsed = make_shared<long>(boost::any_cast<long>(m["QuotaUsed"]));
+    }
+  }
+
+
+  virtual ~DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser() = default;
+};
 class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe : public Darabonba::Model {
 public:
   shared_ptr<long> quotaLimit{};
@@ -35199,6 +35249,49 @@ public:
 
 
   virtual ~DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe() = default;
+};
+class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile : public Darabonba::Model {
+public:
+  shared_ptr<long> quotaLimit{};
+  shared_ptr<long> quotaPackage{};
+  shared_ptr<long> quotaUsed{};
+
+  DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile() {}
+
+  explicit DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (quotaLimit) {
+      res["QuotaLimit"] = boost::any(*quotaLimit);
+    }
+    if (quotaPackage) {
+      res["QuotaPackage"] = boost::any(*quotaPackage);
+    }
+    if (quotaUsed) {
+      res["QuotaUsed"] = boost::any(*quotaUsed);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("QuotaLimit") != m.end() && !m["QuotaLimit"].empty()) {
+      quotaLimit = make_shared<long>(boost::any_cast<long>(m["QuotaLimit"]));
+    }
+    if (m.find("QuotaPackage") != m.end() && !m["QuotaPackage"].empty()) {
+      quotaPackage = make_shared<long>(boost::any_cast<long>(m["QuotaPackage"]));
+    }
+    if (m.find("QuotaUsed") != m.end() && !m["QuotaUsed"].empty()) {
+      quotaUsed = make_shared<long>(boost::any_cast<long>(m["QuotaUsed"]));
+    }
+  }
+
+
+  virtual ~DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile() = default;
 };
 class DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorOperatorProbe : public Darabonba::Model {
 public:
@@ -35297,7 +35390,9 @@ public:
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaLogMonitor> logMonitor{};
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaPhone> phone{};
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS> SMS{};
+  shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser> siteMonitorBrowser{};
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe> siteMonitorEcsProbe{};
+  shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile> siteMonitorMobile{};
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorOperatorProbe> siteMonitorOperatorProbe{};
   shared_ptr<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorTask> siteMonitorTask{};
   shared_ptr<string> suitInfo{};
@@ -35339,8 +35434,14 @@ public:
     if (SMS) {
       res["SMS"] = SMS ? boost::any(SMS->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (siteMonitorBrowser) {
+      res["SiteMonitorBrowser"] = siteMonitorBrowser ? boost::any(siteMonitorBrowser->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (siteMonitorEcsProbe) {
       res["SiteMonitorEcsProbe"] = siteMonitorEcsProbe ? boost::any(siteMonitorEcsProbe->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (siteMonitorMobile) {
+      res["SiteMonitorMobile"] = siteMonitorMobile ? boost::any(siteMonitorMobile->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (siteMonitorOperatorProbe) {
       res["SiteMonitorOperatorProbe"] = siteMonitorOperatorProbe ? boost::any(siteMonitorOperatorProbe->toMap()) : boost::any(map<string,boost::any>({}));
@@ -35410,11 +35511,25 @@ public:
         SMS = make_shared<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSMS>(model1);
       }
     }
+    if (m.find("SiteMonitorBrowser") != m.end() && !m["SiteMonitorBrowser"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SiteMonitorBrowser"].type()) {
+        DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SiteMonitorBrowser"]));
+        siteMonitorBrowser = make_shared<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorBrowser>(model1);
+      }
+    }
     if (m.find("SiteMonitorEcsProbe") != m.end() && !m["SiteMonitorEcsProbe"].empty()) {
       if (typeid(map<string, boost::any>) == m["SiteMonitorEcsProbe"].type()) {
         DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SiteMonitorEcsProbe"]));
         siteMonitorEcsProbe = make_shared<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorEcsProbe>(model1);
+      }
+    }
+    if (m.find("SiteMonitorMobile") != m.end() && !m["SiteMonitorMobile"].empty()) {
+      if (typeid(map<string, boost::any>) == m["SiteMonitorMobile"].type()) {
+        DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["SiteMonitorMobile"]));
+        siteMonitorMobile = make_shared<DescribeMonitorResourceQuotaAttributeResponseBodyResourceQuotaSiteMonitorMobile>(model1);
       }
     }
     if (m.find("SiteMonitorOperatorProbe") != m.end() && !m["SiteMonitorOperatorProbe"].empty()) {
