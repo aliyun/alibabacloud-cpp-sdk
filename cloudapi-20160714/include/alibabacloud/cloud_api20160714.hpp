@@ -46721,6 +46721,7 @@ class SetApiProductsAuthoritiesRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> apiProductIds{};
   shared_ptr<long> appId{};
+  shared_ptr<string> authValidTime{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
 
@@ -46739,6 +46740,9 @@ public:
     }
     if (appId) {
       res["AppId"] = boost::any(*appId);
+    }
+    if (authValidTime) {
+      res["AuthValidTime"] = boost::any(*authValidTime);
     }
     if (description) {
       res["Description"] = boost::any(*description);
@@ -46763,6 +46767,9 @@ public:
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
     }
+    if (m.find("AuthValidTime") != m.end() && !m["AuthValidTime"].empty()) {
+      authValidTime = make_shared<string>(boost::any_cast<string>(m["AuthValidTime"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -46778,6 +46785,7 @@ class SetApiProductsAuthoritiesShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiProductIdsShrink{};
   shared_ptr<long> appId{};
+  shared_ptr<string> authValidTime{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
 
@@ -46797,6 +46805,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (authValidTime) {
+      res["AuthValidTime"] = boost::any(*authValidTime);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -46812,6 +46823,9 @@ public:
     }
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<long>(boost::any_cast<long>(m["AppId"]));
+    }
+    if (m.find("AuthValidTime") != m.end() && !m["AuthValidTime"].empty()) {
+      authValidTime = make_shared<string>(boost::any_cast<string>(m["AuthValidTime"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));

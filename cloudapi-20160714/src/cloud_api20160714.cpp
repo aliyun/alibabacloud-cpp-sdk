@@ -7092,6 +7092,9 @@ SetApiProductsAuthoritiesResponse Alibabacloud_CloudAPI20160714::Client::setApiP
   if (!Darabonba_Util::Client::isUnset<long>(request->appId)) {
     query->insert(pair<string, long>("AppId", *request->appId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->authValidTime)) {
+    query->insert(pair<string, string>("AuthValidTime", *request->authValidTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
