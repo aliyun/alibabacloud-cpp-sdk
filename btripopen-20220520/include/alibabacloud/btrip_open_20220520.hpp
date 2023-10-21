@@ -21097,6 +21097,7 @@ public:
   shared_ptr<double> insuranceFee{};
   shared_ptr<string> insuranceNumber{};
   shared_ptr<string> invoiceTitle{};
+  shared_ptr<string> itemType{};
   shared_ptr<string> itineraryNum{};
   shared_ptr<double> itineraryPrice{};
   shared_ptr<string> mileage{};
@@ -21137,6 +21138,7 @@ public:
   shared_ptr<string> travelerName{};
   shared_ptr<double> upgradeCost{};
   shared_ptr<long> voucherType{};
+  shared_ptr<string> voyageName{};
 
   FlightBillSettlementQueryResponseBodyModuleDataList() {}
 
@@ -21304,6 +21306,9 @@ public:
     if (invoiceTitle) {
       res["invoice_title"] = boost::any(*invoiceTitle);
     }
+    if (itemType) {
+      res["item_type"] = boost::any(*itemType);
+    }
     if (itineraryNum) {
       res["itinerary_num"] = boost::any(*itineraryNum);
     }
@@ -21423,6 +21428,9 @@ public:
     }
     if (voucherType) {
       res["voucher_type"] = boost::any(*voucherType);
+    }
+    if (voyageName) {
+      res["voyage_name"] = boost::any(*voyageName);
     }
     return res;
   }
@@ -21584,6 +21592,9 @@ public:
     if (m.find("invoice_title") != m.end() && !m["invoice_title"].empty()) {
       invoiceTitle = make_shared<string>(boost::any_cast<string>(m["invoice_title"]));
     }
+    if (m.find("item_type") != m.end() && !m["item_type"].empty()) {
+      itemType = make_shared<string>(boost::any_cast<string>(m["item_type"]));
+    }
     if (m.find("itinerary_num") != m.end() && !m["itinerary_num"].empty()) {
       itineraryNum = make_shared<string>(boost::any_cast<string>(m["itinerary_num"]));
     }
@@ -21703,6 +21714,9 @@ public:
     }
     if (m.find("voucher_type") != m.end() && !m["voucher_type"].empty()) {
       voucherType = make_shared<long>(boost::any_cast<long>(m["voucher_type"]));
+    }
+    if (m.find("voyage_name") != m.end() && !m["voyage_name"].empty()) {
+      voyageName = make_shared<string>(boost::any_cast<string>(m["voyage_name"]));
     }
   }
 
@@ -56388,6 +56402,7 @@ public:
 class GroupUserSaveRequestSubCorpIdList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> departIds{};
+  shared_ptr<string> email{};
   shared_ptr<long> leaveStatus{};
   shared_ptr<string> managerUserId{};
   shared_ptr<string> positionLevel{};
@@ -56405,6 +56420,9 @@ public:
     map<string, boost::any> res;
     if (departIds) {
       res["depart_ids"] = boost::any(*departIds);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
     }
     if (leaveStatus) {
       res["leave_status"] = boost::any(*leaveStatus);
@@ -56431,6 +56449,9 @@ public:
         }
       }
       departIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
     }
     if (m.find("leave_status") != m.end() && !m["leave_status"].empty()) {
       leaveStatus = make_shared<long>(boost::any_cast<long>(m["leave_status"]));
