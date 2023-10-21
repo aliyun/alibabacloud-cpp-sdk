@@ -4207,6 +4207,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> gatewayId{};
+  shared_ptr<string> gatewayType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -4232,6 +4233,9 @@ public:
     }
     if (gatewayId) {
       res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayType) {
+      res["GatewayType"] = boost::any(*gatewayType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -4263,6 +4267,9 @@ public:
     }
     if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
       gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("GatewayType") != m.end() && !m["GatewayType"].empty()) {
+      gatewayType = make_shared<string>(boost::any_cast<string>(m["GatewayType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -40210,6 +40217,42 @@ public:
 
   virtual ~DescribeIPv6TranslatorsResponse() = default;
 };
+class DescribeIpv6AddressesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeIpv6AddressesRequestTag() {}
+
+  explicit DescribeIpv6AddressesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIpv6AddressesRequestTag() = default;
+};
 class DescribeIpv6AddressesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> associatedInstanceId{};
@@ -40225,8 +40268,10 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<DescribeIpv6AddressesRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
@@ -40279,11 +40324,21 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -40334,11 +40389,27 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeIpv6AddressesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIpv6AddressesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeIpv6AddressesRequestTag>>(expect1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -40443,12 +40514,92 @@ public:
 
   virtual ~DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth() = default;
 };
+class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag() {}
+
+  explicit DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag() = default;
+};
+class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag>> tag{};
+
+  DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags() {}
+
+  explicit DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags() = default;
+};
 class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address : public Darabonba::Model {
 public:
   shared_ptr<string> allocationTime{};
   shared_ptr<string> associatedInstanceId{};
   shared_ptr<string> associatedInstanceType{};
   shared_ptr<string> ipv6Address{};
+  shared_ptr<string> ipv6AddressDescription{};
   shared_ptr<string> ipv6AddressId{};
   shared_ptr<string> ipv6AddressName{};
   shared_ptr<string> ipv6GatewayId{};
@@ -40456,7 +40607,9 @@ public:
   shared_ptr<string> ipv6Isp{};
   shared_ptr<string> networkType{};
   shared_ptr<long> realBandwidth{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> status{};
+  shared_ptr<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags> tags{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
 
@@ -40482,6 +40635,9 @@ public:
     if (ipv6Address) {
       res["Ipv6Address"] = boost::any(*ipv6Address);
     }
+    if (ipv6AddressDescription) {
+      res["Ipv6AddressDescription"] = boost::any(*ipv6AddressDescription);
+    }
     if (ipv6AddressId) {
       res["Ipv6AddressId"] = boost::any(*ipv6AddressId);
     }
@@ -40503,8 +40659,14 @@ public:
     if (realBandwidth) {
       res["RealBandwidth"] = boost::any(*realBandwidth);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (tags) {
+      res["Tags"] = tags ? boost::any(tags->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -40527,6 +40689,9 @@ public:
     }
     if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
       ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
+    }
+    if (m.find("Ipv6AddressDescription") != m.end() && !m["Ipv6AddressDescription"].empty()) {
+      ipv6AddressDescription = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressDescription"]));
     }
     if (m.find("Ipv6AddressId") != m.end() && !m["Ipv6AddressId"].empty()) {
       ipv6AddressId = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressId"]));
@@ -40553,8 +40718,18 @@ public:
     if (m.find("RealBandwidth") != m.end() && !m["RealBandwidth"].empty()) {
       realBandwidth = make_shared<long>(boost::any_cast<long>(m["RealBandwidth"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Tags"].type()) {
+        DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Tags"]));
+        tags = make_shared<DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags>(model1);
+      }
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -41218,6 +41393,7 @@ public:
   shared_ptr<string> creationTime{};
   shared_ptr<string> description{};
   shared_ptr<string> expiredTime{};
+  shared_ptr<string> gatewayRouteTableId{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> ipv6GatewayId{};
   shared_ptr<string> name{};
@@ -41249,6 +41425,9 @@ public:
     }
     if (expiredTime) {
       res["ExpiredTime"] = boost::any(*expiredTime);
+    }
+    if (gatewayRouteTableId) {
+      res["GatewayRouteTableId"] = boost::any(*gatewayRouteTableId);
     }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
@@ -41292,6 +41471,9 @@ public:
     }
     if (m.find("ExpiredTime") != m.end() && !m["ExpiredTime"].empty()) {
       expiredTime = make_shared<string>(boost::any_cast<string>(m["ExpiredTime"]));
+    }
+    if (m.find("GatewayRouteTableId") != m.end() && !m["GatewayRouteTableId"].empty()) {
+      gatewayRouteTableId = make_shared<string>(boost::any_cast<string>(m["GatewayRouteTableId"]));
     }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));
@@ -63379,6 +63561,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> gatewayId{};
+  shared_ptr<string> gatewayType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -63404,6 +63587,9 @@ public:
     }
     if (gatewayId) {
       res["GatewayId"] = boost::any(*gatewayId);
+    }
+    if (gatewayType) {
+      res["GatewayType"] = boost::any(*gatewayType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -63435,6 +63621,9 @@ public:
     }
     if (m.find("GatewayId") != m.end() && !m["GatewayId"].empty()) {
       gatewayId = make_shared<string>(boost::any_cast<string>(m["GatewayId"]));
+    }
+    if (m.find("GatewayType") != m.end() && !m["GatewayType"].empty()) {
+      gatewayType = make_shared<string>(boost::any_cast<string>(m["GatewayType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -94980,6 +95169,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationCidrBlock{};
   shared_ptr<bool> dryRun{};
+  shared_ptr<string> gatewayRouteTableId{};
   shared_ptr<string> IPv4GatewayRouteTableId{};
   shared_ptr<string> name{};
   shared_ptr<string> nextHopId{};
@@ -95011,6 +95201,9 @@ public:
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
+    }
+    if (gatewayRouteTableId) {
+      res["GatewayRouteTableId"] = boost::any(*gatewayRouteTableId);
     }
     if (IPv4GatewayRouteTableId) {
       res["IPv4GatewayRouteTableId"] = boost::any(*IPv4GatewayRouteTableId);
@@ -95054,6 +95247,9 @@ public:
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("GatewayRouteTableId") != m.end() && !m["GatewayRouteTableId"].empty()) {
+      gatewayRouteTableId = make_shared<string>(boost::any_cast<string>(m["GatewayRouteTableId"]));
     }
     if (m.find("IPv4GatewayRouteTableId") != m.end() && !m["IPv4GatewayRouteTableId"].empty()) {
       IPv4GatewayRouteTableId = make_shared<string>(boost::any_cast<string>(m["IPv4GatewayRouteTableId"]));

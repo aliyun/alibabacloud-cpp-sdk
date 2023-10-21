@@ -1309,6 +1309,9 @@ AssociateRouteTableWithGatewayResponse Alibabacloud_Vpc20160428::Client::associa
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
     query->insert(pair<string, string>("GatewayId", *request->gatewayId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
+    query->insert(pair<string, string>("GatewayType", *request->gatewayType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -9439,11 +9442,17 @@ DescribeIpv6AddressesResponse Alibabacloud_Vpc20160428::Client::describeIpv6Addr
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeIpv6AddressesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeIpv6AddressesRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));
@@ -12109,6 +12118,9 @@ DissociateRouteTableFromGatewayResponse Alibabacloud_Vpc20160428::Client::dissoc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayId)) {
     query->insert(pair<string, string>("GatewayId", *request->gatewayId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayType)) {
+    query->insert(pair<string, string>("GatewayType", *request->gatewayType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
@@ -18911,6 +18923,9 @@ UpdateGatewayRouteTableEntryAttributeResponse Alibabacloud_Vpc20160428::Client::
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gatewayRouteTableId)) {
+    query->insert(pair<string, string>("GatewayRouteTableId", *request->gatewayRouteTableId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->IPv4GatewayRouteTableId)) {
     query->insert(pair<string, string>("IPv4GatewayRouteTableId", *request->IPv4GatewayRouteTableId));
