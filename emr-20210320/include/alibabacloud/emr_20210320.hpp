@@ -1886,6 +1886,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> securityMode{};
   shared_ptr<ClusterStateChangeReason> stateChangeReason{};
+  shared_ptr<string> status{};
   shared_ptr<SubscriptionConfig> subscriptionConfig{};
   shared_ptr<vector<Tag>> tags{};
 
@@ -1949,6 +1950,9 @@ public:
     }
     if (stateChangeReason) {
       res["StateChangeReason"] = stateChangeReason ? boost::any(stateChangeReason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (subscriptionConfig) {
       res["SubscriptionConfig"] = subscriptionConfig ? boost::any(subscriptionConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -2022,6 +2026,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StateChangeReason"]));
         stateChangeReason = make_shared<ClusterStateChangeReason>(model1);
       }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("SubscriptionConfig") != m.end() && !m["SubscriptionConfig"].empty()) {
       if (typeid(map<string, boost::any>) == m["SubscriptionConfig"].type()) {
@@ -2209,6 +2216,7 @@ public:
   shared_ptr<string> releaseVersion{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<ClusterStateChangeReason> stateChangeReason{};
+  shared_ptr<string> status{};
   shared_ptr<vector<Tag>> tags{};
 
   ClusterSummary() {}
@@ -2259,6 +2267,9 @@ public:
     }
     if (stateChangeReason) {
       res["StateChangeReason"] = stateChangeReason ? boost::any(stateChangeReason->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
     }
     if (tags) {
       vector<boost::any> temp1;
@@ -2313,6 +2324,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["StateChangeReason"]));
         stateChangeReason = make_shared<ClusterStateChangeReason>(model1);
       }
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       if (typeid(vector<boost::any>) == m["Tags"].type()) {
