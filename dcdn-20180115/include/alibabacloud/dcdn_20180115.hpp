@@ -20818,6 +20818,261 @@ public:
 
   virtual ~DescribeDcdnDomainWebsocketTrafficDataResponse() = default;
 };
+class DescribeDcdnDomainsBySourceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> sources{};
+
+  DescribeDcdnDomainsBySourceRequest() {}
+
+  explicit DescribeDcdnDomainsBySourceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (sources) {
+      res["Sources"] = boost::any(*sources);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Sources") != m.end() && !m["Sources"].empty()) {
+      sources = make_shared<string>(boost::any_cast<string>(m["Sources"]));
+    }
+  }
+
+
+  virtual ~DescribeDcdnDomainsBySourceRequest() = default;
+};
+class DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList : public Darabonba::Model {
+public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> domainCname{};
+  shared_ptr<string> domainName{};
+  shared_ptr<string> domainType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> updateTime{};
+
+  DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList() {}
+
+  explicit DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (domainCname) {
+      res["DomainCname"] = boost::any(*domainCname);
+    }
+    if (domainName) {
+      res["DomainName"] = boost::any(*domainName);
+    }
+    if (domainType) {
+      res["DomainType"] = boost::any(*domainType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("DomainCname") != m.end() && !m["DomainCname"].empty()) {
+      domainCname = make_shared<string>(boost::any_cast<string>(m["DomainCname"]));
+    }
+    if (m.find("DomainName") != m.end() && !m["DomainName"].empty()) {
+      domainName = make_shared<string>(boost::any_cast<string>(m["DomainName"]));
+    }
+    if (m.find("DomainType") != m.end() && !m["DomainType"].empty()) {
+      domainType = make_shared<string>(boost::any_cast<string>(m["DomainType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
+    }
+  }
+
+
+  virtual ~DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList() = default;
+};
+class DescribeDcdnDomainsBySourceResponseBodyDomainInfo : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList>> domainList{};
+  shared_ptr<string> source{};
+
+  DescribeDcdnDomainsBySourceResponseBodyDomainInfo() {}
+
+  explicit DescribeDcdnDomainsBySourceResponseBodyDomainInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainList) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainList"] = boost::any(temp1);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainList") != m.end() && !m["DomainList"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainList"].type()) {
+        vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainList = make_shared<vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfoDomainList>>(expect1);
+      }
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+  }
+
+
+  virtual ~DescribeDcdnDomainsBySourceResponseBodyDomainInfo() = default;
+};
+class DescribeDcdnDomainsBySourceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfo>> domainInfo{};
+  shared_ptr<string> requestId{};
+
+  DescribeDcdnDomainsBySourceResponseBody() {}
+
+  explicit DescribeDcdnDomainsBySourceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (domainInfo) {
+      vector<boost::any> temp1;
+      for(auto item1:*domainInfo){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["DomainInfo"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DomainInfo") != m.end() && !m["DomainInfo"].empty()) {
+      if (typeid(vector<boost::any>) == m["DomainInfo"].type()) {
+        vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["DomainInfo"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeDcdnDomainsBySourceResponseBodyDomainInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        domainInfo = make_shared<vector<DescribeDcdnDomainsBySourceResponseBodyDomainInfo>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeDcdnDomainsBySourceResponseBody() = default;
+};
+class DescribeDcdnDomainsBySourceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeDcdnDomainsBySourceResponseBody> body{};
+
+  DescribeDcdnDomainsBySourceResponse() {}
+
+  explicit DescribeDcdnDomainsBySourceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeDcdnDomainsBySourceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeDcdnDomainsBySourceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeDcdnDomainsBySourceResponse() = default;
+};
 class DescribeDcdnErUsageDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -45989,6 +46244,8 @@ public:
   DescribeDcdnDomainWebsocketHttpCodeDataResponse describeDcdnDomainWebsocketHttpCodeData(shared_ptr<DescribeDcdnDomainWebsocketHttpCodeDataRequest> request);
   DescribeDcdnDomainWebsocketTrafficDataResponse describeDcdnDomainWebsocketTrafficDataWithOptions(shared_ptr<DescribeDcdnDomainWebsocketTrafficDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDcdnDomainWebsocketTrafficDataResponse describeDcdnDomainWebsocketTrafficData(shared_ptr<DescribeDcdnDomainWebsocketTrafficDataRequest> request);
+  DescribeDcdnDomainsBySourceResponse describeDcdnDomainsBySourceWithOptions(shared_ptr<DescribeDcdnDomainsBySourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeDcdnDomainsBySourceResponse describeDcdnDomainsBySource(shared_ptr<DescribeDcdnDomainsBySourceRequest> request);
   DescribeDcdnErUsageDataResponse describeDcdnErUsageDataWithOptions(shared_ptr<DescribeDcdnErUsageDataRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDcdnErUsageDataResponse describeDcdnErUsageData(shared_ptr<DescribeDcdnErUsageDataRequest> request);
   DescribeDcdnFullDomainsBlockIPConfigResponse describeDcdnFullDomainsBlockIPConfigWithOptions(shared_ptr<DescribeDcdnFullDomainsBlockIPConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
