@@ -60,6 +60,12 @@ AddAttendeeResponse Alibabacloud_Aliding20230426::Client::addAttendeeWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->eventId)) {
     body->insert(pair<string, string>("EventId", *request->eventId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->chatNotification)) {
+    body->insert(pair<string, bool>("chatNotification", *request->chatNotification));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->pushNotification)) {
+    body->insert(pair<string, bool>("pushNotification", *request->pushNotification));
+  }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
     realHeaders = headers->commonHeaders;
@@ -1635,6 +1641,9 @@ DeleteEventResponse Alibabacloud_Aliding20230426::Client::deleteEventWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->eventId)) {
     body->insert(pair<string, string>("EventId", *request->eventId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->pushNotification)) {
+    body->insert(pair<string, bool>("pushNotification", *request->pushNotification));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {

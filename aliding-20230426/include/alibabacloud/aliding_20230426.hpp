@@ -171,6 +171,8 @@ public:
   shared_ptr<vector<AddAttendeeRequestAttendeesToAdd>> attendeesToAdd{};
   shared_ptr<string> calendarId{};
   shared_ptr<string> eventId{};
+  shared_ptr<bool> chatNotification{};
+  shared_ptr<bool> pushNotification{};
 
   AddAttendeeRequest() {}
 
@@ -195,6 +197,12 @@ public:
     if (eventId) {
       res["EventId"] = boost::any(*eventId);
     }
+    if (chatNotification) {
+      res["chatNotification"] = boost::any(*chatNotification);
+    }
+    if (pushNotification) {
+      res["pushNotification"] = boost::any(*pushNotification);
+    }
     return res;
   }
 
@@ -218,6 +226,12 @@ public:
     if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
     }
+    if (m.find("chatNotification") != m.end() && !m["chatNotification"].empty()) {
+      chatNotification = make_shared<bool>(boost::any_cast<bool>(m["chatNotification"]));
+    }
+    if (m.find("pushNotification") != m.end() && !m["pushNotification"].empty()) {
+      pushNotification = make_shared<bool>(boost::any_cast<bool>(m["pushNotification"]));
+    }
   }
 
 
@@ -228,6 +242,8 @@ public:
   shared_ptr<string> attendeesToAddShrink{};
   shared_ptr<string> calendarId{};
   shared_ptr<string> eventId{};
+  shared_ptr<bool> chatNotification{};
+  shared_ptr<bool> pushNotification{};
 
   AddAttendeeShrinkRequest() {}
 
@@ -248,6 +264,12 @@ public:
     if (eventId) {
       res["EventId"] = boost::any(*eventId);
     }
+    if (chatNotification) {
+      res["chatNotification"] = boost::any(*chatNotification);
+    }
+    if (pushNotification) {
+      res["pushNotification"] = boost::any(*pushNotification);
+    }
     return res;
   }
 
@@ -260,6 +282,12 @@ public:
     }
     if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("chatNotification") != m.end() && !m["chatNotification"].empty()) {
+      chatNotification = make_shared<bool>(boost::any_cast<bool>(m["chatNotification"]));
+    }
+    if (m.find("pushNotification") != m.end() && !m["pushNotification"].empty()) {
+      pushNotification = make_shared<bool>(boost::any_cast<bool>(m["pushNotification"]));
     }
   }
 
@@ -11344,6 +11372,7 @@ class DeleteEventRequest : public Darabonba::Model {
 public:
   shared_ptr<string> calendarId{};
   shared_ptr<string> eventId{};
+  shared_ptr<bool> pushNotification{};
 
   DeleteEventRequest() {}
 
@@ -11361,6 +11390,9 @@ public:
     if (eventId) {
       res["EventId"] = boost::any(*eventId);
     }
+    if (pushNotification) {
+      res["pushNotification"] = boost::any(*pushNotification);
+    }
     return res;
   }
 
@@ -11370,6 +11402,9 @@ public:
     }
     if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("pushNotification") != m.end() && !m["pushNotification"].empty()) {
+      pushNotification = make_shared<bool>(boost::any_cast<bool>(m["pushNotification"]));
     }
   }
 
