@@ -8959,8 +8959,10 @@ public:
   shared_ptr<string> key{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> resourcePools{};
   shared_ptr<string> startTime{};
 
   DescribeDBClusterPerformanceRequest() {}
@@ -8988,11 +8990,17 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (resourcePools) {
+      res["ResourcePools"] = boost::any(*resourcePools);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -9016,11 +9024,17 @@ public:
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ResourcePools") != m.end() && !m["ResourcePools"].empty()) {
+      resourcePools = make_shared<string>(boost::any_cast<string>(m["ResourcePools"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -9033,6 +9047,7 @@ public:
 class DescribeDBClusterPerformanceResponseBodyPerformancesSeries : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
+  shared_ptr<string> tags{};
   shared_ptr<vector<string>> values{};
 
   DescribeDBClusterPerformanceResponseBodyPerformancesSeries() {}
@@ -9048,6 +9063,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (tags) {
+      res["Tags"] = boost::any(*tags);
+    }
     if (values) {
       res["Values"] = boost::any(*values);
     }
@@ -9057,6 +9075,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tags = make_shared<string>(boost::any_cast<string>(m["Tags"]));
     }
     if (m.find("Values") != m.end() && !m["Values"].empty()) {
       vector<string> toVec1;
@@ -15760,229 +15781,6 @@ public:
 
 
   virtual ~DescribeRegionsResponse() = default;
-};
-class DescribeSQLPatternAttributeRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> DBClusterId{};
-  shared_ptr<string> endTime{};
-  shared_ptr<string> lang{};
-  shared_ptr<long> patternId{};
-  shared_ptr<string> regionId{};
-  shared_ptr<string> startTime{};
-
-  DescribeSQLPatternAttributeRequest() {}
-
-  explicit DescribeSQLPatternAttributeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (DBClusterId) {
-      res["DBClusterId"] = boost::any(*DBClusterId);
-    }
-    if (endTime) {
-      res["EndTime"] = boost::any(*endTime);
-    }
-    if (lang) {
-      res["Lang"] = boost::any(*lang);
-    }
-    if (patternId) {
-      res["PatternId"] = boost::any(*patternId);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
-    }
-    if (startTime) {
-      res["StartTime"] = boost::any(*startTime);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
-      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
-    }
-    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
-      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
-    }
-    if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
-      lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
-    }
-    if (m.find("PatternId") != m.end() && !m["PatternId"].empty()) {
-      patternId = make_shared<long>(boost::any_cast<long>(m["PatternId"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
-    }
-    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
-      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
-    }
-  }
-
-
-  virtual ~DescribeSQLPatternAttributeRequest() = default;
-};
-class DescribeSQLPatternAttributeResponseBodyPatternDetail : public Darabonba::Model {
-public:
-  shared_ptr<string> averageMemory{};
-  shared_ptr<string> averageQueryTime{};
-  shared_ptr<long> queryCount{};
-  shared_ptr<string> SQLPattern{};
-  shared_ptr<string> totalQueryTime{};
-
-  DescribeSQLPatternAttributeResponseBodyPatternDetail() {}
-
-  explicit DescribeSQLPatternAttributeResponseBodyPatternDetail(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (averageMemory) {
-      res["AverageMemory"] = boost::any(*averageMemory);
-    }
-    if (averageQueryTime) {
-      res["AverageQueryTime"] = boost::any(*averageQueryTime);
-    }
-    if (queryCount) {
-      res["QueryCount"] = boost::any(*queryCount);
-    }
-    if (SQLPattern) {
-      res["SQLPattern"] = boost::any(*SQLPattern);
-    }
-    if (totalQueryTime) {
-      res["TotalQueryTime"] = boost::any(*totalQueryTime);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("AverageMemory") != m.end() && !m["AverageMemory"].empty()) {
-      averageMemory = make_shared<string>(boost::any_cast<string>(m["AverageMemory"]));
-    }
-    if (m.find("AverageQueryTime") != m.end() && !m["AverageQueryTime"].empty()) {
-      averageQueryTime = make_shared<string>(boost::any_cast<string>(m["AverageQueryTime"]));
-    }
-    if (m.find("QueryCount") != m.end() && !m["QueryCount"].empty()) {
-      queryCount = make_shared<long>(boost::any_cast<long>(m["QueryCount"]));
-    }
-    if (m.find("SQLPattern") != m.end() && !m["SQLPattern"].empty()) {
-      SQLPattern = make_shared<string>(boost::any_cast<string>(m["SQLPattern"]));
-    }
-    if (m.find("TotalQueryTime") != m.end() && !m["TotalQueryTime"].empty()) {
-      totalQueryTime = make_shared<string>(boost::any_cast<string>(m["TotalQueryTime"]));
-    }
-  }
-
-
-  virtual ~DescribeSQLPatternAttributeResponseBodyPatternDetail() = default;
-};
-class DescribeSQLPatternAttributeResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<DescribeSQLPatternAttributeResponseBodyPatternDetail> patternDetail{};
-  shared_ptr<string> requestId{};
-
-  DescribeSQLPatternAttributeResponseBody() {}
-
-  explicit DescribeSQLPatternAttributeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (patternDetail) {
-      res["PatternDetail"] = patternDetail ? boost::any(patternDetail->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("PatternDetail") != m.end() && !m["PatternDetail"].empty()) {
-      if (typeid(map<string, boost::any>) == m["PatternDetail"].type()) {
-        DescribeSQLPatternAttributeResponseBodyPatternDetail model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PatternDetail"]));
-        patternDetail = make_shared<DescribeSQLPatternAttributeResponseBodyPatternDetail>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~DescribeSQLPatternAttributeResponseBody() = default;
-};
-class DescribeSQLPatternAttributeResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<DescribeSQLPatternAttributeResponseBody> body{};
-
-  DescribeSQLPatternAttributeResponse() {}
-
-  explicit DescribeSQLPatternAttributeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        DescribeSQLPatternAttributeResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<DescribeSQLPatternAttributeResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~DescribeSQLPatternAttributeResponse() = default;
 };
 class DescribeSQLPatternsRequest : public Darabonba::Model {
 public:
@@ -26060,8 +25858,6 @@ public:
   DescribeProcessListResponse describeProcessList(shared_ptr<DescribeProcessListRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
-  DescribeSQLPatternAttributeResponse describeSQLPatternAttributeWithOptions(shared_ptr<DescribeSQLPatternAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeSQLPatternAttributeResponse describeSQLPatternAttribute(shared_ptr<DescribeSQLPatternAttributeRequest> request);
   DescribeSQLPatternsResponse describeSQLPatternsWithOptions(shared_ptr<DescribeSQLPatternsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeSQLPatternsResponse describeSQLPatterns(shared_ptr<DescribeSQLPatternsRequest> request);
   DescribeSQLPlanResponse describeSQLPlanWithOptions(shared_ptr<DescribeSQLPlanRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
