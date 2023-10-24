@@ -4983,6 +4983,286 @@ InsInvoiceScanQueryResponse Alibabacloud_BtripOpen20220520::Client::insInvoiceSc
   return insInvoiceScanQueryWithOptions(request, headers, runtime);
 }
 
+InsureOrderApplyResponse Alibabacloud_BtripOpen20220520::Client::insureOrderApplyWithOptions(shared_ptr<InsureOrderApplyRequest> request, shared_ptr<InsureOrderApplyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buyerName)) {
+    body->insert(pair<string, string>("buyer_name", *request->buyerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->insOrderId)) {
+    body->insert(pair<string, string>("ins_order_id", *request->insOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
+    body->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outOrderId)) {
+    body->insert(pair<string, string>("out_order_id", *request->outOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outSubOrderId)) {
+    body->insert(pair<string, string>("out_sub_order_id", *request->outSubOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
+    body->insert(pair<string, string>("supplier_code", *request->supplierCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsureOrderApply"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-flight/v1/insurances/action/apply"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsureOrderApplyResponse(callApi(params, req, runtime));
+}
+
+InsureOrderApplyResponse Alibabacloud_BtripOpen20220520::Client::insureOrderApply(shared_ptr<InsureOrderApplyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsureOrderApplyHeaders> headers = make_shared<InsureOrderApplyHeaders>();
+  return insureOrderApplyWithOptions(request, headers, runtime);
+}
+
+InsureOrderCancelResponse Alibabacloud_BtripOpen20220520::Client::insureOrderCancelWithOptions(shared_ptr<string> insOrderId,
+                                                                                               shared_ptr<InsureOrderCancelRequest> request,
+                                                                                               shared_ptr<InsureOrderCancelHeaders> headers,
+                                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    query->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buyerName)) {
+    query->insert(pair<string, string>("buyer_name", *request->buyerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
+    query->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
+    query->insert(pair<string, string>("supplier_code", *request->supplierCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsureOrderCancel"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-flight/v1/insurances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(insOrderId)) + string("/action/cancel"))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsureOrderCancelResponse(callApi(params, req, runtime));
+}
+
+InsureOrderCancelResponse Alibabacloud_BtripOpen20220520::Client::insureOrderCancel(shared_ptr<string> insOrderId, shared_ptr<InsureOrderCancelRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsureOrderCancelHeaders> headers = make_shared<InsureOrderCancelHeaders>();
+  return insureOrderCancelWithOptions(insOrderId, request, headers, runtime);
+}
+
+InsureOrderCreateResponse Alibabacloud_BtripOpen20220520::Client::insureOrderCreateWithOptions(shared_ptr<InsureOrderCreateRequest> tmpReq, shared_ptr<InsureOrderCreateHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<InsureOrderCreateShrinkRequest> request = make_shared<InsureOrderCreateShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<InsureOrderCreateRequestApplicant>(tmpReq->applicant)) {
+    request->applicantShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->applicant, make_shared<string>("applicant"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<InsureOrderCreateRequestInsPersonAndSegmentList>>(tmpReq->insPersonAndSegmentList)) {
+    request->insPersonAndSegmentListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->insPersonAndSegmentList, make_shared<string>("ins_person_and_segment_list"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicantShrink)) {
+    body->insert(pair<string, string>("applicant", *request->applicantShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buyerName)) {
+    body->insert(pair<string, string>("buyer_name", *request->buyerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->insPersonAndSegmentListShrink)) {
+    body->insert(pair<string, string>("ins_person_and_segment_list", *request->insPersonAndSegmentListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
+    body->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outInsOrderId)) {
+    body->insert(pair<string, string>("out_ins_order_id", *request->outInsOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outOrderId)) {
+    body->insert(pair<string, string>("out_order_id", *request->outOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outSubOrderId)) {
+    body->insert(pair<string, string>("out_sub_order_id", *request->outSubOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
+    body->insert(pair<string, string>("supplier_code", *request->supplierCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsureOrderCreate"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-flight/v1/insurances/action/create"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsureOrderCreateResponse(callApi(params, req, runtime));
+}
+
+InsureOrderCreateResponse Alibabacloud_BtripOpen20220520::Client::insureOrderCreate(shared_ptr<InsureOrderCreateRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsureOrderCreateHeaders> headers = make_shared<InsureOrderCreateHeaders>();
+  return insureOrderCreateWithOptions(request, headers, runtime);
+}
+
+InsureOrderDetailResponse Alibabacloud_BtripOpen20220520::Client::insureOrderDetailWithOptions(shared_ptr<InsureOrderDetailRequest> request, shared_ptr<InsureOrderDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    query->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buyerName)) {
+    query->insert(pair<string, string>("buyer_name", *request->buyerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->insOrderId)) {
+    query->insert(pair<string, string>("ins_order_id", *request->insOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
+    query->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
+    query->insert(pair<string, string>("supplier_code", *request->supplierCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsureOrderDetail"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-flight/v1/insurances/action/detail"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsureOrderDetailResponse(callApi(params, req, runtime));
+}
+
+InsureOrderDetailResponse Alibabacloud_BtripOpen20220520::Client::insureOrderDetail(shared_ptr<InsureOrderDetailRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsureOrderDetailHeaders> headers = make_shared<InsureOrderDetailHeaders>();
+  return insureOrderDetailWithOptions(request, headers, runtime);
+}
+
+InsureOrderPayResponse Alibabacloud_BtripOpen20220520::Client::insureOrderPayWithOptions(shared_ptr<string> insOrderId,
+                                                                                         shared_ptr<InsureOrderPayRequest> request,
+                                                                                         shared_ptr<InsureOrderPayHeaders> headers,
+                                                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripUserId)) {
+    body->insert(pair<string, string>("btrip_user_id", *request->btripUserId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->buyerName)) {
+    body->insert(pair<string, string>("buyer_name", *request->buyerName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->isvName)) {
+    body->insert(pair<string, string>("isv_name", *request->isvName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outOrderId)) {
+    body->insert(pair<string, string>("out_order_id", *request->outOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->outSubOrderId)) {
+    body->insert(pair<string, string>("out_sub_order_id", *request->outSubOrderId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->paymentAmount)) {
+    body->insert(pair<string, long>("payment_amount", *request->paymentAmount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->supplierCode)) {
+    body->insert(pair<string, string>("supplier_code", *request->supplierCode));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("InsureOrderPay"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/dtb-flight/v1/insurances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(insOrderId)) + string("/action/pay"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return InsureOrderPayResponse(callApi(params, req, runtime));
+}
+
+InsureOrderPayResponse Alibabacloud_BtripOpen20220520::Client::insureOrderPay(shared_ptr<string> insOrderId, shared_ptr<InsureOrderPayRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<InsureOrderPayHeaders> headers = make_shared<InsureOrderPayHeaders>();
+  return insureOrderPayWithOptions(insOrderId, request, headers, runtime);
+}
+
 InvoiceAddResponse Alibabacloud_BtripOpen20220520::Client::invoiceAddWithOptions(shared_ptr<InvoiceAddRequest> request, shared_ptr<InvoiceAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
