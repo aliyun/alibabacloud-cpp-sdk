@@ -26592,6 +26592,251 @@ public:
 
   virtual ~DescribeDomainResponse() = default;
 };
+class DescribeGroupLatencyRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+  shared_ptr<string> startTime{};
+
+  DescribeGroupLatencyRequest() {}
+
+  explicit DescribeGroupLatencyRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupLatencyRequest() = default;
+};
+class DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem : public Darabonba::Model {
+public:
+  shared_ptr<string> item{};
+  shared_ptr<string> itemTime{};
+  shared_ptr<string> itemValue{};
+
+  DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem() {}
+
+  explicit DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (item) {
+      res["Item"] = boost::any(*item);
+    }
+    if (itemTime) {
+      res["ItemTime"] = boost::any(*itemTime);
+    }
+    if (itemValue) {
+      res["ItemValue"] = boost::any(*itemValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      item = make_shared<string>(boost::any_cast<string>(m["Item"]));
+    }
+    if (m.find("ItemTime") != m.end() && !m["ItemTime"].empty()) {
+      itemTime = make_shared<string>(boost::any_cast<string>(m["ItemTime"]));
+    }
+    if (m.find("ItemValue") != m.end() && !m["ItemValue"].empty()) {
+      itemValue = make_shared<string>(boost::any_cast<string>(m["ItemValue"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem() = default;
+};
+class DescribeGroupLatencyResponseBodyLatencyPacket : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem>> monitorItem{};
+
+  DescribeGroupLatencyResponseBodyLatencyPacket() {}
+
+  explicit DescribeGroupLatencyResponseBodyLatencyPacket(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (monitorItem) {
+      vector<boost::any> temp1;
+      for(auto item1:*monitorItem){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MonitorItem"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MonitorItem") != m.end() && !m["MonitorItem"].empty()) {
+      if (typeid(vector<boost::any>) == m["MonitorItem"].type()) {
+        vector<DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MonitorItem"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        monitorItem = make_shared<vector<DescribeGroupLatencyResponseBodyLatencyPacketMonitorItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupLatencyResponseBodyLatencyPacket() = default;
+};
+class DescribeGroupLatencyResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DescribeGroupLatencyResponseBodyLatencyPacket> latencyPacket{};
+  shared_ptr<string> requestId{};
+
+  DescribeGroupLatencyResponseBody() {}
+
+  explicit DescribeGroupLatencyResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (latencyPacket) {
+      res["LatencyPacket"] = latencyPacket ? boost::any(latencyPacket->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("LatencyPacket") != m.end() && !m["LatencyPacket"].empty()) {
+      if (typeid(map<string, boost::any>) == m["LatencyPacket"].type()) {
+        DescribeGroupLatencyResponseBodyLatencyPacket model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["LatencyPacket"]));
+        latencyPacket = make_shared<DescribeGroupLatencyResponseBodyLatencyPacket>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupLatencyResponseBody() = default;
+};
+class DescribeGroupLatencyResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGroupLatencyResponseBody> body{};
+
+  DescribeGroupLatencyResponse() {}
+
+  explicit DescribeGroupLatencyResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGroupLatencyResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGroupLatencyResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupLatencyResponse() = default;
+};
 class DescribeGroupQpsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> endTime{};
@@ -26829,6 +27074,251 @@ public:
 
 
   virtual ~DescribeGroupQpsResponse() = default;
+};
+class DescribeGroupTrafficRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> groupId{};
+  shared_ptr<string> securityToken{};
+  shared_ptr<string> stageName{};
+  shared_ptr<string> startTime{};
+
+  DescribeGroupTrafficRequest() {}
+
+  explicit DescribeGroupTrafficRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (groupId) {
+      res["GroupId"] = boost::any(*groupId);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (stageName) {
+      res["StageName"] = boost::any(*stageName);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
+      groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("StageName") != m.end() && !m["StageName"].empty()) {
+      stageName = make_shared<string>(boost::any_cast<string>(m["StageName"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupTrafficRequest() = default;
+};
+class DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem : public Darabonba::Model {
+public:
+  shared_ptr<string> item{};
+  shared_ptr<string> itemTime{};
+  shared_ptr<string> itemValue{};
+
+  DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem() {}
+
+  explicit DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (item) {
+      res["Item"] = boost::any(*item);
+    }
+    if (itemTime) {
+      res["ItemTime"] = boost::any(*itemTime);
+    }
+    if (itemValue) {
+      res["ItemValue"] = boost::any(*itemValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Item") != m.end() && !m["Item"].empty()) {
+      item = make_shared<string>(boost::any_cast<string>(m["Item"]));
+    }
+    if (m.find("ItemTime") != m.end() && !m["ItemTime"].empty()) {
+      itemTime = make_shared<string>(boost::any_cast<string>(m["ItemTime"]));
+    }
+    if (m.find("ItemValue") != m.end() && !m["ItemValue"].empty()) {
+      itemValue = make_shared<string>(boost::any_cast<string>(m["ItemValue"]));
+    }
+  }
+
+
+  virtual ~DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem() = default;
+};
+class DescribeGroupTrafficResponseBodyTrafficPerSecond : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem>> monitorItem{};
+
+  DescribeGroupTrafficResponseBodyTrafficPerSecond() {}
+
+  explicit DescribeGroupTrafficResponseBodyTrafficPerSecond(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (monitorItem) {
+      vector<boost::any> temp1;
+      for(auto item1:*monitorItem){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["MonitorItem"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MonitorItem") != m.end() && !m["MonitorItem"].empty()) {
+      if (typeid(vector<boost::any>) == m["MonitorItem"].type()) {
+        vector<DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["MonitorItem"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        monitorItem = make_shared<vector<DescribeGroupTrafficResponseBodyTrafficPerSecondMonitorItem>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupTrafficResponseBodyTrafficPerSecond() = default;
+};
+class DescribeGroupTrafficResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<DescribeGroupTrafficResponseBodyTrafficPerSecond> trafficPerSecond{};
+
+  DescribeGroupTrafficResponseBody() {}
+
+  explicit DescribeGroupTrafficResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (trafficPerSecond) {
+      res["TrafficPerSecond"] = trafficPerSecond ? boost::any(trafficPerSecond->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TrafficPerSecond") != m.end() && !m["TrafficPerSecond"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TrafficPerSecond"].type()) {
+        DescribeGroupTrafficResponseBodyTrafficPerSecond model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TrafficPerSecond"]));
+        trafficPerSecond = make_shared<DescribeGroupTrafficResponseBodyTrafficPerSecond>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupTrafficResponseBody() = default;
+};
+class DescribeGroupTrafficResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeGroupTrafficResponseBody> body{};
+
+  DescribeGroupTrafficResponse() {}
+
+  explicit DescribeGroupTrafficResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeGroupTrafficResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeGroupTrafficResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeGroupTrafficResponse() = default;
 };
 class DescribeHistoryApisRequest : public Darabonba::Model {
 public:
@@ -49512,8 +50002,12 @@ public:
   DescribeDeployedApisResponse describeDeployedApis(shared_ptr<DescribeDeployedApisRequest> request);
   DescribeDomainResponse describeDomainWithOptions(shared_ptr<DescribeDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeDomainResponse describeDomain(shared_ptr<DescribeDomainRequest> request);
+  DescribeGroupLatencyResponse describeGroupLatencyWithOptions(shared_ptr<DescribeGroupLatencyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGroupLatencyResponse describeGroupLatency(shared_ptr<DescribeGroupLatencyRequest> request);
   DescribeGroupQpsResponse describeGroupQpsWithOptions(shared_ptr<DescribeGroupQpsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeGroupQpsResponse describeGroupQps(shared_ptr<DescribeGroupQpsRequest> request);
+  DescribeGroupTrafficResponse describeGroupTrafficWithOptions(shared_ptr<DescribeGroupTrafficRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeGroupTrafficResponse describeGroupTraffic(shared_ptr<DescribeGroupTrafficRequest> request);
   DescribeHistoryApisResponse describeHistoryApisWithOptions(shared_ptr<DescribeHistoryApisRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeHistoryApisResponse describeHistoryApis(shared_ptr<DescribeHistoryApisRequest> request);
   DescribeImportOASTaskResponse describeImportOASTaskWithOptions(shared_ptr<DescribeImportOASTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
