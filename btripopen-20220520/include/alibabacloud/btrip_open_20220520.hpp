@@ -72756,6 +72756,1375 @@ public:
 
   virtual ~InsureOrderPayResponse() = default;
 };
+class InsureOrderRefundHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  InsureOrderRefundHeaders() {}
+
+  explicit InsureOrderRefundHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundHeaders() = default;
+};
+class InsureOrderRefundRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> buyerName{};
+  shared_ptr<string> isvName{};
+  shared_ptr<string> outApplyId{};
+  shared_ptr<vector<string>> policyNoList{};
+  shared_ptr<vector<string>> subInsOrderIds{};
+  shared_ptr<string> supplierCode{};
+
+  InsureOrderRefundRequest() {}
+
+  explicit InsureOrderRefundRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (buyerName) {
+      res["buyer_name"] = boost::any(*buyerName);
+    }
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
+    if (policyNoList) {
+      res["policy_no_list"] = boost::any(*policyNoList);
+    }
+    if (subInsOrderIds) {
+      res["sub_ins_order_ids"] = boost::any(*subInsOrderIds);
+    }
+    if (supplierCode) {
+      res["supplier_code"] = boost::any(*supplierCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("buyer_name") != m.end() && !m["buyer_name"].empty()) {
+      buyerName = make_shared<string>(boost::any_cast<string>(m["buyer_name"]));
+    }
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
+    if (m.find("policy_no_list") != m.end() && !m["policy_no_list"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["policy_no_list"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["policy_no_list"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      policyNoList = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("sub_ins_order_ids") != m.end() && !m["sub_ins_order_ids"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["sub_ins_order_ids"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["sub_ins_order_ids"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      subInsOrderIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("supplier_code") != m.end() && !m["supplier_code"].empty()) {
+      supplierCode = make_shared<string>(boost::any_cast<string>(m["supplier_code"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundRequest() = default;
+};
+class InsureOrderRefundShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> buyerName{};
+  shared_ptr<string> isvName{};
+  shared_ptr<string> outApplyId{};
+  shared_ptr<string> policyNoListShrink{};
+  shared_ptr<string> subInsOrderIdsShrink{};
+  shared_ptr<string> supplierCode{};
+
+  InsureOrderRefundShrinkRequest() {}
+
+  explicit InsureOrderRefundShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (buyerName) {
+      res["buyer_name"] = boost::any(*buyerName);
+    }
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
+    if (policyNoListShrink) {
+      res["policy_no_list"] = boost::any(*policyNoListShrink);
+    }
+    if (subInsOrderIdsShrink) {
+      res["sub_ins_order_ids"] = boost::any(*subInsOrderIdsShrink);
+    }
+    if (supplierCode) {
+      res["supplier_code"] = boost::any(*supplierCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("buyer_name") != m.end() && !m["buyer_name"].empty()) {
+      buyerName = make_shared<string>(boost::any_cast<string>(m["buyer_name"]));
+    }
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
+    if (m.find("policy_no_list") != m.end() && !m["policy_no_list"].empty()) {
+      policyNoListShrink = make_shared<string>(boost::any_cast<string>(m["policy_no_list"]));
+    }
+    if (m.find("sub_ins_order_ids") != m.end() && !m["sub_ins_order_ids"].empty()) {
+      subInsOrderIdsShrink = make_shared<string>(boost::any_cast<string>(m["sub_ins_order_ids"]));
+    }
+    if (m.find("supplier_code") != m.end() && !m["supplier_code"].empty()) {
+      supplierCode = make_shared<string>(boost::any_cast<string>(m["supplier_code"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundShrinkRequest() = default;
+};
+class InsureOrderRefundResponseBodyModuleInsRefundList : public Darabonba::Model {
+public:
+  shared_ptr<string> policyRefundNo{};
+  shared_ptr<string> refundStatus{};
+  shared_ptr<string> subInsOrderId{};
+
+  InsureOrderRefundResponseBodyModuleInsRefundList() {}
+
+  explicit InsureOrderRefundResponseBodyModuleInsRefundList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (policyRefundNo) {
+      res["policy_refund_no"] = boost::any(*policyRefundNo);
+    }
+    if (refundStatus) {
+      res["refund_status"] = boost::any(*refundStatus);
+    }
+    if (subInsOrderId) {
+      res["sub_ins_order_id"] = boost::any(*subInsOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("policy_refund_no") != m.end() && !m["policy_refund_no"].empty()) {
+      policyRefundNo = make_shared<string>(boost::any_cast<string>(m["policy_refund_no"]));
+    }
+    if (m.find("refund_status") != m.end() && !m["refund_status"].empty()) {
+      refundStatus = make_shared<string>(boost::any_cast<string>(m["refund_status"]));
+    }
+    if (m.find("sub_ins_order_id") != m.end() && !m["sub_ins_order_id"].empty()) {
+      subInsOrderId = make_shared<string>(boost::any_cast<string>(m["sub_ins_order_id"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundResponseBodyModuleInsRefundList() = default;
+};
+class InsureOrderRefundResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> applyId{};
+  shared_ptr<string> insOrderId{};
+  shared_ptr<vector<InsureOrderRefundResponseBodyModuleInsRefundList>> insRefundList{};
+  shared_ptr<string> outApplyId{};
+
+  InsureOrderRefundResponseBodyModule() {}
+
+  explicit InsureOrderRefundResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
+    if (insOrderId) {
+      res["ins_order_id"] = boost::any(*insOrderId);
+    }
+    if (insRefundList) {
+      vector<boost::any> temp1;
+      for(auto item1:*insRefundList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ins_refund_list"] = boost::any(temp1);
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
+    if (m.find("ins_order_id") != m.end() && !m["ins_order_id"].empty()) {
+      insOrderId = make_shared<string>(boost::any_cast<string>(m["ins_order_id"]));
+    }
+    if (m.find("ins_refund_list") != m.end() && !m["ins_refund_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["ins_refund_list"].type()) {
+        vector<InsureOrderRefundResponseBodyModuleInsRefundList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ins_refund_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsureOrderRefundResponseBodyModuleInsRefundList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        insRefundList = make_shared<vector<InsureOrderRefundResponseBodyModuleInsRefundList>>(expect1);
+      }
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundResponseBodyModule() = default;
+};
+class InsureOrderRefundResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<InsureOrderRefundResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  InsureOrderRefundResponseBody() {}
+
+  explicit InsureOrderRefundResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        InsureOrderRefundResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<InsureOrderRefundResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~InsureOrderRefundResponseBody() = default;
+};
+class InsureOrderRefundResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsureOrderRefundResponseBody> body{};
+
+  InsureOrderRefundResponse() {}
+
+  explicit InsureOrderRefundResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsureOrderRefundResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsureOrderRefundResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsureOrderRefundResponse() = default;
+};
+class InsureOrderUrlDetailHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  InsureOrderUrlDetailHeaders() {}
+
+  explicit InsureOrderUrlDetailHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~InsureOrderUrlDetailHeaders() = default;
+};
+class InsureOrderUrlDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<string> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  InsureOrderUrlDetailResponseBody() {}
+
+  explicit InsureOrderUrlDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = boost::any(*module);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      module = make_shared<string>(boost::any_cast<string>(m["module"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~InsureOrderUrlDetailResponseBody() = default;
+};
+class InsureOrderUrlDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsureOrderUrlDetailResponseBody> body{};
+
+  InsureOrderUrlDetailResponse() {}
+
+  explicit InsureOrderUrlDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsureOrderUrlDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsureOrderUrlDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsureOrderUrlDetailResponse() = default;
+};
+class InsureRefundDetailHeaders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> commonHeaders{};
+  shared_ptr<string> xAcsBtripCorpToken{};
+
+  InsureRefundDetailHeaders() {}
+
+  explicit InsureRefundDetailHeaders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commonHeaders) {
+      res["commonHeaders"] = boost::any(*commonHeaders);
+    }
+    if (xAcsBtripCorpToken) {
+      res["x-acs-btrip-corp-token"] = boost::any(*xAcsBtripCorpToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commonHeaders") != m.end() && !m["commonHeaders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["commonHeaders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      commonHeaders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("x-acs-btrip-corp-token") != m.end() && !m["x-acs-btrip-corp-token"].empty()) {
+      xAcsBtripCorpToken = make_shared<string>(boost::any_cast<string>(m["x-acs-btrip-corp-token"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailHeaders() = default;
+};
+class InsureRefundDetailRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applyId{};
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> buyerName{};
+  shared_ptr<string> insOrderId{};
+  shared_ptr<string> isvName{};
+  shared_ptr<string> outApplyId{};
+  shared_ptr<string> supplierCode{};
+
+  InsureRefundDetailRequest() {}
+
+  explicit InsureRefundDetailRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (buyerName) {
+      res["buyer_name"] = boost::any(*buyerName);
+    }
+    if (insOrderId) {
+      res["ins_order_id"] = boost::any(*insOrderId);
+    }
+    if (isvName) {
+      res["isv_name"] = boost::any(*isvName);
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
+    if (supplierCode) {
+      res["supplier_code"] = boost::any(*supplierCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("buyer_name") != m.end() && !m["buyer_name"].empty()) {
+      buyerName = make_shared<string>(boost::any_cast<string>(m["buyer_name"]));
+    }
+    if (m.find("ins_order_id") != m.end() && !m["ins_order_id"].empty()) {
+      insOrderId = make_shared<string>(boost::any_cast<string>(m["ins_order_id"]));
+    }
+    if (m.find("isv_name") != m.end() && !m["isv_name"].empty()) {
+      isvName = make_shared<string>(boost::any_cast<string>(m["isv_name"]));
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
+    if (m.find("supplier_code") != m.end() && !m["supplier_code"].empty()) {
+      supplierCode = make_shared<string>(boost::any_cast<string>(m["supplier_code"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailRequest() = default;
+};
+class InsureRefundDetailResponseBodyModuleInsureOrderApplicant : public Darabonba::Model {
+public:
+  shared_ptr<string> certName{};
+  shared_ptr<string> certNo{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> phone{};
+
+  InsureRefundDetailResponseBodyModuleInsureOrderApplicant() {}
+
+  explicit InsureRefundDetailResponseBodyModuleInsureOrderApplicant(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certName) {
+      res["cert_name"] = boost::any(*certName);
+    }
+    if (certNo) {
+      res["cert_no"] = boost::any(*certNo);
+    }
+    if (certType) {
+      res["cert_type"] = boost::any(*certType);
+    }
+    if (phone) {
+      res["phone"] = boost::any(*phone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cert_name") != m.end() && !m["cert_name"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["cert_name"]));
+    }
+    if (m.find("cert_no") != m.end() && !m["cert_no"].empty()) {
+      certNo = make_shared<string>(boost::any_cast<string>(m["cert_no"]));
+    }
+    if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["cert_type"]));
+    }
+    if (m.find("phone") != m.end() && !m["phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModuleInsureOrderApplicant() = default;
+};
+class InsureRefundDetailResponseBodyModuleInsureOrder : public Darabonba::Model {
+public:
+  shared_ptr<InsureRefundDetailResponseBodyModuleInsureOrderApplicant> applicant{};
+  shared_ptr<string> bizOrderId{};
+  shared_ptr<long> bizType{};
+  shared_ptr<string> closeTime{};
+  shared_ptr<string> insOrderId{};
+  shared_ptr<string> outInsOrderId{};
+  shared_ptr<string> payTime{};
+  shared_ptr<long> price{};
+  shared_ptr<long> settleType{};
+  shared_ptr<string> status{};
+
+  InsureRefundDetailResponseBodyModuleInsureOrder() {}
+
+  explicit InsureRefundDetailResponseBodyModuleInsureOrder(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicant) {
+      res["applicant"] = applicant ? boost::any(applicant->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bizOrderId) {
+      res["biz_order_id"] = boost::any(*bizOrderId);
+    }
+    if (bizType) {
+      res["biz_type"] = boost::any(*bizType);
+    }
+    if (closeTime) {
+      res["close_time"] = boost::any(*closeTime);
+    }
+    if (insOrderId) {
+      res["ins_order_id"] = boost::any(*insOrderId);
+    }
+    if (outInsOrderId) {
+      res["out_ins_order_id"] = boost::any(*outInsOrderId);
+    }
+    if (payTime) {
+      res["pay_time"] = boost::any(*payTime);
+    }
+    if (price) {
+      res["price"] = boost::any(*price);
+    }
+    if (settleType) {
+      res["settle_type"] = boost::any(*settleType);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("applicant") != m.end() && !m["applicant"].empty()) {
+      if (typeid(map<string, boost::any>) == m["applicant"].type()) {
+        InsureRefundDetailResponseBodyModuleInsureOrderApplicant model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["applicant"]));
+        applicant = make_shared<InsureRefundDetailResponseBodyModuleInsureOrderApplicant>(model1);
+      }
+    }
+    if (m.find("biz_order_id") != m.end() && !m["biz_order_id"].empty()) {
+      bizOrderId = make_shared<string>(boost::any_cast<string>(m["biz_order_id"]));
+    }
+    if (m.find("biz_type") != m.end() && !m["biz_type"].empty()) {
+      bizType = make_shared<long>(boost::any_cast<long>(m["biz_type"]));
+    }
+    if (m.find("close_time") != m.end() && !m["close_time"].empty()) {
+      closeTime = make_shared<string>(boost::any_cast<string>(m["close_time"]));
+    }
+    if (m.find("ins_order_id") != m.end() && !m["ins_order_id"].empty()) {
+      insOrderId = make_shared<string>(boost::any_cast<string>(m["ins_order_id"]));
+    }
+    if (m.find("out_ins_order_id") != m.end() && !m["out_ins_order_id"].empty()) {
+      outInsOrderId = make_shared<string>(boost::any_cast<string>(m["out_ins_order_id"]));
+    }
+    if (m.find("pay_time") != m.end() && !m["pay_time"].empty()) {
+      payTime = make_shared<string>(boost::any_cast<string>(m["pay_time"]));
+    }
+    if (m.find("price") != m.end() && !m["price"].empty()) {
+      price = make_shared<long>(boost::any_cast<long>(m["price"]));
+    }
+    if (m.find("settle_type") != m.end() && !m["settle_type"].empty()) {
+      settleType = make_shared<long>(boost::any_cast<long>(m["settle_type"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModuleInsureOrder() = default;
+};
+class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment : public Darabonba::Model {
+public:
+  shared_ptr<string> arrAirportCode{};
+  shared_ptr<string> arrCity{};
+  shared_ptr<string> arrCityCode{};
+  shared_ptr<string> arrTime{};
+  shared_ptr<string> depAirportCode{};
+  shared_ptr<string> depCity{};
+  shared_ptr<string> depCityCode{};
+  shared_ptr<string> depTime{};
+  shared_ptr<string> flightNo{};
+
+  InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment() {}
+
+  explicit InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arrAirportCode) {
+      res["arr_airport_code"] = boost::any(*arrAirportCode);
+    }
+    if (arrCity) {
+      res["arr_city"] = boost::any(*arrCity);
+    }
+    if (arrCityCode) {
+      res["arr_city_code"] = boost::any(*arrCityCode);
+    }
+    if (arrTime) {
+      res["arr_time"] = boost::any(*arrTime);
+    }
+    if (depAirportCode) {
+      res["dep_airport_code"] = boost::any(*depAirportCode);
+    }
+    if (depCity) {
+      res["dep_city"] = boost::any(*depCity);
+    }
+    if (depCityCode) {
+      res["dep_city_code"] = boost::any(*depCityCode);
+    }
+    if (depTime) {
+      res["dep_time"] = boost::any(*depTime);
+    }
+    if (flightNo) {
+      res["flight_no"] = boost::any(*flightNo);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("arr_airport_code") != m.end() && !m["arr_airport_code"].empty()) {
+      arrAirportCode = make_shared<string>(boost::any_cast<string>(m["arr_airport_code"]));
+    }
+    if (m.find("arr_city") != m.end() && !m["arr_city"].empty()) {
+      arrCity = make_shared<string>(boost::any_cast<string>(m["arr_city"]));
+    }
+    if (m.find("arr_city_code") != m.end() && !m["arr_city_code"].empty()) {
+      arrCityCode = make_shared<string>(boost::any_cast<string>(m["arr_city_code"]));
+    }
+    if (m.find("arr_time") != m.end() && !m["arr_time"].empty()) {
+      arrTime = make_shared<string>(boost::any_cast<string>(m["arr_time"]));
+    }
+    if (m.find("dep_airport_code") != m.end() && !m["dep_airport_code"].empty()) {
+      depAirportCode = make_shared<string>(boost::any_cast<string>(m["dep_airport_code"]));
+    }
+    if (m.find("dep_city") != m.end() && !m["dep_city"].empty()) {
+      depCity = make_shared<string>(boost::any_cast<string>(m["dep_city"]));
+    }
+    if (m.find("dep_city_code") != m.end() && !m["dep_city_code"].empty()) {
+      depCityCode = make_shared<string>(boost::any_cast<string>(m["dep_city_code"]));
+    }
+    if (m.find("dep_time") != m.end() && !m["dep_time"].empty()) {
+      depTime = make_shared<string>(boost::any_cast<string>(m["dep_time"]));
+    }
+    if (m.find("flight_no") != m.end() && !m["flight_no"].empty()) {
+      flightNo = make_shared<string>(boost::any_cast<string>(m["flight_no"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment() = default;
+};
+class InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured : public Darabonba::Model {
+public:
+  shared_ptr<string> birthday{};
+  shared_ptr<string> btripUserId{};
+  shared_ptr<string> certName{};
+  shared_ptr<string> certNo{};
+  shared_ptr<string> certType{};
+  shared_ptr<string> gender{};
+  shared_ptr<string> phone{};
+
+  InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured() {}
+
+  explicit InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (btripUserId) {
+      res["btrip_user_id"] = boost::any(*btripUserId);
+    }
+    if (certName) {
+      res["cert_name"] = boost::any(*certName);
+    }
+    if (certNo) {
+      res["cert_no"] = boost::any(*certNo);
+    }
+    if (certType) {
+      res["cert_type"] = boost::any(*certType);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
+    }
+    if (phone) {
+      res["phone"] = boost::any(*phone);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("btrip_user_id") != m.end() && !m["btrip_user_id"].empty()) {
+      btripUserId = make_shared<string>(boost::any_cast<string>(m["btrip_user_id"]));
+    }
+    if (m.find("cert_name") != m.end() && !m["cert_name"].empty()) {
+      certName = make_shared<string>(boost::any_cast<string>(m["cert_name"]));
+    }
+    if (m.find("cert_no") != m.end() && !m["cert_no"].empty()) {
+      certNo = make_shared<string>(boost::any_cast<string>(m["cert_no"]));
+    }
+    if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["cert_type"]));
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<string>(boost::any_cast<string>(m["gender"]));
+    }
+    if (m.find("phone") != m.end() && !m["phone"].empty()) {
+      phone = make_shared<string>(boost::any_cast<string>(m["phone"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured() = default;
+};
+class InsureRefundDetailResponseBodyModuleSubOrderRefundList : public Darabonba::Model {
+public:
+  shared_ptr<string> effectiveEndTime{};
+  shared_ptr<string> effectiveStartTime{};
+  shared_ptr<InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment> insureSegment{};
+  shared_ptr<string> insureTime{};
+  shared_ptr<InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured> insured{};
+  shared_ptr<string> outSubInsOrderId{};
+  shared_ptr<string> policyNo{};
+  shared_ptr<string> policyRefundNo{};
+  shared_ptr<long> price{};
+  shared_ptr<string> productName{};
+  shared_ptr<string> productNo{};
+  shared_ptr<string> refundStatus{};
+  shared_ptr<string> refundTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> subInsOrderId{};
+
+  InsureRefundDetailResponseBodyModuleSubOrderRefundList() {}
+
+  explicit InsureRefundDetailResponseBodyModuleSubOrderRefundList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (effectiveEndTime) {
+      res["effective_end_time"] = boost::any(*effectiveEndTime);
+    }
+    if (effectiveStartTime) {
+      res["effective_start_time"] = boost::any(*effectiveStartTime);
+    }
+    if (insureSegment) {
+      res["insure_segment"] = insureSegment ? boost::any(insureSegment->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (insureTime) {
+      res["insure_time"] = boost::any(*insureTime);
+    }
+    if (insured) {
+      res["insured"] = insured ? boost::any(insured->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (outSubInsOrderId) {
+      res["out_sub_ins_order_id"] = boost::any(*outSubInsOrderId);
+    }
+    if (policyNo) {
+      res["policy_no"] = boost::any(*policyNo);
+    }
+    if (policyRefundNo) {
+      res["policy_refund_no"] = boost::any(*policyRefundNo);
+    }
+    if (price) {
+      res["price"] = boost::any(*price);
+    }
+    if (productName) {
+      res["product_name"] = boost::any(*productName);
+    }
+    if (productNo) {
+      res["product_no"] = boost::any(*productNo);
+    }
+    if (refundStatus) {
+      res["refund_status"] = boost::any(*refundStatus);
+    }
+    if (refundTime) {
+      res["refund_time"] = boost::any(*refundTime);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (subInsOrderId) {
+      res["sub_ins_order_id"] = boost::any(*subInsOrderId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("effective_end_time") != m.end() && !m["effective_end_time"].empty()) {
+      effectiveEndTime = make_shared<string>(boost::any_cast<string>(m["effective_end_time"]));
+    }
+    if (m.find("effective_start_time") != m.end() && !m["effective_start_time"].empty()) {
+      effectiveStartTime = make_shared<string>(boost::any_cast<string>(m["effective_start_time"]));
+    }
+    if (m.find("insure_segment") != m.end() && !m["insure_segment"].empty()) {
+      if (typeid(map<string, boost::any>) == m["insure_segment"].type()) {
+        InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["insure_segment"]));
+        insureSegment = make_shared<InsureRefundDetailResponseBodyModuleSubOrderRefundListInsureSegment>(model1);
+      }
+    }
+    if (m.find("insure_time") != m.end() && !m["insure_time"].empty()) {
+      insureTime = make_shared<string>(boost::any_cast<string>(m["insure_time"]));
+    }
+    if (m.find("insured") != m.end() && !m["insured"].empty()) {
+      if (typeid(map<string, boost::any>) == m["insured"].type()) {
+        InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["insured"]));
+        insured = make_shared<InsureRefundDetailResponseBodyModuleSubOrderRefundListInsured>(model1);
+      }
+    }
+    if (m.find("out_sub_ins_order_id") != m.end() && !m["out_sub_ins_order_id"].empty()) {
+      outSubInsOrderId = make_shared<string>(boost::any_cast<string>(m["out_sub_ins_order_id"]));
+    }
+    if (m.find("policy_no") != m.end() && !m["policy_no"].empty()) {
+      policyNo = make_shared<string>(boost::any_cast<string>(m["policy_no"]));
+    }
+    if (m.find("policy_refund_no") != m.end() && !m["policy_refund_no"].empty()) {
+      policyRefundNo = make_shared<string>(boost::any_cast<string>(m["policy_refund_no"]));
+    }
+    if (m.find("price") != m.end() && !m["price"].empty()) {
+      price = make_shared<long>(boost::any_cast<long>(m["price"]));
+    }
+    if (m.find("product_name") != m.end() && !m["product_name"].empty()) {
+      productName = make_shared<string>(boost::any_cast<string>(m["product_name"]));
+    }
+    if (m.find("product_no") != m.end() && !m["product_no"].empty()) {
+      productNo = make_shared<string>(boost::any_cast<string>(m["product_no"]));
+    }
+    if (m.find("refund_status") != m.end() && !m["refund_status"].empty()) {
+      refundStatus = make_shared<string>(boost::any_cast<string>(m["refund_status"]));
+    }
+    if (m.find("refund_time") != m.end() && !m["refund_time"].empty()) {
+      refundTime = make_shared<string>(boost::any_cast<string>(m["refund_time"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("sub_ins_order_id") != m.end() && !m["sub_ins_order_id"].empty()) {
+      subInsOrderId = make_shared<string>(boost::any_cast<string>(m["sub_ins_order_id"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModuleSubOrderRefundList() = default;
+};
+class InsureRefundDetailResponseBodyModule : public Darabonba::Model {
+public:
+  shared_ptr<string> applyId{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<string> insOrderId{};
+  shared_ptr<InsureRefundDetailResponseBodyModuleInsureOrder> insureOrder{};
+  shared_ptr<string> outApplyId{};
+  shared_ptr<vector<InsureRefundDetailResponseBodyModuleSubOrderRefundList>> subOrderRefundList{};
+
+  InsureRefundDetailResponseBodyModule() {}
+
+  explicit InsureRefundDetailResponseBodyModule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
+    if (gmtCreate) {
+      res["gmt_create"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["gmt_modified"] = boost::any(*gmtModified);
+    }
+    if (insOrderId) {
+      res["ins_order_id"] = boost::any(*insOrderId);
+    }
+    if (insureOrder) {
+      res["insure_order"] = insureOrder ? boost::any(insureOrder->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
+    if (subOrderRefundList) {
+      vector<boost::any> temp1;
+      for(auto item1:*subOrderRefundList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["sub_order_refund_list"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
+    if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
+    }
+    if (m.find("gmt_modified") != m.end() && !m["gmt_modified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["gmt_modified"]));
+    }
+    if (m.find("ins_order_id") != m.end() && !m["ins_order_id"].empty()) {
+      insOrderId = make_shared<string>(boost::any_cast<string>(m["ins_order_id"]));
+    }
+    if (m.find("insure_order") != m.end() && !m["insure_order"].empty()) {
+      if (typeid(map<string, boost::any>) == m["insure_order"].type()) {
+        InsureRefundDetailResponseBodyModuleInsureOrder model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["insure_order"]));
+        insureOrder = make_shared<InsureRefundDetailResponseBodyModuleInsureOrder>(model1);
+      }
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
+    if (m.find("sub_order_refund_list") != m.end() && !m["sub_order_refund_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["sub_order_refund_list"].type()) {
+        vector<InsureRefundDetailResponseBodyModuleSubOrderRefundList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["sub_order_refund_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            InsureRefundDetailResponseBodyModuleSubOrderRefundList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        subOrderRefundList = make_shared<vector<InsureRefundDetailResponseBodyModuleSubOrderRefundList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBodyModule() = default;
+};
+class InsureRefundDetailResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<string> message{};
+  shared_ptr<InsureRefundDetailResponseBodyModule> module{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+  shared_ptr<string> traceId{};
+
+  InsureRefundDetailResponseBody() {}
+
+  explicit InsureRefundDetailResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (message) {
+      res["message"] = boost::any(*message);
+    }
+    if (module) {
+      res["module"] = module ? boost::any(module->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (traceId) {
+      res["traceId"] = boost::any(*traceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("message") != m.end() && !m["message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["message"]));
+    }
+    if (m.find("module") != m.end() && !m["module"].empty()) {
+      if (typeid(map<string, boost::any>) == m["module"].type()) {
+        InsureRefundDetailResponseBodyModule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["module"]));
+        module = make_shared<InsureRefundDetailResponseBodyModule>(model1);
+      }
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("traceId") != m.end() && !m["traceId"].empty()) {
+      traceId = make_shared<string>(boost::any_cast<string>(m["traceId"]));
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponseBody() = default;
+};
+class InsureRefundDetailResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<InsureRefundDetailResponseBody> body{};
+
+  InsureRefundDetailResponse() {}
+
+  explicit InsureRefundDetailResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        InsureRefundDetailResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<InsureRefundDetailResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~InsureRefundDetailResponse() = default;
+};
 class InvoiceAddHeaders : public Darabonba::Model {
 public:
   shared_ptr<map<string, string>> commonHeaders{};
@@ -90257,6 +91626,15 @@ public:
                                                    shared_ptr<InsureOrderPayHeaders> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InsureOrderPayResponse insureOrderPay(shared_ptr<string> insOrderId, shared_ptr<InsureOrderPayRequest> request);
+  InsureOrderRefundResponse insureOrderRefundWithOptions(shared_ptr<string> insOrderId,
+                                                         shared_ptr<InsureOrderRefundRequest> tmpReq,
+                                                         shared_ptr<InsureOrderRefundHeaders> headers,
+                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsureOrderRefundResponse insureOrderRefund(shared_ptr<string> insOrderId, shared_ptr<InsureOrderRefundRequest> request);
+  InsureOrderUrlDetailResponse insureOrderUrlDetailWithOptions(shared_ptr<string> insOrderId, shared_ptr<InsureOrderUrlDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsureOrderUrlDetailResponse insureOrderUrlDetail(shared_ptr<string> insOrderId);
+  InsureRefundDetailResponse insureRefundDetailWithOptions(shared_ptr<InsureRefundDetailRequest> request, shared_ptr<InsureRefundDetailHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  InsureRefundDetailResponse insureRefundDetail(shared_ptr<InsureRefundDetailRequest> request);
   InvoiceAddResponse invoiceAddWithOptions(shared_ptr<InvoiceAddRequest> request, shared_ptr<InvoiceAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   InvoiceAddResponse invoiceAdd(shared_ptr<InvoiceAddRequest> request);
   InvoiceDeleteResponse invoiceDeleteWithOptions(shared_ptr<InvoiceDeleteRequest> request, shared_ptr<InvoiceDeleteHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
