@@ -17240,6 +17240,7 @@ public:
 class GetFileBlobsResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<long> size{};
   shared_ptr<long> totalLines{};
 
   GetFileBlobsResponseBodyResult() {}
@@ -17255,6 +17256,9 @@ public:
     if (content) {
       res["content"] = boost::any(*content);
     }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
     if (totalLines) {
       res["totalLines"] = boost::any(*totalLines);
     }
@@ -17264,6 +17268,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("content") != m.end() && !m["content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
     }
     if (m.find("totalLines") != m.end() && !m["totalLines"].empty()) {
       totalLines = make_shared<long>(boost::any_cast<long>(m["totalLines"]));
