@@ -4833,6 +4833,7 @@ public:
   shared_ptr<string> engineVersion{};
   shared_ptr<string> regionId{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> switchTimeMode{};
 
   UpgradeDBInstanceEngineVersionRequest() {}
 
@@ -4856,6 +4857,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (switchTimeMode) {
+      res["SwitchTimeMode"] = boost::any(*switchTimeMode);
+    }
     return res;
   }
 
@@ -4871,6 +4875,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SwitchTimeMode") != m.end() && !m["SwitchTimeMode"].empty()) {
+      switchTimeMode = make_shared<string>(boost::any_cast<string>(m["SwitchTimeMode"]));
     }
   }
 
