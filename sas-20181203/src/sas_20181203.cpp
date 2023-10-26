@@ -731,6 +731,9 @@ ChangeCheckConfigResponse Alibabacloud_Sas20181203::Client::changeCheckConfigWit
   if (!Darabonba_Util::Client::isUnset<string>(request->configStandardIdsShrink)) {
     query->insert(pair<string, string>("ConfigStandardIds", *request->configStandardIdsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->configure)) {
+    query->insert(pair<string, string>("Configure", *request->configure));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->cycleDays)) {
     query->insert(pair<string, vector<long>>("CycleDays", *request->cycleDays));
   }
@@ -754,6 +757,9 @@ ChangeCheckConfigResponse Alibabacloud_Sas20181203::Client::changeCheckConfigWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vendors)) {
+    query->insert(pair<string, vector<string>>("Vendors", *request->vendors));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
