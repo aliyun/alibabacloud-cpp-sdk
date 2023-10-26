@@ -5791,6 +5791,42 @@ public:
 
   virtual ~ApplyAddHeaders() = default;
 };
+class ApplyAddRequestCarRule : public Darabonba::Model {
+public:
+  shared_ptr<string> scenarioTemplateId{};
+  shared_ptr<string> scenarioTemplateName{};
+
+  ApplyAddRequestCarRule() {}
+
+  explicit ApplyAddRequestCarRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scenarioTemplateId) {
+      res["scenario_template_id"] = boost::any(*scenarioTemplateId);
+    }
+    if (scenarioTemplateName) {
+      res["scenario_template_name"] = boost::any(*scenarioTemplateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scenario_template_id") != m.end() && !m["scenario_template_id"].empty()) {
+      scenarioTemplateId = make_shared<string>(boost::any_cast<string>(m["scenario_template_id"]));
+    }
+    if (m.find("scenario_template_name") != m.end() && !m["scenario_template_name"].empty()) {
+      scenarioTemplateName = make_shared<string>(boost::any_cast<string>(m["scenario_template_name"]));
+    }
+  }
+
+
+  virtual ~ApplyAddRequestCarRule() = default;
+};
 class ApplyAddRequestExternalTravelerList : public Darabonba::Model {
 public:
   shared_ptr<string> userName{};
@@ -6361,6 +6397,42 @@ public:
 
   virtual ~ApplyAddRequestTravelerList() = default;
 };
+class ApplyAddRequestTravelerStandardCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  ApplyAddRequestTravelerStandardCarCitySet() {}
+
+  explicit ApplyAddRequestTravelerStandardCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~ApplyAddRequestTravelerStandardCarCitySet() = default;
+};
 class ApplyAddRequestTravelerStandardHotelCitys : public Darabonba::Model {
 public:
   shared_ptr<string> cityCode{};
@@ -6407,6 +6479,7 @@ public:
 class ApplyAddRequestTravelerStandard : public Darabonba::Model {
 public:
   shared_ptr<long> businessDiscount{};
+  shared_ptr<vector<ApplyAddRequestTravelerStandardCarCitySet>> carCitySet{};
   shared_ptr<long> economyDiscount{};
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
@@ -6429,6 +6502,13 @@ public:
     map<string, boost::any> res;
     if (businessDiscount) {
       res["business_discount"] = boost::any(*businessDiscount);
+    }
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
     }
     if (economyDiscount) {
       res["economy_discount"] = boost::any(*economyDiscount);
@@ -6467,6 +6547,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("business_discount") != m.end() && !m["business_discount"].empty()) {
       businessDiscount = make_shared<long>(boost::any_cast<long>(m["business_discount"]));
+    }
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<ApplyAddRequestTravelerStandardCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyAddRequestTravelerStandardCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<ApplyAddRequestTravelerStandardCarCitySet>>(expect1);
+      }
     }
     if (m.find("economy_discount") != m.end() && !m["economy_discount"].empty()) {
       economyDiscount = make_shared<long>(boost::any_cast<long>(m["economy_discount"]));
@@ -6514,6 +6607,7 @@ class ApplyAddRequest : public Darabonba::Model {
 public:
   shared_ptr<long> budget{};
   shared_ptr<long> budgetMerge{};
+  shared_ptr<ApplyAddRequestCarRule> carRule{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
@@ -6561,6 +6655,9 @@ public:
     }
     if (budgetMerge) {
       res["budget_merge"] = boost::any(*budgetMerge);
+    }
+    if (carRule) {
+      res["car_rule"] = carRule ? boost::any(carRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (corpName) {
       res["corp_name"] = boost::any(*corpName);
@@ -6684,6 +6781,13 @@ public:
     }
     if (m.find("budget_merge") != m.end() && !m["budget_merge"].empty()) {
       budgetMerge = make_shared<long>(boost::any_cast<long>(m["budget_merge"]));
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["car_rule"].type()) {
+        ApplyAddRequestCarRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["car_rule"]));
+        carRule = make_shared<ApplyAddRequestCarRule>(model1);
+      }
     }
     if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
       corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
@@ -6845,6 +6949,7 @@ class ApplyAddShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> budget{};
   shared_ptr<long> budgetMerge{};
+  shared_ptr<string> carRuleShrink{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
@@ -6892,6 +6997,9 @@ public:
     }
     if (budgetMerge) {
       res["budget_merge"] = boost::any(*budgetMerge);
+    }
+    if (carRuleShrink) {
+      res["car_rule"] = boost::any(*carRuleShrink);
     }
     if (corpName) {
       res["corp_name"] = boost::any(*corpName);
@@ -6995,6 +7103,9 @@ public:
     }
     if (m.find("budget_merge") != m.end() && !m["budget_merge"].empty()) {
       budgetMerge = make_shared<long>(boost::any_cast<long>(m["budget_merge"]));
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      carRuleShrink = make_shared<string>(boost::any_cast<string>(m["car_rule"]));
     }
     if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
       corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
@@ -8117,6 +8228,42 @@ public:
 
   virtual ~ApplyListQueryResponseBodyModuleListApproverList() = default;
 };
+class ApplyListQueryResponseBodyModuleListCarRule : public Darabonba::Model {
+public:
+  shared_ptr<string> scenarioTemplateId{};
+  shared_ptr<string> scenarioTemplateName{};
+
+  ApplyListQueryResponseBodyModuleListCarRule() {}
+
+  explicit ApplyListQueryResponseBodyModuleListCarRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scenarioTemplateId) {
+      res["scenario_template_id"] = boost::any(*scenarioTemplateId);
+    }
+    if (scenarioTemplateName) {
+      res["scenario_template_name"] = boost::any(*scenarioTemplateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scenario_template_id") != m.end() && !m["scenario_template_id"].empty()) {
+      scenarioTemplateId = make_shared<string>(boost::any_cast<string>(m["scenario_template_id"]));
+    }
+    if (m.find("scenario_template_name") != m.end() && !m["scenario_template_name"].empty()) {
+      scenarioTemplateName = make_shared<string>(boost::any_cast<string>(m["scenario_template_name"]));
+    }
+  }
+
+
+  virtual ~ApplyListQueryResponseBodyModuleListCarRule() = default;
+};
 class ApplyListQueryResponseBodyModuleListExternalTravelerList : public Darabonba::Model {
 public:
   shared_ptr<string> userName{};
@@ -8351,8 +8498,45 @@ public:
 
   virtual ~ApplyListQueryResponseBodyModuleListItinerarySetList() = default;
 };
+class ApplyListQueryResponseBodyModuleListTravelerListCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  ApplyListQueryResponseBodyModuleListTravelerListCarCitySet() {}
+
+  explicit ApplyListQueryResponseBodyModuleListTravelerListCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~ApplyListQueryResponseBodyModuleListTravelerListCarCitySet() = default;
+};
 class ApplyListQueryResponseBodyModuleListTravelerList : public Darabonba::Model {
 public:
+  shared_ptr<vector<ApplyListQueryResponseBodyModuleListTravelerListCarCitySet>> carCitySet{};
   shared_ptr<string> jobNo{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
@@ -8367,6 +8551,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
+    }
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
     }
@@ -8380,6 +8571,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<ApplyListQueryResponseBodyModuleListTravelerListCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyListQueryResponseBodyModuleListTravelerListCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<ApplyListQueryResponseBodyModuleListTravelerListCarCitySet>>(expect1);
+      }
+    }
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
     }
@@ -8398,6 +8602,7 @@ class ApplyListQueryResponseBodyModuleList : public Darabonba::Model {
 public:
   shared_ptr<string> applyShowId{};
   shared_ptr<vector<ApplyListQueryResponseBodyModuleListApproverList>> approverList{};
+  shared_ptr<ApplyListQueryResponseBodyModuleListCarRule> carRule{};
   shared_ptr<string> corpId{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
@@ -8443,6 +8648,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["approver_list"] = boost::any(temp1);
+    }
+    if (carRule) {
+      res["car_rule"] = carRule ? boost::any(carRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (corpId) {
       res["corp_id"] = boost::any(*corpId);
@@ -8553,6 +8761,13 @@ public:
           }
         }
         approverList = make_shared<vector<ApplyListQueryResponseBodyModuleListApproverList>>(expect1);
+      }
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["car_rule"].type()) {
+        ApplyListQueryResponseBodyModuleListCarRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["car_rule"]));
+        carRule = make_shared<ApplyListQueryResponseBodyModuleListCarRule>(model1);
       }
     }
     if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
@@ -8855,6 +9070,42 @@ public:
 
 
   virtual ~ApplyModifyHeaders() = default;
+};
+class ApplyModifyRequestCarRule : public Darabonba::Model {
+public:
+  shared_ptr<string> scenarioTemplateId{};
+  shared_ptr<string> scenarioTemplateName{};
+
+  ApplyModifyRequestCarRule() {}
+
+  explicit ApplyModifyRequestCarRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scenarioTemplateId) {
+      res["scenario_template_id"] = boost::any(*scenarioTemplateId);
+    }
+    if (scenarioTemplateName) {
+      res["scenario_template_name"] = boost::any(*scenarioTemplateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scenario_template_id") != m.end() && !m["scenario_template_id"].empty()) {
+      scenarioTemplateId = make_shared<string>(boost::any_cast<string>(m["scenario_template_id"]));
+    }
+    if (m.find("scenario_template_name") != m.end() && !m["scenario_template_name"].empty()) {
+      scenarioTemplateName = make_shared<string>(boost::any_cast<string>(m["scenario_template_name"]));
+    }
+  }
+
+
+  virtual ~ApplyModifyRequestCarRule() = default;
 };
 class ApplyModifyRequestExternalTravelerList : public Darabonba::Model {
 public:
@@ -9419,6 +9670,42 @@ public:
 
   virtual ~ApplyModifyRequestTravelerList() = default;
 };
+class ApplyModifyRequestTravelerStandardCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  ApplyModifyRequestTravelerStandardCarCitySet() {}
+
+  explicit ApplyModifyRequestTravelerStandardCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~ApplyModifyRequestTravelerStandardCarCitySet() = default;
+};
 class ApplyModifyRequestTravelerStandardHotelCitys : public Darabonba::Model {
 public:
   shared_ptr<string> cityCode{};
@@ -9465,6 +9752,7 @@ public:
 class ApplyModifyRequestTravelerStandard : public Darabonba::Model {
 public:
   shared_ptr<long> businessDiscount{};
+  shared_ptr<vector<ApplyModifyRequestTravelerStandardCarCitySet>> carCitySet{};
   shared_ptr<long> economyDiscount{};
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
@@ -9486,6 +9774,13 @@ public:
     map<string, boost::any> res;
     if (businessDiscount) {
       res["business_discount"] = boost::any(*businessDiscount);
+    }
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
     }
     if (economyDiscount) {
       res["economy_discount"] = boost::any(*economyDiscount);
@@ -9521,6 +9816,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("business_discount") != m.end() && !m["business_discount"].empty()) {
       businessDiscount = make_shared<long>(boost::any_cast<long>(m["business_discount"]));
+    }
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<ApplyModifyRequestTravelerStandardCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyModifyRequestTravelerStandardCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<ApplyModifyRequestTravelerStandardCarCitySet>>(expect1);
+      }
     }
     if (m.find("economy_discount") != m.end() && !m["economy_discount"].empty()) {
       economyDiscount = make_shared<long>(boost::any_cast<long>(m["economy_discount"]));
@@ -9565,6 +9873,7 @@ class ApplyModifyRequest : public Darabonba::Model {
 public:
   shared_ptr<long> budget{};
   shared_ptr<long> budgetMerge{};
+  shared_ptr<ApplyModifyRequestCarRule> carRule{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
@@ -9610,6 +9919,9 @@ public:
     }
     if (budgetMerge) {
       res["budget_merge"] = boost::any(*budgetMerge);
+    }
+    if (carRule) {
+      res["car_rule"] = carRule ? boost::any(carRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (corpName) {
       res["corp_name"] = boost::any(*corpName);
@@ -9727,6 +10039,13 @@ public:
     }
     if (m.find("budget_merge") != m.end() && !m["budget_merge"].empty()) {
       budgetMerge = make_shared<long>(boost::any_cast<long>(m["budget_merge"]));
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["car_rule"].type()) {
+        ApplyModifyRequestCarRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["car_rule"]));
+        carRule = make_shared<ApplyModifyRequestCarRule>(model1);
+      }
     }
     if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
       corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
@@ -9882,6 +10201,7 @@ class ApplyModifyShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<long> budget{};
   shared_ptr<long> budgetMerge{};
+  shared_ptr<string> carRuleShrink{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
@@ -9927,6 +10247,9 @@ public:
     }
     if (budgetMerge) {
       res["budget_merge"] = boost::any(*budgetMerge);
+    }
+    if (carRuleShrink) {
+      res["car_rule"] = boost::any(*carRuleShrink);
     }
     if (corpName) {
       res["corp_name"] = boost::any(*corpName);
@@ -10024,6 +10347,9 @@ public:
     }
     if (m.find("budget_merge") != m.end() && !m["budget_merge"].empty()) {
       budgetMerge = make_shared<long>(boost::any_cast<long>(m["budget_merge"]));
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      carRuleShrink = make_shared<string>(boost::any_cast<string>(m["car_rule"]));
     }
     if (m.find("corp_name") != m.end() && !m["corp_name"].empty()) {
       corpName = make_shared<string>(boost::any_cast<string>(m["corp_name"]));
@@ -10458,6 +10784,42 @@ public:
 
 
   virtual ~ApplyQueryResponseBodyModuleApproverList() = default;
+};
+class ApplyQueryResponseBodyModuleCarRule : public Darabonba::Model {
+public:
+  shared_ptr<string> scenarioTemplateId{};
+  shared_ptr<string> scenarioTemplateName{};
+
+  ApplyQueryResponseBodyModuleCarRule() {}
+
+  explicit ApplyQueryResponseBodyModuleCarRule(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (scenarioTemplateId) {
+      res["scenario_template_id"] = boost::any(*scenarioTemplateId);
+    }
+    if (scenarioTemplateName) {
+      res["scenario_template_name"] = boost::any(*scenarioTemplateName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("scenario_template_id") != m.end() && !m["scenario_template_id"].empty()) {
+      scenarioTemplateId = make_shared<string>(boost::any_cast<string>(m["scenario_template_id"]));
+    }
+    if (m.find("scenario_template_name") != m.end() && !m["scenario_template_name"].empty()) {
+      scenarioTemplateName = make_shared<string>(boost::any_cast<string>(m["scenario_template_name"]));
+    }
+  }
+
+
+  virtual ~ApplyQueryResponseBodyModuleCarRule() = default;
 };
 class ApplyQueryResponseBodyModuleExternalTravelerListHotelCitys : public Darabonba::Model {
 public:
@@ -10936,6 +11298,42 @@ public:
 
   virtual ~ApplyQueryResponseBodyModuleItinerarySetList() = default;
 };
+class ApplyQueryResponseBodyModuleTravelerListCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  ApplyQueryResponseBodyModuleTravelerListCarCitySet() {}
+
+  explicit ApplyQueryResponseBodyModuleTravelerListCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~ApplyQueryResponseBodyModuleTravelerListCarCitySet() = default;
+};
 class ApplyQueryResponseBodyModuleTravelerListHotelCitys : public Darabonba::Model {
 public:
   shared_ptr<string> cityCode{};
@@ -10982,6 +11380,7 @@ public:
 class ApplyQueryResponseBodyModuleTravelerList : public Darabonba::Model {
 public:
   shared_ptr<long> businessDiscount{};
+  shared_ptr<vector<ApplyQueryResponseBodyModuleTravelerListCarCitySet>> carCitySet{};
   shared_ptr<long> economyDiscount{};
   shared_ptr<long> firstDiscount{};
   shared_ptr<string> flightCabins{};
@@ -11004,6 +11403,13 @@ public:
     map<string, boost::any> res;
     if (businessDiscount) {
       res["business_discount"] = boost::any(*businessDiscount);
+    }
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
     }
     if (economyDiscount) {
       res["economy_discount"] = boost::any(*economyDiscount);
@@ -11042,6 +11448,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("business_discount") != m.end() && !m["business_discount"].empty()) {
       businessDiscount = make_shared<long>(boost::any_cast<long>(m["business_discount"]));
+    }
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<ApplyQueryResponseBodyModuleTravelerListCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ApplyQueryResponseBodyModuleTravelerListCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<ApplyQueryResponseBodyModuleTravelerListCarCitySet>>(expect1);
+      }
     }
     if (m.find("economy_discount") != m.end() && !m["economy_discount"].empty()) {
       economyDiscount = make_shared<long>(boost::any_cast<long>(m["economy_discount"]));
@@ -11091,6 +11510,7 @@ public:
   shared_ptr<vector<ApplyQueryResponseBodyModuleApproverList>> approverList{};
   shared_ptr<long> budget{};
   shared_ptr<long> budgetMerge{};
+  shared_ptr<ApplyQueryResponseBodyModuleCarRule> carRule{};
   shared_ptr<string> corpId{};
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
@@ -11148,6 +11568,9 @@ public:
     }
     if (budgetMerge) {
       res["budget_merge"] = boost::any(*budgetMerge);
+    }
+    if (carRule) {
+      res["car_rule"] = carRule ? boost::any(carRule->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (corpId) {
       res["corp_id"] = boost::any(*corpId);
@@ -11283,6 +11706,13 @@ public:
     }
     if (m.find("budget_merge") != m.end() && !m["budget_merge"].empty()) {
       budgetMerge = make_shared<long>(boost::any_cast<long>(m["budget_merge"]));
+    }
+    if (m.find("car_rule") != m.end() && !m["car_rule"].empty()) {
+      if (typeid(map<string, boost::any>) == m["car_rule"].type()) {
+        ApplyQueryResponseBodyModuleCarRule model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["car_rule"]));
+        carRule = make_shared<ApplyQueryResponseBodyModuleCarRule>(model1);
+      }
     }
     if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
       corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
@@ -11821,10 +12251,97 @@ public:
 
   virtual ~CarApplyAddHeaders() = default;
 };
+class CarApplyAddRequestTravelerStandardCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  CarApplyAddRequestTravelerStandardCarCitySet() {}
+
+  explicit CarApplyAddRequestTravelerStandardCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~CarApplyAddRequestTravelerStandardCarCitySet() = default;
+};
+class CarApplyAddRequestTravelerStandard : public Darabonba::Model {
+public:
+  shared_ptr<vector<CarApplyAddRequestTravelerStandardCarCitySet>> carCitySet{};
+  shared_ptr<string> userId{};
+
+  CarApplyAddRequestTravelerStandard() {}
+
+  explicit CarApplyAddRequestTravelerStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<CarApplyAddRequestTravelerStandardCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CarApplyAddRequestTravelerStandardCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<CarApplyAddRequestTravelerStandardCarCitySet>>(expect1);
+      }
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~CarApplyAddRequestTravelerStandard() = default;
+};
 class CarApplyAddRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cause{};
   shared_ptr<string> city{};
+  shared_ptr<string> cityCodeSet{};
   shared_ptr<string> date{};
   shared_ptr<string> finishedDate{};
   shared_ptr<string> projectCode{};
@@ -11837,6 +12354,7 @@ public:
   shared_ptr<long> timesType{};
   shared_ptr<long> timesUsed{};
   shared_ptr<string> title{};
+  shared_ptr<vector<CarApplyAddRequestTravelerStandard>> travelerStandard{};
   shared_ptr<string> userId{};
 
   CarApplyAddRequest() {}
@@ -11854,6 +12372,9 @@ public:
     }
     if (city) {
       res["city"] = boost::any(*city);
+    }
+    if (cityCodeSet) {
+      res["city_code_set"] = boost::any(*cityCodeSet);
     }
     if (date) {
       res["date"] = boost::any(*date);
@@ -11891,6 +12412,13 @@ public:
     if (title) {
       res["title"] = boost::any(*title);
     }
+    if (travelerStandard) {
+      vector<boost::any> temp1;
+      for(auto item1:*travelerStandard){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["traveler_standard"] = boost::any(temp1);
+    }
     if (userId) {
       res["user_id"] = boost::any(*userId);
     }
@@ -11903,6 +12431,9 @@ public:
     }
     if (m.find("city") != m.end() && !m["city"].empty()) {
       city = make_shared<string>(boost::any_cast<string>(m["city"]));
+    }
+    if (m.find("city_code_set") != m.end() && !m["city_code_set"].empty()) {
+      cityCodeSet = make_shared<string>(boost::any_cast<string>(m["city_code_set"]));
     }
     if (m.find("date") != m.end() && !m["date"].empty()) {
       date = make_shared<string>(boost::any_cast<string>(m["date"]));
@@ -11940,6 +12471,19 @@ public:
     if (m.find("title") != m.end() && !m["title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["title"]));
     }
+    if (m.find("traveler_standard") != m.end() && !m["traveler_standard"].empty()) {
+      if (typeid(vector<boost::any>) == m["traveler_standard"].type()) {
+        vector<CarApplyAddRequestTravelerStandard> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["traveler_standard"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CarApplyAddRequestTravelerStandard model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        travelerStandard = make_shared<vector<CarApplyAddRequestTravelerStandard>>(expect1);
+      }
+    }
     if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
       userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
     }
@@ -11947,6 +12491,147 @@ public:
 
 
   virtual ~CarApplyAddRequest() = default;
+};
+class CarApplyAddShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> cause{};
+  shared_ptr<string> city{};
+  shared_ptr<string> cityCodeSet{};
+  shared_ptr<string> date{};
+  shared_ptr<string> finishedDate{};
+  shared_ptr<string> projectCode{};
+  shared_ptr<string> projectName{};
+  shared_ptr<long> status{};
+  shared_ptr<string> thirdPartApplyId{};
+  shared_ptr<string> thirdPartCostCenterId{};
+  shared_ptr<string> thirdPartInvoiceId{};
+  shared_ptr<long> timesTotal{};
+  shared_ptr<long> timesType{};
+  shared_ptr<long> timesUsed{};
+  shared_ptr<string> title{};
+  shared_ptr<string> travelerStandardShrink{};
+  shared_ptr<string> userId{};
+
+  CarApplyAddShrinkRequest() {}
+
+  explicit CarApplyAddShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cause) {
+      res["cause"] = boost::any(*cause);
+    }
+    if (city) {
+      res["city"] = boost::any(*city);
+    }
+    if (cityCodeSet) {
+      res["city_code_set"] = boost::any(*cityCodeSet);
+    }
+    if (date) {
+      res["date"] = boost::any(*date);
+    }
+    if (finishedDate) {
+      res["finished_date"] = boost::any(*finishedDate);
+    }
+    if (projectCode) {
+      res["project_code"] = boost::any(*projectCode);
+    }
+    if (projectName) {
+      res["project_name"] = boost::any(*projectName);
+    }
+    if (status) {
+      res["status"] = boost::any(*status);
+    }
+    if (thirdPartApplyId) {
+      res["third_part_apply_id"] = boost::any(*thirdPartApplyId);
+    }
+    if (thirdPartCostCenterId) {
+      res["third_part_cost_center_id"] = boost::any(*thirdPartCostCenterId);
+    }
+    if (thirdPartInvoiceId) {
+      res["third_part_invoice_id"] = boost::any(*thirdPartInvoiceId);
+    }
+    if (timesTotal) {
+      res["times_total"] = boost::any(*timesTotal);
+    }
+    if (timesType) {
+      res["times_type"] = boost::any(*timesType);
+    }
+    if (timesUsed) {
+      res["times_used"] = boost::any(*timesUsed);
+    }
+    if (title) {
+      res["title"] = boost::any(*title);
+    }
+    if (travelerStandardShrink) {
+      res["traveler_standard"] = boost::any(*travelerStandardShrink);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cause") != m.end() && !m["cause"].empty()) {
+      cause = make_shared<string>(boost::any_cast<string>(m["cause"]));
+    }
+    if (m.find("city") != m.end() && !m["city"].empty()) {
+      city = make_shared<string>(boost::any_cast<string>(m["city"]));
+    }
+    if (m.find("city_code_set") != m.end() && !m["city_code_set"].empty()) {
+      cityCodeSet = make_shared<string>(boost::any_cast<string>(m["city_code_set"]));
+    }
+    if (m.find("date") != m.end() && !m["date"].empty()) {
+      date = make_shared<string>(boost::any_cast<string>(m["date"]));
+    }
+    if (m.find("finished_date") != m.end() && !m["finished_date"].empty()) {
+      finishedDate = make_shared<string>(boost::any_cast<string>(m["finished_date"]));
+    }
+    if (m.find("project_code") != m.end() && !m["project_code"].empty()) {
+      projectCode = make_shared<string>(boost::any_cast<string>(m["project_code"]));
+    }
+    if (m.find("project_name") != m.end() && !m["project_name"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["project_name"]));
+    }
+    if (m.find("status") != m.end() && !m["status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["status"]));
+    }
+    if (m.find("third_part_apply_id") != m.end() && !m["third_part_apply_id"].empty()) {
+      thirdPartApplyId = make_shared<string>(boost::any_cast<string>(m["third_part_apply_id"]));
+    }
+    if (m.find("third_part_cost_center_id") != m.end() && !m["third_part_cost_center_id"].empty()) {
+      thirdPartCostCenterId = make_shared<string>(boost::any_cast<string>(m["third_part_cost_center_id"]));
+    }
+    if (m.find("third_part_invoice_id") != m.end() && !m["third_part_invoice_id"].empty()) {
+      thirdPartInvoiceId = make_shared<string>(boost::any_cast<string>(m["third_part_invoice_id"]));
+    }
+    if (m.find("times_total") != m.end() && !m["times_total"].empty()) {
+      timesTotal = make_shared<long>(boost::any_cast<long>(m["times_total"]));
+    }
+    if (m.find("times_type") != m.end() && !m["times_type"].empty()) {
+      timesType = make_shared<long>(boost::any_cast<long>(m["times_type"]));
+    }
+    if (m.find("times_used") != m.end() && !m["times_used"].empty()) {
+      timesUsed = make_shared<long>(boost::any_cast<long>(m["times_used"]));
+    }
+    if (m.find("title") != m.end() && !m["title"].empty()) {
+      title = make_shared<string>(boost::any_cast<string>(m["title"]));
+    }
+    if (m.find("traveler_standard") != m.end() && !m["traveler_standard"].empty()) {
+      travelerStandardShrink = make_shared<string>(boost::any_cast<string>(m["traveler_standard"]));
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~CarApplyAddShrinkRequest() = default;
 };
 class CarApplyAddResponseBody : public Darabonba::Model {
 public:
@@ -12594,6 +13279,92 @@ public:
 
   virtual ~CarApplyQueryResponseBodyApplyListItineraryList() = default;
 };
+class CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet : public Darabonba::Model {
+public:
+  shared_ptr<string> cityCode{};
+  shared_ptr<string> cityName{};
+
+  CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet() {}
+
+  explicit CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (cityCode) {
+      res["city_code"] = boost::any(*cityCode);
+    }
+    if (cityName) {
+      res["city_name"] = boost::any(*cityName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("city_code") != m.end() && !m["city_code"].empty()) {
+      cityCode = make_shared<string>(boost::any_cast<string>(m["city_code"]));
+    }
+    if (m.find("city_name") != m.end() && !m["city_name"].empty()) {
+      cityName = make_shared<string>(boost::any_cast<string>(m["city_name"]));
+    }
+  }
+
+
+  virtual ~CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet() = default;
+};
+class CarApplyQueryResponseBodyApplyListTravelerStandard : public Darabonba::Model {
+public:
+  shared_ptr<vector<CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet>> carCitySet{};
+  shared_ptr<string> userId{};
+
+  CarApplyQueryResponseBodyApplyListTravelerStandard() {}
+
+  explicit CarApplyQueryResponseBodyApplyListTravelerStandard(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (carCitySet) {
+      vector<boost::any> temp1;
+      for(auto item1:*carCitySet){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["car_city_set"] = boost::any(temp1);
+    }
+    if (userId) {
+      res["user_id"] = boost::any(*userId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("car_city_set") != m.end() && !m["car_city_set"].empty()) {
+      if (typeid(vector<boost::any>) == m["car_city_set"].type()) {
+        vector<CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["car_city_set"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        carCitySet = make_shared<vector<CarApplyQueryResponseBodyApplyListTravelerStandardCarCitySet>>(expect1);
+      }
+    }
+    if (m.find("user_id") != m.end() && !m["user_id"].empty()) {
+      userId = make_shared<string>(boost::any_cast<string>(m["user_id"]));
+    }
+  }
+
+
+  virtual ~CarApplyQueryResponseBodyApplyListTravelerStandard() = default;
+};
 class CarApplyQueryResponseBodyApplyList : public Darabonba::Model {
 public:
   shared_ptr<vector<CarApplyQueryResponseBodyApplyListApproverList>> approverList{};
@@ -12605,6 +13376,7 @@ public:
   shared_ptr<long> status{};
   shared_ptr<string> statusDesc{};
   shared_ptr<string> thirdpartId{};
+  shared_ptr<vector<CarApplyQueryResponseBodyApplyListTravelerStandard>> travelerStandard{};
   shared_ptr<string> tripCause{};
   shared_ptr<string> tripTitle{};
   shared_ptr<string> userId{};
@@ -12654,6 +13426,13 @@ public:
     }
     if (thirdpartId) {
       res["thirdpart_id"] = boost::any(*thirdpartId);
+    }
+    if (travelerStandard) {
+      vector<boost::any> temp1;
+      for(auto item1:*travelerStandard){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["traveler_standard"] = boost::any(temp1);
     }
     if (tripCause) {
       res["trip_cause"] = boost::any(*tripCause);
@@ -12717,6 +13496,19 @@ public:
     }
     if (m.find("thirdpart_id") != m.end() && !m["thirdpart_id"].empty()) {
       thirdpartId = make_shared<string>(boost::any_cast<string>(m["thirdpart_id"]));
+    }
+    if (m.find("traveler_standard") != m.end() && !m["traveler_standard"].empty()) {
+      if (typeid(vector<boost::any>) == m["traveler_standard"].type()) {
+        vector<CarApplyQueryResponseBodyApplyListTravelerStandard> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["traveler_standard"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CarApplyQueryResponseBodyApplyListTravelerStandard model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        travelerStandard = make_shared<vector<CarApplyQueryResponseBodyApplyListTravelerStandard>>(expect1);
+      }
     }
     if (m.find("trip_cause") != m.end() && !m["trip_cause"].empty()) {
       tripCause = make_shared<string>(boost::any_cast<string>(m["trip_cause"]));
@@ -91456,7 +92248,7 @@ public:
   ApplyQueryResponse applyQuery(shared_ptr<ApplyQueryRequest> request);
   BtripBillInfoAdjustResponse btripBillInfoAdjustWithOptions(shared_ptr<BtripBillInfoAdjustRequest> request, shared_ptr<BtripBillInfoAdjustHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   BtripBillInfoAdjustResponse btripBillInfoAdjust(shared_ptr<BtripBillInfoAdjustRequest> request);
-  CarApplyAddResponse carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> request, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CarApplyAddResponse carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> tmpReq, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CarApplyAddResponse carApplyAdd(shared_ptr<CarApplyAddRequest> request);
   CarApplyModifyResponse carApplyModifyWithOptions(shared_ptr<CarApplyModifyRequest> request, shared_ptr<CarApplyModifyHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CarApplyModifyResponse carApplyModify(shared_ptr<CarApplyModifyRequest> request);

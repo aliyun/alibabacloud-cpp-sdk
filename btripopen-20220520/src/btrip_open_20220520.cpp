@@ -264,6 +264,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ApplyAddShrinkRequest> request = make_shared<ApplyAddShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ApplyAddRequestCarRule>(tmpReq->carRule)) {
+    request->carRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->carRule, make_shared<string>("car_rule"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyAddRequestExternalTravelerList>>(tmpReq->externalTravelerList)) {
     request->externalTravelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerList, make_shared<string>("external_traveler_list"), make_shared<string>("json")));
   }
@@ -291,6 +294,9 @@ ApplyAddResponse Alibabacloud_BtripOpen20220520::Client::applyAddWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->budgetMerge)) {
     body->insert(pair<string, long>("budget_merge", *request->budgetMerge));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->carRuleShrink)) {
+    body->insert(pair<string, string>("car_rule", *request->carRuleShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->corpName)) {
     body->insert(pair<string, string>("corp_name", *request->corpName));
@@ -590,6 +596,9 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<ApplyModifyShrinkRequest> request = make_shared<ApplyModifyShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ApplyModifyRequestCarRule>(tmpReq->carRule)) {
+    request->carRuleShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->carRule, make_shared<string>("car_rule"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<ApplyModifyRequestExternalTravelerList>>(tmpReq->externalTravelerList)) {
     request->externalTravelerListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->externalTravelerList, make_shared<string>("external_traveler_list"), make_shared<string>("json")));
   }
@@ -617,6 +626,9 @@ ApplyModifyResponse Alibabacloud_BtripOpen20220520::Client::applyModifyWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->budgetMerge)) {
     body->insert(pair<string, long>("budget_merge", *request->budgetMerge));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->carRuleShrink)) {
+    body->insert(pair<string, string>("car_rule", *request->carRuleShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->corpName)) {
     body->insert(pair<string, string>("corp_name", *request->corpName));
@@ -837,14 +849,22 @@ BtripBillInfoAdjustResponse Alibabacloud_BtripOpen20220520::Client::btripBillInf
   return btripBillInfoAdjustWithOptions(request, headers, runtime);
 }
 
-CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> request, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAddWithOptions(shared_ptr<CarApplyAddRequest> tmpReq, shared_ptr<CarApplyAddHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CarApplyAddShrinkRequest> request = make_shared<CarApplyAddShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<CarApplyAddRequestTravelerStandard>>(tmpReq->travelerStandard)) {
+    request->travelerStandardShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->travelerStandard, make_shared<string>("traveler_standard"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->cause)) {
     body->insert(pair<string, string>("cause", *request->cause));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->city)) {
     body->insert(pair<string, string>("city", *request->city));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->cityCodeSet)) {
+    body->insert(pair<string, string>("city_code_set", *request->cityCodeSet));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->date)) {
     body->insert(pair<string, string>("date", *request->date));
@@ -881,6 +901,9 @@ CarApplyAddResponse Alibabacloud_BtripOpen20220520::Client::carApplyAddWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->title)) {
     body->insert(pair<string, string>("title", *request->title));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->travelerStandardShrink)) {
+    body->insert(pair<string, string>("traveler_standard", *request->travelerStandardShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userId)) {
     body->insert(pair<string, string>("user_id", *request->userId));
