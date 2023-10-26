@@ -1021,6 +1021,7 @@ public:
   shared_ptr<CustomHealthCheckConfig> healthCheckConfig{};
   shared_ptr<string> image{};
   shared_ptr<long> port{};
+  shared_ptr<string> resolvedImageUri{};
 
   CustomContainerConfig() {}
 
@@ -1055,6 +1056,9 @@ public:
     }
     if (port) {
       res["port"] = boost::any(*port);
+    }
+    if (resolvedImageUri) {
+      res["resolvedImageUri"] = boost::any(*resolvedImageUri);
     }
     return res;
   }
@@ -1105,6 +1109,9 @@ public:
     }
     if (m.find("port") != m.end() && !m["port"].empty()) {
       port = make_shared<long>(boost::any_cast<long>(m["port"]));
+    }
+    if (m.find("resolvedImageUri") != m.end() && !m["resolvedImageUri"].empty()) {
+      resolvedImageUri = make_shared<string>(boost::any_cast<string>(m["resolvedImageUri"]));
     }
   }
 
@@ -2383,6 +2390,9 @@ public:
   shared_ptr<InstanceLifecycleConfig> instanceLifecycleConfig{};
   shared_ptr<bool> internetAccess{};
   shared_ptr<string> lastModifiedTime{};
+  shared_ptr<string> lastUpdateStatus{};
+  shared_ptr<string> lastUpdateStatusReason{};
+  shared_ptr<string> lastUpdateStatusReasonCode{};
   shared_ptr<vector<FunctionLayer>> layers{};
   shared_ptr<LogConfig> logConfig{};
   shared_ptr<long> memorySize{};
@@ -2390,6 +2400,9 @@ public:
   shared_ptr<OSSMountConfig> ossMountConfig{};
   shared_ptr<string> role{};
   shared_ptr<string> runtime{};
+  shared_ptr<string> state{};
+  shared_ptr<string> stateReason{};
+  shared_ptr<string> stateReasonCode{};
   shared_ptr<long> timeout{};
   shared_ptr<TracingConfig> tracingConfig{};
   shared_ptr<VPCConfig> vpcConfig{};
@@ -2461,6 +2474,15 @@ public:
     if (lastModifiedTime) {
       res["lastModifiedTime"] = boost::any(*lastModifiedTime);
     }
+    if (lastUpdateStatus) {
+      res["lastUpdateStatus"] = boost::any(*lastUpdateStatus);
+    }
+    if (lastUpdateStatusReason) {
+      res["lastUpdateStatusReason"] = boost::any(*lastUpdateStatusReason);
+    }
+    if (lastUpdateStatusReasonCode) {
+      res["lastUpdateStatusReasonCode"] = boost::any(*lastUpdateStatusReasonCode);
+    }
     if (layers) {
       vector<boost::any> temp1;
       for(auto item1:*layers){
@@ -2485,6 +2507,15 @@ public:
     }
     if (runtime) {
       res["runtime"] = boost::any(*runtime);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (stateReason) {
+      res["stateReason"] = boost::any(*stateReason);
+    }
+    if (stateReasonCode) {
+      res["stateReasonCode"] = boost::any(*stateReasonCode);
     }
     if (timeout) {
       res["timeout"] = boost::any(*timeout);
@@ -2581,6 +2612,15 @@ public:
     if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
       lastModifiedTime = make_shared<string>(boost::any_cast<string>(m["lastModifiedTime"]));
     }
+    if (m.find("lastUpdateStatus") != m.end() && !m["lastUpdateStatus"].empty()) {
+      lastUpdateStatus = make_shared<string>(boost::any_cast<string>(m["lastUpdateStatus"]));
+    }
+    if (m.find("lastUpdateStatusReason") != m.end() && !m["lastUpdateStatusReason"].empty()) {
+      lastUpdateStatusReason = make_shared<string>(boost::any_cast<string>(m["lastUpdateStatusReason"]));
+    }
+    if (m.find("lastUpdateStatusReasonCode") != m.end() && !m["lastUpdateStatusReasonCode"].empty()) {
+      lastUpdateStatusReasonCode = make_shared<string>(boost::any_cast<string>(m["lastUpdateStatusReasonCode"]));
+    }
     if (m.find("layers") != m.end() && !m["layers"].empty()) {
       if (typeid(vector<boost::any>) == m["layers"].type()) {
         vector<FunctionLayer> expect1;
@@ -2623,6 +2663,15 @@ public:
     }
     if (m.find("runtime") != m.end() && !m["runtime"].empty()) {
       runtime = make_shared<string>(boost::any_cast<string>(m["runtime"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("stateReason") != m.end() && !m["stateReason"].empty()) {
+      stateReason = make_shared<string>(boost::any_cast<string>(m["stateReason"]));
+    }
+    if (m.find("stateReasonCode") != m.end() && !m["stateReasonCode"].empty()) {
+      stateReasonCode = make_shared<string>(boost::any_cast<string>(m["stateReasonCode"]));
     }
     if (m.find("timeout") != m.end() && !m["timeout"].empty()) {
       timeout = make_shared<long>(boost::any_cast<long>(m["timeout"]));
