@@ -2804,6 +2804,203 @@ public:
 
   virtual ~StartExecutionResponse() = default;
 };
+class StartSyncExecutionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> executionName{};
+  shared_ptr<string> flowName{};
+  shared_ptr<string> input{};
+  shared_ptr<string> requestId{};
+
+  StartSyncExecutionRequest() {}
+
+  explicit StartSyncExecutionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (executionName) {
+      res["ExecutionName"] = boost::any(*executionName);
+    }
+    if (flowName) {
+      res["FlowName"] = boost::any(*flowName);
+    }
+    if (input) {
+      res["Input"] = boost::any(*input);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExecutionName") != m.end() && !m["ExecutionName"].empty()) {
+      executionName = make_shared<string>(boost::any_cast<string>(m["ExecutionName"]));
+    }
+    if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
+      flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
+    }
+    if (m.find("Input") != m.end() && !m["Input"].empty()) {
+      input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~StartSyncExecutionRequest() = default;
+};
+class StartSyncExecutionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> flowName{};
+  shared_ptr<string> name{};
+  shared_ptr<string> output{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> startedTime{};
+  shared_ptr<string> status{};
+  shared_ptr<string> stoppedTime{};
+
+  StartSyncExecutionResponseBody() {}
+
+  explicit StartSyncExecutionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (flowName) {
+      res["FlowName"] = boost::any(*flowName);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (output) {
+      res["Output"] = boost::any(*output);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (startedTime) {
+      res["StartedTime"] = boost::any(*startedTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (stoppedTime) {
+      res["StoppedTime"] = boost::any(*stoppedTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("FlowName") != m.end() && !m["FlowName"].empty()) {
+      flowName = make_shared<string>(boost::any_cast<string>(m["FlowName"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Output") != m.end() && !m["Output"].empty()) {
+      output = make_shared<string>(boost::any_cast<string>(m["Output"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StartedTime") != m.end() && !m["StartedTime"].empty()) {
+      startedTime = make_shared<string>(boost::any_cast<string>(m["StartedTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StoppedTime") != m.end() && !m["StoppedTime"].empty()) {
+      stoppedTime = make_shared<string>(boost::any_cast<string>(m["StoppedTime"]));
+    }
+  }
+
+
+  virtual ~StartSyncExecutionResponseBody() = default;
+};
+class StartSyncExecutionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartSyncExecutionResponseBody> body{};
+
+  StartSyncExecutionResponse() {}
+
+  explicit StartSyncExecutionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartSyncExecutionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartSyncExecutionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartSyncExecutionResponse() = default;
+};
 class StopExecutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> cause{};
@@ -3482,6 +3679,8 @@ public:
   ReportTaskSucceededResponse reportTaskSucceeded(shared_ptr<ReportTaskSucceededRequest> request);
   StartExecutionResponse startExecutionWithOptions(shared_ptr<StartExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartExecutionResponse startExecution(shared_ptr<StartExecutionRequest> request);
+  StartSyncExecutionResponse startSyncExecutionWithOptions(shared_ptr<StartSyncExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartSyncExecutionResponse startSyncExecution(shared_ptr<StartSyncExecutionRequest> request);
   StopExecutionResponse stopExecutionWithOptions(shared_ptr<StopExecutionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopExecutionResponse stopExecution(shared_ptr<StopExecutionRequest> request);
   UpdateFlowResponse updateFlowWithOptions(shared_ptr<UpdateFlowRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
