@@ -340,6 +340,9 @@ ExtendClusterResponse Alibabacloud_Eflo-controller20221215::Client::extendCluste
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeGroupsShrink)) {
     body->insert(pair<string, string>("NodeGroups", *request->nodeGroupsShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchZoneId)) {
+    body->insert(pair<string, string>("VSwitchZoneId", *request->vSwitchZoneId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpdSubnetsShrink)) {
     body->insert(pair<string, string>("VpdSubnets", *request->vpdSubnetsShrink));
   }

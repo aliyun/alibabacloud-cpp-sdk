@@ -740,6 +740,8 @@ class CreateClusterRequestNetworks : public Darabonba::Model {
 public:
   shared_ptr<vector<CreateClusterRequestNetworksIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<CreateClusterRequestNetworksNewVpdInfo> newVpdInfo{};
+  shared_ptr<string> securityGroupId{};
+  shared_ptr<string> vSwitchZoneId{};
   shared_ptr<CreateClusterRequestNetworksVpdInfo> vpdInfo{};
 
   CreateClusterRequestNetworks() {}
@@ -761,6 +763,12 @@ public:
     }
     if (newVpdInfo) {
       res["NewVpdInfo"] = newVpdInfo ? boost::any(newVpdInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (vSwitchZoneId) {
+      res["VSwitchZoneId"] = boost::any(*vSwitchZoneId);
     }
     if (vpdInfo) {
       res["VpdInfo"] = vpdInfo ? boost::any(vpdInfo->toMap()) : boost::any(map<string,boost::any>({}));
@@ -788,6 +796,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NewVpdInfo"]));
         newVpdInfo = make_shared<CreateClusterRequestNetworksNewVpdInfo>(model1);
       }
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("VSwitchZoneId") != m.end() && !m["VSwitchZoneId"].empty()) {
+      vSwitchZoneId = make_shared<string>(boost::any_cast<string>(m["VSwitchZoneId"]));
     }
     if (m.find("VpdInfo") != m.end() && !m["VpdInfo"].empty()) {
       if (typeid(map<string, boost::any>) == m["VpdInfo"].type()) {
@@ -3228,6 +3242,7 @@ public:
   shared_ptr<string> nodeGroupId{};
   shared_ptr<vector<ExtendClusterRequestNodeGroupsNodes>> nodes{};
   shared_ptr<string> userData{};
+  shared_ptr<string> zoneId{};
 
   ExtendClusterRequestNodeGroups() {}
 
@@ -3252,6 +3267,9 @@ public:
     if (userData) {
       res["UserData"] = boost::any(*userData);
     }
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
     return res;
   }
 
@@ -3275,6 +3293,9 @@ public:
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
       userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
   }
 
 
@@ -3286,6 +3307,7 @@ public:
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<vector<ExtendClusterRequestIpAllocationPolicy>> ipAllocationPolicy{};
   shared_ptr<vector<ExtendClusterRequestNodeGroups>> nodeGroups{};
+  shared_ptr<string> vSwitchZoneId{};
   shared_ptr<vector<string>> vpdSubnets{};
 
   ExtendClusterRequest() {}
@@ -3317,6 +3339,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["NodeGroups"] = boost::any(temp1);
+    }
+    if (vSwitchZoneId) {
+      res["VSwitchZoneId"] = boost::any(*vSwitchZoneId);
     }
     if (vpdSubnets) {
       res["VpdSubnets"] = boost::any(*vpdSubnets);
@@ -3357,6 +3382,9 @@ public:
         nodeGroups = make_shared<vector<ExtendClusterRequestNodeGroups>>(expect1);
       }
     }
+    if (m.find("VSwitchZoneId") != m.end() && !m["VSwitchZoneId"].empty()) {
+      vSwitchZoneId = make_shared<string>(boost::any_cast<string>(m["VSwitchZoneId"]));
+    }
     if (m.find("VpdSubnets") != m.end() && !m["VpdSubnets"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["VpdSubnets"].type()) {
@@ -3378,6 +3406,7 @@ public:
   shared_ptr<bool> ignoreFailedNodeTasks{};
   shared_ptr<string> ipAllocationPolicyShrink{};
   shared_ptr<string> nodeGroupsShrink{};
+  shared_ptr<string> vSwitchZoneId{};
   shared_ptr<string> vpdSubnetsShrink{};
 
   ExtendClusterShrinkRequest() {}
@@ -3402,6 +3431,9 @@ public:
     if (nodeGroupsShrink) {
       res["NodeGroups"] = boost::any(*nodeGroupsShrink);
     }
+    if (vSwitchZoneId) {
+      res["VSwitchZoneId"] = boost::any(*vSwitchZoneId);
+    }
     if (vpdSubnetsShrink) {
       res["VpdSubnets"] = boost::any(*vpdSubnetsShrink);
     }
@@ -3420,6 +3452,9 @@ public:
     }
     if (m.find("NodeGroups") != m.end() && !m["NodeGroups"].empty()) {
       nodeGroupsShrink = make_shared<string>(boost::any_cast<string>(m["NodeGroups"]));
+    }
+    if (m.find("VSwitchZoneId") != m.end() && !m["VSwitchZoneId"].empty()) {
+      vSwitchZoneId = make_shared<string>(boost::any_cast<string>(m["VSwitchZoneId"]));
     }
     if (m.find("VpdSubnets") != m.end() && !m["VpdSubnets"].empty()) {
       vpdSubnetsShrink = make_shared<string>(boost::any_cast<string>(m["VpdSubnets"]));
