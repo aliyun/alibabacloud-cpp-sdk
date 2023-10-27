@@ -5840,6 +5840,33 @@ ListWorkItemWorkFlowStatusResponse Alibabacloud_Devops20210625::Client::listWork
   return listWorkItemWorkFlowStatusWithOptions(organizationId, request, headers, runtime);
 }
 
+ListWorkitemAttachmentsResponse Alibabacloud_Devops20210625::Client::listWorkitemAttachmentsWithOptions(shared_ptr<string> organizationId,
+                                                                                                        shared_ptr<string> workitemIdentifier,
+                                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListWorkitemAttachments"))},
+    {"version", boost::any(string("2021-06-25"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/organization/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(organizationId)) + string("/workitem/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(workitemIdentifier)) + string("/attachments"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListWorkitemAttachmentsResponse(callApi(params, req, runtime));
+}
+
+ListWorkitemAttachmentsResponse Alibabacloud_Devops20210625::Client::listWorkitemAttachments(shared_ptr<string> organizationId, shared_ptr<string> workitemIdentifier) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listWorkitemAttachmentsWithOptions(organizationId, workitemIdentifier, headers, runtime);
+}
+
 ListWorkitemEstimateResponse Alibabacloud_Devops20210625::Client::listWorkitemEstimateWithOptions(shared_ptr<string> organizationId,
                                                                                                   shared_ptr<string> workitemId,
                                                                                                   shared_ptr<map<string, string>> headers,

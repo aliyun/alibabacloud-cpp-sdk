@@ -43890,6 +43890,210 @@ public:
 
   virtual ~ListWorkItemWorkFlowStatusResponse() = default;
 };
+class ListWorkitemAttachmentsResponseBodyAttachments : public Darabonba::Model {
+public:
+  shared_ptr<string> creator{};
+  shared_ptr<string> fileIdentifier{};
+  shared_ptr<string> fileName{};
+  shared_ptr<string> fileSuffix{};
+  shared_ptr<long> gmtCreate{};
+  shared_ptr<string> size{};
+  shared_ptr<string> url{};
+
+  ListWorkitemAttachmentsResponseBodyAttachments() {}
+
+  explicit ListWorkitemAttachmentsResponseBodyAttachments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (creator) {
+      res["creator"] = boost::any(*creator);
+    }
+    if (fileIdentifier) {
+      res["fileIdentifier"] = boost::any(*fileIdentifier);
+    }
+    if (fileName) {
+      res["fileName"] = boost::any(*fileName);
+    }
+    if (fileSuffix) {
+      res["fileSuffix"] = boost::any(*fileSuffix);
+    }
+    if (gmtCreate) {
+      res["gmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (url) {
+      res["url"] = boost::any(*url);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      creator = make_shared<string>(boost::any_cast<string>(m["creator"]));
+    }
+    if (m.find("fileIdentifier") != m.end() && !m["fileIdentifier"].empty()) {
+      fileIdentifier = make_shared<string>(boost::any_cast<string>(m["fileIdentifier"]));
+    }
+    if (m.find("fileName") != m.end() && !m["fileName"].empty()) {
+      fileName = make_shared<string>(boost::any_cast<string>(m["fileName"]));
+    }
+    if (m.find("fileSuffix") != m.end() && !m["fileSuffix"].empty()) {
+      fileSuffix = make_shared<string>(boost::any_cast<string>(m["fileSuffix"]));
+    }
+    if (m.find("gmtCreate") != m.end() && !m["gmtCreate"].empty()) {
+      gmtCreate = make_shared<long>(boost::any_cast<long>(m["gmtCreate"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<string>(boost::any_cast<string>(m["size"]));
+    }
+    if (m.find("url") != m.end() && !m["url"].empty()) {
+      url = make_shared<string>(boost::any_cast<string>(m["url"]));
+    }
+  }
+
+
+  virtual ~ListWorkitemAttachmentsResponseBodyAttachments() = default;
+};
+class ListWorkitemAttachmentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<ListWorkitemAttachmentsResponseBodyAttachments>> attachments{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ListWorkitemAttachmentsResponseBody() {}
+
+  explicit ListWorkitemAttachmentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (attachments) {
+      vector<boost::any> temp1;
+      for(auto item1:*attachments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["attachments"] = boost::any(temp1);
+    }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("attachments") != m.end() && !m["attachments"].empty()) {
+      if (typeid(vector<boost::any>) == m["attachments"].type()) {
+        vector<ListWorkitemAttachmentsResponseBodyAttachments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["attachments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListWorkitemAttachmentsResponseBodyAttachments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        attachments = make_shared<vector<ListWorkitemAttachmentsResponseBodyAttachments>>(expect1);
+      }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListWorkitemAttachmentsResponseBody() = default;
+};
+class ListWorkitemAttachmentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListWorkitemAttachmentsResponseBody> body{};
+
+  ListWorkitemAttachmentsResponse() {}
+
+  explicit ListWorkitemAttachmentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListWorkitemAttachmentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListWorkitemAttachmentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListWorkitemAttachmentsResponse() = default;
+};
 class ListWorkitemEstimateResponseBodyWorkitemTimeEstimateRecordUser : public Darabonba::Model {
 public:
   shared_ptr<string> identifier{};
@@ -56829,6 +57033,11 @@ public:
                                                                            shared_ptr<map<string, string>> headers,
                                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListWorkItemWorkFlowStatusResponse listWorkItemWorkFlowStatus(shared_ptr<string> organizationId, shared_ptr<ListWorkItemWorkFlowStatusRequest> request);
+  ListWorkitemAttachmentsResponse listWorkitemAttachmentsWithOptions(shared_ptr<string> organizationId,
+                                                                     shared_ptr<string> workitemIdentifier,
+                                                                     shared_ptr<map<string, string>> headers,
+                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListWorkitemAttachmentsResponse listWorkitemAttachments(shared_ptr<string> organizationId, shared_ptr<string> workitemIdentifier);
   ListWorkitemEstimateResponse listWorkitemEstimateWithOptions(shared_ptr<string> organizationId,
                                                                shared_ptr<string> workitemId,
                                                                shared_ptr<map<string, string>> headers,
