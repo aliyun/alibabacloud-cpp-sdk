@@ -6274,6 +6274,85 @@ public:
 
   virtual ~CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides() = default;
 };
+class CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> scope{};
+  shared_ptr<string> value{};
+
+  CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag() {}
+
+  explicit CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (scope) {
+      res["Scope"] = boost::any(*scope);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Scope") != m.end() && !m["Scope"].empty()) {
+      scope = make_shared<string>(boost::any_cast<string>(m["Scope"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag() = default;
+};
+class CreateEndpointGroupsRequestEndpointGroupConfigurationsTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateEndpointGroupsRequestEndpointGroupConfigurationsTag() {}
+
+  explicit CreateEndpointGroupsRequestEndpointGroupConfigurationsTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateEndpointGroupsRequestEndpointGroupConfigurationsTag() = default;
+};
 class CreateEndpointGroupsRequestEndpointGroupConfigurations : public Darabonba::Model {
 public:
   shared_ptr<bool> enableClientIPPreservationProxyProtocol{};
@@ -6290,6 +6369,8 @@ public:
   shared_ptr<long> healthCheckPort{};
   shared_ptr<string> healthCheckProtocol{};
   shared_ptr<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides>> portOverrides{};
+  shared_ptr<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag>> systemTag{};
+  shared_ptr<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsTag>> tag{};
   shared_ptr<long> thresholdCount{};
   shared_ptr<long> trafficPercentage{};
 
@@ -6352,6 +6433,20 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PortOverrides"] = boost::any(temp1);
+    }
+    if (systemTag) {
+      vector<boost::any> temp1;
+      for(auto item1:*systemTag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["SystemTag"] = boost::any(temp1);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     if (thresholdCount) {
       res["ThresholdCount"] = boost::any(*thresholdCount);
@@ -6423,6 +6518,32 @@ public:
           }
         }
         portOverrides = make_shared<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides>>(expect1);
+      }
+    }
+    if (m.find("SystemTag") != m.end() && !m["SystemTag"].empty()) {
+      if (typeid(vector<boost::any>) == m["SystemTag"].type()) {
+        vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["SystemTag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        systemTag = make_shared<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsSystemTag>>(expect1);
+      }
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEndpointGroupsRequestEndpointGroupConfigurationsTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateEndpointGroupsRequestEndpointGroupConfigurationsTag>>(expect1);
       }
     }
     if (m.find("ThresholdCount") != m.end() && !m["ThresholdCount"].empty()) {
@@ -7772,6 +7893,7 @@ public:
 class CreateListenerRequestEndpointGroupConfigurationsEndpointConfigurations : public Darabonba::Model {
 public:
   shared_ptr<string> endpoint{};
+  shared_ptr<string> subAddress{};
   shared_ptr<string> type{};
   shared_ptr<long> weight{};
 
@@ -7788,6 +7910,9 @@ public:
     if (endpoint) {
       res["Endpoint"] = boost::any(*endpoint);
     }
+    if (subAddress) {
+      res["SubAddress"] = boost::any(*subAddress);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -7800,6 +7925,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
       endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("SubAddress") != m.end() && !m["SubAddress"].empty()) {
+      subAddress = make_shared<string>(boost::any_cast<string>(m["SubAddress"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
