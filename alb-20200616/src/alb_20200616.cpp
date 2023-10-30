@@ -266,6 +266,43 @@ AttachCommonBandwidthPackageToLoadBalancerResponse Alibabacloud_Alb20200616::Cli
   return attachCommonBandwidthPackageToLoadBalancerWithOptions(request, runtime);
 }
 
+CancelShiftLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::cancelShiftLoadBalancerZonesWithOptions(shared_ptr<CancelShiftLoadBalancerZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerId)) {
+    query->insert(pair<string, string>("LoadBalancerId", *request->loadBalancerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CancelShiftLoadBalancerZonesRequestZoneMappings>>(request->zoneMappings)) {
+    query->insert(pair<string, vector<CancelShiftLoadBalancerZonesRequestZoneMappings>>("ZoneMappings", *request->zoneMappings));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelShiftLoadBalancerZones"))},
+    {"version", boost::any(string("2020-06-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelShiftLoadBalancerZonesResponse(callApi(params, req, runtime));
+}
+
+CancelShiftLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::cancelShiftLoadBalancerZones(shared_ptr<CancelShiftLoadBalancerZonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return cancelShiftLoadBalancerZonesWithOptions(request, runtime);
+}
+
 CreateAScriptsResponse Alibabacloud_Alb20200616::Client::createAScriptsWithOptions(shared_ptr<CreateAScriptsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -317,6 +354,9 @@ CreateAclResponse Alibabacloud_Alb20200616::Client::createAclWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateAclRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateAclRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -381,6 +421,9 @@ CreateHealthCheckTemplateResponse Alibabacloud_Alb20200616::Client::createHealth
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->healthyThreshold)) {
     query->insert(pair<string, long>("HealthyThreshold", *request->healthyThreshold));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateHealthCheckTemplateRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateHealthCheckTemplateRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->unhealthyThreshold)) {
     query->insert(pair<string, long>("UnhealthyThreshold", *request->unhealthyThreshold));
@@ -458,6 +501,9 @@ CreateListenerResponse Alibabacloud_Alb20200616::Client::createListenerWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
     query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateListenerRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<CreateListenerRequestXForwardedForConfig>(request->XForwardedForConfig)) {
     query->insert(pair<string, CreateListenerRequestXForwardedForConfig>("XForwardedForConfig", *request->XForwardedForConfig));
   }
@@ -519,6 +565,9 @@ CreateLoadBalancerResponse Alibabacloud_Alb20200616::Client::createLoadBalancerW
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateLoadBalancerRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateLoadBalancerRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
@@ -573,6 +622,9 @@ CreateRuleResponse Alibabacloud_Alb20200616::Client::createRuleWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     query->insert(pair<string, string>("RuleName", *request->ruleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateRuleRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateRuleRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -654,6 +706,9 @@ CreateSecurityPolicyResponse Alibabacloud_Alb20200616::Client::createSecurityPol
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->TLSVersions)) {
     query->insert(pair<string, vector<string>>("TLSVersions", *request->TLSVersions));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateSecurityPolicyRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateSecurityPolicyRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -708,6 +763,9 @@ CreateServerGroupResponse Alibabacloud_Alb20200616::Client::createServerGroupWit
   }
   if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestStickySessionConfig>(request->stickySessionConfig)) {
     query->insert(pair<string, CreateServerGroupRequestStickySessionConfig>("StickySessionConfig", *request->stickySessionConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateServerGroupRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateServerGroupRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestUchConfig>(request->uchConfig)) {
     query->insert(pair<string, CreateServerGroupRequestUchConfig>("UchConfig", *request->uchConfig));
@@ -1664,6 +1722,9 @@ ListAclsResponse Alibabacloud_Alb20200616::Client::listAclsWithOptions(shared_pt
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListAclsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListAclsRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1750,6 +1811,9 @@ ListHealthCheckTemplatesResponse Alibabacloud_Alb20200616::Client::listHealthChe
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListHealthCheckTemplatesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListHealthCheckTemplatesRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1826,6 +1890,9 @@ ListListenersResponse Alibabacloud_Alb20200616::Client::listListenersWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListListenersRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListListenersRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1931,6 +1998,9 @@ ListRulesResponse Alibabacloud_Alb20200616::Client::listRulesWithOptions(shared_
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->ruleIds)) {
     query->insert(pair<string, vector<string>>("RuleIds", *request->ruleIds));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListRulesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListRulesRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1970,6 +2040,9 @@ ListSecurityPoliciesResponse Alibabacloud_Alb20200616::Client::listSecurityPolic
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->securityPolicyNames)) {
     query->insert(pair<string, vector<string>>("SecurityPolicyNames", *request->securityPolicyNames));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ListSecurityPoliciesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ListSecurityPoliciesRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -2428,6 +2501,43 @@ StartListenerResponse Alibabacloud_Alb20200616::Client::startListenerWithOptions
 StartListenerResponse Alibabacloud_Alb20200616::Client::startListener(shared_ptr<StartListenerRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startListenerWithOptions(request, runtime);
+}
+
+StartShiftLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::startShiftLoadBalancerZonesWithOptions(shared_ptr<StartShiftLoadBalancerZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerId)) {
+    query->insert(pair<string, string>("LoadBalancerId", *request->loadBalancerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<StartShiftLoadBalancerZonesRequestZoneMappings>>(request->zoneMappings)) {
+    query->insert(pair<string, vector<StartShiftLoadBalancerZonesRequestZoneMappings>>("ZoneMappings", *request->zoneMappings));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartShiftLoadBalancerZones"))},
+    {"version", boost::any(string("2020-06-16"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartShiftLoadBalancerZonesResponse(callApi(params, req, runtime));
+}
+
+StartShiftLoadBalancerZonesResponse Alibabacloud_Alb20200616::Client::startShiftLoadBalancerZones(shared_ptr<StartShiftLoadBalancerZonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startShiftLoadBalancerZonesWithOptions(request, runtime);
 }
 
 StopListenerResponse Alibabacloud_Alb20200616::Client::stopListenerWithOptions(shared_ptr<StopListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
