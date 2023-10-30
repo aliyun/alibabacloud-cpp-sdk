@@ -9404,6 +9404,7 @@ public:
 class DescribeDBClusterAttributeResponseBodyDBNodes : public Darabonba::Model {
 public:
   shared_ptr<string> addedCpuCores{};
+  shared_ptr<string> cpuCores{};
   shared_ptr<string> creationTime{};
   shared_ptr<string> DBNodeClass{};
   shared_ptr<string> DBNodeId{};
@@ -9415,6 +9416,7 @@ public:
   shared_ptr<string> masterId{};
   shared_ptr<long> maxConnections{};
   shared_ptr<long> maxIOPS{};
+  shared_ptr<string> memorySize{};
   shared_ptr<string> sccMode{};
   shared_ptr<string> serverWeight{};
   shared_ptr<string> serverlessType{};
@@ -9432,6 +9434,9 @@ public:
     map<string, boost::any> res;
     if (addedCpuCores) {
       res["AddedCpuCores"] = boost::any(*addedCpuCores);
+    }
+    if (cpuCores) {
+      res["CpuCores"] = boost::any(*cpuCores);
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
@@ -9466,6 +9471,9 @@ public:
     if (maxIOPS) {
       res["MaxIOPS"] = boost::any(*maxIOPS);
     }
+    if (memorySize) {
+      res["MemorySize"] = boost::any(*memorySize);
+    }
     if (sccMode) {
       res["SccMode"] = boost::any(*sccMode);
     }
@@ -9484,6 +9492,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AddedCpuCores") != m.end() && !m["AddedCpuCores"].empty()) {
       addedCpuCores = make_shared<string>(boost::any_cast<string>(m["AddedCpuCores"]));
+    }
+    if (m.find("CpuCores") != m.end() && !m["CpuCores"].empty()) {
+      cpuCores = make_shared<string>(boost::any_cast<string>(m["CpuCores"]));
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
@@ -9517,6 +9528,9 @@ public:
     }
     if (m.find("MaxIOPS") != m.end() && !m["MaxIOPS"].empty()) {
       maxIOPS = make_shared<long>(boost::any_cast<long>(m["MaxIOPS"]));
+    }
+    if (m.find("MemorySize") != m.end() && !m["MemorySize"].empty()) {
+      memorySize = make_shared<string>(boost::any_cast<string>(m["MemorySize"]));
     }
     if (m.find("SccMode") != m.end() && !m["SccMode"].empty()) {
       sccMode = make_shared<string>(boost::any_cast<string>(m["SccMode"]));
