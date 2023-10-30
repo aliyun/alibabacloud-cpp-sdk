@@ -5861,6 +5861,55 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroup(sha
   return modifyApiGroupWithOptions(request, runtime);
 }
 
+ModifyApiGroupNetworkPolicyResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupNetworkPolicyWithOptions(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->httpsPolicy)) {
+    query->insert(pair<string, string>("HttpsPolicy", *request->httpsPolicy));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->innerDomainEnable)) {
+    query->insert(pair<string, bool>("InnerDomainEnable", *request->innerDomainEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->internetEnable)) {
+    query->insert(pair<string, bool>("InternetEnable", *request->internetEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->internetIPV6Enable)) {
+    query->insert(pair<string, bool>("InternetIPV6Enable", *request->internetIPV6Enable));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->vpcIntranetEnable)) {
+    query->insert(pair<string, bool>("VpcIntranetEnable", *request->vpcIntranetEnable));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->vpcSlbIntranetEnable)) {
+    query->insert(pair<string, bool>("VpcSlbIntranetEnable", *request->vpcSlbIntranetEnable));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyApiGroupNetworkPolicy"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyApiGroupNetworkPolicyResponse(callApi(params, req, runtime));
+}
+
+ModifyApiGroupNetworkPolicyResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupNetworkPolicy(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyApiGroupNetworkPolicyWithOptions(request, runtime);
+}
+
 ModifyApiGroupVpcWhitelistResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupVpcWhitelistWithOptions(shared_ptr<ModifyApiGroupVpcWhitelistRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
