@@ -355,6 +355,9 @@ CreateModelFeatureResponse Alibabacloud_PaiFeatureStore20230621::Client::createM
   if (!Darabonba_Util::Client::isUnset<string>(request->projectId)) {
     body->insert(pair<string, string>("ProjectId", *request->projectId));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sequenceFeatureViewIds)) {
+    body->insert(pair<string, vector<string>>("SequenceFeatureViewIds", *request->sequenceFeatureViewIds));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1841,6 +1844,9 @@ UpdateModelFeatureResponse Alibabacloud_PaiFeatureStore20230621::Client::updateM
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->labelTableId)) {
     body->insert(pair<string, string>("LabelTableId", *request->labelTableId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->sequenceFeatureViewIds)) {
+    body->insert(pair<string, vector<string>>("SequenceFeatureViewIds", *request->sequenceFeatureViewIds));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},

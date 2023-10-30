@@ -1363,6 +1363,7 @@ public:
   shared_ptr<string> labelTableId{};
   shared_ptr<string> name{};
   shared_ptr<string> projectId{};
+  shared_ptr<vector<string>> sequenceFeatureViewIds{};
 
   CreateModelFeatureRequest() {}
 
@@ -1390,6 +1391,9 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (sequenceFeatureViewIds) {
+      res["SequenceFeatureViewIds"] = boost::any(*sequenceFeatureViewIds);
+    }
     return res;
   }
 
@@ -1415,6 +1419,16 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<string>(boost::any_cast<string>(m["ProjectId"]));
+    }
+    if (m.find("SequenceFeatureViewIds") != m.end() && !m["SequenceFeatureViewIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SequenceFeatureViewIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SequenceFeatureViewIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sequenceFeatureViewIds = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -9888,6 +9902,7 @@ class UpdateModelFeatureRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<UpdateModelFeatureRequestFeatures>> features{};
   shared_ptr<string> labelTableId{};
+  shared_ptr<vector<string>> sequenceFeatureViewIds{};
 
   UpdateModelFeatureRequest() {}
 
@@ -9909,6 +9924,9 @@ public:
     if (labelTableId) {
       res["LabelTableId"] = boost::any(*labelTableId);
     }
+    if (sequenceFeatureViewIds) {
+      res["SequenceFeatureViewIds"] = boost::any(*sequenceFeatureViewIds);
+    }
     return res;
   }
 
@@ -9928,6 +9946,16 @@ public:
     }
     if (m.find("LabelTableId") != m.end() && !m["LabelTableId"].empty()) {
       labelTableId = make_shared<string>(boost::any_cast<string>(m["LabelTableId"]));
+    }
+    if (m.find("SequenceFeatureViewIds") != m.end() && !m["SequenceFeatureViewIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["SequenceFeatureViewIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SequenceFeatureViewIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      sequenceFeatureViewIds = make_shared<vector<string>>(toVec1);
     }
   }
 
