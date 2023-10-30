@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_ocean_base_pro_20190901Targets.cmake")
+check_required_components("alibabacloud_ocean_base_pro_20190901")
