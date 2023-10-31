@@ -20883,7 +20883,6 @@ public:
 };
 class ModifyDBInstanceNetExpireTimeRequest : public Darabonba::Model {
 public:
-  shared_ptr<string> category{};
   shared_ptr<long> classicExpendExpiredDays{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceId{};
@@ -20903,9 +20902,6 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (category) {
-      res["Category"] = boost::any(*category);
-    }
     if (classicExpendExpiredDays) {
       res["ClassicExpendExpiredDays"] = boost::any(*classicExpendExpiredDays);
     }
@@ -20934,9 +20930,6 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("Category") != m.end() && !m["Category"].empty()) {
-      category = make_shared<string>(boost::any_cast<string>(m["Category"]));
-    }
     if (m.find("ClassicExpendExpiredDays") != m.end() && !m["ClassicExpendExpiredDays"].empty()) {
       classicExpendExpiredDays = make_shared<long>(boost::any_cast<long>(m["ClassicExpendExpiredDays"]));
     }

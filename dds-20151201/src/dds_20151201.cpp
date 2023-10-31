@@ -3877,9 +3877,6 @@ ModifyDBInstanceMonitorResponse Alibabacloud_Dds20151201::Client::modifyDBInstan
 ModifyDBInstanceNetExpireTimeResponse Alibabacloud_Dds20151201::Client::modifyDBInstanceNetExpireTimeWithOptions(shared_ptr<ModifyDBInstanceNetExpireTimeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<string>(request->category)) {
-    query->insert(pair<string, string>("Category", *request->category));
-  }
   if (!Darabonba_Util::Client::isUnset<long>(request->classicExpendExpiredDays)) {
     query->insert(pair<string, long>("ClassicExpendExpiredDays", *request->classicExpendExpiredDays));
   }
