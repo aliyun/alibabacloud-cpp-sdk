@@ -956,6 +956,194 @@ public:
 
   virtual ~GetDocumentExtractResultResponse() = default;
 };
+class GetPageNumRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+
+  GetPageNumRequest() {}
+
+  explicit GetPageNumRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+  }
+
+
+  virtual ~GetPageNumRequest() = default;
+};
+class GetPageNumResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNum{};
+
+  GetPageNumResponseBodyData() {}
+
+  explicit GetPageNumResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+  }
+
+
+  virtual ~GetPageNumResponseBodyData() = default;
+};
+class GetPageNumResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<GetPageNumResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> httpCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  GetPageNumResponseBody() {}
+
+  explicit GetPageNumResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (errorCode) {
+      res["ErrorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (httpCode) {
+      res["HttpCode"] = boost::any(*httpCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        GetPageNumResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<GetPageNumResponseBodyData>(model1);
+      }
+    }
+    if (m.find("ErrorCode") != m.end() && !m["ErrorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["ErrorCode"]));
+    }
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("HttpCode") != m.end() && !m["HttpCode"].empty()) {
+      httpCode = make_shared<string>(boost::any_cast<string>(m["HttpCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~GetPageNumResponseBody() = default;
+};
+class GetPageNumResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetPageNumResponseBody> body{};
+
+  GetPageNumResponse() {}
+
+  explicit GetPageNumResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetPageNumResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetPageNumResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetPageNumResponse() = default;
+};
 class GetTableUnderstandingResultRequest : public Darabonba::Model {
 public:
   shared_ptr<string> id{};
@@ -3692,6 +3880,8 @@ public:
   GetDocumentConvertResultResponse getDocumentConvertResult(shared_ptr<GetDocumentConvertResultRequest> request);
   GetDocumentExtractResultResponse getDocumentExtractResultWithOptions(shared_ptr<GetDocumentExtractResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDocumentExtractResultResponse getDocumentExtractResult(shared_ptr<GetDocumentExtractResultRequest> request);
+  GetPageNumResponse getPageNumWithOptions(shared_ptr<GetPageNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetPageNumResponse getPageNum(shared_ptr<GetPageNumRequest> request);
   GetTableUnderstandingResultResponse getTableUnderstandingResultWithOptions(shared_ptr<GetTableUnderstandingResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTableUnderstandingResultResponse getTableUnderstandingResult(shared_ptr<GetTableUnderstandingResultRequest> request);
   SubmitConvertImageToExcelJobResponse submitConvertImageToExcelJobWithOptions(shared_ptr<SubmitConvertImageToExcelJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

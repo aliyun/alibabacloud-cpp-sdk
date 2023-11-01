@@ -258,6 +258,34 @@ GetDocumentExtractResultResponse Alibabacloud_Docmind-api20220711::Client::getDo
   return getDocumentExtractResultWithOptions(request, runtime);
 }
 
+GetPageNumResponse Alibabacloud_Docmind-api20220711::Client::getPageNumWithOptions(shared_ptr<GetPageNumRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("BizId", *request->bizId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetPageNum"))},
+    {"version", boost::any(string("2022-07-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetPageNumResponse(callApi(params, req, runtime));
+}
+
+GetPageNumResponse Alibabacloud_Docmind-api20220711::Client::getPageNum(shared_ptr<GetPageNumRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getPageNumWithOptions(request, runtime);
+}
+
 GetTableUnderstandingResultResponse Alibabacloud_Docmind-api20220711::Client::getTableUnderstandingResultWithOptions(shared_ptr<GetTableUnderstandingResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
