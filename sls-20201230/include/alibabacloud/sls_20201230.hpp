@@ -1406,9 +1406,9 @@ public:
   shared_ptr<string> extra{};
   shared_ptr<string> name{};
   shared_ptr<long> number{};
-  shared_ptr<string> policy{};
   shared_ptr<string> ticket{};
   shared_ptr<string> ticketId{};
+  shared_ptr<string> type{};
   shared_ptr<bool> unlimitedExpiration{};
   shared_ptr<bool> unlimitedNumber{};
   shared_ptr<long> usedNumber{};
@@ -1445,14 +1445,14 @@ public:
     if (number) {
       res["number"] = boost::any(*number);
     }
-    if (policy) {
-      res["policy"] = boost::any(*policy);
-    }
     if (ticket) {
       res["ticket"] = boost::any(*ticket);
     }
     if (ticketId) {
       res["ticketId"] = boost::any(*ticketId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
     }
     if (unlimitedExpiration) {
       res["unlimitedExpiration"] = boost::any(*unlimitedExpiration);
@@ -1491,14 +1491,14 @@ public:
     if (m.find("number") != m.end() && !m["number"].empty()) {
       number = make_shared<long>(boost::any_cast<long>(m["number"]));
     }
-    if (m.find("policy") != m.end() && !m["policy"].empty()) {
-      policy = make_shared<string>(boost::any_cast<string>(m["policy"]));
-    }
     if (m.find("ticket") != m.end() && !m["ticket"].empty()) {
       ticket = make_shared<string>(boost::any_cast<string>(m["ticket"]));
     }
     if (m.find("ticketId") != m.end() && !m["ticketId"].empty()) {
       ticketId = make_shared<string>(boost::any_cast<string>(m["ticketId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
     if (m.find("unlimitedExpiration") != m.end() && !m["unlimitedExpiration"].empty()) {
       unlimitedExpiration = make_shared<bool>(boost::any_cast<bool>(m["unlimitedExpiration"]));
@@ -4511,193 +4511,6 @@ public:
 
   virtual ~CreateMachineGroupResponse() = default;
 };
-class CreateOdpsShipperRequestTargetConfiguration : public Darabonba::Model {
-public:
-  shared_ptr<long> bufferInterval{};
-  shared_ptr<bool> enable{};
-  shared_ptr<vector<string>> fields{};
-  shared_ptr<string> odpsEndpoint{};
-  shared_ptr<string> odpsProject{};
-  shared_ptr<string> odpsTable{};
-  shared_ptr<vector<string>> partitionColumn{};
-  shared_ptr<string> partitionTimeFormat{};
-
-  CreateOdpsShipperRequestTargetConfiguration() {}
-
-  explicit CreateOdpsShipperRequestTargetConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (bufferInterval) {
-      res["bufferInterval"] = boost::any(*bufferInterval);
-    }
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (fields) {
-      res["fields"] = boost::any(*fields);
-    }
-    if (odpsEndpoint) {
-      res["odpsEndpoint"] = boost::any(*odpsEndpoint);
-    }
-    if (odpsProject) {
-      res["odpsProject"] = boost::any(*odpsProject);
-    }
-    if (odpsTable) {
-      res["odpsTable"] = boost::any(*odpsTable);
-    }
-    if (partitionColumn) {
-      res["partitionColumn"] = boost::any(*partitionColumn);
-    }
-    if (partitionTimeFormat) {
-      res["partitionTimeFormat"] = boost::any(*partitionTimeFormat);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("bufferInterval") != m.end() && !m["bufferInterval"].empty()) {
-      bufferInterval = make_shared<long>(boost::any_cast<long>(m["bufferInterval"]));
-    }
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("fields") != m.end() && !m["fields"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["fields"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["fields"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      fields = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("odpsEndpoint") != m.end() && !m["odpsEndpoint"].empty()) {
-      odpsEndpoint = make_shared<string>(boost::any_cast<string>(m["odpsEndpoint"]));
-    }
-    if (m.find("odpsProject") != m.end() && !m["odpsProject"].empty()) {
-      odpsProject = make_shared<string>(boost::any_cast<string>(m["odpsProject"]));
-    }
-    if (m.find("odpsTable") != m.end() && !m["odpsTable"].empty()) {
-      odpsTable = make_shared<string>(boost::any_cast<string>(m["odpsTable"]));
-    }
-    if (m.find("partitionColumn") != m.end() && !m["partitionColumn"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["partitionColumn"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["partitionColumn"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      partitionColumn = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("partitionTimeFormat") != m.end() && !m["partitionTimeFormat"].empty()) {
-      partitionTimeFormat = make_shared<string>(boost::any_cast<string>(m["partitionTimeFormat"]));
-    }
-  }
-
-
-  virtual ~CreateOdpsShipperRequestTargetConfiguration() = default;
-};
-class CreateOdpsShipperRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> shipperName{};
-  shared_ptr<CreateOdpsShipperRequestTargetConfiguration> targetConfiguration{};
-  shared_ptr<string> targetType{};
-
-  CreateOdpsShipperRequest() {}
-
-  explicit CreateOdpsShipperRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (shipperName) {
-      res["shipperName"] = boost::any(*shipperName);
-    }
-    if (targetConfiguration) {
-      res["targetConfiguration"] = targetConfiguration ? boost::any(targetConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (targetType) {
-      res["targetType"] = boost::any(*targetType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("shipperName") != m.end() && !m["shipperName"].empty()) {
-      shipperName = make_shared<string>(boost::any_cast<string>(m["shipperName"]));
-    }
-    if (m.find("targetConfiguration") != m.end() && !m["targetConfiguration"].empty()) {
-      if (typeid(map<string, boost::any>) == m["targetConfiguration"].type()) {
-        CreateOdpsShipperRequestTargetConfiguration model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["targetConfiguration"]));
-        targetConfiguration = make_shared<CreateOdpsShipperRequestTargetConfiguration>(model1);
-      }
-    }
-    if (m.find("targetType") != m.end() && !m["targetType"].empty()) {
-      targetType = make_shared<string>(boost::any_cast<string>(m["targetType"]));
-    }
-  }
-
-
-  virtual ~CreateOdpsShipperRequest() = default;
-};
-class CreateOdpsShipperResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  CreateOdpsShipperResponse() {}
-
-  explicit CreateOdpsShipperResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~CreateOdpsShipperResponse() = default;
-};
 class CreateOssExternalStoreRequestParameterColumns : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -4913,238 +4726,6 @@ public:
 
 
   virtual ~CreateOssExternalStoreResponse() = default;
-};
-class CreateOssShipperRequestTargetConfigurationStorage : public Darabonba::Model {
-public:
-  shared_ptr<map<string, boost::any>> detail{};
-  shared_ptr<string> format{};
-
-  CreateOssShipperRequestTargetConfigurationStorage() {}
-
-  explicit CreateOssShipperRequestTargetConfigurationStorage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (detail) {
-      res["detail"] = boost::any(*detail);
-    }
-    if (format) {
-      res["format"] = boost::any(*format);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("detail") != m.end() && !m["detail"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["detail"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      detail = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("format") != m.end() && !m["format"].empty()) {
-      format = make_shared<string>(boost::any_cast<string>(m["format"]));
-    }
-  }
-
-
-  virtual ~CreateOssShipperRequestTargetConfigurationStorage() = default;
-};
-class CreateOssShipperRequestTargetConfiguration : public Darabonba::Model {
-public:
-  shared_ptr<long> bufferInterval{};
-  shared_ptr<long> bufferSize{};
-  shared_ptr<string> compressType{};
-  shared_ptr<bool> enable{};
-  shared_ptr<string> ossBucket{};
-  shared_ptr<string> ossPrefix{};
-  shared_ptr<string> pathFormat{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<CreateOssShipperRequestTargetConfigurationStorage> storage{};
-  shared_ptr<string> timeZone{};
-
-  CreateOssShipperRequestTargetConfiguration() {}
-
-  explicit CreateOssShipperRequestTargetConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (bufferInterval) {
-      res["bufferInterval"] = boost::any(*bufferInterval);
-    }
-    if (bufferSize) {
-      res["bufferSize"] = boost::any(*bufferSize);
-    }
-    if (compressType) {
-      res["compressType"] = boost::any(*compressType);
-    }
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (ossBucket) {
-      res["ossBucket"] = boost::any(*ossBucket);
-    }
-    if (ossPrefix) {
-      res["ossPrefix"] = boost::any(*ossPrefix);
-    }
-    if (pathFormat) {
-      res["pathFormat"] = boost::any(*pathFormat);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (storage) {
-      res["storage"] = storage ? boost::any(storage->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (timeZone) {
-      res["timeZone"] = boost::any(*timeZone);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("bufferInterval") != m.end() && !m["bufferInterval"].empty()) {
-      bufferInterval = make_shared<long>(boost::any_cast<long>(m["bufferInterval"]));
-    }
-    if (m.find("bufferSize") != m.end() && !m["bufferSize"].empty()) {
-      bufferSize = make_shared<long>(boost::any_cast<long>(m["bufferSize"]));
-    }
-    if (m.find("compressType") != m.end() && !m["compressType"].empty()) {
-      compressType = make_shared<string>(boost::any_cast<string>(m["compressType"]));
-    }
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("ossBucket") != m.end() && !m["ossBucket"].empty()) {
-      ossBucket = make_shared<string>(boost::any_cast<string>(m["ossBucket"]));
-    }
-    if (m.find("ossPrefix") != m.end() && !m["ossPrefix"].empty()) {
-      ossPrefix = make_shared<string>(boost::any_cast<string>(m["ossPrefix"]));
-    }
-    if (m.find("pathFormat") != m.end() && !m["pathFormat"].empty()) {
-      pathFormat = make_shared<string>(boost::any_cast<string>(m["pathFormat"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("storage") != m.end() && !m["storage"].empty()) {
-      if (typeid(map<string, boost::any>) == m["storage"].type()) {
-        CreateOssShipperRequestTargetConfigurationStorage model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["storage"]));
-        storage = make_shared<CreateOssShipperRequestTargetConfigurationStorage>(model1);
-      }
-    }
-    if (m.find("timeZone") != m.end() && !m["timeZone"].empty()) {
-      timeZone = make_shared<string>(boost::any_cast<string>(m["timeZone"]));
-    }
-  }
-
-
-  virtual ~CreateOssShipperRequestTargetConfiguration() = default;
-};
-class CreateOssShipperRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> shipperName{};
-  shared_ptr<CreateOssShipperRequestTargetConfiguration> targetConfiguration{};
-  shared_ptr<string> targetType{};
-
-  CreateOssShipperRequest() {}
-
-  explicit CreateOssShipperRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (shipperName) {
-      res["shipperName"] = boost::any(*shipperName);
-    }
-    if (targetConfiguration) {
-      res["targetConfiguration"] = targetConfiguration ? boost::any(targetConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (targetType) {
-      res["targetType"] = boost::any(*targetType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("shipperName") != m.end() && !m["shipperName"].empty()) {
-      shipperName = make_shared<string>(boost::any_cast<string>(m["shipperName"]));
-    }
-    if (m.find("targetConfiguration") != m.end() && !m["targetConfiguration"].empty()) {
-      if (typeid(map<string, boost::any>) == m["targetConfiguration"].type()) {
-        CreateOssShipperRequestTargetConfiguration model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["targetConfiguration"]));
-        targetConfiguration = make_shared<CreateOssShipperRequestTargetConfiguration>(model1);
-      }
-    }
-    if (m.find("targetType") != m.end() && !m["targetType"].empty()) {
-      targetType = make_shared<string>(boost::any_cast<string>(m["targetType"]));
-    }
-  }
-
-
-  virtual ~CreateOssShipperRequest() = default;
-};
-class CreateOssShipperResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  CreateOssShipperResponse() {}
-
-  explicit CreateOssShipperResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~CreateOssShipperResponse() = default;
 };
 class CreateProjectRequest : public Darabonba::Model {
 public:
@@ -11066,7 +10647,7 @@ public:
 };
 class ListConfigResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<vector<LogtailConfig>> configs{};
+  shared_ptr<vector<string>> configs{};
   shared_ptr<long> count{};
   shared_ptr<long> total{};
 
@@ -11081,11 +10662,7 @@ public:
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
     if (configs) {
-      vector<boost::any> temp1;
-      for(auto item1:*configs){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["configs"] = boost::any(temp1);
+      res["configs"] = boost::any(*configs);
     }
     if (count) {
       res["count"] = boost::any(*count);
@@ -11098,17 +10675,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("configs") != m.end() && !m["configs"].empty()) {
+      vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["configs"].type()) {
-        vector<LogtailConfig> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["configs"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            LogtailConfig model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["configs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
         }
-        configs = make_shared<vector<LogtailConfig>>(expect1);
       }
+      configs = make_shared<vector<string>>(toVec1);
     }
     if (m.find("count") != m.end() && !m["count"].empty()) {
       count = make_shared<long>(boost::any_cast<long>(m["count"]));
@@ -13210,97 +12784,6 @@ public:
 
   virtual ~ListTagResourcesResponse() = default;
 };
-class PullDataRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> count{};
-  shared_ptr<string> cursor{};
-  shared_ptr<string> endCursor{};
-
-  PullDataRequest() {}
-
-  explicit PullDataRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (count) {
-      res["count"] = boost::any(*count);
-    }
-    if (cursor) {
-      res["cursor"] = boost::any(*cursor);
-    }
-    if (endCursor) {
-      res["endCursor"] = boost::any(*endCursor);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("count") != m.end() && !m["count"].empty()) {
-      count = make_shared<string>(boost::any_cast<string>(m["count"]));
-    }
-    if (m.find("cursor") != m.end() && !m["cursor"].empty()) {
-      cursor = make_shared<string>(boost::any_cast<string>(m["cursor"]));
-    }
-    if (m.find("endCursor") != m.end() && !m["endCursor"].empty()) {
-      endCursor = make_shared<string>(boost::any_cast<string>(m["endCursor"]));
-    }
-  }
-
-
-  virtual ~PullDataRequest() = default;
-};
-class PullDataResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  PullDataResponse() {}
-
-  explicit PullDataResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~PullDataResponse() = default;
-};
 class PutAnnotationDataRequest : public Darabonba::Model {
 public:
   shared_ptr<string> annotationdataId{};
@@ -14062,7 +13545,7 @@ public:
 class UntagResourcesRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> all{};
-  shared_ptr<string> resourceId{};
+  shared_ptr<vector<string>> resourceId{};
   shared_ptr<string> resourceType{};
   shared_ptr<vector<string>> tags{};
 
@@ -14096,7 +13579,14 @@ public:
       all = make_shared<bool>(boost::any_cast<bool>(m["all"]));
     }
     if (m.find("resourceId") != m.end() && !m["resourceId"].empty()) {
-      resourceId = make_shared<string>(boost::any_cast<string>(m["resourceId"]));
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["resourceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["resourceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceId = make_shared<vector<string>>(toVec1);
     }
     if (m.find("resourceType") != m.end() && !m["resourceType"].empty()) {
       resourceType = make_shared<string>(boost::any_cast<string>(m["resourceType"]));
@@ -15621,193 +15111,6 @@ public:
 
   virtual ~UpdateMachineGroupMachineResponse() = default;
 };
-class UpdateOdpsShipperRequestTargetConfiguration : public Darabonba::Model {
-public:
-  shared_ptr<long> bufferInterval{};
-  shared_ptr<bool> enable{};
-  shared_ptr<vector<string>> fields{};
-  shared_ptr<string> odpsEndpoint{};
-  shared_ptr<string> odpsProject{};
-  shared_ptr<string> odpsTable{};
-  shared_ptr<vector<string>> partitionColumn{};
-  shared_ptr<string> partitionTimeFormat{};
-
-  UpdateOdpsShipperRequestTargetConfiguration() {}
-
-  explicit UpdateOdpsShipperRequestTargetConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (bufferInterval) {
-      res["bufferInterval"] = boost::any(*bufferInterval);
-    }
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (fields) {
-      res["fields"] = boost::any(*fields);
-    }
-    if (odpsEndpoint) {
-      res["odpsEndpoint"] = boost::any(*odpsEndpoint);
-    }
-    if (odpsProject) {
-      res["odpsProject"] = boost::any(*odpsProject);
-    }
-    if (odpsTable) {
-      res["odpsTable"] = boost::any(*odpsTable);
-    }
-    if (partitionColumn) {
-      res["partitionColumn"] = boost::any(*partitionColumn);
-    }
-    if (partitionTimeFormat) {
-      res["partitionTimeFormat"] = boost::any(*partitionTimeFormat);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("bufferInterval") != m.end() && !m["bufferInterval"].empty()) {
-      bufferInterval = make_shared<long>(boost::any_cast<long>(m["bufferInterval"]));
-    }
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("fields") != m.end() && !m["fields"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["fields"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["fields"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      fields = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("odpsEndpoint") != m.end() && !m["odpsEndpoint"].empty()) {
-      odpsEndpoint = make_shared<string>(boost::any_cast<string>(m["odpsEndpoint"]));
-    }
-    if (m.find("odpsProject") != m.end() && !m["odpsProject"].empty()) {
-      odpsProject = make_shared<string>(boost::any_cast<string>(m["odpsProject"]));
-    }
-    if (m.find("odpsTable") != m.end() && !m["odpsTable"].empty()) {
-      odpsTable = make_shared<string>(boost::any_cast<string>(m["odpsTable"]));
-    }
-    if (m.find("partitionColumn") != m.end() && !m["partitionColumn"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["partitionColumn"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["partitionColumn"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      partitionColumn = make_shared<vector<string>>(toVec1);
-    }
-    if (m.find("partitionTimeFormat") != m.end() && !m["partitionTimeFormat"].empty()) {
-      partitionTimeFormat = make_shared<string>(boost::any_cast<string>(m["partitionTimeFormat"]));
-    }
-  }
-
-
-  virtual ~UpdateOdpsShipperRequestTargetConfiguration() = default;
-};
-class UpdateOdpsShipperRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> shipperName{};
-  shared_ptr<UpdateOdpsShipperRequestTargetConfiguration> targetConfiguration{};
-  shared_ptr<string> targetType{};
-
-  UpdateOdpsShipperRequest() {}
-
-  explicit UpdateOdpsShipperRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (shipperName) {
-      res["shipperName"] = boost::any(*shipperName);
-    }
-    if (targetConfiguration) {
-      res["targetConfiguration"] = targetConfiguration ? boost::any(targetConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (targetType) {
-      res["targetType"] = boost::any(*targetType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("shipperName") != m.end() && !m["shipperName"].empty()) {
-      shipperName = make_shared<string>(boost::any_cast<string>(m["shipperName"]));
-    }
-    if (m.find("targetConfiguration") != m.end() && !m["targetConfiguration"].empty()) {
-      if (typeid(map<string, boost::any>) == m["targetConfiguration"].type()) {
-        UpdateOdpsShipperRequestTargetConfiguration model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["targetConfiguration"]));
-        targetConfiguration = make_shared<UpdateOdpsShipperRequestTargetConfiguration>(model1);
-      }
-    }
-    if (m.find("targetType") != m.end() && !m["targetType"].empty()) {
-      targetType = make_shared<string>(boost::any_cast<string>(m["targetType"]));
-    }
-  }
-
-
-  virtual ~UpdateOdpsShipperRequest() = default;
-};
-class UpdateOdpsShipperResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  UpdateOdpsShipperResponse() {}
-
-  explicit UpdateOdpsShipperResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~UpdateOdpsShipperResponse() = default;
-};
 class UpdateOssExternalStoreRequestParameterColumns : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -16023,238 +15326,6 @@ public:
 
 
   virtual ~UpdateOssExternalStoreResponse() = default;
-};
-class UpdateOssShipperRequestTargetConfigurationStorage : public Darabonba::Model {
-public:
-  shared_ptr<map<string, boost::any>> detail{};
-  shared_ptr<string> format{};
-
-  UpdateOssShipperRequestTargetConfigurationStorage() {}
-
-  explicit UpdateOssShipperRequestTargetConfigurationStorage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (detail) {
-      res["detail"] = boost::any(*detail);
-    }
-    if (format) {
-      res["format"] = boost::any(*format);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("detail") != m.end() && !m["detail"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["detail"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      detail = make_shared<map<string, boost::any>>(toMap1);
-    }
-    if (m.find("format") != m.end() && !m["format"].empty()) {
-      format = make_shared<string>(boost::any_cast<string>(m["format"]));
-    }
-  }
-
-
-  virtual ~UpdateOssShipperRequestTargetConfigurationStorage() = default;
-};
-class UpdateOssShipperRequestTargetConfiguration : public Darabonba::Model {
-public:
-  shared_ptr<long> bufferInterval{};
-  shared_ptr<long> bufferSize{};
-  shared_ptr<string> compressType{};
-  shared_ptr<bool> enable{};
-  shared_ptr<string> ossBucket{};
-  shared_ptr<string> ossPrefix{};
-  shared_ptr<string> pathFormat{};
-  shared_ptr<string> roleArn{};
-  shared_ptr<UpdateOssShipperRequestTargetConfigurationStorage> storage{};
-  shared_ptr<string> timeZone{};
-
-  UpdateOssShipperRequestTargetConfiguration() {}
-
-  explicit UpdateOssShipperRequestTargetConfiguration(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (bufferInterval) {
-      res["bufferInterval"] = boost::any(*bufferInterval);
-    }
-    if (bufferSize) {
-      res["bufferSize"] = boost::any(*bufferSize);
-    }
-    if (compressType) {
-      res["compressType"] = boost::any(*compressType);
-    }
-    if (enable) {
-      res["enable"] = boost::any(*enable);
-    }
-    if (ossBucket) {
-      res["ossBucket"] = boost::any(*ossBucket);
-    }
-    if (ossPrefix) {
-      res["ossPrefix"] = boost::any(*ossPrefix);
-    }
-    if (pathFormat) {
-      res["pathFormat"] = boost::any(*pathFormat);
-    }
-    if (roleArn) {
-      res["roleArn"] = boost::any(*roleArn);
-    }
-    if (storage) {
-      res["storage"] = storage ? boost::any(storage->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (timeZone) {
-      res["timeZone"] = boost::any(*timeZone);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("bufferInterval") != m.end() && !m["bufferInterval"].empty()) {
-      bufferInterval = make_shared<long>(boost::any_cast<long>(m["bufferInterval"]));
-    }
-    if (m.find("bufferSize") != m.end() && !m["bufferSize"].empty()) {
-      bufferSize = make_shared<long>(boost::any_cast<long>(m["bufferSize"]));
-    }
-    if (m.find("compressType") != m.end() && !m["compressType"].empty()) {
-      compressType = make_shared<string>(boost::any_cast<string>(m["compressType"]));
-    }
-    if (m.find("enable") != m.end() && !m["enable"].empty()) {
-      enable = make_shared<bool>(boost::any_cast<bool>(m["enable"]));
-    }
-    if (m.find("ossBucket") != m.end() && !m["ossBucket"].empty()) {
-      ossBucket = make_shared<string>(boost::any_cast<string>(m["ossBucket"]));
-    }
-    if (m.find("ossPrefix") != m.end() && !m["ossPrefix"].empty()) {
-      ossPrefix = make_shared<string>(boost::any_cast<string>(m["ossPrefix"]));
-    }
-    if (m.find("pathFormat") != m.end() && !m["pathFormat"].empty()) {
-      pathFormat = make_shared<string>(boost::any_cast<string>(m["pathFormat"]));
-    }
-    if (m.find("roleArn") != m.end() && !m["roleArn"].empty()) {
-      roleArn = make_shared<string>(boost::any_cast<string>(m["roleArn"]));
-    }
-    if (m.find("storage") != m.end() && !m["storage"].empty()) {
-      if (typeid(map<string, boost::any>) == m["storage"].type()) {
-        UpdateOssShipperRequestTargetConfigurationStorage model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["storage"]));
-        storage = make_shared<UpdateOssShipperRequestTargetConfigurationStorage>(model1);
-      }
-    }
-    if (m.find("timeZone") != m.end() && !m["timeZone"].empty()) {
-      timeZone = make_shared<string>(boost::any_cast<string>(m["timeZone"]));
-    }
-  }
-
-
-  virtual ~UpdateOssShipperRequestTargetConfiguration() = default;
-};
-class UpdateOssShipperRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> shipperName{};
-  shared_ptr<UpdateOssShipperRequestTargetConfiguration> targetConfiguration{};
-  shared_ptr<string> targetType{};
-
-  UpdateOssShipperRequest() {}
-
-  explicit UpdateOssShipperRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (shipperName) {
-      res["shipperName"] = boost::any(*shipperName);
-    }
-    if (targetConfiguration) {
-      res["targetConfiguration"] = targetConfiguration ? boost::any(targetConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (targetType) {
-      res["targetType"] = boost::any(*targetType);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("shipperName") != m.end() && !m["shipperName"].empty()) {
-      shipperName = make_shared<string>(boost::any_cast<string>(m["shipperName"]));
-    }
-    if (m.find("targetConfiguration") != m.end() && !m["targetConfiguration"].empty()) {
-      if (typeid(map<string, boost::any>) == m["targetConfiguration"].type()) {
-        UpdateOssShipperRequestTargetConfiguration model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["targetConfiguration"]));
-        targetConfiguration = make_shared<UpdateOssShipperRequestTargetConfiguration>(model1);
-      }
-    }
-    if (m.find("targetType") != m.end() && !m["targetType"].empty()) {
-      targetType = make_shared<string>(boost::any_cast<string>(m["targetType"]));
-    }
-  }
-
-
-  virtual ~UpdateOssShipperRequest() = default;
-};
-class UpdateOssShipperResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-
-  UpdateOssShipperResponse() {}
-
-  explicit UpdateOssShipperResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-  }
-
-
-  virtual ~UpdateOssShipperResponse() = default;
 };
 class UpdateProjectRequest : public Darabonba::Model {
 public:
@@ -17030,23 +16101,11 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMachineGroupResponse createMachineGroup(shared_ptr<string> project, shared_ptr<CreateMachineGroupRequest> request);
-  CreateOdpsShipperResponse createOdpsShipperWithOptions(shared_ptr<string> project,
-                                                         shared_ptr<string> logstore,
-                                                         shared_ptr<CreateOdpsShipperRequest> request,
-                                                         shared_ptr<map<string, string>> headers,
-                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateOdpsShipperResponse createOdpsShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOdpsShipperRequest> request);
   CreateOssExternalStoreResponse createOssExternalStoreWithOptions(shared_ptr<string> project,
                                                                    shared_ptr<CreateOssExternalStoreRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateOssExternalStoreResponse createOssExternalStore(shared_ptr<string> project, shared_ptr<CreateOssExternalStoreRequest> request);
-  CreateOssShipperResponse createOssShipperWithOptions(shared_ptr<string> project,
-                                                       shared_ptr<string> logstore,
-                                                       shared_ptr<CreateOssShipperRequest> request,
-                                                       shared_ptr<map<string, string>> headers,
-                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  CreateOssShipperResponse createOssShipper(shared_ptr<string> project, shared_ptr<string> logstore, shared_ptr<CreateOssShipperRequest> request);
   CreateProjectResponse createProjectWithOptions(shared_ptr<CreateProjectRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateProjectResponse createProject(shared_ptr<CreateProjectRequest> request);
   CreateRdsExternalStoreResponse createRdsExternalStoreWithOptions(shared_ptr<string> project,
@@ -17361,16 +16420,6 @@ public:
   ListShipperResponse listShipper(shared_ptr<string> project, shared_ptr<string> logstore);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
-  PullDataResponse pullDataWithOptions(shared_ptr<string> project,
-                                       shared_ptr<string> logstore,
-                                       shared_ptr<string> shard,
-                                       shared_ptr<PullDataRequest> request,
-                                       shared_ptr<map<string, string>> headers,
-                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  PullDataResponse pullData(shared_ptr<string> project,
-                            shared_ptr<string> logstore,
-                            shared_ptr<string> shard,
-                            shared_ptr<PullDataRequest> request);
   PutAnnotationDataResponse putAnnotationDataWithOptions(shared_ptr<string> datasetId,
                                                          shared_ptr<PutAnnotationDataRequest> request,
                                                          shared_ptr<map<string, string>> headers,
@@ -17482,32 +16531,12 @@ public:
                                                                          shared_ptr<map<string, string>> headers,
                                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateMachineGroupMachineResponse updateMachineGroupMachine(shared_ptr<string> project, shared_ptr<string> machineGroup, shared_ptr<UpdateMachineGroupMachineRequest> request);
-  UpdateOdpsShipperResponse updateOdpsShipperWithOptions(shared_ptr<string> project,
-                                                         shared_ptr<string> logstore,
-                                                         shared_ptr<string> shipperName,
-                                                         shared_ptr<UpdateOdpsShipperRequest> request,
-                                                         shared_ptr<map<string, string>> headers,
-                                                         shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateOdpsShipperResponse updateOdpsShipper(shared_ptr<string> project,
-                                              shared_ptr<string> logstore,
-                                              shared_ptr<string> shipperName,
-                                              shared_ptr<UpdateOdpsShipperRequest> request);
   UpdateOssExternalStoreResponse updateOssExternalStoreWithOptions(shared_ptr<string> project,
                                                                    shared_ptr<string> externalStoreName,
                                                                    shared_ptr<UpdateOssExternalStoreRequest> request,
                                                                    shared_ptr<map<string, string>> headers,
                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateOssExternalStoreResponse updateOssExternalStore(shared_ptr<string> project, shared_ptr<string> externalStoreName, shared_ptr<UpdateOssExternalStoreRequest> request);
-  UpdateOssShipperResponse updateOssShipperWithOptions(shared_ptr<string> project,
-                                                       shared_ptr<string> logstore,
-                                                       shared_ptr<string> shipperName,
-                                                       shared_ptr<UpdateOssShipperRequest> request,
-                                                       shared_ptr<map<string, string>> headers,
-                                                       shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  UpdateOssShipperResponse updateOssShipper(shared_ptr<string> project,
-                                            shared_ptr<string> logstore,
-                                            shared_ptr<string> shipperName,
-                                            shared_ptr<UpdateOssShipperRequest> request);
   UpdateProjectResponse updateProjectWithOptions(shared_ptr<string> project,
                                                  shared_ptr<UpdateProjectRequest> request,
                                                  shared_ptr<map<string, string>> headers,
