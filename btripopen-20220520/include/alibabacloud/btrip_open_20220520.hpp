@@ -65884,7 +65884,9 @@ public:
   shared_ptr<long> checkOut{};
   shared_ptr<string> city{};
   shared_ptr<string> cityAdCode{};
+  shared_ptr<string> hotelAddress{};
   shared_ptr<string> hotelName{};
+  shared_ptr<string> hotelPhone{};
   shared_ptr<long> hotelSupportVatInvoiceType{};
   shared_ptr<long> night{};
   shared_ptr<long> roomNum{};
@@ -65912,8 +65914,14 @@ public:
     if (cityAdCode) {
       res["city_ad_code"] = boost::any(*cityAdCode);
     }
+    if (hotelAddress) {
+      res["hotel_address"] = boost::any(*hotelAddress);
+    }
     if (hotelName) {
       res["hotel_name"] = boost::any(*hotelName);
+    }
+    if (hotelPhone) {
+      res["hotel_phone"] = boost::any(*hotelPhone);
     }
     if (hotelSupportVatInvoiceType) {
       res["hotel_support_vat_invoice_type"] = boost::any(*hotelSupportVatInvoiceType);
@@ -65943,8 +65951,14 @@ public:
     if (m.find("city_ad_code") != m.end() && !m["city_ad_code"].empty()) {
       cityAdCode = make_shared<string>(boost::any_cast<string>(m["city_ad_code"]));
     }
+    if (m.find("hotel_address") != m.end() && !m["hotel_address"].empty()) {
+      hotelAddress = make_shared<string>(boost::any_cast<string>(m["hotel_address"]));
+    }
     if (m.find("hotel_name") != m.end() && !m["hotel_name"].empty()) {
       hotelName = make_shared<string>(boost::any_cast<string>(m["hotel_name"]));
+    }
+    if (m.find("hotel_phone") != m.end() && !m["hotel_phone"].empty()) {
+      hotelPhone = make_shared<string>(boost::any_cast<string>(m["hotel_phone"]));
     }
     if (m.find("hotel_support_vat_invoice_type") != m.end() && !m["hotel_support_vat_invoice_type"].empty()) {
       hotelSupportVatInvoiceType = make_shared<long>(boost::any_cast<long>(m["hotel_support_vat_invoice_type"]));
@@ -66007,6 +66021,7 @@ public:
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
+  shared_ptr<vector<string>> exceedApplyNos{};
   shared_ptr<string> extendField{};
   shared_ptr<long> gmtCreate{};
   shared_ptr<long> gmtModified{};
@@ -66047,6 +66062,9 @@ public:
     }
     if (departName) {
       res["depart_name"] = boost::any(*departName);
+    }
+    if (exceedApplyNos) {
+      res["exceed_apply_nos"] = boost::any(*exceedApplyNos);
     }
     if (extendField) {
       res["extend_field"] = boost::any(*extendField);
@@ -66105,6 +66123,16 @@ public:
     }
     if (m.find("depart_name") != m.end() && !m["depart_name"].empty()) {
       departName = make_shared<string>(boost::any_cast<string>(m["depart_name"]));
+    }
+    if (m.find("exceed_apply_nos") != m.end() && !m["exceed_apply_nos"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["exceed_apply_nos"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["exceed_apply_nos"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      exceedApplyNos = make_shared<vector<string>>(toVec1);
     }
     if (m.find("extend_field") != m.end() && !m["extend_field"].empty()) {
       extendField = make_shared<string>(boost::any_cast<string>(m["extend_field"]));
