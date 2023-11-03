@@ -29757,6 +29757,7 @@ public:
 };
 class ProduceEditingProjectVideoRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> appId{};
   shared_ptr<string> coverURL{};
   shared_ptr<string> description{};
   shared_ptr<string> mediaMetadata{};
@@ -29779,6 +29780,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
     if (coverURL) {
       res["CoverURL"] = boost::any(*coverURL);
     }
@@ -29816,6 +29820,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
     if (m.find("CoverURL") != m.end() && !m["CoverURL"].empty()) {
       coverURL = make_shared<string>(boost::any_cast<string>(m["CoverURL"]));
     }

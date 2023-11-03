@@ -20,6 +20,7 @@ Alibabacloud_Vod20170321::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("regional");
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
+    {"cn-hangzhou", "vod.cn-shanghai.aliyuncs.com"},
     {"ap-northeast-2-pop", "vod.aliyuncs.com"},
     {"ap-southeast-2", "vod.aliyuncs.com"},
     {"ap-southeast-3", "vod.aliyuncs.com"},
@@ -31,7 +32,6 @@ Alibabacloud_Vod20170321::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-edge-1", "vod.aliyuncs.com"},
     {"cn-fujian", "vod.aliyuncs.com"},
     {"cn-haidian-cm12-c01", "vod.aliyuncs.com"},
-    {"cn-hangzhou", "vod.aliyuncs.com"},
     {"cn-hangzhou-bj-b01", "vod.aliyuncs.com"},
     {"cn-hangzhou-finance", "vod.aliyuncs.com"},
     {"cn-hangzhou-internal-prod-1", "vod.aliyuncs.com"},
@@ -39,7 +39,6 @@ Alibabacloud_Vod20170321::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-hangzhou-internal-test-2", "vod.aliyuncs.com"},
     {"cn-hangzhou-internal-test-3", "vod.aliyuncs.com"},
     {"cn-hangzhou-test-306", "vod.aliyuncs.com"},
-    {"cn-hongkong", "vod.aliyuncs.com"},
     {"cn-hongkong-finance-pop", "vod.aliyuncs.com"},
     {"cn-huhehaote", "vod.aliyuncs.com"},
     {"cn-huhehaote-nebula-1", "vod.aliyuncs.com"},
@@ -59,15 +58,12 @@ Alibabacloud_Vod20170321::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-yushanfang", "vod.aliyuncs.com"},
     {"cn-zhangbei", "vod.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "vod.aliyuncs.com"},
-    {"cn-zhangjiakou", "vod.aliyuncs.com"},
     {"cn-zhangjiakou-na62-a01", "vod.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1", "vod.aliyuncs.com"},
-    {"eu-west-1", "vod.aliyuncs.com"},
     {"eu-west-1-oxs", "vod.aliyuncs.com"},
     {"me-east-1", "vod.aliyuncs.com"},
     {"rus-west-1-pop", "vod.aliyuncs.com"},
-    {"us-east-1", "vod.aliyuncs.com"},
-    {"us-west-1", "vod.aliyuncs.com"}
+    {"us-east-1", "vod.aliyuncs.com"}
   })
 );
   checkConfig(config);
@@ -4076,6 +4072,9 @@ PreloadVodObjectCachesResponse Alibabacloud_Vod20170321::Client::preloadVodObjec
 ProduceEditingProjectVideoResponse Alibabacloud_Vod20170321::Client::produceEditingProjectVideoWithOptions(shared_ptr<ProduceEditingProjectVideoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
+    query->insert(pair<string, string>("AppId", *request->appId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->coverURL)) {
     query->insert(pair<string, string>("CoverURL", *request->coverURL));
   }
