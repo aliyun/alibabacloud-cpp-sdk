@@ -137,14 +137,22 @@ ChangeResourceGroupResponse Alibabacloud_Cr20181201::Client::changeResourceGroup
   return changeResourceGroupWithOptions(request, runtime);
 }
 
-CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateArtifactBuildRuleResponse Alibabacloud_Cr20181201::Client::createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateArtifactBuildRuleShrinkRequest> request = make_shared<CreateArtifactBuildRuleShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->parameters)) {
+    request->parametersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->parameters, make_shared<string>("Parameters"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->artifactType)) {
     query->insert(pair<string, string>("ArtifactType", *request->artifactType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->parametersShrink)) {
+    query->insert(pair<string, string>("Parameters", *request->parametersShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->scopeId)) {
     query->insert(pair<string, string>("ScopeId", *request->scopeId));

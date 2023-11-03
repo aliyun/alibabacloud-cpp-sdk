@@ -442,6 +442,7 @@ class CreateArtifactBuildRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> artifactType{};
   shared_ptr<string> instanceId{};
+  shared_ptr<map<string, boost::any>> parameters{};
   shared_ptr<string> scopeId{};
   shared_ptr<string> scopeType{};
 
@@ -461,6 +462,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (parameters) {
+      res["Parameters"] = boost::any(*parameters);
+    }
     if (scopeId) {
       res["ScopeId"] = boost::any(*scopeId);
     }
@@ -477,6 +481,14 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Parameters"]);
+      map<string, boost::any> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      parameters = make_shared<map<string, boost::any>>(toMap1);
+    }
     if (m.find("ScopeId") != m.end() && !m["ScopeId"].empty()) {
       scopeId = make_shared<string>(boost::any_cast<string>(m["ScopeId"]));
     }
@@ -487,6 +499,63 @@ public:
 
 
   virtual ~CreateArtifactBuildRuleRequest() = default;
+};
+class CreateArtifactBuildRuleShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> artifactType{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> parametersShrink{};
+  shared_ptr<string> scopeId{};
+  shared_ptr<string> scopeType{};
+
+  CreateArtifactBuildRuleShrinkRequest() {}
+
+  explicit CreateArtifactBuildRuleShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (artifactType) {
+      res["ArtifactType"] = boost::any(*artifactType);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (parametersShrink) {
+      res["Parameters"] = boost::any(*parametersShrink);
+    }
+    if (scopeId) {
+      res["ScopeId"] = boost::any(*scopeId);
+    }
+    if (scopeType) {
+      res["ScopeType"] = boost::any(*scopeType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ArtifactType") != m.end() && !m["ArtifactType"].empty()) {
+      artifactType = make_shared<string>(boost::any_cast<string>(m["ArtifactType"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Parameters") != m.end() && !m["Parameters"].empty()) {
+      parametersShrink = make_shared<string>(boost::any_cast<string>(m["Parameters"]));
+    }
+    if (m.find("ScopeId") != m.end() && !m["ScopeId"].empty()) {
+      scopeId = make_shared<string>(boost::any_cast<string>(m["ScopeId"]));
+    }
+    if (m.find("ScopeType") != m.end() && !m["ScopeType"].empty()) {
+      scopeType = make_shared<string>(boost::any_cast<string>(m["ScopeType"]));
+    }
+  }
+
+
+  virtual ~CreateArtifactBuildRuleShrinkRequest() = default;
 };
 class CreateArtifactBuildRuleResponseBody : public Darabonba::Model {
 public:
@@ -19081,7 +19150,7 @@ public:
   CancelRepoBuildRecordResponse cancelRepoBuildRecord(shared_ptr<CancelRepoBuildRecordRequest> request);
   ChangeResourceGroupResponse changeResourceGroupWithOptions(shared_ptr<ChangeResourceGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ChangeResourceGroupResponse changeResourceGroup(shared_ptr<ChangeResourceGroupRequest> request);
-  CreateArtifactBuildRuleResponse createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateArtifactBuildRuleResponse createArtifactBuildRuleWithOptions(shared_ptr<CreateArtifactBuildRuleRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateArtifactBuildRuleResponse createArtifactBuildRule(shared_ptr<CreateArtifactBuildRuleRequest> request);
   CreateBuildRecordByRecordResponse createBuildRecordByRecordWithOptions(shared_ptr<CreateBuildRecordByRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBuildRecordByRecordResponse createBuildRecordByRecord(shared_ptr<CreateBuildRecordByRecordRequest> request);
