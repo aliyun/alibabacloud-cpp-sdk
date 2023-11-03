@@ -4563,7 +4563,9 @@ public:
 class DescribeAvailabilityZonesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> dbType{};
+  shared_ptr<string> engineVersion{};
   shared_ptr<string> excludeSecondaryZoneId{};
   shared_ptr<string> excludeZoneId{};
   shared_ptr<string> instanceChargeType{};
@@ -4592,8 +4594,14 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (DBInstanceClass) {
+      res["DBInstanceClass"] = boost::any(*DBInstanceClass);
+    }
     if (dbType) {
       res["DbType"] = boost::any(*dbType);
+    }
+    if (engineVersion) {
+      res["EngineVersion"] = boost::any(*engineVersion);
     }
     if (excludeSecondaryZoneId) {
       res["ExcludeSecondaryZoneId"] = boost::any(*excludeSecondaryZoneId);
@@ -4644,8 +4652,14 @@ public:
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
     }
+    if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
+      DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
+    }
     if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
       dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
+      engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
     }
     if (m.find("ExcludeSecondaryZoneId") != m.end() && !m["ExcludeSecondaryZoneId"].empty()) {
       excludeSecondaryZoneId = make_shared<string>(boost::any_cast<string>(m["ExcludeSecondaryZoneId"]));
@@ -5053,7 +5067,9 @@ public:
 };
 class DescribeAvailableResourceRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> dbType{};
+  shared_ptr<string> engineVersion{};
   shared_ptr<string> instanceChargeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -5075,8 +5091,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (DBInstanceClass) {
+      res["DBInstanceClass"] = boost::any(*DBInstanceClass);
+    }
     if (dbType) {
       res["DbType"] = boost::any(*dbType);
+    }
+    if (engineVersion) {
+      res["EngineVersion"] = boost::any(*engineVersion);
     }
     if (instanceChargeType) {
       res["InstanceChargeType"] = boost::any(*instanceChargeType);
@@ -5112,8 +5134,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DBInstanceClass") != m.end() && !m["DBInstanceClass"].empty()) {
+      DBInstanceClass = make_shared<string>(boost::any_cast<string>(m["DBInstanceClass"]));
+    }
     if (m.find("DbType") != m.end() && !m["DbType"].empty()) {
       dbType = make_shared<string>(boost::any_cast<string>(m["DbType"]));
+    }
+    if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
+      engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
     }
     if (m.find("InstanceChargeType") != m.end() && !m["InstanceChargeType"].empty()) {
       instanceChargeType = make_shared<string>(boost::any_cast<string>(m["InstanceChargeType"]));

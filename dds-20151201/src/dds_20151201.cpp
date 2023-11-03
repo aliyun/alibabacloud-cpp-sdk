@@ -1268,8 +1268,14 @@ DescribeAvailabilityZonesResponse Alibabacloud_Dds20151201::Client::describeAvai
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceClass)) {
+    query->insert(pair<string, string>("DBInstanceClass", *request->DBInstanceClass));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dbType)) {
     query->insert(pair<string, string>("DbType", *request->dbType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
+    query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->excludeSecondaryZoneId)) {
     query->insert(pair<string, string>("ExcludeSecondaryZoneId", *request->excludeSecondaryZoneId));
@@ -1381,8 +1387,14 @@ DescribeAvailableEngineVersionResponse Alibabacloud_Dds20151201::Client::describ
 DescribeAvailableResourceResponse Alibabacloud_Dds20151201::Client::describeAvailableResourceWithOptions(shared_ptr<DescribeAvailableResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceClass)) {
+    query->insert(pair<string, string>("DBInstanceClass", *request->DBInstanceClass));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->dbType)) {
     query->insert(pair<string, string>("DbType", *request->dbType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
+    query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceChargeType)) {
     query->insert(pair<string, string>("InstanceChargeType", *request->instanceChargeType));
