@@ -770,6 +770,9 @@ CreateServerGroupResponse Alibabacloud_Alb20200616::Client::createServerGroupWit
   if (!Darabonba_Util::Client::isUnset<CreateServerGroupRequestUchConfig>(request->uchConfig)) {
     query->insert(pair<string, CreateServerGroupRequestUchConfig>("UchConfig", *request->uchConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->upstreamKeepaliveEnabled)) {
+    query->insert(pair<string, bool>("UpstreamKeepaliveEnabled", *request->upstreamKeepaliveEnabled));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
@@ -3205,6 +3208,9 @@ UpdateServerGroupAttributeResponse Alibabacloud_Alb20200616::Client::updateServe
   }
   if (!Darabonba_Util::Client::isUnset<UpdateServerGroupAttributeRequestUchConfig>(request->uchConfig)) {
     query->insert(pair<string, UpdateServerGroupAttributeRequestUchConfig>("UchConfig", *request->uchConfig));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->upstreamKeepaliveEnabled)) {
+    query->insert(pair<string, bool>("UpstreamKeepaliveEnabled", *request->upstreamKeepaliveEnabled));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

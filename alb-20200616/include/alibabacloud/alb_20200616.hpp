@@ -2830,6 +2830,7 @@ public:
 };
 class CreateLoadBalancerRequestZoneMappings : public Darabonba::Model {
 public:
+  shared_ptr<string> allocationId{};
   shared_ptr<string> intranetAddress{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> zoneId{};
@@ -2844,6 +2845,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allocationId) {
+      res["AllocationId"] = boost::any(*allocationId);
+    }
     if (intranetAddress) {
       res["IntranetAddress"] = boost::any(*intranetAddress);
     }
@@ -2857,6 +2861,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllocationId") != m.end() && !m["AllocationId"].empty()) {
+      allocationId = make_shared<string>(boost::any_cast<string>(m["AllocationId"]));
+    }
     if (m.find("IntranetAddress") != m.end() && !m["IntranetAddress"].empty()) {
       intranetAddress = make_shared<string>(boost::any_cast<string>(m["IntranetAddress"]));
     }
@@ -6558,6 +6565,7 @@ public:
   shared_ptr<CreateServerGroupRequestStickySessionConfig> stickySessionConfig{};
   shared_ptr<vector<CreateServerGroupRequestTag>> tag{};
   shared_ptr<CreateServerGroupRequestUchConfig> uchConfig{};
+  shared_ptr<bool> upstreamKeepaliveEnabled{};
   shared_ptr<string> vpcId{};
 
   CreateServerGroupRequest() {}
@@ -6609,6 +6617,9 @@ public:
     }
     if (uchConfig) {
       res["UchConfig"] = uchConfig ? boost::any(uchConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (upstreamKeepaliveEnabled) {
+      res["UpstreamKeepaliveEnabled"] = boost::any(*upstreamKeepaliveEnabled);
     }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
@@ -6674,6 +6685,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UchConfig"]));
         uchConfig = make_shared<CreateServerGroupRequestUchConfig>(model1);
       }
+    }
+    if (m.find("UpstreamKeepaliveEnabled") != m.end() && !m["UpstreamKeepaliveEnabled"].empty()) {
+      upstreamKeepaliveEnabled = make_shared<bool>(boost::any_cast<bool>(m["UpstreamKeepaliveEnabled"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
@@ -11800,6 +11814,7 @@ public:
   shared_ptr<string> address{};
   shared_ptr<string> allocationId{};
   shared_ptr<string> eipType{};
+  shared_ptr<string> intranetAddress{};
   shared_ptr<string> ipv6Address{};
 
   GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses() {}
@@ -11821,6 +11836,9 @@ public:
     if (eipType) {
       res["EipType"] = boost::any(*eipType);
     }
+    if (intranetAddress) {
+      res["IntranetAddress"] = boost::any(*intranetAddress);
+    }
     if (ipv6Address) {
       res["Ipv6Address"] = boost::any(*ipv6Address);
     }
@@ -11836,6 +11854,9 @@ public:
     }
     if (m.find("EipType") != m.end() && !m["EipType"].empty()) {
       eipType = make_shared<string>(boost::any_cast<string>(m["EipType"]));
+    }
+    if (m.find("IntranetAddress") != m.end() && !m["IntranetAddress"].empty()) {
+      intranetAddress = make_shared<string>(boost::any_cast<string>(m["IntranetAddress"]));
     }
     if (m.find("Ipv6Address") != m.end() && !m["Ipv6Address"].empty()) {
       ipv6Address = make_shared<string>(boost::any_cast<string>(m["Ipv6Address"]));
@@ -27126,6 +27147,7 @@ public:
   shared_ptr<string> serviceName{};
   shared_ptr<UpdateServerGroupAttributeRequestStickySessionConfig> stickySessionConfig{};
   shared_ptr<UpdateServerGroupAttributeRequestUchConfig> uchConfig{};
+  shared_ptr<bool> upstreamKeepaliveEnabled{};
 
   UpdateServerGroupAttributeRequest() {}
 
@@ -27163,6 +27185,9 @@ public:
     }
     if (uchConfig) {
       res["UchConfig"] = uchConfig ? boost::any(uchConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (upstreamKeepaliveEnabled) {
+      res["UpstreamKeepaliveEnabled"] = boost::any(*upstreamKeepaliveEnabled);
     }
     return res;
   }
@@ -27206,6 +27231,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["UchConfig"]));
         uchConfig = make_shared<UpdateServerGroupAttributeRequestUchConfig>(model1);
       }
+    }
+    if (m.find("UpstreamKeepaliveEnabled") != m.end() && !m["UpstreamKeepaliveEnabled"].empty()) {
+      upstreamKeepaliveEnabled = make_shared<bool>(boost::any_cast<bool>(m["UpstreamKeepaliveEnabled"]));
     }
   }
 
