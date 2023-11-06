@@ -1922,8 +1922,17 @@ ListListenersResponse Alibabacloud_Alb20200616::Client::listListeners(shared_ptr
 ListLoadBalancersResponse Alibabacloud_Alb20200616::Client::listLoadBalancersWithOptions(shared_ptr<ListLoadBalancersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addressIpVersion)) {
+    query->insert(pair<string, string>("AddressIpVersion", *request->addressIpVersion));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->addressType)) {
     query->insert(pair<string, string>("AddressType", *request->addressType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DNSName)) {
+    query->insert(pair<string, string>("DNSName", *request->DNSName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipv6AddressType)) {
+    query->insert(pair<string, string>("Ipv6AddressType", *request->ipv6AddressType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->loadBalancerBussinessStatus)) {
     query->insert(pair<string, string>("LoadBalancerBussinessStatus", *request->loadBalancerBussinessStatus));

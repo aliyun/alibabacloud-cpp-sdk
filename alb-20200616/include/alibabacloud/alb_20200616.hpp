@@ -2043,6 +2043,7 @@ public:
 };
 class CreateListenerRequestCaCertificates : public Darabonba::Model {
 public:
+  shared_ptr<string> certificateId{};
 
   CreateListenerRequestCaCertificates() {}
 
@@ -2054,10 +2055,16 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
   }
 
 
@@ -15219,7 +15226,10 @@ public:
 };
 class ListLoadBalancersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addressIpVersion{};
   shared_ptr<string> addressType{};
+  shared_ptr<string> DNSName{};
+  shared_ptr<string> ipv6AddressType{};
   shared_ptr<string> loadBalancerBussinessStatus{};
   shared_ptr<vector<string>> loadBalancerIds{};
   shared_ptr<vector<string>> loadBalancerNames{};
@@ -15242,8 +15252,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addressIpVersion) {
+      res["AddressIpVersion"] = boost::any(*addressIpVersion);
+    }
     if (addressType) {
       res["AddressType"] = boost::any(*addressType);
+    }
+    if (DNSName) {
+      res["DNSName"] = boost::any(*DNSName);
+    }
+    if (ipv6AddressType) {
+      res["Ipv6AddressType"] = boost::any(*ipv6AddressType);
     }
     if (loadBalancerBussinessStatus) {
       res["LoadBalancerBussinessStatus"] = boost::any(*loadBalancerBussinessStatus);
@@ -15286,8 +15305,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddressIpVersion") != m.end() && !m["AddressIpVersion"].empty()) {
+      addressIpVersion = make_shared<string>(boost::any_cast<string>(m["AddressIpVersion"]));
+    }
     if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
       addressType = make_shared<string>(boost::any_cast<string>(m["AddressType"]));
+    }
+    if (m.find("DNSName") != m.end() && !m["DNSName"].empty()) {
+      DNSName = make_shared<string>(boost::any_cast<string>(m["DNSName"]));
+    }
+    if (m.find("Ipv6AddressType") != m.end() && !m["Ipv6AddressType"].empty()) {
+      ipv6AddressType = make_shared<string>(boost::any_cast<string>(m["Ipv6AddressType"]));
     }
     if (m.find("LoadBalancerBussinessStatus") != m.end() && !m["LoadBalancerBussinessStatus"].empty()) {
       loadBalancerBussinessStatus = make_shared<string>(boost::any_cast<string>(m["LoadBalancerBussinessStatus"]));
@@ -22354,6 +22382,7 @@ public:
 };
 class UpdateListenerAttributeRequestCaCertificates : public Darabonba::Model {
 public:
+  shared_ptr<string> certificateId{};
 
   UpdateListenerAttributeRequestCaCertificates() {}
 
@@ -22365,10 +22394,16 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certificateId) {
+      res["CertificateId"] = boost::any(*certificateId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertificateId") != m.end() && !m["CertificateId"].empty()) {
+      certificateId = make_shared<string>(boost::any_cast<string>(m["CertificateId"]));
+    }
   }
 
 
