@@ -7271,6 +7271,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<string> name{};
 
   CreateSkillGroupRequest() {}
@@ -7292,6 +7293,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -7308,6 +7312,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -7320,6 +7327,7 @@ class CreateSkillGroupResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<string> name{};
   shared_ptr<string> skillGroupId{};
 
@@ -7339,6 +7347,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -7354,6 +7365,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -9374,6 +9388,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   ExportDoNotCallNumbersResponseBody() {}
@@ -9398,6 +9413,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -9416,6 +9434,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -16461,6 +16489,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<string> name{};
   shared_ptr<string> skillGroupId{};
 
@@ -16483,6 +16512,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -16501,6 +16533,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -16714,6 +16749,7 @@ public:
   shared_ptr<GetTurnCredentialsResponseBodyData> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   GetTurnCredentialsResponseBody() {}
@@ -16738,6 +16774,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -16760,6 +16799,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -16866,6 +16915,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   GetTurnServerListResponseBody() {}
@@ -16890,6 +16940,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -16908,6 +16961,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -18864,6 +18927,7 @@ public:
   shared_ptr<string> code{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   ImportDoNotCallNumbersResponseBody() {}
@@ -18885,6 +18949,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -18900,6 +18967,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -25804,8 +25881,10 @@ public:
 class ListContactFlowsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> orderByField{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> sortOrder{};
   shared_ptr<string> type{};
 
   ListContactFlowsRequest() {}
@@ -25821,11 +25900,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (orderByField) {
+      res["OrderByField"] = boost::any(*orderByField);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -25837,11 +25922,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("OrderByField") != m.end() && !m["OrderByField"].empty()) {
+      orderByField = make_shared<string>(boost::any_cast<string>(m["OrderByField"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -26550,6 +26641,7 @@ public:
   shared_ptr<string> callId{};
   shared_ptr<string> contact{};
   shared_ptr<string> deviceId{};
+  shared_ptr<string> deviceType{};
   shared_ptr<long> expires{};
   shared_ptr<string> extension{};
   shared_ptr<string> instanceId{};
@@ -26573,6 +26665,9 @@ public:
     }
     if (deviceId) {
       res["DeviceId"] = boost::any(*deviceId);
+    }
+    if (deviceType) {
+      res["DeviceType"] = boost::any(*deviceType);
     }
     if (expires) {
       res["Expires"] = boost::any(*expires);
@@ -26598,6 +26693,9 @@ public:
     }
     if (m.find("DeviceId") != m.end() && !m["DeviceId"].empty()) {
       deviceId = make_shared<string>(boost::any_cast<string>(m["DeviceId"]));
+    }
+    if (m.find("DeviceType") != m.end() && !m["DeviceType"].empty()) {
+      deviceType = make_shared<string>(boost::any_cast<string>(m["DeviceType"]));
     }
     if (m.find("Expires") != m.end() && !m["Expires"].empty()) {
       expires = make_shared<long>(boost::any_cast<long>(m["Expires"]));
@@ -39889,6 +39987,7 @@ public:
   shared_ptr<ListRamUsersResponseBodyData> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   ListRamUsersResponseBody() {}
@@ -39913,6 +40012,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -39935,6 +40037,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -42532,6 +42644,7 @@ public:
 class ListSkillGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> searchPattern{};
@@ -42549,6 +42662,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -42564,6 +42680,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -42584,6 +42703,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> displayName{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> phoneNumberCount{};
   shared_ptr<string> skillGroupId{};
   shared_ptr<string> skillGroupName{};
@@ -42607,6 +42727,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
     }
     if (phoneNumberCount) {
       res["PhoneNumberCount"] = boost::any(*phoneNumberCount);
@@ -42632,6 +42755,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("PhoneNumberCount") != m.end() && !m["PhoneNumberCount"].empty()) {
       phoneNumberCount = make_shared<long>(boost::any_cast<long>(m["PhoneNumberCount"]));
@@ -42903,6 +43029,7 @@ public:
 };
 class ListSkillLevelsOfUserResponseBodyDataList : public Darabonba::Model {
 public:
+  shared_ptr<string> mediaType{};
   shared_ptr<string> skillGroupId{};
   shared_ptr<string> skillGroupName{};
   shared_ptr<string> skillLevel{};
@@ -42917,6 +43044,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (skillGroupId) {
       res["SkillGroupId"] = boost::any(*skillGroupId);
     }
@@ -42930,6 +43060,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("SkillGroupId") != m.end() && !m["SkillGroupId"].empty()) {
       skillGroupId = make_shared<string>(boost::any_cast<string>(m["SkillGroupId"]));
     }
@@ -50614,6 +50747,7 @@ public:
   shared_ptr<string> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   RemoveDoNotCallNumbersResponseBody() {}
@@ -50638,6 +50772,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -50656,6 +50793,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
