@@ -309,6 +309,7 @@ public:
   shared_ptr<string> networkPathName{};
   shared_ptr<string> protocol{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sourceId{};
   shared_ptr<string> sourceIpAddress{};
   shared_ptr<long> sourcePort{};
@@ -340,6 +341,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sourceId) {
       res["SourceId"] = boost::any(*sourceId);
@@ -387,6 +391,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("SourceId") != m.end() && !m["SourceId"].empty()) {
       sourceId = make_shared<string>(boost::any_cast<string>(m["SourceId"]));
