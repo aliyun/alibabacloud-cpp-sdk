@@ -4998,6 +4998,9 @@ UpdateDeliveryChannelResponse Alibabacloud_Config20200907::Client::updateDeliver
 UpdateIntegratedServiceStatusResponse Alibabacloud_Config20200907::Client::updateIntegratedServiceStatusWithOptions(shared_ptr<UpdateIntegratedServiceStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->integratedTypes)) {
+    body->insert(pair<string, string>("IntegratedTypes", *request->integratedTypes));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceCode)) {
     body->insert(pair<string, string>("ServiceCode", *request->serviceCode));
   }

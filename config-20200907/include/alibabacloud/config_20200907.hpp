@@ -17832,6 +17832,7 @@ public:
 class GetIntegratedServiceStatusResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> data{};
+  shared_ptr<string> integratedTypes{};
   shared_ptr<string> requestId{};
 
   GetIntegratedServiceStatusResponseBody() {}
@@ -17847,6 +17848,9 @@ public:
     if (data) {
       res["Data"] = boost::any(*data);
     }
+    if (integratedTypes) {
+      res["IntegratedTypes"] = boost::any(*integratedTypes);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -17856,6 +17860,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Data") != m.end() && !m["Data"].empty()) {
       data = make_shared<bool>(boost::any_cast<bool>(m["Data"]));
+    }
+    if (m.find("IntegratedTypes") != m.end() && !m["IntegratedTypes"].empty()) {
+      integratedTypes = make_shared<string>(boost::any_cast<string>(m["IntegratedTypes"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -27267,6 +27274,7 @@ public:
 };
 class ListIntegratedServiceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> integratedTypes{};
   shared_ptr<string> serviceCode{};
   shared_ptr<string> serviceName{};
   shared_ptr<bool> status{};
@@ -27281,6 +27289,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (integratedTypes) {
+      res["IntegratedTypes"] = boost::any(*integratedTypes);
+    }
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
     }
@@ -27294,6 +27305,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntegratedTypes") != m.end() && !m["IntegratedTypes"].empty()) {
+      integratedTypes = make_shared<string>(boost::any_cast<string>(m["IntegratedTypes"]));
+    }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
     }
@@ -35169,6 +35183,7 @@ public:
 };
 class UpdateIntegratedServiceStatusRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> integratedTypes{};
   shared_ptr<string> serviceCode{};
   shared_ptr<bool> status{};
 
@@ -35182,6 +35197,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (integratedTypes) {
+      res["IntegratedTypes"] = boost::any(*integratedTypes);
+    }
     if (serviceCode) {
       res["ServiceCode"] = boost::any(*serviceCode);
     }
@@ -35192,6 +35210,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IntegratedTypes") != m.end() && !m["IntegratedTypes"].empty()) {
+      integratedTypes = make_shared<string>(boost::any_cast<string>(m["IntegratedTypes"]));
+    }
     if (m.find("ServiceCode") != m.end() && !m["ServiceCode"].empty()) {
       serviceCode = make_shared<string>(boost::any_cast<string>(m["ServiceCode"]));
     }
