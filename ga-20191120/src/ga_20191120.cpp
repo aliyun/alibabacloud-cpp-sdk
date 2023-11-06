@@ -1457,6 +1457,9 @@ CreateListenerResponse Alibabacloud_Ga20191120::Client::createListenerWithOption
   if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestEndpointGroupConfigurations>>(request->endpointGroupConfigurations)) {
     query->insert(pair<string, vector<CreateListenerRequestEndpointGroupConfigurations>>("EndpointGroupConfigurations", *request->endpointGroupConfigurations));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
+    query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("Name", *request->name));
   }
@@ -1471,6 +1474,9 @@ CreateListenerResponse Alibabacloud_Ga20191120::Client::createListenerWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->requestTimeout)) {
+    query->insert(pair<string, long>("RequestTimeout", *request->requestTimeout));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
     query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));
@@ -6162,6 +6168,9 @@ UpdateListenerResponse Alibabacloud_Ga20191120::Client::updateListenerWithOption
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->idleTimeout)) {
+    query->insert(pair<string, long>("IdleTimeout", *request->idleTimeout));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->listenerId)) {
     query->insert(pair<string, string>("ListenerId", *request->listenerId));
   }
@@ -6179,6 +6188,9 @@ UpdateListenerResponse Alibabacloud_Ga20191120::Client::updateListenerWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->requestTimeout)) {
+    query->insert(pair<string, long>("RequestTimeout", *request->requestTimeout));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityPolicyId)) {
     query->insert(pair<string, string>("SecurityPolicyId", *request->securityPolicyId));

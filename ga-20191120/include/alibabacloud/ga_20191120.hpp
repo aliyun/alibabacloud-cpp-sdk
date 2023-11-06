@@ -8240,11 +8240,13 @@ public:
   shared_ptr<vector<CreateListenerRequestCustomRoutingEndpointGroupConfigurations>> customRoutingEndpointGroupConfigurations{};
   shared_ptr<string> description{};
   shared_ptr<vector<CreateListenerRequestEndpointGroupConfigurations>> endpointGroupConfigurations{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<string> name{};
   shared_ptr<vector<CreateListenerRequestPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
   shared_ptr<bool> proxyProtocol{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> type{};
   shared_ptr<CreateListenerRequestXForwardedForConfig> XForwardedForConfig{};
@@ -8292,6 +8294,9 @@ public:
       }
       res["EndpointGroupConfigurations"] = boost::any(temp1);
     }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -8310,6 +8315,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
@@ -8375,6 +8383,9 @@ public:
         endpointGroupConfigurations = make_shared<vector<CreateListenerRequestEndpointGroupConfigurations>>(expect1);
       }
     }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -8399,6 +8410,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
@@ -16898,6 +16912,7 @@ public:
   shared_ptr<string> clientAffinity{};
   shared_ptr<string> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
   shared_ptr<vector<DescribeListenerResponseBodyPortRanges>> portRanges{};
@@ -16905,6 +16920,7 @@ public:
   shared_ptr<bool> proxyProtocol{};
   shared_ptr<vector<DescribeListenerResponseBodyRelatedAcls>> relatedAcls{};
   shared_ptr<string> requestId{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> serviceId{};
   shared_ptr<bool> serviceManaged{};
@@ -16952,6 +16968,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
@@ -16980,6 +16999,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
@@ -17051,6 +17073,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
@@ -17091,6 +17116,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
@@ -31247,11 +31275,13 @@ public:
   shared_ptr<string> clientAffinity{};
   shared_ptr<long> createTime{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
   shared_ptr<vector<ListListenersResponseBodyListenersPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
   shared_ptr<bool> proxyProtocol{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<string> serviceId{};
   shared_ptr<bool> serviceManaged{};
@@ -31296,6 +31326,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
@@ -31314,6 +31347,9 @@ public:
     }
     if (proxyProtocol) {
       res["ProxyProtocol"] = boost::any(*proxyProtocol);
+    }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
@@ -31382,6 +31418,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
@@ -31406,6 +31445,9 @@ public:
     }
     if (m.find("ProxyProtocol") != m.end() && !m["ProxyProtocol"].empty()) {
       proxyProtocol = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocol"]));
+    }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
@@ -38760,12 +38802,14 @@ public:
   shared_ptr<string> clientAffinity{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<long> idleTimeout{};
   shared_ptr<string> listenerId{};
   shared_ptr<string> name{};
   shared_ptr<vector<UpdateListenerRequestPortRanges>> portRanges{};
   shared_ptr<string> protocol{};
   shared_ptr<string> proxyProtocol{};
   shared_ptr<string> regionId{};
+  shared_ptr<long> requestTimeout{};
   shared_ptr<string> securityPolicyId{};
   shared_ptr<UpdateListenerRequestXForwardedForConfig> XForwardedForConfig{};
 
@@ -38802,6 +38846,9 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
     if (listenerId) {
       res["ListenerId"] = boost::any(*listenerId);
     }
@@ -38823,6 +38870,9 @@ public:
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestTimeout) {
+      res["RequestTimeout"] = boost::any(*requestTimeout);
     }
     if (securityPolicyId) {
       res["SecurityPolicyId"] = boost::any(*securityPolicyId);
@@ -38869,6 +38919,9 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
     if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
       listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
     }
@@ -38896,6 +38949,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestTimeout") != m.end() && !m["RequestTimeout"].empty()) {
+      requestTimeout = make_shared<long>(boost::any_cast<long>(m["RequestTimeout"]));
     }
     if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
       securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
