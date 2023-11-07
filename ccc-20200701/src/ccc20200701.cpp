@@ -136,6 +136,9 @@ AddCasesResponse Alibabacloud_CCC20200701::Client::addCases(shared_ptr<AddCasesR
 AddNumbersToSkillGroupResponse Alibabacloud_CCC20200701::Client::addNumbersToSkillGroupWithOptions(shared_ptr<AddNumbersToSkillGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->instNumberGroupIdList)) {
+    query->insert(pair<string, string>("InstNumberGroupIdList", *request->instNumberGroupIdList));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -510,6 +513,9 @@ BlindTransferResponse Alibabacloud_CCC20200701::Client::blindTransferWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->callPriority)) {
     query->insert(pair<string, long>("CallPriority", *request->callPriority));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->contactFlowVariables)) {
+    query->insert(pair<string, string>("ContactFlowVariables", *request->contactFlowVariables));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceId)) {
     query->insert(pair<string, string>("DeviceId", *request->deviceId));
   }
@@ -530,6 +536,9 @@ BlindTransferResponse Alibabacloud_CCC20200701::Client::blindTransferWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transferee)) {
     query->insert(pair<string, string>("Transferee", *request->transferee));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transfereeType)) {
+    query->insert(pair<string, string>("TransfereeType", *request->transfereeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->transferor)) {
     query->insert(pair<string, string>("Transferor", *request->transferor));
@@ -1111,6 +1120,9 @@ CreateSkillGroupResponse Alibabacloud_CCC20200701::Client::createSkillGroup(shar
 CreateUserResponse Alibabacloud_CCC20200701::Client::createUserWithOptions(shared_ptr<CreateUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->avatarUrl)) {
+    query->insert(pair<string, string>("AvatarUrl", *request->avatarUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayId)) {
     query->insert(pair<string, string>("DisplayId", *request->displayId));
   }
@@ -1128,6 +1140,9 @@ CreateUserResponse Alibabacloud_CCC20200701::Client::createUserWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
     query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nickname)) {
+    query->insert(pair<string, string>("Nickname", *request->nickname));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->resetPassword)) {
     query->insert(pair<string, bool>("ResetPassword", *request->resetPassword));
@@ -1953,6 +1968,9 @@ GetInstanceTrendingReportResponse Alibabacloud_CCC20200701::Client::getInstanceT
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -1981,6 +1999,9 @@ GetInstanceTrendingReportResponse Alibabacloud_CCC20200701::Client::getInstanceT
 GetLoginDetailsResponse Alibabacloud_CCC20200701::Client::getLoginDetailsWithOptions(shared_ptr<GetLoginDetailsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatDeviceId)) {
+    query->insert(pair<string, string>("ChatDeviceId", *request->chatDeviceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
@@ -2135,6 +2156,9 @@ GetRealtimeInstanceStatesResponse Alibabacloud_CCC20200701::Client::getRealtimeI
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
