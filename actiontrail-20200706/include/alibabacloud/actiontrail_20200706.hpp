@@ -2454,6 +2454,104 @@ public:
 
   virtual ~GetDeliveryHistoryJobResponse() = default;
 };
+class GetGlobalEventsStorageRegionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> storageRegion{};
+
+  GetGlobalEventsStorageRegionResponseBody() {}
+
+  explicit GetGlobalEventsStorageRegionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (storageRegion) {
+      res["StorageRegion"] = boost::any(*storageRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StorageRegion") != m.end() && !m["StorageRegion"].empty()) {
+      storageRegion = make_shared<string>(boost::any_cast<string>(m["StorageRegion"]));
+    }
+  }
+
+
+  virtual ~GetGlobalEventsStorageRegionResponseBody() = default;
+};
+class GetGlobalEventsStorageRegionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetGlobalEventsStorageRegionResponseBody> body{};
+
+  GetGlobalEventsStorageRegionResponse() {}
+
+  explicit GetGlobalEventsStorageRegionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetGlobalEventsStorageRegionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetGlobalEventsStorageRegionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetGlobalEventsStorageRegionResponse() = default;
+};
 class GetTrailStatusRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> isOrganizationTrail{};
@@ -3376,6 +3474,126 @@ public:
 
   virtual ~StopLoggingResponse() = default;
 };
+class UpdateGlobalEventsStorageRegionRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> storageRegion{};
+
+  UpdateGlobalEventsStorageRegionRequest() {}
+
+  explicit UpdateGlobalEventsStorageRegionRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (storageRegion) {
+      res["StorageRegion"] = boost::any(*storageRegion);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("StorageRegion") != m.end() && !m["StorageRegion"].empty()) {
+      storageRegion = make_shared<string>(boost::any_cast<string>(m["StorageRegion"]));
+    }
+  }
+
+
+  virtual ~UpdateGlobalEventsStorageRegionRequest() = default;
+};
+class UpdateGlobalEventsStorageRegionResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateGlobalEventsStorageRegionResponseBody() {}
+
+  explicit UpdateGlobalEventsStorageRegionResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateGlobalEventsStorageRegionResponseBody() = default;
+};
+class UpdateGlobalEventsStorageRegionResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateGlobalEventsStorageRegionResponseBody> body{};
+
+  UpdateGlobalEventsStorageRegionResponse() {}
+
+  explicit UpdateGlobalEventsStorageRegionResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateGlobalEventsStorageRegionResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateGlobalEventsStorageRegionResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateGlobalEventsStorageRegionResponse() = default;
+};
 class UpdateTrailRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventRW{};
@@ -3642,6 +3860,8 @@ public:
   GetAccessKeyLastUsedResourcesResponse getAccessKeyLastUsedResources(shared_ptr<GetAccessKeyLastUsedResourcesRequest> request);
   GetDeliveryHistoryJobResponse getDeliveryHistoryJobWithOptions(shared_ptr<GetDeliveryHistoryJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetDeliveryHistoryJobResponse getDeliveryHistoryJob(shared_ptr<GetDeliveryHistoryJobRequest> request);
+  GetGlobalEventsStorageRegionResponse getGlobalEventsStorageRegionWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetGlobalEventsStorageRegionResponse getGlobalEventsStorageRegion();
   GetTrailStatusResponse getTrailStatusWithOptions(shared_ptr<GetTrailStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetTrailStatusResponse getTrailStatus(shared_ptr<GetTrailStatusRequest> request);
   ListDeliveryHistoryJobsResponse listDeliveryHistoryJobsWithOptions(shared_ptr<ListDeliveryHistoryJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -3652,6 +3872,8 @@ public:
   StartLoggingResponse startLogging(shared_ptr<StartLoggingRequest> request);
   StopLoggingResponse stopLoggingWithOptions(shared_ptr<StopLoggingRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StopLoggingResponse stopLogging(shared_ptr<StopLoggingRequest> request);
+  UpdateGlobalEventsStorageRegionResponse updateGlobalEventsStorageRegionWithOptions(shared_ptr<UpdateGlobalEventsStorageRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateGlobalEventsStorageRegionResponse updateGlobalEventsStorageRegion(shared_ptr<UpdateGlobalEventsStorageRegionRequest> request);
   UpdateTrailResponse updateTrailWithOptions(shared_ptr<UpdateTrailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateTrailResponse updateTrail(shared_ptr<UpdateTrailRequest> request);
 

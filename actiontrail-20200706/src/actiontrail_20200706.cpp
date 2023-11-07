@@ -469,6 +469,27 @@ GetDeliveryHistoryJobResponse Alibabacloud_Actiontrail20200706::Client::getDeliv
   return getDeliveryHistoryJobWithOptions(request, runtime);
 }
 
+GetGlobalEventsStorageRegionResponse Alibabacloud_Actiontrail20200706::Client::getGlobalEventsStorageRegionWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetGlobalEventsStorageRegion"))},
+    {"version", boost::any(string("2020-07-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetGlobalEventsStorageRegionResponse(callApi(params, req, runtime));
+}
+
+GetGlobalEventsStorageRegionResponse Alibabacloud_Actiontrail20200706::Client::getGlobalEventsStorageRegion() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getGlobalEventsStorageRegionWithOptions(runtime);
+}
+
 GetTrailStatusResponse Alibabacloud_Actiontrail20200706::Client::getTrailStatusWithOptions(shared_ptr<GetTrailStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -625,6 +646,34 @@ StopLoggingResponse Alibabacloud_Actiontrail20200706::Client::stopLoggingWithOpt
 StopLoggingResponse Alibabacloud_Actiontrail20200706::Client::stopLogging(shared_ptr<StopLoggingRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return stopLoggingWithOptions(request, runtime);
+}
+
+UpdateGlobalEventsStorageRegionResponse Alibabacloud_Actiontrail20200706::Client::updateGlobalEventsStorageRegionWithOptions(shared_ptr<UpdateGlobalEventsStorageRegionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageRegion)) {
+    query->insert(pair<string, string>("StorageRegion", *request->storageRegion));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateGlobalEventsStorageRegion"))},
+    {"version", boost::any(string("2020-07-06"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateGlobalEventsStorageRegionResponse(callApi(params, req, runtime));
+}
+
+UpdateGlobalEventsStorageRegionResponse Alibabacloud_Actiontrail20200706::Client::updateGlobalEventsStorageRegion(shared_ptr<UpdateGlobalEventsStorageRegionRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateGlobalEventsStorageRegionWithOptions(request, runtime);
 }
 
 UpdateTrailResponse Alibabacloud_Actiontrail20200706::Client::updateTrailWithOptions(shared_ptr<UpdateTrailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
