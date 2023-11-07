@@ -3873,10 +3873,25 @@ GroupUserSaveResponse Alibabacloud_BtripOpen20220520::Client::groupUserSaveWithO
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GroupUserSaveShrinkRequest> request = make_shared<GroupUserSaveShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<GroupUserSaveRequestCertList>>(tmpReq->certList)) {
+    request->certListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->certList, make_shared<string>("cert_list"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<GroupUserSaveRequestSubCorpIdList>>(tmpReq->subCorpIdList)) {
     request->subCorpIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->subCorpIdList, make_shared<string>("sub_corp_id_list"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->baseCityCode)) {
+    body->insert(pair<string, string>("base_city_code", *request->baseCityCode));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->birthday)) {
+    body->insert(pair<string, string>("birthday", *request->birthday));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->certListShrink)) {
+    body->insert(pair<string, string>("cert_list", *request->certListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->gender)) {
+    body->insert(pair<string, string>("gender", *request->gender));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->jobNo)) {
     body->insert(pair<string, string>("job_no", *request->jobNo));
   }

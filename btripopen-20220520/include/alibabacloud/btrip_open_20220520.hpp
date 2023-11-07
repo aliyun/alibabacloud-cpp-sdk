@@ -57191,6 +57191,63 @@ public:
 
   virtual ~GroupUserSaveHeaders() = default;
 };
+class GroupUserSaveRequestCertList : public Darabonba::Model {
+public:
+  shared_ptr<string> certExpiredTime{};
+  shared_ptr<string> certNation{};
+  shared_ptr<string> certNo{};
+  shared_ptr<long> certType{};
+  shared_ptr<string> nationality{};
+
+  GroupUserSaveRequestCertList() {}
+
+  explicit GroupUserSaveRequestCertList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (certExpiredTime) {
+      res["cert_expired_time"] = boost::any(*certExpiredTime);
+    }
+    if (certNation) {
+      res["cert_nation"] = boost::any(*certNation);
+    }
+    if (certNo) {
+      res["cert_no"] = boost::any(*certNo);
+    }
+    if (certType) {
+      res["cert_type"] = boost::any(*certType);
+    }
+    if (nationality) {
+      res["nationality"] = boost::any(*nationality);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("cert_expired_time") != m.end() && !m["cert_expired_time"].empty()) {
+      certExpiredTime = make_shared<string>(boost::any_cast<string>(m["cert_expired_time"]));
+    }
+    if (m.find("cert_nation") != m.end() && !m["cert_nation"].empty()) {
+      certNation = make_shared<string>(boost::any_cast<string>(m["cert_nation"]));
+    }
+    if (m.find("cert_no") != m.end() && !m["cert_no"].empty()) {
+      certNo = make_shared<string>(boost::any_cast<string>(m["cert_no"]));
+    }
+    if (m.find("cert_type") != m.end() && !m["cert_type"].empty()) {
+      certType = make_shared<long>(boost::any_cast<long>(m["cert_type"]));
+    }
+    if (m.find("nationality") != m.end() && !m["nationality"].empty()) {
+      nationality = make_shared<string>(boost::any_cast<string>(m["nationality"]));
+    }
+  }
+
+
+  virtual ~GroupUserSaveRequestCertList() = default;
+};
 class GroupUserSaveRequestSubCorpIdList : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> departIds{};
@@ -57264,6 +57321,10 @@ public:
 };
 class GroupUserSaveRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> baseCityCode{};
+  shared_ptr<string> birthday{};
+  shared_ptr<vector<GroupUserSaveRequestCertList>> certList{};
+  shared_ptr<string> gender{};
   shared_ptr<string> jobNo{};
   shared_ptr<string> phone{};
   shared_ptr<string> realNameEn{};
@@ -57281,6 +57342,22 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (baseCityCode) {
+      res["base_city_code"] = boost::any(*baseCityCode);
+    }
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (certList) {
+      vector<boost::any> temp1;
+      for(auto item1:*certList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["cert_list"] = boost::any(temp1);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
+    }
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
     }
@@ -57307,6 +57384,28 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("base_city_code") != m.end() && !m["base_city_code"].empty()) {
+      baseCityCode = make_shared<string>(boost::any_cast<string>(m["base_city_code"]));
+    }
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("cert_list") != m.end() && !m["cert_list"].empty()) {
+      if (typeid(vector<boost::any>) == m["cert_list"].type()) {
+        vector<GroupUserSaveRequestCertList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["cert_list"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GroupUserSaveRequestCertList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        certList = make_shared<vector<GroupUserSaveRequestCertList>>(expect1);
+      }
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<string>(boost::any_cast<string>(m["gender"]));
+    }
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
     }
@@ -57342,6 +57441,10 @@ public:
 };
 class GroupUserSaveShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> baseCityCode{};
+  shared_ptr<string> birthday{};
+  shared_ptr<string> certListShrink{};
+  shared_ptr<string> gender{};
   shared_ptr<string> jobNo{};
   shared_ptr<string> phone{};
   shared_ptr<string> realNameEn{};
@@ -57359,6 +57462,18 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (baseCityCode) {
+      res["base_city_code"] = boost::any(*baseCityCode);
+    }
+    if (birthday) {
+      res["birthday"] = boost::any(*birthday);
+    }
+    if (certListShrink) {
+      res["cert_list"] = boost::any(*certListShrink);
+    }
+    if (gender) {
+      res["gender"] = boost::any(*gender);
+    }
     if (jobNo) {
       res["job_no"] = boost::any(*jobNo);
     }
@@ -57381,6 +57496,18 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("base_city_code") != m.end() && !m["base_city_code"].empty()) {
+      baseCityCode = make_shared<string>(boost::any_cast<string>(m["base_city_code"]));
+    }
+    if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
+      birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
+    }
+    if (m.find("cert_list") != m.end() && !m["cert_list"].empty()) {
+      certListShrink = make_shared<string>(boost::any_cast<string>(m["cert_list"]));
+    }
+    if (m.find("gender") != m.end() && !m["gender"].empty()) {
+      gender = make_shared<string>(boost::any_cast<string>(m["gender"]));
+    }
     if (m.find("job_no") != m.end() && !m["job_no"].empty()) {
       jobNo = make_shared<string>(boost::any_cast<string>(m["job_no"]));
     }
