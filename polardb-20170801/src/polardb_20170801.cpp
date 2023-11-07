@@ -2809,6 +2809,9 @@ DescribeDBClusterVersionResponse Alibabacloud_Polardb20170801::Client::describeD
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->describeType)) {
+    query->insert(pair<string, string>("DescribeType", *request->describeType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -6510,9 +6513,6 @@ OpenAITaskResponse Alibabacloud_Polardb20170801::Client::openAITaskWithOptions(s
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
     query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->describeType)) {
-    query->insert(pair<string, string>("DescribeType", *request->describeType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeType)) {
     query->insert(pair<string, string>("NodeType", *request->nodeType));

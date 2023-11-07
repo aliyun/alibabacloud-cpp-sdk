@@ -6680,7 +6680,6 @@ public:
   shared_ptr<string> accountDescription{};
   shared_ptr<string> accountLockState{};
   shared_ptr<string> accountName{};
-  shared_ptr<string> accountPassword{};
   shared_ptr<string> accountPasswordValidTime{};
   shared_ptr<string> accountStatus{};
   shared_ptr<string> accountType{};
@@ -6704,9 +6703,6 @@ public:
     }
     if (accountName) {
       res["AccountName"] = boost::any(*accountName);
-    }
-    if (accountPassword) {
-      res["AccountPassword"] = boost::any(*accountPassword);
     }
     if (accountPasswordValidTime) {
       res["AccountPasswordValidTime"] = boost::any(*accountPasswordValidTime);
@@ -6736,9 +6732,6 @@ public:
     }
     if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
       accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
-    }
-    if (m.find("AccountPassword") != m.end() && !m["AccountPassword"].empty()) {
-      accountPassword = make_shared<string>(boost::any_cast<string>(m["AccountPassword"]));
     }
     if (m.find("AccountPasswordValidTime") != m.end() && !m["AccountPasswordValidTime"].empty()) {
       accountPasswordValidTime = make_shared<string>(boost::any_cast<string>(m["AccountPasswordValidTime"]));
@@ -9605,7 +9598,6 @@ public:
   shared_ptr<long> dataLevel1BackupChainSize{};
   shared_ptr<string> dataSyncMode{};
   shared_ptr<long> deletionLock{};
-  shared_ptr<string> deployUnit{};
   shared_ptr<string> engine{};
   shared_ptr<string> expireTime{};
   shared_ptr<string> expired{};
@@ -9709,9 +9701,6 @@ public:
     }
     if (deletionLock) {
       res["DeletionLock"] = boost::any(*deletionLock);
-    }
-    if (deployUnit) {
-      res["DeployUnit"] = boost::any(*deployUnit);
     }
     if (engine) {
       res["Engine"] = boost::any(*engine);
@@ -9889,9 +9878,6 @@ public:
     }
     if (m.find("DeletionLock") != m.end() && !m["DeletionLock"].empty()) {
       deletionLock = make_shared<long>(boost::any_cast<long>(m["DeletionLock"]));
-    }
-    if (m.find("DeployUnit") != m.end() && !m["DeployUnit"].empty()) {
-      deployUnit = make_shared<string>(boost::any_cast<string>(m["DeployUnit"]));
     }
     if (m.find("Engine") != m.end() && !m["Engine"].empty()) {
       engine = make_shared<string>(boost::any_cast<string>(m["Engine"]));
@@ -13301,6 +13287,7 @@ public:
 class DescribeDBClusterVersionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
+  shared_ptr<string> describeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -13318,6 +13305,9 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
+    }
+    if (describeType) {
+      res["DescribeType"] = boost::any(*describeType);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -13337,6 +13327,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
+    }
+    if (m.find("DescribeType") != m.end() && !m["DescribeType"].empty()) {
+      describeType = make_shared<string>(boost::any_cast<string>(m["DescribeType"]));
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -31386,7 +31379,6 @@ public:
 class OpenAITaskRequest : public Darabonba::Model {
 public:
   shared_ptr<string> DBClusterId{};
-  shared_ptr<string> describeType{};
   shared_ptr<string> nodeType{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -31409,9 +31401,6 @@ public:
     map<string, boost::any> res;
     if (DBClusterId) {
       res["DBClusterId"] = boost::any(*DBClusterId);
-    }
-    if (describeType) {
-      res["DescribeType"] = boost::any(*describeType);
     }
     if (nodeType) {
       res["NodeType"] = boost::any(*nodeType);
@@ -31446,9 +31435,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
       DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
-    }
-    if (m.find("DescribeType") != m.end() && !m["DescribeType"].empty()) {
-      describeType = make_shared<string>(boost::any_cast<string>(m["DescribeType"]));
     }
     if (m.find("NodeType") != m.end() && !m["NodeType"].empty()) {
       nodeType = make_shared<string>(boost::any_cast<string>(m["NodeType"]));
