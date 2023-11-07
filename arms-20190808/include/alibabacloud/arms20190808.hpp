@@ -62153,6 +62153,82 @@ public:
 
   virtual ~UpdateTimingSyntheticTaskRequestMonitorConfNetTCP() = default;
 };
+class UpdateTimingSyntheticTaskRequestMonitorConfStream : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> customHeaderContent{};
+  shared_ptr<long> playerType{};
+  shared_ptr<long> streamAddressType{};
+  shared_ptr<long> streamMonitorTimeout{};
+  shared_ptr<long> streamType{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> whiteList{};
+
+  UpdateTimingSyntheticTaskRequestMonitorConfStream() {}
+
+  explicit UpdateTimingSyntheticTaskRequestMonitorConfStream(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (customHeaderContent) {
+      res["CustomHeaderContent"] = boost::any(*customHeaderContent);
+    }
+    if (playerType) {
+      res["PlayerType"] = boost::any(*playerType);
+    }
+    if (streamAddressType) {
+      res["StreamAddressType"] = boost::any(*streamAddressType);
+    }
+    if (streamMonitorTimeout) {
+      res["StreamMonitorTimeout"] = boost::any(*streamMonitorTimeout);
+    }
+    if (streamType) {
+      res["StreamType"] = boost::any(*streamType);
+    }
+    if (targetUrl) {
+      res["TargetUrl"] = boost::any(*targetUrl);
+    }
+    if (whiteList) {
+      res["WhiteList"] = boost::any(*whiteList);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CustomHeaderContent") != m.end() && !m["CustomHeaderContent"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["CustomHeaderContent"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      customHeaderContent = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("PlayerType") != m.end() && !m["PlayerType"].empty()) {
+      playerType = make_shared<long>(boost::any_cast<long>(m["PlayerType"]));
+    }
+    if (m.find("StreamAddressType") != m.end() && !m["StreamAddressType"].empty()) {
+      streamAddressType = make_shared<long>(boost::any_cast<long>(m["StreamAddressType"]));
+    }
+    if (m.find("StreamMonitorTimeout") != m.end() && !m["StreamMonitorTimeout"].empty()) {
+      streamMonitorTimeout = make_shared<long>(boost::any_cast<long>(m["StreamMonitorTimeout"]));
+    }
+    if (m.find("StreamType") != m.end() && !m["StreamType"].empty()) {
+      streamType = make_shared<long>(boost::any_cast<long>(m["StreamType"]));
+    }
+    if (m.find("TargetUrl") != m.end() && !m["TargetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["TargetUrl"]));
+    }
+    if (m.find("WhiteList") != m.end() && !m["WhiteList"].empty()) {
+      whiteList = make_shared<string>(boost::any_cast<string>(m["WhiteList"]));
+    }
+  }
+
+
+  virtual ~UpdateTimingSyntheticTaskRequestMonitorConfStream() = default;
+};
 class UpdateTimingSyntheticTaskRequestMonitorConfWebsite : public Darabonba::Model {
 public:
   shared_ptr<long> automaticScrolling{};
@@ -62320,6 +62396,7 @@ public:
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfNetDNS> netDNS{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfNetICMP> netICMP{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfNetTCP> netTCP{};
+  shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfStream> stream{};
   shared_ptr<UpdateTimingSyntheticTaskRequestMonitorConfWebsite> website{};
 
   UpdateTimingSyntheticTaskRequestMonitorConf() {}
@@ -62346,6 +62423,9 @@ public:
     }
     if (netTCP) {
       res["NetTCP"] = netTCP ? boost::any(netTCP->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (stream) {
+      res["Stream"] = stream ? boost::any(stream->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (website) {
       res["Website"] = website ? boost::any(website->toMap()) : boost::any(map<string,boost::any>({}));
@@ -62387,6 +62467,13 @@ public:
         UpdateTimingSyntheticTaskRequestMonitorConfNetTCP model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["NetTCP"]));
         netTCP = make_shared<UpdateTimingSyntheticTaskRequestMonitorConfNetTCP>(model1);
+      }
+    }
+    if (m.find("Stream") != m.end() && !m["Stream"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Stream"].type()) {
+        UpdateTimingSyntheticTaskRequestMonitorConfStream model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Stream"]));
+        stream = make_shared<UpdateTimingSyntheticTaskRequestMonitorConfStream>(model1);
       }
     }
     if (m.find("Website") != m.end() && !m["Website"].empty()) {
