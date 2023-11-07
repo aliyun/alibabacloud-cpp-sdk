@@ -852,6 +852,63 @@ public:
 
   virtual ~EcsSpec() = default;
 };
+class EventInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> id{};
+  shared_ptr<string> podId{};
+  shared_ptr<string> podUid{};
+  shared_ptr<string> time{};
+
+  EventInfo() {}
+
+  explicit EventInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (podId) {
+      res["PodId"] = boost::any(*podId);
+    }
+    if (podUid) {
+      res["PodUid"] = boost::any(*podUid);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
+      podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
+    }
+    if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
+      podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~EventInfo() = default;
+};
 class ExtraPodSpec : public Darabonba::Model {
 public:
   shared_ptr<vector<ContainerSpec>> initContainers{};
@@ -2122,6 +2179,70 @@ public:
 
 
   virtual ~JobItem() = default;
+};
+class LogInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> content{};
+  shared_ptr<string> id{};
+  shared_ptr<string> podId{};
+  shared_ptr<string> podUid{};
+  shared_ptr<string> source{};
+  shared_ptr<string> time{};
+
+  LogInfo() {}
+
+  explicit LogInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (content) {
+      res["Content"] = boost::any(*content);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (podId) {
+      res["PodId"] = boost::any(*podId);
+    }
+    if (podUid) {
+      res["PodUid"] = boost::any(*podUid);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (time) {
+      res["Time"] = boost::any(*time);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Content") != m.end() && !m["Content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
+    }
+    if (m.find("PodId") != m.end() && !m["PodId"].empty()) {
+      podId = make_shared<string>(boost::any_cast<string>(m["PodId"]));
+    }
+    if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
+      podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Time") != m.end() && !m["Time"].empty()) {
+      time = make_shared<string>(boost::any_cast<string>(m["Time"]));
+    }
+  }
+
+
+  virtual ~LogInfo() = default;
 };
 class Member : public Darabonba::Model {
 public:
@@ -5786,6 +5907,7 @@ public:
 };
 class GetWebTerminalRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> isShared{};
   shared_ptr<string> podUid{};
 
   GetWebTerminalRequest() {}
@@ -5798,6 +5920,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (isShared) {
+      res["IsShared"] = boost::any(*isShared);
+    }
     if (podUid) {
       res["PodUid"] = boost::any(*podUid);
     }
@@ -5805,6 +5930,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("IsShared") != m.end() && !m["IsShared"].empty()) {
+      isShared = make_shared<bool>(boost::any_cast<bool>(m["IsShared"]));
+    }
     if (m.find("PodUid") != m.end() && !m["PodUid"].empty()) {
       podUid = make_shared<string>(boost::any_cast<string>(m["PodUid"]));
     }

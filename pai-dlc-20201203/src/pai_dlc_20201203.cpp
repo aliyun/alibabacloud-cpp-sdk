@@ -625,6 +625,9 @@ GetWebTerminalResponse Alibabacloud_Pai-dlc20201203::Client::getWebTerminalWithO
                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isShared)) {
+    query->insert(pair<string, bool>("IsShared", *request->isShared));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->podUid)) {
     query->insert(pair<string, string>("PodUid", *request->podUid));
   }
