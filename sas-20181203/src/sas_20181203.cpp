@@ -493,6 +493,37 @@ AddPrivateRegistryResponse Alibabacloud_Sas20181203::Client::addPrivateRegistry(
   return addPrivateRegistryWithOptions(request, runtime);
 }
 
+AddSasModuleTrialResponse Alibabacloud_Sas20181203::Client::addSasModuleTrialWithOptions(shared_ptr<AddSasModuleTrialRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->moduleCode)) {
+    query->insert(pair<string, string>("ModuleCode", *request->moduleCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("AddSasModuleTrial"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return AddSasModuleTrialResponse(callApi(params, req, runtime));
+}
+
+AddSasModuleTrialResponse Alibabacloud_Sas20181203::Client::addSasModuleTrial(shared_ptr<AddSasModuleTrialRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return addSasModuleTrialWithOptions(request, runtime);
+}
+
 AddTagWithUuidResponse Alibabacloud_Sas20181203::Client::addTagWithUuidWithOptions(shared_ptr<AddTagWithUuidRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -13228,6 +13259,9 @@ GetClusterCheckItemWarningStatisticsResponse Alibabacloud_Sas20181203::Client::g
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
     query->insert(pair<string, string>("ClusterId", *request->clusterId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -14082,6 +14116,37 @@ GetModuleConfigResponse Alibabacloud_Sas20181203::Client::getModuleConfigWithOpt
 GetModuleConfigResponse Alibabacloud_Sas20181203::Client::getModuleConfig(shared_ptr<GetModuleConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return getModuleConfigWithOptions(request, runtime);
+}
+
+GetModuleTrialAuthInfoResponse Alibabacloud_Sas20181203::Client::getModuleTrialAuthInfoWithOptions(shared_ptr<GetModuleTrialAuthInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->moduleCode)) {
+    query->insert(pair<string, string>("ModuleCode", *request->moduleCode));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetModuleTrialAuthInfo"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetModuleTrialAuthInfoResponse(callApi(params, req, runtime));
+}
+
+GetModuleTrialAuthInfoResponse Alibabacloud_Sas20181203::Client::getModuleTrialAuthInfo(shared_ptr<GetModuleTrialAuthInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getModuleTrialAuthInfoWithOptions(request, runtime);
 }
 
 GetObjectScanEventResponse Alibabacloud_Sas20181203::Client::getObjectScanEventWithOptions(shared_ptr<GetObjectScanEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -15678,6 +15743,9 @@ ListCheckItemWarningSummaryResponse Alibabacloud_Sas20181203::Client::listCheckI
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuidList)) {
+    query->insert(pair<string, vector<string>>("UuidList", *request->uuidList));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
