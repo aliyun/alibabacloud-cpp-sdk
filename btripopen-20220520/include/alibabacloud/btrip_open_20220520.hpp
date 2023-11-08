@@ -61446,6 +61446,7 @@ public:
 };
 class HotelOrderCancelRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> btripOrderId{};
   shared_ptr<string> disOrderId{};
 
   HotelOrderCancelRequest() {}
@@ -61458,6 +61459,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (btripOrderId) {
+      res["btrip_order_id"] = boost::any(*btripOrderId);
+    }
     if (disOrderId) {
       res["dis_order_id"] = boost::any(*disOrderId);
     }
@@ -61465,6 +61469,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("btrip_order_id") != m.end() && !m["btrip_order_id"].empty()) {
+      btripOrderId = make_shared<string>(boost::any_cast<string>(m["btrip_order_id"]));
+    }
     if (m.find("dis_order_id") != m.end() && !m["dis_order_id"].empty()) {
       disOrderId = make_shared<string>(boost::any_cast<string>(m["dis_order_id"]));
     }
@@ -62659,6 +62666,7 @@ public:
 };
 class HotelOrderDetailInfoRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> btripOrderId{};
   shared_ptr<string> disOrderId{};
 
   HotelOrderDetailInfoRequest() {}
@@ -62671,6 +62679,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (btripOrderId) {
+      res["btrip_order_id"] = boost::any(*btripOrderId);
+    }
     if (disOrderId) {
       res["dis_order_id"] = boost::any(*disOrderId);
     }
@@ -62678,6 +62689,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("btrip_order_id") != m.end() && !m["btrip_order_id"].empty()) {
+      btripOrderId = make_shared<string>(boost::any_cast<string>(m["btrip_order_id"]));
+    }
     if (m.find("dis_order_id") != m.end() && !m["dis_order_id"].empty()) {
       disOrderId = make_shared<string>(boost::any_cast<string>(m["dis_order_id"]));
     }
@@ -77119,8 +77133,10 @@ public:
 };
 class IsvRuleSaveRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> applyNeed{};
   shared_ptr<string> bookType{};
   shared_ptr<vector<IsvRuleSaveRequestBookuserList>> bookuserList{};
+  shared_ptr<bool> ruleNeed{};
   shared_ptr<long> status{};
   shared_ptr<string> userId{};
 
@@ -77134,6 +77150,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyNeed) {
+      res["apply_need"] = boost::any(*applyNeed);
+    }
     if (bookType) {
       res["book_type"] = boost::any(*bookType);
     }
@@ -77143,6 +77162,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["bookuser_list"] = boost::any(temp1);
+    }
+    if (ruleNeed) {
+      res["rule_need"] = boost::any(*ruleNeed);
     }
     if (status) {
       res["status"] = boost::any(*status);
@@ -77154,6 +77176,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_need") != m.end() && !m["apply_need"].empty()) {
+      applyNeed = make_shared<bool>(boost::any_cast<bool>(m["apply_need"]));
+    }
     if (m.find("book_type") != m.end() && !m["book_type"].empty()) {
       bookType = make_shared<string>(boost::any_cast<string>(m["book_type"]));
     }
@@ -77170,6 +77195,9 @@ public:
         bookuserList = make_shared<vector<IsvRuleSaveRequestBookuserList>>(expect1);
       }
     }
+    if (m.find("rule_need") != m.end() && !m["rule_need"].empty()) {
+      ruleNeed = make_shared<bool>(boost::any_cast<bool>(m["rule_need"]));
+    }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));
     }
@@ -77183,8 +77211,10 @@ public:
 };
 class IsvRuleSaveShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> applyNeed{};
   shared_ptr<string> bookType{};
   shared_ptr<string> bookuserListShrink{};
+  shared_ptr<bool> ruleNeed{};
   shared_ptr<long> status{};
   shared_ptr<string> userId{};
 
@@ -77198,11 +77228,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyNeed) {
+      res["apply_need"] = boost::any(*applyNeed);
+    }
     if (bookType) {
       res["book_type"] = boost::any(*bookType);
     }
     if (bookuserListShrink) {
       res["bookuser_list"] = boost::any(*bookuserListShrink);
+    }
+    if (ruleNeed) {
+      res["rule_need"] = boost::any(*ruleNeed);
     }
     if (status) {
       res["status"] = boost::any(*status);
@@ -77214,11 +77250,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_need") != m.end() && !m["apply_need"].empty()) {
+      applyNeed = make_shared<bool>(boost::any_cast<bool>(m["apply_need"]));
+    }
     if (m.find("book_type") != m.end() && !m["book_type"].empty()) {
       bookType = make_shared<string>(boost::any_cast<string>(m["book_type"]));
     }
     if (m.find("bookuser_list") != m.end() && !m["bookuser_list"].empty()) {
       bookuserListShrink = make_shared<string>(boost::any_cast<string>(m["bookuser_list"]));
+    }
+    if (m.find("rule_need") != m.end() && !m["rule_need"].empty()) {
+      ruleNeed = make_shared<bool>(boost::any_cast<bool>(m["rule_need"]));
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["status"]));

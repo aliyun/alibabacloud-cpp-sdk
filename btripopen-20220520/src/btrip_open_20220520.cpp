@@ -4255,6 +4255,9 @@ HotelIndexInfoResponse Alibabacloud_BtripOpen20220520::Client::hotelIndexInfo(sh
 HotelOrderCancelResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderCancelWithOptions(shared_ptr<HotelOrderCancelRequest> request, shared_ptr<HotelOrderCancelHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripOrderId)) {
+    query->insert(pair<string, string>("btrip_order_id", *request->btripOrderId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
     query->insert(pair<string, string>("dis_order_id", *request->disOrderId));
   }
@@ -4403,6 +4406,9 @@ HotelOrderCreateResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderCreat
 HotelOrderDetailInfoResponse Alibabacloud_BtripOpen20220520::Client::hotelOrderDetailInfoWithOptions(shared_ptr<HotelOrderDetailInfoRequest> request, shared_ptr<HotelOrderDetailInfoHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->btripOrderId)) {
+    query->insert(pair<string, string>("btrip_order_id", *request->btripOrderId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->disOrderId)) {
     query->insert(pair<string, string>("dis_order_id", *request->disOrderId));
   }
@@ -5801,11 +5807,17 @@ IsvRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::isvRuleSaveWithOptio
     request->bookuserListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->bookuserList, make_shared<string>("bookuser_list"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->applyNeed)) {
+    body->insert(pair<string, bool>("apply_need", *request->applyNeed));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bookType)) {
     body->insert(pair<string, string>("book_type", *request->bookType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->bookuserListShrink)) {
     body->insert(pair<string, string>("bookuser_list", *request->bookuserListShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->ruleNeed)) {
+    body->insert(pair<string, bool>("rule_need", *request->ruleNeed));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     body->insert(pair<string, long>("status", *request->status));
