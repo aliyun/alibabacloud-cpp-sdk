@@ -6168,6 +6168,7 @@ class SubmitSolutionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> bizType{};
   shared_ptr<string> intentionBizId{};
+  shared_ptr<string> operateType{};
   shared_ptr<string> solution{};
   shared_ptr<string> userId{};
 
@@ -6187,6 +6188,9 @@ public:
     if (intentionBizId) {
       res["IntentionBizId"] = boost::any(*intentionBizId);
     }
+    if (operateType) {
+      res["OperateType"] = boost::any(*operateType);
+    }
     if (solution) {
       res["Solution"] = boost::any(*solution);
     }
@@ -6202,6 +6206,9 @@ public:
     }
     if (m.find("IntentionBizId") != m.end() && !m["IntentionBizId"].empty()) {
       intentionBizId = make_shared<string>(boost::any_cast<string>(m["IntentionBizId"]));
+    }
+    if (m.find("OperateType") != m.end() && !m["OperateType"].empty()) {
+      operateType = make_shared<string>(boost::any_cast<string>(m["OperateType"]));
     }
     if (m.find("Solution") != m.end() && !m["Solution"].empty()) {
       solution = make_shared<string>(boost::any_cast<string>(m["Solution"]));

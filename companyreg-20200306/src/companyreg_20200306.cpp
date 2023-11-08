@@ -1188,6 +1188,9 @@ SubmitSolutionResponse Alibabacloud_Companyreg20200306::Client::submitSolutionWi
   if (!Darabonba_Util::Client::isUnset<string>(request->intentionBizId)) {
     query->insert(pair<string, string>("IntentionBizId", *request->intentionBizId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateType)) {
+    query->insert(pair<string, string>("OperateType", *request->operateType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->solution)) {
     query->insert(pair<string, string>("Solution", *request->solution));
   }
