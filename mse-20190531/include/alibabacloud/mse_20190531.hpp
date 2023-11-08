@@ -45054,7 +45054,6 @@ public:
 };
 class ModifyGovernanceKubernetesClusterRequestNamespaceInfos : public Darabonba::Model {
 public:
-  shared_ptr<map<string, string>> labels{};
   shared_ptr<string> mseNamespace{};
   shared_ptr<string> name{};
 
@@ -45068,32 +45067,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
-    if (labels) {
-      res["labels"] = boost::any(*labels);
-    }
     if (mseNamespace) {
-      res["mseNamespace"] = boost::any(*mseNamespace);
+      res["MseNamespace"] = boost::any(*mseNamespace);
     }
     if (name) {
-      res["name"] = boost::any(*name);
+      res["Name"] = boost::any(*name);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
-    if (m.find("labels") != m.end() && !m["labels"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["labels"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      labels = make_shared<map<string, string>>(toMap1);
+    if (m.find("MseNamespace") != m.end() && !m["MseNamespace"].empty()) {
+      mseNamespace = make_shared<string>(boost::any_cast<string>(m["MseNamespace"]));
     }
-    if (m.find("mseNamespace") != m.end() && !m["mseNamespace"].empty()) {
-      mseNamespace = make_shared<string>(boost::any_cast<string>(m["mseNamespace"]));
-    }
-    if (m.find("name") != m.end() && !m["name"].empty()) {
-      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
   }
 
