@@ -828,6 +828,9 @@ StartInstanceResponse Alibabacloud_Avatar20220130::Client::startInstanceWithOpti
   if (!Darabonba_Util::Client::isUnset<string>(request->appShrink)) {
     query->insert(pair<string, string>("App", *request->appShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
+    query->insert(pair<string, string>("BizId", *request->bizId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->channelShrink)) {
     query->insert(pair<string, string>("Channel", *request->channelShrink));
   }

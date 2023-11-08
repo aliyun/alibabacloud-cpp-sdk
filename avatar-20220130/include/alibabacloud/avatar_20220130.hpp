@@ -5967,6 +5967,7 @@ public:
 class StartInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<StartInstanceRequestApp> app{};
+  shared_ptr<string> bizId{};
   shared_ptr<StartInstanceRequestChannel> channel{};
   shared_ptr<StartInstanceRequestCommandRequest> commandRequest{};
   shared_ptr<long> tenantId{};
@@ -5984,6 +5985,9 @@ public:
     map<string, boost::any> res;
     if (app) {
       res["App"] = app ? boost::any(app->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
     }
     if (channel) {
       res["Channel"] = channel ? boost::any(channel->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6007,6 +6011,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["App"]));
         app = make_shared<StartInstanceRequestApp>(model1);
       }
+    }
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
     }
     if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
       if (typeid(map<string, boost::any>) == m["Channel"].type()) {
@@ -6040,6 +6047,7 @@ public:
 class StartInstanceShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appShrink{};
+  shared_ptr<string> bizId{};
   shared_ptr<string> channelShrink{};
   shared_ptr<string> commandRequestShrink{};
   shared_ptr<long> tenantId{};
@@ -6057,6 +6065,9 @@ public:
     map<string, boost::any> res;
     if (appShrink) {
       res["App"] = boost::any(*appShrink);
+    }
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
     }
     if (channelShrink) {
       res["Channel"] = boost::any(*channelShrink);
@@ -6076,6 +6087,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("App") != m.end() && !m["App"].empty()) {
       appShrink = make_shared<string>(boost::any_cast<string>(m["App"]));
+    }
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
     }
     if (m.find("Channel") != m.end() && !m["Channel"].empty()) {
       channelShrink = make_shared<string>(boost::any_cast<string>(m["Channel"]));
