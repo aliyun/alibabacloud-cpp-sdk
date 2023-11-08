@@ -622,6 +622,76 @@ CreateSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::createSwim
   return createSwimLaneGroupWithOptions(request, runtime);
 }
 
+CreateWaypointResponse Alibabacloud_Servicemesh20200111::Client::createWaypointWithOptions(shared_ptr<CreateWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->HPAEnabled)) {
+    body->insert(pair<string, bool>("HPAEnabled", *request->HPAEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPAMaxReplicas)) {
+    body->insert(pair<string, long>("HPAMaxReplicas", *request->HPAMaxReplicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPAMinReplicas)) {
+    body->insert(pair<string, long>("HPAMinReplicas", *request->HPAMinReplicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPATargetCPU)) {
+    body->insert(pair<string, long>("HPATargetCPU", *request->HPATargetCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPATargetMemory)) {
+    body->insert(pair<string, long>("HPATargetMemory", *request->HPATargetMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitCPU)) {
+    body->insert(pair<string, string>("LimitCPU", *request->limitCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitMemory)) {
+    body->insert(pair<string, string>("LimitMemory", *request->limitMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->preferECI)) {
+    body->insert(pair<string, bool>("PreferECI", *request->preferECI));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
+    body->insert(pair<string, long>("Replicas", *request->replicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestCPU)) {
+    body->insert(pair<string, string>("RequestCPU", *request->requestCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestMemory)) {
+    body->insert(pair<string, string>("RequestMemory", *request->requestMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceAccount)) {
+    body->insert(pair<string, string>("ServiceAccount", *request->serviceAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateWaypoint"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateWaypointResponse(callApi(params, req, runtime));
+}
+
+CreateWaypointResponse Alibabacloud_Servicemesh20200111::Client::createWaypoint(shared_ptr<CreateWaypointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createWaypointWithOptions(request, runtime);
+}
+
 DeleteGatewayRouteResponse Alibabacloud_Servicemesh20200111::Client::deleteGatewayRouteWithOptions(shared_ptr<DeleteGatewayRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -830,6 +900,43 @@ DeleteSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::deleteSwim
 DeleteSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::deleteSwimLaneGroup(shared_ptr<DeleteSwimLaneGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteSwimLaneGroupWithOptions(request, runtime);
+}
+
+DeleteWaypointResponse Alibabacloud_Servicemesh20200111::Client::deleteWaypointWithOptions(shared_ptr<DeleteWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteWaypoint"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteWaypointResponse(callApi(params, req, runtime));
+}
+
+DeleteWaypointResponse Alibabacloud_Servicemesh20200111::Client::deleteWaypoint(shared_ptr<DeleteWaypointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteWaypointWithOptions(request, runtime);
 }
 
 DescribeASMGatewayImportedServicesResponse Alibabacloud_Servicemesh20200111::Client::describeASMGatewayImportedServicesWithOptions(shared_ptr<DescribeASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2277,6 +2384,40 @@ GrantUserPermissionsResponse Alibabacloud_Servicemesh20200111::Client::grantUser
   return grantUserPermissionsWithOptions(request, runtime);
 }
 
+ListServiceAccountsResponse Alibabacloud_Servicemesh20200111::Client::listServiceAccountsWithOptions(shared_ptr<ListServiceAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListServiceAccounts"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListServiceAccountsResponse(callApi(params, req, runtime));
+}
+
+ListServiceAccountsResponse Alibabacloud_Servicemesh20200111::Client::listServiceAccounts(shared_ptr<ListServiceAccountsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listServiceAccountsWithOptions(request, runtime);
+}
+
 ListTagResourcesResponse Alibabacloud_Servicemesh20200111::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -2315,6 +2456,49 @@ ListTagResourcesResponse Alibabacloud_Servicemesh20200111::Client::listTagResour
 ListTagResourcesResponse Alibabacloud_Servicemesh20200111::Client::listTagResources(shared_ptr<ListTagResourcesRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listTagResourcesWithOptions(request, runtime);
+}
+
+ListWaypointsResponse Alibabacloud_Servicemesh20200111::Client::listWaypointsWithOptions(shared_ptr<ListWaypointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->continue_)) {
+    body->insert(pair<string, string>("Continue_", *request->continue_));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->limit)) {
+    body->insert(pair<string, long>("Limit", *request->limit));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListWaypoints"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListWaypointsResponse(callApi(params, req, runtime));
+}
+
+ListWaypointsResponse Alibabacloud_Servicemesh20200111::Client::listWaypoints(shared_ptr<ListWaypointsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listWaypointsWithOptions(request, runtime);
 }
 
 ModifyApiServerEipResourceResponse Alibabacloud_Servicemesh20200111::Client::modifyApiServerEipResourceWithOptions(shared_ptr<ModifyApiServerEipResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3457,6 +3641,76 @@ UpdateSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::updateSwim
 UpdateSwimLaneGroupResponse Alibabacloud_Servicemesh20200111::Client::updateSwimLaneGroup(shared_ptr<UpdateSwimLaneGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateSwimLaneGroupWithOptions(request, runtime);
+}
+
+UpdateWaypointResponse Alibabacloud_Servicemesh20200111::Client::updateWaypointWithOptions(shared_ptr<UpdateWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    body->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->HPAEnabled)) {
+    body->insert(pair<string, bool>("HPAEnabled", *request->HPAEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPAMaxReplicas)) {
+    body->insert(pair<string, long>("HPAMaxReplicas", *request->HPAMaxReplicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPAMinReplicas)) {
+    body->insert(pair<string, long>("HPAMinReplicas", *request->HPAMinReplicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPATargetCPU)) {
+    body->insert(pair<string, long>("HPATargetCPU", *request->HPATargetCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->HPATargetMemory)) {
+    body->insert(pair<string, long>("HPATargetMemory", *request->HPATargetMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitCPU)) {
+    body->insert(pair<string, string>("LimitCPU", *request->limitCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->limitMemory)) {
+    body->insert(pair<string, string>("LimitMemory", *request->limitMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    body->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
+    body->insert(pair<string, string>("Namespace_", *request->namespace_));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->preferECI)) {
+    body->insert(pair<string, bool>("PreferECI", *request->preferECI));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->replicas)) {
+    body->insert(pair<string, long>("Replicas", *request->replicas));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestCPU)) {
+    body->insert(pair<string, string>("RequestCPU", *request->requestCPU));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requestMemory)) {
+    body->insert(pair<string, string>("RequestMemory", *request->requestMemory));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->serviceMeshId)) {
+    body->insert(pair<string, string>("ServiceMeshId", *request->serviceMeshId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateWaypoint"))},
+    {"version", boost::any(string("2020-01-11"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateWaypointResponse(callApi(params, req, runtime));
+}
+
+UpdateWaypointResponse Alibabacloud_Servicemesh20200111::Client::updateWaypoint(shared_ptr<UpdateWaypointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateWaypointWithOptions(request, runtime);
 }
 
 UpgradeMeshEditionPartiallyResponse Alibabacloud_Servicemesh20200111::Client::upgradeMeshEditionPartiallyWithOptions(shared_ptr<UpgradeMeshEditionPartiallyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

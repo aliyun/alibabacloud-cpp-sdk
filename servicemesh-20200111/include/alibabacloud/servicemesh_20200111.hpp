@@ -3182,6 +3182,224 @@ public:
 
   virtual ~CreateSwimLaneGroupResponse() = default;
 };
+class CreateWaypointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> HPAEnabled{};
+  shared_ptr<long> HPAMaxReplicas{};
+  shared_ptr<long> HPAMinReplicas{};
+  shared_ptr<long> HPATargetCPU{};
+  shared_ptr<long> HPATargetMemory{};
+  shared_ptr<string> limitCPU{};
+  shared_ptr<string> limitMemory{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<bool> preferECI{};
+  shared_ptr<long> replicas{};
+  shared_ptr<string> requestCPU{};
+  shared_ptr<string> requestMemory{};
+  shared_ptr<string> serviceAccount{};
+  shared_ptr<string> serviceMeshId{};
+
+  CreateWaypointRequest() {}
+
+  explicit CreateWaypointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (HPAEnabled) {
+      res["HPAEnabled"] = boost::any(*HPAEnabled);
+    }
+    if (HPAMaxReplicas) {
+      res["HPAMaxReplicas"] = boost::any(*HPAMaxReplicas);
+    }
+    if (HPAMinReplicas) {
+      res["HPAMinReplicas"] = boost::any(*HPAMinReplicas);
+    }
+    if (HPATargetCPU) {
+      res["HPATargetCPU"] = boost::any(*HPATargetCPU);
+    }
+    if (HPATargetMemory) {
+      res["HPATargetMemory"] = boost::any(*HPATargetMemory);
+    }
+    if (limitCPU) {
+      res["LimitCPU"] = boost::any(*limitCPU);
+    }
+    if (limitMemory) {
+      res["LimitMemory"] = boost::any(*limitMemory);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (preferECI) {
+      res["PreferECI"] = boost::any(*preferECI);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
+    }
+    if (serviceAccount) {
+      res["ServiceAccount"] = boost::any(*serviceAccount);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("HPAEnabled") != m.end() && !m["HPAEnabled"].empty()) {
+      HPAEnabled = make_shared<bool>(boost::any_cast<bool>(m["HPAEnabled"]));
+    }
+    if (m.find("HPAMaxReplicas") != m.end() && !m["HPAMaxReplicas"].empty()) {
+      HPAMaxReplicas = make_shared<long>(boost::any_cast<long>(m["HPAMaxReplicas"]));
+    }
+    if (m.find("HPAMinReplicas") != m.end() && !m["HPAMinReplicas"].empty()) {
+      HPAMinReplicas = make_shared<long>(boost::any_cast<long>(m["HPAMinReplicas"]));
+    }
+    if (m.find("HPATargetCPU") != m.end() && !m["HPATargetCPU"].empty()) {
+      HPATargetCPU = make_shared<long>(boost::any_cast<long>(m["HPATargetCPU"]));
+    }
+    if (m.find("HPATargetMemory") != m.end() && !m["HPATargetMemory"].empty()) {
+      HPATargetMemory = make_shared<long>(boost::any_cast<long>(m["HPATargetMemory"]));
+    }
+    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
+      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
+    }
+    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
+      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PreferECI") != m.end() && !m["PreferECI"].empty()) {
+      preferECI = make_shared<bool>(boost::any_cast<bool>(m["PreferECI"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
+    }
+    if (m.find("ServiceAccount") != m.end() && !m["ServiceAccount"].empty()) {
+      serviceAccount = make_shared<string>(boost::any_cast<string>(m["ServiceAccount"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~CreateWaypointRequest() = default;
+};
+class CreateWaypointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateWaypointResponseBody() {}
+
+  explicit CreateWaypointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateWaypointResponseBody() = default;
+};
+class CreateWaypointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateWaypointResponseBody> body{};
+
+  CreateWaypointResponse() {}
+
+  explicit CreateWaypointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateWaypointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateWaypointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateWaypointResponse() = default;
+};
 class DeleteGatewayRouteRequest : public Darabonba::Model {
 public:
   shared_ptr<string> istioGatewayName{};
@@ -4020,6 +4238,147 @@ public:
 
 
   virtual ~DeleteSwimLaneGroupResponse() = default;
+};
+class DeleteWaypointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+
+  DeleteWaypointRequest() {}
+
+  explicit DeleteWaypointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~DeleteWaypointRequest() = default;
+};
+class DeleteWaypointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteWaypointResponseBody() {}
+
+  explicit DeleteWaypointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteWaypointResponseBody() = default;
+};
+class DeleteWaypointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteWaypointResponseBody> body{};
+
+  DeleteWaypointResponse() {}
+
+  explicit DeleteWaypointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteWaypointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteWaypointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteWaypointResponse() = default;
 };
 class DescribeASMGatewayImportedServicesRequest : public Darabonba::Model {
 public:
@@ -14926,6 +15285,7 @@ public:
   shared_ptr<DescribeServiceMeshesResponseBodyServiceMeshesServiceMeshInfo> serviceMeshInfo{};
   shared_ptr<DescribeServiceMeshesResponseBodyServiceMeshesSpec> spec{};
   shared_ptr<vector<DescribeServiceMeshesResponseBodyServiceMeshesTag>> tag{};
+  shared_ptr<bool> upgradable{};
 
   DescribeServiceMeshesResponseBodyServiceMeshes() {}
 
@@ -14964,6 +15324,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (upgradable) {
+      res["Upgradable"] = boost::any(*upgradable);
     }
     return res;
   }
@@ -15021,6 +15384,9 @@ public:
         }
         tag = make_shared<vector<DescribeServiceMeshesResponseBodyServiceMeshesTag>>(expect1);
       }
+    }
+    if (m.find("Upgradable") != m.end() && !m["Upgradable"].empty()) {
+      upgradable = make_shared<bool>(boost::any_cast<bool>(m["Upgradable"]));
     }
   }
 
@@ -18632,6 +18998,197 @@ public:
 
   virtual ~GrantUserPermissionsResponse() = default;
 };
+class ListServiceAccountsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+
+  ListServiceAccountsRequest() {}
+
+  explicit ListServiceAccountsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~ListServiceAccountsRequest() = default;
+};
+class ListServiceAccountsResponseBodyServiceAccounts : public Darabonba::Model {
+public:
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+
+  ListServiceAccountsResponseBodyServiceAccounts() {}
+
+  explicit ListServiceAccountsResponseBodyServiceAccounts(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+  }
+
+
+  virtual ~ListServiceAccountsResponseBodyServiceAccounts() = default;
+};
+class ListServiceAccountsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListServiceAccountsResponseBodyServiceAccounts>> serviceAccounts{};
+
+  ListServiceAccountsResponseBody() {}
+
+  explicit ListServiceAccountsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (serviceAccounts) {
+      vector<boost::any> temp1;
+      for(auto item1:*serviceAccounts){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ServiceAccounts"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ServiceAccounts") != m.end() && !m["ServiceAccounts"].empty()) {
+      if (typeid(vector<boost::any>) == m["ServiceAccounts"].type()) {
+        vector<ListServiceAccountsResponseBodyServiceAccounts> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ServiceAccounts"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListServiceAccountsResponseBodyServiceAccounts model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        serviceAccounts = make_shared<vector<ListServiceAccountsResponseBodyServiceAccounts>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListServiceAccountsResponseBody() = default;
+};
+class ListServiceAccountsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListServiceAccountsResponseBody> body{};
+
+  ListServiceAccountsResponse() {}
+
+  explicit ListServiceAccountsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListServiceAccountsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListServiceAccountsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListServiceAccountsResponse() = default;
+};
 class ListTagResourcesRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -18914,6 +19471,309 @@ public:
 
 
   virtual ~ListTagResourcesResponse() = default;
+};
+class ListWaypointsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> continue_{};
+  shared_ptr<long> limit{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceMeshId{};
+
+  ListWaypointsRequest() {}
+
+  explicit ListWaypointsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (continue_) {
+      res["Continue"] = boost::any(*continue_);
+    }
+    if (limit) {
+      res["Limit"] = boost::any(*limit);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("Continue") != m.end() && !m["Continue"].empty()) {
+      continue_ = make_shared<string>(boost::any_cast<string>(m["Continue"]));
+    }
+    if (m.find("Limit") != m.end() && !m["Limit"].empty()) {
+      limit = make_shared<long>(boost::any_cast<long>(m["Limit"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~ListWaypointsRequest() = default;
+};
+class ListWaypointsResponseBodyWaypoints : public Darabonba::Model {
+public:
+  shared_ptr<string> HPAEnabled{};
+  shared_ptr<string> HPAMaxReplicas{};
+  shared_ptr<string> HPAMinReplicas{};
+  shared_ptr<string> HPATargetCPU{};
+  shared_ptr<string> HPATargetMemory{};
+  shared_ptr<string> limitCPU{};
+  shared_ptr<string> limitMemory{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> preferECI{};
+  shared_ptr<string> replicas{};
+  shared_ptr<string> requestCPU{};
+  shared_ptr<string> requestMemory{};
+  shared_ptr<string> serviceAccount{};
+
+  ListWaypointsResponseBodyWaypoints() {}
+
+  explicit ListWaypointsResponseBodyWaypoints(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (HPAEnabled) {
+      res["HPAEnabled"] = boost::any(*HPAEnabled);
+    }
+    if (HPAMaxReplicas) {
+      res["HPAMaxReplicas"] = boost::any(*HPAMaxReplicas);
+    }
+    if (HPAMinReplicas) {
+      res["HPAMinReplicas"] = boost::any(*HPAMinReplicas);
+    }
+    if (HPATargetCPU) {
+      res["HPATargetCPU"] = boost::any(*HPATargetCPU);
+    }
+    if (HPATargetMemory) {
+      res["HPATargetMemory"] = boost::any(*HPATargetMemory);
+    }
+    if (limitCPU) {
+      res["LimitCPU"] = boost::any(*limitCPU);
+    }
+    if (limitMemory) {
+      res["LimitMemory"] = boost::any(*limitMemory);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (preferECI) {
+      res["PreferECI"] = boost::any(*preferECI);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
+    }
+    if (serviceAccount) {
+      res["ServiceAccount"] = boost::any(*serviceAccount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("HPAEnabled") != m.end() && !m["HPAEnabled"].empty()) {
+      HPAEnabled = make_shared<string>(boost::any_cast<string>(m["HPAEnabled"]));
+    }
+    if (m.find("HPAMaxReplicas") != m.end() && !m["HPAMaxReplicas"].empty()) {
+      HPAMaxReplicas = make_shared<string>(boost::any_cast<string>(m["HPAMaxReplicas"]));
+    }
+    if (m.find("HPAMinReplicas") != m.end() && !m["HPAMinReplicas"].empty()) {
+      HPAMinReplicas = make_shared<string>(boost::any_cast<string>(m["HPAMinReplicas"]));
+    }
+    if (m.find("HPATargetCPU") != m.end() && !m["HPATargetCPU"].empty()) {
+      HPATargetCPU = make_shared<string>(boost::any_cast<string>(m["HPATargetCPU"]));
+    }
+    if (m.find("HPATargetMemory") != m.end() && !m["HPATargetMemory"].empty()) {
+      HPATargetMemory = make_shared<string>(boost::any_cast<string>(m["HPATargetMemory"]));
+    }
+    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
+      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
+    }
+    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
+      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PreferECI") != m.end() && !m["PreferECI"].empty()) {
+      preferECI = make_shared<string>(boost::any_cast<string>(m["PreferECI"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<string>(boost::any_cast<string>(m["Replicas"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
+    }
+    if (m.find("ServiceAccount") != m.end() && !m["ServiceAccount"].empty()) {
+      serviceAccount = make_shared<string>(boost::any_cast<string>(m["ServiceAccount"]));
+    }
+  }
+
+
+  virtual ~ListWaypointsResponseBodyWaypoints() = default;
+};
+class ListWaypointsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> continue_{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListWaypointsResponseBodyWaypoints>> waypoints{};
+
+  ListWaypointsResponseBody() {}
+
+  explicit ListWaypointsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (continue_) {
+      res["Continue"] = boost::any(*continue_);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (waypoints) {
+      vector<boost::any> temp1;
+      for(auto item1:*waypoints){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Waypoints"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Continue") != m.end() && !m["Continue"].empty()) {
+      continue_ = make_shared<string>(boost::any_cast<string>(m["Continue"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Waypoints") != m.end() && !m["Waypoints"].empty()) {
+      if (typeid(vector<boost::any>) == m["Waypoints"].type()) {
+        vector<ListWaypointsResponseBodyWaypoints> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Waypoints"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListWaypointsResponseBodyWaypoints model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        waypoints = make_shared<vector<ListWaypointsResponseBodyWaypoints>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListWaypointsResponseBody() = default;
+};
+class ListWaypointsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListWaypointsResponseBody> body{};
+
+  ListWaypointsResponse() {}
+
+  explicit ListWaypointsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListWaypointsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListWaypointsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListWaypointsResponse() = default;
 };
 class ModifyApiServerEipResourceRequest : public Darabonba::Model {
 public:
@@ -23804,6 +24664,224 @@ public:
 
   virtual ~UpdateSwimLaneGroupResponse() = default;
 };
+class UpdateWaypointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<bool> HPAEnabled{};
+  shared_ptr<long> HPAMaxReplicas{};
+  shared_ptr<long> HPAMinReplicas{};
+  shared_ptr<long> HPATargetCPU{};
+  shared_ptr<long> HPATargetMemory{};
+  shared_ptr<string> limitCPU{};
+  shared_ptr<string> limitMemory{};
+  shared_ptr<string> name{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<bool> preferECI{};
+  shared_ptr<long> replicas{};
+  shared_ptr<string> requestCPU{};
+  shared_ptr<string> requestMemory{};
+  shared_ptr<string> serviceMeshId{};
+
+  UpdateWaypointRequest() {}
+
+  explicit UpdateWaypointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (HPAEnabled) {
+      res["HPAEnabled"] = boost::any(*HPAEnabled);
+    }
+    if (HPAMaxReplicas) {
+      res["HPAMaxReplicas"] = boost::any(*HPAMaxReplicas);
+    }
+    if (HPAMinReplicas) {
+      res["HPAMinReplicas"] = boost::any(*HPAMinReplicas);
+    }
+    if (HPATargetCPU) {
+      res["HPATargetCPU"] = boost::any(*HPATargetCPU);
+    }
+    if (HPATargetMemory) {
+      res["HPATargetMemory"] = boost::any(*HPATargetMemory);
+    }
+    if (limitCPU) {
+      res["LimitCPU"] = boost::any(*limitCPU);
+    }
+    if (limitMemory) {
+      res["LimitMemory"] = boost::any(*limitMemory);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (preferECI) {
+      res["PreferECI"] = boost::any(*preferECI);
+    }
+    if (replicas) {
+      res["Replicas"] = boost::any(*replicas);
+    }
+    if (requestCPU) {
+      res["RequestCPU"] = boost::any(*requestCPU);
+    }
+    if (requestMemory) {
+      res["RequestMemory"] = boost::any(*requestMemory);
+    }
+    if (serviceMeshId) {
+      res["ServiceMeshId"] = boost::any(*serviceMeshId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("HPAEnabled") != m.end() && !m["HPAEnabled"].empty()) {
+      HPAEnabled = make_shared<bool>(boost::any_cast<bool>(m["HPAEnabled"]));
+    }
+    if (m.find("HPAMaxReplicas") != m.end() && !m["HPAMaxReplicas"].empty()) {
+      HPAMaxReplicas = make_shared<long>(boost::any_cast<long>(m["HPAMaxReplicas"]));
+    }
+    if (m.find("HPAMinReplicas") != m.end() && !m["HPAMinReplicas"].empty()) {
+      HPAMinReplicas = make_shared<long>(boost::any_cast<long>(m["HPAMinReplicas"]));
+    }
+    if (m.find("HPATargetCPU") != m.end() && !m["HPATargetCPU"].empty()) {
+      HPATargetCPU = make_shared<long>(boost::any_cast<long>(m["HPATargetCPU"]));
+    }
+    if (m.find("HPATargetMemory") != m.end() && !m["HPATargetMemory"].empty()) {
+      HPATargetMemory = make_shared<long>(boost::any_cast<long>(m["HPATargetMemory"]));
+    }
+    if (m.find("LimitCPU") != m.end() && !m["LimitCPU"].empty()) {
+      limitCPU = make_shared<string>(boost::any_cast<string>(m["LimitCPU"]));
+    }
+    if (m.find("LimitMemory") != m.end() && !m["LimitMemory"].empty()) {
+      limitMemory = make_shared<string>(boost::any_cast<string>(m["LimitMemory"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("PreferECI") != m.end() && !m["PreferECI"].empty()) {
+      preferECI = make_shared<bool>(boost::any_cast<bool>(m["PreferECI"]));
+    }
+    if (m.find("Replicas") != m.end() && !m["Replicas"].empty()) {
+      replicas = make_shared<long>(boost::any_cast<long>(m["Replicas"]));
+    }
+    if (m.find("RequestCPU") != m.end() && !m["RequestCPU"].empty()) {
+      requestCPU = make_shared<string>(boost::any_cast<string>(m["RequestCPU"]));
+    }
+    if (m.find("RequestMemory") != m.end() && !m["RequestMemory"].empty()) {
+      requestMemory = make_shared<string>(boost::any_cast<string>(m["RequestMemory"]));
+    }
+    if (m.find("ServiceMeshId") != m.end() && !m["ServiceMeshId"].empty()) {
+      serviceMeshId = make_shared<string>(boost::any_cast<string>(m["ServiceMeshId"]));
+    }
+  }
+
+
+  virtual ~UpdateWaypointRequest() = default;
+};
+class UpdateWaypointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateWaypointResponseBody() {}
+
+  explicit UpdateWaypointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateWaypointResponseBody() = default;
+};
+class UpdateWaypointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateWaypointResponseBody> body{};
+
+  UpdateWaypointResponse() {}
+
+  explicit UpdateWaypointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateWaypointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateWaypointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateWaypointResponse() = default;
+};
 class UpgradeMeshEditionPartiallyRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> ASMGatewayContinue{};
@@ -24114,6 +25192,8 @@ public:
   CreateSwimLaneResponse createSwimLane(shared_ptr<CreateSwimLaneRequest> request);
   CreateSwimLaneGroupResponse createSwimLaneGroupWithOptions(shared_ptr<CreateSwimLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSwimLaneGroupResponse createSwimLaneGroup(shared_ptr<CreateSwimLaneGroupRequest> request);
+  CreateWaypointResponse createWaypointWithOptions(shared_ptr<CreateWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateWaypointResponse createWaypoint(shared_ptr<CreateWaypointRequest> request);
   DeleteGatewayRouteResponse deleteGatewayRouteWithOptions(shared_ptr<DeleteGatewayRouteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteGatewayRouteResponse deleteGatewayRoute(shared_ptr<DeleteGatewayRouteRequest> request);
   DeleteGatewaySecretResponse deleteGatewaySecretWithOptions(shared_ptr<DeleteGatewaySecretRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24126,6 +25206,8 @@ public:
   DeleteSwimLaneResponse deleteSwimLane(shared_ptr<DeleteSwimLaneRequest> request);
   DeleteSwimLaneGroupResponse deleteSwimLaneGroupWithOptions(shared_ptr<DeleteSwimLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSwimLaneGroupResponse deleteSwimLaneGroup(shared_ptr<DeleteSwimLaneGroupRequest> request);
+  DeleteWaypointResponse deleteWaypointWithOptions(shared_ptr<DeleteWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteWaypointResponse deleteWaypoint(shared_ptr<DeleteWaypointRequest> request);
   DescribeASMGatewayImportedServicesResponse describeASMGatewayImportedServicesWithOptions(shared_ptr<DescribeASMGatewayImportedServicesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeASMGatewayImportedServicesResponse describeASMGatewayImportedServices(shared_ptr<DescribeASMGatewayImportedServicesRequest> request);
   DescribeCCMVersionResponse describeCCMVersionWithOptions(shared_ptr<DescribeCCMVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24220,8 +25302,12 @@ public:
   GetVmMetaResponse getVmMeta(shared_ptr<GetVmMetaRequest> request);
   GrantUserPermissionsResponse grantUserPermissionsWithOptions(shared_ptr<GrantUserPermissionsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GrantUserPermissionsResponse grantUserPermissions(shared_ptr<GrantUserPermissionsRequest> request);
+  ListServiceAccountsResponse listServiceAccountsWithOptions(shared_ptr<ListServiceAccountsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListServiceAccountsResponse listServiceAccounts(shared_ptr<ListServiceAccountsRequest> request);
   ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
+  ListWaypointsResponse listWaypointsWithOptions(shared_ptr<ListWaypointsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListWaypointsResponse listWaypoints(shared_ptr<ListWaypointsRequest> request);
   ModifyApiServerEipResourceResponse modifyApiServerEipResourceWithOptions(shared_ptr<ModifyApiServerEipResourceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyApiServerEipResourceResponse modifyApiServerEipResource(shared_ptr<ModifyApiServerEipResourceRequest> request);
   ModifyServiceMeshNameResponse modifyServiceMeshNameWithOptions(shared_ptr<ModifyServiceMeshNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -24262,6 +25348,8 @@ public:
   UpdateSwimLaneResponse updateSwimLane(shared_ptr<UpdateSwimLaneRequest> request);
   UpdateSwimLaneGroupResponse updateSwimLaneGroupWithOptions(shared_ptr<UpdateSwimLaneGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSwimLaneGroupResponse updateSwimLaneGroup(shared_ptr<UpdateSwimLaneGroupRequest> request);
+  UpdateWaypointResponse updateWaypointWithOptions(shared_ptr<UpdateWaypointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateWaypointResponse updateWaypoint(shared_ptr<UpdateWaypointRequest> request);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartiallyWithOptions(shared_ptr<UpgradeMeshEditionPartiallyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpgradeMeshEditionPartiallyResponse upgradeMeshEditionPartially(shared_ptr<UpgradeMeshEditionPartiallyRequest> request);
   UpgradeMeshVersionResponse upgradeMeshVersionWithOptions(shared_ptr<UpgradeMeshVersionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
