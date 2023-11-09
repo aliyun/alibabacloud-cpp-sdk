@@ -3507,6 +3507,35 @@ public:
 
   virtual ~CreateRuleRequestRuleActionsRedirectConfig() = default;
 };
+class CreateRuleRequestRuleActionsRemoveHeaderConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+
+  CreateRuleRequestRuleActionsRemoveHeaderConfig() {}
+
+  explicit CreateRuleRequestRuleActionsRemoveHeaderConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+  }
+
+
+  virtual ~CreateRuleRequestRuleActionsRemoveHeaderConfig() = default;
+};
 class CreateRuleRequestRuleActionsRewriteConfig : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
@@ -3706,6 +3735,7 @@ public:
   shared_ptr<CreateRuleRequestRuleActionsInsertHeaderConfig> insertHeaderConfig{};
   shared_ptr<long> order{};
   shared_ptr<CreateRuleRequestRuleActionsRedirectConfig> redirectConfig{};
+  shared_ptr<CreateRuleRequestRuleActionsRemoveHeaderConfig> removeHeaderConfig{};
   shared_ptr<CreateRuleRequestRuleActionsRewriteConfig> rewriteConfig{};
   shared_ptr<CreateRuleRequestRuleActionsTrafficLimitConfig> trafficLimitConfig{};
   shared_ptr<CreateRuleRequestRuleActionsTrafficMirrorConfig> trafficMirrorConfig{};
@@ -3738,6 +3768,9 @@ public:
     }
     if (redirectConfig) {
       res["RedirectConfig"] = redirectConfig ? boost::any(redirectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (removeHeaderConfig) {
+      res["RemoveHeaderConfig"] = removeHeaderConfig ? boost::any(removeHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (rewriteConfig) {
       res["RewriteConfig"] = rewriteConfig ? boost::any(rewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -3791,6 +3824,13 @@ public:
         CreateRuleRequestRuleActionsRedirectConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RedirectConfig"]));
         redirectConfig = make_shared<CreateRuleRequestRuleActionsRedirectConfig>(model1);
+      }
+    }
+    if (m.find("RemoveHeaderConfig") != m.end() && !m["RemoveHeaderConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RemoveHeaderConfig"].type()) {
+        CreateRuleRequestRuleActionsRemoveHeaderConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RemoveHeaderConfig"]));
+        removeHeaderConfig = make_shared<CreateRuleRequestRuleActionsRemoveHeaderConfig>(model1);
       }
     }
     if (m.find("RewriteConfig") != m.end() && !m["RewriteConfig"].empty()) {
@@ -4131,6 +4171,85 @@ public:
 
   virtual ~CreateRuleRequestRuleConditionsQueryStringConfig() = default;
 };
+class CreateRuleRequestRuleConditionsResponseHeaderConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  CreateRuleRequestRuleConditionsResponseHeaderConfig() {}
+
+  explicit CreateRuleRequestRuleConditionsResponseHeaderConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateRuleRequestRuleConditionsResponseHeaderConfig() = default;
+};
+class CreateRuleRequestRuleConditionsResponseStatusCodeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> values{};
+
+  CreateRuleRequestRuleConditionsResponseStatusCodeConfig() {}
+
+  explicit CreateRuleRequestRuleConditionsResponseStatusCodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateRuleRequestRuleConditionsResponseStatusCodeConfig() = default;
+};
 class CreateRuleRequestRuleConditionsSourceIpConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> values{};
@@ -4175,6 +4294,8 @@ public:
   shared_ptr<CreateRuleRequestRuleConditionsMethodConfig> methodConfig{};
   shared_ptr<CreateRuleRequestRuleConditionsPathConfig> pathConfig{};
   shared_ptr<CreateRuleRequestRuleConditionsQueryStringConfig> queryStringConfig{};
+  shared_ptr<CreateRuleRequestRuleConditionsResponseHeaderConfig> responseHeaderConfig{};
+  shared_ptr<CreateRuleRequestRuleConditionsResponseStatusCodeConfig> responseStatusCodeConfig{};
   shared_ptr<CreateRuleRequestRuleConditionsSourceIpConfig> sourceIpConfig{};
   shared_ptr<string> type{};
 
@@ -4205,6 +4326,12 @@ public:
     }
     if (queryStringConfig) {
       res["QueryStringConfig"] = queryStringConfig ? boost::any(queryStringConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseHeaderConfig) {
+      res["ResponseHeaderConfig"] = responseHeaderConfig ? boost::any(responseHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseStatusCodeConfig) {
+      res["ResponseStatusCodeConfig"] = responseStatusCodeConfig ? boost::any(responseStatusCodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceIpConfig) {
       res["SourceIpConfig"] = sourceIpConfig ? boost::any(sourceIpConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4256,6 +4383,20 @@ public:
         CreateRuleRequestRuleConditionsQueryStringConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryStringConfig"]));
         queryStringConfig = make_shared<CreateRuleRequestRuleConditionsQueryStringConfig>(model1);
+      }
+    }
+    if (m.find("ResponseHeaderConfig") != m.end() && !m["ResponseHeaderConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseHeaderConfig"].type()) {
+        CreateRuleRequestRuleConditionsResponseHeaderConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseHeaderConfig"]));
+        responseHeaderConfig = make_shared<CreateRuleRequestRuleConditionsResponseHeaderConfig>(model1);
+      }
+    }
+    if (m.find("ResponseStatusCodeConfig") != m.end() && !m["ResponseStatusCodeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseStatusCodeConfig"].type()) {
+        CreateRuleRequestRuleConditionsResponseStatusCodeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseStatusCodeConfig"]));
+        responseStatusCodeConfig = make_shared<CreateRuleRequestRuleConditionsResponseStatusCodeConfig>(model1);
       }
     }
     if (m.find("SourceIpConfig") != m.end() && !m["SourceIpConfig"].empty()) {
@@ -4909,6 +5050,35 @@ public:
 
   virtual ~CreateRulesRequestRulesRuleActionsRedirectConfig() = default;
 };
+class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+
+  CreateRulesRequestRulesRuleActionsRemoveHeaderConfig() {}
+
+  explicit CreateRulesRequestRulesRuleActionsRemoveHeaderConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+  }
+
+
+  virtual ~CreateRulesRequestRulesRuleActionsRemoveHeaderConfig() = default;
+};
 class CreateRulesRequestRulesRuleActionsRewriteConfig : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
@@ -5108,6 +5278,7 @@ public:
   shared_ptr<CreateRulesRequestRulesRuleActionsInsertHeaderConfig> insertHeaderConfig{};
   shared_ptr<long> order{};
   shared_ptr<CreateRulesRequestRulesRuleActionsRedirectConfig> redirectConfig{};
+  shared_ptr<CreateRulesRequestRulesRuleActionsRemoveHeaderConfig> removeHeaderConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsRewriteConfig> rewriteConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsTrafficLimitConfig> trafficLimitConfig{};
   shared_ptr<CreateRulesRequestRulesRuleActionsTrafficMirrorConfig> trafficMirrorConfig{};
@@ -5140,6 +5311,9 @@ public:
     }
     if (redirectConfig) {
       res["RedirectConfig"] = redirectConfig ? boost::any(redirectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (removeHeaderConfig) {
+      res["RemoveHeaderConfig"] = removeHeaderConfig ? boost::any(removeHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (rewriteConfig) {
       res["RewriteConfig"] = rewriteConfig ? boost::any(rewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5193,6 +5367,13 @@ public:
         CreateRulesRequestRulesRuleActionsRedirectConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RedirectConfig"]));
         redirectConfig = make_shared<CreateRulesRequestRulesRuleActionsRedirectConfig>(model1);
+      }
+    }
+    if (m.find("RemoveHeaderConfig") != m.end() && !m["RemoveHeaderConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RemoveHeaderConfig"].type()) {
+        CreateRulesRequestRulesRuleActionsRemoveHeaderConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RemoveHeaderConfig"]));
+        removeHeaderConfig = make_shared<CreateRulesRequestRulesRuleActionsRemoveHeaderConfig>(model1);
       }
     }
     if (m.find("RewriteConfig") != m.end() && !m["RewriteConfig"].empty()) {
@@ -5576,6 +5757,42 @@ public:
 
   virtual ~CreateRulesRequestRulesRuleConditionsResponseHeaderConfig() = default;
 };
+class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> values{};
+
+  CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig() {}
+
+  explicit CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig() = default;
+};
 class CreateRulesRequestRulesRuleConditionsSourceIpConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> values{};
@@ -5621,6 +5838,7 @@ public:
   shared_ptr<CreateRulesRequestRulesRuleConditionsPathConfig> pathConfig{};
   shared_ptr<CreateRulesRequestRulesRuleConditionsQueryStringConfig> queryStringConfig{};
   shared_ptr<CreateRulesRequestRulesRuleConditionsResponseHeaderConfig> responseHeaderConfig{};
+  shared_ptr<CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig> responseStatusCodeConfig{};
   shared_ptr<CreateRulesRequestRulesRuleConditionsSourceIpConfig> sourceIpConfig{};
   shared_ptr<string> type{};
 
@@ -5654,6 +5872,9 @@ public:
     }
     if (responseHeaderConfig) {
       res["ResponseHeaderConfig"] = responseHeaderConfig ? boost::any(responseHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseStatusCodeConfig) {
+      res["ResponseStatusCodeConfig"] = responseStatusCodeConfig ? boost::any(responseStatusCodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceIpConfig) {
       res["SourceIpConfig"] = sourceIpConfig ? boost::any(sourceIpConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -5712,6 +5933,13 @@ public:
         CreateRulesRequestRulesRuleConditionsResponseHeaderConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseHeaderConfig"]));
         responseHeaderConfig = make_shared<CreateRulesRequestRulesRuleConditionsResponseHeaderConfig>(model1);
+      }
+    }
+    if (m.find("ResponseStatusCodeConfig") != m.end() && !m["ResponseStatusCodeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseStatusCodeConfig"].type()) {
+        CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseStatusCodeConfig"]));
+        responseStatusCodeConfig = make_shared<CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig>(model1);
       }
     }
     if (m.find("SourceIpConfig") != m.end() && !m["SourceIpConfig"].empty()) {
@@ -24206,6 +24434,7 @@ public:
 };
 class UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig : public Darabonba::Model {
 public:
+  shared_ptr<bool> coverEnabled{};
   shared_ptr<string> key{};
   shared_ptr<string> value{};
   shared_ptr<string> valueType{};
@@ -24220,6 +24449,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (coverEnabled) {
+      res["CoverEnabled"] = boost::any(*coverEnabled);
+    }
     if (key) {
       res["Key"] = boost::any(*key);
     }
@@ -24233,6 +24465,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CoverEnabled") != m.end() && !m["CoverEnabled"].empty()) {
+      coverEnabled = make_shared<bool>(boost::any_cast<bool>(m["CoverEnabled"]));
+    }
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
     }
@@ -24310,6 +24545,35 @@ public:
 
 
   virtual ~UpdateRuleAttributeRequestRuleActionsRedirectConfig() = default;
+};
+class UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+
+  UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig() {}
+
+  explicit UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+  }
+
+
+  virtual ~UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig() = default;
 };
 class UpdateRuleAttributeRequestRuleActionsRewriteConfig : public Darabonba::Model {
 public:
@@ -24510,6 +24774,7 @@ public:
   shared_ptr<UpdateRuleAttributeRequestRuleActionsInsertHeaderConfig> insertHeaderConfig{};
   shared_ptr<long> order{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsRedirectConfig> redirectConfig{};
+  shared_ptr<UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig> removeHeaderConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsRewriteConfig> rewriteConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsTrafficLimitConfig> trafficLimitConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleActionsTrafficMirrorConfig> trafficMirrorConfig{};
@@ -24542,6 +24807,9 @@ public:
     }
     if (redirectConfig) {
       res["RedirectConfig"] = redirectConfig ? boost::any(redirectConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (removeHeaderConfig) {
+      res["RemoveHeaderConfig"] = removeHeaderConfig ? boost::any(removeHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (rewriteConfig) {
       res["RewriteConfig"] = rewriteConfig ? boost::any(rewriteConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -24595,6 +24863,13 @@ public:
         UpdateRuleAttributeRequestRuleActionsRedirectConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RedirectConfig"]));
         redirectConfig = make_shared<UpdateRuleAttributeRequestRuleActionsRedirectConfig>(model1);
+      }
+    }
+    if (m.find("RemoveHeaderConfig") != m.end() && !m["RemoveHeaderConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["RemoveHeaderConfig"].type()) {
+        UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["RemoveHeaderConfig"]));
+        removeHeaderConfig = make_shared<UpdateRuleAttributeRequestRuleActionsRemoveHeaderConfig>(model1);
       }
     }
     if (m.find("RewriteConfig") != m.end() && !m["RewriteConfig"].empty()) {
@@ -24935,6 +25210,85 @@ public:
 
   virtual ~UpdateRuleAttributeRequestRuleConditionsQueryStringConfig() = default;
 };
+class UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<vector<string>> values{};
+
+  UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig() {}
+
+  explicit UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig() = default;
+};
+class UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> values{};
+
+  UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig() {}
+
+  explicit UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Values"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Values"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      values = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig() = default;
+};
 class UpdateRuleAttributeRequestRuleConditionsSourceIpConfig : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> values{};
@@ -24979,6 +25333,8 @@ public:
   shared_ptr<UpdateRuleAttributeRequestRuleConditionsMethodConfig> methodConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleConditionsPathConfig> pathConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleConditionsQueryStringConfig> queryStringConfig{};
+  shared_ptr<UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig> responseHeaderConfig{};
+  shared_ptr<UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig> responseStatusCodeConfig{};
   shared_ptr<UpdateRuleAttributeRequestRuleConditionsSourceIpConfig> sourceIpConfig{};
   shared_ptr<string> type{};
 
@@ -25009,6 +25365,12 @@ public:
     }
     if (queryStringConfig) {
       res["QueryStringConfig"] = queryStringConfig ? boost::any(queryStringConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseHeaderConfig) {
+      res["ResponseHeaderConfig"] = responseHeaderConfig ? boost::any(responseHeaderConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseStatusCodeConfig) {
+      res["ResponseStatusCodeConfig"] = responseStatusCodeConfig ? boost::any(responseStatusCodeConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (sourceIpConfig) {
       res["SourceIpConfig"] = sourceIpConfig ? boost::any(sourceIpConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -25060,6 +25422,20 @@ public:
         UpdateRuleAttributeRequestRuleConditionsQueryStringConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["QueryStringConfig"]));
         queryStringConfig = make_shared<UpdateRuleAttributeRequestRuleConditionsQueryStringConfig>(model1);
+      }
+    }
+    if (m.find("ResponseHeaderConfig") != m.end() && !m["ResponseHeaderConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseHeaderConfig"].type()) {
+        UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseHeaderConfig"]));
+        responseHeaderConfig = make_shared<UpdateRuleAttributeRequestRuleConditionsResponseHeaderConfig>(model1);
+      }
+    }
+    if (m.find("ResponseStatusCodeConfig") != m.end() && !m["ResponseStatusCodeConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ResponseStatusCodeConfig"].type()) {
+        UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ResponseStatusCodeConfig"]));
+        responseStatusCodeConfig = make_shared<UpdateRuleAttributeRequestRuleConditionsResponseStatusCodeConfig>(model1);
       }
     }
     if (m.find("SourceIpConfig") != m.end() && !m["SourceIpConfig"].empty()) {
