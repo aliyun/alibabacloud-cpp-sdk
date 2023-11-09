@@ -74,6 +74,42 @@ CreateDeploymentResponse Alibabacloud_Ververica20220718::Client::createDeploymen
   return createDeploymentWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
+CreateMemberResponse Alibabacloud_Ververica20220718::Client::createMemberWithOptions(shared_ptr<string> namespace_,
+                                                                                     shared_ptr<CreateMemberRequest> request,
+                                                                                     shared_ptr<CreateMemberHeaders> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMember"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/members"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMemberResponse(callApi(params, req, runtime));
+}
+
+CreateMemberResponse Alibabacloud_Ververica20220718::Client::createMember(shared_ptr<string> namespace_, shared_ptr<CreateMemberRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<CreateMemberHeaders> headers = make_shared<CreateMemberHeaders>();
+  return createMemberWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
 CreateSavepointResponse Alibabacloud_Ververica20220718::Client::createSavepointWithOptions(shared_ptr<string> namespace_,
                                                                                            shared_ptr<CreateSavepointRequest> request,
                                                                                            shared_ptr<CreateSavepointHeaders> headers,
@@ -222,6 +258,40 @@ DeleteJobResponse Alibabacloud_Ververica20220718::Client::deleteJob(shared_ptr<s
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<DeleteJobHeaders> headers = make_shared<DeleteJobHeaders>();
   return deleteJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
+}
+
+DeleteMemberResponse Alibabacloud_Ververica20220718::Client::deleteMemberWithOptions(shared_ptr<string> namespace_,
+                                                                                     shared_ptr<string> member,
+                                                                                     shared_ptr<DeleteMemberHeaders> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMember"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/members/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(member)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMemberResponse(callApi(params, req, runtime));
+}
+
+DeleteMemberResponse Alibabacloud_Ververica20220718::Client::deleteMember(shared_ptr<string> namespace_, shared_ptr<string> member) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<DeleteMemberHeaders> headers = make_shared<DeleteMemberHeaders>();
+  return deleteMemberWithOptions(shared_ptr<string> namespace_, member, headers, runtime);
 }
 
 DeleteSavepointResponse Alibabacloud_Ververica20220718::Client::deleteSavepointWithOptions(shared_ptr<string> namespace_,
@@ -477,6 +547,40 @@ GetJobResponse Alibabacloud_Ververica20220718::Client::getJob(shared_ptr<string>
   return getJobWithOptions(shared_ptr<string> namespace_, jobId, headers, runtime);
 }
 
+GetMemberResponse Alibabacloud_Ververica20220718::Client::getMemberWithOptions(shared_ptr<string> namespace_,
+                                                                               shared_ptr<string> member,
+                                                                               shared_ptr<GetMemberHeaders> headers,
+                                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMember"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/members/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(member)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMemberResponse(callApi(params, req, runtime));
+}
+
+GetMemberResponse Alibabacloud_Ververica20220718::Client::getMember(shared_ptr<string> namespace_, shared_ptr<string> member) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<GetMemberHeaders> headers = make_shared<GetMemberHeaders>();
+  return getMemberWithOptions(shared_ptr<string> namespace_, member, headers, runtime);
+}
+
 GetSavepointResponse Alibabacloud_Ververica20220718::Client::getSavepointWithOptions(shared_ptr<string> namespace_,
                                                                                      shared_ptr<string> savepointId,
                                                                                      shared_ptr<GetSavepointHeaders> headers,
@@ -678,6 +782,49 @@ ListJobsResponse Alibabacloud_Ververica20220718::Client::listJobs(shared_ptr<str
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<ListJobsHeaders> headers = make_shared<ListJobsHeaders>();
   return listJobsWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
+}
+
+ListMembersResponse Alibabacloud_Ververica20220718::Client::listMembersWithOptions(shared_ptr<string> namespace_,
+                                                                                   shared_ptr<ListMembersRequest> request,
+                                                                                   shared_ptr<ListMembersHeaders> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageIndex)) {
+    query->insert(pair<string, long>("pageIndex", *request->pageIndex));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("pageSize", *request->pageSize));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMembers"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/members"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMembersResponse(callApi(params, req, runtime));
+}
+
+ListMembersResponse Alibabacloud_Ververica20220718::Client::listMembers(shared_ptr<string> namespace_, shared_ptr<ListMembersRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<ListMembersHeaders> headers = make_shared<ListMembersHeaders>();
+  return listMembersWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
 ListSavepointsResponse Alibabacloud_Ververica20220718::Client::listSavepointsWithOptions(shared_ptr<string> namespace_,
@@ -916,5 +1063,41 @@ UpdateDeploymentResponse Alibabacloud_Ververica20220718::Client::updateDeploymen
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<UpdateDeploymentHeaders> headers = make_shared<UpdateDeploymentHeaders>();
   return updateDeploymentWithOptions(shared_ptr<string> namespace_, deploymentId, request, headers, runtime);
+}
+
+UpdateMemberResponse Alibabacloud_Ververica20220718::Client::updateMemberWithOptions(shared_ptr<string> namespace_,
+                                                                                     shared_ptr<UpdateMemberRequest> request,
+                                                                                     shared_ptr<UpdateMemberHeaders> headers,
+                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->workspace)) {
+    realHeaders->insert(pair<string, string>("workspace", Darabonba_Util::Client::toJSONString(headers->workspace)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(request->body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMember"))},
+    {"version", boost::any(string("2022-07-18"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/gateway/v2/namespaces/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(shared_ptr<string> namespace_)) + string("/members"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMemberResponse(callApi(params, req, runtime));
+}
+
+UpdateMemberResponse Alibabacloud_Ververica20220718::Client::updateMember(shared_ptr<string> namespace_, shared_ptr<UpdateMemberRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<UpdateMemberHeaders> headers = make_shared<UpdateMemberHeaders>();
+  return updateMemberWithOptions(shared_ptr<string> namespace_, request, headers, runtime);
 }
 
