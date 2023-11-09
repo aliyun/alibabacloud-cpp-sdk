@@ -77499,6 +77499,7 @@ public:
 };
 class IsvUserSaveRequestUserList : public Darabonba::Model {
 public:
+  shared_ptr<string> baseCityCode{};
   shared_ptr<string> birthday{};
   shared_ptr<vector<IsvUserSaveRequestUserListCertList>> certList{};
   shared_ptr<long> departId{};
@@ -77527,6 +77528,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (baseCityCode) {
+      res["base_city_code"] = boost::any(*baseCityCode);
+    }
     if (birthday) {
       res["birthday"] = boost::any(*birthday);
     }
@@ -77586,6 +77590,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("base_city_code") != m.end() && !m["base_city_code"].empty()) {
+      baseCityCode = make_shared<string>(boost::any_cast<string>(m["base_city_code"]));
+    }
     if (m.find("birthday") != m.end() && !m["birthday"].empty()) {
       birthday = make_shared<string>(boost::any_cast<string>(m["birthday"]));
     }
@@ -78132,6 +78139,7 @@ public:
   shared_ptr<double> fuPoint{};
   shared_ptr<double> hotelAmount{};
   shared_ptr<double> ieFlightAmount{};
+  shared_ptr<double> ieHotelAmount{};
   shared_ptr<long> mailBillDate{};
   shared_ptr<double> serviceAmount{};
   shared_ptr<double> trainAmount{};
@@ -78167,6 +78175,9 @@ public:
     if (ieFlightAmount) {
       res["ieFlightAmount"] = boost::any(*ieFlightAmount);
     }
+    if (ieHotelAmount) {
+      res["ieHotelAmount"] = boost::any(*ieHotelAmount);
+    }
     if (mailBillDate) {
       res["mailBillDate"] = boost::any(*mailBillDate);
     }
@@ -78200,6 +78211,9 @@ public:
     }
     if (m.find("ieFlightAmount") != m.end() && !m["ieFlightAmount"].empty()) {
       ieFlightAmount = make_shared<double>(boost::any_cast<double>(m["ieFlightAmount"]));
+    }
+    if (m.find("ieHotelAmount") != m.end() && !m["ieHotelAmount"].empty()) {
+      ieHotelAmount = make_shared<double>(boost::any_cast<double>(m["ieHotelAmount"]));
     }
     if (m.find("mailBillDate") != m.end() && !m["mailBillDate"].empty()) {
       mailBillDate = make_shared<long>(boost::any_cast<long>(m["mailBillDate"]));
