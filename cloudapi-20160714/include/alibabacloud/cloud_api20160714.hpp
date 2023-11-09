@@ -2420,13 +2420,50 @@ public:
 
   virtual ~CreateAppResponse() = default;
 };
+class CreateBackendRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateBackendRequestTag() {}
+
+  explicit CreateBackendRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateBackendRequestTag() = default;
+};
 class CreateBackendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backendName{};
   shared_ptr<string> backendType{};
-  shared_ptr<bool> createEventBridgeServiceLinkedRole{};
+  shared_ptr<bool> createSlr{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
+  shared_ptr<vector<CreateBackendRequestTag>> tag{};
 
   CreateBackendRequest() {}
 
@@ -2444,14 +2481,21 @@ public:
     if (backendType) {
       res["BackendType"] = boost::any(*backendType);
     }
-    if (createEventBridgeServiceLinkedRole) {
-      res["CreateEventBridgeServiceLinkedRole"] = boost::any(*createEventBridgeServiceLinkedRole);
+    if (createSlr) {
+      res["CreateSlr"] = boost::any(*createSlr);
     }
     if (description) {
       res["Description"] = boost::any(*description);
     }
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
     }
     return res;
   }
@@ -2463,14 +2507,27 @@ public:
     if (m.find("BackendType") != m.end() && !m["BackendType"].empty()) {
       backendType = make_shared<string>(boost::any_cast<string>(m["BackendType"]));
     }
-    if (m.find("CreateEventBridgeServiceLinkedRole") != m.end() && !m["CreateEventBridgeServiceLinkedRole"].empty()) {
-      createEventBridgeServiceLinkedRole = make_shared<bool>(boost::any_cast<bool>(m["CreateEventBridgeServiceLinkedRole"]));
+    if (m.find("CreateSlr") != m.end() && !m["CreateSlr"].empty()) {
+      createSlr = make_shared<bool>(boost::any_cast<bool>(m["CreateSlr"]));
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateBackendRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateBackendRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateBackendRequestTag>>(expect1);
+      }
     }
   }
 
@@ -22118,6 +22175,77 @@ public:
 
   virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig() = default;
 };
+class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> edasAppId{};
+  shared_ptr<string> microserviceNamespace{};
+  shared_ptr<string> microserviceNamespaceId{};
+  shared_ptr<string> microserviceNamespaceName{};
+  shared_ptr<string> mseInstanceId{};
+  shared_ptr<string> registryType{};
+  shared_ptr<string> serviceName{};
+
+  DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig() {}
+
+  explicit DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (edasAppId) {
+      res["EdasAppId"] = boost::any(*edasAppId);
+    }
+    if (microserviceNamespace) {
+      res["MicroserviceNamespace"] = boost::any(*microserviceNamespace);
+    }
+    if (microserviceNamespaceId) {
+      res["MicroserviceNamespaceId"] = boost::any(*microserviceNamespaceId);
+    }
+    if (microserviceNamespaceName) {
+      res["MicroserviceNamespaceName"] = boost::any(*microserviceNamespaceName);
+    }
+    if (mseInstanceId) {
+      res["MseInstanceId"] = boost::any(*mseInstanceId);
+    }
+    if (registryType) {
+      res["RegistryType"] = boost::any(*registryType);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EdasAppId") != m.end() && !m["EdasAppId"].empty()) {
+      edasAppId = make_shared<string>(boost::any_cast<string>(m["EdasAppId"]));
+    }
+    if (m.find("MicroserviceNamespace") != m.end() && !m["MicroserviceNamespace"].empty()) {
+      microserviceNamespace = make_shared<string>(boost::any_cast<string>(m["MicroserviceNamespace"]));
+    }
+    if (m.find("MicroserviceNamespaceId") != m.end() && !m["MicroserviceNamespaceId"].empty()) {
+      microserviceNamespaceId = make_shared<string>(boost::any_cast<string>(m["MicroserviceNamespaceId"]));
+    }
+    if (m.find("MicroserviceNamespaceName") != m.end() && !m["MicroserviceNamespaceName"].empty()) {
+      microserviceNamespaceName = make_shared<string>(boost::any_cast<string>(m["MicroserviceNamespaceName"]));
+    }
+    if (m.find("MseInstanceId") != m.end() && !m["MseInstanceId"].empty()) {
+      mseInstanceId = make_shared<string>(boost::any_cast<string>(m["MseInstanceId"]));
+    }
+    if (m.find("RegistryType") != m.end() && !m["RegistryType"].empty()) {
+      registryType = make_shared<string>(boost::any_cast<string>(m["RegistryType"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig() = default;
+};
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig : public Darabonba::Model {
 public:
   shared_ptr<string> eventBridgeRegionId{};
@@ -22449,6 +22577,7 @@ public:
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig : public Darabonba::Model {
 public:
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig> discoveryConfig{};
+  shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig> edasConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig> eventBridgeConfig{};
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig> functionComputeConfig{};
   shared_ptr<string> httpTargetHostName{};
@@ -22471,6 +22600,9 @@ public:
     map<string, boost::any> res;
     if (discoveryConfig) {
       res["DiscoveryConfig"] = discoveryConfig ? boost::any(discoveryConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (edasConfig) {
+      res["EdasConfig"] = edasConfig ? boost::any(edasConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (eventBridgeConfig) {
       res["EventBridgeConfig"] = eventBridgeConfig ? boost::any(eventBridgeConfig->toMap()) : boost::any(map<string,boost::any>({}));
@@ -22508,6 +22640,13 @@ public:
         DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["DiscoveryConfig"]));
         discoveryConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig>(model1);
+      }
+    }
+    if (m.find("EdasConfig") != m.end() && !m["EdasConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["EdasConfig"].type()) {
+        DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["EdasConfig"]));
+        edasConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEdasConfig>(model1);
       }
     }
     if (m.find("EventBridgeConfig") != m.end() && !m["EventBridgeConfig"].empty()) {
@@ -22824,6 +22963,42 @@ public:
 
   virtual ~DescribeBackendInfoResponse() = default;
 };
+class DescribeBackendListRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeBackendListRequestTag() {}
+
+  explicit DescribeBackendListRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendListRequestTag() = default;
+};
 class DescribeBackendListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backendName{};
@@ -22831,6 +23006,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> securityToken{};
+  shared_ptr<vector<DescribeBackendListRequestTag>> tag{};
 
   DescribeBackendListRequest() {}
 
@@ -22857,6 +23033,13 @@ public:
     if (securityToken) {
       res["SecurityToken"] = boost::any(*securityToken);
     }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -22876,10 +23059,59 @@ public:
     if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
       securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
     }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<DescribeBackendListRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeBackendListRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<DescribeBackendListRequestTag>>(expect1);
+      }
+    }
   }
 
 
   virtual ~DescribeBackendListRequest() = default;
+};
+class DescribeBackendListResponseBodyBackendInfoListTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  DescribeBackendListResponseBodyBackendInfoListTags() {}
+
+  explicit DescribeBackendListResponseBodyBackendInfoListTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendListResponseBodyBackendInfoListTags() = default;
 };
 class DescribeBackendListResponseBodyBackendInfoList : public Darabonba::Model {
 public:
@@ -22889,6 +23121,7 @@ public:
   shared_ptr<string> createdTime{};
   shared_ptr<string> description{};
   shared_ptr<string> modifiedTime{};
+  shared_ptr<vector<DescribeBackendListResponseBodyBackendInfoListTags>> tags{};
 
   DescribeBackendListResponseBodyBackendInfoList() {}
 
@@ -22918,6 +23151,13 @@ public:
     if (modifiedTime) {
       res["ModifiedTime"] = boost::any(*modifiedTime);
     }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
     return res;
   }
 
@@ -22939,6 +23179,19 @@ public:
     }
     if (m.find("ModifiedTime") != m.end() && !m["ModifiedTime"].empty()) {
       modifiedTime = make_shared<string>(boost::any_cast<string>(m["ModifiedTime"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeBackendListResponseBodyBackendInfoListTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeBackendListResponseBodyBackendInfoListTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeBackendListResponseBodyBackendInfoListTags>>(expect1);
+      }
     }
   }
 
@@ -47750,6 +48003,161 @@ public:
 
   virtual ~SetApisAuthoritiesResponse() = default;
 };
+class SetAppsAuthToApiProductRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> apiProductId{};
+  shared_ptr<vector<long>> appIds{};
+  shared_ptr<string> authValidTime{};
+  shared_ptr<string> description{};
+  shared_ptr<string> securityToken{};
+
+  SetAppsAuthToApiProductRequest() {}
+
+  explicit SetAppsAuthToApiProductRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (apiProductId) {
+      res["ApiProductId"] = boost::any(*apiProductId);
+    }
+    if (appIds) {
+      res["AppIds"] = boost::any(*appIds);
+    }
+    if (authValidTime) {
+      res["AuthValidTime"] = boost::any(*authValidTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (securityToken) {
+      res["SecurityToken"] = boost::any(*securityToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApiProductId") != m.end() && !m["ApiProductId"].empty()) {
+      apiProductId = make_shared<string>(boost::any_cast<string>(m["ApiProductId"]));
+    }
+    if (m.find("AppIds") != m.end() && !m["AppIds"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["AppIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AppIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      appIds = make_shared<vector<long>>(toVec1);
+    }
+    if (m.find("AuthValidTime") != m.end() && !m["AuthValidTime"].empty()) {
+      authValidTime = make_shared<string>(boost::any_cast<string>(m["AuthValidTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("SecurityToken") != m.end() && !m["SecurityToken"].empty()) {
+      securityToken = make_shared<string>(boost::any_cast<string>(m["SecurityToken"]));
+    }
+  }
+
+
+  virtual ~SetAppsAuthToApiProductRequest() = default;
+};
+class SetAppsAuthToApiProductResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  SetAppsAuthToApiProductResponseBody() {}
+
+  explicit SetAppsAuthToApiProductResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SetAppsAuthToApiProductResponseBody() = default;
+};
+class SetAppsAuthToApiProductResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SetAppsAuthToApiProductResponseBody> body{};
+
+  SetAppsAuthToApiProductResponse() {}
+
+  explicit SetAppsAuthToApiProductResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SetAppsAuthToApiProductResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SetAppsAuthToApiProductResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SetAppsAuthToApiProductResponse() = default;
+};
 class SetAppsAuthoritiesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> apiId{};
@@ -50347,6 +50755,8 @@ public:
   SetApiProductsAuthoritiesResponse setApiProductsAuthorities(shared_ptr<SetApiProductsAuthoritiesRequest> request);
   SetApisAuthoritiesResponse setApisAuthoritiesWithOptions(shared_ptr<SetApisAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetApisAuthoritiesResponse setApisAuthorities(shared_ptr<SetApisAuthoritiesRequest> request);
+  SetAppsAuthToApiProductResponse setAppsAuthToApiProductWithOptions(shared_ptr<SetAppsAuthToApiProductRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SetAppsAuthToApiProductResponse setAppsAuthToApiProduct(shared_ptr<SetAppsAuthToApiProductRequest> request);
   SetAppsAuthoritiesResponse setAppsAuthoritiesWithOptions(shared_ptr<SetAppsAuthoritiesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetAppsAuthoritiesResponse setAppsAuthorities(shared_ptr<SetAppsAuthoritiesRequest> request);
   SetDomainResponse setDomainWithOptions(shared_ptr<SetDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
