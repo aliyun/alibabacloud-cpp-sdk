@@ -4978,6 +4978,55 @@ IeFlightBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieFl
   return ieFlightBillSettlementQueryWithOptions(request, headers, runtime);
 }
 
+IeHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieHotelBillSettlementQueryWithOptions(shared_ptr<IeHotelBillSettlementQueryRequest> request, shared_ptr<IeHotelBillSettlementQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->category)) {
+    query->insert(pair<string, long>("category", *request->category));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNo)) {
+    query->insert(pair<string, long>("page_no", *request->pageNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("page_size", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodEnd)) {
+    query->insert(pair<string, string>("period_end", *request->periodEnd));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->periodStart)) {
+    query->insert(pair<string, string>("period_start", *request->periodStart));
+  }
+  shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
+    realHeaders = headers->commonHeaders;
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(headers->xAcsBtripSoCorpToken)) {
+    realHeaders->insert(pair<string, string>("x-acs-btrip-so-corp-token", Darabonba_Util::Client::toJSONString(headers->xAcsBtripSoCorpToken)));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !realHeaders ? boost::any() : boost::any(*realHeaders)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("IeHotelBillSettlementQuery"))},
+    {"version", boost::any(string("2022-05-20"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/ie-hotel/v1/bill-settlement"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return IeHotelBillSettlementQueryResponse(callApi(params, req, runtime));
+}
+
+IeHotelBillSettlementQueryResponse Alibabacloud_BtripOpen20220520::Client::ieHotelBillSettlementQuery(shared_ptr<IeHotelBillSettlementQueryRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<IeHotelBillSettlementQueryHeaders> headers = make_shared<IeHotelBillSettlementQueryHeaders>();
+  return ieHotelBillSettlementQueryWithOptions(request, headers, runtime);
+}
+
 InsInvoiceScanQueryResponse Alibabacloud_BtripOpen20220520::Client::insInvoiceScanQueryWithOptions(shared_ptr<InsInvoiceScanQueryRequest> request, shared_ptr<InsInvoiceScanQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
