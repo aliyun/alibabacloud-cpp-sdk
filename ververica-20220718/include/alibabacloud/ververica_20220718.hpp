@@ -1598,6 +1598,7 @@ public:
 class JobStartParameters : public Darabonba::Model {
 public:
   shared_ptr<string> deploymentId{};
+  shared_ptr<string> resourceQueueName{};
   shared_ptr<DeploymentRestoreStrategy> restoreStrategy{};
 
   JobStartParameters() {}
@@ -1613,6 +1614,9 @@ public:
     if (deploymentId) {
       res["deploymentId"] = boost::any(*deploymentId);
     }
+    if (resourceQueueName) {
+      res["resourceQueueName"] = boost::any(*resourceQueueName);
+    }
     if (restoreStrategy) {
       res["restoreStrategy"] = restoreStrategy ? boost::any(restoreStrategy->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -1622,6 +1626,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("deploymentId") != m.end() && !m["deploymentId"].empty()) {
       deploymentId = make_shared<string>(boost::any_cast<string>(m["deploymentId"]));
+    }
+    if (m.find("resourceQueueName") != m.end() && !m["resourceQueueName"].empty()) {
+      resourceQueueName = make_shared<string>(boost::any_cast<string>(m["resourceQueueName"]));
     }
     if (m.find("restoreStrategy") != m.end() && !m["restoreStrategy"].empty()) {
       if (typeid(map<string, boost::any>) == m["restoreStrategy"].type()) {
