@@ -1720,6 +1720,7 @@ public:
 class NodeAttributes : public Darabonba::Model {
 public:
   shared_ptr<string> keyPairName{};
+  shared_ptr<string> masterRootPassword{};
   shared_ptr<string> ramRole{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vpcId{};
@@ -1737,6 +1738,9 @@ public:
     map<string, boost::any> res;
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
+    }
+    if (masterRootPassword) {
+      res["MasterRootPassword"] = boost::any(*masterRootPassword);
     }
     if (ramRole) {
       res["RamRole"] = boost::any(*ramRole);
@@ -1756,6 +1760,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
+    }
+    if (m.find("MasterRootPassword") != m.end() && !m["MasterRootPassword"].empty()) {
+      masterRootPassword = make_shared<string>(boost::any_cast<string>(m["MasterRootPassword"]));
     }
     if (m.find("RamRole") != m.end() && !m["RamRole"].empty()) {
       ramRole = make_shared<string>(boost::any_cast<string>(m["RamRole"]));
