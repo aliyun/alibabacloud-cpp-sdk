@@ -2222,6 +2222,7 @@ public:
   shared_ptr<long> autoRenewPeriod{};
   shared_ptr<bool> CRAggregationEnabled{};
   shared_ptr<string> chargeType{};
+  shared_ptr<string> clusterDomain{};
   shared_ptr<string> clusterSpec{};
   shared_ptr<bool> configSourceEnabled{};
   shared_ptr<string> configSourceNacosID{};
@@ -2334,6 +2335,9 @@ public:
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
+    }
+    if (clusterDomain) {
+      res["ClusterDomain"] = boost::any(*clusterDomain);
     }
     if (clusterSpec) {
       res["ClusterSpec"] = boost::any(*clusterSpec);
@@ -2564,6 +2568,9 @@ public:
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
+    }
+    if (m.find("ClusterDomain") != m.end() && !m["ClusterDomain"].empty()) {
+      clusterDomain = make_shared<string>(boost::any_cast<string>(m["ClusterDomain"]));
     }
     if (m.find("ClusterSpec") != m.end() && !m["ClusterSpec"].empty()) {
       clusterSpec = make_shared<string>(boost::any_cast<string>(m["ClusterSpec"]));

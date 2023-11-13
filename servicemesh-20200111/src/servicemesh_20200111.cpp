@@ -330,6 +330,9 @@ CreateServiceMeshResponse Alibabacloud_Servicemesh20200111::Client::createServic
   if (!Darabonba_Util::Client::isUnset<string>(request->chargeType)) {
     body->insert(pair<string, string>("ChargeType", *request->chargeType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterDomain)) {
+    body->insert(pair<string, string>("ClusterDomain", *request->clusterDomain));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpec)) {
     body->insert(pair<string, string>("ClusterSpec", *request->clusterSpec));
   }
