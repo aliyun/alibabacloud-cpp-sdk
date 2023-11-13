@@ -39223,6 +39223,7 @@ public:
 };
 class FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList : public Darabonba::Model {
 public:
+  shared_ptr<string> applyId{};
   shared_ptr<string> arrTime{};
   shared_ptr<string> changeCabin{};
   shared_ptr<string> changeCabinLevel{};
@@ -39235,7 +39236,10 @@ public:
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
   shared_ptr<string> originTicketNo{};
+  shared_ptr<string> outApplyId{};
   shared_ptr<string> ticketNo{};
+  shared_ptr<string> ticketStatus{};
+  shared_ptr<long> ticketStatusCode{};
   shared_ptr<double> upgradeFee{};
 
   FlightOrderQueryResponseBodyModuleFlightChangeTicketInfoList() {}
@@ -39248,6 +39252,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
     if (arrTime) {
       res["arr_time"] = boost::any(*arrTime);
     }
@@ -39284,8 +39291,17 @@ public:
     if (originTicketNo) {
       res["origin_ticket_no"] = boost::any(*originTicketNo);
     }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
+    }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
+    }
+    if (ticketStatus) {
+      res["ticket_status"] = boost::any(*ticketStatus);
+    }
+    if (ticketStatusCode) {
+      res["ticket_status_code"] = boost::any(*ticketStatusCode);
     }
     if (upgradeFee) {
       res["upgrade_fee"] = boost::any(*upgradeFee);
@@ -39294,6 +39310,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
     if (m.find("arr_time") != m.end() && !m["arr_time"].empty()) {
       arrTime = make_shared<string>(boost::any_cast<string>(m["arr_time"]));
     }
@@ -39330,8 +39349,17 @@ public:
     if (m.find("origin_ticket_no") != m.end() && !m["origin_ticket_no"].empty()) {
       originTicketNo = make_shared<string>(boost::any_cast<string>(m["origin_ticket_no"]));
     }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
+    }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
+    }
+    if (m.find("ticket_status") != m.end() && !m["ticket_status"].empty()) {
+      ticketStatus = make_shared<string>(boost::any_cast<string>(m["ticket_status"]));
+    }
+    if (m.find("ticket_status_code") != m.end() && !m["ticket_status_code"].empty()) {
+      ticketStatusCode = make_shared<long>(boost::any_cast<long>(m["ticket_status_code"]));
     }
     if (m.find("upgrade_fee") != m.end() && !m["upgrade_fee"].empty()) {
       upgradeFee = make_shared<double>(boost::any_cast<double>(m["upgrade_fee"]));
@@ -39491,8 +39519,10 @@ public:
 };
 class FlightOrderQueryResponseBodyModuleFlightRefundTicketInfoList : public Darabonba::Model {
 public:
+  shared_ptr<string> applyId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
+  shared_ptr<string> outApplyId{};
   shared_ptr<long> refundOrderId{};
   shared_ptr<string> refundReason{};
   shared_ptr<double> refundTicketFee{};
@@ -39509,11 +39539,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (applyId) {
+      res["apply_id"] = boost::any(*applyId);
+    }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
     }
     if (gmtModify) {
       res["gmt_modify"] = boost::any(*gmtModify);
+    }
+    if (outApplyId) {
+      res["out_apply_id"] = boost::any(*outApplyId);
     }
     if (refundOrderId) {
       res["refund_order_id"] = boost::any(*refundOrderId);
@@ -39534,11 +39570,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("apply_id") != m.end() && !m["apply_id"].empty()) {
+      applyId = make_shared<string>(boost::any_cast<string>(m["apply_id"]));
+    }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
     }
     if (m.find("gmt_modify") != m.end() && !m["gmt_modify"].empty()) {
       gmtModify = make_shared<string>(boost::any_cast<string>(m["gmt_modify"]));
+    }
+    if (m.find("out_apply_id") != m.end() && !m["out_apply_id"].empty()) {
+      outApplyId = make_shared<string>(boost::any_cast<string>(m["out_apply_id"]));
     }
     if (m.find("refund_order_id") != m.end() && !m["refund_order_id"].empty()) {
       refundOrderId = make_shared<long>(boost::any_cast<long>(m["refund_order_id"]));
@@ -39565,6 +39607,7 @@ public:
   shared_ptr<double> buildPrice{};
   shared_ptr<bool> changed{};
   shared_ptr<long> discount{};
+  shared_ptr<string> flightNo{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
   shared_ptr<double> oilPrice{};
@@ -39594,6 +39637,9 @@ public:
     }
     if (discount) {
       res["discount"] = boost::any(*discount);
+    }
+    if (flightNo) {
+      res["flight_no"] = boost::any(*flightNo);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -39637,6 +39683,9 @@ public:
     }
     if (m.find("discount") != m.end() && !m["discount"].empty()) {
       discount = make_shared<long>(boost::any_cast<long>(m["discount"]));
+    }
+    if (m.find("flight_no") != m.end() && !m["flight_no"].empty()) {
+      flightNo = make_shared<string>(boost::any_cast<string>(m["flight_no"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
@@ -39768,6 +39817,8 @@ public:
   shared_ptr<string> corpName{};
   shared_ptr<string> departId{};
   shared_ptr<string> departName{};
+  shared_ptr<string> exceedApplyId{};
+  shared_ptr<string> exceedThirdPartApplyId{};
   shared_ptr<string> gmtCreate{};
   shared_ptr<string> gmtModify{};
   shared_ptr<string> itineraryId{};
@@ -39809,6 +39860,12 @@ public:
     }
     if (departName) {
       res["depart_name"] = boost::any(*departName);
+    }
+    if (exceedApplyId) {
+      res["exceed_apply_id"] = boost::any(*exceedApplyId);
+    }
+    if (exceedThirdPartApplyId) {
+      res["exceed_third_part_apply_id"] = boost::any(*exceedThirdPartApplyId);
     }
     if (gmtCreate) {
       res["gmt_create"] = boost::any(*gmtCreate);
@@ -39864,6 +39921,12 @@ public:
     }
     if (m.find("depart_name") != m.end() && !m["depart_name"].empty()) {
       departName = make_shared<string>(boost::any_cast<string>(m["depart_name"]));
+    }
+    if (m.find("exceed_apply_id") != m.end() && !m["exceed_apply_id"].empty()) {
+      exceedApplyId = make_shared<string>(boost::any_cast<string>(m["exceed_apply_id"]));
+    }
+    if (m.find("exceed_third_part_apply_id") != m.end() && !m["exceed_third_part_apply_id"].empty()) {
+      exceedThirdPartApplyId = make_shared<string>(boost::any_cast<string>(m["exceed_third_part_apply_id"]));
     }
     if (m.find("gmt_create") != m.end() && !m["gmt_create"].empty()) {
       gmtCreate = make_shared<string>(boost::any_cast<string>(m["gmt_create"]));
