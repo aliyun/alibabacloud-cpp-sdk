@@ -7666,6 +7666,7 @@ public:
   shared_ptr<string> hotelNormalInvoiceFee{};
   shared_ptr<string> hotelSpecialInvoiceFee{};
   shared_ptr<string> internationalFlightInvoiceFee{};
+  shared_ptr<string> internationalHotelInvoiceFee{};
   shared_ptr<string> invoiceThirdPartId{};
   shared_ptr<string> mailAddress{};
   shared_ptr<string> mailCity{};
@@ -7708,6 +7709,9 @@ public:
     }
     if (internationalFlightInvoiceFee) {
       res["international_flight_invoice_fee"] = boost::any(*internationalFlightInvoiceFee);
+    }
+    if (internationalHotelInvoiceFee) {
+      res["international_hotel_invoice_fee"] = boost::any(*internationalHotelInvoiceFee);
     }
     if (invoiceThirdPartId) {
       res["invoice_third_part_id"] = boost::any(*invoiceThirdPartId);
@@ -7766,6 +7770,9 @@ public:
     }
     if (m.find("international_flight_invoice_fee") != m.end() && !m["international_flight_invoice_fee"].empty()) {
       internationalFlightInvoiceFee = make_shared<string>(boost::any_cast<string>(m["international_flight_invoice_fee"]));
+    }
+    if (m.find("international_hotel_invoice_fee") != m.end() && !m["international_hotel_invoice_fee"].empty()) {
+      internationalHotelInvoiceFee = make_shared<string>(boost::any_cast<string>(m["international_hotel_invoice_fee"]));
     }
     if (m.find("invoice_third_part_id") != m.end() && !m["invoice_third_part_id"].empty()) {
       invoiceThirdPartId = make_shared<string>(boost::any_cast<string>(m["invoice_third_part_id"]));
@@ -93111,6 +93118,7 @@ public:
   shared_ptr<string> hotelNormalInvoiceFee{};
   shared_ptr<string> hotelSpecialInvoiceFee{};
   shared_ptr<string> internationalFlightInvoiceFee{};
+  shared_ptr<string> internationalHotelInvoiceFee{};
   shared_ptr<string> invoiceThirdPartId{};
   shared_ptr<string> invoiceTitle{};
   shared_ptr<string> mailAddress{};
@@ -93154,6 +93162,9 @@ public:
     }
     if (internationalFlightInvoiceFee) {
       res["international_flight_invoice_fee"] = boost::any(*internationalFlightInvoiceFee);
+    }
+    if (internationalHotelInvoiceFee) {
+      res["international_hotel_invoice_fee"] = boost::any(*internationalHotelInvoiceFee);
     }
     if (invoiceThirdPartId) {
       res["invoice_third_part_id"] = boost::any(*invoiceThirdPartId);
@@ -93215,6 +93226,9 @@ public:
     }
     if (m.find("international_flight_invoice_fee") != m.end() && !m["international_flight_invoice_fee"].empty()) {
       internationalFlightInvoiceFee = make_shared<string>(boost::any_cast<string>(m["international_flight_invoice_fee"]));
+    }
+    if (m.find("international_hotel_invoice_fee") != m.end() && !m["international_hotel_invoice_fee"].empty()) {
+      internationalHotelInvoiceFee = make_shared<string>(boost::any_cast<string>(m["international_hotel_invoice_fee"]));
     }
     if (m.find("invoice_third_part_id") != m.end() && !m["invoice_third_part_id"].empty()) {
       invoiceThirdPartId = make_shared<string>(boost::any_cast<string>(m["invoice_third_part_id"]));
