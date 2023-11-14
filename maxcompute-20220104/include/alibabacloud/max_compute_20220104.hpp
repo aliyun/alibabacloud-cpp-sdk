@@ -6240,6 +6240,7 @@ public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItem{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> schemaName{};
 
   ListFunctionsRequest() {}
 
@@ -6260,6 +6261,9 @@ public:
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -6273,6 +6277,9 @@ public:
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -6282,6 +6289,7 @@ class ListFunctionsResponseBodyDataFunctions : public Darabonba::Model {
 public:
   shared_ptr<string> class_{};
   shared_ptr<long> creationTime{};
+  shared_ptr<string> displayName{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<string> resources{};
@@ -6302,6 +6310,9 @@ public:
     }
     if (creationTime) {
       res["creationTime"] = boost::any(*creationTime);
+    }
+    if (displayName) {
+      res["displayName"] = boost::any(*displayName);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -6324,6 +6335,9 @@ public:
     }
     if (m.find("creationTime") != m.end() && !m["creationTime"].empty()) {
       creationTime = make_shared<long>(boost::any_cast<long>(m["creationTime"]));
+    }
+    if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -6929,6 +6943,7 @@ public:
 };
 class ListProjectsRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> listSystemCatalog{};
   shared_ptr<string> marker{};
   shared_ptr<long> maxItem{};
   shared_ptr<string> prefix{};
@@ -6949,6 +6964,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (listSystemCatalog) {
+      res["listSystemCatalog"] = boost::any(*listSystemCatalog);
+    }
     if (marker) {
       res["marker"] = boost::any(*marker);
     }
@@ -6980,6 +6998,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("listSystemCatalog") != m.end() && !m["listSystemCatalog"].empty()) {
+      listSystemCatalog = make_shared<bool>(boost::any_cast<bool>(m["listSystemCatalog"]));
+    }
     if (m.find("marker") != m.end() && !m["marker"].empty()) {
       marker = make_shared<string>(boost::any_cast<string>(m["marker"]));
     }
@@ -7423,6 +7444,7 @@ public:
   shared_ptr<ListProjectsResponseBodyDataProjectsSaleTag> saleTag{};
   shared_ptr<ListProjectsResponseBodyDataProjectsSecurityProperties> securityProperties{};
   shared_ptr<string> status{};
+  shared_ptr<bool> threeTierModel{};
   shared_ptr<string> type{};
 
   ListProjectsResponseBodyDataProjects() {}
@@ -7471,6 +7493,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (threeTierModel) {
+      res["threeTierModel"] = boost::any(*threeTierModel);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -7537,6 +7562,9 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("threeTierModel") != m.end() && !m["threeTierModel"].empty()) {
+      threeTierModel = make_shared<bool>(boost::any_cast<bool>(m["threeTierModel"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -10211,6 +10239,7 @@ public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItem{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   ListResourcesRequest() {}
 
@@ -10231,6 +10260,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -10244,6 +10276,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -10251,10 +10286,16 @@ public:
 };
 class ListResourcesResponseBodyDataResources : public Darabonba::Model {
 public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> contentMD5{};
   shared_ptr<long> creationTime{};
+  shared_ptr<string> displayName{};
+  shared_ptr<long> lastModifiedTime{};
+  shared_ptr<string> lastUpdator{};
   shared_ptr<string> name{};
   shared_ptr<string> owner{};
   shared_ptr<string> schema{};
+  shared_ptr<long> size{};
   shared_ptr<string> type{};
 
   ListResourcesResponseBodyDataResources() {}
@@ -10267,8 +10308,23 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
+    if (contentMD5) {
+      res["contentMD5"] = boost::any(*contentMD5);
+    }
     if (creationTime) {
       res["creationTime"] = boost::any(*creationTime);
+    }
+    if (displayName) {
+      res["displayName"] = boost::any(*displayName);
+    }
+    if (lastModifiedTime) {
+      res["lastModifiedTime"] = boost::any(*lastModifiedTime);
+    }
+    if (lastUpdator) {
+      res["lastUpdator"] = boost::any(*lastUpdator);
     }
     if (name) {
       res["name"] = boost::any(*name);
@@ -10279,6 +10335,9 @@ public:
     if (schema) {
       res["schema"] = boost::any(*schema);
     }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -10286,8 +10345,23 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
+    }
+    if (m.find("contentMD5") != m.end() && !m["contentMD5"].empty()) {
+      contentMD5 = make_shared<string>(boost::any_cast<string>(m["contentMD5"]));
+    }
     if (m.find("creationTime") != m.end() && !m["creationTime"].empty()) {
       creationTime = make_shared<long>(boost::any_cast<long>(m["creationTime"]));
+    }
+    if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
+    }
+    if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<long>(boost::any_cast<long>(m["lastModifiedTime"]));
+    }
+    if (m.find("lastUpdator") != m.end() && !m["lastUpdator"].empty()) {
+      lastUpdator = make_shared<string>(boost::any_cast<string>(m["lastUpdator"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
@@ -10297,6 +10371,9 @@ public:
     }
     if (m.find("schema") != m.end() && !m["schema"].empty()) {
       schema = make_shared<string>(boost::any_cast<string>(m["schema"]));
+    }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -11075,6 +11152,7 @@ public:
   shared_ptr<string> marker{};
   shared_ptr<long> maxItem{};
   shared_ptr<string> prefix{};
+  shared_ptr<string> schemaName{};
   shared_ptr<string> type{};
 
   ListTablesRequest() {}
@@ -11096,6 +11174,9 @@ public:
     if (prefix) {
       res["prefix"] = boost::any(*prefix);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     if (type) {
       res["type"] = boost::any(*type);
     }
@@ -11112,6 +11193,9 @@ public:
     if (m.find("prefix") != m.end() && !m["prefix"].empty()) {
       prefix = make_shared<string>(boost::any_cast<string>(m["prefix"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
     }
@@ -11120,13 +11204,140 @@ public:
 
   virtual ~ListTablesRequest() = default;
 };
+class ListTablesResponseBodyDataTablesNativeColumns : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> label{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  ListTablesResponseBodyDataTablesNativeColumns() {}
+
+  explicit ListTablesResponseBodyDataTablesNativeColumns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
+    if (label) {
+      res["label"] = boost::any(*label);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
+    }
+    if (m.find("label") != m.end() && !m["label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["label"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBodyDataTablesNativeColumns() = default;
+};
+class ListTablesResponseBodyDataTablesPartitionColumns : public Darabonba::Model {
+public:
+  shared_ptr<string> comment{};
+  shared_ptr<string> label{};
+  shared_ptr<string> name{};
+  shared_ptr<string> type{};
+
+  ListTablesResponseBodyDataTablesPartitionColumns() {}
+
+  explicit ListTablesResponseBodyDataTablesPartitionColumns(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (comment) {
+      res["comment"] = boost::any(*comment);
+    }
+    if (label) {
+      res["label"] = boost::any(*label);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("comment") != m.end() && !m["comment"].empty()) {
+      comment = make_shared<string>(boost::any_cast<string>(m["comment"]));
+    }
+    if (m.find("label") != m.end() && !m["label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["label"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListTablesResponseBodyDataTablesPartitionColumns() = default;
+};
 class ListTablesResponseBodyDataTables : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoRefreshEnabled{};
+  shared_ptr<string> createTableDDL{};
   shared_ptr<long> creationTime{};
+  shared_ptr<string> displayName{};
+  shared_ptr<long> fileNum{};
+  shared_ptr<bool> isExternalTable{};
+  shared_ptr<bool> isOutdated{};
+  shared_ptr<long> lastAccessTime{};
+  shared_ptr<long> lastDDLTime{};
+  shared_ptr<long> lastModifiedTime{};
+  shared_ptr<string> lifecycle{};
+  shared_ptr<string> location{};
+  shared_ptr<bool> materializedView{};
   shared_ptr<string> name{};
+  shared_ptr<vector<ListTablesResponseBodyDataTablesNativeColumns>> nativeColumns{};
+  shared_ptr<string> odpsPropertiesRolearn{};
+  shared_ptr<bool> odpsSqlTextOptionFlushHeader{};
+  shared_ptr<long> odpsTextOptionHeaderLinesCount{};
   shared_ptr<string> owner{};
+  shared_ptr<vector<ListTablesResponseBodyDataTablesPartitionColumns>> partitionColumns{};
+  shared_ptr<long> physicalSize{};
+  shared_ptr<string> projectName{};
+  shared_ptr<bool> rewriteEnabled{};
   shared_ptr<string> schema{};
+  shared_ptr<long> size{};
+  shared_ptr<string> storageHandler{};
+  shared_ptr<string> tableComment{};
+  shared_ptr<string> tableLabel{};
+  shared_ptr<string> tablesotreTableName{};
+  shared_ptr<string> tablestoreColumnsMapping{};
   shared_ptr<string> type{};
+  shared_ptr<string> viewText{};
 
   ListTablesResponseBodyDataTables() {}
 
@@ -11138,39 +11349,229 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoRefreshEnabled) {
+      res["autoRefreshEnabled"] = boost::any(*autoRefreshEnabled);
+    }
+    if (createTableDDL) {
+      res["createTableDDL"] = boost::any(*createTableDDL);
+    }
     if (creationTime) {
       res["creationTime"] = boost::any(*creationTime);
+    }
+    if (displayName) {
+      res["displayName"] = boost::any(*displayName);
+    }
+    if (fileNum) {
+      res["fileNum"] = boost::any(*fileNum);
+    }
+    if (isExternalTable) {
+      res["isExternalTable"] = boost::any(*isExternalTable);
+    }
+    if (isOutdated) {
+      res["isOutdated"] = boost::any(*isOutdated);
+    }
+    if (lastAccessTime) {
+      res["lastAccessTime"] = boost::any(*lastAccessTime);
+    }
+    if (lastDDLTime) {
+      res["lastDDLTime"] = boost::any(*lastDDLTime);
+    }
+    if (lastModifiedTime) {
+      res["lastModifiedTime"] = boost::any(*lastModifiedTime);
+    }
+    if (lifecycle) {
+      res["lifecycle"] = boost::any(*lifecycle);
+    }
+    if (location) {
+      res["location"] = boost::any(*location);
+    }
+    if (materializedView) {
+      res["materializedView"] = boost::any(*materializedView);
     }
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (nativeColumns) {
+      vector<boost::any> temp1;
+      for(auto item1:*nativeColumns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["nativeColumns"] = boost::any(temp1);
+    }
+    if (odpsPropertiesRolearn) {
+      res["odpsPropertiesRolearn"] = boost::any(*odpsPropertiesRolearn);
+    }
+    if (odpsSqlTextOptionFlushHeader) {
+      res["odpsSqlTextOptionFlushHeader"] = boost::any(*odpsSqlTextOptionFlushHeader);
+    }
+    if (odpsTextOptionHeaderLinesCount) {
+      res["odpsTextOptionHeaderLinesCount"] = boost::any(*odpsTextOptionHeaderLinesCount);
+    }
     if (owner) {
       res["owner"] = boost::any(*owner);
+    }
+    if (partitionColumns) {
+      vector<boost::any> temp1;
+      for(auto item1:*partitionColumns){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["partitionColumns"] = boost::any(temp1);
+    }
+    if (physicalSize) {
+      res["physicalSize"] = boost::any(*physicalSize);
+    }
+    if (projectName) {
+      res["projectName"] = boost::any(*projectName);
+    }
+    if (rewriteEnabled) {
+      res["rewriteEnabled"] = boost::any(*rewriteEnabled);
     }
     if (schema) {
       res["schema"] = boost::any(*schema);
     }
+    if (size) {
+      res["size"] = boost::any(*size);
+    }
+    if (storageHandler) {
+      res["storageHandler"] = boost::any(*storageHandler);
+    }
+    if (tableComment) {
+      res["tableComment"] = boost::any(*tableComment);
+    }
+    if (tableLabel) {
+      res["tableLabel"] = boost::any(*tableLabel);
+    }
+    if (tablesotreTableName) {
+      res["tablesotreTableName"] = boost::any(*tablesotreTableName);
+    }
+    if (tablestoreColumnsMapping) {
+      res["tablestoreColumnsMapping"] = boost::any(*tablestoreColumnsMapping);
+    }
     if (type) {
       res["type"] = boost::any(*type);
+    }
+    if (viewText) {
+      res["viewText"] = boost::any(*viewText);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("autoRefreshEnabled") != m.end() && !m["autoRefreshEnabled"].empty()) {
+      autoRefreshEnabled = make_shared<bool>(boost::any_cast<bool>(m["autoRefreshEnabled"]));
+    }
+    if (m.find("createTableDDL") != m.end() && !m["createTableDDL"].empty()) {
+      createTableDDL = make_shared<string>(boost::any_cast<string>(m["createTableDDL"]));
+    }
     if (m.find("creationTime") != m.end() && !m["creationTime"].empty()) {
       creationTime = make_shared<long>(boost::any_cast<long>(m["creationTime"]));
+    }
+    if (m.find("displayName") != m.end() && !m["displayName"].empty()) {
+      displayName = make_shared<string>(boost::any_cast<string>(m["displayName"]));
+    }
+    if (m.find("fileNum") != m.end() && !m["fileNum"].empty()) {
+      fileNum = make_shared<long>(boost::any_cast<long>(m["fileNum"]));
+    }
+    if (m.find("isExternalTable") != m.end() && !m["isExternalTable"].empty()) {
+      isExternalTable = make_shared<bool>(boost::any_cast<bool>(m["isExternalTable"]));
+    }
+    if (m.find("isOutdated") != m.end() && !m["isOutdated"].empty()) {
+      isOutdated = make_shared<bool>(boost::any_cast<bool>(m["isOutdated"]));
+    }
+    if (m.find("lastAccessTime") != m.end() && !m["lastAccessTime"].empty()) {
+      lastAccessTime = make_shared<long>(boost::any_cast<long>(m["lastAccessTime"]));
+    }
+    if (m.find("lastDDLTime") != m.end() && !m["lastDDLTime"].empty()) {
+      lastDDLTime = make_shared<long>(boost::any_cast<long>(m["lastDDLTime"]));
+    }
+    if (m.find("lastModifiedTime") != m.end() && !m["lastModifiedTime"].empty()) {
+      lastModifiedTime = make_shared<long>(boost::any_cast<long>(m["lastModifiedTime"]));
+    }
+    if (m.find("lifecycle") != m.end() && !m["lifecycle"].empty()) {
+      lifecycle = make_shared<string>(boost::any_cast<string>(m["lifecycle"]));
+    }
+    if (m.find("location") != m.end() && !m["location"].empty()) {
+      location = make_shared<string>(boost::any_cast<string>(m["location"]));
+    }
+    if (m.find("materializedView") != m.end() && !m["materializedView"].empty()) {
+      materializedView = make_shared<bool>(boost::any_cast<bool>(m["materializedView"]));
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("nativeColumns") != m.end() && !m["nativeColumns"].empty()) {
+      if (typeid(vector<boost::any>) == m["nativeColumns"].type()) {
+        vector<ListTablesResponseBodyDataTablesNativeColumns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["nativeColumns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTablesResponseBodyDataTablesNativeColumns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        nativeColumns = make_shared<vector<ListTablesResponseBodyDataTablesNativeColumns>>(expect1);
+      }
+    }
+    if (m.find("odpsPropertiesRolearn") != m.end() && !m["odpsPropertiesRolearn"].empty()) {
+      odpsPropertiesRolearn = make_shared<string>(boost::any_cast<string>(m["odpsPropertiesRolearn"]));
+    }
+    if (m.find("odpsSqlTextOptionFlushHeader") != m.end() && !m["odpsSqlTextOptionFlushHeader"].empty()) {
+      odpsSqlTextOptionFlushHeader = make_shared<bool>(boost::any_cast<bool>(m["odpsSqlTextOptionFlushHeader"]));
+    }
+    if (m.find("odpsTextOptionHeaderLinesCount") != m.end() && !m["odpsTextOptionHeaderLinesCount"].empty()) {
+      odpsTextOptionHeaderLinesCount = make_shared<long>(boost::any_cast<long>(m["odpsTextOptionHeaderLinesCount"]));
+    }
     if (m.find("owner") != m.end() && !m["owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["owner"]));
+    }
+    if (m.find("partitionColumns") != m.end() && !m["partitionColumns"].empty()) {
+      if (typeid(vector<boost::any>) == m["partitionColumns"].type()) {
+        vector<ListTablesResponseBodyDataTablesPartitionColumns> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["partitionColumns"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTablesResponseBodyDataTablesPartitionColumns model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        partitionColumns = make_shared<vector<ListTablesResponseBodyDataTablesPartitionColumns>>(expect1);
+      }
+    }
+    if (m.find("physicalSize") != m.end() && !m["physicalSize"].empty()) {
+      physicalSize = make_shared<long>(boost::any_cast<long>(m["physicalSize"]));
+    }
+    if (m.find("projectName") != m.end() && !m["projectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["projectName"]));
+    }
+    if (m.find("rewriteEnabled") != m.end() && !m["rewriteEnabled"].empty()) {
+      rewriteEnabled = make_shared<bool>(boost::any_cast<bool>(m["rewriteEnabled"]));
     }
     if (m.find("schema") != m.end() && !m["schema"].empty()) {
       schema = make_shared<string>(boost::any_cast<string>(m["schema"]));
     }
+    if (m.find("size") != m.end() && !m["size"].empty()) {
+      size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("storageHandler") != m.end() && !m["storageHandler"].empty()) {
+      storageHandler = make_shared<string>(boost::any_cast<string>(m["storageHandler"]));
+    }
+    if (m.find("tableComment") != m.end() && !m["tableComment"].empty()) {
+      tableComment = make_shared<string>(boost::any_cast<string>(m["tableComment"]));
+    }
+    if (m.find("tableLabel") != m.end() && !m["tableLabel"].empty()) {
+      tableLabel = make_shared<string>(boost::any_cast<string>(m["tableLabel"]));
+    }
+    if (m.find("tablesotreTableName") != m.end() && !m["tablesotreTableName"].empty()) {
+      tablesotreTableName = make_shared<string>(boost::any_cast<string>(m["tablesotreTableName"]));
+    }
+    if (m.find("tablestoreColumnsMapping") != m.end() && !m["tablestoreColumnsMapping"].empty()) {
+      tablestoreColumnsMapping = make_shared<string>(boost::any_cast<string>(m["tablestoreColumnsMapping"]));
+    }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+    if (m.find("viewText") != m.end() && !m["viewText"].empty()) {
+      viewText = make_shared<string>(boost::any_cast<string>(m["viewText"]));
     }
   }
 

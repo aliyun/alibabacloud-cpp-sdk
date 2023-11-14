@@ -738,6 +738,9 @@ ListFunctionsResponse Alibabacloud_MaxCompute20220104::Client::listFunctionsWith
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
+    query->insert(pair<string, string>("schemaName", *request->schemaName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -813,6 +816,9 @@ ListProjectUsersResponse Alibabacloud_MaxCompute20220104::Client::listProjectUse
 ListProjectsResponse Alibabacloud_MaxCompute20220104::Client::listProjectsWithOptions(shared_ptr<ListProjectsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->listSystemCatalog)) {
+    query->insert(pair<string, bool>("listSystemCatalog", *request->listSystemCatalog));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->marker)) {
     query->insert(pair<string, string>("marker", *request->marker));
   }
@@ -963,6 +969,9 @@ ListResourcesResponse Alibabacloud_MaxCompute20220104::Client::listResourcesWith
   if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
     query->insert(pair<string, string>("name", *request->name));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
+    query->insert(pair<string, string>("schemaName", *request->schemaName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -1025,6 +1034,9 @@ ListTablesResponse Alibabacloud_MaxCompute20220104::Client::listTablesWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->prefix)) {
     query->insert(pair<string, string>("prefix", *request->prefix));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schemaName)) {
+    query->insert(pair<string, string>("schemaName", *request->schemaName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("type", *request->type));
