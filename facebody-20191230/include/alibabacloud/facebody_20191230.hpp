@@ -3789,6 +3789,477 @@ public:
 
   virtual ~CreateFaceDbResponse() = default;
 };
+class DeepfakeFaceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> imageData{};
+  shared_ptr<string> imageURL{};
+
+  DeepfakeFaceRequestTasks() {}
+
+  explicit DeepfakeFaceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~DeepfakeFaceRequestTasks() = default;
+};
+class DeepfakeFaceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeepfakeFaceRequestTasks>> tasks{};
+
+  DeepfakeFaceRequest() {}
+
+  explicit DeepfakeFaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<DeepfakeFaceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeepfakeFaceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<DeepfakeFaceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeFaceRequest() = default;
+};
+class DeepfakeFaceAdvanceRequestTasks : public Darabonba::Model {
+public:
+  shared_ptr<string> imageData{};
+  shared_ptr<Darabonba::Stream> imageURLObject{};
+
+  DeepfakeFaceAdvanceRequestTasks() {}
+
+  explicit DeepfakeFaceAdvanceRequestTasks(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (imageData) {
+      res["ImageData"] = boost::any(*imageData);
+    }
+    if (imageURLObject) {
+      res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ImageData") != m.end() && !m["ImageData"].empty()) {
+      imageData = make_shared<string>(boost::any_cast<string>(m["ImageData"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+  }
+
+
+  virtual ~DeepfakeFaceAdvanceRequestTasks() = default;
+};
+class DeepfakeFaceAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeepfakeFaceAdvanceRequestTasks>> tasks{};
+
+  DeepfakeFaceAdvanceRequest() {}
+
+  explicit DeepfakeFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tasks) {
+      vector<boost::any> temp1;
+      for(auto item1:*tasks){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tasks"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Tasks") != m.end() && !m["Tasks"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tasks"].type()) {
+        vector<DeepfakeFaceAdvanceRequestTasks> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tasks"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeepfakeFaceAdvanceRequestTasks model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tasks = make_shared<vector<DeepfakeFaceAdvanceRequestTasks>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeFaceAdvanceRequest() = default;
+};
+class DeepfakeFaceResponseBodyDataElementsResultsRect : public Darabonba::Model {
+public:
+  shared_ptr<long> height{};
+  shared_ptr<long> left{};
+  shared_ptr<long> top{};
+  shared_ptr<long> width{};
+
+  DeepfakeFaceResponseBodyDataElementsResultsRect() {}
+
+  explicit DeepfakeFaceResponseBodyDataElementsResultsRect(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (left) {
+      res["Left"] = boost::any(*left);
+    }
+    if (top) {
+      res["Top"] = boost::any(*top);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Left") != m.end() && !m["Left"].empty()) {
+      left = make_shared<long>(boost::any_cast<long>(m["Left"]));
+    }
+    if (m.find("Top") != m.end() && !m["Top"].empty()) {
+      top = make_shared<long>(boost::any_cast<long>(m["Top"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponseBodyDataElementsResultsRect() = default;
+};
+class DeepfakeFaceResponseBodyDataElementsResults : public Darabonba::Model {
+public:
+  shared_ptr<double> confidence{};
+  shared_ptr<string> label{};
+  shared_ptr<string> messageTips{};
+  shared_ptr<DeepfakeFaceResponseBodyDataElementsResultsRect> rect{};
+
+  DeepfakeFaceResponseBodyDataElementsResults() {}
+
+  explicit DeepfakeFaceResponseBodyDataElementsResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (confidence) {
+      res["Confidence"] = boost::any(*confidence);
+    }
+    if (label) {
+      res["Label"] = boost::any(*label);
+    }
+    if (messageTips) {
+      res["MessageTips"] = boost::any(*messageTips);
+    }
+    if (rect) {
+      res["Rect"] = rect ? boost::any(rect->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Confidence") != m.end() && !m["Confidence"].empty()) {
+      confidence = make_shared<double>(boost::any_cast<double>(m["Confidence"]));
+    }
+    if (m.find("Label") != m.end() && !m["Label"].empty()) {
+      label = make_shared<string>(boost::any_cast<string>(m["Label"]));
+    }
+    if (m.find("MessageTips") != m.end() && !m["MessageTips"].empty()) {
+      messageTips = make_shared<string>(boost::any_cast<string>(m["MessageTips"]));
+    }
+    if (m.find("Rect") != m.end() && !m["Rect"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Rect"].type()) {
+        DeepfakeFaceResponseBodyDataElementsResultsRect model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Rect"]));
+        rect = make_shared<DeepfakeFaceResponseBodyDataElementsResultsRect>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponseBodyDataElementsResults() = default;
+};
+class DeepfakeFaceResponseBodyDataElements : public Darabonba::Model {
+public:
+  shared_ptr<long> faceNumber{};
+  shared_ptr<string> imageURL{};
+  shared_ptr<vector<DeepfakeFaceResponseBodyDataElementsResults>> results{};
+  shared_ptr<string> taskId{};
+
+  DeepfakeFaceResponseBodyDataElements() {}
+
+  explicit DeepfakeFaceResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (faceNumber) {
+      res["FaceNumber"] = boost::any(*faceNumber);
+    }
+    if (imageURL) {
+      res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (results) {
+      vector<boost::any> temp1;
+      for(auto item1:*results){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Results"] = boost::any(temp1);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FaceNumber") != m.end() && !m["FaceNumber"].empty()) {
+      faceNumber = make_shared<long>(boost::any_cast<long>(m["FaceNumber"]));
+    }
+    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
+      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("Results") != m.end() && !m["Results"].empty()) {
+      if (typeid(vector<boost::any>) == m["Results"].type()) {
+        vector<DeepfakeFaceResponseBodyDataElementsResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Results"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeepfakeFaceResponseBodyDataElementsResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        results = make_shared<vector<DeepfakeFaceResponseBodyDataElementsResults>>(expect1);
+      }
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponseBodyDataElements() = default;
+};
+class DeepfakeFaceResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<vector<DeepfakeFaceResponseBodyDataElements>> elements{};
+
+  DeepfakeFaceResponseBodyData() {}
+
+  explicit DeepfakeFaceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (elements) {
+      vector<boost::any> temp1;
+      for(auto item1:*elements){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Elements"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
+      if (typeid(vector<boost::any>) == m["Elements"].type()) {
+        vector<DeepfakeFaceResponseBodyDataElements> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DeepfakeFaceResponseBodyDataElements model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        elements = make_shared<vector<DeepfakeFaceResponseBodyDataElements>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponseBodyData() = default;
+};
+class DeepfakeFaceResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<DeepfakeFaceResponseBodyData> data{};
+  shared_ptr<string> requestId{};
+
+  DeepfakeFaceResponseBody() {}
+
+  explicit DeepfakeFaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DeepfakeFaceResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DeepfakeFaceResponseBodyData>(model1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponseBody() = default;
+};
+class DeepfakeFaceResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeepfakeFaceResponseBody> body{};
+
+  DeepfakeFaceResponse() {}
+
+  explicit DeepfakeFaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeepfakeFaceResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeepfakeFaceResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeepfakeFaceResponse() = default;
+};
 class DeleteFaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dbName{};
@@ -17141,6 +17612,9 @@ public:
   CompareFaceWithMaskResponse compareFaceWithMaskAdvance(shared_ptr<CompareFaceWithMaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFaceDbResponse createFaceDbWithOptions(shared_ptr<CreateFaceDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateFaceDbResponse createFaceDb(shared_ptr<CreateFaceDbRequest> request);
+  DeepfakeFaceResponse deepfakeFaceWithOptions(shared_ptr<DeepfakeFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeepfakeFaceResponse deepfakeFace(shared_ptr<DeepfakeFaceRequest> request);
+  DeepfakeFaceResponse deepfakeFaceAdvance(shared_ptr<DeepfakeFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceResponse deleteFaceWithOptions(shared_ptr<DeleteFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteFaceResponse deleteFace(shared_ptr<DeleteFaceRequest> request);
   DeleteFaceDbResponse deleteFaceDbWithOptions(shared_ptr<DeleteFaceDbRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
