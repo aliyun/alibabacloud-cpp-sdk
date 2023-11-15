@@ -8587,6 +8587,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> policyId{};
+  shared_ptr<bool> simpleMode{};
   shared_ptr<vector<string>> tagIds{};
 
   ListPrivateAccessTagsRequest() {}
@@ -8614,6 +8615,9 @@ public:
     if (policyId) {
       res["PolicyId"] = boost::any(*policyId);
     }
+    if (simpleMode) {
+      res["SimpleMode"] = boost::any(*simpleMode);
+    }
     if (tagIds) {
       res["TagIds"] = boost::any(*tagIds);
     }
@@ -8635,6 +8639,9 @@ public:
     }
     if (m.find("PolicyId") != m.end() && !m["PolicyId"].empty()) {
       policyId = make_shared<string>(boost::any_cast<string>(m["PolicyId"]));
+    }
+    if (m.find("SimpleMode") != m.end() && !m["SimpleMode"].empty()) {
+      simpleMode = make_shared<bool>(boost::any_cast<bool>(m["SimpleMode"]));
     }
     if (m.find("TagIds") != m.end() && !m["TagIds"].empty()) {
       vector<string> toVec1;
@@ -10672,6 +10679,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> saseUserId{};
   shared_ptr<bool> sharingStatus{};
+  shared_ptr<string> sortBy{};
   shared_ptr<string> username{};
 
   ListUserDevicesRequest() {}
@@ -10731,6 +10739,9 @@ public:
     }
     if (sharingStatus) {
       res["SharingStatus"] = boost::any(*sharingStatus);
+    }
+    if (sortBy) {
+      res["SortBy"] = boost::any(*sortBy);
     }
     if (username) {
       res["Username"] = boost::any(*username);
@@ -10842,6 +10853,9 @@ public:
     }
     if (m.find("SharingStatus") != m.end() && !m["SharingStatus"].empty()) {
       sharingStatus = make_shared<bool>(boost::any_cast<bool>(m["SharingStatus"]));
+    }
+    if (m.find("SortBy") != m.end() && !m["SortBy"].empty()) {
+      sortBy = make_shared<string>(boost::any_cast<string>(m["SortBy"]));
     }
     if (m.find("Username") != m.end() && !m["Username"].empty()) {
       username = make_shared<string>(boost::any_cast<string>(m["Username"]));
