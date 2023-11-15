@@ -2914,6 +2914,635 @@ public:
 
   virtual ~DescribeAlertTypeResponse() = default;
 };
+class DescribeAlertsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertTitle{};
+  shared_ptr<string> alertUuid{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> isDefend{};
+  shared_ptr<vector<string>> level{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> source{};
+  shared_ptr<long> startTime{};
+  shared_ptr<string> subUserId{};
+
+  DescribeAlertsRequest() {}
+
+  explicit DescribeAlertsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertTitle) {
+      res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (alertUuid) {
+      res["AlertUuid"] = boost::any(*alertUuid);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (isDefend) {
+      res["IsDefend"] = boost::any(*isDefend);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (subUserId) {
+      res["SubUserId"] = boost::any(*subUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
+      alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("AlertUuid") != m.end() && !m["AlertUuid"].empty()) {
+      alertUuid = make_shared<string>(boost::any_cast<string>(m["AlertUuid"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("IsDefend") != m.end() && !m["IsDefend"].empty()) {
+      isDefend = make_shared<string>(boost::any_cast<string>(m["IsDefend"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Level"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Level"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      level = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
+      subUserId = make_shared<string>(boost::any_cast<string>(m["SubUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsRequest() = default;
+};
+class DescribeAlertsResponseBodyDataPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  DescribeAlertsResponseBodyDataPageInfo() {}
+
+  explicit DescribeAlertsResponseBodyDataPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponseBodyDataPageInfo() = default;
+};
+class DescribeAlertsResponseBodyDataResponseDataAlertInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> keyName{};
+  shared_ptr<string> values{};
+
+  DescribeAlertsResponseBodyDataResponseDataAlertInfoList() {}
+
+  explicit DescribeAlertsResponseBodyDataResponseDataAlertInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (keyName) {
+      res["KeyName"] = boost::any(*keyName);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("KeyName") != m.end() && !m["KeyName"].empty()) {
+      keyName = make_shared<string>(boost::any_cast<string>(m["KeyName"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<string>(boost::any_cast<string>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponseBodyDataResponseDataAlertInfoList() = default;
+};
+class DescribeAlertsResponseBodyDataResponseData : public Darabonba::Model {
+public:
+  shared_ptr<string> alertDesc{};
+  shared_ptr<string> alertDescCode{};
+  shared_ptr<string> alertDescEn{};
+  shared_ptr<string> alertDetail{};
+  shared_ptr<vector<DescribeAlertsResponseBodyDataResponseDataAlertInfoList>> alertInfoList{};
+  shared_ptr<string> alertLevel{};
+  shared_ptr<string> alertName{};
+  shared_ptr<string> alertNameCode{};
+  shared_ptr<string> alertNameEn{};
+  shared_ptr<string> alertSrcProd{};
+  shared_ptr<string> alertSrcProdModule{};
+  shared_ptr<string> alertTitle{};
+  shared_ptr<string> alertTitleEn{};
+  shared_ptr<string> alertType{};
+  shared_ptr<string> alertTypeCode{};
+  shared_ptr<string> alertTypeEn{};
+  shared_ptr<string> alertUuid{};
+  shared_ptr<string> assetList{};
+  shared_ptr<string> attCk{};
+  shared_ptr<string> cloudCode{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<string> incidentUuid{};
+  shared_ptr<string> isDefend{};
+  shared_ptr<string> logTime{};
+  shared_ptr<string> logUuid{};
+  shared_ptr<long> mainUserId{};
+  shared_ptr<string> occurTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> subUserId{};
+
+  DescribeAlertsResponseBodyDataResponseData() {}
+
+  explicit DescribeAlertsResponseBodyDataResponseData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertDesc) {
+      res["AlertDesc"] = boost::any(*alertDesc);
+    }
+    if (alertDescCode) {
+      res["AlertDescCode"] = boost::any(*alertDescCode);
+    }
+    if (alertDescEn) {
+      res["AlertDescEn"] = boost::any(*alertDescEn);
+    }
+    if (alertDetail) {
+      res["AlertDetail"] = boost::any(*alertDetail);
+    }
+    if (alertInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*alertInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlertInfoList"] = boost::any(temp1);
+    }
+    if (alertLevel) {
+      res["AlertLevel"] = boost::any(*alertLevel);
+    }
+    if (alertName) {
+      res["AlertName"] = boost::any(*alertName);
+    }
+    if (alertNameCode) {
+      res["AlertNameCode"] = boost::any(*alertNameCode);
+    }
+    if (alertNameEn) {
+      res["AlertNameEn"] = boost::any(*alertNameEn);
+    }
+    if (alertSrcProd) {
+      res["AlertSrcProd"] = boost::any(*alertSrcProd);
+    }
+    if (alertSrcProdModule) {
+      res["AlertSrcProdModule"] = boost::any(*alertSrcProdModule);
+    }
+    if (alertTitle) {
+      res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (alertTitleEn) {
+      res["AlertTitleEn"] = boost::any(*alertTitleEn);
+    }
+    if (alertType) {
+      res["AlertType"] = boost::any(*alertType);
+    }
+    if (alertTypeCode) {
+      res["AlertTypeCode"] = boost::any(*alertTypeCode);
+    }
+    if (alertTypeEn) {
+      res["AlertTypeEn"] = boost::any(*alertTypeEn);
+    }
+    if (alertUuid) {
+      res["AlertUuid"] = boost::any(*alertUuid);
+    }
+    if (assetList) {
+      res["AssetList"] = boost::any(*assetList);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (cloudCode) {
+      res["CloudCode"] = boost::any(*cloudCode);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (incidentUuid) {
+      res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (isDefend) {
+      res["IsDefend"] = boost::any(*isDefend);
+    }
+    if (logTime) {
+      res["LogTime"] = boost::any(*logTime);
+    }
+    if (logUuid) {
+      res["LogUuid"] = boost::any(*logUuid);
+    }
+    if (mainUserId) {
+      res["MainUserId"] = boost::any(*mainUserId);
+    }
+    if (occurTime) {
+      res["OccurTime"] = boost::any(*occurTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (subUserId) {
+      res["SubUserId"] = boost::any(*subUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertDesc") != m.end() && !m["AlertDesc"].empty()) {
+      alertDesc = make_shared<string>(boost::any_cast<string>(m["AlertDesc"]));
+    }
+    if (m.find("AlertDescCode") != m.end() && !m["AlertDescCode"].empty()) {
+      alertDescCode = make_shared<string>(boost::any_cast<string>(m["AlertDescCode"]));
+    }
+    if (m.find("AlertDescEn") != m.end() && !m["AlertDescEn"].empty()) {
+      alertDescEn = make_shared<string>(boost::any_cast<string>(m["AlertDescEn"]));
+    }
+    if (m.find("AlertDetail") != m.end() && !m["AlertDetail"].empty()) {
+      alertDetail = make_shared<string>(boost::any_cast<string>(m["AlertDetail"]));
+    }
+    if (m.find("AlertInfoList") != m.end() && !m["AlertInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlertInfoList"].type()) {
+        vector<DescribeAlertsResponseBodyDataResponseDataAlertInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlertInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsResponseBodyDataResponseDataAlertInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alertInfoList = make_shared<vector<DescribeAlertsResponseBodyDataResponseDataAlertInfoList>>(expect1);
+      }
+    }
+    if (m.find("AlertLevel") != m.end() && !m["AlertLevel"].empty()) {
+      alertLevel = make_shared<string>(boost::any_cast<string>(m["AlertLevel"]));
+    }
+    if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
+      alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
+    }
+    if (m.find("AlertNameCode") != m.end() && !m["AlertNameCode"].empty()) {
+      alertNameCode = make_shared<string>(boost::any_cast<string>(m["AlertNameCode"]));
+    }
+    if (m.find("AlertNameEn") != m.end() && !m["AlertNameEn"].empty()) {
+      alertNameEn = make_shared<string>(boost::any_cast<string>(m["AlertNameEn"]));
+    }
+    if (m.find("AlertSrcProd") != m.end() && !m["AlertSrcProd"].empty()) {
+      alertSrcProd = make_shared<string>(boost::any_cast<string>(m["AlertSrcProd"]));
+    }
+    if (m.find("AlertSrcProdModule") != m.end() && !m["AlertSrcProdModule"].empty()) {
+      alertSrcProdModule = make_shared<string>(boost::any_cast<string>(m["AlertSrcProdModule"]));
+    }
+    if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
+      alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("AlertTitleEn") != m.end() && !m["AlertTitleEn"].empty()) {
+      alertTitleEn = make_shared<string>(boost::any_cast<string>(m["AlertTitleEn"]));
+    }
+    if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
+      alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
+    }
+    if (m.find("AlertTypeCode") != m.end() && !m["AlertTypeCode"].empty()) {
+      alertTypeCode = make_shared<string>(boost::any_cast<string>(m["AlertTypeCode"]));
+    }
+    if (m.find("AlertTypeEn") != m.end() && !m["AlertTypeEn"].empty()) {
+      alertTypeEn = make_shared<string>(boost::any_cast<string>(m["AlertTypeEn"]));
+    }
+    if (m.find("AlertUuid") != m.end() && !m["AlertUuid"].empty()) {
+      alertUuid = make_shared<string>(boost::any_cast<string>(m["AlertUuid"]));
+    }
+    if (m.find("AssetList") != m.end() && !m["AssetList"].empty()) {
+      assetList = make_shared<string>(boost::any_cast<string>(m["AssetList"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("CloudCode") != m.end() && !m["CloudCode"].empty()) {
+      cloudCode = make_shared<string>(boost::any_cast<string>(m["CloudCode"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
+      incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("IsDefend") != m.end() && !m["IsDefend"].empty()) {
+      isDefend = make_shared<string>(boost::any_cast<string>(m["IsDefend"]));
+    }
+    if (m.find("LogTime") != m.end() && !m["LogTime"].empty()) {
+      logTime = make_shared<string>(boost::any_cast<string>(m["LogTime"]));
+    }
+    if (m.find("LogUuid") != m.end() && !m["LogUuid"].empty()) {
+      logUuid = make_shared<string>(boost::any_cast<string>(m["LogUuid"]));
+    }
+    if (m.find("MainUserId") != m.end() && !m["MainUserId"].empty()) {
+      mainUserId = make_shared<long>(boost::any_cast<long>(m["MainUserId"]));
+    }
+    if (m.find("OccurTime") != m.end() && !m["OccurTime"].empty()) {
+      occurTime = make_shared<string>(boost::any_cast<string>(m["OccurTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
+      subUserId = make_shared<long>(boost::any_cast<long>(m["SubUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponseBodyDataResponseData() = default;
+};
+class DescribeAlertsResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAlertsResponseBodyDataPageInfo> pageInfo{};
+  shared_ptr<vector<DescribeAlertsResponseBodyDataResponseData>> responseData{};
+
+  DescribeAlertsResponseBodyData() {}
+
+  explicit DescribeAlertsResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseData) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseData"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        DescribeAlertsResponseBodyDataPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<DescribeAlertsResponseBodyDataPageInfo>(model1);
+      }
+    }
+    if (m.find("ResponseData") != m.end() && !m["ResponseData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseData"].type()) {
+        vector<DescribeAlertsResponseBodyDataResponseData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsResponseBodyDataResponseData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseData = make_shared<vector<DescribeAlertsResponseBodyDataResponseData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponseBodyData() = default;
+};
+class DescribeAlertsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeAlertsResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeAlertsResponseBody() {}
+
+  explicit DescribeAlertsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeAlertsResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeAlertsResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponseBody() = default;
+};
+class DescribeAlertsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAlertsResponseBody> body{};
+
+  DescribeAlertsResponse() {}
+
+  explicit DescribeAlertsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAlertsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAlertsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsResponse() = default;
+};
 class DescribeAlertsCountRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
@@ -3136,6 +3765,1208 @@ public:
 
 
   virtual ~DescribeAlertsCountResponse() = default;
+};
+class DescribeAlertsWithEntityRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> entityId{};
+  shared_ptr<string> incidentUuid{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> sophonTaskId{};
+
+  DescribeAlertsWithEntityRequest() {}
+
+  explicit DescribeAlertsWithEntityRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (entityId) {
+      res["EntityId"] = boost::any(*entityId);
+    }
+    if (incidentUuid) {
+      res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (sophonTaskId) {
+      res["SophonTaskId"] = boost::any(*sophonTaskId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("EntityId") != m.end() && !m["EntityId"].empty()) {
+      entityId = make_shared<long>(boost::any_cast<long>(m["EntityId"]));
+    }
+    if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
+      incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SophonTaskId") != m.end() && !m["SophonTaskId"].empty()) {
+      sophonTaskId = make_shared<string>(boost::any_cast<string>(m["SophonTaskId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityRequest() = default;
+};
+class DescribeAlertsWithEntityResponseBodyDataPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  DescribeAlertsWithEntityResponseBodyDataPageInfo() {}
+
+  explicit DescribeAlertsWithEntityResponseBodyDataPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponseBodyDataPageInfo() = default;
+};
+class DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> keyName{};
+  shared_ptr<string> values{};
+
+  DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList() {}
+
+  explicit DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (keyName) {
+      res["KeyName"] = boost::any(*keyName);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("KeyName") != m.end() && !m["KeyName"].empty()) {
+      keyName = make_shared<string>(boost::any_cast<string>(m["KeyName"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<string>(boost::any_cast<string>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList() = default;
+};
+class DescribeAlertsWithEntityResponseBodyDataResponseData : public Darabonba::Model {
+public:
+  shared_ptr<string> alertDesc{};
+  shared_ptr<string> alertDescCode{};
+  shared_ptr<string> alertDescEn{};
+  shared_ptr<string> alertDetail{};
+  shared_ptr<vector<DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList>> alertInfoList{};
+  shared_ptr<string> alertLevel{};
+  shared_ptr<string> alertName{};
+  shared_ptr<string> alertNameCode{};
+  shared_ptr<string> alertNameEn{};
+  shared_ptr<string> alertSrcProd{};
+  shared_ptr<string> alertSrcProdModule{};
+  shared_ptr<string> alertTitle{};
+  shared_ptr<string> alertTitleEn{};
+  shared_ptr<string> alertType{};
+  shared_ptr<string> alertTypeCode{};
+  shared_ptr<string> alertTypeEn{};
+  shared_ptr<string> alertUuid{};
+  shared_ptr<string> assetList{};
+  shared_ptr<string> attCk{};
+  shared_ptr<string> cloudCode{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<string> incidentUuid{};
+  shared_ptr<string> isDefend{};
+  shared_ptr<string> logTime{};
+  shared_ptr<string> logUuid{};
+  shared_ptr<long> mainUserId{};
+  shared_ptr<string> occurTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> subUserId{};
+
+  DescribeAlertsWithEntityResponseBodyDataResponseData() {}
+
+  explicit DescribeAlertsWithEntityResponseBodyDataResponseData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertDesc) {
+      res["AlertDesc"] = boost::any(*alertDesc);
+    }
+    if (alertDescCode) {
+      res["AlertDescCode"] = boost::any(*alertDescCode);
+    }
+    if (alertDescEn) {
+      res["AlertDescEn"] = boost::any(*alertDescEn);
+    }
+    if (alertDetail) {
+      res["AlertDetail"] = boost::any(*alertDetail);
+    }
+    if (alertInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*alertInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlertInfoList"] = boost::any(temp1);
+    }
+    if (alertLevel) {
+      res["AlertLevel"] = boost::any(*alertLevel);
+    }
+    if (alertName) {
+      res["AlertName"] = boost::any(*alertName);
+    }
+    if (alertNameCode) {
+      res["AlertNameCode"] = boost::any(*alertNameCode);
+    }
+    if (alertNameEn) {
+      res["AlertNameEn"] = boost::any(*alertNameEn);
+    }
+    if (alertSrcProd) {
+      res["AlertSrcProd"] = boost::any(*alertSrcProd);
+    }
+    if (alertSrcProdModule) {
+      res["AlertSrcProdModule"] = boost::any(*alertSrcProdModule);
+    }
+    if (alertTitle) {
+      res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (alertTitleEn) {
+      res["AlertTitleEn"] = boost::any(*alertTitleEn);
+    }
+    if (alertType) {
+      res["AlertType"] = boost::any(*alertType);
+    }
+    if (alertTypeCode) {
+      res["AlertTypeCode"] = boost::any(*alertTypeCode);
+    }
+    if (alertTypeEn) {
+      res["AlertTypeEn"] = boost::any(*alertTypeEn);
+    }
+    if (alertUuid) {
+      res["AlertUuid"] = boost::any(*alertUuid);
+    }
+    if (assetList) {
+      res["AssetList"] = boost::any(*assetList);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (cloudCode) {
+      res["CloudCode"] = boost::any(*cloudCode);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (incidentUuid) {
+      res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (isDefend) {
+      res["IsDefend"] = boost::any(*isDefend);
+    }
+    if (logTime) {
+      res["LogTime"] = boost::any(*logTime);
+    }
+    if (logUuid) {
+      res["LogUuid"] = boost::any(*logUuid);
+    }
+    if (mainUserId) {
+      res["MainUserId"] = boost::any(*mainUserId);
+    }
+    if (occurTime) {
+      res["OccurTime"] = boost::any(*occurTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (subUserId) {
+      res["SubUserId"] = boost::any(*subUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertDesc") != m.end() && !m["AlertDesc"].empty()) {
+      alertDesc = make_shared<string>(boost::any_cast<string>(m["AlertDesc"]));
+    }
+    if (m.find("AlertDescCode") != m.end() && !m["AlertDescCode"].empty()) {
+      alertDescCode = make_shared<string>(boost::any_cast<string>(m["AlertDescCode"]));
+    }
+    if (m.find("AlertDescEn") != m.end() && !m["AlertDescEn"].empty()) {
+      alertDescEn = make_shared<string>(boost::any_cast<string>(m["AlertDescEn"]));
+    }
+    if (m.find("AlertDetail") != m.end() && !m["AlertDetail"].empty()) {
+      alertDetail = make_shared<string>(boost::any_cast<string>(m["AlertDetail"]));
+    }
+    if (m.find("AlertInfoList") != m.end() && !m["AlertInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlertInfoList"].type()) {
+        vector<DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlertInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alertInfoList = make_shared<vector<DescribeAlertsWithEntityResponseBodyDataResponseDataAlertInfoList>>(expect1);
+      }
+    }
+    if (m.find("AlertLevel") != m.end() && !m["AlertLevel"].empty()) {
+      alertLevel = make_shared<string>(boost::any_cast<string>(m["AlertLevel"]));
+    }
+    if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
+      alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
+    }
+    if (m.find("AlertNameCode") != m.end() && !m["AlertNameCode"].empty()) {
+      alertNameCode = make_shared<string>(boost::any_cast<string>(m["AlertNameCode"]));
+    }
+    if (m.find("AlertNameEn") != m.end() && !m["AlertNameEn"].empty()) {
+      alertNameEn = make_shared<string>(boost::any_cast<string>(m["AlertNameEn"]));
+    }
+    if (m.find("AlertSrcProd") != m.end() && !m["AlertSrcProd"].empty()) {
+      alertSrcProd = make_shared<string>(boost::any_cast<string>(m["AlertSrcProd"]));
+    }
+    if (m.find("AlertSrcProdModule") != m.end() && !m["AlertSrcProdModule"].empty()) {
+      alertSrcProdModule = make_shared<string>(boost::any_cast<string>(m["AlertSrcProdModule"]));
+    }
+    if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
+      alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("AlertTitleEn") != m.end() && !m["AlertTitleEn"].empty()) {
+      alertTitleEn = make_shared<string>(boost::any_cast<string>(m["AlertTitleEn"]));
+    }
+    if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
+      alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
+    }
+    if (m.find("AlertTypeCode") != m.end() && !m["AlertTypeCode"].empty()) {
+      alertTypeCode = make_shared<string>(boost::any_cast<string>(m["AlertTypeCode"]));
+    }
+    if (m.find("AlertTypeEn") != m.end() && !m["AlertTypeEn"].empty()) {
+      alertTypeEn = make_shared<string>(boost::any_cast<string>(m["AlertTypeEn"]));
+    }
+    if (m.find("AlertUuid") != m.end() && !m["AlertUuid"].empty()) {
+      alertUuid = make_shared<string>(boost::any_cast<string>(m["AlertUuid"]));
+    }
+    if (m.find("AssetList") != m.end() && !m["AssetList"].empty()) {
+      assetList = make_shared<string>(boost::any_cast<string>(m["AssetList"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("CloudCode") != m.end() && !m["CloudCode"].empty()) {
+      cloudCode = make_shared<string>(boost::any_cast<string>(m["CloudCode"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
+      incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("IsDefend") != m.end() && !m["IsDefend"].empty()) {
+      isDefend = make_shared<string>(boost::any_cast<string>(m["IsDefend"]));
+    }
+    if (m.find("LogTime") != m.end() && !m["LogTime"].empty()) {
+      logTime = make_shared<string>(boost::any_cast<string>(m["LogTime"]));
+    }
+    if (m.find("LogUuid") != m.end() && !m["LogUuid"].empty()) {
+      logUuid = make_shared<string>(boost::any_cast<string>(m["LogUuid"]));
+    }
+    if (m.find("MainUserId") != m.end() && !m["MainUserId"].empty()) {
+      mainUserId = make_shared<long>(boost::any_cast<long>(m["MainUserId"]));
+    }
+    if (m.find("OccurTime") != m.end() && !m["OccurTime"].empty()) {
+      occurTime = make_shared<string>(boost::any_cast<string>(m["OccurTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
+      subUserId = make_shared<long>(boost::any_cast<long>(m["SubUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponseBodyDataResponseData() = default;
+};
+class DescribeAlertsWithEntityResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAlertsWithEntityResponseBodyDataPageInfo> pageInfo{};
+  shared_ptr<vector<DescribeAlertsWithEntityResponseBodyDataResponseData>> responseData{};
+
+  DescribeAlertsWithEntityResponseBodyData() {}
+
+  explicit DescribeAlertsWithEntityResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseData) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseData"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        DescribeAlertsWithEntityResponseBodyDataPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<DescribeAlertsWithEntityResponseBodyDataPageInfo>(model1);
+      }
+    }
+    if (m.find("ResponseData") != m.end() && !m["ResponseData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseData"].type()) {
+        vector<DescribeAlertsWithEntityResponseBodyDataResponseData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsWithEntityResponseBodyDataResponseData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseData = make_shared<vector<DescribeAlertsWithEntityResponseBodyDataResponseData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponseBodyData() = default;
+};
+class DescribeAlertsWithEntityResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeAlertsWithEntityResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeAlertsWithEntityResponseBody() {}
+
+  explicit DescribeAlertsWithEntityResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeAlertsWithEntityResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeAlertsWithEntityResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponseBody() = default;
+};
+class DescribeAlertsWithEntityResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAlertsWithEntityResponseBody> body{};
+
+  DescribeAlertsWithEntityResponse() {}
+
+  explicit DescribeAlertsWithEntityResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAlertsWithEntityResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAlertsWithEntityResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEntityResponse() = default;
+};
+class DescribeAlertsWithEventRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> alertTitle{};
+  shared_ptr<long> currentPage{};
+  shared_ptr<string> incidentUuid{};
+  shared_ptr<string> isDefend{};
+  shared_ptr<vector<string>> level{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> source{};
+  shared_ptr<long> subUserId{};
+
+  DescribeAlertsWithEventRequest() {}
+
+  explicit DescribeAlertsWithEventRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertTitle) {
+      res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (incidentUuid) {
+      res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (isDefend) {
+      res["IsDefend"] = boost::any(*isDefend);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (source) {
+      res["Source"] = boost::any(*source);
+    }
+    if (subUserId) {
+      res["SubUserId"] = boost::any(*subUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
+      alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
+      incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("IsDefend") != m.end() && !m["IsDefend"].empty()) {
+      isDefend = make_shared<string>(boost::any_cast<string>(m["IsDefend"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Level"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Level"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      level = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("Source") != m.end() && !m["Source"].empty()) {
+      source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
+      subUserId = make_shared<long>(boost::any_cast<long>(m["SubUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventRequest() = default;
+};
+class DescribeAlertsWithEventResponseBodyDataPageInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> currentPage{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> totalCount{};
+
+  DescribeAlertsWithEventResponseBodyDataPageInfo() {}
+
+  explicit DescribeAlertsWithEventResponseBodyDataPageInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentPage) {
+      res["CurrentPage"] = boost::any(*currentPage);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
+      currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponseBodyDataPageInfo() = default;
+};
+class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> keyName{};
+  shared_ptr<string> values{};
+
+  DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList() {}
+
+  explicit DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (keyName) {
+      res["KeyName"] = boost::any(*keyName);
+    }
+    if (values) {
+      res["Values"] = boost::any(*values);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("KeyName") != m.end() && !m["KeyName"].empty()) {
+      keyName = make_shared<string>(boost::any_cast<string>(m["KeyName"]));
+    }
+    if (m.find("Values") != m.end() && !m["Values"].empty()) {
+      values = make_shared<string>(boost::any_cast<string>(m["Values"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList() = default;
+};
+class DescribeAlertsWithEventResponseBodyDataResponseData : public Darabonba::Model {
+public:
+  shared_ptr<string> alertDesc{};
+  shared_ptr<string> alertDescCode{};
+  shared_ptr<string> alertDescEn{};
+  shared_ptr<string> alertDetail{};
+  shared_ptr<vector<DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList>> alertInfoList{};
+  shared_ptr<string> alertLevel{};
+  shared_ptr<string> alertName{};
+  shared_ptr<string> alertNameCode{};
+  shared_ptr<string> alertNameEn{};
+  shared_ptr<string> alertSrcProd{};
+  shared_ptr<string> alertSrcProdModule{};
+  shared_ptr<string> alertTitle{};
+  shared_ptr<string> alertTitleEn{};
+  shared_ptr<string> alertType{};
+  shared_ptr<string> alertTypeCode{};
+  shared_ptr<string> alertTypeEn{};
+  shared_ptr<string> alertUuid{};
+  shared_ptr<string> assetList{};
+  shared_ptr<string> attCk{};
+  shared_ptr<string> cloudCode{};
+  shared_ptr<string> endTime{};
+  shared_ptr<string> gmtCreate{};
+  shared_ptr<string> gmtModified{};
+  shared_ptr<long> id{};
+  shared_ptr<string> incidentUuid{};
+  shared_ptr<string> isDefend{};
+  shared_ptr<string> logTime{};
+  shared_ptr<string> logUuid{};
+  shared_ptr<long> mainUserId{};
+  shared_ptr<string> occurTime{};
+  shared_ptr<string> startTime{};
+  shared_ptr<long> subUserId{};
+
+  DescribeAlertsWithEventResponseBodyDataResponseData() {}
+
+  explicit DescribeAlertsWithEventResponseBodyDataResponseData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alertDesc) {
+      res["AlertDesc"] = boost::any(*alertDesc);
+    }
+    if (alertDescCode) {
+      res["AlertDescCode"] = boost::any(*alertDescCode);
+    }
+    if (alertDescEn) {
+      res["AlertDescEn"] = boost::any(*alertDescEn);
+    }
+    if (alertDetail) {
+      res["AlertDetail"] = boost::any(*alertDetail);
+    }
+    if (alertInfoList) {
+      vector<boost::any> temp1;
+      for(auto item1:*alertInfoList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AlertInfoList"] = boost::any(temp1);
+    }
+    if (alertLevel) {
+      res["AlertLevel"] = boost::any(*alertLevel);
+    }
+    if (alertName) {
+      res["AlertName"] = boost::any(*alertName);
+    }
+    if (alertNameCode) {
+      res["AlertNameCode"] = boost::any(*alertNameCode);
+    }
+    if (alertNameEn) {
+      res["AlertNameEn"] = boost::any(*alertNameEn);
+    }
+    if (alertSrcProd) {
+      res["AlertSrcProd"] = boost::any(*alertSrcProd);
+    }
+    if (alertSrcProdModule) {
+      res["AlertSrcProdModule"] = boost::any(*alertSrcProdModule);
+    }
+    if (alertTitle) {
+      res["AlertTitle"] = boost::any(*alertTitle);
+    }
+    if (alertTitleEn) {
+      res["AlertTitleEn"] = boost::any(*alertTitleEn);
+    }
+    if (alertType) {
+      res["AlertType"] = boost::any(*alertType);
+    }
+    if (alertTypeCode) {
+      res["AlertTypeCode"] = boost::any(*alertTypeCode);
+    }
+    if (alertTypeEn) {
+      res["AlertTypeEn"] = boost::any(*alertTypeEn);
+    }
+    if (alertUuid) {
+      res["AlertUuid"] = boost::any(*alertUuid);
+    }
+    if (assetList) {
+      res["AssetList"] = boost::any(*assetList);
+    }
+    if (attCk) {
+      res["AttCk"] = boost::any(*attCk);
+    }
+    if (cloudCode) {
+      res["CloudCode"] = boost::any(*cloudCode);
+    }
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (gmtCreate) {
+      res["GmtCreate"] = boost::any(*gmtCreate);
+    }
+    if (gmtModified) {
+      res["GmtModified"] = boost::any(*gmtModified);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
+    }
+    if (incidentUuid) {
+      res["IncidentUuid"] = boost::any(*incidentUuid);
+    }
+    if (isDefend) {
+      res["IsDefend"] = boost::any(*isDefend);
+    }
+    if (logTime) {
+      res["LogTime"] = boost::any(*logTime);
+    }
+    if (logUuid) {
+      res["LogUuid"] = boost::any(*logUuid);
+    }
+    if (mainUserId) {
+      res["MainUserId"] = boost::any(*mainUserId);
+    }
+    if (occurTime) {
+      res["OccurTime"] = boost::any(*occurTime);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (subUserId) {
+      res["SubUserId"] = boost::any(*subUserId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlertDesc") != m.end() && !m["AlertDesc"].empty()) {
+      alertDesc = make_shared<string>(boost::any_cast<string>(m["AlertDesc"]));
+    }
+    if (m.find("AlertDescCode") != m.end() && !m["AlertDescCode"].empty()) {
+      alertDescCode = make_shared<string>(boost::any_cast<string>(m["AlertDescCode"]));
+    }
+    if (m.find("AlertDescEn") != m.end() && !m["AlertDescEn"].empty()) {
+      alertDescEn = make_shared<string>(boost::any_cast<string>(m["AlertDescEn"]));
+    }
+    if (m.find("AlertDetail") != m.end() && !m["AlertDetail"].empty()) {
+      alertDetail = make_shared<string>(boost::any_cast<string>(m["AlertDetail"]));
+    }
+    if (m.find("AlertInfoList") != m.end() && !m["AlertInfoList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AlertInfoList"].type()) {
+        vector<DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AlertInfoList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        alertInfoList = make_shared<vector<DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList>>(expect1);
+      }
+    }
+    if (m.find("AlertLevel") != m.end() && !m["AlertLevel"].empty()) {
+      alertLevel = make_shared<string>(boost::any_cast<string>(m["AlertLevel"]));
+    }
+    if (m.find("AlertName") != m.end() && !m["AlertName"].empty()) {
+      alertName = make_shared<string>(boost::any_cast<string>(m["AlertName"]));
+    }
+    if (m.find("AlertNameCode") != m.end() && !m["AlertNameCode"].empty()) {
+      alertNameCode = make_shared<string>(boost::any_cast<string>(m["AlertNameCode"]));
+    }
+    if (m.find("AlertNameEn") != m.end() && !m["AlertNameEn"].empty()) {
+      alertNameEn = make_shared<string>(boost::any_cast<string>(m["AlertNameEn"]));
+    }
+    if (m.find("AlertSrcProd") != m.end() && !m["AlertSrcProd"].empty()) {
+      alertSrcProd = make_shared<string>(boost::any_cast<string>(m["AlertSrcProd"]));
+    }
+    if (m.find("AlertSrcProdModule") != m.end() && !m["AlertSrcProdModule"].empty()) {
+      alertSrcProdModule = make_shared<string>(boost::any_cast<string>(m["AlertSrcProdModule"]));
+    }
+    if (m.find("AlertTitle") != m.end() && !m["AlertTitle"].empty()) {
+      alertTitle = make_shared<string>(boost::any_cast<string>(m["AlertTitle"]));
+    }
+    if (m.find("AlertTitleEn") != m.end() && !m["AlertTitleEn"].empty()) {
+      alertTitleEn = make_shared<string>(boost::any_cast<string>(m["AlertTitleEn"]));
+    }
+    if (m.find("AlertType") != m.end() && !m["AlertType"].empty()) {
+      alertType = make_shared<string>(boost::any_cast<string>(m["AlertType"]));
+    }
+    if (m.find("AlertTypeCode") != m.end() && !m["AlertTypeCode"].empty()) {
+      alertTypeCode = make_shared<string>(boost::any_cast<string>(m["AlertTypeCode"]));
+    }
+    if (m.find("AlertTypeEn") != m.end() && !m["AlertTypeEn"].empty()) {
+      alertTypeEn = make_shared<string>(boost::any_cast<string>(m["AlertTypeEn"]));
+    }
+    if (m.find("AlertUuid") != m.end() && !m["AlertUuid"].empty()) {
+      alertUuid = make_shared<string>(boost::any_cast<string>(m["AlertUuid"]));
+    }
+    if (m.find("AssetList") != m.end() && !m["AssetList"].empty()) {
+      assetList = make_shared<string>(boost::any_cast<string>(m["AssetList"]));
+    }
+    if (m.find("AttCk") != m.end() && !m["AttCk"].empty()) {
+      attCk = make_shared<string>(boost::any_cast<string>(m["AttCk"]));
+    }
+    if (m.find("CloudCode") != m.end() && !m["CloudCode"].empty()) {
+      cloudCode = make_shared<string>(boost::any_cast<string>(m["CloudCode"]));
+    }
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
+      gmtCreate = make_shared<string>(boost::any_cast<string>(m["GmtCreate"]));
+    }
+    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
+      gmtModified = make_shared<string>(boost::any_cast<string>(m["GmtModified"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["Id"]));
+    }
+    if (m.find("IncidentUuid") != m.end() && !m["IncidentUuid"].empty()) {
+      incidentUuid = make_shared<string>(boost::any_cast<string>(m["IncidentUuid"]));
+    }
+    if (m.find("IsDefend") != m.end() && !m["IsDefend"].empty()) {
+      isDefend = make_shared<string>(boost::any_cast<string>(m["IsDefend"]));
+    }
+    if (m.find("LogTime") != m.end() && !m["LogTime"].empty()) {
+      logTime = make_shared<string>(boost::any_cast<string>(m["LogTime"]));
+    }
+    if (m.find("LogUuid") != m.end() && !m["LogUuid"].empty()) {
+      logUuid = make_shared<string>(boost::any_cast<string>(m["LogUuid"]));
+    }
+    if (m.find("MainUserId") != m.end() && !m["MainUserId"].empty()) {
+      mainUserId = make_shared<long>(boost::any_cast<long>(m["MainUserId"]));
+    }
+    if (m.find("OccurTime") != m.end() && !m["OccurTime"].empty()) {
+      occurTime = make_shared<string>(boost::any_cast<string>(m["OccurTime"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("SubUserId") != m.end() && !m["SubUserId"].empty()) {
+      subUserId = make_shared<long>(boost::any_cast<long>(m["SubUserId"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponseBodyDataResponseData() = default;
+};
+class DescribeAlertsWithEventResponseBodyData : public Darabonba::Model {
+public:
+  shared_ptr<DescribeAlertsWithEventResponseBodyDataPageInfo> pageInfo{};
+  shared_ptr<vector<DescribeAlertsWithEventResponseBodyDataResponseData>> responseData{};
+
+  DescribeAlertsWithEventResponseBodyData() {}
+
+  explicit DescribeAlertsWithEventResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageInfo) {
+      res["PageInfo"] = pageInfo ? boost::any(pageInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (responseData) {
+      vector<boost::any> temp1;
+      for(auto item1:*responseData){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ResponseData"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageInfo") != m.end() && !m["PageInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["PageInfo"].type()) {
+        DescribeAlertsWithEventResponseBodyDataPageInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["PageInfo"]));
+        pageInfo = make_shared<DescribeAlertsWithEventResponseBodyDataPageInfo>(model1);
+      }
+    }
+    if (m.find("ResponseData") != m.end() && !m["ResponseData"].empty()) {
+      if (typeid(vector<boost::any>) == m["ResponseData"].type()) {
+        vector<DescribeAlertsWithEventResponseBodyDataResponseData> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ResponseData"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeAlertsWithEventResponseBodyDataResponseData model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        responseData = make_shared<vector<DescribeAlertsWithEventResponseBodyDataResponseData>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponseBodyData() = default;
+};
+class DescribeAlertsWithEventResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<DescribeAlertsWithEventResponseBodyData> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  DescribeAlertsWithEventResponseBody() {}
+
+  explicit DescribeAlertsWithEventResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Data"].type()) {
+        DescribeAlertsWithEventResponseBodyData model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
+        data = make_shared<DescribeAlertsWithEventResponseBodyData>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponseBody() = default;
+};
+class DescribeAlertsWithEventResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeAlertsWithEventResponseBody> body{};
+
+  DescribeAlertsWithEventResponse() {}
+
+  explicit DescribeAlertsWithEventResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeAlertsWithEventResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeAlertsWithEventResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeAlertsWithEventResponse() = default;
 };
 class DescribeAttackTimeLineRequest : public Darabonba::Model {
 public:
@@ -18050,8 +19881,14 @@ public:
   DescribeAlertSourceWithEventResponse describeAlertSourceWithEvent(shared_ptr<DescribeAlertSourceWithEventRequest> request);
   DescribeAlertTypeResponse describeAlertTypeWithOptions(shared_ptr<DescribeAlertTypeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAlertTypeResponse describeAlertType(shared_ptr<DescribeAlertTypeRequest> request);
+  DescribeAlertsResponse describeAlertsWithOptions(shared_ptr<DescribeAlertsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAlertsResponse describeAlerts(shared_ptr<DescribeAlertsRequest> request);
   DescribeAlertsCountResponse describeAlertsCountWithOptions(shared_ptr<DescribeAlertsCountRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAlertsCountResponse describeAlertsCount(shared_ptr<DescribeAlertsCountRequest> request);
+  DescribeAlertsWithEntityResponse describeAlertsWithEntityWithOptions(shared_ptr<DescribeAlertsWithEntityRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAlertsWithEntityResponse describeAlertsWithEntity(shared_ptr<DescribeAlertsWithEntityRequest> request);
+  DescribeAlertsWithEventResponse describeAlertsWithEventWithOptions(shared_ptr<DescribeAlertsWithEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeAlertsWithEventResponse describeAlertsWithEvent(shared_ptr<DescribeAlertsWithEventRequest> request);
   DescribeAttackTimeLineResponse describeAttackTimeLineWithOptions(shared_ptr<DescribeAttackTimeLineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeAttackTimeLineResponse describeAttackTimeLine(shared_ptr<DescribeAttackTimeLineRequest> request);
   DescribeAutomateResponseConfigCounterResponse describeAutomateResponseConfigCounterWithOptions(shared_ptr<DescribeAutomateResponseConfigCounterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
