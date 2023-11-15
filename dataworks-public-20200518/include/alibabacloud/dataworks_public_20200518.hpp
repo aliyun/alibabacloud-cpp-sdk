@@ -8049,6 +8049,7 @@ public:
   shared_ptr<string> propertyType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> ruleType{};
+  shared_ptr<string> taskSetting{};
   shared_ptr<long> templateId{};
   shared_ptr<string> trend{};
   shared_ptr<string> warningThreshold{};
@@ -8108,6 +8109,9 @@ public:
     }
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
+    }
+    if (taskSetting) {
+      res["TaskSetting"] = boost::any(*taskSetting);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -8169,6 +8173,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<long>(boost::any_cast<long>(m["RuleType"]));
+    }
+    if (m.find("TaskSetting") != m.end() && !m["TaskSetting"].empty()) {
+      taskSetting = make_shared<string>(boost::any_cast<string>(m["TaskSetting"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));
@@ -75368,6 +75375,7 @@ public:
   shared_ptr<string> propertyType{};
   shared_ptr<string> ruleName{};
   shared_ptr<long> ruleType{};
+  shared_ptr<string> taskSetting{};
   shared_ptr<long> templateId{};
   shared_ptr<string> trend{};
   shared_ptr<string> warningThreshold{};
@@ -75433,6 +75441,9 @@ public:
     }
     if (ruleType) {
       res["RuleType"] = boost::any(*ruleType);
+    }
+    if (taskSetting) {
+      res["TaskSetting"] = boost::any(*taskSetting);
     }
     if (templateId) {
       res["TemplateId"] = boost::any(*templateId);
@@ -75500,6 +75511,9 @@ public:
     }
     if (m.find("RuleType") != m.end() && !m["RuleType"].empty()) {
       ruleType = make_shared<long>(boost::any_cast<long>(m["RuleType"]));
+    }
+    if (m.find("TaskSetting") != m.end() && !m["TaskSetting"].empty()) {
+      taskSetting = make_shared<string>(boost::any_cast<string>(m["TaskSetting"]));
     }
     if (m.find("TemplateId") != m.end() && !m["TemplateId"].empty()) {
       templateId = make_shared<long>(boost::any_cast<long>(m["TemplateId"]));

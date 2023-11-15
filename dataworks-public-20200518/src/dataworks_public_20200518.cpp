@@ -1795,6 +1795,9 @@ CreateQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::createQ
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleType)) {
     body->insert(pair<string, long>("RuleType", *request->ruleType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskSetting)) {
+    body->insert(pair<string, string>("TaskSetting", *request->taskSetting));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
     body->insert(pair<string, long>("TemplateId", *request->templateId));
   }
@@ -10449,6 +10452,9 @@ UpdateQualityRuleResponse Alibabacloud_Dataworks-public20200518::Client::updateQ
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ruleType)) {
     body->insert(pair<string, long>("RuleType", *request->ruleType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->taskSetting)) {
+    body->insert(pair<string, string>("TaskSetting", *request->taskSetting));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->templateId)) {
     body->insert(pair<string, long>("TemplateId", *request->templateId));
