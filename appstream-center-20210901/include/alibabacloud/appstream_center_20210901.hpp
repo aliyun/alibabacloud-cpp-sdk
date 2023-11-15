@@ -4326,11 +4326,11 @@ public:
   shared_ptr<string> appCenterImageId{};
   shared_ptr<string> appInstanceGroupId{};
   shared_ptr<string> appInstanceGroupName{};
+  shared_ptr<string> bizRegionId{};
   shared_ptr<string> nodeInstanceType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> productType{};
-  shared_ptr<string> regionId{};
   shared_ptr<vector<string>> status{};
 
   ListAppInstanceGroupRequest() {}
@@ -4352,6 +4352,9 @@ public:
     if (appInstanceGroupName) {
       res["AppInstanceGroupName"] = boost::any(*appInstanceGroupName);
     }
+    if (bizRegionId) {
+      res["BizRegionId"] = boost::any(*bizRegionId);
+    }
     if (nodeInstanceType) {
       res["NodeInstanceType"] = boost::any(*nodeInstanceType);
     }
@@ -4363,9 +4366,6 @@ public:
     }
     if (productType) {
       res["ProductType"] = boost::any(*productType);
-    }
-    if (regionId) {
-      res["RegionId"] = boost::any(*regionId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -4383,6 +4383,9 @@ public:
     if (m.find("AppInstanceGroupName") != m.end() && !m["AppInstanceGroupName"].empty()) {
       appInstanceGroupName = make_shared<string>(boost::any_cast<string>(m["AppInstanceGroupName"]));
     }
+    if (m.find("BizRegionId") != m.end() && !m["BizRegionId"].empty()) {
+      bizRegionId = make_shared<string>(boost::any_cast<string>(m["BizRegionId"]));
+    }
     if (m.find("NodeInstanceType") != m.end() && !m["NodeInstanceType"].empty()) {
       nodeInstanceType = make_shared<string>(boost::any_cast<string>(m["NodeInstanceType"]));
     }
@@ -4394,9 +4397,6 @@ public:
     }
     if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
       productType = make_shared<string>(boost::any_cast<string>(m["ProductType"]));
-    }
-    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
-      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       vector<string> toVec1;

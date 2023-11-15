@@ -17,6 +17,7 @@ using namespace std;
 using namespace Alibabacloud_Appstream-center20210901;
 
 Alibabacloud_Appstream-center20210901::Client::Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config) : Alibabacloud_OpenApi::Client(config) {
+  _signatureAlgorithm = make_shared<string>("v2");
   _endpointRule = make_shared<string>("");
   checkConfig(config);
   _endpoint = make_shared<string>(getEndpoint(make_shared<string>("appstream-center"), _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint));
@@ -590,6 +591,9 @@ ListAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::list
   if (!Darabonba_Util::Client::isUnset<string>(request->appInstanceGroupName)) {
     query->insert(pair<string, string>("AppInstanceGroupName", *request->appInstanceGroupName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizRegionId)) {
+    query->insert(pair<string, string>("BizRegionId", *request->bizRegionId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeInstanceType)) {
     query->insert(pair<string, string>("NodeInstanceType", *request->nodeInstanceType));
   }
@@ -601,9 +605,6 @@ ListAppInstanceGroupResponse Alibabacloud_Appstream-center20210901::Client::list
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->productType)) {
     query->insert(pair<string, string>("ProductType", *request->productType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->status)) {
