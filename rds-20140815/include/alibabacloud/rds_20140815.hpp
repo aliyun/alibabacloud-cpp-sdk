@@ -23121,6 +23121,7 @@ public:
   shared_ptr<string> DBInstanceClass{};
   shared_ptr<string> DBInstanceClassType{};
   shared_ptr<string> DBInstanceDescription{};
+  shared_ptr<string> DBInstanceDiskUsed{};
   shared_ptr<string> DBInstanceId{};
   shared_ptr<long> DBInstanceMemory{};
   shared_ptr<string> DBInstanceNetType{};
@@ -23239,6 +23240,9 @@ public:
     }
     if (DBInstanceDescription) {
       res["DBInstanceDescription"] = boost::any(*DBInstanceDescription);
+    }
+    if (DBInstanceDiskUsed) {
+      res["DBInstanceDiskUsed"] = boost::any(*DBInstanceDiskUsed);
     }
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
@@ -23461,6 +23465,9 @@ public:
     }
     if (m.find("DBInstanceDescription") != m.end() && !m["DBInstanceDescription"].empty()) {
       DBInstanceDescription = make_shared<string>(boost::any_cast<string>(m["DBInstanceDescription"]));
+    }
+    if (m.find("DBInstanceDiskUsed") != m.end() && !m["DBInstanceDiskUsed"].empty()) {
+      DBInstanceDiskUsed = make_shared<string>(boost::any_cast<string>(m["DBInstanceDiskUsed"]));
     }
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
