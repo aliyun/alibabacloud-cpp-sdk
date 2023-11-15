@@ -19150,6 +19150,7 @@ public:
   shared_ptr<string> sortOrder{};
   shared_ptr<long> specification{};
   shared_ptr<long> status{};
+  shared_ptr<vector<long>> statusList{};
   shared_ptr<long> supplementStatus{};
   shared_ptr<string> tmName{};
   shared_ptr<string> tmNumber{};
@@ -19206,6 +19207,9 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (statusList) {
+      res["StatusList"] = boost::any(*statusList);
     }
     if (supplementStatus) {
       res["SupplementStatus"] = boost::any(*supplementStatus);
@@ -19265,6 +19269,16 @@ public:
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<long>(boost::any_cast<long>(m["Status"]));
     }
+    if (m.find("StatusList") != m.end() && !m["StatusList"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["StatusList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["StatusList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      statusList = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("SupplementStatus") != m.end() && !m["SupplementStatus"].empty()) {
       supplementStatus = make_shared<long>(boost::any_cast<long>(m["SupplementStatus"]));
     }
@@ -19281,6 +19295,161 @@ public:
 
 
   virtual ~QueryTradeMarkApplicationsRequest() = default;
+};
+class QueryTradeMarkApplicationsShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> bizId{};
+  shared_ptr<string> classificationCode{};
+  shared_ptr<long> hidden{};
+  shared_ptr<string> intentionBizId{};
+  shared_ptr<string> logisticsNo{};
+  shared_ptr<string> materialName{};
+  shared_ptr<string> orderId{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<long> productType{};
+  shared_ptr<string> sortFiled{};
+  shared_ptr<string> sortOrder{};
+  shared_ptr<long> specification{};
+  shared_ptr<long> status{};
+  shared_ptr<string> statusListShrink{};
+  shared_ptr<long> supplementStatus{};
+  shared_ptr<string> tmName{};
+  shared_ptr<string> tmNumber{};
+  shared_ptr<string> type{};
+
+  QueryTradeMarkApplicationsShrinkRequest() {}
+
+  explicit QueryTradeMarkApplicationsShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (classificationCode) {
+      res["ClassificationCode"] = boost::any(*classificationCode);
+    }
+    if (hidden) {
+      res["Hidden"] = boost::any(*hidden);
+    }
+    if (intentionBizId) {
+      res["IntentionBizId"] = boost::any(*intentionBizId);
+    }
+    if (logisticsNo) {
+      res["LogisticsNo"] = boost::any(*logisticsNo);
+    }
+    if (materialName) {
+      res["MaterialName"] = boost::any(*materialName);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (productType) {
+      res["ProductType"] = boost::any(*productType);
+    }
+    if (sortFiled) {
+      res["SortFiled"] = boost::any(*sortFiled);
+    }
+    if (sortOrder) {
+      res["SortOrder"] = boost::any(*sortOrder);
+    }
+    if (specification) {
+      res["Specification"] = boost::any(*specification);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusListShrink) {
+      res["StatusList"] = boost::any(*statusListShrink);
+    }
+    if (supplementStatus) {
+      res["SupplementStatus"] = boost::any(*supplementStatus);
+    }
+    if (tmName) {
+      res["TmName"] = boost::any(*tmName);
+    }
+    if (tmNumber) {
+      res["TmNumber"] = boost::any(*tmNumber);
+    }
+    if (type) {
+      res["Type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("ClassificationCode") != m.end() && !m["ClassificationCode"].empty()) {
+      classificationCode = make_shared<string>(boost::any_cast<string>(m["ClassificationCode"]));
+    }
+    if (m.find("Hidden") != m.end() && !m["Hidden"].empty()) {
+      hidden = make_shared<long>(boost::any_cast<long>(m["Hidden"]));
+    }
+    if (m.find("IntentionBizId") != m.end() && !m["IntentionBizId"].empty()) {
+      intentionBizId = make_shared<string>(boost::any_cast<string>(m["IntentionBizId"]));
+    }
+    if (m.find("LogisticsNo") != m.end() && !m["LogisticsNo"].empty()) {
+      logisticsNo = make_shared<string>(boost::any_cast<string>(m["LogisticsNo"]));
+    }
+    if (m.find("MaterialName") != m.end() && !m["MaterialName"].empty()) {
+      materialName = make_shared<string>(boost::any_cast<string>(m["MaterialName"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("ProductType") != m.end() && !m["ProductType"].empty()) {
+      productType = make_shared<long>(boost::any_cast<long>(m["ProductType"]));
+    }
+    if (m.find("SortFiled") != m.end() && !m["SortFiled"].empty()) {
+      sortFiled = make_shared<string>(boost::any_cast<string>(m["SortFiled"]));
+    }
+    if (m.find("SortOrder") != m.end() && !m["SortOrder"].empty()) {
+      sortOrder = make_shared<string>(boost::any_cast<string>(m["SortOrder"]));
+    }
+    if (m.find("Specification") != m.end() && !m["Specification"].empty()) {
+      specification = make_shared<long>(boost::any_cast<long>(m["Specification"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+    }
+    if (m.find("StatusList") != m.end() && !m["StatusList"].empty()) {
+      statusListShrink = make_shared<string>(boost::any_cast<string>(m["StatusList"]));
+    }
+    if (m.find("SupplementStatus") != m.end() && !m["SupplementStatus"].empty()) {
+      supplementStatus = make_shared<long>(boost::any_cast<long>(m["SupplementStatus"]));
+    }
+    if (m.find("TmName") != m.end() && !m["TmName"].empty()) {
+      tmName = make_shared<string>(boost::any_cast<string>(m["TmName"]));
+    }
+    if (m.find("TmNumber") != m.end() && !m["TmNumber"].empty()) {
+      tmNumber = make_shared<string>(boost::any_cast<string>(m["TmNumber"]));
+    }
+    if (m.find("Type") != m.end() && !m["Type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["Type"]));
+    }
+  }
+
+
+  virtual ~QueryTradeMarkApplicationsShrinkRequest() = default;
 };
 class QueryTradeMarkApplicationsResponseBodyDataTmProducesFirstClassification : public Darabonba::Model {
 public:
@@ -34015,7 +34184,7 @@ public:
   QueryTradeMarkApplicationDetailResponse queryTradeMarkApplicationDetail(shared_ptr<QueryTradeMarkApplicationDetailRequest> request);
   QueryTradeMarkApplicationLogsResponse queryTradeMarkApplicationLogsWithOptions(shared_ptr<QueryTradeMarkApplicationLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTradeMarkApplicationLogsResponse queryTradeMarkApplicationLogs(shared_ptr<QueryTradeMarkApplicationLogsRequest> request);
-  QueryTradeMarkApplicationsResponse queryTradeMarkApplicationsWithOptions(shared_ptr<QueryTradeMarkApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryTradeMarkApplicationsResponse queryTradeMarkApplicationsWithOptions(shared_ptr<QueryTradeMarkApplicationsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTradeMarkApplicationsResponse queryTradeMarkApplications(shared_ptr<QueryTradeMarkApplicationsRequest> request);
   QueryTradeMarkApplicationsByIntentionResponse queryTradeMarkApplicationsByIntentionWithOptions(shared_ptr<QueryTradeMarkApplicationsByIntentionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTradeMarkApplicationsByIntentionResponse queryTradeMarkApplicationsByIntention(shared_ptr<QueryTradeMarkApplicationsByIntentionRequest> request);

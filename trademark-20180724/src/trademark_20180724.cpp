@@ -2898,8 +2898,13 @@ QueryTradeMarkApplicationLogsResponse Alibabacloud_Trademark20180724::Client::qu
   return queryTradeMarkApplicationLogsWithOptions(request, runtime);
 }
 
-QueryTradeMarkApplicationsResponse Alibabacloud_Trademark20180724::Client::queryTradeMarkApplicationsWithOptions(shared_ptr<QueryTradeMarkApplicationsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+QueryTradeMarkApplicationsResponse Alibabacloud_Trademark20180724::Client::queryTradeMarkApplicationsWithOptions(shared_ptr<QueryTradeMarkApplicationsRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryTradeMarkApplicationsShrinkRequest> request = make_shared<QueryTradeMarkApplicationsShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->statusList)) {
+    request->statusListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->statusList, make_shared<string>("StatusList"), make_shared<string>("simple")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
     query->insert(pair<string, string>("BizId", *request->bizId));
@@ -2942,6 +2947,9 @@ QueryTradeMarkApplicationsResponse Alibabacloud_Trademark20180724::Client::query
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->statusListShrink)) {
+    query->insert(pair<string, string>("StatusList", *request->statusListShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->supplementStatus)) {
     query->insert(pair<string, long>("SupplementStatus", *request->supplementStatus));
