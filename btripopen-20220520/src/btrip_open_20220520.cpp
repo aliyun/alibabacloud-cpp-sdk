@@ -1466,6 +1466,9 @@ CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModif
   if (!Darabonba_Util::Client::isUnset<string>(request->alipayNo)) {
     body->insert(pair<string, string>("alipay_no", *request->alipayNo));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->disable)) {
+    body->insert(pair<string, long>("disable", *request->disable));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
     body->insert(pair<string, string>("number", *request->number));
   }
@@ -1512,6 +1515,9 @@ CostCenterModifyResponse Alibabacloud_BtripOpen20220520::Client::costCenterModif
 CostCenterQueryResponse Alibabacloud_BtripOpen20220520::Client::costCenterQueryWithOptions(shared_ptr<CostCenterQueryRequest> request, shared_ptr<CostCenterQueryHeaders> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->disable)) {
+    query->insert(pair<string, long>("disable", *request->disable));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->needOrgEntity)) {
     query->insert(pair<string, bool>("need_org_entity", *request->needOrgEntity));
   }
@@ -1560,6 +1566,9 @@ CostCenterSaveResponse Alibabacloud_BtripOpen20220520::Client::costCenterSaveWit
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->alipayNo)) {
     body->insert(pair<string, string>("alipay_no", *request->alipayNo));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->disable)) {
+    body->insert(pair<string, long>("disable", *request->disable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->number)) {
     body->insert(pair<string, string>("number", *request->number));

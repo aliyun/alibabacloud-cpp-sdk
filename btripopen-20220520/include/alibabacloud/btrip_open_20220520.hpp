@@ -18133,6 +18133,7 @@ public:
 class CostCenterModifyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alipayNo{};
+  shared_ptr<long> disable{};
   shared_ptr<string> number{};
   shared_ptr<long> scope{};
   shared_ptr<string> thirdpartId{};
@@ -18150,6 +18151,9 @@ public:
     map<string, boost::any> res;
     if (alipayNo) {
       res["alipay_no"] = boost::any(*alipayNo);
+    }
+    if (disable) {
+      res["disable"] = boost::any(*disable);
     }
     if (number) {
       res["number"] = boost::any(*number);
@@ -18169,6 +18173,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_no") != m.end() && !m["alipay_no"].empty()) {
       alipayNo = make_shared<string>(boost::any_cast<string>(m["alipay_no"]));
+    }
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<long>(boost::any_cast<long>(m["disable"]));
     }
     if (m.find("number") != m.end() && !m["number"].empty()) {
       number = make_shared<string>(boost::any_cast<string>(m["number"]));
@@ -18349,6 +18356,7 @@ public:
 };
 class CostCenterQueryRequest : public Darabonba::Model {
 public:
+  shared_ptr<long> disable{};
   shared_ptr<bool> needOrgEntity{};
   shared_ptr<string> thirdpartId{};
   shared_ptr<string> title{};
@@ -18364,6 +18372,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (disable) {
+      res["disable"] = boost::any(*disable);
+    }
     if (needOrgEntity) {
       res["need_org_entity"] = boost::any(*needOrgEntity);
     }
@@ -18380,6 +18391,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<long>(boost::any_cast<long>(m["disable"]));
+    }
     if (m.find("need_org_entity") != m.end() && !m["need_org_entity"].empty()) {
       needOrgEntity = make_shared<bool>(boost::any_cast<bool>(m["need_org_entity"]));
     }
@@ -18458,6 +18472,7 @@ class CostCenterQueryResponseBodyModule : public Darabonba::Model {
 public:
   shared_ptr<string> alipayNo{};
   shared_ptr<string> corpId{};
+  shared_ptr<long> disable{};
   shared_ptr<vector<CostCenterQueryResponseBodyModuleEntityDOS>> entityDOS{};
   shared_ptr<long> id{};
   shared_ptr<string> number{};
@@ -18481,6 +18496,9 @@ public:
     }
     if (corpId) {
       res["corp_id"] = boost::any(*corpId);
+    }
+    if (disable) {
+      res["disable"] = boost::any(*disable);
     }
     if (entityDOS) {
       vector<boost::any> temp1;
@@ -18516,6 +18534,9 @@ public:
     }
     if (m.find("corp_id") != m.end() && !m["corp_id"].empty()) {
       corpId = make_shared<string>(boost::any_cast<string>(m["corp_id"]));
+    }
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<long>(boost::any_cast<long>(m["disable"]));
     }
     if (m.find("entity_d_o_s") != m.end() && !m["entity_d_o_s"].empty()) {
       if (typeid(vector<boost::any>) == m["entity_d_o_s"].type()) {
@@ -18744,6 +18765,7 @@ public:
 class CostCenterSaveRequest : public Darabonba::Model {
 public:
   shared_ptr<string> alipayNo{};
+  shared_ptr<long> disable{};
   shared_ptr<string> number{};
   shared_ptr<long> scope{};
   shared_ptr<string> thirdpartId{};
@@ -18761,6 +18783,9 @@ public:
     map<string, boost::any> res;
     if (alipayNo) {
       res["alipay_no"] = boost::any(*alipayNo);
+    }
+    if (disable) {
+      res["disable"] = boost::any(*disable);
     }
     if (number) {
       res["number"] = boost::any(*number);
@@ -18780,6 +18805,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("alipay_no") != m.end() && !m["alipay_no"].empty()) {
       alipayNo = make_shared<string>(boost::any_cast<string>(m["alipay_no"]));
+    }
+    if (m.find("disable") != m.end() && !m["disable"].empty()) {
+      disable = make_shared<long>(boost::any_cast<long>(m["disable"]));
     }
     if (m.find("number") != m.end() && !m["number"].empty()) {
       number = make_shared<string>(boost::any_cast<string>(m["number"]));
