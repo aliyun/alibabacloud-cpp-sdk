@@ -1457,7 +1457,7 @@ public:
   shared_ptr<double> outRetranCount{};
   shared_ptr<double> packetCount{};
   shared_ptr<string> protocol{};
-  shared_ptr<double> retranCount{};
+  shared_ptr<double> retransmitRate{};
   shared_ptr<double> rtt{};
 
   GetInternetTupleResponseBodyData() {}
@@ -1560,8 +1560,8 @@ public:
     if (protocol) {
       res["Protocol"] = boost::any(*protocol);
     }
-    if (retranCount) {
-      res["RetranCount"] = boost::any(*retranCount);
+    if (retransmitRate) {
+      res["RetransmitRate"] = boost::any(*retransmitRate);
     }
     if (rtt) {
       res["Rtt"] = boost::any(*rtt);
@@ -1660,8 +1660,8 @@ public:
     if (m.find("Protocol") != m.end() && !m["Protocol"].empty()) {
       protocol = make_shared<string>(boost::any_cast<string>(m["Protocol"]));
     }
-    if (m.find("RetranCount") != m.end() && !m["RetranCount"].empty()) {
-      retranCount = make_shared<double>(boost::any_cast<double>(m["RetranCount"]));
+    if (m.find("RetransmitRate") != m.end() && !m["RetransmitRate"].empty()) {
+      retransmitRate = make_shared<double>(boost::any_cast<double>(m["RetransmitRate"]));
     }
     if (m.find("Rtt") != m.end() && !m["Rtt"].empty()) {
       rtt = make_shared<double>(boost::any_cast<double>(m["Rtt"]));
