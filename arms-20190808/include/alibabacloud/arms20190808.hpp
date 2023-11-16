@@ -57994,6 +57994,7 @@ public:
 };
 class UninstallPromClusterRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> aliyunLang{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> regionId{};
 
@@ -58007,6 +58008,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (aliyunLang) {
+      res["AliyunLang"] = boost::any(*aliyunLang);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -58017,6 +58021,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunLang") != m.end() && !m["AliyunLang"].empty()) {
+      aliyunLang = make_shared<string>(boost::any_cast<string>(m["AliyunLang"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
