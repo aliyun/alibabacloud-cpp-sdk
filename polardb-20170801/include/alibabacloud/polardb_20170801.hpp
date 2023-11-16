@@ -1755,6 +1755,7 @@ public:
   shared_ptr<string> parameterGroupId{};
   shared_ptr<string> payType{};
   shared_ptr<string> period{};
+  shared_ptr<long> provisionedIops{};
   shared_ptr<string> proxyClass{};
   shared_ptr<string> proxyType{};
   shared_ptr<string> regionId{};
@@ -1872,6 +1873,9 @@ public:
     }
     if (period) {
       res["Period"] = boost::any(*period);
+    }
+    if (provisionedIops) {
+      res["ProvisionedIops"] = boost::any(*provisionedIops);
     }
     if (proxyClass) {
       res["ProxyClass"] = boost::any(*proxyClass);
@@ -2039,6 +2043,9 @@ public:
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
+    }
+    if (m.find("ProvisionedIops") != m.end() && !m["ProvisionedIops"].empty()) {
+      provisionedIops = make_shared<long>(boost::any_cast<long>(m["ProvisionedIops"]));
     }
     if (m.find("ProxyClass") != m.end() && !m["ProxyClass"].empty()) {
       proxyClass = make_shared<string>(boost::any_cast<string>(m["ProxyClass"]));

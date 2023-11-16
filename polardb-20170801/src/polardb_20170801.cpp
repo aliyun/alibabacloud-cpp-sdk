@@ -628,6 +628,9 @@ CreateDBClusterResponse Alibabacloud_Polardb20170801::Client::createDBClusterWit
   if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
     query->insert(pair<string, string>("Period", *request->period));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->provisionedIops)) {
+    query->insert(pair<string, long>("ProvisionedIops", *request->provisionedIops));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->proxyClass)) {
     query->insert(pair<string, string>("ProxyClass", *request->proxyClass));
   }
