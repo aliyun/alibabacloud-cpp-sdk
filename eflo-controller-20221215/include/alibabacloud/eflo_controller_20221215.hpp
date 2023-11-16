@@ -2067,6 +2067,7 @@ public:
   shared_ptr<string> nodeId{};
   shared_ptr<string> operatingState{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sn{};
   shared_ptr<string> zoneId{};
 
@@ -2128,6 +2129,9 @@ public:
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
+    }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
     }
     if (sn) {
       res["Sn"] = boost::any(*sn);
@@ -2193,6 +2197,9 @@ public:
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sn") != m.end() && !m["Sn"].empty()) {
       sn = make_shared<string>(boost::any_cast<string>(m["Sn"]));
@@ -4330,6 +4337,7 @@ public:
   shared_ptr<string> machineType{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
+  shared_ptr<string> resourceGroupId{};
 
   ListFreeNodesRequest() {}
 
@@ -4353,6 +4361,9 @@ public:
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     return res;
   }
 
@@ -4369,6 +4380,9 @@ public:
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
   }
 
 
@@ -4381,6 +4395,7 @@ public:
   shared_ptr<string> hpnZone{};
   shared_ptr<string> machineType{};
   shared_ptr<string> nodeId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> sn{};
   shared_ptr<string> zoneId{};
 
@@ -4409,6 +4424,9 @@ public:
     if (nodeId) {
       res["NodeId"] = boost::any(*nodeId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (sn) {
       res["Sn"] = boost::any(*sn);
     }
@@ -4433,6 +4451,9 @@ public:
     }
     if (m.find("NodeId") != m.end() && !m["NodeId"].empty()) {
       nodeId = make_shared<string>(boost::any_cast<string>(m["NodeId"]));
+    }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
     }
     if (m.find("Sn") != m.end() && !m["Sn"].empty()) {
       sn = make_shared<string>(boost::any_cast<string>(m["Sn"]));
