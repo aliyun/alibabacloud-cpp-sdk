@@ -2864,6 +2864,12 @@ ListAudioFilesResponse Alibabacloud_CCC20200701::Client::listAudioFilesWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
+    query->insert(pair<string, string>("Status", *request->status));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usage)) {
+    query->insert(pair<string, string>("Usage", *request->usage));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -2891,6 +2897,9 @@ ListBriefSkillGroupsResponse Alibabacloud_CCC20200701::Client::listBriefSkillGro
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -4738,6 +4747,9 @@ ModifyAudioFileResponse Alibabacloud_CCC20200701::Client::modifyAudioFileWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->ossFileKey)) {
     query->insert(pair<string, string>("OssFileKey", *request->ossFileKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usage)) {
+    query->insert(pair<string, string>("Usage", *request->usage));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4939,6 +4951,9 @@ ModifySkillLevelsOfUserResponse Alibabacloud_CCC20200701::Client::modifySkillLev
 ModifyUserResponse Alibabacloud_CCC20200701::Client::modifyUserWithOptions(shared_ptr<ModifyUserRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->avatarUrl)) {
+    query->insert(pair<string, string>("AvatarUrl", *request->avatarUrl));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->displayId)) {
     query->insert(pair<string, string>("DisplayId", *request->displayId));
   }
@@ -4953,6 +4968,9 @@ ModifyUserResponse Alibabacloud_CCC20200701::Client::modifyUserWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->mobile)) {
     query->insert(pair<string, string>("Mobile", *request->mobile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nickname)) {
+    query->insert(pair<string, string>("Nickname", *request->nickname));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->roleId)) {
     query->insert(pair<string, string>("RoleId", *request->roleId));
@@ -5670,11 +5688,17 @@ RemoveSkillGroupsFromUserResponse Alibabacloud_CCC20200701::Client::removeSkillG
 RemoveUsersResponse Alibabacloud_CCC20200701::Client::removeUsersWithOptions(shared_ptr<RemoveUsersRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->filePath)) {
+    query->insert(pair<string, string>("FilePath", *request->filePath));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
     query->insert(pair<string, bool>("Force", *request->force));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->notificationEmail)) {
+    query->insert(pair<string, string>("NotificationEmail", *request->notificationEmail));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userIdList)) {
     query->insert(pair<string, string>("UserIdList", *request->userIdList));
@@ -6129,6 +6153,12 @@ SendDtmfSignalingResponse Alibabacloud_CCC20200701::Client::sendDtmfSignaling(sh
 SignInGroupResponse Alibabacloud_CCC20200701::Client::signInGroupWithOptions(shared_ptr<SignInGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->additivity)) {
+    query->insert(pair<string, bool>("Additivity", *request->additivity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->chatDeviceId)) {
+    query->insert(pair<string, string>("ChatDeviceId", *request->chatDeviceId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->deviceId)) {
     query->insert(pair<string, string>("DeviceId", *request->deviceId));
   }
