@@ -2632,6 +2632,9 @@ FixNodePoolVulsResponse Alibabacloud_CS20151215::Client::fixNodePoolVulsWithOpti
                                                                                     shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRestart)) {
+    body->insert(pair<string, bool>("auto_restart", *request->autoRestart));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
     body->insert(pair<string, vector<string>>("nodes", *request->nodes));
   }
@@ -2663,6 +2666,33 @@ FixNodePoolVulsResponse Alibabacloud_CS20151215::Client::fixNodePoolVuls(shared_
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
+}
+
+GetClusterCheckResponse Alibabacloud_CS20151215::Client::getClusterCheckWithOptions(shared_ptr<string> clusterId,
+                                                                                    shared_ptr<string> checkId,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetClusterCheck"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/%5Bcluster_id%5D/checks/%5Bcheck_id%5D"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetClusterCheckResponse(callApi(params, req, runtime));
+}
+
+GetClusterCheckResponse Alibabacloud_CS20151215::Client::getClusterCheck(shared_ptr<string> clusterId, shared_ptr<string> checkId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getClusterCheckWithOptions(clusterId, checkId, headers, runtime);
 }
 
 GetKubernetesTriggerResponse Alibabacloud_CS20151215::Client::getKubernetesTriggerWithOptions(shared_ptr<string> ClusterId,
@@ -2787,6 +2817,39 @@ InstallClusterAddonsResponse Alibabacloud_CS20151215::Client::installClusterAddo
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+}
+
+ListClusterChecksResponse Alibabacloud_CS20151215::Client::listClusterChecksWithOptions(shared_ptr<string> clusterId,
+                                                                                        shared_ptr<ListClusterChecksRequest> request,
+                                                                                        shared_ptr<map<string, string>> headers,
+                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListClusterChecks"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/%5Bcluster_id%5D/checks"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListClusterChecksResponse(callApi(params, req, runtime));
+}
+
+ListClusterChecksResponse Alibabacloud_CS20151215::Client::listClusterChecks(shared_ptr<string> clusterId, shared_ptr<ListClusterChecksRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listClusterChecksWithOptions(clusterId, request, headers, runtime);
 }
 
 ListTagResourcesResponse Alibabacloud_CS20151215::Client::listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> tmpReq, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3395,6 +3458,9 @@ RepairClusterNodePoolResponse Alibabacloud_CS20151215::Client::repairClusterNode
                                                                                                 shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoRestart)) {
+    body->insert(pair<string, bool>("auto_restart", *request->autoRestart));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->nodes)) {
     body->insert(pair<string, vector<string>>("nodes", *request->nodes));
   }
@@ -3495,6 +3561,42 @@ ResumeUpgradeClusterResponse Alibabacloud_CS20151215::Client::resumeUpgradeClust
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return resumeUpgradeClusterWithOptions(ClusterId, headers, runtime);
+}
+
+RunClusterCheckResponse Alibabacloud_CS20151215::Client::runClusterCheckWithOptions(shared_ptr<string> clusterId,
+                                                                                    shared_ptr<RunClusterCheckRequest> request,
+                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(request->options)) {
+    body->insert(pair<string, map<string, string>>("options", *request->options));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    body->insert(pair<string, string>("type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("RunClusterCheck"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/%5Bcluster_id%5D/checks"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return RunClusterCheckResponse(callApi(params, req, runtime));
+}
+
+RunClusterCheckResponse Alibabacloud_CS20151215::Client::runClusterCheck(shared_ptr<string> clusterId, shared_ptr<RunClusterCheckRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return runClusterCheckWithOptions(clusterId, request, headers, runtime);
 }
 
 ScaleClusterResponse Alibabacloud_CS20151215::Client::scaleClusterWithOptions(shared_ptr<string> ClusterId,
