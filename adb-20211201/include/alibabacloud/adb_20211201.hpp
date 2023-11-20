@@ -889,6 +889,159 @@ public:
 
   virtual ~LogAnalyzeResult() = default;
 };
+class OperatorNodeStats : public Darabonba::Model {
+public:
+  shared_ptr<long> bytes{};
+  shared_ptr<long> outputRows{};
+  shared_ptr<string> parameters{};
+  shared_ptr<long> peakMemory{};
+  shared_ptr<long> timeCost{};
+
+  OperatorNodeStats() {}
+
+  explicit OperatorNodeStats(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (bytes) {
+      res["bytes"] = boost::any(*bytes);
+    }
+    if (outputRows) {
+      res["outputRows"] = boost::any(*outputRows);
+    }
+    if (parameters) {
+      res["parameters"] = boost::any(*parameters);
+    }
+    if (peakMemory) {
+      res["peakMemory"] = boost::any(*peakMemory);
+    }
+    if (timeCost) {
+      res["timeCost"] = boost::any(*timeCost);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("bytes") != m.end() && !m["bytes"].empty()) {
+      bytes = make_shared<long>(boost::any_cast<long>(m["bytes"]));
+    }
+    if (m.find("outputRows") != m.end() && !m["outputRows"].empty()) {
+      outputRows = make_shared<long>(boost::any_cast<long>(m["outputRows"]));
+    }
+    if (m.find("parameters") != m.end() && !m["parameters"].empty()) {
+      parameters = make_shared<string>(boost::any_cast<string>(m["parameters"]));
+    }
+    if (m.find("peakMemory") != m.end() && !m["peakMemory"].empty()) {
+      peakMemory = make_shared<long>(boost::any_cast<long>(m["peakMemory"]));
+    }
+    if (m.find("timeCost") != m.end() && !m["timeCost"].empty()) {
+      timeCost = make_shared<long>(boost::any_cast<long>(m["timeCost"]));
+    }
+  }
+
+
+  virtual ~OperatorNodeStats() = default;
+};
+class OperatorNode : public Darabonba::Model {
+public:
+  shared_ptr<vector<OperatorNode>> children{};
+  shared_ptr<long> id{};
+  shared_ptr<long> levelWidth{};
+  shared_ptr<long> nodeDepth{};
+  shared_ptr<string> nodeName{};
+  shared_ptr<long> nodeWidth{};
+  shared_ptr<long> parentId{};
+  shared_ptr<OperatorNodeStats> stats{};
+
+  OperatorNode() {}
+
+  explicit OperatorNode(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (children) {
+      vector<boost::any> temp1;
+      for(auto item1:*children){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["children"] = boost::any(temp1);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (levelWidth) {
+      res["levelWidth"] = boost::any(*levelWidth);
+    }
+    if (nodeDepth) {
+      res["nodeDepth"] = boost::any(*nodeDepth);
+    }
+    if (nodeName) {
+      res["nodeName"] = boost::any(*nodeName);
+    }
+    if (nodeWidth) {
+      res["nodeWidth"] = boost::any(*nodeWidth);
+    }
+    if (parentId) {
+      res["parentId"] = boost::any(*parentId);
+    }
+    if (stats) {
+      res["stats"] = stats ? boost::any(stats->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("children") != m.end() && !m["children"].empty()) {
+      if (typeid(vector<boost::any>) == m["children"].type()) {
+        vector<OperatorNode> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["children"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            OperatorNode model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        children = make_shared<vector<OperatorNode>>(expect1);
+      }
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("levelWidth") != m.end() && !m["levelWidth"].empty()) {
+      levelWidth = make_shared<long>(boost::any_cast<long>(m["levelWidth"]));
+    }
+    if (m.find("nodeDepth") != m.end() && !m["nodeDepth"].empty()) {
+      nodeDepth = make_shared<long>(boost::any_cast<long>(m["nodeDepth"]));
+    }
+    if (m.find("nodeName") != m.end() && !m["nodeName"].empty()) {
+      nodeName = make_shared<string>(boost::any_cast<string>(m["nodeName"]));
+    }
+    if (m.find("nodeWidth") != m.end() && !m["nodeWidth"].empty()) {
+      nodeWidth = make_shared<long>(boost::any_cast<long>(m["nodeWidth"]));
+    }
+    if (m.find("parentId") != m.end() && !m["parentId"].empty()) {
+      parentId = make_shared<long>(boost::any_cast<long>(m["parentId"]));
+    }
+    if (m.find("stats") != m.end() && !m["stats"].empty()) {
+      if (typeid(map<string, boost::any>) == m["stats"].type()) {
+        OperatorNodeStats model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["stats"]));
+        stats = make_shared<OperatorNodeStats>(model1);
+      }
+    }
+  }
+
+
+  virtual ~OperatorNode() = default;
+};
 class SerDeInfoModel : public Darabonba::Model {
 public:
   shared_ptr<string> name{};
@@ -1175,6 +1328,42 @@ public:
 
 
   virtual ~SparkAttemptInfo() = default;
+};
+class SparkOperatorInfo : public Darabonba::Model {
+public:
+  shared_ptr<long> metricValue{};
+  shared_ptr<vector<uint8_t>> operatorName{};
+
+  SparkOperatorInfo() {}
+
+  explicit SparkOperatorInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (metricValue) {
+      res["MetricValue"] = boost::any(*metricValue);
+    }
+    if (operatorName) {
+      res["OperatorName"] = boost::any(*operatorName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MetricValue") != m.end() && !m["MetricValue"].empty()) {
+      metricValue = make_shared<long>(boost::any_cast<long>(m["MetricValue"]));
+    }
+    if (m.find("OperatorName") != m.end() && !m["OperatorName"].empty()) {
+      operatorName = make_shared<vector<uint8_t>>(boost::any_cast<vector<uint8_t>>(m["OperatorName"]));
+    }
+  }
+
+
+  virtual ~SparkOperatorInfo() = default;
 };
 class SparkSession : public Darabonba::Model {
 public:
