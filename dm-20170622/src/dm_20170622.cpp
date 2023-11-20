@@ -1640,3 +1640,81 @@ SingleSendMailResponse Alibabacloud_Dm20170622::Client::singleSendMail(shared_pt
   return singleSendMailWithOptions(request, runtime);
 }
 
+SingleSendMailV2Response Alibabacloud_Dm20170622::Client::singleSendMailV2WithOptions(shared_ptr<SingleSendMailV2Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SingleSendMailV2ShrinkRequest> request = make_shared<SingleSendMailV2ShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<SingleSendMailV2RequestHtmlBodyPlaceHolders>>(tmpReq->htmlBodyPlaceHolders)) {
+    request->htmlBodyPlaceHoldersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->htmlBodyPlaceHolders, make_shared<string>("HtmlBodyPlaceHolders"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->accountName)) {
+    query->insert(pair<string, string>("AccountName", *request->accountName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->addressType)) {
+    query->insert(pair<string, long>("AddressType", *request->addressType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clickTrace)) {
+    query->insert(pair<string, string>("ClickTrace", *request->clickTrace));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fromAlias)) {
+    query->insert(pair<string, string>("FromAlias", *request->fromAlias));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->htmlBody)) {
+    query->insert(pair<string, string>("HtmlBody", *request->htmlBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->htmlBodyPlaceHoldersShrink)) {
+    query->insert(pair<string, string>("HtmlBodyPlaceHolders", *request->htmlBodyPlaceHoldersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
+    query->insert(pair<string, long>("OwnerId", *request->ownerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->replyAddress)) {
+    query->insert(pair<string, string>("ReplyAddress", *request->replyAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->replyAddressAlias)) {
+    query->insert(pair<string, string>("ReplyAddressAlias", *request->replyAddressAlias));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->replyToAddress)) {
+    query->insert(pair<string, bool>("ReplyToAddress", *request->replyToAddress));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
+    query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->subject)) {
+    query->insert(pair<string, string>("Subject", *request->subject));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagName)) {
+    query->insert(pair<string, string>("TagName", *request->tagName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->textBody)) {
+    query->insert(pair<string, string>("TextBody", *request->textBody));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->toAddress)) {
+    query->insert(pair<string, string>("ToAddress", *request->toAddress));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("SingleSendMailV2"))},
+    {"version", boost::any(string("2017-06-22"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return SingleSendMailV2Response(callApi(params, req, runtime));
+}
+
+SingleSendMailV2Response Alibabacloud_Dm20170622::Client::singleSendMailV2(shared_ptr<SingleSendMailV2Request> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return singleSendMailV2WithOptions(request, runtime);
+}
+

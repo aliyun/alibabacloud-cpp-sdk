@@ -8003,6 +8003,427 @@ public:
 
   virtual ~SingleSendMailResponse() = default;
 };
+class SingleSendMailV2RequestHtmlBodyPlaceHolders : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> placeHolders{};
+  shared_ptr<string> toAddress{};
+
+  SingleSendMailV2RequestHtmlBodyPlaceHolders() {}
+
+  explicit SingleSendMailV2RequestHtmlBodyPlaceHolders(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (placeHolders) {
+      res["PlaceHolders"] = boost::any(*placeHolders);
+    }
+    if (toAddress) {
+      res["ToAddress"] = boost::any(*toAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PlaceHolders") != m.end() && !m["PlaceHolders"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["PlaceHolders"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      placeHolders = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
+      toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailV2RequestHtmlBodyPlaceHolders() = default;
+};
+class SingleSendMailV2Request : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<long> addressType{};
+  shared_ptr<string> clickTrace{};
+  shared_ptr<string> fromAlias{};
+  shared_ptr<string> htmlBody{};
+  shared_ptr<vector<SingleSendMailV2RequestHtmlBodyPlaceHolders>> htmlBodyPlaceHolders{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> replyAddress{};
+  shared_ptr<string> replyAddressAlias{};
+  shared_ptr<bool> replyToAddress{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> tagName{};
+  shared_ptr<string> textBody{};
+  shared_ptr<string> toAddress{};
+
+  SingleSendMailV2Request() {}
+
+  explicit SingleSendMailV2Request(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (clickTrace) {
+      res["ClickTrace"] = boost::any(*clickTrace);
+    }
+    if (fromAlias) {
+      res["FromAlias"] = boost::any(*fromAlias);
+    }
+    if (htmlBody) {
+      res["HtmlBody"] = boost::any(*htmlBody);
+    }
+    if (htmlBodyPlaceHolders) {
+      vector<boost::any> temp1;
+      for(auto item1:*htmlBodyPlaceHolders){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["HtmlBodyPlaceHolders"] = boost::any(temp1);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (replyAddress) {
+      res["ReplyAddress"] = boost::any(*replyAddress);
+    }
+    if (replyAddressAlias) {
+      res["ReplyAddressAlias"] = boost::any(*replyAddressAlias);
+    }
+    if (replyToAddress) {
+      res["ReplyToAddress"] = boost::any(*replyToAddress);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    if (textBody) {
+      res["TextBody"] = boost::any(*textBody);
+    }
+    if (toAddress) {
+      res["ToAddress"] = boost::any(*toAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<long>(boost::any_cast<long>(m["AddressType"]));
+    }
+    if (m.find("ClickTrace") != m.end() && !m["ClickTrace"].empty()) {
+      clickTrace = make_shared<string>(boost::any_cast<string>(m["ClickTrace"]));
+    }
+    if (m.find("FromAlias") != m.end() && !m["FromAlias"].empty()) {
+      fromAlias = make_shared<string>(boost::any_cast<string>(m["FromAlias"]));
+    }
+    if (m.find("HtmlBody") != m.end() && !m["HtmlBody"].empty()) {
+      htmlBody = make_shared<string>(boost::any_cast<string>(m["HtmlBody"]));
+    }
+    if (m.find("HtmlBodyPlaceHolders") != m.end() && !m["HtmlBodyPlaceHolders"].empty()) {
+      if (typeid(vector<boost::any>) == m["HtmlBodyPlaceHolders"].type()) {
+        vector<SingleSendMailV2RequestHtmlBodyPlaceHolders> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["HtmlBodyPlaceHolders"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            SingleSendMailV2RequestHtmlBodyPlaceHolders model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        htmlBodyPlaceHolders = make_shared<vector<SingleSendMailV2RequestHtmlBodyPlaceHolders>>(expect1);
+      }
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ReplyAddress") != m.end() && !m["ReplyAddress"].empty()) {
+      replyAddress = make_shared<string>(boost::any_cast<string>(m["ReplyAddress"]));
+    }
+    if (m.find("ReplyAddressAlias") != m.end() && !m["ReplyAddressAlias"].empty()) {
+      replyAddressAlias = make_shared<string>(boost::any_cast<string>(m["ReplyAddressAlias"]));
+    }
+    if (m.find("ReplyToAddress") != m.end() && !m["ReplyToAddress"].empty()) {
+      replyToAddress = make_shared<bool>(boost::any_cast<bool>(m["ReplyToAddress"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+    if (m.find("TextBody") != m.end() && !m["TextBody"].empty()) {
+      textBody = make_shared<string>(boost::any_cast<string>(m["TextBody"]));
+    }
+    if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
+      toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailV2Request() = default;
+};
+class SingleSendMailV2ShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accountName{};
+  shared_ptr<long> addressType{};
+  shared_ptr<string> clickTrace{};
+  shared_ptr<string> fromAlias{};
+  shared_ptr<string> htmlBody{};
+  shared_ptr<string> htmlBodyPlaceHoldersShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> replyAddress{};
+  shared_ptr<string> replyAddressAlias{};
+  shared_ptr<bool> replyToAddress{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> subject{};
+  shared_ptr<string> tagName{};
+  shared_ptr<string> textBody{};
+  shared_ptr<string> toAddress{};
+
+  SingleSendMailV2ShrinkRequest() {}
+
+  explicit SingleSendMailV2ShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accountName) {
+      res["AccountName"] = boost::any(*accountName);
+    }
+    if (addressType) {
+      res["AddressType"] = boost::any(*addressType);
+    }
+    if (clickTrace) {
+      res["ClickTrace"] = boost::any(*clickTrace);
+    }
+    if (fromAlias) {
+      res["FromAlias"] = boost::any(*fromAlias);
+    }
+    if (htmlBody) {
+      res["HtmlBody"] = boost::any(*htmlBody);
+    }
+    if (htmlBodyPlaceHoldersShrink) {
+      res["HtmlBodyPlaceHolders"] = boost::any(*htmlBodyPlaceHoldersShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (replyAddress) {
+      res["ReplyAddress"] = boost::any(*replyAddress);
+    }
+    if (replyAddressAlias) {
+      res["ReplyAddressAlias"] = boost::any(*replyAddressAlias);
+    }
+    if (replyToAddress) {
+      res["ReplyToAddress"] = boost::any(*replyToAddress);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (subject) {
+      res["Subject"] = boost::any(*subject);
+    }
+    if (tagName) {
+      res["TagName"] = boost::any(*tagName);
+    }
+    if (textBody) {
+      res["TextBody"] = boost::any(*textBody);
+    }
+    if (toAddress) {
+      res["ToAddress"] = boost::any(*toAddress);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccountName") != m.end() && !m["AccountName"].empty()) {
+      accountName = make_shared<string>(boost::any_cast<string>(m["AccountName"]));
+    }
+    if (m.find("AddressType") != m.end() && !m["AddressType"].empty()) {
+      addressType = make_shared<long>(boost::any_cast<long>(m["AddressType"]));
+    }
+    if (m.find("ClickTrace") != m.end() && !m["ClickTrace"].empty()) {
+      clickTrace = make_shared<string>(boost::any_cast<string>(m["ClickTrace"]));
+    }
+    if (m.find("FromAlias") != m.end() && !m["FromAlias"].empty()) {
+      fromAlias = make_shared<string>(boost::any_cast<string>(m["FromAlias"]));
+    }
+    if (m.find("HtmlBody") != m.end() && !m["HtmlBody"].empty()) {
+      htmlBody = make_shared<string>(boost::any_cast<string>(m["HtmlBody"]));
+    }
+    if (m.find("HtmlBodyPlaceHolders") != m.end() && !m["HtmlBodyPlaceHolders"].empty()) {
+      htmlBodyPlaceHoldersShrink = make_shared<string>(boost::any_cast<string>(m["HtmlBodyPlaceHolders"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ReplyAddress") != m.end() && !m["ReplyAddress"].empty()) {
+      replyAddress = make_shared<string>(boost::any_cast<string>(m["ReplyAddress"]));
+    }
+    if (m.find("ReplyAddressAlias") != m.end() && !m["ReplyAddressAlias"].empty()) {
+      replyAddressAlias = make_shared<string>(boost::any_cast<string>(m["ReplyAddressAlias"]));
+    }
+    if (m.find("ReplyToAddress") != m.end() && !m["ReplyToAddress"].empty()) {
+      replyToAddress = make_shared<bool>(boost::any_cast<bool>(m["ReplyToAddress"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Subject") != m.end() && !m["Subject"].empty()) {
+      subject = make_shared<string>(boost::any_cast<string>(m["Subject"]));
+    }
+    if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
+      tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
+    }
+    if (m.find("TextBody") != m.end() && !m["TextBody"].empty()) {
+      textBody = make_shared<string>(boost::any_cast<string>(m["TextBody"]));
+    }
+    if (m.find("ToAddress") != m.end() && !m["ToAddress"].empty()) {
+      toAddress = make_shared<string>(boost::any_cast<string>(m["ToAddress"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailV2ShrinkRequest() = default;
+};
+class SingleSendMailV2ResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> envId{};
+  shared_ptr<string> requestId{};
+
+  SingleSendMailV2ResponseBody() {}
+
+  explicit SingleSendMailV2ResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (envId) {
+      res["EnvId"] = boost::any(*envId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnvId") != m.end() && !m["EnvId"].empty()) {
+      envId = make_shared<string>(boost::any_cast<string>(m["EnvId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~SingleSendMailV2ResponseBody() = default;
+};
+class SingleSendMailV2Response : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<SingleSendMailV2ResponseBody> body{};
+
+  SingleSendMailV2Response() {}
+
+  explicit SingleSendMailV2Response(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        SingleSendMailV2ResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<SingleSendMailV2ResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~SingleSendMailV2Response() = default;
+};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -8085,6 +8506,8 @@ public:
   SenderStatisticsDetailByParamResponse senderStatisticsDetailByParam(shared_ptr<SenderStatisticsDetailByParamRequest> request);
   SingleSendMailResponse singleSendMailWithOptions(shared_ptr<SingleSendMailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SingleSendMailResponse singleSendMail(shared_ptr<SingleSendMailRequest> request);
+  SingleSendMailV2Response singleSendMailV2WithOptions(shared_ptr<SingleSendMailV2Request> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SingleSendMailV2Response singleSendMailV2(shared_ptr<SingleSendMailV2Request> request);
 
   virtual ~Client() = default;
 };
