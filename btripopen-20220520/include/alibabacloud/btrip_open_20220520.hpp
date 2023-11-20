@@ -77539,6 +77539,7 @@ class InvoiceRuleSaveRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allEmploye{};
   shared_ptr<vector<InvoiceRuleSaveRequestEntities>> entities{};
+  shared_ptr<long> scope{};
   shared_ptr<string> thirdPartId{};
 
   InvoiceRuleSaveRequest() {}
@@ -77560,6 +77561,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["entities"] = boost::any(temp1);
+    }
+    if (scope) {
+      res["scope"] = boost::any(*scope);
     }
     if (thirdPartId) {
       res["third_part_id"] = boost::any(*thirdPartId);
@@ -77584,6 +77588,9 @@ public:
         entities = make_shared<vector<InvoiceRuleSaveRequestEntities>>(expect1);
       }
     }
+    if (m.find("scope") != m.end() && !m["scope"].empty()) {
+      scope = make_shared<long>(boost::any_cast<long>(m["scope"]));
+    }
     if (m.find("third_part_id") != m.end() && !m["third_part_id"].empty()) {
       thirdPartId = make_shared<string>(boost::any_cast<string>(m["third_part_id"]));
     }
@@ -77596,6 +77603,7 @@ class InvoiceRuleSaveShrinkRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> allEmploye{};
   shared_ptr<string> entitiesShrink{};
+  shared_ptr<long> scope{};
   shared_ptr<string> thirdPartId{};
 
   InvoiceRuleSaveShrinkRequest() {}
@@ -77614,6 +77622,9 @@ public:
     if (entitiesShrink) {
       res["entities"] = boost::any(*entitiesShrink);
     }
+    if (scope) {
+      res["scope"] = boost::any(*scope);
+    }
     if (thirdPartId) {
       res["third_part_id"] = boost::any(*thirdPartId);
     }
@@ -77626,6 +77637,9 @@ public:
     }
     if (m.find("entities") != m.end() && !m["entities"].empty()) {
       entitiesShrink = make_shared<string>(boost::any_cast<string>(m["entities"]));
+    }
+    if (m.find("scope") != m.end() && !m["scope"].empty()) {
+      scope = make_shared<long>(boost::any_cast<long>(m["scope"]));
     }
     if (m.find("third_part_id") != m.end() && !m["third_part_id"].empty()) {
       thirdPartId = make_shared<string>(boost::any_cast<string>(m["third_part_id"]));

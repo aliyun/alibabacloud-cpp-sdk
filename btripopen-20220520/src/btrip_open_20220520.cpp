@@ -5783,6 +5783,9 @@ InvoiceRuleSaveResponse Alibabacloud_BtripOpen20220520::Client::invoiceRuleSaveW
   if (!Darabonba_Util::Client::isUnset<string>(request->entitiesShrink)) {
     body->insert(pair<string, string>("entities", *request->entitiesShrink));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->scope)) {
+    body->insert(pair<string, long>("scope", *request->scope));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->thirdPartId)) {
     body->insert(pair<string, string>("third_part_id", *request->thirdPartId));
   }
