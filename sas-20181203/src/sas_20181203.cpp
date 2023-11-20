@@ -16601,6 +16601,46 @@ ListCheckStandardResponse Alibabacloud_Sas20181203::Client::listCheckStandard(sh
   return listCheckStandardWithOptions(request, runtime);
 }
 
+ListCheckTypesResponse Alibabacloud_Sas20181203::Client::listCheckTypesWithOptions(shared_ptr<ListCheckTypesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->riskId)) {
+    query->insert(pair<string, long>("RiskId", *request->riskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListCheckTypes"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListCheckTypesResponse(callApi(params, req, runtime));
+}
+
+ListCheckTypesResponse Alibabacloud_Sas20181203::Client::listCheckTypes(shared_ptr<ListCheckTypesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listCheckTypesWithOptions(request, runtime);
+}
+
 ListClientAlertModeResponse Alibabacloud_Sas20181203::Client::listClientAlertModeWithOptions(shared_ptr<ListClientAlertModeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
@@ -23795,6 +23835,78 @@ UpdateJenkinsImageRegistryPersistenceDayResponse Alibabacloud_Sas20181203::Clien
 UpdateJenkinsImageRegistryPersistenceDayResponse Alibabacloud_Sas20181203::Client::updateJenkinsImageRegistryPersistenceDay(shared_ptr<UpdateJenkinsImageRegistryPersistenceDayRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+}
+
+UpdateOpaStrategyNewResponse Alibabacloud_Sas20181203::Client::updateOpaStrategyNewWithOptions(shared_ptr<UpdateOpaStrategyNewRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateOpaStrategyNewShrinkRequest> request = make_shared<UpdateOpaStrategyNewShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateOpaStrategyNewRequestAlarmDetail>(tmpReq->alarmDetail)) {
+    request->alarmDetailShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->alarmDetail, make_shared<string>("AlarmDetail"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->alarmDetailShrink)) {
+    query->insert(pair<string, string>("AlarmDetail", *request->alarmDetailShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("ClusterId", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
+    query->insert(pair<string, string>("ClusterName", *request->clusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->imageName)) {
+    query->insert(pair<string, vector<string>>("ImageName", *request->imageName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->label)) {
+    query->insert(pair<string, vector<string>>("Label", *request->label));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->maliciousImage)) {
+    query->insert(pair<string, bool>("MaliciousImage", *request->maliciousImage));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->ruleAction)) {
+    query->insert(pair<string, long>("RuleAction", *request->ruleAction));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateOpaStrategyNewShrinkRequestScopes>>(request->scopes)) {
+    query->insert(pair<string, vector<UpdateOpaStrategyNewShrinkRequestScopes>>("Scopes", *request->scopes));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strategyId)) {
+    query->insert(pair<string, long>("StrategyId", *request->strategyId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->strategyName)) {
+    query->insert(pair<string, string>("StrategyName", *request->strategyName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->strategyTemplateId)) {
+    query->insert(pair<string, long>("StrategyTemplateId", *request->strategyTemplateId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->unScanedImage)) {
+    query->insert(pair<string, bool>("UnScanedImage", *request->unScanedImage));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->whiteList)) {
+    query->insert(pair<string, vector<string>>("WhiteList", *request->whiteList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateOpaStrategyNew"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateOpaStrategyNewResponse(callApi(params, req, runtime));
+}
+
+UpdateOpaStrategyNewResponse Alibabacloud_Sas20181203::Client::updateOpaStrategyNew(shared_ptr<UpdateOpaStrategyNewRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateOpaStrategyNewWithOptions(request, runtime);
 }
 
 UpdateOssScanConfigResponse Alibabacloud_Sas20181203::Client::updateOssScanConfigWithOptions(shared_ptr<UpdateOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
