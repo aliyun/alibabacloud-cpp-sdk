@@ -12772,6 +12772,7 @@ public:
   shared_ptr<string> billingDate{};
   shared_ptr<string> granularity{};
   shared_ptr<string> instanceID{};
+  shared_ptr<bool> isHideZeroCharge{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> ownerId{};
@@ -12805,6 +12806,9 @@ public:
     }
     if (instanceID) {
       res["InstanceID"] = boost::any(*instanceID);
+    }
+    if (isHideZeroCharge) {
+      res["IsHideZeroCharge"] = boost::any(*isHideZeroCharge);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -12852,6 +12856,9 @@ public:
     }
     if (m.find("InstanceID") != m.end() && !m["InstanceID"].empty()) {
       instanceID = make_shared<string>(boost::any_cast<string>(m["InstanceID"]));
+    }
+    if (m.find("IsHideZeroCharge") != m.end() && !m["IsHideZeroCharge"].empty()) {
+      isHideZeroCharge = make_shared<bool>(boost::any_cast<bool>(m["IsHideZeroCharge"]));
     }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));

@@ -1582,6 +1582,9 @@ DescribeSplitItemBillResponse Alibabacloud_BssOpenApi20171214::Client::describeS
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceID)) {
     query->insert(pair<string, string>("InstanceID", *request->instanceID));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isHideZeroCharge)) {
+    query->insert(pair<string, bool>("IsHideZeroCharge", *request->isHideZeroCharge));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
   }
