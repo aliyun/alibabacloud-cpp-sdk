@@ -981,6 +981,9 @@ GetWhatsappConnectionCatalogResponse Alibabacloud_Cams20200606::Client::getWhats
 IsvGetAppIdResponse Alibabacloud_Cams20200606::Client::isvGetAppIdWithOptions(shared_ptr<IsvGetAppIdRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->permissions)) {
+    body->insert(pair<string, string>("Permissions", *request->permissions));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     body->insert(pair<string, string>("Type", *request->type));
   }
@@ -1490,6 +1493,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<SendChatappMessageShrinkRequest> request = make_shared<SendChatappMessageShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<SendChatappMessageRequestFlowAction>(tmpReq->flowAction)) {
+    request->flowActionShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->flowAction, make_shared<string>("FlowAction"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->payload)) {
     request->payloadShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->payload, make_shared<string>("Payload"), make_shared<string>("json")));
   }
@@ -1530,6 +1536,9 @@ SendChatappMessageResponse Alibabacloud_Cams20200606::Client::sendChatappMessage
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->fallBackRule)) {
     body->insert(pair<string, string>("FallBackRule", *request->fallBackRule));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->flowActionShrink)) {
+    body->insert(pair<string, string>("FlowAction", *request->flowActionShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     body->insert(pair<string, string>("From", *request->from));

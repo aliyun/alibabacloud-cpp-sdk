@@ -3072,6 +3072,8 @@ class CreateChatappTemplateRequestComponentsButtons : public Darabonba::Model {
 public:
   shared_ptr<string> autofillText{};
   shared_ptr<string> couponCode{};
+  shared_ptr<string> flowAction{};
+  shared_ptr<string> flowId{};
   shared_ptr<bool> isOptOut{};
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
@@ -3080,6 +3082,7 @@ public:
   shared_ptr<string> type{};
   shared_ptr<string> url{};
   shared_ptr<string> urlType{};
+  shared_ptr<string> navigateScreen{};
 
   CreateChatappTemplateRequestComponentsButtons() {}
 
@@ -3096,6 +3099,12 @@ public:
     }
     if (couponCode) {
       res["CouponCode"] = boost::any(*couponCode);
+    }
+    if (flowAction) {
+      res["FlowAction"] = boost::any(*flowAction);
+    }
+    if (flowId) {
+      res["FlowId"] = boost::any(*flowId);
     }
     if (isOptOut) {
       res["IsOptOut"] = boost::any(*isOptOut);
@@ -3121,6 +3130,9 @@ public:
     if (urlType) {
       res["UrlType"] = boost::any(*urlType);
     }
+    if (navigateScreen) {
+      res["navigateScreen"] = boost::any(*navigateScreen);
+    }
     return res;
   }
 
@@ -3130,6 +3142,12 @@ public:
     }
     if (m.find("CouponCode") != m.end() && !m["CouponCode"].empty()) {
       couponCode = make_shared<string>(boost::any_cast<string>(m["CouponCode"]));
+    }
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      flowAction = make_shared<string>(boost::any_cast<string>(m["FlowAction"]));
+    }
+    if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
+      flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
     }
     if (m.find("IsOptOut") != m.end() && !m["IsOptOut"].empty()) {
       isOptOut = make_shared<bool>(boost::any_cast<bool>(m["IsOptOut"]));
@@ -3154,6 +3172,9 @@ public:
     }
     if (m.find("UrlType") != m.end() && !m["UrlType"].empty()) {
       urlType = make_shared<string>(boost::any_cast<string>(m["UrlType"]));
+    }
+    if (m.find("navigateScreen") != m.end() && !m["navigateScreen"].empty()) {
+      navigateScreen = make_shared<string>(boost::any_cast<string>(m["navigateScreen"]));
     }
   }
 
@@ -4552,7 +4573,10 @@ public:
   shared_ptr<string> autofillText{};
   shared_ptr<string> couponCode{};
   shared_ptr<GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs> extendAttrs{};
+  shared_ptr<string> flowAction{};
+  shared_ptr<string> flowId{};
   shared_ptr<bool> isOptOut{};
+  shared_ptr<string> navigateScreen{};
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
   shared_ptr<string> signatureHash{};
@@ -4580,8 +4604,17 @@ public:
     if (extendAttrs) {
       res["ExtendAttrs"] = extendAttrs ? boost::any(extendAttrs->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (flowAction) {
+      res["FlowAction"] = boost::any(*flowAction);
+    }
+    if (flowId) {
+      res["FlowId"] = boost::any(*flowId);
+    }
     if (isOptOut) {
       res["IsOptOut"] = boost::any(*isOptOut);
+    }
+    if (navigateScreen) {
+      res["NavigateScreen"] = boost::any(*navigateScreen);
     }
     if (packageName) {
       res["PackageName"] = boost::any(*packageName);
@@ -4621,8 +4654,17 @@ public:
         extendAttrs = make_shared<GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs>(model1);
       }
     }
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      flowAction = make_shared<string>(boost::any_cast<string>(m["FlowAction"]));
+    }
+    if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
+      flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
+    }
     if (m.find("IsOptOut") != m.end() && !m["IsOptOut"].empty()) {
       isOptOut = make_shared<bool>(boost::any_cast<bool>(m["IsOptOut"]));
+    }
+    if (m.find("NavigateScreen") != m.end() && !m["NavigateScreen"].empty()) {
+      navigateScreen = make_shared<string>(boost::any_cast<string>(m["NavigateScreen"]));
     }
     if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
       packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
@@ -6946,6 +6988,7 @@ public:
 };
 class IsvGetAppIdRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> permissions{};
   shared_ptr<string> type{};
 
   IsvGetAppIdRequest() {}
@@ -6958,6 +7001,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (permissions) {
+      res["Permissions"] = boost::any(*permissions);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -6965,6 +7011,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Permissions") != m.end() && !m["Permissions"].empty()) {
+      permissions = make_shared<string>(boost::any_cast<string>(m["Permissions"]));
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -6978,6 +7027,7 @@ public:
   shared_ptr<string> accessDeniedDetail{};
   shared_ptr<string> appId{};
   shared_ptr<string> code{};
+  shared_ptr<string> configId{};
   shared_ptr<string> message{};
   shared_ptr<string> requestId{};
 
@@ -7000,6 +7050,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (configId) {
+      res["ConfigId"] = boost::any(*configId);
+    }
     if (message) {
       res["Message"] = boost::any(*message);
     }
@@ -7018,6 +7071,9 @@ public:
     }
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("ConfigId") != m.end() && !m["ConfigId"].empty()) {
+      configId = make_shared<string>(boost::any_cast<string>(m["ConfigId"]));
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -8182,6 +8238,8 @@ class ModifyChatappTemplateRequestComponentsButtons : public Darabonba::Model {
 public:
   shared_ptr<string> autofillText{};
   shared_ptr<string> couponCode{};
+  shared_ptr<string> flowAction{};
+  shared_ptr<string> flowId{};
   shared_ptr<bool> isOptOut{};
   shared_ptr<string> packageName{};
   shared_ptr<string> phoneNumber{};
@@ -8190,6 +8248,7 @@ public:
   shared_ptr<string> type{};
   shared_ptr<string> url{};
   shared_ptr<string> urlType{};
+  shared_ptr<string> navigateScreen{};
 
   ModifyChatappTemplateRequestComponentsButtons() {}
 
@@ -8206,6 +8265,12 @@ public:
     }
     if (couponCode) {
       res["CouponCode"] = boost::any(*couponCode);
+    }
+    if (flowAction) {
+      res["FlowAction"] = boost::any(*flowAction);
+    }
+    if (flowId) {
+      res["FlowId"] = boost::any(*flowId);
     }
     if (isOptOut) {
       res["IsOptOut"] = boost::any(*isOptOut);
@@ -8231,6 +8296,9 @@ public:
     if (urlType) {
       res["UrlType"] = boost::any(*urlType);
     }
+    if (navigateScreen) {
+      res["navigateScreen"] = boost::any(*navigateScreen);
+    }
     return res;
   }
 
@@ -8240,6 +8308,12 @@ public:
     }
     if (m.find("CouponCode") != m.end() && !m["CouponCode"].empty()) {
       couponCode = make_shared<string>(boost::any_cast<string>(m["CouponCode"]));
+    }
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      flowAction = make_shared<string>(boost::any_cast<string>(m["FlowAction"]));
+    }
+    if (m.find("FlowId") != m.end() && !m["FlowId"].empty()) {
+      flowId = make_shared<string>(boost::any_cast<string>(m["FlowId"]));
     }
     if (m.find("IsOptOut") != m.end() && !m["IsOptOut"].empty()) {
       isOptOut = make_shared<bool>(boost::any_cast<bool>(m["IsOptOut"]));
@@ -8264,6 +8338,9 @@ public:
     }
     if (m.find("UrlType") != m.end() && !m["UrlType"].empty()) {
       urlType = make_shared<string>(boost::any_cast<string>(m["UrlType"]));
+    }
+    if (m.find("navigateScreen") != m.end() && !m["navigateScreen"].empty()) {
+      navigateScreen = make_shared<string>(boost::any_cast<string>(m["navigateScreen"]));
     }
   }
 
@@ -10156,6 +10233,47 @@ public:
 
   virtual ~QueryWabaBusinessInfoResponse() = default;
 };
+class SendChatappMassMessageRequestSenderListFlowAction : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> flowActionData{};
+  shared_ptr<string> flowToken{};
+
+  SendChatappMassMessageRequestSenderListFlowAction() {}
+
+  explicit SendChatappMassMessageRequestSenderListFlowAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (flowActionData) {
+      res["FlowActionData"] = boost::any(*flowActionData);
+    }
+    if (flowToken) {
+      res["FlowToken"] = boost::any(*flowToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FlowActionData") != m.end() && !m["FlowActionData"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["FlowActionData"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      flowActionData = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("FlowToken") != m.end() && !m["FlowToken"].empty()) {
+      flowToken = make_shared<string>(boost::any_cast<string>(m["FlowToken"]));
+    }
+  }
+
+
+  virtual ~SendChatappMassMessageRequestSenderListFlowAction() = default;
+};
 class SendChatappMassMessageRequestSenderListProductActionSectionsProductItems : public Darabonba::Model {
 public:
   shared_ptr<string> productRetailerId{};
@@ -10287,6 +10405,7 @@ public:
 };
 class SendChatappMassMessageRequestSenderList : public Darabonba::Model {
 public:
+  shared_ptr<SendChatappMassMessageRequestSenderListFlowAction> flowAction{};
   shared_ptr<vector<string>> payload{};
   shared_ptr<SendChatappMassMessageRequestSenderListProductAction> productAction{};
   shared_ptr<map<string, string>> templateParams{};
@@ -10302,6 +10421,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (flowAction) {
+      res["FlowAction"] = flowAction ? boost::any(flowAction->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (payload) {
       res["Payload"] = boost::any(*payload);
     }
@@ -10318,6 +10440,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FlowAction"].type()) {
+        SendChatappMassMessageRequestSenderListFlowAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FlowAction"]));
+        flowAction = make_shared<SendChatappMassMessageRequestSenderListFlowAction>(model1);
+      }
+    }
     if (m.find("Payload") != m.end() && !m["Payload"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["Payload"].type()) {
@@ -10752,6 +10881,47 @@ public:
 
   virtual ~SendChatappMassMessageResponse() = default;
 };
+class SendChatappMessageRequestFlowAction : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> flowActionData{};
+  shared_ptr<string> flowToken{};
+
+  SendChatappMessageRequestFlowAction() {}
+
+  explicit SendChatappMessageRequestFlowAction(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (flowActionData) {
+      res["FlowActionData"] = boost::any(*flowActionData);
+    }
+    if (flowToken) {
+      res["FlowToken"] = boost::any(*flowToken);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FlowActionData") != m.end() && !m["FlowActionData"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["FlowActionData"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      flowActionData = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("FlowToken") != m.end() && !m["FlowToken"].empty()) {
+      flowToken = make_shared<string>(boost::any_cast<string>(m["FlowToken"]));
+    }
+  }
+
+
+  virtual ~SendChatappMessageRequestFlowAction() = default;
+};
 class SendChatappMessageRequestProductActionSectionsProductItems : public Darabonba::Model {
 public:
   shared_ptr<string> productRetailerId{};
@@ -10892,6 +11062,7 @@ public:
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> fallBackRule{};
+  shared_ptr<SendChatappMessageRequestFlowAction> flowAction{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -10944,6 +11115,9 @@ public:
     }
     if (fallBackRule) {
       res["FallBackRule"] = boost::any(*fallBackRule);
+    }
+    if (flowAction) {
+      res["FlowAction"] = flowAction ? boost::any(flowAction->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -11020,6 +11194,13 @@ public:
     }
     if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
       fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
+    }
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FlowAction"].type()) {
+        SendChatappMessageRequestFlowAction model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FlowAction"]));
+        flowAction = make_shared<SendChatappMessageRequestFlowAction>(model1);
+      }
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
@@ -11098,6 +11279,7 @@ public:
   shared_ptr<long> fallBackDuration{};
   shared_ptr<string> fallBackId{};
   shared_ptr<string> fallBackRule{};
+  shared_ptr<string> flowActionShrink{};
   shared_ptr<string> from{};
   shared_ptr<string> isvCode{};
   shared_ptr<string> label{};
@@ -11150,6 +11332,9 @@ public:
     }
     if (fallBackRule) {
       res["FallBackRule"] = boost::any(*fallBackRule);
+    }
+    if (flowActionShrink) {
+      res["FlowAction"] = boost::any(*flowActionShrink);
     }
     if (from) {
       res["From"] = boost::any(*from);
@@ -11226,6 +11411,9 @@ public:
     }
     if (m.find("FallBackRule") != m.end() && !m["FallBackRule"].empty()) {
       fallBackRule = make_shared<string>(boost::any_cast<string>(m["FallBackRule"]));
+    }
+    if (m.find("FlowAction") != m.end() && !m["FlowAction"].empty()) {
+      flowActionShrink = make_shared<string>(boost::any_cast<string>(m["FlowAction"]));
     }
     if (m.find("From") != m.end() && !m["From"].empty()) {
       from = make_shared<string>(boost::any_cast<string>(m["From"]));
