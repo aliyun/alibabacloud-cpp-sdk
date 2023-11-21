@@ -424,6 +424,7 @@ public:
 };
 class EscalationRuleEscalations : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> backupContactGroups{};
   shared_ptr<vector<string>> contactGroups{};
   shared_ptr<EscalationRuleEscalationsContactGroupsByLevel> contactGroupsByLevel{};
   shared_ptr<long> escalateMin{};
@@ -438,6 +439,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (backupContactGroups) {
+      res["BackupContactGroups"] = boost::any(*backupContactGroups);
+    }
     if (contactGroups) {
       res["ContactGroups"] = boost::any(*contactGroups);
     }
@@ -451,6 +455,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BackupContactGroups") != m.end() && !m["BackupContactGroups"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["BackupContactGroups"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["BackupContactGroups"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      backupContactGroups = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ContactGroups") != m.end() && !m["ContactGroups"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ContactGroups"].type()) {
@@ -6881,6 +6895,8 @@ class CreateHybridMonitorNamespaceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceRegion{};
+  shared_ptr<string> namespaceType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> spec{};
 
@@ -6900,6 +6916,12 @@ public:
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
     }
+    if (namespaceRegion) {
+      res["NamespaceRegion"] = boost::any(*namespaceRegion);
+    }
+    if (namespaceType) {
+      res["NamespaceType"] = boost::any(*namespaceType);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
@@ -6915,6 +6937,12 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceRegion") != m.end() && !m["NamespaceRegion"].empty()) {
+      namespaceRegion = make_shared<string>(boost::any_cast<string>(m["NamespaceRegion"]));
+    }
+    if (m.find("NamespaceType") != m.end() && !m["NamespaceType"].empty()) {
+      namespaceType = make_shared<string>(boost::any_cast<string>(m["NamespaceType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -25912,6 +25940,8 @@ public:
 };
 class DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceDetail : public Darabonba::Model {
 public:
+  shared_ptr<string> namespaceRegion{};
+  shared_ptr<string> SLSProject{};
   shared_ptr<string> spec{};
 
   DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespaceDetail() {}
@@ -25924,6 +25954,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (namespaceRegion) {
+      res["NamespaceRegion"] = boost::any(*namespaceRegion);
+    }
+    if (SLSProject) {
+      res["SLSProject"] = boost::any(*SLSProject);
+    }
     if (spec) {
       res["Spec"] = boost::any(*spec);
     }
@@ -25931,6 +25967,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("NamespaceRegion") != m.end() && !m["NamespaceRegion"].empty()) {
+      namespaceRegion = make_shared<string>(boost::any_cast<string>(m["NamespaceRegion"]));
+    }
+    if (m.find("SLSProject") != m.end() && !m["SLSProject"].empty()) {
+      SLSProject = make_shared<string>(boost::any_cast<string>(m["SLSProject"]));
+    }
     if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
       spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
     }
@@ -25949,6 +25991,7 @@ public:
   shared_ptr<long> isDelete{};
   shared_ptr<string> modifyTime{};
   shared_ptr<string> namespace_{};
+  shared_ptr<string> namespaceType{};
   shared_ptr<long> notAliyunTaskNumber{};
 
   DescribeHybridMonitorNamespaceListResponseBodyDescribeHybridMonitorNamespace() {}
@@ -25988,6 +26031,9 @@ public:
     }
     if (namespace_) {
       res["Namespace"] = boost::any(*namespace_);
+    }
+    if (namespaceType) {
+      res["NamespaceType"] = boost::any(*namespaceType);
     }
     if (notAliyunTaskNumber) {
       res["NotAliyunTaskNumber"] = boost::any(*notAliyunTaskNumber);
@@ -26033,6 +26079,9 @@ public:
     }
     if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
       namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("NamespaceType") != m.end() && !m["NamespaceType"].empty()) {
+      namespaceType = make_shared<string>(boost::any_cast<string>(m["NamespaceType"]));
     }
     if (m.find("NotAliyunTaskNumber") != m.end() && !m["NotAliyunTaskNumber"].empty()) {
       notAliyunTaskNumber = make_shared<long>(boost::any_cast<long>(m["NotAliyunTaskNumber"]));
@@ -37341,7 +37390,9 @@ public:
 };
 class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleListAllProductInitMetricRuleAlertInitConfigListAlertInitConfig : public Darabonba::Model {
 public:
+  shared_ptr<string> comparisonOperator{};
   shared_ptr<string> evaluationCount{};
+  shared_ptr<string> level{};
   shared_ptr<string> metricName{};
   shared_ptr<string> namespace_{};
   shared_ptr<string> period{};
@@ -37358,8 +37409,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (comparisonOperator) {
+      res["ComparisonOperator"] = boost::any(*comparisonOperator);
+    }
     if (evaluationCount) {
       res["EvaluationCount"] = boost::any(*evaluationCount);
+    }
+    if (level) {
+      res["Level"] = boost::any(*level);
     }
     if (metricName) {
       res["MetricName"] = boost::any(*metricName);
@@ -37380,8 +37437,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComparisonOperator") != m.end() && !m["ComparisonOperator"].empty()) {
+      comparisonOperator = make_shared<string>(boost::any_cast<string>(m["ComparisonOperator"]));
+    }
     if (m.find("EvaluationCount") != m.end() && !m["EvaluationCount"].empty()) {
       evaluationCount = make_shared<string>(boost::any_cast<string>(m["EvaluationCount"]));
+    }
+    if (m.find("Level") != m.end() && !m["Level"].empty()) {
+      level = make_shared<string>(boost::any_cast<string>(m["Level"]));
     }
     if (m.find("MetricName") != m.end() && !m["MetricName"].empty()) {
       metricName = make_shared<string>(boost::any_cast<string>(m["MetricName"]));

@@ -562,6 +562,12 @@ CreateHybridMonitorNamespaceResponse Alibabacloud_Cms20190101::Client::createHyb
   if (!Darabonba_Util::Client::isUnset<string>(request->namespace_)) {
     query->insert(pair<string, string>("Namespace_", *request->namespace_));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceRegion)) {
+    query->insert(pair<string, string>("NamespaceRegion", *request->namespaceRegion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->namespaceType)) {
+    query->insert(pair<string, string>("NamespaceType", *request->namespaceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->spec)) {
     query->insert(pair<string, string>("Spec", *request->spec));
   }
