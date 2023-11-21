@@ -37197,7 +37197,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<long> remainTime{};
   shared_ptr<string> startTime{};
-  shared_ptr<long> status{};
+  shared_ptr<string> status{};
   shared_ptr<string> taskDetail{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskType{};
@@ -37323,7 +37323,7 @@ public:
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
-      status = make_shared<long>(boost::any_cast<long>(m["Status"]));
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
     }
     if (m.find("TaskDetail") != m.end() && !m["TaskDetail"].empty()) {
       taskDetail = make_shared<string>(boost::any_cast<string>(m["TaskDetail"]));
