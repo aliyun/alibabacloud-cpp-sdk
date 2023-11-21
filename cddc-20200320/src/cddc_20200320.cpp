@@ -243,7 +243,13 @@ CreateMyBaseResponse Alibabacloud_Cddc20200320::Client::createMyBaseWithOptions(
   if (!Darabonba_Util::Client::isUnset<vector<CreateMyBaseRequestECSClassList>>(tmpReq->ECSClassList)) {
     request->ECSClassListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->ECSClassList, make_shared<string>("ECSClassList"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateMyBaseRequestTags>>(tmpReq->tags)) {
+    request->tagsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tags, make_shared<string>("Tags"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->autoPay)) {
+    query->insert(pair<string, bool>("AutoPay", *request->autoPay));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->autoRenew)) {
     query->insert(pair<string, string>("AutoRenew", *request->autoRenew));
   }
@@ -277,6 +283,12 @@ CreateMyBaseResponse Alibabacloud_Cddc20200320::Client::createMyBaseWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->imageId)) {
     query->insert(pair<string, string>("ImageId", *request->imageId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->internetChargeType)) {
+    query->insert(pair<string, string>("InternetChargeType", *request->internetChargeType));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->internetMaxBandwidthOut)) {
+    query->insert(pair<string, long>("InternetMaxBandwidthOut", *request->internetMaxBandwidthOut));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->keyPairName)) {
     query->insert(pair<string, string>("KeyPairName", *request->keyPairName));
   }
@@ -301,6 +313,9 @@ CreateMyBaseResponse Alibabacloud_Cddc20200320::Client::createMyBaseWithOptions(
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
+    query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceOwnerAccount)) {
     query->insert(pair<string, string>("ResourceOwnerAccount", *request->resourceOwnerAccount));
   }
@@ -309,6 +324,15 @@ CreateMyBaseResponse Alibabacloud_Cddc20200320::Client::createMyBaseWithOptions(
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
     query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagsShrink)) {
+    query->insert(pair<string, string>("Tags", *request->tagsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->userData)) {
+    query->insert(pair<string, string>("UserData", *request->userData));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->userDataInBase64)) {
+    query->insert(pair<string, bool>("UserDataInBase64", *request->userDataInBase64));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vSwitchId)) {
     query->insert(pair<string, string>("VSwitchId", *request->vSwitchId));

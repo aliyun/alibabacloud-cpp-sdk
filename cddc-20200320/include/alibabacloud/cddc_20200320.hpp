@@ -740,13 +740,19 @@ public:
 };
 class CreateMyBaseRequestECSClassList : public Darabonba::Model {
 public:
+  shared_ptr<string> dataDiskAutoSnapshotPolicyId{};
+  shared_ptr<bool> dataDiskEncrypted{};
+  shared_ptr<string> dataDiskKMSKeyId{};
   shared_ptr<string> dataDiskPerformanceLevel{};
   shared_ptr<long> diskCapacity{};
   shared_ptr<long> diskCount{};
   shared_ptr<string> diskType{};
   shared_ptr<string> instanceType{};
   shared_ptr<long> nodeCount{};
+  shared_ptr<string> sysDiskAutoSnapshotPolicyId{};
   shared_ptr<long> sysDiskCapacity{};
+  shared_ptr<bool> sysDiskEncrypted{};
+  shared_ptr<string> sysDiskKMSKeyId{};
   shared_ptr<string> sysDiskType{};
   shared_ptr<string> systemDiskPerformanceLevel{};
 
@@ -760,6 +766,15 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dataDiskAutoSnapshotPolicyId) {
+      res["dataDiskAutoSnapshotPolicyId"] = boost::any(*dataDiskAutoSnapshotPolicyId);
+    }
+    if (dataDiskEncrypted) {
+      res["dataDiskEncrypted"] = boost::any(*dataDiskEncrypted);
+    }
+    if (dataDiskKMSKeyId) {
+      res["dataDiskKMSKeyId"] = boost::any(*dataDiskKMSKeyId);
+    }
     if (dataDiskPerformanceLevel) {
       res["dataDiskPerformanceLevel"] = boost::any(*dataDiskPerformanceLevel);
     }
@@ -778,8 +793,17 @@ public:
     if (nodeCount) {
       res["nodeCount"] = boost::any(*nodeCount);
     }
+    if (sysDiskAutoSnapshotPolicyId) {
+      res["sysDiskAutoSnapshotPolicyId"] = boost::any(*sysDiskAutoSnapshotPolicyId);
+    }
     if (sysDiskCapacity) {
       res["sysDiskCapacity"] = boost::any(*sysDiskCapacity);
+    }
+    if (sysDiskEncrypted) {
+      res["sysDiskEncrypted"] = boost::any(*sysDiskEncrypted);
+    }
+    if (sysDiskKMSKeyId) {
+      res["sysDiskKMSKeyId"] = boost::any(*sysDiskKMSKeyId);
     }
     if (sysDiskType) {
       res["sysDiskType"] = boost::any(*sysDiskType);
@@ -791,6 +815,15 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("dataDiskAutoSnapshotPolicyId") != m.end() && !m["dataDiskAutoSnapshotPolicyId"].empty()) {
+      dataDiskAutoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["dataDiskAutoSnapshotPolicyId"]));
+    }
+    if (m.find("dataDiskEncrypted") != m.end() && !m["dataDiskEncrypted"].empty()) {
+      dataDiskEncrypted = make_shared<bool>(boost::any_cast<bool>(m["dataDiskEncrypted"]));
+    }
+    if (m.find("dataDiskKMSKeyId") != m.end() && !m["dataDiskKMSKeyId"].empty()) {
+      dataDiskKMSKeyId = make_shared<string>(boost::any_cast<string>(m["dataDiskKMSKeyId"]));
+    }
     if (m.find("dataDiskPerformanceLevel") != m.end() && !m["dataDiskPerformanceLevel"].empty()) {
       dataDiskPerformanceLevel = make_shared<string>(boost::any_cast<string>(m["dataDiskPerformanceLevel"]));
     }
@@ -809,8 +842,17 @@ public:
     if (m.find("nodeCount") != m.end() && !m["nodeCount"].empty()) {
       nodeCount = make_shared<long>(boost::any_cast<long>(m["nodeCount"]));
     }
+    if (m.find("sysDiskAutoSnapshotPolicyId") != m.end() && !m["sysDiskAutoSnapshotPolicyId"].empty()) {
+      sysDiskAutoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["sysDiskAutoSnapshotPolicyId"]));
+    }
     if (m.find("sysDiskCapacity") != m.end() && !m["sysDiskCapacity"].empty()) {
       sysDiskCapacity = make_shared<long>(boost::any_cast<long>(m["sysDiskCapacity"]));
+    }
+    if (m.find("sysDiskEncrypted") != m.end() && !m["sysDiskEncrypted"].empty()) {
+      sysDiskEncrypted = make_shared<bool>(boost::any_cast<bool>(m["sysDiskEncrypted"]));
+    }
+    if (m.find("sysDiskKMSKeyId") != m.end() && !m["sysDiskKMSKeyId"].empty()) {
+      sysDiskKMSKeyId = make_shared<string>(boost::any_cast<string>(m["sysDiskKMSKeyId"]));
     }
     if (m.find("sysDiskType") != m.end() && !m["sysDiskType"].empty()) {
       sysDiskType = make_shared<string>(boost::any_cast<string>(m["sysDiskType"]));
@@ -823,8 +865,45 @@ public:
 
   virtual ~CreateMyBaseRequestECSClassList() = default;
 };
+class CreateMyBaseRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateMyBaseRequestTags() {}
+
+  explicit CreateMyBaseRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateMyBaseRequestTags() = default;
+};
 class CreateMyBaseRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
   shared_ptr<string> autoRenew{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> dedicatedHostGroupDescription{};
@@ -836,6 +915,8 @@ public:
   shared_ptr<string> ecsUniqueSuffix{};
   shared_ptr<string> engine{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> osPassword{};
   shared_ptr<long> ownerId{};
@@ -844,9 +925,13 @@ public:
   shared_ptr<string> period{};
   shared_ptr<string> periodType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<vector<CreateMyBaseRequestTags>> tags{};
+  shared_ptr<string> userData{};
+  shared_ptr<bool> userDataInBase64{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -861,6 +946,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -898,6 +986,12 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["InternetMaxBandwidthOut"] = boost::any(*internetMaxBandwidthOut);
+    }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
     }
@@ -922,6 +1016,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -930,6 +1027,19 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (userDataInBase64) {
+      res["UserDataInBase64"] = boost::any(*userDataInBase64);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -944,6 +1054,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<string>(boost::any_cast<string>(m["AutoRenew"]));
     }
@@ -987,6 +1100,12 @@ public:
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("InternetMaxBandwidthOut") != m.end() && !m["InternetMaxBandwidthOut"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthOut"]));
+    }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
     }
@@ -1011,6 +1130,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -1019,6 +1141,25 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<CreateMyBaseRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateMyBaseRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateMyBaseRequestTags>>(expect1);
+      }
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("UserDataInBase64") != m.end() && !m["UserDataInBase64"].empty()) {
+      userDataInBase64 = make_shared<bool>(boost::any_cast<bool>(m["UserDataInBase64"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
@@ -1036,6 +1177,7 @@ public:
 };
 class CreateMyBaseShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> autoPay{};
   shared_ptr<string> autoRenew{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> dedicatedHostGroupDescription{};
@@ -1047,6 +1189,8 @@ public:
   shared_ptr<string> ecsUniqueSuffix{};
   shared_ptr<string> engine{};
   shared_ptr<string> imageId{};
+  shared_ptr<string> internetChargeType{};
+  shared_ptr<long> internetMaxBandwidthOut{};
   shared_ptr<string> keyPairName{};
   shared_ptr<string> osPassword{};
   shared_ptr<long> ownerId{};
@@ -1055,9 +1199,13 @@ public:
   shared_ptr<string> period{};
   shared_ptr<string> periodType{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> securityGroupId{};
+  shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userData{};
+  shared_ptr<bool> userDataInBase64{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
   shared_ptr<string> zoneId{};
@@ -1072,6 +1220,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (autoPay) {
+      res["AutoPay"] = boost::any(*autoPay);
+    }
     if (autoRenew) {
       res["AutoRenew"] = boost::any(*autoRenew);
     }
@@ -1105,6 +1256,12 @@ public:
     if (imageId) {
       res["ImageId"] = boost::any(*imageId);
     }
+    if (internetChargeType) {
+      res["InternetChargeType"] = boost::any(*internetChargeType);
+    }
+    if (internetMaxBandwidthOut) {
+      res["InternetMaxBandwidthOut"] = boost::any(*internetMaxBandwidthOut);
+    }
     if (keyPairName) {
       res["KeyPairName"] = boost::any(*keyPairName);
     }
@@ -1129,6 +1286,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (resourceGroupId) {
+      res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -1137,6 +1297,15 @@ public:
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    if (tagsShrink) {
+      res["Tags"] = boost::any(*tagsShrink);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (userDataInBase64) {
+      res["UserDataInBase64"] = boost::any(*userDataInBase64);
     }
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
@@ -1151,6 +1320,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoPay") != m.end() && !m["AutoPay"].empty()) {
+      autoPay = make_shared<bool>(boost::any_cast<bool>(m["AutoPay"]));
+    }
     if (m.find("AutoRenew") != m.end() && !m["AutoRenew"].empty()) {
       autoRenew = make_shared<string>(boost::any_cast<string>(m["AutoRenew"]));
     }
@@ -1184,6 +1356,12 @@ public:
     if (m.find("ImageId") != m.end() && !m["ImageId"].empty()) {
       imageId = make_shared<string>(boost::any_cast<string>(m["ImageId"]));
     }
+    if (m.find("InternetChargeType") != m.end() && !m["InternetChargeType"].empty()) {
+      internetChargeType = make_shared<string>(boost::any_cast<string>(m["InternetChargeType"]));
+    }
+    if (m.find("InternetMaxBandwidthOut") != m.end() && !m["InternetMaxBandwidthOut"].empty()) {
+      internetMaxBandwidthOut = make_shared<long>(boost::any_cast<long>(m["InternetMaxBandwidthOut"]));
+    }
     if (m.find("KeyPairName") != m.end() && !m["KeyPairName"].empty()) {
       keyPairName = make_shared<string>(boost::any_cast<string>(m["KeyPairName"]));
     }
@@ -1208,6 +1386,9 @@ public:
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
+    if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
+      resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
     }
@@ -1216,6 +1397,15 @@ public:
     }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("UserDataInBase64") != m.end() && !m["UserDataInBase64"].empty()) {
+      userDataInBase64 = make_shared<bool>(boost::any_cast<bool>(m["UserDataInBase64"]));
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
