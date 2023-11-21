@@ -1386,6 +1386,49 @@ public:
 
   virtual ~GetMultiAccountResourceConfigurationRequest() = default;
 };
+class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> ipAddress{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> version{};
+
+  GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes() {}
+
+  explicit GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes() = default;
+};
 class GetMultiAccountResourceConfigurationResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -1427,6 +1470,8 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<map<string, boost::any>> configuration{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<vector<GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes>> ipAddressAttributes{};
   shared_ptr<vector<string>> ipAddresses{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
@@ -1455,6 +1500,16 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (ipAddressAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipAddressAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpAddressAttributes"] = boost::any(temp1);
     }
     if (ipAddresses) {
       res["IpAddresses"] = boost::any(*ipAddresses);
@@ -1504,6 +1559,22 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("IpAddressAttributes") != m.end() && !m["IpAddressAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpAddressAttributes"].type()) {
+        vector<GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpAddressAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipAddressAttributes = make_shared<vector<GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes>>(expect1);
+      }
     }
     if (m.find("IpAddresses") != m.end() && !m["IpAddresses"].empty()) {
       vector<string> toVec1;
@@ -1764,6 +1835,49 @@ public:
 
   virtual ~GetResourceConfigurationRequest() = default;
 };
+class GetResourceConfigurationResponseBodyIpAddressAttributes : public Darabonba::Model {
+public:
+  shared_ptr<string> ipAddress{};
+  shared_ptr<string> networkType{};
+  shared_ptr<string> version{};
+
+  GetResourceConfigurationResponseBodyIpAddressAttributes() {}
+
+  explicit GetResourceConfigurationResponseBodyIpAddressAttributes(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ipAddress) {
+      res["IpAddress"] = boost::any(*ipAddress);
+    }
+    if (networkType) {
+      res["NetworkType"] = boost::any(*networkType);
+    }
+    if (version) {
+      res["Version"] = boost::any(*version);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
+    }
+    if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
+      networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
+    }
+    if (m.find("Version") != m.end() && !m["Version"].empty()) {
+      version = make_shared<string>(boost::any_cast<string>(m["Version"]));
+    }
+  }
+
+
+  virtual ~GetResourceConfigurationResponseBodyIpAddressAttributes() = default;
+};
 class GetResourceConfigurationResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -1805,6 +1919,8 @@ public:
   shared_ptr<string> accountId{};
   shared_ptr<map<string, boost::any>> configuration{};
   shared_ptr<string> createTime{};
+  shared_ptr<string> expireTime{};
+  shared_ptr<vector<GetResourceConfigurationResponseBodyIpAddressAttributes>> ipAddressAttributes{};
   shared_ptr<vector<string>> ipAddresses{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
@@ -1833,6 +1949,16 @@ public:
     }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (expireTime) {
+      res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (ipAddressAttributes) {
+      vector<boost::any> temp1;
+      for(auto item1:*ipAddressAttributes){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["IpAddressAttributes"] = boost::any(temp1);
     }
     if (ipAddresses) {
       res["IpAddresses"] = boost::any(*ipAddresses);
@@ -1882,6 +2008,22 @@ public:
     }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
+      expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("IpAddressAttributes") != m.end() && !m["IpAddressAttributes"].empty()) {
+      if (typeid(vector<boost::any>) == m["IpAddressAttributes"].type()) {
+        vector<GetResourceConfigurationResponseBodyIpAddressAttributes> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["IpAddressAttributes"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetResourceConfigurationResponseBodyIpAddressAttributes model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        ipAddressAttributes = make_shared<vector<GetResourceConfigurationResponseBodyIpAddressAttributes>>(expect1);
+      }
     }
     if (m.find("IpAddresses") != m.end() && !m["IpAddresses"].empty()) {
       vector<string> toVec1;
@@ -4280,7 +4422,7 @@ public:
 };
 class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> ipAddress{};
+  shared_ptr<string> ipAddress{};
   shared_ptr<string> networkType{};
   shared_ptr<string> version{};
 
@@ -4308,14 +4450,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["IpAddress"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpAddress"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      ipAddress = make_shared<vector<string>>(toVec1);
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
@@ -4872,7 +5007,7 @@ public:
 };
 class SearchResourcesResponseBodyResourcesIpAddressAttributes : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> ipAddress{};
+  shared_ptr<string> ipAddress{};
   shared_ptr<string> networkType{};
   shared_ptr<string> version{};
 
@@ -4900,14 +5035,7 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
-      vector<string> toVec1;
-      if (typeid(vector<boost::any>) == m["IpAddress"].type()) {
-        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["IpAddress"]);
-        for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
-        }
-      }
-      ipAddress = make_shared<vector<string>>(toVec1);
+      ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
     }
     if (m.find("NetworkType") != m.end() && !m["NetworkType"].empty()) {
       networkType = make_shared<string>(boost::any_cast<string>(m["NetworkType"]));
