@@ -814,6 +814,37 @@ BindAuthToMachineResponse Alibabacloud_Sas20181203::Client::bindAuthToMachine(sh
   return bindAuthToMachineWithOptions(request, runtime);
 }
 
+BindHybridProxyResponse Alibabacloud_Sas20181203::Client::bindHybridProxyWithOptions(shared_ptr<BindHybridProxyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterName)) {
+    query->insert(pair<string, string>("ClusterName", *request->clusterName));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->yundunUuids)) {
+    query->insert(pair<string, vector<string>>("YundunUuids", *request->yundunUuids));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BindHybridProxy"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BindHybridProxyResponse(callApi(params, req, runtime));
+}
+
+BindHybridProxyResponse Alibabacloud_Sas20181203::Client::bindHybridProxy(shared_ptr<BindHybridProxyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return bindHybridProxyWithOptions(request, runtime);
+}
+
 CancelOnceTaskResponse Alibabacloud_Sas20181203::Client::cancelOnceTaskWithOptions(shared_ptr<CancelOnceTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
