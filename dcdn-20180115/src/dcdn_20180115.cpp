@@ -3873,6 +3873,34 @@ DescribeDcdnL2VipsResponse Alibabacloud_Dcdn20180115::Client::describeDcdnL2Vips
   return describeDcdnL2VipsWithOptions(request, runtime);
 }
 
+DescribeDcdnOriginSiteHealthStatusResponse Alibabacloud_Dcdn20180115::Client::describeDcdnOriginSiteHealthStatusWithOptions(shared_ptr<DescribeDcdnOriginSiteHealthStatusRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeDcdnOriginSiteHealthStatus"))},
+    {"version", boost::any(string("2018-01-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeDcdnOriginSiteHealthStatusResponse(callApi(params, req, runtime));
+}
+
+DescribeDcdnOriginSiteHealthStatusResponse Alibabacloud_Dcdn20180115::Client::describeDcdnOriginSiteHealthStatus(shared_ptr<DescribeDcdnOriginSiteHealthStatusRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeDcdnOriginSiteHealthStatusWithOptions(request, runtime);
+}
+
 DescribeDcdnRealTimeDeliveryFieldResponse Alibabacloud_Dcdn20180115::Client::describeDcdnRealTimeDeliveryFieldWithOptions(shared_ptr<DescribeDcdnRealTimeDeliveryFieldRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
