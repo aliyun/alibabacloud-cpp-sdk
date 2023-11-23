@@ -32416,6 +32416,7 @@ public:
   shared_ptr<string> DBProxyInstanceSize{};
   shared_ptr<string> DBProxyInstanceStatus{};
   shared_ptr<string> DBProxyInstanceType{};
+  shared_ptr<string> DBProxyPersistentConnectionSupport{};
   shared_ptr<string> DBProxyServiceStatus{};
   shared_ptr<DescribeDBProxyResponseBodyDbProxyEndpointItems> dbProxyEndpointItems{};
   shared_ptr<string> requestId{};
@@ -32460,6 +32461,9 @@ public:
     }
     if (DBProxyInstanceType) {
       res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
+    }
+    if (DBProxyPersistentConnectionSupport) {
+      res["DBProxyPersistentConnectionSupport"] = boost::any(*DBProxyPersistentConnectionSupport);
     }
     if (DBProxyServiceStatus) {
       res["DBProxyServiceStatus"] = boost::any(*DBProxyServiceStatus);
@@ -32514,6 +32518,9 @@ public:
     }
     if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
       DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
+    }
+    if (m.find("DBProxyPersistentConnectionSupport") != m.end() && !m["DBProxyPersistentConnectionSupport"].empty()) {
+      DBProxyPersistentConnectionSupport = make_shared<string>(boost::any_cast<string>(m["DBProxyPersistentConnectionSupport"]));
     }
     if (m.find("DBProxyServiceStatus") != m.end() && !m["DBProxyServiceStatus"].empty()) {
       DBProxyServiceStatus = make_shared<string>(boost::any_cast<string>(m["DBProxyServiceStatus"]));
@@ -63168,6 +63175,7 @@ public:
   shared_ptr<string> DBInstanceId{};
   shared_ptr<string> DBProxyEngineType{};
   shared_ptr<string> DBProxyInstanceNum{};
+  shared_ptr<string> DBProxyInstanceType{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -63198,6 +63206,9 @@ public:
     }
     if (DBProxyInstanceNum) {
       res["DBProxyInstanceNum"] = boost::any(*DBProxyInstanceNum);
+    }
+    if (DBProxyInstanceType) {
+      res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
     }
     if (instanceNetworkType) {
       res["InstanceNetworkType"] = boost::any(*instanceNetworkType);
@@ -63238,6 +63249,9 @@ public:
     }
     if (m.find("DBProxyInstanceNum") != m.end() && !m["DBProxyInstanceNum"].empty()) {
       DBProxyInstanceNum = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceNum"]));
+    }
+    if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
+      DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
     }
     if (m.find("InstanceNetworkType") != m.end() && !m["InstanceNetworkType"].empty()) {
       instanceNetworkType = make_shared<string>(boost::any_cast<string>(m["InstanceNetworkType"]));

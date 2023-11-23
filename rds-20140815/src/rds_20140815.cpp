@@ -11451,6 +11451,9 @@ ModifyDBProxyResponse Alibabacloud_Rds20140815::Client::modifyDBProxyWithOptions
   if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyInstanceNum)) {
     query->insert(pair<string, string>("DBProxyInstanceNum", *request->DBProxyInstanceNum));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBProxyInstanceType)) {
+    query->insert(pair<string, string>("DBProxyInstanceType", *request->DBProxyInstanceType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceNetworkType)) {
     query->insert(pair<string, string>("InstanceNetworkType", *request->instanceNetworkType));
   }
