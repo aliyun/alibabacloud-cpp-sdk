@@ -1255,6 +1255,7 @@ public:
   shared_ptr<string> predefinedScopes{};
   shared_ptr<string> redirectUris{};
   shared_ptr<long> refreshTokenValidity{};
+  shared_ptr<string> requiredScopes{};
   shared_ptr<bool> secretRequired{};
 
   CreateApplicationRequest() {}
@@ -1291,6 +1292,9 @@ public:
     if (refreshTokenValidity) {
       res["RefreshTokenValidity"] = boost::any(*refreshTokenValidity);
     }
+    if (requiredScopes) {
+      res["RequiredScopes"] = boost::any(*requiredScopes);
+    }
     if (secretRequired) {
       res["SecretRequired"] = boost::any(*secretRequired);
     }
@@ -1322,6 +1326,9 @@ public:
     if (m.find("RefreshTokenValidity") != m.end() && !m["RefreshTokenValidity"].empty()) {
       refreshTokenValidity = make_shared<long>(boost::any_cast<long>(m["RefreshTokenValidity"]));
     }
+    if (m.find("RequiredScopes") != m.end() && !m["RequiredScopes"].empty()) {
+      requiredScopes = make_shared<string>(boost::any_cast<string>(m["RequiredScopes"]));
+    }
     if (m.find("SecretRequired") != m.end() && !m["SecretRequired"].empty()) {
       secretRequired = make_shared<bool>(boost::any_cast<bool>(m["SecretRequired"]));
     }
@@ -1334,6 +1341,7 @@ class CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPred
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<bool> required{};
 
   CreateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope() {}
 
@@ -1351,6 +1359,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (required) {
+      res["Required"] = boost::any(*required);
+    }
     return res;
   }
 
@@ -1360,6 +1371,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Required") != m.end() && !m["Required"].empty()) {
+      required = make_shared<bool>(boost::any_cast<bool>(m["Required"]));
     }
   }
 
@@ -5475,6 +5489,7 @@ class GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefi
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<bool> required{};
 
   GetApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope() {}
 
@@ -5492,6 +5507,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (required) {
+      res["Required"] = boost::any(*required);
+    }
     return res;
   }
 
@@ -5501,6 +5519,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Required") != m.end() && !m["Required"].empty()) {
+      required = make_shared<bool>(boost::any_cast<bool>(m["Required"]));
     }
   }
 
@@ -8568,6 +8589,7 @@ class ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefine
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<bool> required{};
 
   ListApplicationsResponseBodyApplicationsApplicationDelegatedScopePredefinedScopesPredefinedScope() {}
 
@@ -8585,6 +8607,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (required) {
+      res["Required"] = boost::any(*required);
+    }
     return res;
   }
 
@@ -8594,6 +8619,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Required") != m.end() && !m["Required"].empty()) {
+      required = make_shared<bool>(boost::any_cast<bool>(m["Required"]));
     }
   }
 
@@ -14277,6 +14305,7 @@ public:
   shared_ptr<string> newPredefinedScopes{};
   shared_ptr<string> newRedirectUris{};
   shared_ptr<long> newRefreshTokenValidity{};
+  shared_ptr<string> newRequiredScopes{};
   shared_ptr<bool> newSecretRequired{};
 
   UpdateApplicationRequest() {}
@@ -14310,6 +14339,9 @@ public:
     if (newRefreshTokenValidity) {
       res["NewRefreshTokenValidity"] = boost::any(*newRefreshTokenValidity);
     }
+    if (newRequiredScopes) {
+      res["NewRequiredScopes"] = boost::any(*newRequiredScopes);
+    }
     if (newSecretRequired) {
       res["NewSecretRequired"] = boost::any(*newSecretRequired);
     }
@@ -14338,6 +14370,9 @@ public:
     if (m.find("NewRefreshTokenValidity") != m.end() && !m["NewRefreshTokenValidity"].empty()) {
       newRefreshTokenValidity = make_shared<long>(boost::any_cast<long>(m["NewRefreshTokenValidity"]));
     }
+    if (m.find("NewRequiredScopes") != m.end() && !m["NewRequiredScopes"].empty()) {
+      newRequiredScopes = make_shared<string>(boost::any_cast<string>(m["NewRequiredScopes"]));
+    }
     if (m.find("NewSecretRequired") != m.end() && !m["NewSecretRequired"].empty()) {
       newSecretRequired = make_shared<bool>(boost::any_cast<bool>(m["NewSecretRequired"]));
     }
@@ -14350,6 +14385,7 @@ class UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPred
 public:
   shared_ptr<string> description{};
   shared_ptr<string> name{};
+  shared_ptr<bool> required{};
 
   UpdateApplicationResponseBodyApplicationDelegatedScopePredefinedScopesPredefinedScope() {}
 
@@ -14367,6 +14403,9 @@ public:
     if (name) {
       res["Name"] = boost::any(*name);
     }
+    if (required) {
+      res["Required"] = boost::any(*required);
+    }
     return res;
   }
 
@@ -14376,6 +14415,9 @@ public:
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("Required") != m.end() && !m["Required"].empty()) {
+      required = make_shared<bool>(boost::any_cast<bool>(m["Required"]));
     }
   }
 

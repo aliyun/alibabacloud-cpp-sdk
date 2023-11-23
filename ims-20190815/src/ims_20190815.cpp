@@ -282,6 +282,9 @@ CreateApplicationResponse Alibabacloud_Ims20190815::Client::createApplicationWit
   if (!Darabonba_Util::Client::isUnset<long>(request->refreshTokenValidity)) {
     query->insert(pair<string, long>("RefreshTokenValidity", *request->refreshTokenValidity));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->requiredScopes)) {
+    query->insert(pair<string, string>("RequiredScopes", *request->requiredScopes));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->secretRequired)) {
     query->insert(pair<string, bool>("SecretRequired", *request->secretRequired));
   }
@@ -2118,6 +2121,9 @@ UpdateApplicationResponse Alibabacloud_Ims20190815::Client::updateApplicationWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->newRefreshTokenValidity)) {
     query->insert(pair<string, long>("NewRefreshTokenValidity", *request->newRefreshTokenValidity));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->newRequiredScopes)) {
+    query->insert(pair<string, string>("NewRequiredScopes", *request->newRequiredScopes));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->newSecretRequired)) {
     query->insert(pair<string, bool>("NewSecretRequired", *request->newSecretRequired));
