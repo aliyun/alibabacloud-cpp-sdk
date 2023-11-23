@@ -11393,6 +11393,9 @@ ModifyDBNodeResponse Alibabacloud_Rds20140815::Client::modifyDBNodeWithOptions(s
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->effectiveTime)) {
+    query->insert(pair<string, string>("EffectiveTime", *request->effectiveTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
