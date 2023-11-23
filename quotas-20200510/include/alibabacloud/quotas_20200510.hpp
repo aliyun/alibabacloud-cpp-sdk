@@ -761,10 +761,47 @@ public:
 
   virtual ~CreateQuotaApplicationsForTemplateRequest() = default;
 };
+class CreateQuotaApplicationsForTemplateResponseBodyFailResults : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunUid{};
+  shared_ptr<string> reason{};
+
+  CreateQuotaApplicationsForTemplateResponseBodyFailResults() {}
+
+  explicit CreateQuotaApplicationsForTemplateResponseBodyFailResults(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunUid) {
+      res["AliyunUid"] = boost::any(*aliyunUid);
+    }
+    if (reason) {
+      res["Reason"] = boost::any(*reason);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunUid") != m.end() && !m["AliyunUid"].empty()) {
+      aliyunUid = make_shared<string>(boost::any_cast<string>(m["AliyunUid"]));
+    }
+    if (m.find("Reason") != m.end() && !m["Reason"].empty()) {
+      reason = make_shared<string>(boost::any_cast<string>(m["Reason"]));
+    }
+  }
+
+
+  virtual ~CreateQuotaApplicationsForTemplateResponseBodyFailResults() = default;
+};
 class CreateQuotaApplicationsForTemplateResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> aliyunUids{};
   shared_ptr<string> batchQuotaApplicationId{};
+  shared_ptr<vector<CreateQuotaApplicationsForTemplateResponseBodyFailResults>> failResults{};
   shared_ptr<string> requestId{};
 
   CreateQuotaApplicationsForTemplateResponseBody() {}
@@ -782,6 +819,13 @@ public:
     }
     if (batchQuotaApplicationId) {
       res["BatchQuotaApplicationId"] = boost::any(*batchQuotaApplicationId);
+    }
+    if (failResults) {
+      vector<boost::any> temp1;
+      for(auto item1:*failResults){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["FailResults"] = boost::any(temp1);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -802,6 +846,19 @@ public:
     }
     if (m.find("BatchQuotaApplicationId") != m.end() && !m["BatchQuotaApplicationId"].empty()) {
       batchQuotaApplicationId = make_shared<string>(boost::any_cast<string>(m["BatchQuotaApplicationId"]));
+    }
+    if (m.find("FailResults") != m.end() && !m["FailResults"].empty()) {
+      if (typeid(vector<boost::any>) == m["FailResults"].type()) {
+        vector<CreateQuotaApplicationsForTemplateResponseBodyFailResults> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["FailResults"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateQuotaApplicationsForTemplateResponseBodyFailResults model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        failResults = make_shared<vector<CreateQuotaApplicationsForTemplateResponseBodyFailResults>>(expect1);
+      }
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
@@ -1542,6 +1599,7 @@ public:
   shared_ptr<map<string, boost::any>> dimensions{};
   shared_ptr<string> effectiveTime{};
   shared_ptr<string> expireTime{};
+  shared_ptr<bool> globalQuota{};
   shared_ptr<GetProductQuotaResponseBodyQuotaPeriod> period{};
   shared_ptr<string> productCode{};
   shared_ptr<string> quotaActionCode{};
@@ -1590,6 +1648,9 @@ public:
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (globalQuota) {
+      res["GlobalQuota"] = boost::any(*globalQuota);
     }
     if (period) {
       res["Period"] = period ? boost::any(period->toMap()) : boost::any(map<string,boost::any>({}));
@@ -1676,6 +1737,9 @@ public:
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("GlobalQuota") != m.end() && !m["GlobalQuota"].empty()) {
+      globalQuota = make_shared<bool>(boost::any_cast<bool>(m["GlobalQuota"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       if (typeid(map<string, boost::any>) == m["Period"].type()) {
@@ -4210,6 +4274,7 @@ public:
   shared_ptr<map<string, boost::any>> dimensions{};
   shared_ptr<string> effectiveTime{};
   shared_ptr<string> expireTime{};
+  shared_ptr<bool> globalQuota{};
   shared_ptr<ListProductQuotasResponseBodyQuotasPeriod> period{};
   shared_ptr<string> productCode{};
   shared_ptr<string> quotaActionCode{};
@@ -4258,6 +4323,9 @@ public:
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (globalQuota) {
+      res["GlobalQuota"] = boost::any(*globalQuota);
     }
     if (period) {
       res["Period"] = period ? boost::any(period->toMap()) : boost::any(map<string,boost::any>({}));
@@ -4344,6 +4412,9 @@ public:
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("GlobalQuota") != m.end() && !m["GlobalQuota"].empty()) {
+      globalQuota = make_shared<bool>(boost::any_cast<bool>(m["GlobalQuota"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       if (typeid(map<string, boost::any>) == m["Period"].type()) {
