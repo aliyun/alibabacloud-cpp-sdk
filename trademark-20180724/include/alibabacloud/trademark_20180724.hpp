@@ -23958,9 +23958,12 @@ public:
 };
 class QueryTrademarkModelEspListRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> additionalSubmitStatus{};
+  shared_ptr<string> additionalSubmitTime{};
   shared_ptr<string> bizId{};
   shared_ptr<string> bizType{};
   shared_ptr<string> env{};
+  shared_ptr<vector<string>> existStatus{};
   shared_ptr<string> orderId{};
   shared_ptr<string> orderIdsStr{};
   shared_ptr<string> orderInstanceId{};
@@ -23982,6 +23985,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (additionalSubmitStatus) {
+      res["AdditionalSubmitStatus"] = boost::any(*additionalSubmitStatus);
+    }
+    if (additionalSubmitTime) {
+      res["AdditionalSubmitTime"] = boost::any(*additionalSubmitTime);
+    }
     if (bizId) {
       res["BizId"] = boost::any(*bizId);
     }
@@ -23990,6 +23999,9 @@ public:
     }
     if (env) {
       res["Env"] = boost::any(*env);
+    }
+    if (existStatus) {
+      res["ExistStatus"] = boost::any(*existStatus);
     }
     if (orderId) {
       res["OrderId"] = boost::any(*orderId);
@@ -24025,6 +24037,12 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalSubmitStatus") != m.end() && !m["AdditionalSubmitStatus"].empty()) {
+      additionalSubmitStatus = make_shared<string>(boost::any_cast<string>(m["AdditionalSubmitStatus"]));
+    }
+    if (m.find("AdditionalSubmitTime") != m.end() && !m["AdditionalSubmitTime"].empty()) {
+      additionalSubmitTime = make_shared<string>(boost::any_cast<string>(m["AdditionalSubmitTime"]));
+    }
     if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
       bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
     }
@@ -24033,6 +24051,16 @@ public:
     }
     if (m.find("Env") != m.end() && !m["Env"].empty()) {
       env = make_shared<string>(boost::any_cast<string>(m["Env"]));
+    }
+    if (m.find("ExistStatus") != m.end() && !m["ExistStatus"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExistStatus"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExistStatus"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      existStatus = make_shared<vector<string>>(toVec1);
     }
     if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
       orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
@@ -24068,6 +24096,140 @@ public:
 
 
   virtual ~QueryTrademarkModelEspListRequest() = default;
+};
+class QueryTrademarkModelEspListShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> additionalSubmitStatus{};
+  shared_ptr<string> additionalSubmitTime{};
+  shared_ptr<string> bizId{};
+  shared_ptr<string> bizType{};
+  shared_ptr<string> env{};
+  shared_ptr<string> existStatusShrink{};
+  shared_ptr<string> orderId{};
+  shared_ptr<string> orderIdsStr{};
+  shared_ptr<string> orderInstanceId{};
+  shared_ptr<long> pageNum{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> principalKey{};
+  shared_ptr<string> principalName{};
+  shared_ptr<string> status{};
+  shared_ptr<string> submitStatus{};
+  shared_ptr<string> submitTime{};
+
+  QueryTrademarkModelEspListShrinkRequest() {}
+
+  explicit QueryTrademarkModelEspListShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (additionalSubmitStatus) {
+      res["AdditionalSubmitStatus"] = boost::any(*additionalSubmitStatus);
+    }
+    if (additionalSubmitTime) {
+      res["AdditionalSubmitTime"] = boost::any(*additionalSubmitTime);
+    }
+    if (bizId) {
+      res["BizId"] = boost::any(*bizId);
+    }
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
+    if (env) {
+      res["Env"] = boost::any(*env);
+    }
+    if (existStatusShrink) {
+      res["ExistStatus"] = boost::any(*existStatusShrink);
+    }
+    if (orderId) {
+      res["OrderId"] = boost::any(*orderId);
+    }
+    if (orderIdsStr) {
+      res["OrderIdsStr"] = boost::any(*orderIdsStr);
+    }
+    if (orderInstanceId) {
+      res["OrderInstanceId"] = boost::any(*orderInstanceId);
+    }
+    if (pageNum) {
+      res["PageNum"] = boost::any(*pageNum);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (principalKey) {
+      res["PrincipalKey"] = boost::any(*principalKey);
+    }
+    if (principalName) {
+      res["PrincipalName"] = boost::any(*principalName);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (submitStatus) {
+      res["SubmitStatus"] = boost::any(*submitStatus);
+    }
+    if (submitTime) {
+      res["SubmitTime"] = boost::any(*submitTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdditionalSubmitStatus") != m.end() && !m["AdditionalSubmitStatus"].empty()) {
+      additionalSubmitStatus = make_shared<string>(boost::any_cast<string>(m["AdditionalSubmitStatus"]));
+    }
+    if (m.find("AdditionalSubmitTime") != m.end() && !m["AdditionalSubmitTime"].empty()) {
+      additionalSubmitTime = make_shared<string>(boost::any_cast<string>(m["AdditionalSubmitTime"]));
+    }
+    if (m.find("BizId") != m.end() && !m["BizId"].empty()) {
+      bizId = make_shared<string>(boost::any_cast<string>(m["BizId"]));
+    }
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
+    if (m.find("Env") != m.end() && !m["Env"].empty()) {
+      env = make_shared<string>(boost::any_cast<string>(m["Env"]));
+    }
+    if (m.find("ExistStatus") != m.end() && !m["ExistStatus"].empty()) {
+      existStatusShrink = make_shared<string>(boost::any_cast<string>(m["ExistStatus"]));
+    }
+    if (m.find("OrderId") != m.end() && !m["OrderId"].empty()) {
+      orderId = make_shared<string>(boost::any_cast<string>(m["OrderId"]));
+    }
+    if (m.find("OrderIdsStr") != m.end() && !m["OrderIdsStr"].empty()) {
+      orderIdsStr = make_shared<string>(boost::any_cast<string>(m["OrderIdsStr"]));
+    }
+    if (m.find("OrderInstanceId") != m.end() && !m["OrderInstanceId"].empty()) {
+      orderInstanceId = make_shared<string>(boost::any_cast<string>(m["OrderInstanceId"]));
+    }
+    if (m.find("PageNum") != m.end() && !m["PageNum"].empty()) {
+      pageNum = make_shared<long>(boost::any_cast<long>(m["PageNum"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("PrincipalKey") != m.end() && !m["PrincipalKey"].empty()) {
+      principalKey = make_shared<string>(boost::any_cast<string>(m["PrincipalKey"]));
+    }
+    if (m.find("PrincipalName") != m.end() && !m["PrincipalName"].empty()) {
+      principalName = make_shared<string>(boost::any_cast<string>(m["PrincipalName"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("SubmitStatus") != m.end() && !m["SubmitStatus"].empty()) {
+      submitStatus = make_shared<string>(boost::any_cast<string>(m["SubmitStatus"]));
+    }
+    if (m.find("SubmitTime") != m.end() && !m["SubmitTime"].empty()) {
+      submitTime = make_shared<string>(boost::any_cast<string>(m["SubmitTime"]));
+    }
+  }
+
+
+  virtual ~QueryTrademarkModelEspListShrinkRequest() = default;
 };
 class QueryTrademarkModelEspListResponseBodyMoudleDataItemLeafCodesLeafCode : public Darabonba::Model {
 public:
@@ -32504,6 +32666,7 @@ public:
   shared_ptr<string> bizId{};
   shared_ptr<string> bizType{};
   shared_ptr<string> extMap{};
+  shared_ptr<string> operateType{};
 
   UpdateProduceRequest() {}
 
@@ -32524,6 +32687,9 @@ public:
     if (extMap) {
       res["ExtMap"] = boost::any(*extMap);
     }
+    if (operateType) {
+      res["OperateType"] = boost::any(*operateType);
+    }
     return res;
   }
 
@@ -32536,6 +32702,9 @@ public:
     }
     if (m.find("ExtMap") != m.end() && !m["ExtMap"].empty()) {
       extMap = make_shared<string>(boost::any_cast<string>(m["ExtMap"]));
+    }
+    if (m.find("OperateType") != m.end() && !m["OperateType"].empty()) {
+      operateType = make_shared<string>(boost::any_cast<string>(m["OperateType"]));
     }
   }
 
@@ -34200,7 +34369,7 @@ public:
   QueryTrademarkModelDetailResponse queryTrademarkModelDetail(shared_ptr<QueryTrademarkModelDetailRequest> request);
   QueryTrademarkModelEspDetailResponse queryTrademarkModelEspDetailWithOptions(shared_ptr<QueryTrademarkModelEspDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTrademarkModelEspDetailResponse queryTrademarkModelEspDetail(shared_ptr<QueryTrademarkModelEspDetailRequest> request);
-  QueryTrademarkModelEspListResponse queryTrademarkModelEspListWithOptions(shared_ptr<QueryTrademarkModelEspListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  QueryTrademarkModelEspListResponse queryTrademarkModelEspListWithOptions(shared_ptr<QueryTrademarkModelEspListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTrademarkModelEspListResponse queryTrademarkModelEspList(shared_ptr<QueryTrademarkModelEspListRequest> request);
   QueryTrademarkModelListResponse queryTrademarkModelListWithOptions(shared_ptr<QueryTrademarkModelListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   QueryTrademarkModelListResponse queryTrademarkModelList(shared_ptr<QueryTrademarkModelListRequest> request);

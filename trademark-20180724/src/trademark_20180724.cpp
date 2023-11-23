@@ -3232,9 +3232,20 @@ QueryTrademarkModelEspDetailResponse Alibabacloud_Trademark20180724::Client::que
   return queryTrademarkModelEspDetailWithOptions(request, runtime);
 }
 
-QueryTrademarkModelEspListResponse Alibabacloud_Trademark20180724::Client::queryTrademarkModelEspListWithOptions(shared_ptr<QueryTrademarkModelEspListRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+QueryTrademarkModelEspListResponse Alibabacloud_Trademark20180724::Client::queryTrademarkModelEspListWithOptions(shared_ptr<QueryTrademarkModelEspListRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryTrademarkModelEspListShrinkRequest> request = make_shared<QueryTrademarkModelEspListShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->existStatus)) {
+    request->existStatusShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->existStatus, make_shared<string>("ExistStatus"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->additionalSubmitStatus)) {
+    query->insert(pair<string, string>("AdditionalSubmitStatus", *request->additionalSubmitStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->additionalSubmitTime)) {
+    query->insert(pair<string, string>("AdditionalSubmitTime", *request->additionalSubmitTime));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->bizId)) {
     query->insert(pair<string, string>("BizId", *request->bizId));
   }
@@ -3243,6 +3254,9 @@ QueryTrademarkModelEspListResponse Alibabacloud_Trademark20180724::Client::query
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->env)) {
     query->insert(pair<string, string>("Env", *request->env));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->existStatusShrink)) {
+    query->insert(pair<string, string>("ExistStatus", *request->existStatusShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->orderId)) {
     query->insert(pair<string, string>("OrderId", *request->orderId));
@@ -4799,6 +4813,9 @@ UpdateProduceResponse Alibabacloud_Trademark20180724::Client::updateProduceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->extMap)) {
     query->insert(pair<string, string>("ExtMap", *request->extMap));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operateType)) {
+    query->insert(pair<string, string>("OperateType", *request->operateType));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
