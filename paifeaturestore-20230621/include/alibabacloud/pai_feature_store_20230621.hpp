@@ -3568,6 +3568,7 @@ public:
   shared_ptr<string> owner{};
   shared_ptr<string> projectId{};
   shared_ptr<string> projectName{};
+  shared_ptr<vector<string>> relatedModelFeatures{};
   shared_ptr<string> requestId{};
 
   GetLabelTableResponseBody() {}
@@ -3610,6 +3611,9 @@ public:
     }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
+    }
+    if (relatedModelFeatures) {
+      res["RelatedModelFeatures"] = boost::any(*relatedModelFeatures);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
@@ -3654,6 +3658,16 @@ public:
     }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("RelatedModelFeatures") != m.end() && !m["RelatedModelFeatures"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["RelatedModelFeatures"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["RelatedModelFeatures"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      relatedModelFeatures = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
