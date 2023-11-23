@@ -4209,6 +4209,7 @@ public:
 class UpdateInstanceIpWhiteListRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> delete_{};
+  shared_ptr<string> groupName{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -4229,6 +4230,9 @@ public:
     map<string, boost::any> res;
     if (delete_) {
       res["Delete"] = boost::any(*delete_);
+    }
+    if (groupName) {
+      res["GroupName"] = boost::any(*groupName);
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
@@ -4257,6 +4261,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Delete") != m.end() && !m["Delete"].empty()) {
       delete_ = make_shared<bool>(boost::any_cast<bool>(m["Delete"]));
+    }
+    if (m.find("GroupName") != m.end() && !m["GroupName"].empty()) {
+      groupName = make_shared<string>(boost::any_cast<string>(m["GroupName"]));
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));

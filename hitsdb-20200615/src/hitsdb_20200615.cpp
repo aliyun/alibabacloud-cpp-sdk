@@ -893,6 +893,9 @@ UpdateInstanceIpWhiteListResponse Alibabacloud_Hitsdb20200615::Client::updateIns
   if (!Darabonba_Util::Client::isUnset<bool>(request->delete_)) {
     query->insert(pair<string, bool>("Delete_", *request->delete_));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupName)) {
+    query->insert(pair<string, string>("GroupName", *request->groupName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
