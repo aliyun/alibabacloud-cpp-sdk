@@ -3836,6 +3836,296 @@ public:
 
   virtual ~GetVpcEndpointServiceAttributeResponse() = default;
 };
+class ListTagResourcesRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListTagResourcesRequestTag() {}
+
+  explicit ListTagResourcesRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListTagResourcesRequestTag() = default;
+};
+class ListTagResourcesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clientToken{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<ListTagResourcesRequestTag>> tag{};
+
+  ListTagResourcesRequest() {}
+
+  explicit ListTagResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<ListTagResourcesRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTagResourcesRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<ListTagResourcesRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTagResourcesRequest() = default;
+};
+class ListTagResourcesResponseBodyTagResources : public Darabonba::Model {
+public:
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  ListTagResourcesResponseBodyTagResources() {}
+
+  explicit ListTagResourcesResponseBodyTagResources(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~ListTagResourcesResponseBodyTagResources() = default;
+};
+class ListTagResourcesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListTagResourcesResponseBodyTagResources>> tagResources{};
+
+  ListTagResourcesResponseBody() {}
+
+  explicit ListTagResourcesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (tagResources) {
+      vector<boost::any> temp1;
+      for(auto item1:*tagResources){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["TagResources"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TagResources") != m.end() && !m["TagResources"].empty()) {
+      if (typeid(vector<boost::any>) == m["TagResources"].type()) {
+        vector<ListTagResourcesResponseBodyTagResources> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["TagResources"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListTagResourcesResponseBodyTagResources model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tagResources = make_shared<vector<ListTagResourcesResponseBodyTagResources>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ListTagResourcesResponseBody() = default;
+};
+class ListTagResourcesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListTagResourcesResponseBody> body{};
+
+  ListTagResourcesResponse() {}
+
+  explicit ListTagResourcesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListTagResourcesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListTagResourcesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListTagResourcesResponse() = default;
+};
 class ListVpcEndpointConnectionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> connectionStatus{};
@@ -7302,6 +7592,182 @@ public:
 
   virtual ~TagResourcesResponse() = default;
 };
+class UntagResourcesRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> all{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> regionId{};
+  shared_ptr<vector<string>> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<vector<string>> tagKey{};
+
+  UntagResourcesRequest() {}
+
+  explicit UntagResourcesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (all) {
+      res["All"] = boost::any(*all);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("All") != m.end() && !m["All"].empty()) {
+      all = make_shared<bool>(boost::any_cast<bool>(m["All"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ResourceId"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ResourceId"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      resourceId = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TagKey"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TagKey"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tagKey = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~UntagResourcesRequest() = default;
+};
+class UntagResourcesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UntagResourcesResponseBody() {}
+
+  explicit UntagResourcesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UntagResourcesResponseBody() = default;
+};
+class UntagResourcesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UntagResourcesResponseBody> body{};
+
+  UntagResourcesResponse() {}
+
+  explicit UntagResourcesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UntagResourcesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UntagResourcesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UntagResourcesResponse() = default;
+};
 class UpdateVpcEndpointAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
@@ -8183,6 +8649,8 @@ public:
   GetVpcEndpointAttributeResponse getVpcEndpointAttribute(shared_ptr<GetVpcEndpointAttributeRequest> request);
   GetVpcEndpointServiceAttributeResponse getVpcEndpointServiceAttributeWithOptions(shared_ptr<GetVpcEndpointServiceAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetVpcEndpointServiceAttributeResponse getVpcEndpointServiceAttribute(shared_ptr<GetVpcEndpointServiceAttributeRequest> request);
+  ListTagResourcesResponse listTagResourcesWithOptions(shared_ptr<ListTagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListTagResourcesResponse listTagResources(shared_ptr<ListTagResourcesRequest> request);
   ListVpcEndpointConnectionsResponse listVpcEndpointConnectionsWithOptions(shared_ptr<ListVpcEndpointConnectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListVpcEndpointConnectionsResponse listVpcEndpointConnections(shared_ptr<ListVpcEndpointConnectionsRequest> request);
   ListVpcEndpointSecurityGroupsResponse listVpcEndpointSecurityGroupsWithOptions(shared_ptr<ListVpcEndpointSecurityGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -8207,6 +8675,8 @@ public:
   RemoveZoneFromVpcEndpointResponse removeZoneFromVpcEndpoint(shared_ptr<RemoveZoneFromVpcEndpointRequest> request);
   TagResourcesResponse tagResourcesWithOptions(shared_ptr<TagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
+  UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
   UpdateVpcEndpointAttributeResponse updateVpcEndpointAttributeWithOptions(shared_ptr<UpdateVpcEndpointAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateVpcEndpointAttributeResponse updateVpcEndpointAttribute(shared_ptr<UpdateVpcEndpointAttributeRequest> request);
   UpdateVpcEndpointConnectionAttributeResponse updateVpcEndpointConnectionAttributeWithOptions(shared_ptr<UpdateVpcEndpointConnectionAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
