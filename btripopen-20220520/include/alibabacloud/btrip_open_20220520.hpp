@@ -7668,6 +7668,7 @@ public:
   shared_ptr<string> internationalFlightInvoiceFee{};
   shared_ptr<string> internationalHotelInvoiceFee{};
   shared_ptr<string> invoiceThirdPartId{};
+  shared_ptr<long> invoiceType{};
   shared_ptr<string> mailAddress{};
   shared_ptr<string> mailCity{};
   shared_ptr<string> mailFullAddress{};
@@ -7715,6 +7716,9 @@ public:
     }
     if (invoiceThirdPartId) {
       res["invoice_third_part_id"] = boost::any(*invoiceThirdPartId);
+    }
+    if (invoiceType) {
+      res["invoice_type"] = boost::any(*invoiceType);
     }
     if (mailAddress) {
       res["mail_address"] = boost::any(*mailAddress);
@@ -7776,6 +7780,9 @@ public:
     }
     if (m.find("invoice_third_part_id") != m.end() && !m["invoice_third_part_id"].empty()) {
       invoiceThirdPartId = make_shared<string>(boost::any_cast<string>(m["invoice_third_part_id"]));
+    }
+    if (m.find("invoice_type") != m.end() && !m["invoice_type"].empty()) {
+      invoiceType = make_shared<long>(boost::any_cast<long>(m["invoice_type"]));
     }
     if (m.find("mail_address") != m.end() && !m["mail_address"].empty()) {
       mailAddress = make_shared<string>(boost::any_cast<string>(m["mail_address"]));
