@@ -247,6 +247,9 @@ CreateEventStreamingResponse Alibabacloud_Eventbridge20200401::Client::createEve
   if (!Darabonba_Util::Client::isUnset<CreateEventStreamingRequestSource>(tmpReq->source)) {
     request->sourceShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->source, make_shared<string>("Source"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateEventStreamingRequestTransforms>>(tmpReq->transforms)) {
+    request->transformsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transforms, make_shared<string>("Transforms"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -265,6 +268,9 @@ CreateEventStreamingResponse Alibabacloud_Eventbridge20200401::Client::createEve
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceShrink)) {
     body->insert(pair<string, string>("Source", *request->sourceShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transformsShrink)) {
+    body->insert(pair<string, string>("Transforms", *request->transformsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1135,6 +1141,9 @@ QueryEventResponse Alibabacloud_Eventbridge20200401::Client::queryEventWithOptio
   if (!Darabonba_Util::Client::isUnset<string>(request->eventId)) {
     query->insert(pair<string, string>("EventId", *request->eventId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventSource)) {
+    query->insert(pair<string, string>("EventSource", *request->eventSource));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1539,6 +1548,9 @@ UpdateEventStreamingResponse Alibabacloud_Eventbridge20200401::Client::updateEve
   if (!Darabonba_Util::Client::isUnset<UpdateEventStreamingRequestSource>(tmpReq->source)) {
     request->sourceShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->source, make_shared<string>("Source"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<UpdateEventStreamingRequestTransforms>>(tmpReq->transforms)) {
+    request->transformsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->transforms, make_shared<string>("Transforms"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     body->insert(pair<string, string>("Description", *request->description));
@@ -1557,6 +1569,9 @@ UpdateEventStreamingResponse Alibabacloud_Eventbridge20200401::Client::updateEve
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceShrink)) {
     body->insert(pair<string, string>("Source", *request->sourceShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->transformsShrink)) {
+    body->insert(pair<string, string>("Transforms", *request->transformsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

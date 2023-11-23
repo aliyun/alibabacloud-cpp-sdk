@@ -1684,7 +1684,7 @@ class CreateEventSourceRequestSourceScheduledEventParameters : public Darabonba:
 public:
   shared_ptr<string> schedule{};
   shared_ptr<string> timeZone{};
-  shared_ptr<map<string, boost::any>> userData{};
+  shared_ptr<string> userData{};
 
   CreateEventSourceRequestSourceScheduledEventParameters() {}
 
@@ -1716,12 +1716,7 @@ public:
       timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
     }
     if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["UserData"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      userData = make_shared<map<string, boost::any>>(toMap1);
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
@@ -5980,6 +5975,35 @@ public:
 
   virtual ~CreateEventStreamingRequestSource() = default;
 };
+class CreateEventStreamingRequestTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+
+  CreateEventStreamingRequestTransforms() {}
+
+  explicit CreateEventStreamingRequestTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+  }
+
+
+  virtual ~CreateEventStreamingRequestTransforms() = default;
+};
 class CreateEventStreamingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -5988,6 +6012,7 @@ public:
   shared_ptr<CreateEventStreamingRequestRunOptions> runOptions{};
   shared_ptr<CreateEventStreamingRequestSink> sink{};
   shared_ptr<CreateEventStreamingRequestSource> source{};
+  shared_ptr<vector<CreateEventStreamingRequestTransforms>> transforms{};
 
   CreateEventStreamingRequest() {}
 
@@ -6016,6 +6041,13 @@ public:
     }
     if (source) {
       res["Source"] = source ? boost::any(source->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*transforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transforms"] = boost::any(temp1);
     }
     return res;
   }
@@ -6051,6 +6083,19 @@ public:
         source = make_shared<CreateEventStreamingRequestSource>(model1);
       }
     }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Transforms"].type()) {
+        vector<CreateEventStreamingRequestTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateEventStreamingRequestTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transforms = make_shared<vector<CreateEventStreamingRequestTransforms>>(expect1);
+      }
+    }
   }
 
 
@@ -6064,6 +6109,7 @@ public:
   shared_ptr<string> runOptionsShrink{};
   shared_ptr<string> sinkShrink{};
   shared_ptr<string> sourceShrink{};
+  shared_ptr<string> transformsShrink{};
 
   CreateEventStreamingShrinkRequest() {}
 
@@ -6093,6 +6139,9 @@ public:
     if (sourceShrink) {
       res["Source"] = boost::any(*sourceShrink);
     }
+    if (transformsShrink) {
+      res["Transforms"] = boost::any(*transformsShrink);
+    }
     return res;
   }
 
@@ -6114,6 +6163,9 @@ public:
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       sourceShrink = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      transformsShrink = make_shared<string>(boost::any_cast<string>(m["Transforms"]));
     }
   }
 
@@ -12327,8 +12379,17 @@ public:
 };
 class GetEventStreamingResponseBodyDataSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
+  shared_ptr<string> authType{};
   shared_ptr<string> groupID{};
+  shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceNetwork{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceSecurityGroupId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> instanceVSwitchIds{};
+  shared_ptr<string> instanceVpcId{};
   shared_ptr<string> offset{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
@@ -12345,11 +12406,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
     }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceNetwork) {
+      res["InstanceNetwork"] = boost::any(*instanceNetwork);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceSecurityGroupId) {
+      res["InstanceSecurityGroupId"] = boost::any(*instanceSecurityGroupId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (instanceVSwitchIds) {
+      res["InstanceVSwitchIds"] = boost::any(*instanceVSwitchIds);
+    }
+    if (instanceVpcId) {
+      res["InstanceVpcId"] = boost::any(*instanceVpcId);
     }
     if (offset) {
       res["Offset"] = boost::any(*offset);
@@ -12370,11 +12458,38 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
     }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceNetwork") != m.end() && !m["InstanceNetwork"].empty()) {
+      instanceNetwork = make_shared<string>(boost::any_cast<string>(m["InstanceNetwork"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceSecurityGroupId") != m.end() && !m["InstanceSecurityGroupId"].empty()) {
+      instanceSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceSecurityGroupId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("InstanceVSwitchIds") != m.end() && !m["InstanceVSwitchIds"].empty()) {
+      instanceVSwitchIds = make_shared<string>(boost::any_cast<string>(m["InstanceVSwitchIds"]));
+    }
+    if (m.find("InstanceVpcId") != m.end() && !m["InstanceVpcId"].empty()) {
+      instanceVpcId = make_shared<string>(boost::any_cast<string>(m["InstanceVpcId"]));
     }
     if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
       offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
@@ -12552,6 +12667,35 @@ public:
 
   virtual ~GetEventStreamingResponseBodyDataSource() = default;
 };
+class GetEventStreamingResponseBodyDataTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+
+  GetEventStreamingResponseBodyDataTransforms() {}
+
+  explicit GetEventStreamingResponseBodyDataTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+  }
+
+
+  virtual ~GetEventStreamingResponseBodyDataTransforms() = default;
+};
 class GetEventStreamingResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -12561,6 +12705,7 @@ public:
   shared_ptr<GetEventStreamingResponseBodyDataSink> sink{};
   shared_ptr<GetEventStreamingResponseBodyDataSource> source{};
   shared_ptr<string> status{};
+  shared_ptr<vector<GetEventStreamingResponseBodyDataTransforms>> transforms{};
 
   GetEventStreamingResponseBodyData() {}
 
@@ -12592,6 +12737,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (transforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*transforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transforms"] = boost::any(temp1);
     }
     return res;
   }
@@ -12629,6 +12781,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Transforms"].type()) {
+        vector<GetEventStreamingResponseBodyDataTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetEventStreamingResponseBodyDataTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transforms = make_shared<vector<GetEventStreamingResponseBodyDataTransforms>>(expect1);
+      }
     }
   }
 
@@ -17731,8 +17896,17 @@ public:
 };
 class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
+  shared_ptr<string> authType{};
   shared_ptr<string> groupID{};
+  shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceNetwork{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceSecurityGroupId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> instanceVSwitchIds{};
+  shared_ptr<string> instanceVpcId{};
   shared_ptr<string> offset{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
@@ -17749,11 +17923,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
     }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceNetwork) {
+      res["InstanceNetwork"] = boost::any(*instanceNetwork);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceSecurityGroupId) {
+      res["InstanceSecurityGroupId"] = boost::any(*instanceSecurityGroupId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (instanceVSwitchIds) {
+      res["InstanceVSwitchIds"] = boost::any(*instanceVSwitchIds);
+    }
+    if (instanceVpcId) {
+      res["InstanceVpcId"] = boost::any(*instanceVpcId);
     }
     if (offset) {
       res["Offset"] = boost::any(*offset);
@@ -17774,11 +17975,38 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
     }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceNetwork") != m.end() && !m["InstanceNetwork"].empty()) {
+      instanceNetwork = make_shared<string>(boost::any_cast<string>(m["InstanceNetwork"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceSecurityGroupId") != m.end() && !m["InstanceSecurityGroupId"].empty()) {
+      instanceSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceSecurityGroupId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("InstanceVSwitchIds") != m.end() && !m["InstanceVSwitchIds"].empty()) {
+      instanceVSwitchIds = make_shared<string>(boost::any_cast<string>(m["InstanceVSwitchIds"]));
+    }
+    if (m.find("InstanceVpcId") != m.end() && !m["InstanceVpcId"].empty()) {
+      instanceVpcId = make_shared<string>(boost::any_cast<string>(m["InstanceVpcId"]));
     }
     if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
       offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
@@ -17956,6 +18184,35 @@ public:
 
   virtual ~ListEventStreamingsResponseBodyDataEventStreamingsSource() = default;
 };
+class ListEventStreamingsResponseBodyDataEventStreamingsTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+
+  ListEventStreamingsResponseBodyDataEventStreamingsTransforms() {}
+
+  explicit ListEventStreamingsResponseBodyDataEventStreamingsTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+  }
+
+
+  virtual ~ListEventStreamingsResponseBodyDataEventStreamingsTransforms() = default;
+};
 class ListEventStreamingsResponseBodyDataEventStreamings : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -17965,6 +18222,7 @@ public:
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSink> sink{};
   shared_ptr<ListEventStreamingsResponseBodyDataEventStreamingsSource> source{};
   shared_ptr<string> status{};
+  shared_ptr<vector<ListEventStreamingsResponseBodyDataEventStreamingsTransforms>> transforms{};
 
   ListEventStreamingsResponseBodyDataEventStreamings() {}
 
@@ -17996,6 +18254,13 @@ public:
     }
     if (status) {
       res["Status"] = boost::any(*status);
+    }
+    if (transforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*transforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transforms"] = boost::any(temp1);
     }
     return res;
   }
@@ -18033,6 +18298,19 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Transforms"].type()) {
+        vector<ListEventStreamingsResponseBodyDataEventStreamingsTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEventStreamingsResponseBodyDataEventStreamingsTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transforms = make_shared<vector<ListEventStreamingsResponseBodyDataEventStreamingsTransforms>>(expect1);
+      }
     }
   }
 
@@ -19511,6 +19789,7 @@ class ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceScheduledE
 public:
   shared_ptr<string> schedule{};
   shared_ptr<string> timeZone{};
+  shared_ptr<string> userData{};
 
   ListUserDefinedEventSourcesResponseBodyDataEventSourceListSourceScheduledEventParameters() {}
 
@@ -19528,6 +19807,9 @@ public:
     if (timeZone) {
       res["TimeZone"] = boost::any(*timeZone);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -19537,6 +19819,9 @@ public:
     }
     if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
       timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
@@ -20486,6 +20771,7 @@ class QueryEventRequest : public Darabonba::Model {
 public:
   shared_ptr<string> eventBusName{};
   shared_ptr<string> eventId{};
+  shared_ptr<string> eventSource{};
 
   QueryEventRequest() {}
 
@@ -20503,6 +20789,9 @@ public:
     if (eventId) {
       res["EventId"] = boost::any(*eventId);
     }
+    if (eventSource) {
+      res["EventSource"] = boost::any(*eventSource);
+    }
     return res;
   }
 
@@ -20512,6 +20801,9 @@ public:
     }
     if (m.find("EventId") != m.end() && !m["EventId"].empty()) {
       eventId = make_shared<string>(boost::any_cast<string>(m["EventId"]));
+    }
+    if (m.find("EventSource") != m.end() && !m["EventSource"].empty()) {
+      eventSource = make_shared<string>(boost::any_cast<string>(m["EventSource"]));
     }
   }
 
@@ -23407,6 +23699,7 @@ class UpdateEventSourceRequestSourceScheduledEventParameters : public Darabonba:
 public:
   shared_ptr<string> schedule{};
   shared_ptr<string> timeZone{};
+  shared_ptr<string> userData{};
 
   UpdateEventSourceRequestSourceScheduledEventParameters() {}
 
@@ -23424,6 +23717,9 @@ public:
     if (timeZone) {
       res["TimeZone"] = boost::any(*timeZone);
     }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
     return res;
   }
 
@@ -23433,6 +23729,9 @@ public:
     }
     if (m.find("TimeZone") != m.end() && !m["TimeZone"].empty()) {
       timeZone = make_shared<string>(boost::any_cast<string>(m["TimeZone"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
     }
   }
 
@@ -26546,8 +26845,17 @@ public:
 };
 class UpdateEventStreamingRequestSourceSourceRocketMQParameters : public Darabonba::Model {
 public:
+  shared_ptr<string> authType{};
   shared_ptr<string> groupID{};
+  shared_ptr<string> instanceEndpoint{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceNetwork{};
+  shared_ptr<string> instancePassword{};
+  shared_ptr<string> instanceSecurityGroupId{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> instanceUsername{};
+  shared_ptr<string> instanceVSwitchIds{};
+  shared_ptr<string> instanceVpcId{};
   shared_ptr<string> offset{};
   shared_ptr<string> regionId{};
   shared_ptr<string> tag{};
@@ -26564,11 +26872,38 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authType) {
+      res["AuthType"] = boost::any(*authType);
+    }
     if (groupID) {
       res["GroupID"] = boost::any(*groupID);
     }
+    if (instanceEndpoint) {
+      res["InstanceEndpoint"] = boost::any(*instanceEndpoint);
+    }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceNetwork) {
+      res["InstanceNetwork"] = boost::any(*instanceNetwork);
+    }
+    if (instancePassword) {
+      res["InstancePassword"] = boost::any(*instancePassword);
+    }
+    if (instanceSecurityGroupId) {
+      res["InstanceSecurityGroupId"] = boost::any(*instanceSecurityGroupId);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (instanceUsername) {
+      res["InstanceUsername"] = boost::any(*instanceUsername);
+    }
+    if (instanceVSwitchIds) {
+      res["InstanceVSwitchIds"] = boost::any(*instanceVSwitchIds);
+    }
+    if (instanceVpcId) {
+      res["InstanceVpcId"] = boost::any(*instanceVpcId);
     }
     if (offset) {
       res["Offset"] = boost::any(*offset);
@@ -26589,11 +26924,38 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthType") != m.end() && !m["AuthType"].empty()) {
+      authType = make_shared<string>(boost::any_cast<string>(m["AuthType"]));
+    }
     if (m.find("GroupID") != m.end() && !m["GroupID"].empty()) {
       groupID = make_shared<string>(boost::any_cast<string>(m["GroupID"]));
     }
+    if (m.find("InstanceEndpoint") != m.end() && !m["InstanceEndpoint"].empty()) {
+      instanceEndpoint = make_shared<string>(boost::any_cast<string>(m["InstanceEndpoint"]));
+    }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceNetwork") != m.end() && !m["InstanceNetwork"].empty()) {
+      instanceNetwork = make_shared<string>(boost::any_cast<string>(m["InstanceNetwork"]));
+    }
+    if (m.find("InstancePassword") != m.end() && !m["InstancePassword"].empty()) {
+      instancePassword = make_shared<string>(boost::any_cast<string>(m["InstancePassword"]));
+    }
+    if (m.find("InstanceSecurityGroupId") != m.end() && !m["InstanceSecurityGroupId"].empty()) {
+      instanceSecurityGroupId = make_shared<string>(boost::any_cast<string>(m["InstanceSecurityGroupId"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("InstanceUsername") != m.end() && !m["InstanceUsername"].empty()) {
+      instanceUsername = make_shared<string>(boost::any_cast<string>(m["InstanceUsername"]));
+    }
+    if (m.find("InstanceVSwitchIds") != m.end() && !m["InstanceVSwitchIds"].empty()) {
+      instanceVSwitchIds = make_shared<string>(boost::any_cast<string>(m["InstanceVSwitchIds"]));
+    }
+    if (m.find("InstanceVpcId") != m.end() && !m["InstanceVpcId"].empty()) {
+      instanceVpcId = make_shared<string>(boost::any_cast<string>(m["InstanceVpcId"]));
     }
     if (m.find("Offset") != m.end() && !m["Offset"].empty()) {
       offset = make_shared<string>(boost::any_cast<string>(m["Offset"]));
@@ -26743,6 +27105,35 @@ public:
 
   virtual ~UpdateEventStreamingRequestSource() = default;
 };
+class UpdateEventStreamingRequestTransforms : public Darabonba::Model {
+public:
+  shared_ptr<string> arn{};
+
+  UpdateEventStreamingRequestTransforms() {}
+
+  explicit UpdateEventStreamingRequestTransforms(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (arn) {
+      res["Arn"] = boost::any(*arn);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Arn") != m.end() && !m["Arn"].empty()) {
+      arn = make_shared<string>(boost::any_cast<string>(m["Arn"]));
+    }
+  }
+
+
+  virtual ~UpdateEventStreamingRequestTransforms() = default;
+};
 class UpdateEventStreamingRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -26751,6 +27142,7 @@ public:
   shared_ptr<UpdateEventStreamingRequestRunOptions> runOptions{};
   shared_ptr<UpdateEventStreamingRequestSink> sink{};
   shared_ptr<UpdateEventStreamingRequestSource> source{};
+  shared_ptr<vector<UpdateEventStreamingRequestTransforms>> transforms{};
 
   UpdateEventStreamingRequest() {}
 
@@ -26779,6 +27171,13 @@ public:
     }
     if (source) {
       res["Source"] = source ? boost::any(source->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (transforms) {
+      vector<boost::any> temp1;
+      for(auto item1:*transforms){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Transforms"] = boost::any(temp1);
     }
     return res;
   }
@@ -26814,6 +27213,19 @@ public:
         source = make_shared<UpdateEventStreamingRequestSource>(model1);
       }
     }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      if (typeid(vector<boost::any>) == m["Transforms"].type()) {
+        vector<UpdateEventStreamingRequestTransforms> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Transforms"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateEventStreamingRequestTransforms model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        transforms = make_shared<vector<UpdateEventStreamingRequestTransforms>>(expect1);
+      }
+    }
   }
 
 
@@ -26827,6 +27239,7 @@ public:
   shared_ptr<string> runOptionsShrink{};
   shared_ptr<string> sinkShrink{};
   shared_ptr<string> sourceShrink{};
+  shared_ptr<string> transformsShrink{};
 
   UpdateEventStreamingShrinkRequest() {}
 
@@ -26856,6 +27269,9 @@ public:
     if (sourceShrink) {
       res["Source"] = boost::any(*sourceShrink);
     }
+    if (transformsShrink) {
+      res["Transforms"] = boost::any(*transformsShrink);
+    }
     return res;
   }
 
@@ -26877,6 +27293,9 @@ public:
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       sourceShrink = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("Transforms") != m.end() && !m["Transforms"].empty()) {
+      transformsShrink = make_shared<string>(boost::any_cast<string>(m["Transforms"]));
     }
   }
 
