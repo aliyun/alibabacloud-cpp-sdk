@@ -5918,6 +5918,7 @@ public:
   shared_ptr<string> instanceId{};
   shared_ptr<string> name{};
   shared_ptr<string> ossFileKey{};
+  shared_ptr<string> usage{};
 
   CreateAudioFileRequest() {}
 
@@ -5941,6 +5942,9 @@ public:
     if (ossFileKey) {
       res["OssFileKey"] = boost::any(*ossFileKey);
     }
+    if (usage) {
+      res["Usage"] = boost::any(*usage);
+    }
     return res;
   }
 
@@ -5956,6 +5960,9 @@ public:
     }
     if (m.find("OssFileKey") != m.end() && !m["OssFileKey"].empty()) {
       ossFileKey = make_shared<string>(boost::any_cast<string>(m["OssFileKey"]));
+    }
+    if (m.find("Usage") != m.end() && !m["Usage"].empty()) {
+      usage = make_shared<string>(boost::any_cast<string>(m["Usage"]));
     }
   }
 
@@ -11230,7 +11237,9 @@ public:
   shared_ptr<long> casesAborted{};
   shared_ptr<long> casesConnected{};
   shared_ptr<long> casesUncompleted{};
+  shared_ptr<string> casesUncompletedAfterAttempt{};
   shared_ptr<long> casesUncompletedAfterAttempted{};
+  shared_ptr<double> completionRate{};
   shared_ptr<long> maxAttemptCount{};
   shared_ptr<long> minAttemptInterval{};
   shared_ptr<string> name{};
@@ -11273,8 +11282,14 @@ public:
     if (casesUncompleted) {
       res["CasesUncompleted"] = boost::any(*casesUncompleted);
     }
+    if (casesUncompletedAfterAttempt) {
+      res["CasesUncompletedAfterAttempt"] = boost::any(*casesUncompletedAfterAttempt);
+    }
     if (casesUncompletedAfterAttempted) {
       res["CasesUncompletedAfterAttempted"] = boost::any(*casesUncompletedAfterAttempted);
+    }
+    if (completionRate) {
+      res["CompletionRate"] = boost::any(*completionRate);
     }
     if (maxAttemptCount) {
       res["MaxAttemptCount"] = boost::any(*maxAttemptCount);
@@ -11337,8 +11352,14 @@ public:
     if (m.find("CasesUncompleted") != m.end() && !m["CasesUncompleted"].empty()) {
       casesUncompleted = make_shared<long>(boost::any_cast<long>(m["CasesUncompleted"]));
     }
+    if (m.find("CasesUncompletedAfterAttempt") != m.end() && !m["CasesUncompletedAfterAttempt"].empty()) {
+      casesUncompletedAfterAttempt = make_shared<string>(boost::any_cast<string>(m["CasesUncompletedAfterAttempt"]));
+    }
     if (m.find("CasesUncompletedAfterAttempted") != m.end() && !m["CasesUncompletedAfterAttempted"].empty()) {
       casesUncompletedAfterAttempted = make_shared<long>(boost::any_cast<long>(m["CasesUncompletedAfterAttempted"]));
+    }
+    if (m.find("CompletionRate") != m.end() && !m["CompletionRate"].empty()) {
+      completionRate = make_shared<double>(boost::any_cast<double>(m["CompletionRate"]));
     }
     if (m.find("MaxAttemptCount") != m.end() && !m["MaxAttemptCount"].empty()) {
       maxAttemptCount = make_shared<long>(boost::any_cast<long>(m["MaxAttemptCount"]));
@@ -13102,7 +13123,9 @@ public:
 };
 class GetHistoricalCampaignReportResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<double> abandonRate{};
   shared_ptr<double> abandonedRate{};
+  shared_ptr<double> answerRate{};
   shared_ptr<long> callsAbandoned{};
   shared_ptr<long> callsConnected{};
   shared_ptr<long> callsDialed{};
@@ -13119,8 +13142,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abandonRate) {
+      res["AbandonRate"] = boost::any(*abandonRate);
+    }
     if (abandonedRate) {
       res["AbandonedRate"] = boost::any(*abandonedRate);
+    }
+    if (answerRate) {
+      res["AnswerRate"] = boost::any(*answerRate);
     }
     if (callsAbandoned) {
       res["CallsAbandoned"] = boost::any(*callsAbandoned);
@@ -13141,8 +13170,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonRate") != m.end() && !m["AbandonRate"].empty()) {
+      abandonRate = make_shared<double>(boost::any_cast<double>(m["AbandonRate"]));
+    }
     if (m.find("AbandonedRate") != m.end() && !m["AbandonedRate"].empty()) {
       abandonedRate = make_shared<double>(boost::any_cast<double>(m["AbandonedRate"]));
+    }
+    if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
+      answerRate = make_shared<double>(boost::any_cast<double>(m["AnswerRate"]));
     }
     if (m.find("CallsAbandoned") != m.end() && !m["CallsAbandoned"].empty()) {
       callsAbandoned = make_shared<long>(boost::any_cast<long>(m["CallsAbandoned"]));
@@ -13291,6 +13326,7 @@ class GetHistoricalInstanceReportRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> startTime{};
 
   GetHistoricalInstanceReportRequest() {}
@@ -13309,6 +13345,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -13322,6 +13361,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
@@ -13330,14 +13372,53 @@ public:
 
   virtual ~GetHistoricalInstanceReportRequest() = default;
 };
+class GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelType{};
+  shared_ptr<long> callsOffered{};
+
+  GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList() {}
+
+  explicit GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelType) {
+      res["AccessChannelType"] = boost::any(*accessChannelType);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelType") != m.end() && !m["AccessChannelType"].empty()) {
+      accessChannelType = make_shared<string>(boost::any_cast<string>(m["AccessChannelType"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+  }
+
+
+  virtual ~GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList() = default;
+};
 class GetHistoricalInstanceReportResponseBodyDataInbound : public Darabonba::Model {
 public:
   shared_ptr<double> abandonRate{};
+  shared_ptr<vector<GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList>> accessChannelTypeDetailList{};
   shared_ptr<double> averageAbandonTime{};
   shared_ptr<double> averageAbandonedInIVRTime{};
   shared_ptr<double> averageAbandonedInQueueTime{};
   shared_ptr<double> averageAbandonedInRingTime{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWaitTime{};
@@ -13349,6 +13430,7 @@ public:
   shared_ptr<long> callsAbandonedInVoiceNavigator{};
   shared_ptr<long> callsAttendedTransferred{};
   shared_ptr<long> callsBlindTransferred{};
+  shared_ptr<long> callsCausedIVRException{};
   shared_ptr<long> callsForwardToOutsideNumber{};
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsHold{};
@@ -13359,6 +13441,7 @@ public:
   shared_ptr<long> callsQueuingOverflow{};
   shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsRinged{};
+  shared_ptr<long> callsToVoicemail{};
   shared_ptr<long> callsVoicemail{};
   shared_ptr<double> handleRate{};
   shared_ptr<long> maxAbandonTime{};
@@ -13374,12 +13457,17 @@ public:
   shared_ptr<double> satisfactionRate{};
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
+  shared_ptr<double> serviceLevel15{};
   shared_ptr<double> serviceLevel20{};
+  shared_ptr<double> serviceLevel30{};
   shared_ptr<long> totalAbandonTime{};
   shared_ptr<long> totalAbandonedInIVRTime{};
   shared_ptr<long> totalAbandonedInQueueTime{};
   shared_ptr<long> totalAbandonedInRingTime{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWaitTime{};
@@ -13398,6 +13486,13 @@ public:
     if (abandonRate) {
       res["AbandonRate"] = boost::any(*abandonRate);
     }
+    if (accessChannelTypeDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessChannelTypeDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessChannelTypeDetailList"] = boost::any(temp1);
+    }
     if (averageAbandonTime) {
       res["AverageAbandonTime"] = boost::any(*averageAbandonTime);
     }
@@ -13410,8 +13505,14 @@ public:
     if (averageAbandonedInRingTime) {
       res["AverageAbandonedInRingTime"] = boost::any(*averageAbandonedInRingTime);
     }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -13446,6 +13547,9 @@ public:
     if (callsBlindTransferred) {
       res["CallsBlindTransferred"] = boost::any(*callsBlindTransferred);
     }
+    if (callsCausedIVRException) {
+      res["CallsCausedIVRException"] = boost::any(*callsCausedIVRException);
+    }
     if (callsForwardToOutsideNumber) {
       res["CallsForwardToOutsideNumber"] = boost::any(*callsForwardToOutsideNumber);
     }
@@ -13475,6 +13579,9 @@ public:
     }
     if (callsRinged) {
       res["CallsRinged"] = boost::any(*callsRinged);
+    }
+    if (callsToVoicemail) {
+      res["CallsToVoicemail"] = boost::any(*callsToVoicemail);
     }
     if (callsVoicemail) {
       res["CallsVoicemail"] = boost::any(*callsVoicemail);
@@ -13521,8 +13628,14 @@ public:
     if (satisfactionSurveysResponded) {
       res["SatisfactionSurveysResponded"] = boost::any(*satisfactionSurveysResponded);
     }
+    if (serviceLevel15) {
+      res["ServiceLevel15"] = boost::any(*serviceLevel15);
+    }
     if (serviceLevel20) {
       res["ServiceLevel20"] = boost::any(*serviceLevel20);
+    }
+    if (serviceLevel30) {
+      res["ServiceLevel30"] = boost::any(*serviceLevel30);
     }
     if (totalAbandonTime) {
       res["TotalAbandonTime"] = boost::any(*totalAbandonTime);
@@ -13538,6 +13651,15 @@ public:
     }
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
+    }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
     }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
@@ -13558,6 +13680,19 @@ public:
     if (m.find("AbandonRate") != m.end() && !m["AbandonRate"].empty()) {
       abandonRate = make_shared<double>(boost::any_cast<double>(m["AbandonRate"]));
     }
+    if (m.find("AccessChannelTypeDetailList") != m.end() && !m["AccessChannelTypeDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessChannelTypeDetailList"].type()) {
+        vector<GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessChannelTypeDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessChannelTypeDetailList = make_shared<vector<GetHistoricalInstanceReportResponseBodyDataInboundAccessChannelTypeDetailList>>(expect1);
+      }
+    }
     if (m.find("AverageAbandonTime") != m.end() && !m["AverageAbandonTime"].empty()) {
       averageAbandonTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonTime"]));
     }
@@ -13570,8 +13705,14 @@ public:
     if (m.find("AverageAbandonedInRingTime") != m.end() && !m["AverageAbandonedInRingTime"].empty()) {
       averageAbandonedInRingTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonedInRingTime"]));
     }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -13606,6 +13747,9 @@ public:
     if (m.find("CallsBlindTransferred") != m.end() && !m["CallsBlindTransferred"].empty()) {
       callsBlindTransferred = make_shared<long>(boost::any_cast<long>(m["CallsBlindTransferred"]));
     }
+    if (m.find("CallsCausedIVRException") != m.end() && !m["CallsCausedIVRException"].empty()) {
+      callsCausedIVRException = make_shared<long>(boost::any_cast<long>(m["CallsCausedIVRException"]));
+    }
     if (m.find("CallsForwardToOutsideNumber") != m.end() && !m["CallsForwardToOutsideNumber"].empty()) {
       callsForwardToOutsideNumber = make_shared<long>(boost::any_cast<long>(m["CallsForwardToOutsideNumber"]));
     }
@@ -13635,6 +13779,9 @@ public:
     }
     if (m.find("CallsRinged") != m.end() && !m["CallsRinged"].empty()) {
       callsRinged = make_shared<long>(boost::any_cast<long>(m["CallsRinged"]));
+    }
+    if (m.find("CallsToVoicemail") != m.end() && !m["CallsToVoicemail"].empty()) {
+      callsToVoicemail = make_shared<long>(boost::any_cast<long>(m["CallsToVoicemail"]));
     }
     if (m.find("CallsVoicemail") != m.end() && !m["CallsVoicemail"].empty()) {
       callsVoicemail = make_shared<long>(boost::any_cast<long>(m["CallsVoicemail"]));
@@ -13681,8 +13828,14 @@ public:
     if (m.find("SatisfactionSurveysResponded") != m.end() && !m["SatisfactionSurveysResponded"].empty()) {
       satisfactionSurveysResponded = make_shared<long>(boost::any_cast<long>(m["SatisfactionSurveysResponded"]));
     }
+    if (m.find("ServiceLevel15") != m.end() && !m["ServiceLevel15"].empty()) {
+      serviceLevel15 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel15"]));
+    }
     if (m.find("ServiceLevel20") != m.end() && !m["ServiceLevel20"].empty()) {
       serviceLevel20 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel20"]));
+    }
+    if (m.find("ServiceLevel30") != m.end() && !m["ServiceLevel30"].empty()) {
+      serviceLevel30 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel30"]));
     }
     if (m.find("TotalAbandonTime") != m.end() && !m["TotalAbandonTime"].empty()) {
       totalAbandonTime = make_shared<long>(boost::any_cast<long>(m["TotalAbandonTime"]));
@@ -13698,6 +13851,15 @@ public:
     }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -13715,6 +13877,42 @@ public:
 
 
   virtual ~GetHistoricalInstanceReportResponseBodyDataInbound() = default;
+};
+class GetHistoricalInstanceReportResponseBodyDataInternal : public Darabonba::Model {
+public:
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsDialed{};
+
+  GetHistoricalInstanceReportResponseBodyDataInternal() {}
+
+  explicit GetHistoricalInstanceReportResponseBodyDataInternal(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+  }
+
+
+  virtual ~GetHistoricalInstanceReportResponseBodyDataInternal() = default;
 };
 class GetHistoricalInstanceReportResponseBodyDataOutbound : public Darabonba::Model {
 public:
@@ -13929,6 +14127,7 @@ public:
   shared_ptr<double> averageWorkTime{};
   shared_ptr<long> maxBreakTime{};
   shared_ptr<long> maxHoldTime{};
+  shared_ptr<long> maxLoggedInAgents{};
   shared_ptr<long> maxReadyTime{};
   shared_ptr<long> maxTalkTime{};
   shared_ptr<long> maxWorkTime{};
@@ -13975,6 +14174,9 @@ public:
     }
     if (maxHoldTime) {
       res["MaxHoldTime"] = boost::any(*maxHoldTime);
+    }
+    if (maxLoggedInAgents) {
+      res["MaxLoggedInAgents"] = boost::any(*maxLoggedInAgents);
     }
     if (maxReadyTime) {
       res["MaxReadyTime"] = boost::any(*maxReadyTime);
@@ -14046,6 +14248,9 @@ public:
     if (m.find("MaxHoldTime") != m.end() && !m["MaxHoldTime"].empty()) {
       maxHoldTime = make_shared<long>(boost::any_cast<long>(m["MaxHoldTime"]));
     }
+    if (m.find("MaxLoggedInAgents") != m.end() && !m["MaxLoggedInAgents"].empty()) {
+      maxLoggedInAgents = make_shared<long>(boost::any_cast<long>(m["MaxLoggedInAgents"]));
+    }
     if (m.find("MaxReadyTime") != m.end() && !m["MaxReadyTime"].empty()) {
       maxReadyTime = make_shared<long>(boost::any_cast<long>(m["MaxReadyTime"]));
     }
@@ -14099,6 +14304,7 @@ public:
 class GetHistoricalInstanceReportResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<GetHistoricalInstanceReportResponseBodyDataInbound> inbound{};
+  shared_ptr<GetHistoricalInstanceReportResponseBodyDataInternal> internal{};
   shared_ptr<GetHistoricalInstanceReportResponseBodyDataOutbound> outbound{};
   shared_ptr<GetHistoricalInstanceReportResponseBodyDataOverall> overall{};
 
@@ -14115,6 +14321,9 @@ public:
     if (inbound) {
       res["Inbound"] = inbound ? boost::any(inbound->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (internal) {
+      res["Internal"] = internal ? boost::any(internal->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (outbound) {
       res["Outbound"] = outbound ? boost::any(outbound->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -14130,6 +14339,13 @@ public:
         GetHistoricalInstanceReportResponseBodyDataInbound model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Inbound"]));
         inbound = make_shared<GetHistoricalInstanceReportResponseBodyDataInbound>(model1);
+      }
+    }
+    if (m.find("Internal") != m.end() && !m["Internal"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Internal"].type()) {
+        GetHistoricalInstanceReportResponseBodyDataInternal model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Internal"]));
+        internal = make_shared<GetHistoricalInstanceReportResponseBodyDataInternal>(model1);
       }
     }
     if (m.find("Outbound") != m.end() && !m["Outbound"].empty()) {
@@ -25033,12 +25249,20 @@ public:
 class ListCampaignTrendingReportResponseBodyData : public Darabonba::Model {
 public:
   shared_ptr<long> breakAgents{};
+  shared_ptr<long> breakingAgents{};
   shared_ptr<long> concurrency{};
   shared_ptr<long> datetime{};
   shared_ptr<long> loggedInAgents{};
+  shared_ptr<long> outboundScenarioBreakingAgents{};
+  shared_ptr<long> outboundScenarioReadyAgents{};
+  shared_ptr<long> outboundScenarioTalkingAgents{};
+  shared_ptr<long> outboundScenarioWorkingAgents{};
   shared_ptr<long> readyAgents{};
+  shared_ptr<long> statsTime{};
   shared_ptr<long> talkAgents{};
+  shared_ptr<long> talkingAgents{};
   shared_ptr<long> workAgents{};
+  shared_ptr<long> workingAgents{};
 
   ListCampaignTrendingReportResponseBodyData() {}
 
@@ -25053,6 +25277,9 @@ public:
     if (breakAgents) {
       res["BreakAgents"] = boost::any(*breakAgents);
     }
+    if (breakingAgents) {
+      res["BreakingAgents"] = boost::any(*breakingAgents);
+    }
     if (concurrency) {
       res["Concurrency"] = boost::any(*concurrency);
     }
@@ -25062,14 +25289,35 @@ public:
     if (loggedInAgents) {
       res["LoggedInAgents"] = boost::any(*loggedInAgents);
     }
+    if (outboundScenarioBreakingAgents) {
+      res["OutboundScenarioBreakingAgents"] = boost::any(*outboundScenarioBreakingAgents);
+    }
+    if (outboundScenarioReadyAgents) {
+      res["OutboundScenarioReadyAgents"] = boost::any(*outboundScenarioReadyAgents);
+    }
+    if (outboundScenarioTalkingAgents) {
+      res["OutboundScenarioTalkingAgents"] = boost::any(*outboundScenarioTalkingAgents);
+    }
+    if (outboundScenarioWorkingAgents) {
+      res["OutboundScenarioWorkingAgents"] = boost::any(*outboundScenarioWorkingAgents);
+    }
     if (readyAgents) {
       res["ReadyAgents"] = boost::any(*readyAgents);
+    }
+    if (statsTime) {
+      res["StatsTime"] = boost::any(*statsTime);
     }
     if (talkAgents) {
       res["TalkAgents"] = boost::any(*talkAgents);
     }
+    if (talkingAgents) {
+      res["TalkingAgents"] = boost::any(*talkingAgents);
+    }
     if (workAgents) {
       res["WorkAgents"] = boost::any(*workAgents);
+    }
+    if (workingAgents) {
+      res["WorkingAgents"] = boost::any(*workingAgents);
     }
     return res;
   }
@@ -25077,6 +25325,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("BreakAgents") != m.end() && !m["BreakAgents"].empty()) {
       breakAgents = make_shared<long>(boost::any_cast<long>(m["BreakAgents"]));
+    }
+    if (m.find("BreakingAgents") != m.end() && !m["BreakingAgents"].empty()) {
+      breakingAgents = make_shared<long>(boost::any_cast<long>(m["BreakingAgents"]));
     }
     if (m.find("Concurrency") != m.end() && !m["Concurrency"].empty()) {
       concurrency = make_shared<long>(boost::any_cast<long>(m["Concurrency"]));
@@ -25087,14 +25338,35 @@ public:
     if (m.find("LoggedInAgents") != m.end() && !m["LoggedInAgents"].empty()) {
       loggedInAgents = make_shared<long>(boost::any_cast<long>(m["LoggedInAgents"]));
     }
+    if (m.find("OutboundScenarioBreakingAgents") != m.end() && !m["OutboundScenarioBreakingAgents"].empty()) {
+      outboundScenarioBreakingAgents = make_shared<long>(boost::any_cast<long>(m["OutboundScenarioBreakingAgents"]));
+    }
+    if (m.find("OutboundScenarioReadyAgents") != m.end() && !m["OutboundScenarioReadyAgents"].empty()) {
+      outboundScenarioReadyAgents = make_shared<long>(boost::any_cast<long>(m["OutboundScenarioReadyAgents"]));
+    }
+    if (m.find("OutboundScenarioTalkingAgents") != m.end() && !m["OutboundScenarioTalkingAgents"].empty()) {
+      outboundScenarioTalkingAgents = make_shared<long>(boost::any_cast<long>(m["OutboundScenarioTalkingAgents"]));
+    }
+    if (m.find("OutboundScenarioWorkingAgents") != m.end() && !m["OutboundScenarioWorkingAgents"].empty()) {
+      outboundScenarioWorkingAgents = make_shared<long>(boost::any_cast<long>(m["OutboundScenarioWorkingAgents"]));
+    }
     if (m.find("ReadyAgents") != m.end() && !m["ReadyAgents"].empty()) {
       readyAgents = make_shared<long>(boost::any_cast<long>(m["ReadyAgents"]));
+    }
+    if (m.find("StatsTime") != m.end() && !m["StatsTime"].empty()) {
+      statsTime = make_shared<long>(boost::any_cast<long>(m["StatsTime"]));
     }
     if (m.find("TalkAgents") != m.end() && !m["TalkAgents"].empty()) {
       talkAgents = make_shared<long>(boost::any_cast<long>(m["TalkAgents"]));
     }
+    if (m.find("TalkingAgents") != m.end() && !m["TalkingAgents"].empty()) {
+      talkingAgents = make_shared<long>(boost::any_cast<long>(m["TalkingAgents"]));
+    }
     if (m.find("WorkAgents") != m.end() && !m["WorkAgents"].empty()) {
       workAgents = make_shared<long>(boost::any_cast<long>(m["WorkAgents"]));
+    }
+    if (m.find("WorkingAgents") != m.end() && !m["WorkingAgents"].empty()) {
+      workingAgents = make_shared<long>(boost::any_cast<long>(m["WorkingAgents"]));
     }
   }
 
@@ -25741,6 +26013,7 @@ public:
 };
 class ListCasesResponseBodyDataList : public Darabonba::Model {
 public:
+  shared_ptr<string> abandonPhase{};
   shared_ptr<string> abandonType{};
   shared_ptr<long> attemptCount{};
   shared_ptr<string> caseId{};
@@ -25759,6 +26032,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abandonPhase) {
+      res["AbandonPhase"] = boost::any(*abandonPhase);
+    }
     if (abandonType) {
       res["AbandonType"] = boost::any(*abandonType);
     }
@@ -25784,6 +26060,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonPhase") != m.end() && !m["AbandonPhase"].empty()) {
+      abandonPhase = make_shared<string>(boost::any_cast<string>(m["AbandonPhase"]));
+    }
     if (m.find("AbandonType") != m.end() && !m["AbandonType"].empty()) {
       abandonType = make_shared<string>(boost::any_cast<string>(m["AbandonType"]));
     }
@@ -27553,8 +27832,10 @@ class ListHistoricalAgentReportRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentIdList{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
+  shared_ptr<string> skillGroupId{};
   shared_ptr<long> startTime{};
   shared_ptr<long> stopTime{};
 
@@ -27574,11 +27855,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
     if (pageSize) {
       res["PageSize"] = boost::any(*pageSize);
+    }
+    if (skillGroupId) {
+      res["SkillGroupId"] = boost::any(*skillGroupId);
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
@@ -27596,11 +27883,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
     if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
       pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("SkillGroupId") != m.end() && !m["SkillGroupId"].empty()) {
+      skillGroupId = make_shared<string>(boost::any_cast<string>(m["SkillGroupId"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
@@ -27613,9 +27906,182 @@ public:
 
   virtual ~ListHistoricalAgentReportRequest() = default;
 };
+class ListHistoricalAgentReportResponseBodyDataListBack2Back : public Darabonba::Model {
+public:
+  shared_ptr<string> agentHandleRate{};
+  shared_ptr<string> answerRate{};
+  shared_ptr<string> averageCustomerRingTime{};
+  shared_ptr<string> averageRingTime{};
+  shared_ptr<string> averageTalkTime{};
+  shared_ptr<string> callsAgentHandled{};
+  shared_ptr<string> callsAnswered{};
+  shared_ptr<string> callsCustomerAnswered{};
+  shared_ptr<string> callsDialed{};
+  shared_ptr<string> customerAnswerRate{};
+  shared_ptr<string> maxCustomerRingTime{};
+  shared_ptr<string> maxRingTime{};
+  shared_ptr<string> maxTalkTime{};
+  shared_ptr<string> totalCustomerRingTime{};
+  shared_ptr<string> totalRingTime{};
+  shared_ptr<string> totalTalkTime{};
+
+  ListHistoricalAgentReportResponseBodyDataListBack2Back() {}
+
+  explicit ListHistoricalAgentReportResponseBodyDataListBack2Back(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
+    if (answerRate) {
+      res["AnswerRate"] = boost::any(*answerRate);
+    }
+    if (averageCustomerRingTime) {
+      res["AverageCustomerRingTime"] = boost::any(*averageCustomerRingTime);
+    }
+    if (averageRingTime) {
+      res["AverageRingTime"] = boost::any(*averageRingTime);
+    }
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
+    }
+    if (maxCustomerRingTime) {
+      res["MaxCustomerRingTime"] = boost::any(*maxCustomerRingTime);
+    }
+    if (maxRingTime) {
+      res["MaxRingTime"] = boost::any(*maxRingTime);
+    }
+    if (maxTalkTime) {
+      res["MaxTalkTime"] = boost::any(*maxTalkTime);
+    }
+    if (totalCustomerRingTime) {
+      res["TotalCustomerRingTime"] = boost::any(*totalCustomerRingTime);
+    }
+    if (totalRingTime) {
+      res["TotalRingTime"] = boost::any(*totalRingTime);
+    }
+    if (totalTalkTime) {
+      res["TotalTalkTime"] = boost::any(*totalTalkTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<string>(boost::any_cast<string>(m["AgentHandleRate"]));
+    }
+    if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
+      answerRate = make_shared<string>(boost::any_cast<string>(m["AnswerRate"]));
+    }
+    if (m.find("AverageCustomerRingTime") != m.end() && !m["AverageCustomerRingTime"].empty()) {
+      averageCustomerRingTime = make_shared<string>(boost::any_cast<string>(m["AverageCustomerRingTime"]));
+    }
+    if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
+      averageRingTime = make_shared<string>(boost::any_cast<string>(m["AverageRingTime"]));
+    }
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<string>(boost::any_cast<string>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<string>(boost::any_cast<string>(m["CallsAgentHandled"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<string>(boost::any_cast<string>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<string>(boost::any_cast<string>(m["CallsCustomerAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<string>(boost::any_cast<string>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<string>(boost::any_cast<string>(m["CustomerAnswerRate"]));
+    }
+    if (m.find("MaxCustomerRingTime") != m.end() && !m["MaxCustomerRingTime"].empty()) {
+      maxCustomerRingTime = make_shared<string>(boost::any_cast<string>(m["MaxCustomerRingTime"]));
+    }
+    if (m.find("MaxRingTime") != m.end() && !m["MaxRingTime"].empty()) {
+      maxRingTime = make_shared<string>(boost::any_cast<string>(m["MaxRingTime"]));
+    }
+    if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
+      maxTalkTime = make_shared<string>(boost::any_cast<string>(m["MaxTalkTime"]));
+    }
+    if (m.find("TotalCustomerRingTime") != m.end() && !m["TotalCustomerRingTime"].empty()) {
+      totalCustomerRingTime = make_shared<string>(boost::any_cast<string>(m["TotalCustomerRingTime"]));
+    }
+    if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
+      totalRingTime = make_shared<string>(boost::any_cast<string>(m["TotalRingTime"]));
+    }
+    if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
+      totalTalkTime = make_shared<string>(boost::any_cast<string>(m["TotalTalkTime"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalAgentReportResponseBodyDataListBack2Back() = default;
+};
+class ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelType{};
+  shared_ptr<long> callsOffered{};
+
+  ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails() {}
+
+  explicit ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelType) {
+      res["AccessChannelType"] = boost::any(*accessChannelType);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelType") != m.end() && !m["AccessChannelType"].empty()) {
+      accessChannelType = make_shared<string>(boost::any_cast<string>(m["AccessChannelType"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails() = default;
+};
 class ListHistoricalAgentReportResponseBodyDataListInbound : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails>> accessChannelTypeDetails{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
@@ -27636,7 +28102,11 @@ public:
   shared_ptr<double> satisfactionRate{};
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
+  shared_ptr<double> serviceLevel15{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<string> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWorkTime{};
@@ -27651,8 +28121,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessChannelTypeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessChannelTypeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessChannelTypeDetails"] = boost::any(temp1);
+    }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -27714,8 +28197,20 @@ public:
     if (satisfactionSurveysResponded) {
       res["SatisfactionSurveysResponded"] = boost::any(*satisfactionSurveysResponded);
     }
+    if (serviceLevel15) {
+      res["ServiceLevel15"] = boost::any(*serviceLevel15);
+    }
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
+    }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
     }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
@@ -27730,8 +28225,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelTypeDetails") != m.end() && !m["AccessChannelTypeDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessChannelTypeDetails"].type()) {
+        vector<ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessChannelTypeDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessChannelTypeDetails = make_shared<vector<ListHistoricalAgentReportResponseBodyDataListInboundAccessChannelTypeDetails>>(expect1);
+      }
+    }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -27793,8 +28307,20 @@ public:
     if (m.find("SatisfactionSurveysResponded") != m.end() && !m["SatisfactionSurveysResponded"].empty()) {
       satisfactionSurveysResponded = make_shared<long>(boost::any_cast<long>(m["SatisfactionSurveysResponded"]));
     }
+    if (m.find("ServiceLevel15") != m.end() && !m["ServiceLevel15"].empty()) {
+      serviceLevel15 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel15"]));
+    }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<string>(boost::any_cast<string>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -27809,6 +28335,84 @@ public:
 
 
   virtual ~ListHistoricalAgentReportResponseBodyDataListInbound() = default;
+};
+class ListHistoricalAgentReportResponseBodyDataListInternal : public Darabonba::Model {
+public:
+  shared_ptr<double> averageTalkTime{};
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsDialed{};
+  shared_ptr<long> callsHandled{};
+  shared_ptr<long> callsOffered{};
+  shared_ptr<long> callsTalked{};
+  shared_ptr<long> maxTalkTime{};
+  shared_ptr<long> totalTalkTime{};
+
+  ListHistoricalAgentReportResponseBodyDataListInternal() {}
+
+  explicit ListHistoricalAgentReportResponseBodyDataListInternal(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (callsHandled) {
+      res["CallsHandled"] = boost::any(*callsHandled);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    if (callsTalked) {
+      res["CallsTalked"] = boost::any(*callsTalked);
+    }
+    if (maxTalkTime) {
+      res["MaxTalkTime"] = boost::any(*maxTalkTime);
+    }
+    if (totalTalkTime) {
+      res["TotalTalkTime"] = boost::any(*totalTalkTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<double>(boost::any_cast<double>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CallsHandled") != m.end() && !m["CallsHandled"].empty()) {
+      callsHandled = make_shared<long>(boost::any_cast<long>(m["CallsHandled"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+    if (m.find("CallsTalked") != m.end() && !m["CallsTalked"].empty()) {
+      callsTalked = make_shared<long>(boost::any_cast<long>(m["CallsTalked"]));
+    }
+    if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
+      maxTalkTime = make_shared<long>(boost::any_cast<long>(m["MaxTalkTime"]));
+    }
+    if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
+      totalTalkTime = make_shared<long>(boost::any_cast<long>(m["TotalTalkTime"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalAgentReportResponseBodyDataListInternal() = default;
 };
 class ListHistoricalAgentReportResponseBodyDataListOutbound : public Darabonba::Model {
 public:
@@ -28095,9 +28699,13 @@ public:
   shared_ptr<long> totalCalls{};
   shared_ptr<long> totalHoldTime{};
   shared_ptr<long> totalLoggedInTime{};
+  shared_ptr<long> totalOffSiteLoggedInTime{};
   shared_ptr<long> totalOffSiteOnlineTime{};
+  shared_ptr<long> totalOfficePhoneLoggedInTime{};
   shared_ptr<long> totalOfficePhoneOnlineTime{};
+  shared_ptr<long> totalOnSiteLoggedInTime{};
   shared_ptr<long> totalOnSiteOnlineTime{};
+  shared_ptr<long> totalOutboundScenarioLoggedInTime{};
   shared_ptr<long> totalOutboundScenarioReadyTime{};
   shared_ptr<long> totalOutboundScenarioTime{};
   shared_ptr<long> totalReadyTime{};
@@ -28184,14 +28792,26 @@ public:
     if (totalLoggedInTime) {
       res["TotalLoggedInTime"] = boost::any(*totalLoggedInTime);
     }
+    if (totalOffSiteLoggedInTime) {
+      res["TotalOffSiteLoggedInTime"] = boost::any(*totalOffSiteLoggedInTime);
+    }
     if (totalOffSiteOnlineTime) {
       res["TotalOffSiteOnlineTime"] = boost::any(*totalOffSiteOnlineTime);
+    }
+    if (totalOfficePhoneLoggedInTime) {
+      res["TotalOfficePhoneLoggedInTime"] = boost::any(*totalOfficePhoneLoggedInTime);
     }
     if (totalOfficePhoneOnlineTime) {
       res["TotalOfficePhoneOnlineTime"] = boost::any(*totalOfficePhoneOnlineTime);
     }
+    if (totalOnSiteLoggedInTime) {
+      res["TotalOnSiteLoggedInTime"] = boost::any(*totalOnSiteLoggedInTime);
+    }
     if (totalOnSiteOnlineTime) {
       res["TotalOnSiteOnlineTime"] = boost::any(*totalOnSiteOnlineTime);
+    }
+    if (totalOutboundScenarioLoggedInTime) {
+      res["TotalOutboundScenarioLoggedInTime"] = boost::any(*totalOutboundScenarioLoggedInTime);
     }
     if (totalOutboundScenarioReadyTime) {
       res["TotalOutboundScenarioReadyTime"] = boost::any(*totalOutboundScenarioReadyTime);
@@ -28288,14 +28908,26 @@ public:
     if (m.find("TotalLoggedInTime") != m.end() && !m["TotalLoggedInTime"].empty()) {
       totalLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalLoggedInTime"]));
     }
+    if (m.find("TotalOffSiteLoggedInTime") != m.end() && !m["TotalOffSiteLoggedInTime"].empty()) {
+      totalOffSiteLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOffSiteLoggedInTime"]));
+    }
     if (m.find("TotalOffSiteOnlineTime") != m.end() && !m["TotalOffSiteOnlineTime"].empty()) {
       totalOffSiteOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOffSiteOnlineTime"]));
+    }
+    if (m.find("TotalOfficePhoneLoggedInTime") != m.end() && !m["TotalOfficePhoneLoggedInTime"].empty()) {
+      totalOfficePhoneLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOfficePhoneLoggedInTime"]));
     }
     if (m.find("TotalOfficePhoneOnlineTime") != m.end() && !m["TotalOfficePhoneOnlineTime"].empty()) {
       totalOfficePhoneOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOfficePhoneOnlineTime"]));
     }
+    if (m.find("TotalOnSiteLoggedInTime") != m.end() && !m["TotalOnSiteLoggedInTime"].empty()) {
+      totalOnSiteLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOnSiteLoggedInTime"]));
+    }
     if (m.find("TotalOnSiteOnlineTime") != m.end() && !m["TotalOnSiteOnlineTime"].empty()) {
       totalOnSiteOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOnSiteOnlineTime"]));
+    }
+    if (m.find("TotalOutboundScenarioLoggedInTime") != m.end() && !m["TotalOutboundScenarioLoggedInTime"].empty()) {
+      totalOutboundScenarioLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioLoggedInTime"]));
     }
     if (m.find("TotalOutboundScenarioReadyTime") != m.end() && !m["TotalOutboundScenarioReadyTime"].empty()) {
       totalOutboundScenarioReadyTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioReadyTime"]));
@@ -28321,8 +28953,10 @@ class ListHistoricalAgentReportResponseBodyDataList : public Darabonba::Model {
 public:
   shared_ptr<string> agentId{};
   shared_ptr<string> agentName{};
+  shared_ptr<ListHistoricalAgentReportResponseBodyDataListBack2Back> back2Back{};
   shared_ptr<string> displayId{};
   shared_ptr<ListHistoricalAgentReportResponseBodyDataListInbound> inbound{};
+  shared_ptr<ListHistoricalAgentReportResponseBodyDataListInternal> internal{};
   shared_ptr<ListHistoricalAgentReportResponseBodyDataListOutbound> outbound{};
   shared_ptr<ListHistoricalAgentReportResponseBodyDataListOverall> overall{};
   shared_ptr<string> skillGroupIds{};
@@ -28344,11 +28978,17 @@ public:
     if (agentName) {
       res["AgentName"] = boost::any(*agentName);
     }
+    if (back2Back) {
+      res["Back2Back"] = back2Back ? boost::any(back2Back->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (displayId) {
       res["DisplayId"] = boost::any(*displayId);
     }
     if (inbound) {
       res["Inbound"] = inbound ? boost::any(inbound->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (internal) {
+      res["Internal"] = internal ? boost::any(internal->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (outbound) {
       res["Outbound"] = outbound ? boost::any(outbound->toMap()) : boost::any(map<string,boost::any>({}));
@@ -28372,6 +29012,13 @@ public:
     if (m.find("AgentName") != m.end() && !m["AgentName"].empty()) {
       agentName = make_shared<string>(boost::any_cast<string>(m["AgentName"]));
     }
+    if (m.find("Back2Back") != m.end() && !m["Back2Back"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Back2Back"].type()) {
+        ListHistoricalAgentReportResponseBodyDataListBack2Back model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Back2Back"]));
+        back2Back = make_shared<ListHistoricalAgentReportResponseBodyDataListBack2Back>(model1);
+      }
+    }
     if (m.find("DisplayId") != m.end() && !m["DisplayId"].empty()) {
       displayId = make_shared<string>(boost::any_cast<string>(m["DisplayId"]));
     }
@@ -28380,6 +29027,13 @@ public:
         ListHistoricalAgentReportResponseBodyDataListInbound model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Inbound"]));
         inbound = make_shared<ListHistoricalAgentReportResponseBodyDataListInbound>(model1);
+      }
+    }
+    if (m.find("Internal") != m.end() && !m["Internal"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Internal"].type()) {
+        ListHistoricalAgentReportResponseBodyDataListInternal model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Internal"]));
+        internal = make_shared<ListHistoricalAgentReportResponseBodyDataListInternal>(model1);
       }
     }
     if (m.find("Outbound") != m.end() && !m["Outbound"].empty()) {
@@ -28599,6 +29253,7 @@ public:
   shared_ptr<string> agentIdList{};
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> skillGroupIdList{};
@@ -28622,6 +29277,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -28648,6 +29306,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -28668,13 +29329,17 @@ public:
 class ListHistoricalAgentSkillGroupReportResponseBodyDataListBack2Back : public Darabonba::Model {
 public:
   shared_ptr<double> agentAnswerRate{};
+  shared_ptr<double> agentHandleRate{};
   shared_ptr<double> answerRate{};
   shared_ptr<double> averageCustomerRingTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<long> averageTalkTime{};
+  shared_ptr<long> callsAgentHandled{};
   shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsCustomerAnswered{};
   shared_ptr<long> callsCustomerHandled{};
   shared_ptr<long> callsDialed{};
+  shared_ptr<double> customerAnswerRate{};
   shared_ptr<double> customerHandleRate{};
   shared_ptr<long> maxCustomerRingTime{};
   shared_ptr<long> maxRingTime{};
@@ -28696,6 +29361,9 @@ public:
     if (agentAnswerRate) {
       res["AgentAnswerRate"] = boost::any(*agentAnswerRate);
     }
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
     if (answerRate) {
       res["AnswerRate"] = boost::any(*answerRate);
     }
@@ -28708,14 +29376,23 @@ public:
     if (averageTalkTime) {
       res["AverageTalkTime"] = boost::any(*averageTalkTime);
     }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
     if (callsAnswered) {
       res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
     }
     if (callsCustomerHandled) {
       res["CallsCustomerHandled"] = boost::any(*callsCustomerHandled);
     }
     if (callsDialed) {
       res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
     }
     if (customerHandleRate) {
       res["CustomerHandleRate"] = boost::any(*customerHandleRate);
@@ -28745,6 +29422,9 @@ public:
     if (m.find("AgentAnswerRate") != m.end() && !m["AgentAnswerRate"].empty()) {
       agentAnswerRate = make_shared<double>(boost::any_cast<double>(m["AgentAnswerRate"]));
     }
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<double>(boost::any_cast<double>(m["AgentHandleRate"]));
+    }
     if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
       answerRate = make_shared<double>(boost::any_cast<double>(m["AnswerRate"]));
     }
@@ -28757,14 +29437,23 @@ public:
     if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
       averageTalkTime = make_shared<long>(boost::any_cast<long>(m["AverageTalkTime"]));
     }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<long>(boost::any_cast<long>(m["CallsAgentHandled"]));
+    }
     if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
       callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<long>(boost::any_cast<long>(m["CallsCustomerAnswered"]));
     }
     if (m.find("CallsCustomerHandled") != m.end() && !m["CallsCustomerHandled"].empty()) {
       callsCustomerHandled = make_shared<long>(boost::any_cast<long>(m["CallsCustomerHandled"]));
     }
     if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
       callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<double>(boost::any_cast<double>(m["CustomerAnswerRate"]));
     }
     if (m.find("CustomerHandleRate") != m.end() && !m["CustomerHandleRate"].empty()) {
       customerHandleRate = make_shared<double>(boost::any_cast<double>(m["CustomerHandleRate"]));
@@ -28794,7 +29483,9 @@ public:
 };
 class ListHistoricalAgentSkillGroupReportResponseBodyDataListInbound : public Darabonba::Model {
 public:
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
@@ -28816,6 +29507,9 @@ public:
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWorkTime{};
@@ -28830,8 +29524,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -28896,6 +29596,15 @@ public:
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
     }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
+    }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
     }
@@ -28909,8 +29618,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -28975,6 +29690,15 @@ public:
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
     }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
+    }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
     }
@@ -28997,6 +29721,7 @@ public:
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsOffered{};
   shared_ptr<long> callsTalk{};
+  shared_ptr<long> callsTalked{};
   shared_ptr<long> maxTalkTime{};
   shared_ptr<long> totalTalkTime{};
 
@@ -29028,6 +29753,9 @@ public:
     if (callsTalk) {
       res["CallsTalk"] = boost::any(*callsTalk);
     }
+    if (callsTalked) {
+      res["CallsTalked"] = boost::any(*callsTalked);
+    }
     if (maxTalkTime) {
       res["MaxTalkTime"] = boost::any(*maxTalkTime);
     }
@@ -29055,6 +29783,9 @@ public:
     }
     if (m.find("CallsTalk") != m.end() && !m["CallsTalk"].empty()) {
       callsTalk = make_shared<long>(boost::any_cast<long>(m["CallsTalk"]));
+    }
+    if (m.find("CallsTalked") != m.end() && !m["CallsTalked"].empty()) {
+      callsTalked = make_shared<long>(boost::any_cast<long>(m["CallsTalked"]));
     }
     if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
       maxTalkTime = make_shared<long>(boost::any_cast<long>(m["MaxTalkTime"]));
@@ -29352,6 +30083,10 @@ public:
   shared_ptr<long> totalCalls{};
   shared_ptr<long> totalHoldTime{};
   shared_ptr<long> totalLoggedInTime{};
+  shared_ptr<long> totalOffSiteLggedInTime{};
+  shared_ptr<long> totalOfficePhoneLoggedInTime{};
+  shared_ptr<string> totalOnSiteLoggedInTime{};
+  shared_ptr<long> totalOutboundScenarioLoggedInTime{};
   shared_ptr<long> totalOutboundScenarioReadyTime{};
   shared_ptr<long> totalOutboundScenarioTime{};
   shared_ptr<long> totalReadyTime{};
@@ -29437,6 +30172,18 @@ public:
     }
     if (totalLoggedInTime) {
       res["TotalLoggedInTime"] = boost::any(*totalLoggedInTime);
+    }
+    if (totalOffSiteLggedInTime) {
+      res["TotalOffSiteLggedInTime"] = boost::any(*totalOffSiteLggedInTime);
+    }
+    if (totalOfficePhoneLoggedInTime) {
+      res["TotalOfficePhoneLoggedInTime"] = boost::any(*totalOfficePhoneLoggedInTime);
+    }
+    if (totalOnSiteLoggedInTime) {
+      res["TotalOnSiteLoggedInTime"] = boost::any(*totalOnSiteLoggedInTime);
+    }
+    if (totalOutboundScenarioLoggedInTime) {
+      res["TotalOutboundScenarioLoggedInTime"] = boost::any(*totalOutboundScenarioLoggedInTime);
     }
     if (totalOutboundScenarioReadyTime) {
       res["TotalOutboundScenarioReadyTime"] = boost::any(*totalOutboundScenarioReadyTime);
@@ -29532,6 +30279,18 @@ public:
     }
     if (m.find("TotalLoggedInTime") != m.end() && !m["TotalLoggedInTime"].empty()) {
       totalLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalLoggedInTime"]));
+    }
+    if (m.find("TotalOffSiteLggedInTime") != m.end() && !m["TotalOffSiteLggedInTime"].empty()) {
+      totalOffSiteLggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOffSiteLggedInTime"]));
+    }
+    if (m.find("TotalOfficePhoneLoggedInTime") != m.end() && !m["TotalOfficePhoneLoggedInTime"].empty()) {
+      totalOfficePhoneLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOfficePhoneLoggedInTime"]));
+    }
+    if (m.find("TotalOnSiteLoggedInTime") != m.end() && !m["TotalOnSiteLoggedInTime"].empty()) {
+      totalOnSiteLoggedInTime = make_shared<string>(boost::any_cast<string>(m["TotalOnSiteLoggedInTime"]));
+    }
+    if (m.find("TotalOutboundScenarioLoggedInTime") != m.end() && !m["TotalOutboundScenarioLoggedInTime"].empty()) {
+      totalOutboundScenarioLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioLoggedInTime"]));
     }
     if (m.find("TotalOutboundScenarioReadyTime") != m.end() && !m["TotalOutboundScenarioReadyTime"].empty()) {
       totalOutboundScenarioReadyTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioReadyTime"]));
@@ -29856,6 +30615,7 @@ class ListHistoricalSkillGroupReportRequest : public Darabonba::Model {
 public:
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> skillGroupIdList{};
@@ -29876,6 +30636,9 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
     }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
@@ -29899,6 +30662,9 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
     }
@@ -29916,13 +30682,179 @@ public:
 
   virtual ~ListHistoricalSkillGroupReportRequest() = default;
 };
+class ListHistoricalSkillGroupReportResponseBodyDataListBack2Back : public Darabonba::Model {
+public:
+  shared_ptr<double> agentHandleRate{};
+  shared_ptr<double> answerRate{};
+  shared_ptr<double> averageCustomerRingTime{};
+  shared_ptr<double> averageRingTime{};
+  shared_ptr<double> averageTalkTime{};
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsCustomerAnswered{};
+  shared_ptr<long> callsDialed{};
+  shared_ptr<double> customerAnswerRate{};
+  shared_ptr<long> maxCustomerRingTime{};
+  shared_ptr<long> maxRingTime{};
+  shared_ptr<long> maxTalkTime{};
+  shared_ptr<long> totalCustomerRingTime{};
+  shared_ptr<long> totalRingTime{};
+  shared_ptr<long> totalTalkTime{};
+
+  ListHistoricalSkillGroupReportResponseBodyDataListBack2Back() {}
+
+  explicit ListHistoricalSkillGroupReportResponseBodyDataListBack2Back(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
+    if (answerRate) {
+      res["AnswerRate"] = boost::any(*answerRate);
+    }
+    if (averageCustomerRingTime) {
+      res["AverageCustomerRingTime"] = boost::any(*averageCustomerRingTime);
+    }
+    if (averageRingTime) {
+      res["AverageRingTime"] = boost::any(*averageRingTime);
+    }
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
+    }
+    if (maxCustomerRingTime) {
+      res["MaxCustomerRingTime"] = boost::any(*maxCustomerRingTime);
+    }
+    if (maxRingTime) {
+      res["MaxRingTime"] = boost::any(*maxRingTime);
+    }
+    if (maxTalkTime) {
+      res["MaxTalkTime"] = boost::any(*maxTalkTime);
+    }
+    if (totalCustomerRingTime) {
+      res["TotalCustomerRingTime"] = boost::any(*totalCustomerRingTime);
+    }
+    if (totalRingTime) {
+      res["TotalRingTime"] = boost::any(*totalRingTime);
+    }
+    if (totalTalkTime) {
+      res["TotalTalkTime"] = boost::any(*totalTalkTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<double>(boost::any_cast<double>(m["AgentHandleRate"]));
+    }
+    if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
+      answerRate = make_shared<double>(boost::any_cast<double>(m["AnswerRate"]));
+    }
+    if (m.find("AverageCustomerRingTime") != m.end() && !m["AverageCustomerRingTime"].empty()) {
+      averageCustomerRingTime = make_shared<double>(boost::any_cast<double>(m["AverageCustomerRingTime"]));
+    }
+    if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
+      averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
+    }
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<double>(boost::any_cast<double>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<long>(boost::any_cast<long>(m["CallsCustomerAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<double>(boost::any_cast<double>(m["CustomerAnswerRate"]));
+    }
+    if (m.find("MaxCustomerRingTime") != m.end() && !m["MaxCustomerRingTime"].empty()) {
+      maxCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["MaxCustomerRingTime"]));
+    }
+    if (m.find("MaxRingTime") != m.end() && !m["MaxRingTime"].empty()) {
+      maxRingTime = make_shared<long>(boost::any_cast<long>(m["MaxRingTime"]));
+    }
+    if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
+      maxTalkTime = make_shared<long>(boost::any_cast<long>(m["MaxTalkTime"]));
+    }
+    if (m.find("TotalCustomerRingTime") != m.end() && !m["TotalCustomerRingTime"].empty()) {
+      totalCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["TotalCustomerRingTime"]));
+    }
+    if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
+      totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
+    }
+    if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
+      totalTalkTime = make_shared<long>(boost::any_cast<long>(m["TotalTalkTime"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalSkillGroupReportResponseBodyDataListBack2Back() = default;
+};
+class ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelType{};
+  shared_ptr<long> callsOffered{};
+
+  ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails() {}
+
+  explicit ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelType) {
+      res["AccessChannelType"] = boost::any(*accessChannelType);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelType") != m.end() && !m["AccessChannelType"].empty()) {
+      accessChannelType = make_shared<string>(boost::any_cast<string>(m["AccessChannelType"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails() = default;
+};
 class ListHistoricalSkillGroupReportResponseBodyDataListInbound : public Darabonba::Model {
 public:
   shared_ptr<double> abandonRate{};
+  shared_ptr<vector<ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails>> accessChannelTypeDetails{};
   shared_ptr<double> averageAbandonTime{};
   shared_ptr<double> averageAbandonedInQueueTime{};
   shared_ptr<double> averageAbandonedInRingTime{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWaitTime{};
@@ -29939,6 +30871,9 @@ public:
   shared_ptr<long> callsOffered{};
   shared_ptr<long> callsOverflow{};
   shared_ptr<long> callsQueued{};
+  shared_ptr<long> callsQueuingFailed{};
+  shared_ptr<long> callsQueuingOverflow{};
+  shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsRinged{};
   shared_ptr<long> callsTimeout{};
   shared_ptr<double> handleRate{};
@@ -29954,11 +30889,16 @@ public:
   shared_ptr<double> satisfactionRate{};
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
+  shared_ptr<double> serviceLevel15{};
   shared_ptr<double> serviceLevel20{};
+  shared_ptr<double> serviceLevel30{};
   shared_ptr<long> totalAbandonTime{};
   shared_ptr<long> totalAbandonedInQueueTime{};
   shared_ptr<long> totalAbandonedInRingTime{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWaitTime{};
@@ -29977,6 +30917,13 @@ public:
     if (abandonRate) {
       res["AbandonRate"] = boost::any(*abandonRate);
     }
+    if (accessChannelTypeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessChannelTypeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessChannelTypeDetails"] = boost::any(temp1);
+    }
     if (averageAbandonTime) {
       res["AverageAbandonTime"] = boost::any(*averageAbandonTime);
     }
@@ -29986,8 +30933,14 @@ public:
     if (averageAbandonedInRingTime) {
       res["AverageAbandonedInRingTime"] = boost::any(*averageAbandonedInRingTime);
     }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -30037,6 +30990,15 @@ public:
     if (callsQueued) {
       res["CallsQueued"] = boost::any(*callsQueued);
     }
+    if (callsQueuingFailed) {
+      res["CallsQueuingFailed"] = boost::any(*callsQueuingFailed);
+    }
+    if (callsQueuingOverflow) {
+      res["CallsQueuingOverflow"] = boost::any(*callsQueuingOverflow);
+    }
+    if (callsQueuingTimeout) {
+      res["CallsQueuingTimeout"] = boost::any(*callsQueuingTimeout);
+    }
     if (callsRinged) {
       res["CallsRinged"] = boost::any(*callsRinged);
     }
@@ -30082,8 +31044,14 @@ public:
     if (satisfactionSurveysResponded) {
       res["SatisfactionSurveysResponded"] = boost::any(*satisfactionSurveysResponded);
     }
+    if (serviceLevel15) {
+      res["ServiceLevel15"] = boost::any(*serviceLevel15);
+    }
     if (serviceLevel20) {
       res["ServiceLevel20"] = boost::any(*serviceLevel20);
+    }
+    if (serviceLevel30) {
+      res["ServiceLevel30"] = boost::any(*serviceLevel30);
     }
     if (totalAbandonTime) {
       res["TotalAbandonTime"] = boost::any(*totalAbandonTime);
@@ -30096,6 +31064,15 @@ public:
     }
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
+    }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
     }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
@@ -30116,6 +31093,19 @@ public:
     if (m.find("AbandonRate") != m.end() && !m["AbandonRate"].empty()) {
       abandonRate = make_shared<double>(boost::any_cast<double>(m["AbandonRate"]));
     }
+    if (m.find("AccessChannelTypeDetails") != m.end() && !m["AccessChannelTypeDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessChannelTypeDetails"].type()) {
+        vector<ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessChannelTypeDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessChannelTypeDetails = make_shared<vector<ListHistoricalSkillGroupReportResponseBodyDataListInboundAccessChannelTypeDetails>>(expect1);
+      }
+    }
     if (m.find("AverageAbandonTime") != m.end() && !m["AverageAbandonTime"].empty()) {
       averageAbandonTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonTime"]));
     }
@@ -30125,8 +31115,14 @@ public:
     if (m.find("AverageAbandonedInRingTime") != m.end() && !m["AverageAbandonedInRingTime"].empty()) {
       averageAbandonedInRingTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonedInRingTime"]));
     }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -30176,6 +31172,15 @@ public:
     if (m.find("CallsQueued") != m.end() && !m["CallsQueued"].empty()) {
       callsQueued = make_shared<long>(boost::any_cast<long>(m["CallsQueued"]));
     }
+    if (m.find("CallsQueuingFailed") != m.end() && !m["CallsQueuingFailed"].empty()) {
+      callsQueuingFailed = make_shared<long>(boost::any_cast<long>(m["CallsQueuingFailed"]));
+    }
+    if (m.find("CallsQueuingOverflow") != m.end() && !m["CallsQueuingOverflow"].empty()) {
+      callsQueuingOverflow = make_shared<long>(boost::any_cast<long>(m["CallsQueuingOverflow"]));
+    }
+    if (m.find("CallsQueuingTimeout") != m.end() && !m["CallsQueuingTimeout"].empty()) {
+      callsQueuingTimeout = make_shared<long>(boost::any_cast<long>(m["CallsQueuingTimeout"]));
+    }
     if (m.find("CallsRinged") != m.end() && !m["CallsRinged"].empty()) {
       callsRinged = make_shared<long>(boost::any_cast<long>(m["CallsRinged"]));
     }
@@ -30221,8 +31226,14 @@ public:
     if (m.find("SatisfactionSurveysResponded") != m.end() && !m["SatisfactionSurveysResponded"].empty()) {
       satisfactionSurveysResponded = make_shared<long>(boost::any_cast<long>(m["SatisfactionSurveysResponded"]));
     }
+    if (m.find("ServiceLevel15") != m.end() && !m["ServiceLevel15"].empty()) {
+      serviceLevel15 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel15"]));
+    }
     if (m.find("ServiceLevel20") != m.end() && !m["ServiceLevel20"].empty()) {
       serviceLevel20 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel20"]));
+    }
+    if (m.find("ServiceLevel30") != m.end() && !m["ServiceLevel30"].empty()) {
+      serviceLevel30 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel30"]));
     }
     if (m.find("TotalAbandonTime") != m.end() && !m["TotalAbandonTime"].empty()) {
       totalAbandonTime = make_shared<long>(boost::any_cast<long>(m["TotalAbandonTime"]));
@@ -30235,6 +31246,15 @@ public:
     }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -30471,6 +31491,49 @@ public:
 
   virtual ~ListHistoricalSkillGroupReportResponseBodyDataListOutbound() = default;
 };
+class ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> breakCode{};
+  shared_ptr<long> count{};
+  shared_ptr<long> duration{};
+
+  ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList() {}
+
+  explicit ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (breakCode) {
+      res["BreakCode"] = boost::any(*breakCode);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BreakCode") != m.end() && !m["BreakCode"].empty()) {
+      breakCode = make_shared<string>(boost::any_cast<string>(m["BreakCode"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+  }
+
+
+  virtual ~ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList() = default;
+};
 class ListHistoricalSkillGroupReportResponseBodyDataListOverall : public Darabonba::Model {
 public:
   shared_ptr<double> averageBreakTime{};
@@ -30478,6 +31541,7 @@ public:
   shared_ptr<double> averageReadyTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
+  shared_ptr<vector<ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList>> breakCodeDetailList{};
   shared_ptr<long> maxBreakTime{};
   shared_ptr<long> maxHoldTime{};
   shared_ptr<long> maxReadyTime{};
@@ -30520,6 +31584,13 @@ public:
     }
     if (averageWorkTime) {
       res["AverageWorkTime"] = boost::any(*averageWorkTime);
+    }
+    if (breakCodeDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*breakCodeDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BreakCodeDetailList"] = boost::any(temp1);
     }
     if (maxBreakTime) {
       res["MaxBreakTime"] = boost::any(*maxBreakTime);
@@ -30591,6 +31662,19 @@ public:
     if (m.find("AverageWorkTime") != m.end() && !m["AverageWorkTime"].empty()) {
       averageWorkTime = make_shared<double>(boost::any_cast<double>(m["AverageWorkTime"]));
     }
+    if (m.find("BreakCodeDetailList") != m.end() && !m["BreakCodeDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["BreakCodeDetailList"].type()) {
+        vector<ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BreakCodeDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        breakCodeDetailList = make_shared<vector<ListHistoricalSkillGroupReportResponseBodyDataListOverallBreakCodeDetailList>>(expect1);
+      }
+    }
     if (m.find("MaxBreakTime") != m.end() && !m["MaxBreakTime"].empty()) {
       maxBreakTime = make_shared<long>(boost::any_cast<long>(m["MaxBreakTime"]));
     }
@@ -30649,6 +31733,7 @@ public:
 };
 class ListHistoricalSkillGroupReportResponseBodyDataList : public Darabonba::Model {
 public:
+  shared_ptr<ListHistoricalSkillGroupReportResponseBodyDataListBack2Back> back2Back{};
   shared_ptr<ListHistoricalSkillGroupReportResponseBodyDataListInbound> inbound{};
   shared_ptr<ListHistoricalSkillGroupReportResponseBodyDataListOutbound> outbound{};
   shared_ptr<ListHistoricalSkillGroupReportResponseBodyDataListOverall> overall{};
@@ -30665,6 +31750,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (back2Back) {
+      res["Back2Back"] = back2Back ? boost::any(back2Back->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (inbound) {
       res["Inbound"] = inbound ? boost::any(inbound->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -30684,6 +31772,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Back2Back") != m.end() && !m["Back2Back"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Back2Back"].type()) {
+        ListHistoricalSkillGroupReportResponseBodyDataListBack2Back model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Back2Back"]));
+        back2Back = make_shared<ListHistoricalSkillGroupReportResponseBodyDataListBack2Back>(model1);
+      }
+    }
     if (m.find("Inbound") != m.end() && !m["Inbound"].empty()) {
       if (typeid(map<string, boost::any>) == m["Inbound"].type()) {
         ListHistoricalSkillGroupReportResponseBodyDataListInbound model1;
@@ -31971,6 +33066,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> interval{};
+  shared_ptr<string> mediaType{};
   shared_ptr<long> startTime{};
 
   ListIntervalAgentReportRequest() {}
@@ -31995,6 +33091,9 @@ public:
     if (interval) {
       res["Interval"] = boost::any(*interval);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -32014,6 +33113,9 @@ public:
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
@@ -32022,9 +33124,182 @@ public:
 
   virtual ~ListIntervalAgentReportRequest() = default;
 };
+class ListIntervalAgentReportResponseBodyDataBack2Back : public Darabonba::Model {
+public:
+  shared_ptr<double> agentHandleRate{};
+  shared_ptr<double> answerRate{};
+  shared_ptr<double> averageCustomerRingTime{};
+  shared_ptr<double> averageRingTime{};
+  shared_ptr<double> averageTalkTime{};
+  shared_ptr<long> callsAgentHandled{};
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsCustomerAnswered{};
+  shared_ptr<long> callsDialed{};
+  shared_ptr<double> customerAnswerRate{};
+  shared_ptr<long> maxCustomerRingTime{};
+  shared_ptr<long> maxRingTime{};
+  shared_ptr<long> maxTalkTime{};
+  shared_ptr<long> totalCustomerRingTime{};
+  shared_ptr<long> totalRingTime{};
+  shared_ptr<long> totalTalkTime{};
+
+  ListIntervalAgentReportResponseBodyDataBack2Back() {}
+
+  explicit ListIntervalAgentReportResponseBodyDataBack2Back(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
+    if (answerRate) {
+      res["AnswerRate"] = boost::any(*answerRate);
+    }
+    if (averageCustomerRingTime) {
+      res["AverageCustomerRingTime"] = boost::any(*averageCustomerRingTime);
+    }
+    if (averageRingTime) {
+      res["AverageRingTime"] = boost::any(*averageRingTime);
+    }
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
+    }
+    if (maxCustomerRingTime) {
+      res["MaxCustomerRingTime"] = boost::any(*maxCustomerRingTime);
+    }
+    if (maxRingTime) {
+      res["MaxRingTime"] = boost::any(*maxRingTime);
+    }
+    if (maxTalkTime) {
+      res["MaxTalkTime"] = boost::any(*maxTalkTime);
+    }
+    if (totalCustomerRingTime) {
+      res["TotalCustomerRingTime"] = boost::any(*totalCustomerRingTime);
+    }
+    if (totalRingTime) {
+      res["TotalRingTime"] = boost::any(*totalRingTime);
+    }
+    if (totalTalkTime) {
+      res["TotalTalkTime"] = boost::any(*totalTalkTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<double>(boost::any_cast<double>(m["AgentHandleRate"]));
+    }
+    if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
+      answerRate = make_shared<double>(boost::any_cast<double>(m["AnswerRate"]));
+    }
+    if (m.find("AverageCustomerRingTime") != m.end() && !m["AverageCustomerRingTime"].empty()) {
+      averageCustomerRingTime = make_shared<double>(boost::any_cast<double>(m["AverageCustomerRingTime"]));
+    }
+    if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
+      averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
+    }
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<double>(boost::any_cast<double>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<long>(boost::any_cast<long>(m["CallsAgentHandled"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<long>(boost::any_cast<long>(m["CallsCustomerAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<double>(boost::any_cast<double>(m["CustomerAnswerRate"]));
+    }
+    if (m.find("MaxCustomerRingTime") != m.end() && !m["MaxCustomerRingTime"].empty()) {
+      maxCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["MaxCustomerRingTime"]));
+    }
+    if (m.find("MaxRingTime") != m.end() && !m["MaxRingTime"].empty()) {
+      maxRingTime = make_shared<long>(boost::any_cast<long>(m["MaxRingTime"]));
+    }
+    if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
+      maxTalkTime = make_shared<long>(boost::any_cast<long>(m["MaxTalkTime"]));
+    }
+    if (m.find("TotalCustomerRingTime") != m.end() && !m["TotalCustomerRingTime"].empty()) {
+      totalCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["TotalCustomerRingTime"]));
+    }
+    if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
+      totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
+    }
+    if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
+      totalTalkTime = make_shared<long>(boost::any_cast<long>(m["TotalTalkTime"]));
+    }
+  }
+
+
+  virtual ~ListIntervalAgentReportResponseBodyDataBack2Back() = default;
+};
+class ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> accessChannelType{};
+  shared_ptr<long> callsOffered{};
+
+  ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails() {}
+
+  explicit ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessChannelType) {
+      res["AccessChannelType"] = boost::any(*accessChannelType);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelType") != m.end() && !m["AccessChannelType"].empty()) {
+      accessChannelType = make_shared<string>(boost::any_cast<string>(m["AccessChannelType"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+  }
+
+
+  virtual ~ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails() = default;
+};
 class ListIntervalAgentReportResponseBodyDataInbound : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails>> accessChannelTypeDetails{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
@@ -32045,7 +33320,11 @@ public:
   shared_ptr<double> satisfactionRate{};
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
+  shared_ptr<double> serviceLevel15{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWorkTime{};
@@ -32060,8 +33339,21 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (accessChannelTypeDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*accessChannelTypeDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AccessChannelTypeDetails"] = boost::any(temp1);
+    }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -32123,8 +33415,20 @@ public:
     if (satisfactionSurveysResponded) {
       res["SatisfactionSurveysResponded"] = boost::any(*satisfactionSurveysResponded);
     }
+    if (serviceLevel15) {
+      res["ServiceLevel15"] = boost::any(*serviceLevel15);
+    }
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
+    }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
     }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
@@ -32139,8 +33443,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AccessChannelTypeDetails") != m.end() && !m["AccessChannelTypeDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AccessChannelTypeDetails"].type()) {
+        vector<ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AccessChannelTypeDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        accessChannelTypeDetails = make_shared<vector<ListIntervalAgentReportResponseBodyDataInboundAccessChannelTypeDetails>>(expect1);
+      }
+    }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -32202,8 +33525,20 @@ public:
     if (m.find("SatisfactionSurveysResponded") != m.end() && !m["SatisfactionSurveysResponded"].empty()) {
       satisfactionSurveysResponded = make_shared<long>(boost::any_cast<long>(m["SatisfactionSurveysResponded"]));
     }
+    if (m.find("ServiceLevel15") != m.end() && !m["ServiceLevel15"].empty()) {
+      serviceLevel15 = make_shared<double>(boost::any_cast<double>(m["ServiceLevel15"]));
+    }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -32218,6 +33553,70 @@ public:
 
 
   virtual ~ListIntervalAgentReportResponseBodyDataInbound() = default;
+};
+class ListIntervalAgentReportResponseBodyDataInternal : public Darabonba::Model {
+public:
+  shared_ptr<double> averageTalkTime{};
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsDialed{};
+  shared_ptr<long> callsHandled{};
+  shared_ptr<long> callsOffered{};
+  shared_ptr<long> callsTalked{};
+
+  ListIntervalAgentReportResponseBodyDataInternal() {}
+
+  explicit ListIntervalAgentReportResponseBodyDataInternal(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (callsHandled) {
+      res["CallsHandled"] = boost::any(*callsHandled);
+    }
+    if (callsOffered) {
+      res["CallsOffered"] = boost::any(*callsOffered);
+    }
+    if (callsTalked) {
+      res["CallsTalked"] = boost::any(*callsTalked);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<double>(boost::any_cast<double>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CallsHandled") != m.end() && !m["CallsHandled"].empty()) {
+      callsHandled = make_shared<long>(boost::any_cast<long>(m["CallsHandled"]));
+    }
+    if (m.find("CallsOffered") != m.end() && !m["CallsOffered"].empty()) {
+      callsOffered = make_shared<long>(boost::any_cast<long>(m["CallsOffered"]));
+    }
+    if (m.find("CallsTalked") != m.end() && !m["CallsTalked"].empty()) {
+      callsTalked = make_shared<long>(boost::any_cast<long>(m["CallsTalked"]));
+    }
+  }
+
+
+  virtual ~ListIntervalAgentReportResponseBodyDataInternal() = default;
 };
 class ListIntervalAgentReportResponseBodyDataOutbound : public Darabonba::Model {
 public:
@@ -32489,6 +33888,7 @@ public:
   shared_ptr<double> averageWorkTime{};
   shared_ptr<vector<ListIntervalAgentReportResponseBodyDataOverallBreakCodeDetailList>> breakCodeDetailList{};
   shared_ptr<long> firstCheckInTime{};
+  shared_ptr<long> lastCheckOutTime{};
   shared_ptr<long> lastCheckoutTime{};
   shared_ptr<long> maxBreakTime{};
   shared_ptr<long> maxHoldTime{};
@@ -32504,9 +33904,13 @@ public:
   shared_ptr<long> totalCalls{};
   shared_ptr<long> totalHoldTime{};
   shared_ptr<long> totalLoggedInTime{};
+  shared_ptr<long> totalOffSiteLoggedInTime{};
   shared_ptr<long> totalOffSiteOnlineTime{};
+  shared_ptr<long> totalOfficePhoneLoggedInTime{};
   shared_ptr<long> totalOfficePhoneOnlineTime{};
+  shared_ptr<long> totalOnSiteLoggedInTime{};
   shared_ptr<long> totalOnSiteOnlineTime{};
+  shared_ptr<long> totalOutboundScenarioLoggedInTime{};
   shared_ptr<long> totalOutboundScenarioReadyTime{};
   shared_ptr<long> totalOutboundScenarioTime{};
   shared_ptr<long> totalReadyTime{};
@@ -32547,6 +33951,9 @@ public:
     }
     if (firstCheckInTime) {
       res["FirstCheckInTime"] = boost::any(*firstCheckInTime);
+    }
+    if (lastCheckOutTime) {
+      res["LastCheckOutTime"] = boost::any(*lastCheckOutTime);
     }
     if (lastCheckoutTime) {
       res["LastCheckoutTime"] = boost::any(*lastCheckoutTime);
@@ -32593,14 +34000,26 @@ public:
     if (totalLoggedInTime) {
       res["TotalLoggedInTime"] = boost::any(*totalLoggedInTime);
     }
+    if (totalOffSiteLoggedInTime) {
+      res["TotalOffSiteLoggedInTime"] = boost::any(*totalOffSiteLoggedInTime);
+    }
     if (totalOffSiteOnlineTime) {
       res["TotalOffSiteOnlineTime"] = boost::any(*totalOffSiteOnlineTime);
+    }
+    if (totalOfficePhoneLoggedInTime) {
+      res["TotalOfficePhoneLoggedInTime"] = boost::any(*totalOfficePhoneLoggedInTime);
     }
     if (totalOfficePhoneOnlineTime) {
       res["TotalOfficePhoneOnlineTime"] = boost::any(*totalOfficePhoneOnlineTime);
     }
+    if (totalOnSiteLoggedInTime) {
+      res["TotalOnSiteLoggedInTime"] = boost::any(*totalOnSiteLoggedInTime);
+    }
     if (totalOnSiteOnlineTime) {
       res["TotalOnSiteOnlineTime"] = boost::any(*totalOnSiteOnlineTime);
+    }
+    if (totalOutboundScenarioLoggedInTime) {
+      res["TotalOutboundScenarioLoggedInTime"] = boost::any(*totalOutboundScenarioLoggedInTime);
     }
     if (totalOutboundScenarioReadyTime) {
       res["TotalOutboundScenarioReadyTime"] = boost::any(*totalOutboundScenarioReadyTime);
@@ -32652,6 +34071,9 @@ public:
     if (m.find("FirstCheckInTime") != m.end() && !m["FirstCheckInTime"].empty()) {
       firstCheckInTime = make_shared<long>(boost::any_cast<long>(m["FirstCheckInTime"]));
     }
+    if (m.find("LastCheckOutTime") != m.end() && !m["LastCheckOutTime"].empty()) {
+      lastCheckOutTime = make_shared<long>(boost::any_cast<long>(m["LastCheckOutTime"]));
+    }
     if (m.find("LastCheckoutTime") != m.end() && !m["LastCheckoutTime"].empty()) {
       lastCheckoutTime = make_shared<long>(boost::any_cast<long>(m["LastCheckoutTime"]));
     }
@@ -32697,14 +34119,26 @@ public:
     if (m.find("TotalLoggedInTime") != m.end() && !m["TotalLoggedInTime"].empty()) {
       totalLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalLoggedInTime"]));
     }
+    if (m.find("TotalOffSiteLoggedInTime") != m.end() && !m["TotalOffSiteLoggedInTime"].empty()) {
+      totalOffSiteLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOffSiteLoggedInTime"]));
+    }
     if (m.find("TotalOffSiteOnlineTime") != m.end() && !m["TotalOffSiteOnlineTime"].empty()) {
       totalOffSiteOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOffSiteOnlineTime"]));
+    }
+    if (m.find("TotalOfficePhoneLoggedInTime") != m.end() && !m["TotalOfficePhoneLoggedInTime"].empty()) {
+      totalOfficePhoneLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOfficePhoneLoggedInTime"]));
     }
     if (m.find("TotalOfficePhoneOnlineTime") != m.end() && !m["TotalOfficePhoneOnlineTime"].empty()) {
       totalOfficePhoneOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOfficePhoneOnlineTime"]));
     }
+    if (m.find("TotalOnSiteLoggedInTime") != m.end() && !m["TotalOnSiteLoggedInTime"].empty()) {
+      totalOnSiteLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOnSiteLoggedInTime"]));
+    }
     if (m.find("TotalOnSiteOnlineTime") != m.end() && !m["TotalOnSiteOnlineTime"].empty()) {
       totalOnSiteOnlineTime = make_shared<long>(boost::any_cast<long>(m["TotalOnSiteOnlineTime"]));
+    }
+    if (m.find("TotalOutboundScenarioLoggedInTime") != m.end() && !m["TotalOutboundScenarioLoggedInTime"].empty()) {
+      totalOutboundScenarioLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioLoggedInTime"]));
     }
     if (m.find("TotalOutboundScenarioReadyTime") != m.end() && !m["TotalOutboundScenarioReadyTime"].empty()) {
       totalOutboundScenarioReadyTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioReadyTime"]));
@@ -32728,7 +34162,9 @@ public:
 };
 class ListIntervalAgentReportResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<ListIntervalAgentReportResponseBodyDataBack2Back> back2Back{};
   shared_ptr<ListIntervalAgentReportResponseBodyDataInbound> inbound{};
+  shared_ptr<ListIntervalAgentReportResponseBodyDataInternal> internal{};
   shared_ptr<ListIntervalAgentReportResponseBodyDataOutbound> outbound{};
   shared_ptr<ListIntervalAgentReportResponseBodyDataOverall> overall{};
   shared_ptr<long> statsTime{};
@@ -32743,8 +34179,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (back2Back) {
+      res["Back2Back"] = back2Back ? boost::any(back2Back->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (inbound) {
       res["Inbound"] = inbound ? boost::any(inbound->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (internal) {
+      res["Internal"] = internal ? boost::any(internal->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (outbound) {
       res["Outbound"] = outbound ? boost::any(outbound->toMap()) : boost::any(map<string,boost::any>({}));
@@ -32759,11 +34201,25 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Back2Back") != m.end() && !m["Back2Back"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Back2Back"].type()) {
+        ListIntervalAgentReportResponseBodyDataBack2Back model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Back2Back"]));
+        back2Back = make_shared<ListIntervalAgentReportResponseBodyDataBack2Back>(model1);
+      }
+    }
     if (m.find("Inbound") != m.end() && !m["Inbound"].empty()) {
       if (typeid(map<string, boost::any>) == m["Inbound"].type()) {
         ListIntervalAgentReportResponseBodyDataInbound model1;
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Inbound"]));
         inbound = make_shared<ListIntervalAgentReportResponseBodyDataInbound>(model1);
+      }
+    }
+    if (m.find("Internal") != m.end() && !m["Internal"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Internal"].type()) {
+        ListIntervalAgentReportResponseBodyDataInternal model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Internal"]));
+        internal = make_shared<ListIntervalAgentReportResponseBodyDataInternal>(model1);
       }
     }
     if (m.find("Outbound") != m.end() && !m["Outbound"].empty()) {
@@ -32988,13 +34444,17 @@ public:
 class ListIntervalAgentSkillGroupReportResponseBodyDataBack2Back : public Darabonba::Model {
 public:
   shared_ptr<double> agentAnswerRate{};
+  shared_ptr<double> agentHandleRate{};
   shared_ptr<double> answerRate{};
   shared_ptr<double> averageCustomerRingTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<long> averageTalkTime{};
+  shared_ptr<long> callsAgentHandled{};
   shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsCustomerAnswered{};
   shared_ptr<long> callsCustomerHandled{};
   shared_ptr<long> callsDialed{};
+  shared_ptr<double> customerAnswerRate{};
   shared_ptr<double> customerHandleRate{};
   shared_ptr<long> maxCustomerRingTime{};
   shared_ptr<long> maxRingTime{};
@@ -33016,6 +34476,9 @@ public:
     if (agentAnswerRate) {
       res["AgentAnswerRate"] = boost::any(*agentAnswerRate);
     }
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
     if (answerRate) {
       res["AnswerRate"] = boost::any(*answerRate);
     }
@@ -33028,14 +34491,23 @@ public:
     if (averageTalkTime) {
       res["AverageTalkTime"] = boost::any(*averageTalkTime);
     }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
     if (callsAnswered) {
       res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
     }
     if (callsCustomerHandled) {
       res["CallsCustomerHandled"] = boost::any(*callsCustomerHandled);
     }
     if (callsDialed) {
       res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
     }
     if (customerHandleRate) {
       res["CustomerHandleRate"] = boost::any(*customerHandleRate);
@@ -33065,6 +34537,9 @@ public:
     if (m.find("AgentAnswerRate") != m.end() && !m["AgentAnswerRate"].empty()) {
       agentAnswerRate = make_shared<double>(boost::any_cast<double>(m["AgentAnswerRate"]));
     }
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<double>(boost::any_cast<double>(m["AgentHandleRate"]));
+    }
     if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
       answerRate = make_shared<double>(boost::any_cast<double>(m["AnswerRate"]));
     }
@@ -33077,14 +34552,23 @@ public:
     if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
       averageTalkTime = make_shared<long>(boost::any_cast<long>(m["AverageTalkTime"]));
     }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<long>(boost::any_cast<long>(m["CallsAgentHandled"]));
+    }
     if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
       callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<long>(boost::any_cast<long>(m["CallsCustomerAnswered"]));
     }
     if (m.find("CallsCustomerHandled") != m.end() && !m["CallsCustomerHandled"].empty()) {
       callsCustomerHandled = make_shared<long>(boost::any_cast<long>(m["CallsCustomerHandled"]));
     }
     if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
       callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<double>(boost::any_cast<double>(m["CustomerAnswerRate"]));
     }
     if (m.find("CustomerHandleRate") != m.end() && !m["CustomerHandleRate"].empty()) {
       customerHandleRate = make_shared<double>(boost::any_cast<double>(m["CustomerHandleRate"]));
@@ -33114,7 +34598,9 @@ public:
 };
 class ListIntervalAgentSkillGroupReportResponseBodyDataInbound : public Darabonba::Model {
 public:
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
@@ -33136,6 +34622,9 @@ public:
   shared_ptr<long> satisfactionSurveysOffered{};
   shared_ptr<long> satisfactionSurveysResponded{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWorkTime{};
@@ -33150,8 +34639,14 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -33216,6 +34711,15 @@ public:
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
     }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
+    }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
     }
@@ -33229,8 +34733,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -33295,6 +34805,15 @@ public:
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
     }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
+    }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
     }
@@ -33317,6 +34836,7 @@ public:
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsOffered{};
   shared_ptr<long> callsTalk{};
+  shared_ptr<long> callsTalked{};
   shared_ptr<long> maxTalkTime{};
   shared_ptr<long> totalTalkTime{};
 
@@ -33348,6 +34868,9 @@ public:
     if (callsTalk) {
       res["CallsTalk"] = boost::any(*callsTalk);
     }
+    if (callsTalked) {
+      res["CallsTalked"] = boost::any(*callsTalked);
+    }
     if (maxTalkTime) {
       res["MaxTalkTime"] = boost::any(*maxTalkTime);
     }
@@ -33375,6 +34898,9 @@ public:
     }
     if (m.find("CallsTalk") != m.end() && !m["CallsTalk"].empty()) {
       callsTalk = make_shared<long>(boost::any_cast<long>(m["CallsTalk"]));
+    }
+    if (m.find("CallsTalked") != m.end() && !m["CallsTalked"].empty()) {
+      callsTalked = make_shared<long>(boost::any_cast<long>(m["CallsTalked"]));
     }
     if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
       maxTalkTime = make_shared<long>(boost::any_cast<long>(m["MaxTalkTime"]));
@@ -33657,6 +35183,7 @@ public:
   shared_ptr<double> averageWorkTime{};
   shared_ptr<vector<ListIntervalAgentSkillGroupReportResponseBodyDataOverallBreakCodeDetailList>> breakCodeDetailList{};
   shared_ptr<long> firstCheckInTime{};
+  shared_ptr<long> lastCheckOutTime{};
   shared_ptr<long> lastCheckoutTime{};
   shared_ptr<long> maxBreakTime{};
   shared_ptr<long> maxHoldTime{};
@@ -33672,6 +35199,10 @@ public:
   shared_ptr<long> totalCalls{};
   shared_ptr<long> totalHoldTime{};
   shared_ptr<long> totalLoggedInTime{};
+  shared_ptr<string> totalOffSiteLoggedInTime{};
+  shared_ptr<string> totalOfficePhoneLoggedInTime{};
+  shared_ptr<string> totalOnSiteLoggedInTime{};
+  shared_ptr<long> totalOutboundScenarioLoggedInTime{};
   shared_ptr<long> totalOutboundScenarioReadyTime{};
   shared_ptr<long> totalOutboundScenarioTime{};
   shared_ptr<long> totalReadyTime{};
@@ -33712,6 +35243,9 @@ public:
     }
     if (firstCheckInTime) {
       res["FirstCheckInTime"] = boost::any(*firstCheckInTime);
+    }
+    if (lastCheckOutTime) {
+      res["LastCheckOutTime"] = boost::any(*lastCheckOutTime);
     }
     if (lastCheckoutTime) {
       res["LastCheckoutTime"] = boost::any(*lastCheckoutTime);
@@ -33757,6 +35291,18 @@ public:
     }
     if (totalLoggedInTime) {
       res["TotalLoggedInTime"] = boost::any(*totalLoggedInTime);
+    }
+    if (totalOffSiteLoggedInTime) {
+      res["TotalOffSiteLoggedInTime"] = boost::any(*totalOffSiteLoggedInTime);
+    }
+    if (totalOfficePhoneLoggedInTime) {
+      res["TotalOfficePhoneLoggedInTime"] = boost::any(*totalOfficePhoneLoggedInTime);
+    }
+    if (totalOnSiteLoggedInTime) {
+      res["TotalOnSiteLoggedInTime"] = boost::any(*totalOnSiteLoggedInTime);
+    }
+    if (totalOutboundScenarioLoggedInTime) {
+      res["TotalOutboundScenarioLoggedInTime"] = boost::any(*totalOutboundScenarioLoggedInTime);
     }
     if (totalOutboundScenarioReadyTime) {
       res["TotalOutboundScenarioReadyTime"] = boost::any(*totalOutboundScenarioReadyTime);
@@ -33808,6 +35354,9 @@ public:
     if (m.find("FirstCheckInTime") != m.end() && !m["FirstCheckInTime"].empty()) {
       firstCheckInTime = make_shared<long>(boost::any_cast<long>(m["FirstCheckInTime"]));
     }
+    if (m.find("LastCheckOutTime") != m.end() && !m["LastCheckOutTime"].empty()) {
+      lastCheckOutTime = make_shared<long>(boost::any_cast<long>(m["LastCheckOutTime"]));
+    }
     if (m.find("LastCheckoutTime") != m.end() && !m["LastCheckoutTime"].empty()) {
       lastCheckoutTime = make_shared<long>(boost::any_cast<long>(m["LastCheckoutTime"]));
     }
@@ -33852,6 +35401,18 @@ public:
     }
     if (m.find("TotalLoggedInTime") != m.end() && !m["TotalLoggedInTime"].empty()) {
       totalLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalLoggedInTime"]));
+    }
+    if (m.find("TotalOffSiteLoggedInTime") != m.end() && !m["TotalOffSiteLoggedInTime"].empty()) {
+      totalOffSiteLoggedInTime = make_shared<string>(boost::any_cast<string>(m["TotalOffSiteLoggedInTime"]));
+    }
+    if (m.find("TotalOfficePhoneLoggedInTime") != m.end() && !m["TotalOfficePhoneLoggedInTime"].empty()) {
+      totalOfficePhoneLoggedInTime = make_shared<string>(boost::any_cast<string>(m["TotalOfficePhoneLoggedInTime"]));
+    }
+    if (m.find("TotalOnSiteLoggedInTime") != m.end() && !m["TotalOnSiteLoggedInTime"].empty()) {
+      totalOnSiteLoggedInTime = make_shared<string>(boost::any_cast<string>(m["TotalOnSiteLoggedInTime"]));
+    }
+    if (m.find("TotalOutboundScenarioLoggedInTime") != m.end() && !m["TotalOutboundScenarioLoggedInTime"].empty()) {
+      totalOutboundScenarioLoggedInTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioLoggedInTime"]));
     }
     if (m.find("TotalOutboundScenarioReadyTime") != m.end() && !m["TotalOutboundScenarioReadyTime"].empty()) {
       totalOutboundScenarioReadyTime = make_shared<long>(boost::any_cast<long>(m["TotalOutboundScenarioReadyTime"]));
@@ -34142,12 +35703,15 @@ public:
 };
 class ListIntervalInstanceReportResponseBodyDataInbound : public Darabonba::Model {
 public:
+  shared_ptr<double> abandonRate{};
   shared_ptr<double> abandonedRate{};
   shared_ptr<double> averageAbandonTime{};
   shared_ptr<double> averageAbandonedInIVRTime{};
   shared_ptr<double> averageAbandonedInQueueTime{};
   shared_ptr<double> averageAbandonedInRingTime{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWaitTime{};
@@ -34159,6 +35723,7 @@ public:
   shared_ptr<long> callsAbandonedInVoiceNavigator{};
   shared_ptr<long> callsAttendedTransferred{};
   shared_ptr<long> callsBlindTransferred{};
+  shared_ptr<long> callsCausedIVRException{};
   shared_ptr<long> callsForwardToOutsideNumber{};
   shared_ptr<long> callsHandled{};
   shared_ptr<long> callsHold{};
@@ -34169,6 +35734,7 @@ public:
   shared_ptr<long> callsQueuingOverflow{};
   shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsRinged{};
+  shared_ptr<long> callsToVoicemail{};
   shared_ptr<long> callsVoicemail{};
   shared_ptr<double> handleRate{};
   shared_ptr<long> maxAbandonTime{};
@@ -34190,6 +35756,9 @@ public:
   shared_ptr<long> totalAbandonedInQueueTime{};
   shared_ptr<long> totalAbandonedInRingTime{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWaitTime{};
@@ -34205,6 +35774,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (abandonRate) {
+      res["AbandonRate"] = boost::any(*abandonRate);
+    }
     if (abandonedRate) {
       res["AbandonedRate"] = boost::any(*abandonedRate);
     }
@@ -34220,8 +35792,14 @@ public:
     if (averageAbandonedInRingTime) {
       res["AverageAbandonedInRingTime"] = boost::any(*averageAbandonedInRingTime);
     }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -34256,6 +35834,9 @@ public:
     if (callsBlindTransferred) {
       res["CallsBlindTransferred"] = boost::any(*callsBlindTransferred);
     }
+    if (callsCausedIVRException) {
+      res["CallsCausedIVRException"] = boost::any(*callsCausedIVRException);
+    }
     if (callsForwardToOutsideNumber) {
       res["CallsForwardToOutsideNumber"] = boost::any(*callsForwardToOutsideNumber);
     }
@@ -34285,6 +35866,9 @@ public:
     }
     if (callsRinged) {
       res["CallsRinged"] = boost::any(*callsRinged);
+    }
+    if (callsToVoicemail) {
+      res["CallsToVoicemail"] = boost::any(*callsToVoicemail);
     }
     if (callsVoicemail) {
       res["CallsVoicemail"] = boost::any(*callsVoicemail);
@@ -34349,6 +35933,15 @@ public:
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
     }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
+    }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
     }
@@ -34365,6 +35958,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AbandonRate") != m.end() && !m["AbandonRate"].empty()) {
+      abandonRate = make_shared<double>(boost::any_cast<double>(m["AbandonRate"]));
+    }
     if (m.find("AbandonedRate") != m.end() && !m["AbandonedRate"].empty()) {
       abandonedRate = make_shared<double>(boost::any_cast<double>(m["AbandonedRate"]));
     }
@@ -34380,8 +35976,14 @@ public:
     if (m.find("AverageAbandonedInRingTime") != m.end() && !m["AverageAbandonedInRingTime"].empty()) {
       averageAbandonedInRingTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonedInRingTime"]));
     }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -34416,6 +36018,9 @@ public:
     if (m.find("CallsBlindTransferred") != m.end() && !m["CallsBlindTransferred"].empty()) {
       callsBlindTransferred = make_shared<long>(boost::any_cast<long>(m["CallsBlindTransferred"]));
     }
+    if (m.find("CallsCausedIVRException") != m.end() && !m["CallsCausedIVRException"].empty()) {
+      callsCausedIVRException = make_shared<long>(boost::any_cast<long>(m["CallsCausedIVRException"]));
+    }
     if (m.find("CallsForwardToOutsideNumber") != m.end() && !m["CallsForwardToOutsideNumber"].empty()) {
       callsForwardToOutsideNumber = make_shared<long>(boost::any_cast<long>(m["CallsForwardToOutsideNumber"]));
     }
@@ -34445,6 +36050,9 @@ public:
     }
     if (m.find("CallsRinged") != m.end() && !m["CallsRinged"].empty()) {
       callsRinged = make_shared<long>(boost::any_cast<long>(m["CallsRinged"]));
+    }
+    if (m.find("CallsToVoicemail") != m.end() && !m["CallsToVoicemail"].empty()) {
+      callsToVoicemail = make_shared<long>(boost::any_cast<long>(m["CallsToVoicemail"]));
     }
     if (m.find("CallsVoicemail") != m.end() && !m["CallsVoicemail"].empty()) {
       callsVoicemail = make_shared<long>(boost::any_cast<long>(m["CallsVoicemail"]));
@@ -34508,6 +36116,15 @@ public:
     }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -35106,6 +36723,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> interval{};
+  shared_ptr<string> mediaType{};
   shared_ptr<string> skillGroupId{};
   shared_ptr<long> startTime{};
 
@@ -35128,6 +36746,9 @@ public:
     if (interval) {
       res["Interval"] = boost::any(*interval);
     }
+    if (mediaType) {
+      res["MediaType"] = boost::any(*mediaType);
+    }
     if (skillGroupId) {
       res["SkillGroupId"] = boost::any(*skillGroupId);
     }
@@ -35147,6 +36768,9 @@ public:
     if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
       interval = make_shared<string>(boost::any_cast<string>(m["Interval"]));
     }
+    if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
+      mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
+    }
     if (m.find("SkillGroupId") != m.end() && !m["SkillGroupId"].empty()) {
       skillGroupId = make_shared<string>(boost::any_cast<string>(m["SkillGroupId"]));
     }
@@ -35158,13 +36782,149 @@ public:
 
   virtual ~ListIntervalSkillGroupReportRequest() = default;
 };
+class ListIntervalSkillGroupReportResponseBodyDataBack2Back : public Darabonba::Model {
+public:
+  shared_ptr<double> agentHandleRate{};
+  shared_ptr<string> answerRate{};
+  shared_ptr<double> averageCustomerRingTime{};
+  shared_ptr<double> averageRingTime{};
+  shared_ptr<string> averageTalkTime{};
+  shared_ptr<long> callsAgentHandled{};
+  shared_ptr<long> callsAnswered{};
+  shared_ptr<long> callsCustomerAnswered{};
+  shared_ptr<long> callsDialed{};
+  shared_ptr<double> customerAnswerRate{};
+  shared_ptr<long> maxCustomerRingTime{};
+  shared_ptr<long> maxRingTime{};
+  shared_ptr<string> maxTalkTime{};
+  shared_ptr<long> totalCustomerRingTime{};
+  shared_ptr<long> totalRingTime{};
+  shared_ptr<long> totalTalkTime{};
+
+  ListIntervalSkillGroupReportResponseBodyDataBack2Back() {}
+
+  explicit ListIntervalSkillGroupReportResponseBodyDataBack2Back(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (agentHandleRate) {
+      res["AgentHandleRate"] = boost::any(*agentHandleRate);
+    }
+    if (answerRate) {
+      res["AnswerRate"] = boost::any(*answerRate);
+    }
+    if (averageCustomerRingTime) {
+      res["AverageCustomerRingTime"] = boost::any(*averageCustomerRingTime);
+    }
+    if (averageRingTime) {
+      res["AverageRingTime"] = boost::any(*averageRingTime);
+    }
+    if (averageTalkTime) {
+      res["AverageTalkTime"] = boost::any(*averageTalkTime);
+    }
+    if (callsAgentHandled) {
+      res["CallsAgentHandled"] = boost::any(*callsAgentHandled);
+    }
+    if (callsAnswered) {
+      res["CallsAnswered"] = boost::any(*callsAnswered);
+    }
+    if (callsCustomerAnswered) {
+      res["CallsCustomerAnswered"] = boost::any(*callsCustomerAnswered);
+    }
+    if (callsDialed) {
+      res["CallsDialed"] = boost::any(*callsDialed);
+    }
+    if (customerAnswerRate) {
+      res["CustomerAnswerRate"] = boost::any(*customerAnswerRate);
+    }
+    if (maxCustomerRingTime) {
+      res["MaxCustomerRingTime"] = boost::any(*maxCustomerRingTime);
+    }
+    if (maxRingTime) {
+      res["MaxRingTime"] = boost::any(*maxRingTime);
+    }
+    if (maxTalkTime) {
+      res["MaxTalkTime"] = boost::any(*maxTalkTime);
+    }
+    if (totalCustomerRingTime) {
+      res["TotalCustomerRingTime"] = boost::any(*totalCustomerRingTime);
+    }
+    if (totalRingTime) {
+      res["TotalRingTime"] = boost::any(*totalRingTime);
+    }
+    if (totalTalkTime) {
+      res["TotalTalkTime"] = boost::any(*totalTalkTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentHandleRate") != m.end() && !m["AgentHandleRate"].empty()) {
+      agentHandleRate = make_shared<double>(boost::any_cast<double>(m["AgentHandleRate"]));
+    }
+    if (m.find("AnswerRate") != m.end() && !m["AnswerRate"].empty()) {
+      answerRate = make_shared<string>(boost::any_cast<string>(m["AnswerRate"]));
+    }
+    if (m.find("AverageCustomerRingTime") != m.end() && !m["AverageCustomerRingTime"].empty()) {
+      averageCustomerRingTime = make_shared<double>(boost::any_cast<double>(m["AverageCustomerRingTime"]));
+    }
+    if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
+      averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
+    }
+    if (m.find("AverageTalkTime") != m.end() && !m["AverageTalkTime"].empty()) {
+      averageTalkTime = make_shared<string>(boost::any_cast<string>(m["AverageTalkTime"]));
+    }
+    if (m.find("CallsAgentHandled") != m.end() && !m["CallsAgentHandled"].empty()) {
+      callsAgentHandled = make_shared<long>(boost::any_cast<long>(m["CallsAgentHandled"]));
+    }
+    if (m.find("CallsAnswered") != m.end() && !m["CallsAnswered"].empty()) {
+      callsAnswered = make_shared<long>(boost::any_cast<long>(m["CallsAnswered"]));
+    }
+    if (m.find("CallsCustomerAnswered") != m.end() && !m["CallsCustomerAnswered"].empty()) {
+      callsCustomerAnswered = make_shared<long>(boost::any_cast<long>(m["CallsCustomerAnswered"]));
+    }
+    if (m.find("CallsDialed") != m.end() && !m["CallsDialed"].empty()) {
+      callsDialed = make_shared<long>(boost::any_cast<long>(m["CallsDialed"]));
+    }
+    if (m.find("CustomerAnswerRate") != m.end() && !m["CustomerAnswerRate"].empty()) {
+      customerAnswerRate = make_shared<double>(boost::any_cast<double>(m["CustomerAnswerRate"]));
+    }
+    if (m.find("MaxCustomerRingTime") != m.end() && !m["MaxCustomerRingTime"].empty()) {
+      maxCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["MaxCustomerRingTime"]));
+    }
+    if (m.find("MaxRingTime") != m.end() && !m["MaxRingTime"].empty()) {
+      maxRingTime = make_shared<long>(boost::any_cast<long>(m["MaxRingTime"]));
+    }
+    if (m.find("MaxTalkTime") != m.end() && !m["MaxTalkTime"].empty()) {
+      maxTalkTime = make_shared<string>(boost::any_cast<string>(m["MaxTalkTime"]));
+    }
+    if (m.find("TotalCustomerRingTime") != m.end() && !m["TotalCustomerRingTime"].empty()) {
+      totalCustomerRingTime = make_shared<long>(boost::any_cast<long>(m["TotalCustomerRingTime"]));
+    }
+    if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
+      totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
+    }
+    if (m.find("TotalTalkTime") != m.end() && !m["TotalTalkTime"].empty()) {
+      totalTalkTime = make_shared<long>(boost::any_cast<long>(m["TotalTalkTime"]));
+    }
+  }
+
+
+  virtual ~ListIntervalSkillGroupReportResponseBodyDataBack2Back() = default;
+};
 class ListIntervalSkillGroupReportResponseBodyDataInbound : public Darabonba::Model {
 public:
   shared_ptr<double> abandonRate{};
   shared_ptr<double> averageAbandonTime{};
   shared_ptr<double> averageAbandonedInQueueTime{};
   shared_ptr<double> averageAbandonedInRingTime{};
+  shared_ptr<double> averageFirstResponseTime{};
   shared_ptr<double> averageHoldTime{};
+  shared_ptr<double> averageResponseTime{};
   shared_ptr<double> averageRingTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWaitTime{};
@@ -35181,6 +36941,8 @@ public:
   shared_ptr<long> callsOffered{};
   shared_ptr<long> callsOverflow{};
   shared_ptr<long> callsQueued{};
+  shared_ptr<long> callsQueuingOverflow{};
+  shared_ptr<long> callsQueuingTimeout{};
   shared_ptr<long> callsRinged{};
   shared_ptr<long> callsTimeout{};
   shared_ptr<double> handleRate{};
@@ -35201,6 +36963,9 @@ public:
   shared_ptr<long> totalAbandonedInQueueTime{};
   shared_ptr<long> totalAbandonedInRingTime{};
   shared_ptr<long> totalHoldTime{};
+  shared_ptr<long> totalMessagesSent{};
+  shared_ptr<long> totalMessagesSentByAgent{};
+  shared_ptr<long> totalMessagesSentByCustomer{};
   shared_ptr<long> totalRingTime{};
   shared_ptr<long> totalTalkTime{};
   shared_ptr<long> totalWaitTime{};
@@ -35228,8 +36993,14 @@ public:
     if (averageAbandonedInRingTime) {
       res["AverageAbandonedInRingTime"] = boost::any(*averageAbandonedInRingTime);
     }
+    if (averageFirstResponseTime) {
+      res["AverageFirstResponseTime"] = boost::any(*averageFirstResponseTime);
+    }
     if (averageHoldTime) {
       res["AverageHoldTime"] = boost::any(*averageHoldTime);
+    }
+    if (averageResponseTime) {
+      res["AverageResponseTime"] = boost::any(*averageResponseTime);
     }
     if (averageRingTime) {
       res["AverageRingTime"] = boost::any(*averageRingTime);
@@ -35278,6 +37049,12 @@ public:
     }
     if (callsQueued) {
       res["CallsQueued"] = boost::any(*callsQueued);
+    }
+    if (callsQueuingOverflow) {
+      res["CallsQueuingOverflow"] = boost::any(*callsQueuingOverflow);
+    }
+    if (callsQueuingTimeout) {
+      res["CallsQueuingTimeout"] = boost::any(*callsQueuingTimeout);
     }
     if (callsRinged) {
       res["CallsRinged"] = boost::any(*callsRinged);
@@ -35339,6 +37116,15 @@ public:
     if (totalHoldTime) {
       res["TotalHoldTime"] = boost::any(*totalHoldTime);
     }
+    if (totalMessagesSent) {
+      res["TotalMessagesSent"] = boost::any(*totalMessagesSent);
+    }
+    if (totalMessagesSentByAgent) {
+      res["TotalMessagesSentByAgent"] = boost::any(*totalMessagesSentByAgent);
+    }
+    if (totalMessagesSentByCustomer) {
+      res["TotalMessagesSentByCustomer"] = boost::any(*totalMessagesSentByCustomer);
+    }
     if (totalRingTime) {
       res["TotalRingTime"] = boost::any(*totalRingTime);
     }
@@ -35367,8 +37153,14 @@ public:
     if (m.find("AverageAbandonedInRingTime") != m.end() && !m["AverageAbandonedInRingTime"].empty()) {
       averageAbandonedInRingTime = make_shared<double>(boost::any_cast<double>(m["AverageAbandonedInRingTime"]));
     }
+    if (m.find("AverageFirstResponseTime") != m.end() && !m["AverageFirstResponseTime"].empty()) {
+      averageFirstResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageFirstResponseTime"]));
+    }
     if (m.find("AverageHoldTime") != m.end() && !m["AverageHoldTime"].empty()) {
       averageHoldTime = make_shared<double>(boost::any_cast<double>(m["AverageHoldTime"]));
+    }
+    if (m.find("AverageResponseTime") != m.end() && !m["AverageResponseTime"].empty()) {
+      averageResponseTime = make_shared<double>(boost::any_cast<double>(m["AverageResponseTime"]));
     }
     if (m.find("AverageRingTime") != m.end() && !m["AverageRingTime"].empty()) {
       averageRingTime = make_shared<double>(boost::any_cast<double>(m["AverageRingTime"]));
@@ -35417,6 +37209,12 @@ public:
     }
     if (m.find("CallsQueued") != m.end() && !m["CallsQueued"].empty()) {
       callsQueued = make_shared<long>(boost::any_cast<long>(m["CallsQueued"]));
+    }
+    if (m.find("CallsQueuingOverflow") != m.end() && !m["CallsQueuingOverflow"].empty()) {
+      callsQueuingOverflow = make_shared<long>(boost::any_cast<long>(m["CallsQueuingOverflow"]));
+    }
+    if (m.find("CallsQueuingTimeout") != m.end() && !m["CallsQueuingTimeout"].empty()) {
+      callsQueuingTimeout = make_shared<long>(boost::any_cast<long>(m["CallsQueuingTimeout"]));
     }
     if (m.find("CallsRinged") != m.end() && !m["CallsRinged"].empty()) {
       callsRinged = make_shared<long>(boost::any_cast<long>(m["CallsRinged"]));
@@ -35477,6 +37275,15 @@ public:
     }
     if (m.find("TotalHoldTime") != m.end() && !m["TotalHoldTime"].empty()) {
       totalHoldTime = make_shared<long>(boost::any_cast<long>(m["TotalHoldTime"]));
+    }
+    if (m.find("TotalMessagesSent") != m.end() && !m["TotalMessagesSent"].empty()) {
+      totalMessagesSent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSent"]));
+    }
+    if (m.find("TotalMessagesSentByAgent") != m.end() && !m["TotalMessagesSentByAgent"].empty()) {
+      totalMessagesSentByAgent = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByAgent"]));
+    }
+    if (m.find("TotalMessagesSentByCustomer") != m.end() && !m["TotalMessagesSentByCustomer"].empty()) {
+      totalMessagesSentByCustomer = make_shared<long>(boost::any_cast<long>(m["TotalMessagesSentByCustomer"]));
     }
     if (m.find("TotalRingTime") != m.end() && !m["TotalRingTime"].empty()) {
       totalRingTime = make_shared<long>(boost::any_cast<long>(m["TotalRingTime"]));
@@ -35713,6 +37520,49 @@ public:
 
   virtual ~ListIntervalSkillGroupReportResponseBodyDataOutbound() = default;
 };
+class ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> breakCode{};
+  shared_ptr<long> count{};
+  shared_ptr<long> duration{};
+
+  ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList() {}
+
+  explicit ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (breakCode) {
+      res["BreakCode"] = boost::any(*breakCode);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (duration) {
+      res["Duration"] = boost::any(*duration);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BreakCode") != m.end() && !m["BreakCode"].empty()) {
+      breakCode = make_shared<string>(boost::any_cast<string>(m["BreakCode"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Duration") != m.end() && !m["Duration"].empty()) {
+      duration = make_shared<long>(boost::any_cast<long>(m["Duration"]));
+    }
+  }
+
+
+  virtual ~ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList() = default;
+};
 class ListIntervalSkillGroupReportResponseBodyDataOverall : public Darabonba::Model {
 public:
   shared_ptr<double> averageBreakTime{};
@@ -35720,6 +37570,7 @@ public:
   shared_ptr<double> averageReadyTime{};
   shared_ptr<double> averageTalkTime{};
   shared_ptr<double> averageWorkTime{};
+  shared_ptr<vector<ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList>> breakCodeDetailList{};
   shared_ptr<long> maxBreakTime{};
   shared_ptr<long> maxHoldTime{};
   shared_ptr<long> maxReadyTime{};
@@ -35762,6 +37613,13 @@ public:
     }
     if (averageWorkTime) {
       res["AverageWorkTime"] = boost::any(*averageWorkTime);
+    }
+    if (breakCodeDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*breakCodeDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BreakCodeDetailList"] = boost::any(temp1);
     }
     if (maxBreakTime) {
       res["MaxBreakTime"] = boost::any(*maxBreakTime);
@@ -35833,6 +37691,19 @@ public:
     if (m.find("AverageWorkTime") != m.end() && !m["AverageWorkTime"].empty()) {
       averageWorkTime = make_shared<double>(boost::any_cast<double>(m["AverageWorkTime"]));
     }
+    if (m.find("BreakCodeDetailList") != m.end() && !m["BreakCodeDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["BreakCodeDetailList"].type()) {
+        vector<ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BreakCodeDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        breakCodeDetailList = make_shared<vector<ListIntervalSkillGroupReportResponseBodyDataOverallBreakCodeDetailList>>(expect1);
+      }
+    }
     if (m.find("MaxBreakTime") != m.end() && !m["MaxBreakTime"].empty()) {
       maxBreakTime = make_shared<long>(boost::any_cast<long>(m["MaxBreakTime"]));
     }
@@ -35891,6 +37762,7 @@ public:
 };
 class ListIntervalSkillGroupReportResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<ListIntervalSkillGroupReportResponseBodyDataBack2Back> back2Back{};
   shared_ptr<ListIntervalSkillGroupReportResponseBodyDataInbound> inbound{};
   shared_ptr<ListIntervalSkillGroupReportResponseBodyDataOutbound> outbound{};
   shared_ptr<ListIntervalSkillGroupReportResponseBodyDataOverall> overall{};
@@ -35906,6 +37778,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (back2Back) {
+      res["Back2Back"] = back2Back ? boost::any(back2Back->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (inbound) {
       res["Inbound"] = inbound ? boost::any(inbound->toMap()) : boost::any(map<string,boost::any>({}));
     }
@@ -35922,6 +37797,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Back2Back") != m.end() && !m["Back2Back"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Back2Back"].type()) {
+        ListIntervalSkillGroupReportResponseBodyDataBack2Back model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Back2Back"]));
+        back2Back = make_shared<ListIntervalSkillGroupReportResponseBodyDataBack2Back>(model1);
+      }
+    }
     if (m.find("Inbound") != m.end() && !m["Inbound"].empty()) {
       if (typeid(map<string, boost::any>) == m["Inbound"].type()) {
         ListIntervalSkillGroupReportResponseBodyDataInbound model1;
@@ -40982,8 +42864,45 @@ public:
 
   virtual ~ListRealtimeSkillGroupStatesRequest() = default;
 };
+class ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList : public Darabonba::Model {
+public:
+  shared_ptr<string> breakCode{};
+  shared_ptr<long> count{};
+
+  ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList() {}
+
+  explicit ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (breakCode) {
+      res["BreakCode"] = boost::any(*breakCode);
+    }
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("BreakCode") != m.end() && !m["BreakCode"].empty()) {
+      breakCode = make_shared<string>(boost::any_cast<string>(m["BreakCode"]));
+    }
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+  }
+
+
+  virtual ~ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList() = default;
+};
 class ListRealtimeSkillGroupStatesResponseBodyDataList : public Darabonba::Model {
 public:
+  shared_ptr<vector<ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList>> breakCodeDetailList{};
   shared_ptr<long> breakingAgents{};
   shared_ptr<string> instanceId{};
   shared_ptr<long> loggedInAgents{};
@@ -40993,6 +42912,7 @@ public:
   shared_ptr<string> skillGroupId{};
   shared_ptr<string> skillGroupName{};
   shared_ptr<long> talkingAgents{};
+  shared_ptr<long> totalAgents{};
   shared_ptr<long> waitingCalls{};
   shared_ptr<long> workingAgents{};
 
@@ -41006,6 +42926,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (breakCodeDetailList) {
+      vector<boost::any> temp1;
+      for(auto item1:*breakCodeDetailList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["BreakCodeDetailList"] = boost::any(temp1);
+    }
     if (breakingAgents) {
       res["BreakingAgents"] = boost::any(*breakingAgents);
     }
@@ -41033,6 +42960,9 @@ public:
     if (talkingAgents) {
       res["TalkingAgents"] = boost::any(*talkingAgents);
     }
+    if (totalAgents) {
+      res["TotalAgents"] = boost::any(*totalAgents);
+    }
     if (waitingCalls) {
       res["WaitingCalls"] = boost::any(*waitingCalls);
     }
@@ -41043,6 +42973,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BreakCodeDetailList") != m.end() && !m["BreakCodeDetailList"].empty()) {
+      if (typeid(vector<boost::any>) == m["BreakCodeDetailList"].type()) {
+        vector<ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["BreakCodeDetailList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        breakCodeDetailList = make_shared<vector<ListRealtimeSkillGroupStatesResponseBodyDataListBreakCodeDetailList>>(expect1);
+      }
+    }
     if (m.find("BreakingAgents") != m.end() && !m["BreakingAgents"].empty()) {
       breakingAgents = make_shared<long>(boost::any_cast<long>(m["BreakingAgents"]));
     }
@@ -41069,6 +43012,9 @@ public:
     }
     if (m.find("TalkingAgents") != m.end() && !m["TalkingAgents"].empty()) {
       talkingAgents = make_shared<long>(boost::any_cast<long>(m["TalkingAgents"]));
+    }
+    if (m.find("TotalAgents") != m.end() && !m["TotalAgents"].empty()) {
+      totalAgents = make_shared<long>(boost::any_cast<long>(m["TotalAgents"]));
     }
     if (m.find("WaitingCalls") != m.end() && !m["WaitingCalls"].empty()) {
       waitingCalls = make_shared<long>(boost::any_cast<long>(m["WaitingCalls"]));
@@ -44266,6 +46212,7 @@ public:
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> searchPattern{};
+  shared_ptr<string> skillGroupId{};
 
   ListUsersRequest() {}
 
@@ -44289,6 +46236,9 @@ public:
     if (searchPattern) {
       res["SearchPattern"] = boost::any(*searchPattern);
     }
+    if (skillGroupId) {
+      res["SkillGroupId"] = boost::any(*skillGroupId);
+    }
     return res;
   }
 
@@ -44304,6 +46254,9 @@ public:
     }
     if (m.find("SearchPattern") != m.end() && !m["SearchPattern"].empty()) {
       searchPattern = make_shared<string>(boost::any_cast<string>(m["SearchPattern"]));
+    }
+    if (m.find("SkillGroupId") != m.end() && !m["SkillGroupId"].empty()) {
+      skillGroupId = make_shared<string>(boost::any_cast<string>(m["SkillGroupId"]));
     }
   }
 
@@ -44422,6 +46375,7 @@ public:
   shared_ptr<string> loginName{};
   shared_ptr<string> mobile{};
   shared_ptr<vector<ListUsersResponseBodyDataListPersonalOutboundNumberList>> personalOutboundNumberList{};
+  shared_ptr<bool> primary{};
   shared_ptr<bool> primaryAccount{};
   shared_ptr<long> ramId{};
   shared_ptr<string> roleId{};
@@ -44473,6 +46427,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["PersonalOutboundNumberList"] = boost::any(temp1);
+    }
+    if (primary) {
+      res["Primary"] = boost::any(*primary);
     }
     if (primaryAccount) {
       res["PrimaryAccount"] = boost::any(*primaryAccount);
@@ -44542,6 +46499,9 @@ public:
         }
         personalOutboundNumberList = make_shared<vector<ListUsersResponseBodyDataListPersonalOutboundNumberList>>(expect1);
       }
+    }
+    if (m.find("Primary") != m.end() && !m["Primary"].empty()) {
+      primary = make_shared<bool>(boost::any_cast<bool>(m["Primary"]));
     }
     if (m.find("PrimaryAccount") != m.end() && !m["PrimaryAccount"].empty()) {
       primaryAccount = make_shared<bool>(boost::any_cast<bool>(m["PrimaryAccount"]));
@@ -44649,6 +46609,7 @@ public:
   shared_ptr<ListUsersResponseBodyData> data{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> message{};
+  shared_ptr<vector<string>> params{};
   shared_ptr<string> requestId{};
 
   ListUsersResponseBody() {}
@@ -44673,6 +46634,9 @@ public:
     if (message) {
       res["Message"] = boost::any(*message);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -44695,6 +46659,16 @@ public:
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Params"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Params"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      params = make_shared<vector<string>>(toVec1);
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));

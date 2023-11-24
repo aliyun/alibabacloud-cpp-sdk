@@ -835,6 +835,9 @@ CreateAudioFileResponse Alibabacloud_CCC20200701::Client::createAudioFileWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->ossFileKey)) {
     query->insert(pair<string, string>("OssFileKey", *request->ossFileKey));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->usage)) {
+    query->insert(pair<string, string>("Usage", *request->usage));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1905,6 +1908,9 @@ GetHistoricalInstanceReportResponse Alibabacloud_CCC20200701::Client::getHistori
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
@@ -3371,11 +3377,17 @@ ListHistoricalAgentReportResponse Alibabacloud_CCC20200701::Client::listHistoric
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->skillGroupId)) {
+    query->insert(pair<string, string>("SkillGroupId", *request->skillGroupId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
@@ -3418,6 +3430,9 @@ ListHistoricalAgentSkillGroupReportResponse Alibabacloud_CCC20200701::Client::li
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -3466,6 +3481,9 @@ ListHistoricalSkillGroupReportResponse Alibabacloud_CCC20200701::Client::listHis
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -3580,6 +3598,9 @@ ListIntervalAgentReportResponse Alibabacloud_CCC20200701::Client::listIntervalAg
   if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
     query->insert(pair<string, string>("Interval", *request->interval));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     query->insert(pair<string, long>("StartTime", *request->startTime));
   }
@@ -3678,6 +3699,9 @@ ListIntervalSkillGroupReportResponse Alibabacloud_CCC20200701::Client::listInter
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->interval)) {
     query->insert(pair<string, string>("Interval", *request->interval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaType)) {
+    query->insert(pair<string, string>("MediaType", *request->mediaType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->skillGroupId)) {
     query->insert(pair<string, string>("SkillGroupId", *request->skillGroupId));
@@ -4608,6 +4632,9 @@ ListUsersResponse Alibabacloud_CCC20200701::Client::listUsersWithOptions(shared_
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->searchPattern)) {
     query->insert(pair<string, string>("SearchPattern", *request->searchPattern));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->skillGroupId)) {
+    query->insert(pair<string, string>("SkillGroupId", *request->skillGroupId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
