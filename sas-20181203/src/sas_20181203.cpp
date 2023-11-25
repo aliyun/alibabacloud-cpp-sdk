@@ -737,6 +737,34 @@ AdvanceSecurityEventOperationsResponse Alibabacloud_Sas20181203::Client::advance
   return advanceSecurityEventOperationsWithOptions(request, runtime);
 }
 
+BatchDeleteMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::batchDeleteMaliciousFileWhitelistConfigWithOptions(shared_ptr<BatchDeleteMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->configIdList)) {
+    query->insert(pair<string, vector<long>>("ConfigIdList", *request->configIdList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchDeleteMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchDeleteMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+BatchDeleteMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::batchDeleteMaliciousFileWhitelistConfig(shared_ptr<BatchDeleteMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchDeleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
+}
+
 BatchOperateCommonOverallConfigResponse Alibabacloud_Sas20181203::Client::batchOperateCommonOverallConfigWithOptions(shared_ptr<BatchOperateCommonOverallConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -766,6 +794,34 @@ BatchOperateCommonOverallConfigResponse Alibabacloud_Sas20181203::Client::batchO
 BatchOperateCommonOverallConfigResponse Alibabacloud_Sas20181203::Client::batchOperateCommonOverallConfig(shared_ptr<BatchOperateCommonOverallConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return batchOperateCommonOverallConfigWithOptions(request, runtime);
+}
+
+BatchUpdateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::batchUpdateMaliciousFileWhitelistConfigWithOptions(shared_ptr<BatchUpdateMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<BatchUpdateMaliciousFileWhitelistConfigRequestConfigList>>(request->configList)) {
+    query->insert(pair<string, vector<BatchUpdateMaliciousFileWhitelistConfigRequestConfigList>>("ConfigList", *request->configList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchUpdateMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchUpdateMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+BatchUpdateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::batchUpdateMaliciousFileWhitelistConfig(shared_ptr<BatchUpdateMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchUpdateMaliciousFileWhitelistConfigWithOptions(request, runtime);
 }
 
 BindAuthToMachineResponse Alibabacloud_Sas20181203::Client::bindAuthToMachineWithOptions(shared_ptr<BindAuthToMachineRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -2069,6 +2125,52 @@ CreateJenkinsImageRegistryResponse Alibabacloud_Sas20181203::Client::createJenki
 CreateJenkinsImageRegistryResponse Alibabacloud_Sas20181203::Client::createJenkinsImageRegistry(shared_ptr<CreateJenkinsImageRegistryRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return createJenkinsImageRegistryWithOptions(request, runtime);
+}
+
+CreateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::createMaliciousFileWhitelistConfigWithOptions(shared_ptr<CreateMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventName)) {
+    query->insert(pair<string, string>("EventName", *request->eventName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->field)) {
+    query->insert(pair<string, string>("Field", *request->field));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldValue)) {
+    query->insert(pair<string, string>("FieldValue", *request->fieldValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
+    query->insert(pair<string, string>("Operator_", *request->operator_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetValue)) {
+    query->insert(pair<string, string>("TargetValue", *request->targetValue));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+CreateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::createMaliciousFileWhitelistConfig(shared_ptr<CreateMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createMaliciousFileWhitelistConfigWithOptions(request, runtime);
 }
 
 CreateMaliciousNoteResponse Alibabacloud_Sas20181203::Client::createMaliciousNoteWithOptions(shared_ptr<CreateMaliciousNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -3426,6 +3528,34 @@ DeleteLoginBaseConfigResponse Alibabacloud_Sas20181203::Client::deleteLoginBaseC
 DeleteLoginBaseConfigResponse Alibabacloud_Sas20181203::Client::deleteLoginBaseConfig(shared_ptr<DeleteLoginBaseConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return deleteLoginBaseConfigWithOptions(request, runtime);
+}
+
+DeleteMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::deleteMaliciousFileWhitelistConfigWithOptions(shared_ptr<DeleteMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+DeleteMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::deleteMaliciousFileWhitelistConfig(shared_ptr<DeleteMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteMaliciousFileWhitelistConfigWithOptions(request, runtime);
 }
 
 DeleteMaliciousNoteResponse Alibabacloud_Sas20181203::Client::deleteMaliciousNoteWithOptions(shared_ptr<DeleteMaliciousNoteRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -14682,6 +14812,34 @@ GetLogMetaResponse Alibabacloud_Sas20181203::Client::getLogMeta(shared_ptr<GetLo
   return getLogMetaWithOptions(request, runtime);
 }
 
+GetMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::getMaliciousFileWhitelistConfigWithOptions(shared_ptr<GetMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+GetMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::getMaliciousFileWhitelistConfig(shared_ptr<GetMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return getMaliciousFileWhitelistConfigWithOptions(request, runtime);
+}
+
 GetModuleConfigResponse Alibabacloud_Sas20181203::Client::getModuleConfigWithOptions(shared_ptr<GetModuleConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -17889,6 +18047,46 @@ ListK8sAccessInfoResponse Alibabacloud_Sas20181203::Client::listK8sAccessInfoWit
 ListK8sAccessInfoResponse Alibabacloud_Sas20181203::Client::listK8sAccessInfo(shared_ptr<ListK8sAccessInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listK8sAccessInfoWithOptions(request, runtime);
+}
+
+ListMaliciousFileWhitelistConfigsResponse Alibabacloud_Sas20181203::Client::listMaliciousFileWhitelistConfigsWithOptions(shared_ptr<ListMaliciousFileWhitelistConfigsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventName)) {
+    query->insert(pair<string, string>("EventName", *request->eventName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListMaliciousFileWhitelistConfigs"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListMaliciousFileWhitelistConfigsResponse(callApi(params, req, runtime));
+}
+
+ListMaliciousFileWhitelistConfigsResponse Alibabacloud_Sas20181203::Client::listMaliciousFileWhitelistConfigs(shared_ptr<ListMaliciousFileWhitelistConfigsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listMaliciousFileWhitelistConfigsWithOptions(request, runtime);
 }
 
 ListObjectScanEventResponse Alibabacloud_Sas20181203::Client::listObjectScanEventWithOptions(shared_ptr<ListObjectScanEventRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -23866,6 +24064,55 @@ UpdateJenkinsImageRegistryPersistenceDayResponse Alibabacloud_Sas20181203::Clien
 UpdateJenkinsImageRegistryPersistenceDayResponse Alibabacloud_Sas20181203::Client::updateJenkinsImageRegistryPersistenceDay(shared_ptr<UpdateJenkinsImageRegistryPersistenceDayRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+}
+
+UpdateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::updateMaliciousFileWhitelistConfigWithOptions(shared_ptr<UpdateMaliciousFileWhitelistConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->configId)) {
+    query->insert(pair<string, long>("ConfigId", *request->configId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventName)) {
+    query->insert(pair<string, string>("EventName", *request->eventName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->field)) {
+    query->insert(pair<string, string>("Field", *request->field));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->fieldValue)) {
+    query->insert(pair<string, string>("FieldValue", *request->fieldValue));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->operator_)) {
+    query->insert(pair<string, string>("Operator_", *request->operator_));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetType)) {
+    query->insert(pair<string, string>("TargetType", *request->targetType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetValue)) {
+    query->insert(pair<string, string>("TargetValue", *request->targetValue));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("UpdateMaliciousFileWhitelistConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return UpdateMaliciousFileWhitelistConfigResponse(callApi(params, req, runtime));
+}
+
+UpdateMaliciousFileWhitelistConfigResponse Alibabacloud_Sas20181203::Client::updateMaliciousFileWhitelistConfig(shared_ptr<UpdateMaliciousFileWhitelistConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return updateMaliciousFileWhitelistConfigWithOptions(request, runtime);
 }
 
 UpdateOpaStrategyNewResponse Alibabacloud_Sas20181203::Client::updateOpaStrategyNewWithOptions(shared_ptr<UpdateOpaStrategyNewRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
