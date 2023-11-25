@@ -5644,8 +5644,11 @@ public:
 };
 class DescribeDBInstanceAttributeResponseBodyDBInstance : public Darabonba::Model {
 public:
+  shared_ptr<bool> canNotCreateColumnar{};
   shared_ptr<string> cnNodeClassCode{};
   shared_ptr<long> cnNodeCount{};
+  shared_ptr<string> columnarInstanceName{};
+  shared_ptr<vector<string>> columnarReadDBInstances{};
   shared_ptr<string> commodityCode{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs>> connAddrs{};
   shared_ptr<string> connectionString{};
@@ -5657,6 +5660,7 @@ public:
   shared_ptr<string> DBType{};
   shared_ptr<string> DBVersion{};
   shared_ptr<string> description{};
+  shared_ptr<bool> differentDNSpec{};
   shared_ptr<string> dnNodeClassCode{};
   shared_ptr<long> dnNodeCount{};
   shared_ptr<string> engine{};
@@ -5673,15 +5677,19 @@ public:
   shared_ptr<string> network{};
   shared_ptr<string> payType{};
   shared_ptr<string> port{};
+  shared_ptr<string> primaryZone{};
   shared_ptr<vector<string>> readDBInstances{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<bool> rightsSeparationEnabled{};
   shared_ptr<string> rightsSeparationStatus{};
+  shared_ptr<string> secondaryZone{};
   shared_ptr<string> series{};
   shared_ptr<string> status{};
   shared_ptr<long> storageUsed{};
   shared_ptr<vector<DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet>> tagSet{};
+  shared_ptr<string> tertiaryZone{};
+  shared_ptr<string> topologyType{};
   shared_ptr<string> type{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> vSwitchId{};
@@ -5697,11 +5705,20 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (canNotCreateColumnar) {
+      res["CanNotCreateColumnar"] = boost::any(*canNotCreateColumnar);
+    }
     if (cnNodeClassCode) {
       res["CnNodeClassCode"] = boost::any(*cnNodeClassCode);
     }
     if (cnNodeCount) {
       res["CnNodeCount"] = boost::any(*cnNodeCount);
+    }
+    if (columnarInstanceName) {
+      res["ColumnarInstanceName"] = boost::any(*columnarInstanceName);
+    }
+    if (columnarReadDBInstances) {
+      res["ColumnarReadDBInstances"] = boost::any(*columnarReadDBInstances);
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
@@ -5743,6 +5760,9 @@ public:
     }
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (differentDNSpec) {
+      res["DifferentDNSpec"] = boost::any(*differentDNSpec);
     }
     if (dnNodeClassCode) {
       res["DnNodeClassCode"] = boost::any(*dnNodeClassCode);
@@ -5792,6 +5812,9 @@ public:
     if (port) {
       res["Port"] = boost::any(*port);
     }
+    if (primaryZone) {
+      res["PrimaryZone"] = boost::any(*primaryZone);
+    }
     if (readDBInstances) {
       res["ReadDBInstances"] = boost::any(*readDBInstances);
     }
@@ -5806,6 +5829,9 @@ public:
     }
     if (rightsSeparationStatus) {
       res["RightsSeparationStatus"] = boost::any(*rightsSeparationStatus);
+    }
+    if (secondaryZone) {
+      res["SecondaryZone"] = boost::any(*secondaryZone);
     }
     if (series) {
       res["Series"] = boost::any(*series);
@@ -5823,6 +5849,12 @@ public:
       }
       res["TagSet"] = boost::any(temp1);
     }
+    if (tertiaryZone) {
+      res["TertiaryZone"] = boost::any(*tertiaryZone);
+    }
+    if (topologyType) {
+      res["TopologyType"] = boost::any(*topologyType);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -5839,11 +5871,27 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CanNotCreateColumnar") != m.end() && !m["CanNotCreateColumnar"].empty()) {
+      canNotCreateColumnar = make_shared<bool>(boost::any_cast<bool>(m["CanNotCreateColumnar"]));
+    }
     if (m.find("CnNodeClassCode") != m.end() && !m["CnNodeClassCode"].empty()) {
       cnNodeClassCode = make_shared<string>(boost::any_cast<string>(m["CnNodeClassCode"]));
     }
     if (m.find("CnNodeCount") != m.end() && !m["CnNodeCount"].empty()) {
       cnNodeCount = make_shared<long>(boost::any_cast<long>(m["CnNodeCount"]));
+    }
+    if (m.find("ColumnarInstanceName") != m.end() && !m["ColumnarInstanceName"].empty()) {
+      columnarInstanceName = make_shared<string>(boost::any_cast<string>(m["ColumnarInstanceName"]));
+    }
+    if (m.find("ColumnarReadDBInstances") != m.end() && !m["ColumnarReadDBInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ColumnarReadDBInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ColumnarReadDBInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columnarReadDBInstances = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
@@ -5897,6 +5945,9 @@ public:
     }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("DifferentDNSpec") != m.end() && !m["DifferentDNSpec"].empty()) {
+      differentDNSpec = make_shared<bool>(boost::any_cast<bool>(m["DifferentDNSpec"]));
     }
     if (m.find("DnNodeClassCode") != m.end() && !m["DnNodeClassCode"].empty()) {
       dnNodeClassCode = make_shared<string>(boost::any_cast<string>(m["DnNodeClassCode"]));
@@ -5953,6 +6004,9 @@ public:
     if (m.find("Port") != m.end() && !m["Port"].empty()) {
       port = make_shared<string>(boost::any_cast<string>(m["Port"]));
     }
+    if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
+      primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
+    }
     if (m.find("ReadDBInstances") != m.end() && !m["ReadDBInstances"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ReadDBInstances"].type()) {
@@ -5975,6 +6029,9 @@ public:
     if (m.find("RightsSeparationStatus") != m.end() && !m["RightsSeparationStatus"].empty()) {
       rightsSeparationStatus = make_shared<string>(boost::any_cast<string>(m["RightsSeparationStatus"]));
     }
+    if (m.find("SecondaryZone") != m.end() && !m["SecondaryZone"].empty()) {
+      secondaryZone = make_shared<string>(boost::any_cast<string>(m["SecondaryZone"]));
+    }
     if (m.find("Series") != m.end() && !m["Series"].empty()) {
       series = make_shared<string>(boost::any_cast<string>(m["Series"]));
     }
@@ -5996,6 +6053,12 @@ public:
         }
         tagSet = make_shared<vector<DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet>>(expect1);
       }
+    }
+    if (m.find("TertiaryZone") != m.end() && !m["TertiaryZone"].empty()) {
+      tertiaryZone = make_shared<string>(boost::any_cast<string>(m["TertiaryZone"]));
+    }
+    if (m.find("TopologyType") != m.end() && !m["TopologyType"].empty()) {
+      topologyType = make_shared<string>(boost::any_cast<string>(m["TopologyType"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -8447,6 +8510,8 @@ public:
   shared_ptr<string> cdcInstanceName{};
   shared_ptr<string> cnNodeClassCode{};
   shared_ptr<long> cnNodeCount{};
+  shared_ptr<string> columnarInstanceName{};
+  shared_ptr<vector<string>> columnarReadDBInstances{};
   shared_ptr<string> commodityCode{};
   shared_ptr<bool> containBinlogX{};
   shared_ptr<string> createTime{};
@@ -8468,14 +8533,18 @@ public:
   shared_ptr<long> nodeCount{};
   shared_ptr<vector<DescribeDBInstancesResponseBodyDBInstancesNodes>> nodes{};
   shared_ptr<string> payType{};
+  shared_ptr<string> primaryZone{};
   shared_ptr<vector<string>> readDBInstances{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<string> secondaryZone{};
   shared_ptr<string> series{};
   shared_ptr<string> status{};
   shared_ptr<long> storageUsed{};
   shared_ptr<bool> supportBinlogX{};
   shared_ptr<vector<DescribeDBInstancesResponseBodyDBInstancesTagSet>> tagSet{};
+  shared_ptr<string> tertiaryZone{};
+  shared_ptr<string> topologyType{};
   shared_ptr<string> type{};
   shared_ptr<string> VPCId{};
   shared_ptr<string> zoneId{};
@@ -8498,6 +8567,12 @@ public:
     }
     if (cnNodeCount) {
       res["CnNodeCount"] = boost::any(*cnNodeCount);
+    }
+    if (columnarInstanceName) {
+      res["ColumnarInstanceName"] = boost::any(*columnarInstanceName);
+    }
+    if (columnarReadDBInstances) {
+      res["ColumnarReadDBInstances"] = boost::any(*columnarReadDBInstances);
     }
     if (commodityCode) {
       res["CommodityCode"] = boost::any(*commodityCode);
@@ -8566,6 +8641,9 @@ public:
     if (payType) {
       res["PayType"] = boost::any(*payType);
     }
+    if (primaryZone) {
+      res["PrimaryZone"] = boost::any(*primaryZone);
+    }
     if (readDBInstances) {
       res["ReadDBInstances"] = boost::any(*readDBInstances);
     }
@@ -8574,6 +8652,9 @@ public:
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (secondaryZone) {
+      res["SecondaryZone"] = boost::any(*secondaryZone);
     }
     if (series) {
       res["Series"] = boost::any(*series);
@@ -8593,6 +8674,12 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["TagSet"] = boost::any(temp1);
+    }
+    if (tertiaryZone) {
+      res["TertiaryZone"] = boost::any(*tertiaryZone);
+    }
+    if (topologyType) {
+      res["TopologyType"] = boost::any(*topologyType);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -8615,6 +8702,19 @@ public:
     }
     if (m.find("CnNodeCount") != m.end() && !m["CnNodeCount"].empty()) {
       cnNodeCount = make_shared<long>(boost::any_cast<long>(m["CnNodeCount"]));
+    }
+    if (m.find("ColumnarInstanceName") != m.end() && !m["ColumnarInstanceName"].empty()) {
+      columnarInstanceName = make_shared<string>(boost::any_cast<string>(m["ColumnarInstanceName"]));
+    }
+    if (m.find("ColumnarReadDBInstances") != m.end() && !m["ColumnarReadDBInstances"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ColumnarReadDBInstances"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ColumnarReadDBInstances"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      columnarReadDBInstances = make_shared<vector<string>>(toVec1);
     }
     if (m.find("CommodityCode") != m.end() && !m["CommodityCode"].empty()) {
       commodityCode = make_shared<string>(boost::any_cast<string>(m["CommodityCode"]));
@@ -8689,6 +8789,9 @@ public:
     if (m.find("PayType") != m.end() && !m["PayType"].empty()) {
       payType = make_shared<string>(boost::any_cast<string>(m["PayType"]));
     }
+    if (m.find("PrimaryZone") != m.end() && !m["PrimaryZone"].empty()) {
+      primaryZone = make_shared<string>(boost::any_cast<string>(m["PrimaryZone"]));
+    }
     if (m.find("ReadDBInstances") != m.end() && !m["ReadDBInstances"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["ReadDBInstances"].type()) {
@@ -8704,6 +8807,9 @@ public:
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
+    }
+    if (m.find("SecondaryZone") != m.end() && !m["SecondaryZone"].empty()) {
+      secondaryZone = make_shared<string>(boost::any_cast<string>(m["SecondaryZone"]));
     }
     if (m.find("Series") != m.end() && !m["Series"].empty()) {
       series = make_shared<string>(boost::any_cast<string>(m["Series"]));
@@ -8729,6 +8835,12 @@ public:
         }
         tagSet = make_shared<vector<DescribeDBInstancesResponseBodyDBInstancesTagSet>>(expect1);
       }
+    }
+    if (m.find("TertiaryZone") != m.end() && !m["TertiaryZone"].empty()) {
+      tertiaryZone = make_shared<string>(boost::any_cast<string>(m["TertiaryZone"]));
+    }
+    if (m.find("TopologyType") != m.end() && !m["TopologyType"].empty()) {
+      topologyType = make_shared<string>(boost::any_cast<string>(m["TopologyType"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
