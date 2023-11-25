@@ -11446,6 +11446,42 @@ public:
 
   virtual ~DescribeClusterResourcesResponse() = default;
 };
+class DescribeClusterTasksRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+
+  DescribeClusterTasksRequest() {}
+
+  explicit DescribeClusterTasksRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["page_number"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["page_size"] = boost::any(*pageSize);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("page_number") != m.end() && !m["page_number"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["page_number"]));
+    }
+    if (m.find("page_size") != m.end() && !m["page_size"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["page_size"]));
+    }
+  }
+
+
+  virtual ~DescribeClusterTasksRequest() = default;
+};
 class DescribeClusterTasksResponseBodyPageInfo : public Darabonba::Model {
 public:
   shared_ptr<long> pageNumber{};
@@ -12545,6 +12581,7 @@ public:
 };
 class DescribeClustersV1Request : public Darabonba::Model {
 public:
+  shared_ptr<string> clusterId{};
   shared_ptr<string> clusterSpec{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> name{};
@@ -12563,6 +12600,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clusterId) {
+      res["cluster_id"] = boost::any(*clusterId);
+    }
     if (clusterSpec) {
       res["cluster_spec"] = boost::any(*clusterSpec);
     }
@@ -12588,6 +12628,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("cluster_id") != m.end() && !m["cluster_id"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["cluster_id"]));
+    }
     if (m.find("cluster_spec") != m.end() && !m["cluster_spec"].empty()) {
       clusterSpec = make_shared<string>(boost::any_cast<string>(m["cluster_spec"]));
     }
@@ -25564,8 +25607,11 @@ public:
   DescribeClusterNodesResponse describeClusterNodes(shared_ptr<string> ClusterId, shared_ptr<DescribeClusterNodesRequest> request);
   DescribeClusterResourcesResponse describeClusterResourcesWithOptions(shared_ptr<string> ClusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeClusterResourcesResponse describeClusterResources(shared_ptr<string> ClusterId);
-  DescribeClusterTasksResponse describeClusterTasksWithOptions(shared_ptr<string> clusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  DescribeClusterTasksResponse describeClusterTasks(shared_ptr<string> clusterId);
+  DescribeClusterTasksResponse describeClusterTasksWithOptions(shared_ptr<string> clusterId,
+                                                               shared_ptr<DescribeClusterTasksRequest> request,
+                                                               shared_ptr<map<string, string>> headers,
+                                                               shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeClusterTasksResponse describeClusterTasks(shared_ptr<string> clusterId, shared_ptr<DescribeClusterTasksRequest> request);
   DescribeClusterUserKubeconfigResponse describeClusterUserKubeconfigWithOptions(shared_ptr<string> ClusterId,
                                                                                  shared_ptr<DescribeClusterUserKubeconfigRequest> request,
                                                                                  shared_ptr<map<string, string>> headers,
