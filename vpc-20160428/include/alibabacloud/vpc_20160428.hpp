@@ -3628,7 +3628,9 @@ public:
 class AssociateNetworkAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<AssociateNetworkAclRequestResource>> resource{};
@@ -3648,8 +3650,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -3677,8 +3685,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -6712,7 +6726,9 @@ public:
 class CopyNetworkAclEntriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -6732,8 +6748,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -6757,8 +6779,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -13181,7 +13209,9 @@ class CreateNetworkAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclName{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -13205,8 +13235,14 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclName) {
       res["NetworkAclName"] = boost::any(*networkAclName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -13240,8 +13276,14 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclName") != m.end() && !m["NetworkAclName"].empty()) {
       networkAclName = make_shared<string>(boost::any_cast<string>(m["NetworkAclName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -26422,7 +26464,9 @@ public:
 class DeleteNetworkAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -26441,8 +26485,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -26463,8 +26513,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -44346,6 +44402,7 @@ class DescribeNetworkAclAttributesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -44366,6 +44423,9 @@ public:
     }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -44389,6 +44449,9 @@ public:
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
     }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -44410,6 +44473,8 @@ class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeEgressAclEntrie
 public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationCidrIp{};
+  shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -44431,6 +44496,12 @@ public:
     }
     if (destinationCidrIp) {
       res["DestinationCidrIp"] = boost::any(*destinationCidrIp);
+    }
+    if (entryType) {
+      res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -44456,6 +44527,12 @@ public:
     }
     if (m.find("DestinationCidrIp") != m.end() && !m["DestinationCidrIp"].empty()) {
       destinationCidrIp = make_shared<string>(boost::any_cast<string>(m["DestinationCidrIp"]));
+    }
+    if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
+      entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
@@ -44523,6 +44600,8 @@ public:
 class DescribeNetworkAclAttributesResponseBodyNetworkAclAttributeIngressAclEntriesIngressAclEntry : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -44542,6 +44621,12 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (entryType) {
+      res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -44567,6 +44652,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
+      entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
@@ -45064,6 +45155,7 @@ public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> networkAclId{};
   shared_ptr<string> networkAclName{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -45093,6 +45185,9 @@ public:
     }
     if (networkAclName) {
       res["NetworkAclName"] = boost::any(*networkAclName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -45140,6 +45235,9 @@ public:
     }
     if (m.find("NetworkAclName") != m.end() && !m["NetworkAclName"].empty()) {
       networkAclName = make_shared<string>(boost::any_cast<string>(m["NetworkAclName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -45190,6 +45288,8 @@ class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclEgressAclEntriesEgress
 public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationCidrIp{};
+  shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -45211,6 +45311,12 @@ public:
     }
     if (destinationCidrIp) {
       res["DestinationCidrIp"] = boost::any(*destinationCidrIp);
+    }
+    if (entryType) {
+      res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -45236,6 +45342,12 @@ public:
     }
     if (m.find("DestinationCidrIp") != m.end() && !m["DestinationCidrIp"].empty()) {
       destinationCidrIp = make_shared<string>(boost::any_cast<string>(m["DestinationCidrIp"]));
+    }
+    if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
+      entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
@@ -45303,6 +45415,8 @@ public:
 class DescribeNetworkAclsResponseBodyNetworkAclsNetworkAclIngressAclEntriesIngressAclEntry : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
+  shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -45322,6 +45436,12 @@ public:
     map<string, boost::any> res;
     if (description) {
       res["Description"] = boost::any(*description);
+    }
+    if (entryType) {
+      res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -45347,6 +45467,12 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
+      entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
+    }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
     }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
@@ -84126,8 +84252,10 @@ class ModifyNetworkAclAttributesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclId{};
   shared_ptr<string> networkAclName{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -84149,11 +84277,17 @@ public:
     if (description) {
       res["Description"] = boost::any(*description);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
     }
     if (networkAclName) {
       res["NetworkAclName"] = boost::any(*networkAclName);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -84177,11 +84311,17 @@ public:
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
     }
     if (m.find("NetworkAclName") != m.end() && !m["NetworkAclName"].empty()) {
       networkAclName = make_shared<string>(boost::any_cast<string>(m["NetworkAclName"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -96737,7 +96877,9 @@ public:
 class UnassociateNetworkAclRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<vector<UnassociateNetworkAclRequestResource>> resource{};
@@ -96757,8 +96899,14 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -96786,8 +96934,14 @@ public:
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
     }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
@@ -98787,6 +98941,7 @@ public:
   shared_ptr<string> description{};
   shared_ptr<string> destinationCidrIp{};
   shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -98811,6 +98966,9 @@ public:
     }
     if (entryType) {
       res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -98840,6 +98998,9 @@ public:
     if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
       entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
     }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
     }
@@ -98864,6 +99025,7 @@ class UpdateNetworkAclEntriesRequestIngressAclEntries : public Darabonba::Model 
 public:
   shared_ptr<string> description{};
   shared_ptr<string> entryType{};
+  shared_ptr<string> ipVersion{};
   shared_ptr<string> networkAclEntryId{};
   shared_ptr<string> networkAclEntryName{};
   shared_ptr<string> policy{};
@@ -98886,6 +99048,9 @@ public:
     }
     if (entryType) {
       res["EntryType"] = boost::any(*entryType);
+    }
+    if (ipVersion) {
+      res["IpVersion"] = boost::any(*ipVersion);
     }
     if (networkAclEntryId) {
       res["NetworkAclEntryId"] = boost::any(*networkAclEntryId);
@@ -98915,6 +99080,9 @@ public:
     if (m.find("EntryType") != m.end() && !m["EntryType"].empty()) {
       entryType = make_shared<string>(boost::any_cast<string>(m["EntryType"]));
     }
+    if (m.find("IpVersion") != m.end() && !m["IpVersion"].empty()) {
+      ipVersion = make_shared<string>(boost::any_cast<string>(m["IpVersion"]));
+    }
     if (m.find("NetworkAclEntryId") != m.end() && !m["NetworkAclEntryId"].empty()) {
       networkAclEntryId = make_shared<string>(boost::any_cast<string>(m["NetworkAclEntryId"]));
     }
@@ -98941,9 +99109,11 @@ public:
 class UpdateNetworkAclEntriesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> dryRun{};
   shared_ptr<vector<UpdateNetworkAclEntriesRequestEgressAclEntries>> egressAclEntries{};
   shared_ptr<vector<UpdateNetworkAclEntriesRequestIngressAclEntries>> ingressAclEntries{};
   shared_ptr<string> networkAclId{};
+  shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -98964,6 +99134,9 @@ public:
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
     }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (egressAclEntries) {
       vector<boost::any> temp1;
       for(auto item1:*egressAclEntries){
@@ -98980,6 +99153,9 @@ public:
     }
     if (networkAclId) {
       res["NetworkAclId"] = boost::any(*networkAclId);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -99005,6 +99181,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
     }
     if (m.find("EgressAclEntries") != m.end() && !m["EgressAclEntries"].empty()) {
       if (typeid(vector<boost::any>) == m["EgressAclEntries"].type()) {
@@ -99034,6 +99213,9 @@ public:
     }
     if (m.find("NetworkAclId") != m.end() && !m["NetworkAclId"].empty()) {
       networkAclId = make_shared<string>(boost::any_cast<string>(m["NetworkAclId"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));

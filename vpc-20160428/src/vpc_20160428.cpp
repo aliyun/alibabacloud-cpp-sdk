@@ -1126,8 +1126,14 @@ AssociateNetworkAclResponse Alibabacloud_Vpc20160428::Client::associateNetworkAc
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -2023,8 +2029,14 @@ CopyNetworkAclEntriesResponse Alibabacloud_Vpc20160428::Client::copyNetworkAclEn
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -3690,14 +3702,17 @@ CreateNetworkAclResponse Alibabacloud_Vpc20160428::Client::createNetworkAclWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclName)) {
     query->insert(pair<string, string>("NetworkAclName", *request->networkAclName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
-    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
@@ -6917,8 +6932,14 @@ DeleteNetworkAclResponse Alibabacloud_Vpc20160428::Client::deleteNetworkAclWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -10022,6 +10043,9 @@ DescribeNetworkAclAttributesResponse Alibabacloud_Vpc20160428::Client::describeN
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
@@ -10070,6 +10094,9 @@ DescribeNetworkAclsResponse Alibabacloud_Vpc20160428::Client::describeNetworkAcl
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclName)) {
     query->insert(pair<string, string>("NetworkAclName", *request->networkAclName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -16184,11 +16211,17 @@ ModifyNetworkAclAttributesResponse Alibabacloud_Vpc20160428::Client::modifyNetwo
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclName)) {
     query->insert(pair<string, string>("NetworkAclName", *request->networkAclName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -19169,8 +19202,14 @@ UnassociateNetworkAclResponse Alibabacloud_Vpc20160428::Client::unassociateNetwo
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
@@ -19795,6 +19834,9 @@ UpdateNetworkAclEntriesResponse Alibabacloud_Vpc20160428::Client::updateNetworkA
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<UpdateNetworkAclEntriesRequestEgressAclEntries>>(request->egressAclEntries)) {
     query->insert(pair<string, vector<UpdateNetworkAclEntriesRequestEgressAclEntries>>("EgressAclEntries", *request->egressAclEntries));
   }
@@ -19803,6 +19845,9 @@ UpdateNetworkAclEntriesResponse Alibabacloud_Vpc20160428::Client::updateNetworkA
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->networkAclId)) {
     query->insert(pair<string, string>("NetworkAclId", *request->networkAclId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
+    query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
