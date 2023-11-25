@@ -2649,11 +2649,16 @@ GetSparkAppAttemptLogResponse Alibabacloud_Adb20211201::Client::getSparkAppAttem
 
 GetSparkAppInfoResponse Alibabacloud_Adb20211201::Client::getSparkAppInfoWithOptions(shared_ptr<GetSparkAppInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2677,6 +2682,10 @@ GetSparkAppInfoResponse Alibabacloud_Adb20211201::Client::getSparkAppInfo(shared
 
 GetSparkAppLogResponse Alibabacloud_Adb20211201::Client::getSparkAppLogWithOptions(shared_ptr<GetSparkAppLogRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
@@ -2685,6 +2694,7 @@ GetSparkAppLogResponse Alibabacloud_Adb20211201::Client::getSparkAppLogWithOptio
     body->insert(pair<string, long>("LogLength", *request->logLength));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2708,11 +2718,16 @@ GetSparkAppLogResponse Alibabacloud_Adb20211201::Client::getSparkAppLog(shared_p
 
 GetSparkAppMetricsResponse Alibabacloud_Adb20211201::Client::getSparkAppMetricsWithOptions(shared_ptr<GetSparkAppMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2736,11 +2751,16 @@ GetSparkAppMetricsResponse Alibabacloud_Adb20211201::Client::getSparkAppMetrics(
 
 GetSparkAppStateResponse Alibabacloud_Adb20211201::Client::getSparkAppStateWithOptions(shared_ptr<GetSparkAppStateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -2764,11 +2784,16 @@ GetSparkAppStateResponse Alibabacloud_Adb20211201::Client::getSparkAppState(shar
 
 GetSparkAppWebUiAddressResponse Alibabacloud_Adb20211201::Client::getSparkAppWebUiAddressWithOptions(shared_ptr<GetSparkAppWebUiAddressRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -3258,11 +3283,16 @@ GetViewObjectsResponse Alibabacloud_Adb20211201::Client::getViewObjects(shared_p
 
 KillSparkAppResponse Alibabacloud_Adb20211201::Client::killSparkAppWithOptions(shared_ptr<KillSparkAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -3348,6 +3378,9 @@ ListSparkAppAttemptsResponse Alibabacloud_Adb20211201::Client::listSparkAppAttem
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     query->insert(pair<string, string>("AppId", *request->appId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
     query->insert(pair<string, long>("PageNumber", *request->pageNumber));
@@ -3883,11 +3916,16 @@ ModifyElasticPlanResponse Alibabacloud_Adb20211201::Client::modifyElasticPlan(sh
 
 PreloadSparkAppMetricsResponse Alibabacloud_Adb20211201::Client::preloadSparkAppMetricsWithOptions(shared_ptr<PreloadSparkAppMetricsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->DBClusterId)) {
+    query->insert(pair<string, string>("DBClusterId", *request->DBClusterId));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->appId)) {
     body->insert(pair<string, string>("AppId", *request->appId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({

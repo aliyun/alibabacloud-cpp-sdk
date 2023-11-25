@@ -17577,6 +17577,7 @@ public:
 class GetSparkAppInfoRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   GetSparkAppInfoRequest() {}
 
@@ -17591,12 +17592,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
@@ -17708,6 +17715,7 @@ public:
 class GetSparkAppLogRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
   shared_ptr<long> logLength{};
 
   GetSparkAppLogRequest() {}
@@ -17723,6 +17731,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     if (logLength) {
       res["LogLength"] = boost::any(*logLength);
     }
@@ -17732,6 +17743,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
     if (m.find("LogLength") != m.end() && !m["LogLength"].empty()) {
       logLength = make_shared<long>(boost::any_cast<long>(m["LogLength"]));
@@ -17889,6 +17903,7 @@ public:
 class GetSparkAppMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   GetSparkAppMetricsRequest() {}
 
@@ -17903,12 +17918,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
@@ -18117,6 +18138,7 @@ public:
 class GetSparkAppStateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   GetSparkAppStateRequest() {}
 
@@ -18131,12 +18153,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
@@ -18305,6 +18333,7 @@ public:
 class GetSparkAppWebUiAddressRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   GetSparkAppWebUiAddressRequest() {}
 
@@ -18319,12 +18348,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
@@ -20865,6 +20900,7 @@ public:
 class KillSparkAppRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   KillSparkAppRequest() {}
 
@@ -20879,12 +20915,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
@@ -21318,6 +21360,7 @@ public:
 class ListSparkAppAttemptsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
 
@@ -21334,6 +21377,9 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     if (pageNumber) {
       res["PageNumber"] = boost::any(*pageNumber);
     }
@@ -21346,6 +21392,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
@@ -23783,6 +23832,7 @@ public:
 class PreloadSparkAppMetricsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
+  shared_ptr<string> DBClusterId{};
 
   PreloadSparkAppMetricsRequest() {}
 
@@ -23797,12 +23847,18 @@ public:
     if (appId) {
       res["AppId"] = boost::any(*appId);
     }
+    if (DBClusterId) {
+      res["DBClusterId"] = boost::any(*DBClusterId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
       appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("DBClusterId") != m.end() && !m["DBClusterId"].empty()) {
+      DBClusterId = make_shared<string>(boost::any_cast<string>(m["DBClusterId"]));
     }
   }
 
