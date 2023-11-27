@@ -48208,6 +48208,7 @@ public:
   shared_ptr<long> resourceOwnerId{};
   shared_ptr<string> routeTableId{};
   shared_ptr<string> routeTableName{};
+  shared_ptr<string> routeTableType{};
   shared_ptr<string> routerId{};
   shared_ptr<string> routerType{};
   shared_ptr<vector<DescribeRouteTableListRequestTag>> tag{};
@@ -48252,6 +48253,9 @@ public:
     }
     if (routeTableName) {
       res["RouteTableName"] = boost::any(*routeTableName);
+    }
+    if (routeTableType) {
+      res["RouteTableType"] = boost::any(*routeTableType);
     }
     if (routerId) {
       res["RouterId"] = boost::any(*routerId);
@@ -48302,6 +48306,9 @@ public:
     }
     if (m.find("RouteTableName") != m.end() && !m["RouteTableName"].empty()) {
       routeTableName = make_shared<string>(boost::any_cast<string>(m["RouteTableName"]));
+    }
+    if (m.find("RouteTableType") != m.end() && !m["RouteTableType"].empty()) {
+      routeTableType = make_shared<string>(boost::any_cast<string>(m["RouteTableType"]));
     }
     if (m.find("RouterId") != m.end() && !m["RouterId"].empty()) {
       routerId = make_shared<string>(boost::any_cast<string>(m["RouterId"]));

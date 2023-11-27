@@ -10464,6 +10464,9 @@ DescribeRouteTableListResponse Alibabacloud_Vpc20160428::Client::describeRouteTa
   if (!Darabonba_Util::Client::isUnset<string>(request->routeTableName)) {
     query->insert(pair<string, string>("RouteTableName", *request->routeTableName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->routeTableType)) {
+    query->insert(pair<string, string>("RouteTableType", *request->routeTableType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->routerId)) {
     query->insert(pair<string, string>("RouterId", *request->routerId));
   }
