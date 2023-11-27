@@ -469,6 +469,9 @@ CreateHostResponse Alibabacloud_Yundun-bastionhost20191209::Client::createHostWi
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceRegionId)) {
     query->insert(pair<string, string>("InstanceRegionId", *request->instanceRegionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkDomainId)) {
+    query->insert(pair<string, string>("NetworkDomainId", *request->networkDomainId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->OSType)) {
     query->insert(pair<string, string>("OSType", *request->OSType));
   }
@@ -2607,6 +2610,9 @@ ModifyHostResponse Alibabacloud_Yundun-bastionhost20191209::Client::modifyHostWi
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceId)) {
     query->insert(pair<string, string>("InstanceId", *request->instanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->networkDomainId)) {
+    query->insert(pair<string, string>("NetworkDomainId", *request->networkDomainId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->OSType)) {
     query->insert(pair<string, string>("OSType", *request->OSType));

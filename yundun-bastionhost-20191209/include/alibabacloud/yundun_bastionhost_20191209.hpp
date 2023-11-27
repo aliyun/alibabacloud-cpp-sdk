@@ -2355,6 +2355,7 @@ public:
   shared_ptr<string> hostPublicAddress{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> instanceRegionId{};
+  shared_ptr<string> networkDomainId{};
   shared_ptr<string> OSType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> source{};
@@ -2390,6 +2391,9 @@ public:
     }
     if (instanceRegionId) {
       res["InstanceRegionId"] = boost::any(*instanceRegionId);
+    }
+    if (networkDomainId) {
+      res["NetworkDomainId"] = boost::any(*networkDomainId);
     }
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
@@ -2427,6 +2431,9 @@ public:
     }
     if (m.find("InstanceRegionId") != m.end() && !m["InstanceRegionId"].empty()) {
       instanceRegionId = make_shared<string>(boost::any_cast<string>(m["InstanceRegionId"]));
+    }
+    if (m.find("NetworkDomainId") != m.end() && !m["NetworkDomainId"].empty()) {
+      networkDomainId = make_shared<string>(boost::any_cast<string>(m["NetworkDomainId"]));
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
@@ -7221,6 +7228,7 @@ public:
   shared_ptr<string> hostName{};
   shared_ptr<string> hostPrivateAddress{};
   shared_ptr<string> hostPublicAddress{};
+  shared_ptr<string> networkDomainId{};
   shared_ptr<string> OSType{};
   shared_ptr<vector<GetHostResponseBodyHostProtocols>> protocols{};
   shared_ptr<string> source{};
@@ -7254,6 +7262,9 @@ public:
     }
     if (hostPublicAddress) {
       res["HostPublicAddress"] = boost::any(*hostPublicAddress);
+    }
+    if (networkDomainId) {
+      res["NetworkDomainId"] = boost::any(*networkDomainId);
     }
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
@@ -7295,6 +7306,9 @@ public:
     }
     if (m.find("HostPublicAddress") != m.end() && !m["HostPublicAddress"].empty()) {
       hostPublicAddress = make_shared<string>(boost::any_cast<string>(m["HostPublicAddress"]));
+    }
+    if (m.find("NetworkDomainId") != m.end() && !m["NetworkDomainId"].empty()) {
+      networkDomainId = make_shared<string>(boost::any_cast<string>(m["NetworkDomainId"]));
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
@@ -14364,6 +14378,7 @@ public:
   shared_ptr<string> hostPrivateAddress{};
   shared_ptr<string> hostPublicAddress{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> networkDomainId{};
   shared_ptr<string> OSType{};
   shared_ptr<string> regionId{};
 
@@ -14395,6 +14410,9 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (networkDomainId) {
+      res["NetworkDomainId"] = boost::any(*networkDomainId);
+    }
     if (OSType) {
       res["OSType"] = boost::any(*OSType);
     }
@@ -14422,6 +14440,9 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("NetworkDomainId") != m.end() && !m["NetworkDomainId"].empty()) {
+      networkDomainId = make_shared<string>(boost::any_cast<string>(m["NetworkDomainId"]));
     }
     if (m.find("OSType") != m.end() && !m["OSType"].empty()) {
       OSType = make_shared<string>(boost::any_cast<string>(m["OSType"]));
