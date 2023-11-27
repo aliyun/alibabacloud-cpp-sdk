@@ -1046,6 +1046,27 @@ DetachPolicyResponse Alibabacloud_ResourceManager20200331::Client::detachPolicy(
   return detachPolicyWithOptions(request, runtime);
 }
 
+DisableAssociatedTransferResponse Alibabacloud_ResourceManager20200331::Client::disableAssociatedTransferWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DisableAssociatedTransfer"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DisableAssociatedTransferResponse(callApi(params, req, runtime));
+}
+
+DisableAssociatedTransferResponse Alibabacloud_ResourceManager20200331::Client::disableAssociatedTransfer() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return disableAssociatedTransferWithOptions(runtime);
+}
+
 DisableControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::disableControlPolicyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
@@ -1065,6 +1086,27 @@ DisableControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::disab
 DisableControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::disableControlPolicy() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return disableControlPolicyWithOptions(runtime);
+}
+
+EnableAssociatedTransferResponse Alibabacloud_ResourceManager20200331::Client::enableAssociatedTransferWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("EnableAssociatedTransfer"))},
+    {"version", boost::any(string("2020-03-31"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return EnableAssociatedTransferResponse(callApi(params, req, runtime));
+}
+
+EnableAssociatedTransferResponse Alibabacloud_ResourceManager20200331::Client::enableAssociatedTransfer() {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return enableAssociatedTransferWithOptions(runtime);
 }
 
 EnableControlPolicyResponse Alibabacloud_ResourceManager20200331::Client::enableControlPolicyWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
