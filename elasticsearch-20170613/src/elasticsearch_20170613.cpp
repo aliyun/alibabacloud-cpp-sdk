@@ -5185,6 +5185,9 @@ UninstallPluginResponse Alibabacloud_Elasticsearch20170613::Client::uninstallPlu
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("clientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->force)) {
+    query->insert(pair<string, bool>("force", *request->force));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
@@ -6869,6 +6872,9 @@ CreateInstanceResponse Alibabacloud_Elasticsearch20170613::Client::createInstanc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     body->insert(pair<string, string>("resourceGroupId", *request->resourceGroupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestTags>>(request->tags)) {
+    body->insert(pair<string, vector<CreateInstanceRequestTags>>("tags", *request->tags));
   }
   if (!Darabonba_Util::Client::isUnset<WarmNodeConfiguration>(request->warmNodeConfiguration)) {
     body->insert(pair<string, WarmNodeConfiguration>("warmNodeConfiguration", *request->warmNodeConfiguration));

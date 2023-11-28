@@ -1932,6 +1932,235 @@ public:
 
   virtual ~Logstash() = default;
 };
+class MigrationJobSourceCluster : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> type{};
+
+  MigrationJobSourceCluster() {}
+
+  explicit MigrationJobSourceCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~MigrationJobSourceCluster() = default;
+};
+class MigrationJobStatusResult : public Darabonba::Model {
+public:
+  shared_ptr<string> code{};
+  shared_ptr<bool> success{};
+
+  MigrationJobStatusResult() {}
+
+  explicit MigrationJobStatusResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["code"] = boost::any(*code);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("code") != m.end() && !m["code"].empty()) {
+      code = make_shared<string>(boost::any_cast<string>(m["code"]));
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~MigrationJobStatusResult() = default;
+};
+class MigrationJobTargetCluster : public Darabonba::Model {
+public:
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> type{};
+
+  MigrationJobTargetCluster() {}
+
+  explicit MigrationJobTargetCluster(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (instanceId) {
+      res["instanceId"] = boost::any(*instanceId);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("instanceId") != m.end() && !m["instanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["instanceId"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~MigrationJobTargetCluster() = default;
+};
+class MigrationJob : public Darabonba::Model {
+public:
+  shared_ptr<string> currentState{};
+  shared_ptr<bool> disableSourceClusterAuth{};
+  shared_ptr<bool> disableTargetClusterAuth{};
+  shared_ptr<long> endTime{};
+  shared_ptr<string> migrationJobId{};
+  shared_ptr<string> phase{};
+  shared_ptr<MigrationJobSourceCluster> sourceCluster{};
+  shared_ptr<long> startTime{};
+  shared_ptr<vector<MigrationJobStatusResult>> statusResult{};
+  shared_ptr<MigrationJobTargetCluster> targetCluster{};
+  shared_ptr<long> updateTime{};
+
+  MigrationJob() {}
+
+  explicit MigrationJob(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (currentState) {
+      res["currentState"] = boost::any(*currentState);
+    }
+    if (disableSourceClusterAuth) {
+      res["disableSourceClusterAuth"] = boost::any(*disableSourceClusterAuth);
+    }
+    if (disableTargetClusterAuth) {
+      res["disableTargetClusterAuth"] = boost::any(*disableTargetClusterAuth);
+    }
+    if (endTime) {
+      res["endTime"] = boost::any(*endTime);
+    }
+    if (migrationJobId) {
+      res["migrationJobId"] = boost::any(*migrationJobId);
+    }
+    if (phase) {
+      res["phase"] = boost::any(*phase);
+    }
+    if (sourceCluster) {
+      res["sourceCluster"] = sourceCluster ? boost::any(sourceCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (startTime) {
+      res["startTime"] = boost::any(*startTime);
+    }
+    if (statusResult) {
+      vector<boost::any> temp1;
+      for(auto item1:*statusResult){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["statusResult"] = boost::any(temp1);
+    }
+    if (targetCluster) {
+      res["targetCluster"] = targetCluster ? boost::any(targetCluster->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (updateTime) {
+      res["updateTime"] = boost::any(*updateTime);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("currentState") != m.end() && !m["currentState"].empty()) {
+      currentState = make_shared<string>(boost::any_cast<string>(m["currentState"]));
+    }
+    if (m.find("disableSourceClusterAuth") != m.end() && !m["disableSourceClusterAuth"].empty()) {
+      disableSourceClusterAuth = make_shared<bool>(boost::any_cast<bool>(m["disableSourceClusterAuth"]));
+    }
+    if (m.find("disableTargetClusterAuth") != m.end() && !m["disableTargetClusterAuth"].empty()) {
+      disableTargetClusterAuth = make_shared<bool>(boost::any_cast<bool>(m["disableTargetClusterAuth"]));
+    }
+    if (m.find("endTime") != m.end() && !m["endTime"].empty()) {
+      endTime = make_shared<long>(boost::any_cast<long>(m["endTime"]));
+    }
+    if (m.find("migrationJobId") != m.end() && !m["migrationJobId"].empty()) {
+      migrationJobId = make_shared<string>(boost::any_cast<string>(m["migrationJobId"]));
+    }
+    if (m.find("phase") != m.end() && !m["phase"].empty()) {
+      phase = make_shared<string>(boost::any_cast<string>(m["phase"]));
+    }
+    if (m.find("sourceCluster") != m.end() && !m["sourceCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["sourceCluster"].type()) {
+        MigrationJobSourceCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["sourceCluster"]));
+        sourceCluster = make_shared<MigrationJobSourceCluster>(model1);
+      }
+    }
+    if (m.find("startTime") != m.end() && !m["startTime"].empty()) {
+      startTime = make_shared<long>(boost::any_cast<long>(m["startTime"]));
+    }
+    if (m.find("statusResult") != m.end() && !m["statusResult"].empty()) {
+      if (typeid(vector<boost::any>) == m["statusResult"].type()) {
+        vector<MigrationJobStatusResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["statusResult"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            MigrationJobStatusResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        statusResult = make_shared<vector<MigrationJobStatusResult>>(expect1);
+      }
+    }
+    if (m.find("targetCluster") != m.end() && !m["targetCluster"].empty()) {
+      if (typeid(map<string, boost::any>) == m["targetCluster"].type()) {
+        MigrationJobTargetCluster model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["targetCluster"]));
+        targetCluster = make_shared<MigrationJobTargetCluster>(model1);
+      }
+    }
+    if (m.find("updateTime") != m.end() && !m["updateTime"].empty()) {
+      updateTime = make_shared<long>(boost::any_cast<long>(m["updateTime"]));
+    }
+  }
+
+
+  virtual ~MigrationJob() = default;
+};
 class NodeInfo : public Darabonba::Model {
 public:
   shared_ptr<string> host{};
@@ -36429,6 +36658,7 @@ class UninstallPluginRequest : public Darabonba::Model {
 public:
   shared_ptr<string> body{};
   shared_ptr<string> clientToken{};
+  shared_ptr<bool> force{};
 
   UninstallPluginRequest() {}
 
@@ -36446,6 +36676,9 @@ public:
     if (clientToken) {
       res["clientToken"] = boost::any(*clientToken);
     }
+    if (force) {
+      res["force"] = boost::any(*force);
+    }
     return res;
   }
 
@@ -36455,6 +36688,9 @@ public:
     }
     if (m.find("clientToken") != m.end() && !m["clientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["clientToken"]));
+    }
+    if (m.find("force") != m.end() && !m["force"].empty()) {
+      force = make_shared<bool>(boost::any_cast<bool>(m["force"]));
     }
   }
 
@@ -44979,6 +45215,42 @@ public:
 
   virtual ~ValidateTransferableNodesResponse() = default;
 };
+class CreateInstanceRequestTags : public Darabonba::Model {
+public:
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  CreateInstanceRequestTags() {}
+
+  explicit CreateInstanceRequestTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tagKey) {
+      res["tagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["tagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tagKey") != m.end() && !m["tagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["tagKey"]));
+    }
+    if (m.find("tagValue") != m.end() && !m["tagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["tagValue"]));
+    }
+  }
+
+
+  virtual ~CreateInstanceRequestTags() = default;
+};
 class CreateInstanceRequest : public Darabonba::Model {
 public:
   shared_ptr<ClientNodeConfiguration> clientNodeConfiguration{};
@@ -44995,6 +45267,7 @@ public:
   shared_ptr<PaymentInfo> paymentInfo{};
   shared_ptr<string> paymentType{};
   shared_ptr<string> resourceGroupId{};
+  shared_ptr<vector<CreateInstanceRequestTags>> tags{};
   shared_ptr<WarmNodeConfiguration> warmNodeConfiguration{};
   shared_ptr<long> zoneCount{};
   shared_ptr<string> clientToken{};
@@ -45050,6 +45323,13 @@ public:
     }
     if (resourceGroupId) {
       res["resourceGroupId"] = boost::any(*resourceGroupId);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["tags"] = boost::any(temp1);
     }
     if (warmNodeConfiguration) {
       res["warmNodeConfiguration"] = warmNodeConfiguration ? boost::any(warmNodeConfiguration->toMap()) : boost::any(map<string,boost::any>({}));
@@ -45133,6 +45413,19 @@ public:
     }
     if (m.find("resourceGroupId") != m.end() && !m["resourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["resourceGroupId"]));
+    }
+    if (m.find("tags") != m.end() && !m["tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["tags"].type()) {
+        vector<CreateInstanceRequestTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateInstanceRequestTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<CreateInstanceRequestTags>>(expect1);
+      }
     }
     if (m.find("warmNodeConfiguration") != m.end() && !m["warmNodeConfiguration"].empty()) {
       if (typeid(map<string, boost::any>) == m["warmNodeConfiguration"].type()) {
