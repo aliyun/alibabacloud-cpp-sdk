@@ -167,6 +167,7 @@ public:
   shared_ptr<long> acceptingAliUid{};
   shared_ptr<string> acceptingRegionId{};
   shared_ptr<string> acceptingVpcId{};
+  shared_ptr<long> bandwidth{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> description{};
   shared_ptr<bool> dryRun{};
@@ -193,6 +194,9 @@ public:
     }
     if (acceptingVpcId) {
       res["AcceptingVpcId"] = boost::any(*acceptingVpcId);
+    }
+    if (bandwidth) {
+      res["Bandwidth"] = boost::any(*bandwidth);
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
@@ -227,6 +231,9 @@ public:
     }
     if (m.find("AcceptingVpcId") != m.end() && !m["AcceptingVpcId"].empty()) {
       acceptingVpcId = make_shared<string>(boost::any_cast<string>(m["AcceptingVpcId"]));
+    }
+    if (m.find("Bandwidth") != m.end() && !m["Bandwidth"].empty()) {
+      bandwidth = make_shared<long>(boost::any_cast<long>(m["Bandwidth"]));
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));

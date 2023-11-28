@@ -90,6 +90,9 @@ CreateVpcPeerConnectionResponse Alibabacloud_VpcPeer20220101::Client::createVpcP
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptingVpcId)) {
     body->insert(pair<string, string>("AcceptingVpcId", *request->acceptingVpcId));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->bandwidth)) {
+    body->insert(pair<string, long>("Bandwidth", *request->bandwidth));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     body->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
