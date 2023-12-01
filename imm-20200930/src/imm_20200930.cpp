@@ -141,6 +141,9 @@ AddStoryFilesResponse Alibabacloud_Imm20200930::Client::addStoryFiles(shared_ptr
 AttachOSSBucketResponse Alibabacloud_Imm20200930::Client::attachOSSBucketWithOptions(shared_ptr<AttachOSSBucketRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
+    query->insert(pair<string, string>("Description", *request->description));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->OSSBucket)) {
     query->insert(pair<string, string>("OSSBucket", *request->OSSBucket));
   }
@@ -2544,8 +2547,13 @@ ExtractDocumentTextResponse Alibabacloud_Imm20200930::Client::extractDocumentTex
   return extractDocumentTextWithOptions(request, runtime);
 }
 
-FuzzyQueryResponse Alibabacloud_Imm20200930::Client::fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+FuzzyQueryResponse Alibabacloud_Imm20200930::Client::fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<FuzzyQueryShrinkRequest> request = make_shared<FuzzyQueryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
+    request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
@@ -2567,6 +2575,9 @@ FuzzyQueryResponse Alibabacloud_Imm20200930::Client::fuzzyQueryWithOptions(share
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sort)) {
     query->insert(pair<string, string>("Sort", *request->sort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
+    query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3926,14 +3937,25 @@ SearchImageFigureClusterResponse Alibabacloud_Imm20200930::Client::searchImageFi
   return searchImageFigureClusterWithOptions(request, runtime);
 }
 
-SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions(shared_ptr<SemanticQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions(shared_ptr<SemanticQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SemanticQueryShrinkRequest> request = make_shared<SemanticQueryShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->mediaTypes)) {
+    request->mediaTypesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->mediaTypes, make_shared<string>("MediaTypes"), make_shared<string>("json")));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->withFields)) {
+    request->withFieldsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->withFields, make_shared<string>("WithFields"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->datasetName)) {
     query->insert(pair<string, string>("DatasetName", *request->datasetName));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->mediaTypesShrink)) {
+    query->insert(pair<string, string>("MediaTypes", *request->mediaTypesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
     query->insert(pair<string, string>("NextToken", *request->nextToken));
@@ -3943,6 +3965,9 @@ SemanticQueryResponse Alibabacloud_Imm20200930::Client::semanticQueryWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->query)) {
     query->insert(pair<string, string>("Query", *request->query));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
+    query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -4006,6 +4031,9 @@ SimpleQueryResponse Alibabacloud_Imm20200930::Client::simpleQueryWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->withFieldsShrink)) {
     query->insert(pair<string, string>("WithFields", *request->withFieldsShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->withoutTotalHits)) {
+    query->insert(pair<string, bool>("WithoutTotalHits", *request->withoutTotalHits));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

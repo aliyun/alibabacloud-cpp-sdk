@@ -923,6 +923,91 @@ public:
 
   virtual ~AlgorithmDefinition() = default;
 };
+class App : public Darabonba::Model {
+public:
+  shared_ptr<string> appDescription{};
+  shared_ptr<string> appId{};
+  shared_ptr<string> appKey{};
+  shared_ptr<string> appName{};
+  shared_ptr<long> appRegion{};
+  shared_ptr<long> appType{};
+  shared_ptr<string> englishName{};
+  shared_ptr<string> ownerId{};
+  shared_ptr<string> packageName{};
+
+  App() {}
+
+  explicit App(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appDescription) {
+      res["AppDescription"] = boost::any(*appDescription);
+    }
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (appKey) {
+      res["AppKey"] = boost::any(*appKey);
+    }
+    if (appName) {
+      res["AppName"] = boost::any(*appName);
+    }
+    if (appRegion) {
+      res["AppRegion"] = boost::any(*appRegion);
+    }
+    if (appType) {
+      res["AppType"] = boost::any(*appType);
+    }
+    if (englishName) {
+      res["EnglishName"] = boost::any(*englishName);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (packageName) {
+      res["PackageName"] = boost::any(*packageName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppDescription") != m.end() && !m["AppDescription"].empty()) {
+      appDescription = make_shared<string>(boost::any_cast<string>(m["AppDescription"]));
+    }
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("AppKey") != m.end() && !m["AppKey"].empty()) {
+      appKey = make_shared<string>(boost::any_cast<string>(m["AppKey"]));
+    }
+    if (m.find("AppName") != m.end() && !m["AppName"].empty()) {
+      appName = make_shared<string>(boost::any_cast<string>(m["AppName"]));
+    }
+    if (m.find("AppRegion") != m.end() && !m["AppRegion"].empty()) {
+      appRegion = make_shared<long>(boost::any_cast<long>(m["AppRegion"]));
+    }
+    if (m.find("AppType") != m.end() && !m["AppType"].empty()) {
+      appType = make_shared<long>(boost::any_cast<long>(m["AppType"]));
+    }
+    if (m.find("EnglishName") != m.end() && !m["EnglishName"].empty()) {
+      englishName = make_shared<string>(boost::any_cast<string>(m["EnglishName"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<string>(boost::any_cast<string>(m["OwnerId"]));
+    }
+    if (m.find("PackageName") != m.end() && !m["PackageName"].empty()) {
+      packageName = make_shared<string>(boost::any_cast<string>(m["PackageName"]));
+    }
+  }
+
+
+  virtual ~App() = default;
+};
 class AssumeRoleChainNode : public Darabonba::Model {
 public:
   shared_ptr<string> ownerId{};
@@ -1800,8 +1885,38 @@ public:
 
   virtual ~CroppingSuggestion() = default;
 };
+class FastFailPolicy : public Darabonba::Model {
+public:
+  shared_ptr<string> action{};
+
+  FastFailPolicy() {}
+
+  explicit FastFailPolicy(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (action) {
+      res["Action"] = boost::any(*action);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Action") != m.end() && !m["Action"].empty()) {
+      action = make_shared<string>(boost::any_cast<string>(m["Action"]));
+    }
+  }
+
+
+  virtual ~FastFailPolicy() = default;
+};
 class DataIngestionActions : public Darabonba::Model {
 public:
+  shared_ptr<FastFailPolicy> fastFailPolicy{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> parameters{};
 
@@ -1815,6 +1930,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fastFailPolicy) {
+      res["FastFailPolicy"] = fastFailPolicy ? boost::any(fastFailPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -1825,6 +1943,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FastFailPolicy") != m.end() && !m["FastFailPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FastFailPolicy"].type()) {
+        FastFailPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FastFailPolicy"]));
+        fastFailPolicy = make_shared<FastFailPolicy>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -2007,6 +2132,7 @@ public:
   shared_ptr<Input> input{};
   shared_ptr<string> marker{};
   shared_ptr<DataIngestionNotification> notification{};
+  shared_ptr<string> phase{};
   shared_ptr<string> state{};
   shared_ptr<DataIngestionStatistic> statistic{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -2046,6 +2172,9 @@ public:
     }
     if (notification) {
       res["Notification"] = notification ? boost::any(notification->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (phase) {
+      res["Phase"] = boost::any(*phase);
     }
     if (state) {
       res["State"] = boost::any(*state);
@@ -2101,6 +2230,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Notification"]));
         notification = make_shared<DataIngestionNotification>(model1);
       }
+    }
+    if (m.find("Phase") != m.end() && !m["Phase"].empty()) {
+      phase = make_shared<string>(boost::any_cast<string>(m["Phase"]));
     }
     if (m.find("State") != m.end() && !m["State"].empty()) {
       state = make_shared<string>(boost::any_cast<string>(m["State"]));
@@ -4135,8 +4267,10 @@ public:
   shared_ptr<map<string, boost::any>> customLabels{};
   shared_ptr<vector<InputFileFigures>> figures{};
   shared_ptr<string> fileHash{};
+  shared_ptr<string> latLong{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> OSSURI{};
+  shared_ptr<string> produceTime{};
   shared_ptr<string> URI{};
 
   InputFile() {}
@@ -4168,11 +4302,17 @@ public:
     if (fileHash) {
       res["FileHash"] = boost::any(*fileHash);
     }
+    if (latLong) {
+      res["LatLong"] = boost::any(*latLong);
+    }
     if (mediaType) {
       res["MediaType"] = boost::any(*mediaType);
     }
     if (OSSURI) {
       res["OSSURI"] = boost::any(*OSSURI);
+    }
+    if (produceTime) {
+      res["ProduceTime"] = boost::any(*produceTime);
     }
     if (URI) {
       res["URI"] = boost::any(*URI);
@@ -4211,11 +4351,17 @@ public:
     if (m.find("FileHash") != m.end() && !m["FileHash"].empty()) {
       fileHash = make_shared<string>(boost::any_cast<string>(m["FileHash"]));
     }
+    if (m.find("LatLong") != m.end() && !m["LatLong"].empty()) {
+      latLong = make_shared<string>(boost::any_cast<string>(m["LatLong"]));
+    }
     if (m.find("MediaType") != m.end() && !m["MediaType"].empty()) {
       mediaType = make_shared<string>(boost::any_cast<string>(m["MediaType"]));
     }
     if (m.find("OSSURI") != m.end() && !m["OSSURI"].empty()) {
       OSSURI = make_shared<string>(boost::any_cast<string>(m["OSSURI"]));
+    }
+    if (m.find("ProduceTime") != m.end() && !m["ProduceTime"].empty()) {
+      produceTime = make_shared<string>(boost::any_cast<string>(m["ProduceTime"]));
     }
     if (m.find("URI") != m.end() && !m["URI"].empty()) {
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
@@ -7340,6 +7486,7 @@ public:
 };
 class AttachOSSBucketRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> description{};
   shared_ptr<string> OSSBucket{};
   shared_ptr<string> projectName{};
 
@@ -7353,6 +7500,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (OSSBucket) {
       res["OSSBucket"] = boost::any(*OSSBucket);
     }
@@ -7363,6 +7513,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("OSSBucket") != m.end() && !m["OSSBucket"].empty()) {
       OSSBucket = make_shared<string>(boost::any_cast<string>(m["OSSBucket"]));
     }
@@ -9001,6 +9154,7 @@ public:
 };
 class CreateBatchRequestActions : public Darabonba::Model {
 public:
+  shared_ptr<FastFailPolicy> fastFailPolicy{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> parameters{};
 
@@ -9014,6 +9168,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fastFailPolicy) {
+      res["FastFailPolicy"] = fastFailPolicy ? boost::any(fastFailPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -9024,6 +9181,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FastFailPolicy") != m.end() && !m["FastFailPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FastFailPolicy"].type()) {
+        FastFailPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FastFailPolicy"]));
+        fastFailPolicy = make_shared<FastFailPolicy>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -11128,6 +11292,7 @@ public:
 class CreateFileCompressionTaskRequestSources : public Darabonba::Model {
 public:
   shared_ptr<string> alias{};
+  shared_ptr<string> mode{};
   shared_ptr<string> URI{};
 
   CreateFileCompressionTaskRequestSources() {}
@@ -11143,6 +11308,9 @@ public:
     if (alias) {
       res["Alias"] = boost::any(*alias);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (URI) {
       res["URI"] = boost::any(*URI);
     }
@@ -11152,6 +11320,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Alias") != m.end() && !m["Alias"].empty()) {
       alias = make_shared<string>(boost::any_cast<string>(m["Alias"]));
+    }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
     }
     if (m.find("URI") != m.end() && !m["URI"].empty()) {
       URI = make_shared<string>(boost::any_cast<string>(m["URI"]));
@@ -15076,6 +15247,7 @@ public:
 };
 class CreateTriggerRequestActions : public Darabonba::Model {
 public:
+  shared_ptr<FastFailPolicy> fastFailPolicy{};
   shared_ptr<string> name{};
   shared_ptr<vector<string>> parameters{};
 
@@ -15089,6 +15261,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (fastFailPolicy) {
+      res["FastFailPolicy"] = fastFailPolicy ? boost::any(fastFailPolicy->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -15099,6 +15274,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("FastFailPolicy") != m.end() && !m["FastFailPolicy"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FastFailPolicy"].type()) {
+        FastFailPolicy model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FastFailPolicy"]));
+        fastFailPolicy = make_shared<FastFailPolicy>(model1);
+      }
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -19305,6 +19487,7 @@ public:
   shared_ptr<string> projectName{};
   shared_ptr<string> query{};
   shared_ptr<string> sort{};
+  shared_ptr<vector<string>> withFields{};
 
   FuzzyQueryRequest() {}
 
@@ -19337,6 +19520,9 @@ public:
     if (sort) {
       res["Sort"] = boost::any(*sort);
     }
+    if (withFields) {
+      res["WithFields"] = boost::any(*withFields);
+    }
     return res;
   }
 
@@ -19362,10 +19548,98 @@ public:
     if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
       sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
     }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WithFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WithFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      withFields = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~FuzzyQueryRequest() = default;
+};
+class FuzzyQueryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> datasetName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> order{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> query{};
+  shared_ptr<string> sort{};
+  shared_ptr<string> withFieldsShrink{};
+
+  FuzzyQueryShrinkRequest() {}
+
+  explicit FuzzyQueryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (order) {
+      res["Order"] = boost::any(*order);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (sort) {
+      res["Sort"] = boost::any(*sort);
+    }
+    if (withFieldsShrink) {
+      res["WithFields"] = boost::any(*withFieldsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("Order") != m.end() && !m["Order"].empty()) {
+      order = make_shared<string>(boost::any_cast<string>(m["Order"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("Sort") != m.end() && !m["Sort"].empty()) {
+      sort = make_shared<string>(boost::any_cast<string>(m["Sort"]));
+    }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      withFieldsShrink = make_shared<string>(boost::any_cast<string>(m["WithFields"]));
+    }
+  }
+
+
+  virtual ~FuzzyQueryShrinkRequest() = default;
 };
 class FuzzyQueryResponseBody : public Darabonba::Model {
 public:
@@ -21035,8 +21309,11 @@ public:
 };
 class GetOSSBucketAttachmentResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> createTime{};
+  shared_ptr<string> description{};
   shared_ptr<string> projectName{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> updateTime{};
 
   GetOSSBucketAttachmentResponseBody() {}
 
@@ -21048,21 +21325,39 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (createTime) {
+      res["CreateTime"] = boost::any(*createTime);
+    }
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
     if (projectName) {
       res["ProjectName"] = boost::any(*projectName);
     }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
+    if (updateTime) {
+      res["UpdateTime"] = boost::any(*updateTime);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
+      createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
     if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
       projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
     }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("UpdateTime") != m.end() && !m["UpdateTime"].empty()) {
+      updateTime = make_shared<string>(boost::any_cast<string>(m["UpdateTime"]));
     }
   }
 
@@ -26248,9 +26543,11 @@ class SemanticQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> datasetName{};
   shared_ptr<long> maxResults{};
+  shared_ptr<vector<string>> mediaTypes{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> projectName{};
   shared_ptr<string> query{};
+  shared_ptr<vector<string>> withFields{};
 
   SemanticQueryRequest() {}
 
@@ -26268,6 +26565,9 @@ public:
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
     }
+    if (mediaTypes) {
+      res["MediaTypes"] = boost::any(*mediaTypes);
+    }
     if (nextToken) {
       res["NextToken"] = boost::any(*nextToken);
     }
@@ -26276,6 +26576,9 @@ public:
     }
     if (query) {
       res["Query"] = boost::any(*query);
+    }
+    if (withFields) {
+      res["WithFields"] = boost::any(*withFields);
     }
     return res;
   }
@@ -26287,6 +26590,16 @@ public:
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
+    if (m.find("MediaTypes") != m.end() && !m["MediaTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["MediaTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["MediaTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      mediaTypes = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
       nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
     }
@@ -26296,17 +26609,96 @@ public:
     if (m.find("Query") != m.end() && !m["Query"].empty()) {
       query = make_shared<string>(boost::any_cast<string>(m["Query"]));
     }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["WithFields"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["WithFields"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      withFields = make_shared<vector<string>>(toVec1);
+    }
   }
 
 
   virtual ~SemanticQueryRequest() = default;
 };
+class SemanticQueryShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> datasetName{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> mediaTypesShrink{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> projectName{};
+  shared_ptr<string> query{};
+  shared_ptr<string> withFieldsShrink{};
+
+  SemanticQueryShrinkRequest() {}
+
+  explicit SemanticQueryShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (datasetName) {
+      res["DatasetName"] = boost::any(*datasetName);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (mediaTypesShrink) {
+      res["MediaTypes"] = boost::any(*mediaTypesShrink);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (projectName) {
+      res["ProjectName"] = boost::any(*projectName);
+    }
+    if (query) {
+      res["Query"] = boost::any(*query);
+    }
+    if (withFieldsShrink) {
+      res["WithFields"] = boost::any(*withFieldsShrink);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DatasetName") != m.end() && !m["DatasetName"].empty()) {
+      datasetName = make_shared<string>(boost::any_cast<string>(m["DatasetName"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("MediaTypes") != m.end() && !m["MediaTypes"].empty()) {
+      mediaTypesShrink = make_shared<string>(boost::any_cast<string>(m["MediaTypes"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("ProjectName") != m.end() && !m["ProjectName"].empty()) {
+      projectName = make_shared<string>(boost::any_cast<string>(m["ProjectName"]));
+    }
+    if (m.find("Query") != m.end() && !m["Query"].empty()) {
+      query = make_shared<string>(boost::any_cast<string>(m["Query"]));
+    }
+    if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
+      withFieldsShrink = make_shared<string>(boost::any_cast<string>(m["WithFields"]));
+    }
+  }
+
+
+  virtual ~SemanticQueryShrinkRequest() = default;
+};
 class SemanticQueryResponseBody : public Darabonba::Model {
 public:
   shared_ptr<vector<File>> files{};
-  shared_ptr<string> nextToken{};
   shared_ptr<string> requestId{};
-  shared_ptr<long> totalHits{};
 
   SemanticQueryResponseBody() {}
 
@@ -26325,14 +26717,8 @@ public:
       }
       res["Files"] = boost::any(temp1);
     }
-    if (nextToken) {
-      res["NextToken"] = boost::any(*nextToken);
-    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
-    }
-    if (totalHits) {
-      res["TotalHits"] = boost::any(*totalHits);
     }
     return res;
   }
@@ -26351,14 +26737,8 @@ public:
         files = make_shared<vector<File>>(expect1);
       }
     }
-    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
-      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
-    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-    if (m.find("TotalHits") != m.end() && !m["TotalHits"].empty()) {
-      totalHits = make_shared<long>(boost::any_cast<long>(m["TotalHits"]));
     }
   }
 
@@ -26474,6 +26854,7 @@ public:
   shared_ptr<SimpleQuery> query{};
   shared_ptr<string> sort{};
   shared_ptr<vector<string>> withFields{};
+  shared_ptr<bool> withoutTotalHits{};
 
   SimpleQueryRequest() {}
 
@@ -26515,6 +26896,9 @@ public:
     }
     if (withFields) {
       res["WithFields"] = boost::any(*withFields);
+    }
+    if (withoutTotalHits) {
+      res["WithoutTotalHits"] = boost::any(*withoutTotalHits);
     }
     return res;
   }
@@ -26568,6 +26952,9 @@ public:
       }
       withFields = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("WithoutTotalHits") != m.end() && !m["WithoutTotalHits"].empty()) {
+      withoutTotalHits = make_shared<bool>(boost::any_cast<bool>(m["WithoutTotalHits"]));
+    }
   }
 
 
@@ -26584,6 +26971,7 @@ public:
   shared_ptr<string> queryShrink{};
   shared_ptr<string> sort{};
   shared_ptr<string> withFieldsShrink{};
+  shared_ptr<bool> withoutTotalHits{};
 
   SimpleQueryShrinkRequest() {}
 
@@ -26622,6 +27010,9 @@ public:
     if (withFieldsShrink) {
       res["WithFields"] = boost::any(*withFieldsShrink);
     }
+    if (withoutTotalHits) {
+      res["WithoutTotalHits"] = boost::any(*withoutTotalHits);
+    }
     return res;
   }
 
@@ -26652,6 +27043,9 @@ public:
     }
     if (m.find("WithFields") != m.end() && !m["WithFields"].empty()) {
       withFieldsShrink = make_shared<string>(boost::any_cast<string>(m["WithFields"]));
+    }
+    if (m.find("WithoutTotalHits") != m.end() && !m["WithoutTotalHits"].empty()) {
+      withoutTotalHits = make_shared<bool>(boost::any_cast<bool>(m["WithoutTotalHits"]));
     }
   }
 
@@ -29051,7 +29445,7 @@ public:
   DetectTextAnomalyResponse detectTextAnomaly(shared_ptr<DetectTextAnomalyRequest> request);
   ExtractDocumentTextResponse extractDocumentTextWithOptions(shared_ptr<ExtractDocumentTextRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ExtractDocumentTextResponse extractDocumentText(shared_ptr<ExtractDocumentTextRequest> request);
-  FuzzyQueryResponse fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  FuzzyQueryResponse fuzzyQueryWithOptions(shared_ptr<FuzzyQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   FuzzyQueryResponse fuzzyQuery(shared_ptr<FuzzyQueryRequest> request);
   GenerateWebofficeTokenResponse generateWebofficeTokenWithOptions(shared_ptr<GenerateWebofficeTokenRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GenerateWebofficeTokenResponse generateWebofficeToken(shared_ptr<GenerateWebofficeTokenRequest> request);
@@ -29115,7 +29509,7 @@ public:
   ResumeTriggerResponse resumeTrigger(shared_ptr<ResumeTriggerRequest> request);
   SearchImageFigureClusterResponse searchImageFigureClusterWithOptions(shared_ptr<SearchImageFigureClusterRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchImageFigureClusterResponse searchImageFigureCluster(shared_ptr<SearchImageFigureClusterRequest> request);
-  SemanticQueryResponse semanticQueryWithOptions(shared_ptr<SemanticQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SemanticQueryResponse semanticQueryWithOptions(shared_ptr<SemanticQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SemanticQueryResponse semanticQuery(shared_ptr<SemanticQueryRequest> request);
   SimpleQueryResponse simpleQueryWithOptions(shared_ptr<SimpleQueryRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SimpleQueryResponse simpleQuery(shared_ptr<SimpleQueryRequest> request);
