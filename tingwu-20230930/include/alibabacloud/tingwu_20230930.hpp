@@ -18,8 +18,10 @@ class CreateTaskRequestInput : public Darabonba::Model {
 public:
   shared_ptr<string> fileUrl{};
   shared_ptr<string> format{};
+  shared_ptr<bool> progressiveCallbacksEnabled{};
   shared_ptr<long> sampleRate{};
   shared_ptr<string> sourceLanguage{};
+  shared_ptr<string> taskId{};
   shared_ptr<string> taskKey{};
 
   CreateTaskRequestInput() {}
@@ -38,11 +40,17 @@ public:
     if (format) {
       res["Format"] = boost::any(*format);
     }
+    if (progressiveCallbacksEnabled) {
+      res["ProgressiveCallbacksEnabled"] = boost::any(*progressiveCallbacksEnabled);
+    }
     if (sampleRate) {
       res["SampleRate"] = boost::any(*sampleRate);
     }
     if (sourceLanguage) {
       res["SourceLanguage"] = boost::any(*sourceLanguage);
+    }
+    if (taskId) {
+      res["TaskId"] = boost::any(*taskId);
     }
     if (taskKey) {
       res["TaskKey"] = boost::any(*taskKey);
@@ -57,11 +65,17 @@ public:
     if (m.find("Format") != m.end() && !m["Format"].empty()) {
       format = make_shared<string>(boost::any_cast<string>(m["Format"]));
     }
+    if (m.find("ProgressiveCallbacksEnabled") != m.end() && !m["ProgressiveCallbacksEnabled"].empty()) {
+      progressiveCallbacksEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProgressiveCallbacksEnabled"]));
+    }
     if (m.find("SampleRate") != m.end() && !m["SampleRate"].empty()) {
       sampleRate = make_shared<long>(boost::any_cast<long>(m["SampleRate"]));
     }
     if (m.find("SourceLanguage") != m.end() && !m["SourceLanguage"].empty()) {
       sourceLanguage = make_shared<string>(boost::any_cast<string>(m["SourceLanguage"]));
+    }
+    if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
+      taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
     if (m.find("TaskKey") != m.end() && !m["TaskKey"].empty()) {
       taskKey = make_shared<string>(boost::any_cast<string>(m["TaskKey"]));
@@ -189,6 +203,7 @@ public:
   shared_ptr<bool> audioEventDetectionEnabled{};
   shared_ptr<CreateTaskRequestParametersTranscriptionDiarization> diarization{};
   shared_ptr<bool> diarizationEnabled{};
+  shared_ptr<long> outputLevel{};
 
   CreateTaskRequestParametersTranscription() {}
 
@@ -209,6 +224,9 @@ public:
     if (diarizationEnabled) {
       res["DiarizationEnabled"] = boost::any(*diarizationEnabled);
     }
+    if (outputLevel) {
+      res["OutputLevel"] = boost::any(*outputLevel);
+    }
     return res;
   }
 
@@ -226,6 +244,9 @@ public:
     if (m.find("DiarizationEnabled") != m.end() && !m["DiarizationEnabled"].empty()) {
       diarizationEnabled = make_shared<bool>(boost::any_cast<bool>(m["DiarizationEnabled"]));
     }
+    if (m.find("OutputLevel") != m.end() && !m["OutputLevel"].empty()) {
+      outputLevel = make_shared<long>(boost::any_cast<long>(m["OutputLevel"]));
+    }
   }
 
 
@@ -233,6 +254,7 @@ public:
 };
 class CreateTaskRequestParametersTranslation : public Darabonba::Model {
 public:
+  shared_ptr<long> outputLevel{};
   shared_ptr<map<string, boost::any>> targetLanguages{};
 
   CreateTaskRequestParametersTranslation() {}
@@ -245,6 +267,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (outputLevel) {
+      res["OutputLevel"] = boost::any(*outputLevel);
+    }
     if (targetLanguages) {
       res["TargetLanguages"] = boost::any(*targetLanguages);
     }
@@ -252,6 +277,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputLevel") != m.end() && !m["OutputLevel"].empty()) {
+      outputLevel = make_shared<long>(boost::any_cast<long>(m["OutputLevel"]));
+    }
     if (m.find("TargetLanguages") != m.end() && !m["TargetLanguages"].empty()) {
       map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TargetLanguages"]);
       map<string, boost::any> toMap1;
@@ -269,6 +297,7 @@ class CreateTaskRequestParameters : public Darabonba::Model {
 public:
   shared_ptr<bool> autoChaptersEnabled{};
   shared_ptr<bool> meetingAssistanceEnabled{};
+  shared_ptr<bool> pptExtractionEnabled{};
   shared_ptr<CreateTaskRequestParametersSummarization> summarization{};
   shared_ptr<bool> summarizationEnabled{};
   shared_ptr<CreateTaskRequestParametersTranscoding> transcoding{};
@@ -291,6 +320,9 @@ public:
     }
     if (meetingAssistanceEnabled) {
       res["MeetingAssistanceEnabled"] = boost::any(*meetingAssistanceEnabled);
+    }
+    if (pptExtractionEnabled) {
+      res["PptExtractionEnabled"] = boost::any(*pptExtractionEnabled);
     }
     if (summarization) {
       res["Summarization"] = summarization ? boost::any(summarization->toMap()) : boost::any(map<string,boost::any>({}));
@@ -319,6 +351,9 @@ public:
     }
     if (m.find("MeetingAssistanceEnabled") != m.end() && !m["MeetingAssistanceEnabled"].empty()) {
       meetingAssistanceEnabled = make_shared<bool>(boost::any_cast<bool>(m["MeetingAssistanceEnabled"]));
+    }
+    if (m.find("PptExtractionEnabled") != m.end() && !m["PptExtractionEnabled"].empty()) {
+      pptExtractionEnabled = make_shared<bool>(boost::any_cast<bool>(m["PptExtractionEnabled"]));
     }
     if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
       if (typeid(map<string, boost::any>) == m["Summarization"].type()) {
