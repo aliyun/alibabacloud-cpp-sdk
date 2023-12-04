@@ -85245,6 +85245,7 @@ public:
   shared_ptr<vector<string>> thirdDepartIdList{};
   shared_ptr<string> userId{};
   shared_ptr<string> userName{};
+  shared_ptr<string> userNick{};
 
   IsvUserSaveRequestUserList() {}
 
@@ -85313,6 +85314,9 @@ public:
     }
     if (userName) {
       res["user_name"] = boost::any(*userName);
+    }
+    if (userNick) {
+      res["user_nick"] = boost::any(*userNick);
     }
     return res;
   }
@@ -85388,6 +85392,9 @@ public:
     }
     if (m.find("user_name") != m.end() && !m["user_name"].empty()) {
       userName = make_shared<string>(boost::any_cast<string>(m["user_name"]));
+    }
+    if (m.find("user_nick") != m.end() && !m["user_nick"].empty()) {
+      userNick = make_shared<string>(boost::any_cast<string>(m["user_nick"]));
     }
   }
 
