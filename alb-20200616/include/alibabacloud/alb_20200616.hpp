@@ -16439,6 +16439,42 @@ public:
 
   virtual ~ListRulesResponseBodyRulesRuleActionsFixedResponseConfig() = default;
 };
+class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+  shared_ptr<long> timeout{};
+
+  ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession() {}
+
+  explicit ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["Enabled"] = boost::any(*enabled);
+    }
+    if (timeout) {
+      res["Timeout"] = boost::any(*timeout);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
+    }
+    if (m.find("Timeout") != m.end() && !m["Timeout"].empty()) {
+      timeout = make_shared<long>(boost::any_cast<long>(m["Timeout"]));
+    }
+  }
+
+
+  virtual ~ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession() = default;
+};
 class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples : public Darabonba::Model {
 public:
   shared_ptr<string> serverGroupId{};
@@ -16477,6 +16513,7 @@ public:
 };
 class ListRulesResponseBodyRulesRuleActionsForwardGroupConfig : public Darabonba::Model {
 public:
+  shared_ptr<ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession> serverGroupStickySession{};
   shared_ptr<vector<ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples>> serverGroupTuples{};
 
   ListRulesResponseBodyRulesRuleActionsForwardGroupConfig() {}
@@ -16489,6 +16526,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (serverGroupStickySession) {
+      res["ServerGroupStickySession"] = serverGroupStickySession ? boost::any(serverGroupStickySession->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (serverGroupTuples) {
       vector<boost::any> temp1;
       for(auto item1:*serverGroupTuples){
@@ -16500,6 +16540,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ServerGroupStickySession") != m.end() && !m["ServerGroupStickySession"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ServerGroupStickySession"].type()) {
+        ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ServerGroupStickySession"]));
+        serverGroupStickySession = make_shared<ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupStickySession>(model1);
+      }
+    }
     if (m.find("ServerGroupTuples") != m.end() && !m["ServerGroupTuples"].empty()) {
       if (typeid(vector<boost::any>) == m["ServerGroupTuples"].type()) {
         vector<ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupTuples> expect1;
@@ -16815,6 +16862,7 @@ public:
 class ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig : public Darabonba::Model {
 public:
   shared_ptr<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig> mirrorGroupConfig{};
+  shared_ptr<string> targetType{};
 
   ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfig() {}
 
@@ -16829,6 +16877,9 @@ public:
     if (mirrorGroupConfig) {
       res["MirrorGroupConfig"] = mirrorGroupConfig ? boost::any(mirrorGroupConfig->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (targetType) {
+      res["TargetType"] = boost::any(*targetType);
+    }
     return res;
   }
 
@@ -16839,6 +16890,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MirrorGroupConfig"]));
         mirrorGroupConfig = make_shared<ListRulesResponseBodyRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig>(model1);
       }
+    }
+    if (m.find("TargetType") != m.end() && !m["TargetType"].empty()) {
+      targetType = make_shared<string>(boost::any_cast<string>(m["TargetType"]));
     }
   }
 
