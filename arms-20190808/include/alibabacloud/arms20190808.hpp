@@ -29343,12 +29343,21 @@ public:
 };
 class GetPrometheusInstanceResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<string> authToken{};
   shared_ptr<string> clusterId{};
   shared_ptr<string> clusterName{};
   shared_ptr<string> clusterType{};
   shared_ptr<string> grafanaInstanceId{};
+  shared_ptr<string> httpApiInterUrl{};
+  shared_ptr<string> httpApiIntraUrl{};
   shared_ptr<string> paymentType{};
+  shared_ptr<string> pushGatewayInterUrl{};
+  shared_ptr<string> pushGatewayIntraUrl{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> remoteReadInterUrl{};
+  shared_ptr<string> remoteReadIntraUrl{};
+  shared_ptr<string> remoteWriteInterUrl{};
+  shared_ptr<string> remoteWriteIntraUrl{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceType{};
   shared_ptr<string> securityGroupId{};
@@ -29368,6 +29377,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authToken) {
+      res["AuthToken"] = boost::any(*authToken);
+    }
     if (clusterId) {
       res["ClusterId"] = boost::any(*clusterId);
     }
@@ -29380,11 +29392,35 @@ public:
     if (grafanaInstanceId) {
       res["GrafanaInstanceId"] = boost::any(*grafanaInstanceId);
     }
+    if (httpApiInterUrl) {
+      res["HttpApiInterUrl"] = boost::any(*httpApiInterUrl);
+    }
+    if (httpApiIntraUrl) {
+      res["HttpApiIntraUrl"] = boost::any(*httpApiIntraUrl);
+    }
     if (paymentType) {
       res["PaymentType"] = boost::any(*paymentType);
     }
+    if (pushGatewayInterUrl) {
+      res["PushGatewayInterUrl"] = boost::any(*pushGatewayInterUrl);
+    }
+    if (pushGatewayIntraUrl) {
+      res["PushGatewayIntraUrl"] = boost::any(*pushGatewayIntraUrl);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (remoteReadInterUrl) {
+      res["RemoteReadInterUrl"] = boost::any(*remoteReadInterUrl);
+    }
+    if (remoteReadIntraUrl) {
+      res["RemoteReadIntraUrl"] = boost::any(*remoteReadIntraUrl);
+    }
+    if (remoteWriteInterUrl) {
+      res["RemoteWriteInterUrl"] = boost::any(*remoteWriteInterUrl);
+    }
+    if (remoteWriteIntraUrl) {
+      res["RemoteWriteIntraUrl"] = boost::any(*remoteWriteIntraUrl);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -29418,6 +29454,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthToken") != m.end() && !m["AuthToken"].empty()) {
+      authToken = make_shared<string>(boost::any_cast<string>(m["AuthToken"]));
+    }
     if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
       clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
     }
@@ -29430,11 +29469,35 @@ public:
     if (m.find("GrafanaInstanceId") != m.end() && !m["GrafanaInstanceId"].empty()) {
       grafanaInstanceId = make_shared<string>(boost::any_cast<string>(m["GrafanaInstanceId"]));
     }
+    if (m.find("HttpApiInterUrl") != m.end() && !m["HttpApiInterUrl"].empty()) {
+      httpApiInterUrl = make_shared<string>(boost::any_cast<string>(m["HttpApiInterUrl"]));
+    }
+    if (m.find("HttpApiIntraUrl") != m.end() && !m["HttpApiIntraUrl"].empty()) {
+      httpApiIntraUrl = make_shared<string>(boost::any_cast<string>(m["HttpApiIntraUrl"]));
+    }
     if (m.find("PaymentType") != m.end() && !m["PaymentType"].empty()) {
       paymentType = make_shared<string>(boost::any_cast<string>(m["PaymentType"]));
     }
+    if (m.find("PushGatewayInterUrl") != m.end() && !m["PushGatewayInterUrl"].empty()) {
+      pushGatewayInterUrl = make_shared<string>(boost::any_cast<string>(m["PushGatewayInterUrl"]));
+    }
+    if (m.find("PushGatewayIntraUrl") != m.end() && !m["PushGatewayIntraUrl"].empty()) {
+      pushGatewayIntraUrl = make_shared<string>(boost::any_cast<string>(m["PushGatewayIntraUrl"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RemoteReadInterUrl") != m.end() && !m["RemoteReadInterUrl"].empty()) {
+      remoteReadInterUrl = make_shared<string>(boost::any_cast<string>(m["RemoteReadInterUrl"]));
+    }
+    if (m.find("RemoteReadIntraUrl") != m.end() && !m["RemoteReadIntraUrl"].empty()) {
+      remoteReadIntraUrl = make_shared<string>(boost::any_cast<string>(m["RemoteReadIntraUrl"]));
+    }
+    if (m.find("RemoteWriteInterUrl") != m.end() && !m["RemoteWriteInterUrl"].empty()) {
+      remoteWriteInterUrl = make_shared<string>(boost::any_cast<string>(m["RemoteWriteInterUrl"]));
+    }
+    if (m.find("RemoteWriteIntraUrl") != m.end() && !m["RemoteWriteIntraUrl"].empty()) {
+      remoteWriteIntraUrl = make_shared<string>(boost::any_cast<string>(m["RemoteWriteIntraUrl"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -60703,6 +60766,168 @@ public:
 
   virtual ~UpdateIntegrationResponse() = default;
 };
+class UpdateMetricDropRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> clusterId{};
+  shared_ptr<string> metricDrop{};
+  shared_ptr<string> regionId{};
+
+  UpdateMetricDropRequest() {}
+
+  explicit UpdateMetricDropRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (clusterId) {
+      res["ClusterId"] = boost::any(*clusterId);
+    }
+    if (metricDrop) {
+      res["MetricDrop"] = boost::any(*metricDrop);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClusterId") != m.end() && !m["ClusterId"].empty()) {
+      clusterId = make_shared<string>(boost::any_cast<string>(m["ClusterId"]));
+    }
+    if (m.find("MetricDrop") != m.end() && !m["MetricDrop"].empty()) {
+      metricDrop = make_shared<string>(boost::any_cast<string>(m["MetricDrop"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+  }
+
+
+  virtual ~UpdateMetricDropRequest() = default;
+};
+class UpdateMetricDropResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> code{};
+  shared_ptr<string> data{};
+  shared_ptr<string> message{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  UpdateMetricDropResponseBody() {}
+
+  explicit UpdateMetricDropResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (code) {
+      res["Code"] = boost::any(*code);
+    }
+    if (data) {
+      res["Data"] = boost::any(*data);
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Code") != m.end() && !m["Code"].empty()) {
+      code = make_shared<long>(boost::any_cast<long>(m["Code"]));
+    }
+    if (m.find("Data") != m.end() && !m["Data"].empty()) {
+      data = make_shared<string>(boost::any_cast<string>(m["Data"]));
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~UpdateMetricDropResponseBody() = default;
+};
+class UpdateMetricDropResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateMetricDropResponseBody> body{};
+
+  UpdateMetricDropResponse() {}
+
+  explicit UpdateMetricDropResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateMetricDropResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateMetricDropResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMetricDropResponse() = default;
+};
 class UpdatePrometheusAlertRuleRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -64973,6 +65198,8 @@ public:
   UpdateEnvironmentResponse updateEnvironment(shared_ptr<UpdateEnvironmentRequest> request);
   UpdateIntegrationResponse updateIntegrationWithOptions(shared_ptr<UpdateIntegrationRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateIntegrationResponse updateIntegration(shared_ptr<UpdateIntegrationRequest> request);
+  UpdateMetricDropResponse updateMetricDropWithOptions(shared_ptr<UpdateMetricDropRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateMetricDropResponse updateMetricDrop(shared_ptr<UpdateMetricDropRequest> request);
   UpdatePrometheusAlertRuleResponse updatePrometheusAlertRuleWithOptions(shared_ptr<UpdatePrometheusAlertRuleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdatePrometheusAlertRuleResponse updatePrometheusAlertRule(shared_ptr<UpdatePrometheusAlertRuleRequest> request);
   UpdatePrometheusGlobalViewResponse updatePrometheusGlobalViewWithOptions(shared_ptr<UpdatePrometheusGlobalViewRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
