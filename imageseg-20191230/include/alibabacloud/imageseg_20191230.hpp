@@ -897,209 +897,6 @@ public:
 
   virtual ~RefineMaskResponse() = default;
 };
-class SegmentAnimalRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-  shared_ptr<string> returnForm{};
-
-  SegmentAnimalRequest() {}
-
-  explicit SegmentAnimalRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    if (returnForm) {
-      res["ReturnForm"] = boost::any(*returnForm);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("ReturnForm") != m.end() && !m["ReturnForm"].empty()) {
-      returnForm = make_shared<string>(boost::any_cast<string>(m["ReturnForm"]));
-    }
-  }
-
-
-  virtual ~SegmentAnimalRequest() = default;
-};
-class SegmentAnimalAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-  shared_ptr<string> returnForm{};
-
-  SegmentAnimalAdvanceRequest() {}
-
-  explicit SegmentAnimalAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURL"] = boost::any(*imageURLObject);
-    }
-    if (returnForm) {
-      res["ReturnForm"] = boost::any(*returnForm);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
-    }
-    if (m.find("ReturnForm") != m.end() && !m["ReturnForm"].empty()) {
-      returnForm = make_shared<string>(boost::any_cast<string>(m["ReturnForm"]));
-    }
-  }
-
-
-  virtual ~SegmentAnimalAdvanceRequest() = default;
-};
-class SegmentAnimalResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentAnimalResponseBodyData() {}
-
-  explicit SegmentAnimalResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentAnimalResponseBodyData() = default;
-};
-class SegmentAnimalResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<SegmentAnimalResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  SegmentAnimalResponseBody() {}
-
-  explicit SegmentAnimalResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SegmentAnimalResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SegmentAnimalResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SegmentAnimalResponseBody() = default;
-};
-class SegmentAnimalResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SegmentAnimalResponseBody> body{};
-
-  SegmentAnimalResponse() {}
-
-  explicit SegmentAnimalResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SegmentAnimalResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SegmentAnimalResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentAnimalResponse() = default;
-};
 class SegmentBodyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -1305,7 +1102,9 @@ public:
 };
 class SegmentClothRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> clothClass{};
   shared_ptr<string> imageURL{};
+  shared_ptr<string> returnForm{};
 
   SegmentClothRequest() {}
 
@@ -1317,15 +1116,34 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clothClass) {
+      res["ClothClass"] = boost::any(*clothClass);
+    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
+    }
+    if (returnForm) {
+      res["ReturnForm"] = boost::any(*returnForm);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClothClass") != m.end() && !m["ClothClass"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ClothClass"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClothClass"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clothClass = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
+    }
+    if (m.find("ReturnForm") != m.end() && !m["ReturnForm"].empty()) {
+      returnForm = make_shared<string>(boost::any_cast<string>(m["ReturnForm"]));
     }
   }
 
@@ -1334,7 +1152,9 @@ public:
 };
 class SegmentClothAdvanceRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> clothClass{};
   shared_ptr<Darabonba::Stream> imageURLObject{};
+  shared_ptr<string> returnForm{};
 
   SegmentClothAdvanceRequest() {}
 
@@ -1346,15 +1166,34 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clothClass) {
+      res["ClothClass"] = boost::any(*clothClass);
+    }
     if (imageURLObject) {
       res["ImageURL"] = boost::any(*imageURLObject);
+    }
+    if (returnForm) {
+      res["ReturnForm"] = boost::any(*returnForm);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClothClass") != m.end() && !m["ClothClass"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ClothClass"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ClothClass"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      clothClass = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
+    }
+    if (m.find("ReturnForm") != m.end() && !m["ReturnForm"].empty()) {
+      returnForm = make_shared<string>(boost::any_cast<string>(m["ReturnForm"]));
     }
   }
 
@@ -1363,6 +1202,7 @@ public:
 };
 class SegmentClothResponseBodyDataElements : public Darabonba::Model {
 public:
+  shared_ptr<map<string, string>> classUrl{};
   shared_ptr<string> imageURL{};
 
   SegmentClothResponseBodyDataElements() {}
@@ -1375,6 +1215,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (classUrl) {
+      res["ClassUrl"] = boost::any(*classUrl);
+    }
     if (imageURL) {
       res["ImageURL"] = boost::any(*imageURL);
     }
@@ -1382,6 +1225,14 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClassUrl") != m.end() && !m["ClassUrl"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["ClassUrl"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      classUrl = make_shared<map<string, string>>(toMap1);
+    }
     if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
       imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
     }
@@ -1941,266 +1792,6 @@ public:
 
   virtual ~SegmentCommonImageResponse() = default;
 };
-class SegmentFaceRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentFaceRequest() {}
-
-  explicit SegmentFaceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentFaceRequest() = default;
-};
-class SegmentFaceAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-
-  SegmentFaceAdvanceRequest() {}
-
-  explicit SegmentFaceAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURL"] = boost::any(*imageURLObject);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentFaceAdvanceRequest() = default;
-};
-class SegmentFaceResponseBodyDataElements : public Darabonba::Model {
-public:
-  shared_ptr<long> height{};
-  shared_ptr<string> imageURL{};
-  shared_ptr<long> width{};
-  shared_ptr<long> x{};
-  shared_ptr<long> y{};
-
-  SegmentFaceResponseBodyDataElements() {}
-
-  explicit SegmentFaceResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (height) {
-      res["Height"] = boost::any(*height);
-    }
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    if (width) {
-      res["Width"] = boost::any(*width);
-    }
-    if (x) {
-      res["X"] = boost::any(*x);
-    }
-    if (y) {
-      res["Y"] = boost::any(*y);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Height") != m.end() && !m["Height"].empty()) {
-      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
-    }
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("Width") != m.end() && !m["Width"].empty()) {
-      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
-    }
-    if (m.find("X") != m.end() && !m["X"].empty()) {
-      x = make_shared<long>(boost::any_cast<long>(m["X"]));
-    }
-    if (m.find("Y") != m.end() && !m["Y"].empty()) {
-      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
-    }
-  }
-
-
-  virtual ~SegmentFaceResponseBodyDataElements() = default;
-};
-class SegmentFaceResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<vector<SegmentFaceResponseBodyDataElements>> elements{};
-
-  SegmentFaceResponseBodyData() {}
-
-  explicit SegmentFaceResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (elements) {
-      vector<boost::any> temp1;
-      for(auto item1:*elements){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Elements"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
-      if (typeid(vector<boost::any>) == m["Elements"].type()) {
-        vector<SegmentFaceResponseBodyDataElements> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SegmentFaceResponseBodyDataElements model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        elements = make_shared<vector<SegmentFaceResponseBodyDataElements>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentFaceResponseBodyData() = default;
-};
-class SegmentFaceResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<SegmentFaceResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  SegmentFaceResponseBody() {}
-
-  explicit SegmentFaceResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SegmentFaceResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SegmentFaceResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SegmentFaceResponseBody() = default;
-};
-class SegmentFaceResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SegmentFaceResponseBody> body{};
-
-  SegmentFaceResponse() {}
-
-  explicit SegmentFaceResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SegmentFaceResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SegmentFaceResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentFaceResponse() = default;
-};
 class SegmentFoodRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -2403,238 +1994,6 @@ public:
 
 
   virtual ~SegmentFoodResponse() = default;
-};
-class SegmentFurnitureRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentFurnitureRequest() {}
-
-  explicit SegmentFurnitureRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentFurnitureRequest() = default;
-};
-class SegmentFurnitureAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-
-  SegmentFurnitureAdvanceRequest() {}
-
-  explicit SegmentFurnitureAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURL"] = boost::any(*imageURLObject);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentFurnitureAdvanceRequest() = default;
-};
-class SegmentFurnitureResponseBodyDataElements : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentFurnitureResponseBodyDataElements() {}
-
-  explicit SegmentFurnitureResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentFurnitureResponseBodyDataElements() = default;
-};
-class SegmentFurnitureResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<vector<SegmentFurnitureResponseBodyDataElements>> elements{};
-
-  SegmentFurnitureResponseBodyData() {}
-
-  explicit SegmentFurnitureResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (elements) {
-      vector<boost::any> temp1;
-      for(auto item1:*elements){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Elements"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
-      if (typeid(vector<boost::any>) == m["Elements"].type()) {
-        vector<SegmentFurnitureResponseBodyDataElements> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SegmentFurnitureResponseBodyDataElements model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        elements = make_shared<vector<SegmentFurnitureResponseBodyDataElements>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentFurnitureResponseBodyData() = default;
-};
-class SegmentFurnitureResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<SegmentFurnitureResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  SegmentFurnitureResponseBody() {}
-
-  explicit SegmentFurnitureResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SegmentFurnitureResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SegmentFurnitureResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SegmentFurnitureResponseBody() = default;
-};
-class SegmentFurnitureResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SegmentFurnitureResponseBody> body{};
-
-  SegmentFurnitureResponse() {}
-
-  explicit SegmentFurnitureResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SegmentFurnitureResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SegmentFurnitureResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentFurnitureResponse() = default;
 };
 class SegmentHDBodyRequest : public Darabonba::Model {
 public:
@@ -3744,195 +3103,6 @@ public:
 
   virtual ~SegmentHeadResponse() = default;
 };
-class SegmentLogoRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentLogoRequest() {}
-
-  explicit SegmentLogoRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentLogoRequest() = default;
-};
-class SegmentLogoAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-
-  SegmentLogoAdvanceRequest() {}
-
-  explicit SegmentLogoAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURL"] = boost::any(*imageURLObject);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentLogoAdvanceRequest() = default;
-};
-class SegmentLogoResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentLogoResponseBodyData() {}
-
-  explicit SegmentLogoResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentLogoResponseBodyData() = default;
-};
-class SegmentLogoResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<SegmentLogoResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  SegmentLogoResponseBody() {}
-
-  explicit SegmentLogoResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SegmentLogoResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SegmentLogoResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SegmentLogoResponseBody() = default;
-};
-class SegmentLogoResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SegmentLogoResponseBody> body{};
-
-  SegmentLogoResponse() {}
-
-  explicit SegmentLogoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SegmentLogoResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SegmentLogoResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentLogoResponse() = default;
-};
 class SegmentSceneRequest : public Darabonba::Model {
 public:
   shared_ptr<string> imageURL{};
@@ -4500,245 +3670,6 @@ public:
 
   virtual ~SegmentSkyResponse() = default;
 };
-class SegmentVehicleRequest : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-
-  SegmentVehicleRequest() {}
-
-  explicit SegmentVehicleRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentVehicleRequest() = default;
-};
-class SegmentVehicleAdvanceRequest : public Darabonba::Model {
-public:
-  shared_ptr<Darabonba::Stream> imageURLObject{};
-
-  SegmentVehicleAdvanceRequest() {}
-
-  explicit SegmentVehicleAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURLObject) {
-      res["ImageURL"] = boost::any(*imageURLObject);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["ImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentVehicleAdvanceRequest() = default;
-};
-class SegmentVehicleResponseBodyDataElements : public Darabonba::Model {
-public:
-  shared_ptr<string> imageURL{};
-  shared_ptr<string> originImageURL{};
-
-  SegmentVehicleResponseBodyDataElements() {}
-
-  explicit SegmentVehicleResponseBodyDataElements(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (imageURL) {
-      res["ImageURL"] = boost::any(*imageURL);
-    }
-    if (originImageURL) {
-      res["OriginImageURL"] = boost::any(*originImageURL);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("ImageURL") != m.end() && !m["ImageURL"].empty()) {
-      imageURL = make_shared<string>(boost::any_cast<string>(m["ImageURL"]));
-    }
-    if (m.find("OriginImageURL") != m.end() && !m["OriginImageURL"].empty()) {
-      originImageURL = make_shared<string>(boost::any_cast<string>(m["OriginImageURL"]));
-    }
-  }
-
-
-  virtual ~SegmentVehicleResponseBodyDataElements() = default;
-};
-class SegmentVehicleResponseBodyData : public Darabonba::Model {
-public:
-  shared_ptr<vector<SegmentVehicleResponseBodyDataElements>> elements{};
-
-  SegmentVehicleResponseBodyData() {}
-
-  explicit SegmentVehicleResponseBodyData(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (elements) {
-      vector<boost::any> temp1;
-      for(auto item1:*elements){
-        temp1.push_back(boost::any(item1.toMap()));
-      }
-      res["Elements"] = boost::any(temp1);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Elements") != m.end() && !m["Elements"].empty()) {
-      if (typeid(vector<boost::any>) == m["Elements"].type()) {
-        vector<SegmentVehicleResponseBodyDataElements> expect1;
-        for(auto item1:boost::any_cast<vector<boost::any>>(m["Elements"])){
-          if (typeid(map<string, boost::any>) == item1.type()) {
-            SegmentVehicleResponseBodyDataElements model2;
-            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
-            expect1.push_back(model2);
-          }
-        }
-        elements = make_shared<vector<SegmentVehicleResponseBodyDataElements>>(expect1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentVehicleResponseBodyData() = default;
-};
-class SegmentVehicleResponseBody : public Darabonba::Model {
-public:
-  shared_ptr<SegmentVehicleResponseBodyData> data{};
-  shared_ptr<string> requestId{};
-
-  SegmentVehicleResponseBody() {}
-
-  explicit SegmentVehicleResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {}
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (data) {
-      res["Data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    if (requestId) {
-      res["RequestId"] = boost::any(*requestId);
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("Data") != m.end() && !m["Data"].empty()) {
-      if (typeid(map<string, boost::any>) == m["Data"].type()) {
-        SegmentVehicleResponseBodyData model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Data"]));
-        data = make_shared<SegmentVehicleResponseBodyData>(model1);
-      }
-    }
-    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
-      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
-    }
-  }
-
-
-  virtual ~SegmentVehicleResponseBody() = default;
-};
-class SegmentVehicleResponse : public Darabonba::Model {
-public:
-  shared_ptr<map<string, string>> headers{};
-  shared_ptr<long> statusCode{};
-  shared_ptr<SegmentVehicleResponseBody> body{};
-
-  SegmentVehicleResponse() {}
-
-  explicit SegmentVehicleResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
-    fromMap(config);
-  };
-
-  void validate() override {
-    if (!headers) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
-    }
-    if (!statusCode) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
-    }
-    if (!body) {
-      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
-    }
-  }
-
-  map<string, boost::any> toMap() override {
-    map<string, boost::any> res;
-    if (headers) {
-      res["headers"] = boost::any(*headers);
-    }
-    if (statusCode) {
-      res["statusCode"] = boost::any(*statusCode);
-    }
-    if (body) {
-      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
-    }
-    return res;
-  }
-
-  void fromMap(map<string, boost::any> m) override {
-    if (m.find("headers") != m.end() && !m["headers"].empty()) {
-      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
-      map<string, string> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
-      }
-      headers = make_shared<map<string, string>>(toMap1);
-    }
-    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
-      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
-    }
-    if (m.find("body") != m.end() && !m["body"].empty()) {
-      if (typeid(map<string, boost::any>) == m["body"].type()) {
-        SegmentVehicleResponseBody model1;
-        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
-        body = make_shared<SegmentVehicleResponseBody>(model1);
-      }
-    }
-  }
-
-
-  virtual ~SegmentVehicleResponse() = default;
-};
 class Client : Alibabacloud_OpenApi::Client {
 public:
   explicit Client(const shared_ptr<Alibabacloud_OpenApi::Config>& config);
@@ -4760,9 +3691,6 @@ public:
   RefineMaskResponse refineMaskWithOptions(shared_ptr<RefineMaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   RefineMaskResponse refineMask(shared_ptr<RefineMaskRequest> request);
   RefineMaskResponse refineMaskAdvance(shared_ptr<RefineMaskAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentAnimalResponse segmentAnimalWithOptions(shared_ptr<SegmentAnimalRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentAnimalResponse segmentAnimal(shared_ptr<SegmentAnimalRequest> request);
-  SegmentAnimalResponse segmentAnimalAdvance(shared_ptr<SegmentAnimalAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentBodyResponse segmentBodyWithOptions(shared_ptr<SegmentBodyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentBodyResponse segmentBody(shared_ptr<SegmentBodyRequest> request);
   SegmentBodyResponse segmentBodyAdvance(shared_ptr<SegmentBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4775,15 +3703,9 @@ public:
   SegmentCommonImageResponse segmentCommonImageWithOptions(shared_ptr<SegmentCommonImageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentCommonImageResponse segmentCommonImage(shared_ptr<SegmentCommonImageRequest> request);
   SegmentCommonImageResponse segmentCommonImageAdvance(shared_ptr<SegmentCommonImageAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentFaceResponse segmentFaceWithOptions(shared_ptr<SegmentFaceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentFaceResponse segmentFace(shared_ptr<SegmentFaceRequest> request);
-  SegmentFaceResponse segmentFaceAdvance(shared_ptr<SegmentFaceAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentFoodResponse segmentFoodWithOptions(shared_ptr<SegmentFoodRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentFoodResponse segmentFood(shared_ptr<SegmentFoodRequest> request);
   SegmentFoodResponse segmentFoodAdvance(shared_ptr<SegmentFoodAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentFurnitureResponse segmentFurnitureWithOptions(shared_ptr<SegmentFurnitureRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentFurnitureResponse segmentFurniture(shared_ptr<SegmentFurnitureRequest> request);
-  SegmentFurnitureResponse segmentFurnitureAdvance(shared_ptr<SegmentFurnitureAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentHDBodyResponse segmentHDBodyWithOptions(shared_ptr<SegmentHDBodyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentHDBodyResponse segmentHDBody(shared_ptr<SegmentHDBodyRequest> request);
   SegmentHDBodyResponse segmentHDBodyAdvance(shared_ptr<SegmentHDBodyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4799,9 +3721,6 @@ public:
   SegmentHeadResponse segmentHeadWithOptions(shared_ptr<SegmentHeadRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentHeadResponse segmentHead(shared_ptr<SegmentHeadRequest> request);
   SegmentHeadResponse segmentHeadAdvance(shared_ptr<SegmentHeadAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentLogoResponse segmentLogoWithOptions(shared_ptr<SegmentLogoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentLogoResponse segmentLogo(shared_ptr<SegmentLogoRequest> request);
-  SegmentLogoResponse segmentLogoAdvance(shared_ptr<SegmentLogoAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentSceneResponse segmentSceneWithOptions(shared_ptr<SegmentSceneRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentSceneResponse segmentScene(shared_ptr<SegmentSceneRequest> request);
   SegmentSceneResponse segmentSceneAdvance(shared_ptr<SegmentSceneAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -4811,9 +3730,6 @@ public:
   SegmentSkyResponse segmentSkyWithOptions(shared_ptr<SegmentSkyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SegmentSkyResponse segmentSky(shared_ptr<SegmentSkyRequest> request);
   SegmentSkyResponse segmentSkyAdvance(shared_ptr<SegmentSkyAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentVehicleResponse segmentVehicleWithOptions(shared_ptr<SegmentVehicleRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SegmentVehicleResponse segmentVehicle(shared_ptr<SegmentVehicleRequest> request);
-  SegmentVehicleResponse segmentVehicleAdvance(shared_ptr<SegmentVehicleAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
 
   virtual ~Client() = default;
 };
