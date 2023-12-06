@@ -12868,6 +12868,9 @@ ExportSuspEventsResponse Alibabacloud_Sas20181203::Client::exportSuspEventsWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->from)) {
     query->insert(pair<string, string>("From", *request->from));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
+    query->insert(pair<string, long>("GroupId", *request->groupId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
     query->insert(pair<string, long>("Id", *request->id));
   }
@@ -16467,6 +16470,49 @@ ListAvailableHoneypotResponse Alibabacloud_Sas20181203::Client::listAvailableHon
 ListAvailableHoneypotResponse Alibabacloud_Sas20181203::Client::listAvailableHoneypot(shared_ptr<ListAvailableHoneypotRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listAvailableHoneypotWithOptions(request, runtime);
+}
+
+ListBackupRecordResponse Alibabacloud_Sas20181203::Client::listBackupRecordWithOptions(shared_ptr<ListBackupRecordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->backupEndTime)) {
+    query->insert(pair<string, long>("BackupEndTime", *request->backupEndTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->backupStartTime)) {
+    query->insert(pair<string, long>("BackupStartTime", *request->backupStartTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
+    query->insert(pair<string, long>("CurrentPage", *request->currentPage));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->machineRemark)) {
+    query->insert(pair<string, string>("MachineRemark", *request->machineRemark));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->statusList)) {
+    query->insert(pair<string, vector<string>>("StatusList", *request->statusList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListBackupRecord"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListBackupRecordResponse(callApi(params, req, runtime));
+}
+
+ListBackupRecordResponse Alibabacloud_Sas20181203::Client::listBackupRecord(shared_ptr<ListBackupRecordRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listBackupRecordWithOptions(request, runtime);
 }
 
 ListCheckInstanceResultResponse Alibabacloud_Sas20181203::Client::listCheckInstanceResultWithOptions(shared_ptr<ListCheckInstanceResultRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
