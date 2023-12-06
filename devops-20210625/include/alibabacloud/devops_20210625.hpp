@@ -1506,6 +1506,332 @@ public:
 
   virtual ~CreateBranchResponse() = default;
 };
+class CreateCommitStatusRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> context{};
+  shared_ptr<string> description{};
+  shared_ptr<string> state{};
+  shared_ptr<string> targetUrl{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+  shared_ptr<string> sha{};
+
+  CreateCommitStatusRequest() {}
+
+  explicit CreateCommitStatusRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (context) {
+      res["context"] = boost::any(*context);
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (targetUrl) {
+      res["targetUrl"] = boost::any(*targetUrl);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    if (sha) {
+      res["sha"] = boost::any(*sha);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("context") != m.end() && !m["context"].empty()) {
+      context = make_shared<string>(boost::any_cast<string>(m["context"]));
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("targetUrl") != m.end() && !m["targetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["targetUrl"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+    if (m.find("sha") != m.end() && !m["sha"].empty()) {
+      sha = make_shared<string>(boost::any_cast<string>(m["sha"]));
+    }
+  }
+
+
+  virtual ~CreateCommitStatusRequest() = default;
+};
+class CreateCommitStatusResponseBodyResultCreator : public Darabonba::Model {
+public:
+  shared_ptr<long> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> login{};
+  shared_ptr<string> type{};
+
+  CreateCommitStatusResponseBodyResultCreator() {}
+
+  explicit CreateCommitStatusResponseBodyResultCreator(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (login) {
+      res["login"] = boost::any(*login);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<long>(boost::any_cast<long>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("login") != m.end() && !m["login"].empty()) {
+      login = make_shared<string>(boost::any_cast<string>(m["login"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~CreateCommitStatusResponseBodyResultCreator() = default;
+};
+class CreateCommitStatusResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> context{};
+  shared_ptr<CreateCommitStatusResponseBodyResultCreator> creator{};
+  shared_ptr<string> description{};
+  shared_ptr<long> id{};
+  shared_ptr<string> sha{};
+  shared_ptr<string> state{};
+  shared_ptr<string> targetUrl{};
+
+  CreateCommitStatusResponseBodyResult() {}
+
+  explicit CreateCommitStatusResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (context) {
+      res["context"] = boost::any(*context);
+    }
+    if (creator) {
+      res["creator"] = creator ? boost::any(creator->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (sha) {
+      res["sha"] = boost::any(*sha);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (targetUrl) {
+      res["targetUrl"] = boost::any(*targetUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("context") != m.end() && !m["context"].empty()) {
+      context = make_shared<string>(boost::any_cast<string>(m["context"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      if (typeid(map<string, boost::any>) == m["creator"].type()) {
+        CreateCommitStatusResponseBodyResultCreator model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["creator"]));
+        creator = make_shared<CreateCommitStatusResponseBodyResultCreator>(model1);
+      }
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("sha") != m.end() && !m["sha"].empty()) {
+      sha = make_shared<string>(boost::any_cast<string>(m["sha"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("targetUrl") != m.end() && !m["targetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["targetUrl"]));
+    }
+  }
+
+
+  virtual ~CreateCommitStatusResponseBodyResult() = default;
+};
+class CreateCommitStatusResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<CreateCommitStatusResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  CreateCommitStatusResponseBody() {}
+
+  explicit CreateCommitStatusResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        CreateCommitStatusResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<CreateCommitStatusResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~CreateCommitStatusResponseBody() = default;
+};
+class CreateCommitStatusResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateCommitStatusResponseBody> body{};
+
+  CreateCommitStatusResponse() {}
+
+  explicit CreateCommitStatusResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateCommitStatusResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateCommitStatusResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateCommitStatusResponse() = default;
+};
 class CreateDeployKeyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> accessToken{};
@@ -19557,6 +19883,335 @@ public:
 
   virtual ~GetMergeRequestResponse() = default;
 };
+class GetMergeRequestChangeTreeRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> fromPatchSetBizId{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+  shared_ptr<string> toPatchSetBizId{};
+
+  GetMergeRequestChangeTreeRequest() {}
+
+  explicit GetMergeRequestChangeTreeRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (fromPatchSetBizId) {
+      res["fromPatchSetBizId"] = boost::any(*fromPatchSetBizId);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    if (toPatchSetBizId) {
+      res["toPatchSetBizId"] = boost::any(*toPatchSetBizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("fromPatchSetBizId") != m.end() && !m["fromPatchSetBizId"].empty()) {
+      fromPatchSetBizId = make_shared<string>(boost::any_cast<string>(m["fromPatchSetBizId"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+    if (m.find("toPatchSetBizId") != m.end() && !m["toPatchSetBizId"].empty()) {
+      toPatchSetBizId = make_shared<string>(boost::any_cast<string>(m["toPatchSetBizId"]));
+    }
+  }
+
+
+  virtual ~GetMergeRequestChangeTreeRequest() = default;
+};
+class GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos : public Darabonba::Model {
+public:
+  shared_ptr<long> addLines{};
+  shared_ptr<bool> binaryFile{};
+  shared_ptr<long> delLines{};
+  shared_ptr<bool> deletedFile{};
+  shared_ptr<bool> newFile{};
+  shared_ptr<string> newPath{};
+  shared_ptr<string> oldPath{};
+  shared_ptr<bool> renamedFile{};
+
+  GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos() {}
+
+  explicit GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (addLines) {
+      res["addLines"] = boost::any(*addLines);
+    }
+    if (binaryFile) {
+      res["binaryFile"] = boost::any(*binaryFile);
+    }
+    if (delLines) {
+      res["delLines"] = boost::any(*delLines);
+    }
+    if (deletedFile) {
+      res["deletedFile"] = boost::any(*deletedFile);
+    }
+    if (newFile) {
+      res["newFile"] = boost::any(*newFile);
+    }
+    if (newPath) {
+      res["newPath"] = boost::any(*newPath);
+    }
+    if (oldPath) {
+      res["oldPath"] = boost::any(*oldPath);
+    }
+    if (renamedFile) {
+      res["renamedFile"] = boost::any(*renamedFile);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("addLines") != m.end() && !m["addLines"].empty()) {
+      addLines = make_shared<long>(boost::any_cast<long>(m["addLines"]));
+    }
+    if (m.find("binaryFile") != m.end() && !m["binaryFile"].empty()) {
+      binaryFile = make_shared<bool>(boost::any_cast<bool>(m["binaryFile"]));
+    }
+    if (m.find("delLines") != m.end() && !m["delLines"].empty()) {
+      delLines = make_shared<long>(boost::any_cast<long>(m["delLines"]));
+    }
+    if (m.find("deletedFile") != m.end() && !m["deletedFile"].empty()) {
+      deletedFile = make_shared<bool>(boost::any_cast<bool>(m["deletedFile"]));
+    }
+    if (m.find("newFile") != m.end() && !m["newFile"].empty()) {
+      newFile = make_shared<bool>(boost::any_cast<bool>(m["newFile"]));
+    }
+    if (m.find("newPath") != m.end() && !m["newPath"].empty()) {
+      newPath = make_shared<string>(boost::any_cast<string>(m["newPath"]));
+    }
+    if (m.find("oldPath") != m.end() && !m["oldPath"].empty()) {
+      oldPath = make_shared<string>(boost::any_cast<string>(m["oldPath"]));
+    }
+    if (m.find("renamedFile") != m.end() && !m["renamedFile"].empty()) {
+      renamedFile = make_shared<bool>(boost::any_cast<bool>(m["renamedFile"]));
+    }
+  }
+
+
+  virtual ~GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos() = default;
+};
+class GetMergeRequestChangeTreeResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<long> changedFilesCount{};
+  shared_ptr<vector<GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos>> changedFilesInfos{};
+  shared_ptr<long> totalAddLines{};
+  shared_ptr<long> totalDelLines{};
+
+  GetMergeRequestChangeTreeResponseBodyResult() {}
+
+  explicit GetMergeRequestChangeTreeResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (changedFilesCount) {
+      res["changedFilesCount"] = boost::any(*changedFilesCount);
+    }
+    if (changedFilesInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*changedFilesInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["changedFilesInfos"] = boost::any(temp1);
+    }
+    if (totalAddLines) {
+      res["totalAddLines"] = boost::any(*totalAddLines);
+    }
+    if (totalDelLines) {
+      res["totalDelLines"] = boost::any(*totalDelLines);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("changedFilesCount") != m.end() && !m["changedFilesCount"].empty()) {
+      changedFilesCount = make_shared<long>(boost::any_cast<long>(m["changedFilesCount"]));
+    }
+    if (m.find("changedFilesInfos") != m.end() && !m["changedFilesInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["changedFilesInfos"].type()) {
+        vector<GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["changedFilesInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        changedFilesInfos = make_shared<vector<GetMergeRequestChangeTreeResponseBodyResultChangedFilesInfos>>(expect1);
+      }
+    }
+    if (m.find("totalAddLines") != m.end() && !m["totalAddLines"].empty()) {
+      totalAddLines = make_shared<long>(boost::any_cast<long>(m["totalAddLines"]));
+    }
+    if (m.find("totalDelLines") != m.end() && !m["totalDelLines"].empty()) {
+      totalDelLines = make_shared<long>(boost::any_cast<long>(m["totalDelLines"]));
+    }
+  }
+
+
+  virtual ~GetMergeRequestChangeTreeResponseBodyResult() = default;
+};
+class GetMergeRequestChangeTreeResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<GetMergeRequestChangeTreeResponseBodyResult> result{};
+  shared_ptr<bool> success{};
+
+  GetMergeRequestChangeTreeResponseBody() {}
+
+  explicit GetMergeRequestChangeTreeResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["result"].type()) {
+        GetMergeRequestChangeTreeResponseBodyResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
+        result = make_shared<GetMergeRequestChangeTreeResponseBodyResult>(model1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~GetMergeRequestChangeTreeResponseBody() = default;
+};
+class GetMergeRequestChangeTreeResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<GetMergeRequestChangeTreeResponseBody> body{};
+
+  GetMergeRequestChangeTreeResponse() {}
+
+  explicit GetMergeRequestChangeTreeResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        GetMergeRequestChangeTreeResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<GetMergeRequestChangeTreeResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~GetMergeRequestChangeTreeResponse() = default;
+};
 class GetOrganizationMemberResponseBodyMemberIdentities : public Darabonba::Model {
 public:
   shared_ptr<string> externUid{};
@@ -19601,6 +20256,7 @@ public:
   shared_ptr<string> email{};
   shared_ptr<long> hiredDate{};
   shared_ptr<GetOrganizationMemberResponseBodyMemberIdentities> identities{};
+  shared_ptr<string> jobNumber{};
   shared_ptr<long> joinTime{};
   shared_ptr<long> lastVisitTime{};
   shared_ptr<string> mobile{};
@@ -19636,6 +20292,9 @@ public:
     }
     if (identities) {
       res["identities"] = identities ? boost::any(identities->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (jobNumber) {
+      res["jobNumber"] = boost::any(*jobNumber);
     }
     if (joinTime) {
       res["joinTime"] = boost::any(*joinTime);
@@ -19690,6 +20349,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["identities"]));
         identities = make_shared<GetOrganizationMemberResponseBodyMemberIdentities>(model1);
       }
+    }
+    if (m.find("jobNumber") != m.end() && !m["jobNumber"].empty()) {
+      jobNumber = make_shared<string>(boost::any_cast<string>(m["jobNumber"]));
     }
     if (m.find("joinTime") != m.end() && !m["joinTime"].empty()) {
       joinTime = make_shared<long>(boost::any_cast<long>(m["joinTime"]));
@@ -28809,6 +29471,335 @@ public:
 
   virtual ~JoinPipelineGroupResponse() = default;
 };
+class ListCommitStatusesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<long> page{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> repositoryIdentity{};
+  shared_ptr<string> sha{};
+
+  ListCommitStatusesRequest() {}
+
+  explicit ListCommitStatusesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (page) {
+      res["page"] = boost::any(*page);
+    }
+    if (pageSize) {
+      res["pageSize"] = boost::any(*pageSize);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    if (sha) {
+      res["sha"] = boost::any(*sha);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("page") != m.end() && !m["page"].empty()) {
+      page = make_shared<long>(boost::any_cast<long>(m["page"]));
+    }
+    if (m.find("pageSize") != m.end() && !m["pageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["pageSize"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+    if (m.find("sha") != m.end() && !m["sha"].empty()) {
+      sha = make_shared<string>(boost::any_cast<string>(m["sha"]));
+    }
+  }
+
+
+  virtual ~ListCommitStatusesRequest() = default;
+};
+class ListCommitStatusesResponseBodyResultCreator : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> login{};
+  shared_ptr<string> type{};
+
+  ListCommitStatusesResponseBodyResultCreator() {}
+
+  explicit ListCommitStatusesResponseBodyResultCreator(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (login) {
+      res["login"] = boost::any(*login);
+    }
+    if (type) {
+      res["type"] = boost::any(*type);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("login") != m.end() && !m["login"].empty()) {
+      login = make_shared<string>(boost::any_cast<string>(m["login"]));
+    }
+    if (m.find("type") != m.end() && !m["type"].empty()) {
+      type = make_shared<string>(boost::any_cast<string>(m["type"]));
+    }
+  }
+
+
+  virtual ~ListCommitStatusesResponseBodyResultCreator() = default;
+};
+class ListCommitStatusesResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> context{};
+  shared_ptr<ListCommitStatusesResponseBodyResultCreator> creator{};
+  shared_ptr<string> description{};
+  shared_ptr<long> id{};
+  shared_ptr<string> sha{};
+  shared_ptr<string> state{};
+  shared_ptr<string> targetUrl{};
+
+  ListCommitStatusesResponseBodyResult() {}
+
+  explicit ListCommitStatusesResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (context) {
+      res["context"] = boost::any(*context);
+    }
+    if (creator) {
+      res["creator"] = creator ? boost::any(creator->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (description) {
+      res["description"] = boost::any(*description);
+    }
+    if (id) {
+      res["id"] = boost::any(*id);
+    }
+    if (sha) {
+      res["sha"] = boost::any(*sha);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (targetUrl) {
+      res["targetUrl"] = boost::any(*targetUrl);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("context") != m.end() && !m["context"].empty()) {
+      context = make_shared<string>(boost::any_cast<string>(m["context"]));
+    }
+    if (m.find("creator") != m.end() && !m["creator"].empty()) {
+      if (typeid(map<string, boost::any>) == m["creator"].type()) {
+        ListCommitStatusesResponseBodyResultCreator model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["creator"]));
+        creator = make_shared<ListCommitStatusesResponseBodyResultCreator>(model1);
+      }
+    }
+    if (m.find("description") != m.end() && !m["description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["description"]));
+    }
+    if (m.find("id") != m.end() && !m["id"].empty()) {
+      id = make_shared<long>(boost::any_cast<long>(m["id"]));
+    }
+    if (m.find("sha") != m.end() && !m["sha"].empty()) {
+      sha = make_shared<string>(boost::any_cast<string>(m["sha"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("targetUrl") != m.end() && !m["targetUrl"].empty()) {
+      targetUrl = make_shared<string>(boost::any_cast<string>(m["targetUrl"]));
+    }
+  }
+
+
+  virtual ~ListCommitStatusesResponseBodyResult() = default;
+};
+class ListCommitStatusesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListCommitStatusesResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+  shared_ptr<long> total{};
+
+  ListCommitStatusesResponseBody() {}
+
+  explicit ListCommitStatusesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    if (total) {
+      res["total"] = boost::any(*total);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(vector<boost::any>) == m["result"].type()) {
+        vector<ListCommitStatusesResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListCommitStatusesResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ListCommitStatusesResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+    if (m.find("total") != m.end() && !m["total"].empty()) {
+      total = make_shared<long>(boost::any_cast<long>(m["total"]));
+    }
+  }
+
+
+  virtual ~ListCommitStatusesResponseBody() = default;
+};
+class ListCommitStatusesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListCommitStatusesResponseBody> body{};
+
+  ListCommitStatusesResponse() {}
+
+  explicit ListCommitStatusesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListCommitStatusesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListCommitStatusesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListCommitStatusesResponse() = default;
+};
 class ListFlowTagGroupsResponseBodyFlowTagGroups : public Darabonba::Model {
 public:
   shared_ptr<string> creatorAccountId{};
@@ -29991,6 +30982,1655 @@ public:
 
 
   virtual ~ListHostGroupsResponse() = default;
+};
+class ListMergeRequestCommentsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> filePath{};
+  shared_ptr<vector<string>> patchSetBizIds{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<string> state{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+
+  ListMergeRequestCommentsRequest() {}
+
+  explicit ListMergeRequestCommentsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (patchSetBizIds) {
+      res["patchSetBizIds"] = boost::any(*patchSetBizIds);
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("patchSetBizIds") != m.end() && !m["patchSetBizIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["patchSetBizIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["patchSetBizIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      patchSetBizIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsRequest() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultAuthor : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+
+  ListMergeRequestCommentsResponseBodyResultAuthor() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultAuthor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultAuthor() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+
+  ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+
+  ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet : public Darabonba::Model {
+public:
+  shared_ptr<string> commitId{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<string> patchSetName{};
+  shared_ptr<string> patchSetNo{};
+  shared_ptr<string> relatedMergeItemType{};
+  shared_ptr<string> shortId{};
+
+  ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commitId) {
+      res["commitId"] = boost::any(*commitId);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (patchSetName) {
+      res["patchSetName"] = boost::any(*patchSetName);
+    }
+    if (patchSetNo) {
+      res["patchSetNo"] = boost::any(*patchSetNo);
+    }
+    if (relatedMergeItemType) {
+      res["relatedMergeItemType"] = boost::any(*relatedMergeItemType);
+    }
+    if (shortId) {
+      res["shortId"] = boost::any(*shortId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commitId") != m.end() && !m["commitId"].empty()) {
+      commitId = make_shared<string>(boost::any_cast<string>(m["commitId"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("patchSetName") != m.end() && !m["patchSetName"].empty()) {
+      patchSetName = make_shared<string>(boost::any_cast<string>(m["patchSetName"]));
+    }
+    if (m.find("patchSetNo") != m.end() && !m["patchSetNo"].empty()) {
+      patchSetNo = make_shared<string>(boost::any_cast<string>(m["patchSetNo"]));
+    }
+    if (m.find("relatedMergeItemType") != m.end() && !m["relatedMergeItemType"].empty()) {
+      relatedMergeItemType = make_shared<string>(boost::any_cast<string>(m["relatedMergeItemType"]));
+    }
+    if (m.find("shortId") != m.end() && !m["shortId"].empty()) {
+      shortId = make_shared<string>(boost::any_cast<string>(m["shortId"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments : public Darabonba::Model {
+public:
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor> author{};
+  shared_ptr<string> commentBizId{};
+  shared_ptr<string> commentTime{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> lastEditTime{};
+  shared_ptr<string> lineNumber{};
+  shared_ptr<string> parentCommentBizId{};
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet> relatedPatchSet{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<string> rootCommentBizId{};
+  shared_ptr<string> state{};
+
+  ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["author"] = author ? boost::any(author->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (commentBizId) {
+      res["commentBizId"] = boost::any(*commentBizId);
+    }
+    if (commentTime) {
+      res["commentTime"] = boost::any(*commentTime);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (deleted) {
+      res["deleted"] = boost::any(*deleted);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (lastEditTime) {
+      res["lastEditTime"] = boost::any(*lastEditTime);
+    }
+    if (lineNumber) {
+      res["lineNumber"] = boost::any(*lineNumber);
+    }
+    if (parentCommentBizId) {
+      res["parentCommentBizId"] = boost::any(*parentCommentBizId);
+    }
+    if (relatedPatchSet) {
+      res["relatedPatchSet"] = relatedPatchSet ? boost::any(relatedPatchSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (rootCommentBizId) {
+      res["rootCommentBizId"] = boost::any(*rootCommentBizId);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("author") != m.end() && !m["author"].empty()) {
+      if (typeid(map<string, boost::any>) == m["author"].type()) {
+        ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["author"]));
+        author = make_shared<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsAuthor>(model1);
+      }
+    }
+    if (m.find("commentBizId") != m.end() && !m["commentBizId"].empty()) {
+      commentBizId = make_shared<string>(boost::any_cast<string>(m["commentBizId"]));
+    }
+    if (m.find("commentTime") != m.end() && !m["commentTime"].empty()) {
+      commentTime = make_shared<string>(boost::any_cast<string>(m["commentTime"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("deleted") != m.end() && !m["deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["deleted"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("lastEditTime") != m.end() && !m["lastEditTime"].empty()) {
+      lastEditTime = make_shared<string>(boost::any_cast<string>(m["lastEditTime"]));
+    }
+    if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
+      lineNumber = make_shared<string>(boost::any_cast<string>(m["lineNumber"]));
+    }
+    if (m.find("parentCommentBizId") != m.end() && !m["parentCommentBizId"].empty()) {
+      parentCommentBizId = make_shared<string>(boost::any_cast<string>(m["parentCommentBizId"]));
+    }
+    if (m.find("relatedPatchSet") != m.end() && !m["relatedPatchSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["relatedPatchSet"].type()) {
+        ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["relatedPatchSet"]));
+        relatedPatchSet = make_shared<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildCommentsRelatedPatchSet>(model1);
+      }
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("rootCommentBizId") != m.end() && !m["rootCommentBizId"].empty()) {
+      rootCommentBizId = make_shared<string>(boost::any_cast<string>(m["rootCommentBizId"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet : public Darabonba::Model {
+public:
+  shared_ptr<string> commitId{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<string> patchSetName{};
+  shared_ptr<string> patchSetNo{};
+  shared_ptr<string> relatedMergeItemType{};
+  shared_ptr<string> shortId{};
+
+  ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commitId) {
+      res["commitId"] = boost::any(*commitId);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (patchSetName) {
+      res["patchSetName"] = boost::any(*patchSetName);
+    }
+    if (patchSetNo) {
+      res["patchSetNo"] = boost::any(*patchSetNo);
+    }
+    if (relatedMergeItemType) {
+      res["relatedMergeItemType"] = boost::any(*relatedMergeItemType);
+    }
+    if (shortId) {
+      res["shortId"] = boost::any(*shortId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commitId") != m.end() && !m["commitId"].empty()) {
+      commitId = make_shared<string>(boost::any_cast<string>(m["commitId"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("patchSetName") != m.end() && !m["patchSetName"].empty()) {
+      patchSetName = make_shared<string>(boost::any_cast<string>(m["patchSetName"]));
+    }
+    if (m.find("patchSetNo") != m.end() && !m["patchSetNo"].empty()) {
+      patchSetNo = make_shared<string>(boost::any_cast<string>(m["patchSetNo"]));
+    }
+    if (m.find("relatedMergeItemType") != m.end() && !m["relatedMergeItemType"].empty()) {
+      relatedMergeItemType = make_shared<string>(boost::any_cast<string>(m["relatedMergeItemType"]));
+    }
+    if (m.find("shortId") != m.end() && !m["shortId"].empty()) {
+      shortId = make_shared<string>(boost::any_cast<string>(m["shortId"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultChildComments : public Darabonba::Model {
+public:
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor> author{};
+  shared_ptr<string> commentBizId{};
+  shared_ptr<string> commentTime{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> filePath{};
+  shared_ptr<vector<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments>> finalChildComments{};
+  shared_ptr<string> lastEditTime{};
+  shared_ptr<string> lineNumber{};
+  shared_ptr<string> parentCommentBizId{};
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet> relatedPatchSet{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<string> rootCommentBizId{};
+  shared_ptr<string> state{};
+
+  ListMergeRequestCommentsResponseBodyResultChildComments() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultChildComments(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["author"] = author ? boost::any(author->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (commentBizId) {
+      res["commentBizId"] = boost::any(*commentBizId);
+    }
+    if (commentTime) {
+      res["commentTime"] = boost::any(*commentTime);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (deleted) {
+      res["deleted"] = boost::any(*deleted);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (finalChildComments) {
+      vector<boost::any> temp1;
+      for(auto item1:*finalChildComments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["finalChildComments"] = boost::any(temp1);
+    }
+    if (lastEditTime) {
+      res["lastEditTime"] = boost::any(*lastEditTime);
+    }
+    if (lineNumber) {
+      res["lineNumber"] = boost::any(*lineNumber);
+    }
+    if (parentCommentBizId) {
+      res["parentCommentBizId"] = boost::any(*parentCommentBizId);
+    }
+    if (relatedPatchSet) {
+      res["relatedPatchSet"] = relatedPatchSet ? boost::any(relatedPatchSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (rootCommentBizId) {
+      res["rootCommentBizId"] = boost::any(*rootCommentBizId);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("author") != m.end() && !m["author"].empty()) {
+      if (typeid(map<string, boost::any>) == m["author"].type()) {
+        ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["author"]));
+        author = make_shared<ListMergeRequestCommentsResponseBodyResultChildCommentsAuthor>(model1);
+      }
+    }
+    if (m.find("commentBizId") != m.end() && !m["commentBizId"].empty()) {
+      commentBizId = make_shared<string>(boost::any_cast<string>(m["commentBizId"]));
+    }
+    if (m.find("commentTime") != m.end() && !m["commentTime"].empty()) {
+      commentTime = make_shared<string>(boost::any_cast<string>(m["commentTime"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("deleted") != m.end() && !m["deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["deleted"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("finalChildComments") != m.end() && !m["finalChildComments"].empty()) {
+      if (typeid(vector<boost::any>) == m["finalChildComments"].type()) {
+        vector<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["finalChildComments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        finalChildComments = make_shared<vector<ListMergeRequestCommentsResponseBodyResultChildCommentsFinalChildComments>>(expect1);
+      }
+    }
+    if (m.find("lastEditTime") != m.end() && !m["lastEditTime"].empty()) {
+      lastEditTime = make_shared<string>(boost::any_cast<string>(m["lastEditTime"]));
+    }
+    if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
+      lineNumber = make_shared<string>(boost::any_cast<string>(m["lineNumber"]));
+    }
+    if (m.find("parentCommentBizId") != m.end() && !m["parentCommentBizId"].empty()) {
+      parentCommentBizId = make_shared<string>(boost::any_cast<string>(m["parentCommentBizId"]));
+    }
+    if (m.find("relatedPatchSet") != m.end() && !m["relatedPatchSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["relatedPatchSet"].type()) {
+        ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["relatedPatchSet"]));
+        relatedPatchSet = make_shared<ListMergeRequestCommentsResponseBodyResultChildCommentsRelatedPatchSet>(model1);
+      }
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("rootCommentBizId") != m.end() && !m["rootCommentBizId"].empty()) {
+      rootCommentBizId = make_shared<string>(boost::any_cast<string>(m["rootCommentBizId"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultChildComments() = default;
+};
+class ListMergeRequestCommentsResponseBodyResultRelatedPatchSet : public Darabonba::Model {
+public:
+  shared_ptr<string> commitId{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<string> patchSetName{};
+  shared_ptr<string> patchSetNo{};
+  shared_ptr<string> relatedMergeItemType{};
+  shared_ptr<string> shortId{};
+
+  ListMergeRequestCommentsResponseBodyResultRelatedPatchSet() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResultRelatedPatchSet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commitId) {
+      res["commitId"] = boost::any(*commitId);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (patchSetName) {
+      res["patchSetName"] = boost::any(*patchSetName);
+    }
+    if (patchSetNo) {
+      res["patchSetNo"] = boost::any(*patchSetNo);
+    }
+    if (relatedMergeItemType) {
+      res["relatedMergeItemType"] = boost::any(*relatedMergeItemType);
+    }
+    if (shortId) {
+      res["shortId"] = boost::any(*shortId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commitId") != m.end() && !m["commitId"].empty()) {
+      commitId = make_shared<string>(boost::any_cast<string>(m["commitId"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("patchSetName") != m.end() && !m["patchSetName"].empty()) {
+      patchSetName = make_shared<string>(boost::any_cast<string>(m["patchSetName"]));
+    }
+    if (m.find("patchSetNo") != m.end() && !m["patchSetNo"].empty()) {
+      patchSetNo = make_shared<string>(boost::any_cast<string>(m["patchSetNo"]));
+    }
+    if (m.find("relatedMergeItemType") != m.end() && !m["relatedMergeItemType"].empty()) {
+      relatedMergeItemType = make_shared<string>(boost::any_cast<string>(m["relatedMergeItemType"]));
+    }
+    if (m.find("shortId") != m.end() && !m["shortId"].empty()) {
+      shortId = make_shared<string>(boost::any_cast<string>(m["shortId"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResultRelatedPatchSet() = default;
+};
+class ListMergeRequestCommentsResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultAuthor> author{};
+  shared_ptr<vector<ListMergeRequestCommentsResponseBodyResultChildComments>> childComments{};
+  shared_ptr<string> commentBizId{};
+  shared_ptr<string> commentTime{};
+  shared_ptr<string> commentType{};
+  shared_ptr<string> content{};
+  shared_ptr<bool> deleted{};
+  shared_ptr<string> filePath{};
+  shared_ptr<string> lastEditTime{};
+  shared_ptr<string> lineNumber{};
+  shared_ptr<string> parentCommentBizId{};
+  shared_ptr<ListMergeRequestCommentsResponseBodyResultRelatedPatchSet> relatedPatchSet{};
+  shared_ptr<bool> resolved{};
+  shared_ptr<string> rootCommentBizId{};
+  shared_ptr<string> state{};
+
+  ListMergeRequestCommentsResponseBodyResult() {}
+
+  explicit ListMergeRequestCommentsResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (author) {
+      res["author"] = author ? boost::any(author->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (childComments) {
+      vector<boost::any> temp1;
+      for(auto item1:*childComments){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["childComments"] = boost::any(temp1);
+    }
+    if (commentBizId) {
+      res["commentBizId"] = boost::any(*commentBizId);
+    }
+    if (commentTime) {
+      res["commentTime"] = boost::any(*commentTime);
+    }
+    if (commentType) {
+      res["commentType"] = boost::any(*commentType);
+    }
+    if (content) {
+      res["content"] = boost::any(*content);
+    }
+    if (deleted) {
+      res["deleted"] = boost::any(*deleted);
+    }
+    if (filePath) {
+      res["filePath"] = boost::any(*filePath);
+    }
+    if (lastEditTime) {
+      res["lastEditTime"] = boost::any(*lastEditTime);
+    }
+    if (lineNumber) {
+      res["lineNumber"] = boost::any(*lineNumber);
+    }
+    if (parentCommentBizId) {
+      res["parentCommentBizId"] = boost::any(*parentCommentBizId);
+    }
+    if (relatedPatchSet) {
+      res["relatedPatchSet"] = relatedPatchSet ? boost::any(relatedPatchSet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resolved) {
+      res["resolved"] = boost::any(*resolved);
+    }
+    if (rootCommentBizId) {
+      res["rootCommentBizId"] = boost::any(*rootCommentBizId);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("author") != m.end() && !m["author"].empty()) {
+      if (typeid(map<string, boost::any>) == m["author"].type()) {
+        ListMergeRequestCommentsResponseBodyResultAuthor model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["author"]));
+        author = make_shared<ListMergeRequestCommentsResponseBodyResultAuthor>(model1);
+      }
+    }
+    if (m.find("childComments") != m.end() && !m["childComments"].empty()) {
+      if (typeid(vector<boost::any>) == m["childComments"].type()) {
+        vector<ListMergeRequestCommentsResponseBodyResultChildComments> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["childComments"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestCommentsResponseBodyResultChildComments model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        childComments = make_shared<vector<ListMergeRequestCommentsResponseBodyResultChildComments>>(expect1);
+      }
+    }
+    if (m.find("commentBizId") != m.end() && !m["commentBizId"].empty()) {
+      commentBizId = make_shared<string>(boost::any_cast<string>(m["commentBizId"]));
+    }
+    if (m.find("commentTime") != m.end() && !m["commentTime"].empty()) {
+      commentTime = make_shared<string>(boost::any_cast<string>(m["commentTime"]));
+    }
+    if (m.find("commentType") != m.end() && !m["commentType"].empty()) {
+      commentType = make_shared<string>(boost::any_cast<string>(m["commentType"]));
+    }
+    if (m.find("content") != m.end() && !m["content"].empty()) {
+      content = make_shared<string>(boost::any_cast<string>(m["content"]));
+    }
+    if (m.find("deleted") != m.end() && !m["deleted"].empty()) {
+      deleted = make_shared<bool>(boost::any_cast<bool>(m["deleted"]));
+    }
+    if (m.find("filePath") != m.end() && !m["filePath"].empty()) {
+      filePath = make_shared<string>(boost::any_cast<string>(m["filePath"]));
+    }
+    if (m.find("lastEditTime") != m.end() && !m["lastEditTime"].empty()) {
+      lastEditTime = make_shared<string>(boost::any_cast<string>(m["lastEditTime"]));
+    }
+    if (m.find("lineNumber") != m.end() && !m["lineNumber"].empty()) {
+      lineNumber = make_shared<string>(boost::any_cast<string>(m["lineNumber"]));
+    }
+    if (m.find("parentCommentBizId") != m.end() && !m["parentCommentBizId"].empty()) {
+      parentCommentBizId = make_shared<string>(boost::any_cast<string>(m["parentCommentBizId"]));
+    }
+    if (m.find("relatedPatchSet") != m.end() && !m["relatedPatchSet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["relatedPatchSet"].type()) {
+        ListMergeRequestCommentsResponseBodyResultRelatedPatchSet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["relatedPatchSet"]));
+        relatedPatchSet = make_shared<ListMergeRequestCommentsResponseBodyResultRelatedPatchSet>(model1);
+      }
+    }
+    if (m.find("resolved") != m.end() && !m["resolved"].empty()) {
+      resolved = make_shared<bool>(boost::any_cast<bool>(m["resolved"]));
+    }
+    if (m.find("rootCommentBizId") != m.end() && !m["rootCommentBizId"].empty()) {
+      rootCommentBizId = make_shared<string>(boost::any_cast<string>(m["rootCommentBizId"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBodyResult() = default;
+};
+class ListMergeRequestCommentsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListMergeRequestCommentsResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  ListMergeRequestCommentsResponseBody() {}
+
+  explicit ListMergeRequestCommentsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(vector<boost::any>) == m["result"].type()) {
+        vector<ListMergeRequestCommentsResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestCommentsResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ListMergeRequestCommentsResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponseBody() = default;
+};
+class ListMergeRequestCommentsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMergeRequestCommentsResponseBody> body{};
+
+  ListMergeRequestCommentsResponse() {}
+
+  explicit ListMergeRequestCommentsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMergeRequestCommentsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMergeRequestCommentsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMergeRequestCommentsResponse() = default;
+};
+class ListMergeRequestFilesReadsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<string> fromPatchSetBizId{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+  shared_ptr<string> toPatchSetBizId{};
+
+  ListMergeRequestFilesReadsRequest() {}
+
+  explicit ListMergeRequestFilesReadsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (fromPatchSetBizId) {
+      res["fromPatchSetBizId"] = boost::any(*fromPatchSetBizId);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    if (toPatchSetBizId) {
+      res["toPatchSetBizId"] = boost::any(*toPatchSetBizId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("fromPatchSetBizId") != m.end() && !m["fromPatchSetBizId"].empty()) {
+      fromPatchSetBizId = make_shared<string>(boost::any_cast<string>(m["fromPatchSetBizId"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+    if (m.find("toPatchSetBizId") != m.end() && !m["toPatchSetBizId"].empty()) {
+      toPatchSetBizId = make_shared<string>(boost::any_cast<string>(m["toPatchSetBizId"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestFilesReadsRequest() = default;
+};
+class ListMergeRequestFilesReadsResponseBodyResultReadUsers : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunPk{};
+  shared_ptr<string> avatarUrl{};
+  shared_ptr<string> email{};
+  shared_ptr<string> name{};
+  shared_ptr<string> state{};
+  shared_ptr<string> username{};
+
+  ListMergeRequestFilesReadsResponseBodyResultReadUsers() {}
+
+  explicit ListMergeRequestFilesReadsResponseBodyResultReadUsers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunPk) {
+      res["aliyunPk"] = boost::any(*aliyunPk);
+    }
+    if (avatarUrl) {
+      res["avatarUrl"] = boost::any(*avatarUrl);
+    }
+    if (email) {
+      res["email"] = boost::any(*email);
+    }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
+    if (state) {
+      res["state"] = boost::any(*state);
+    }
+    if (username) {
+      res["username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("aliyunPk") != m.end() && !m["aliyunPk"].empty()) {
+      aliyunPk = make_shared<string>(boost::any_cast<string>(m["aliyunPk"]));
+    }
+    if (m.find("avatarUrl") != m.end() && !m["avatarUrl"].empty()) {
+      avatarUrl = make_shared<string>(boost::any_cast<string>(m["avatarUrl"]));
+    }
+    if (m.find("email") != m.end() && !m["email"].empty()) {
+      email = make_shared<string>(boost::any_cast<string>(m["email"]));
+    }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("state") != m.end() && !m["state"].empty()) {
+      state = make_shared<string>(boost::any_cast<string>(m["state"]));
+    }
+    if (m.find("username") != m.end() && !m["username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["username"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestFilesReadsResponseBodyResultReadUsers() = default;
+};
+class ListMergeRequestFilesReadsResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> deletedFile{};
+  shared_ptr<bool> newFile{};
+  shared_ptr<string> newFilePath{};
+  shared_ptr<string> oldFilePath{};
+  shared_ptr<vector<ListMergeRequestFilesReadsResponseBodyResultReadUsers>> readUsers{};
+  shared_ptr<string> renamedFile{};
+
+  ListMergeRequestFilesReadsResponseBodyResult() {}
+
+  explicit ListMergeRequestFilesReadsResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (deletedFile) {
+      res["deletedFile"] = boost::any(*deletedFile);
+    }
+    if (newFile) {
+      res["newFile"] = boost::any(*newFile);
+    }
+    if (newFilePath) {
+      res["newFilePath"] = boost::any(*newFilePath);
+    }
+    if (oldFilePath) {
+      res["oldFilePath"] = boost::any(*oldFilePath);
+    }
+    if (readUsers) {
+      vector<boost::any> temp1;
+      for(auto item1:*readUsers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["readUsers"] = boost::any(temp1);
+    }
+    if (renamedFile) {
+      res["renamedFile"] = boost::any(*renamedFile);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("deletedFile") != m.end() && !m["deletedFile"].empty()) {
+      deletedFile = make_shared<string>(boost::any_cast<string>(m["deletedFile"]));
+    }
+    if (m.find("newFile") != m.end() && !m["newFile"].empty()) {
+      newFile = make_shared<bool>(boost::any_cast<bool>(m["newFile"]));
+    }
+    if (m.find("newFilePath") != m.end() && !m["newFilePath"].empty()) {
+      newFilePath = make_shared<string>(boost::any_cast<string>(m["newFilePath"]));
+    }
+    if (m.find("oldFilePath") != m.end() && !m["oldFilePath"].empty()) {
+      oldFilePath = make_shared<string>(boost::any_cast<string>(m["oldFilePath"]));
+    }
+    if (m.find("readUsers") != m.end() && !m["readUsers"].empty()) {
+      if (typeid(vector<boost::any>) == m["readUsers"].type()) {
+        vector<ListMergeRequestFilesReadsResponseBodyResultReadUsers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["readUsers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestFilesReadsResponseBodyResultReadUsers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        readUsers = make_shared<vector<ListMergeRequestFilesReadsResponseBodyResultReadUsers>>(expect1);
+      }
+    }
+    if (m.find("renamedFile") != m.end() && !m["renamedFile"].empty()) {
+      renamedFile = make_shared<string>(boost::any_cast<string>(m["renamedFile"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestFilesReadsResponseBodyResult() = default;
+};
+class ListMergeRequestFilesReadsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListMergeRequestFilesReadsResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  ListMergeRequestFilesReadsResponseBody() {}
+
+  explicit ListMergeRequestFilesReadsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(vector<boost::any>) == m["result"].type()) {
+        vector<ListMergeRequestFilesReadsResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestFilesReadsResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ListMergeRequestFilesReadsResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestFilesReadsResponseBody() = default;
+};
+class ListMergeRequestFilesReadsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMergeRequestFilesReadsResponseBody> body{};
+
+  ListMergeRequestFilesReadsResponse() {}
+
+  explicit ListMergeRequestFilesReadsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMergeRequestFilesReadsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMergeRequestFilesReadsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMergeRequestFilesReadsResponse() = default;
+};
+class ListMergeRequestPatchSetsRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> accessToken{};
+  shared_ptr<long> localId{};
+  shared_ptr<string> organizationId{};
+  shared_ptr<string> repositoryIdentity{};
+
+  ListMergeRequestPatchSetsRequest() {}
+
+  explicit ListMergeRequestPatchSetsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (accessToken) {
+      res["accessToken"] = boost::any(*accessToken);
+    }
+    if (localId) {
+      res["localId"] = boost::any(*localId);
+    }
+    if (organizationId) {
+      res["organizationId"] = boost::any(*organizationId);
+    }
+    if (repositoryIdentity) {
+      res["repositoryIdentity"] = boost::any(*repositoryIdentity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("accessToken") != m.end() && !m["accessToken"].empty()) {
+      accessToken = make_shared<string>(boost::any_cast<string>(m["accessToken"]));
+    }
+    if (m.find("localId") != m.end() && !m["localId"].empty()) {
+      localId = make_shared<long>(boost::any_cast<long>(m["localId"]));
+    }
+    if (m.find("organizationId") != m.end() && !m["organizationId"].empty()) {
+      organizationId = make_shared<string>(boost::any_cast<string>(m["organizationId"]));
+    }
+    if (m.find("repositoryIdentity") != m.end() && !m["repositoryIdentity"].empty()) {
+      repositoryIdentity = make_shared<string>(boost::any_cast<string>(m["repositoryIdentity"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestPatchSetsRequest() = default;
+};
+class ListMergeRequestPatchSetsResponseBodyResult : public Darabonba::Model {
+public:
+  shared_ptr<string> commitId{};
+  shared_ptr<string> createdAt{};
+  shared_ptr<string> patchSetBizId{};
+  shared_ptr<string> patchSetName{};
+  shared_ptr<long> patchSetNo{};
+  shared_ptr<string> relatedMergeItemType{};
+  shared_ptr<string> shortCommitId{};
+
+  ListMergeRequestPatchSetsResponseBodyResult() {}
+
+  explicit ListMergeRequestPatchSetsResponseBodyResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (commitId) {
+      res["commitId"] = boost::any(*commitId);
+    }
+    if (createdAt) {
+      res["createdAt"] = boost::any(*createdAt);
+    }
+    if (patchSetBizId) {
+      res["patchSetBizId"] = boost::any(*patchSetBizId);
+    }
+    if (patchSetName) {
+      res["patchSetName"] = boost::any(*patchSetName);
+    }
+    if (patchSetNo) {
+      res["patchSetNo"] = boost::any(*patchSetNo);
+    }
+    if (relatedMergeItemType) {
+      res["relatedMergeItemType"] = boost::any(*relatedMergeItemType);
+    }
+    if (shortCommitId) {
+      res["shortCommitId"] = boost::any(*shortCommitId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("commitId") != m.end() && !m["commitId"].empty()) {
+      commitId = make_shared<string>(boost::any_cast<string>(m["commitId"]));
+    }
+    if (m.find("createdAt") != m.end() && !m["createdAt"].empty()) {
+      createdAt = make_shared<string>(boost::any_cast<string>(m["createdAt"]));
+    }
+    if (m.find("patchSetBizId") != m.end() && !m["patchSetBizId"].empty()) {
+      patchSetBizId = make_shared<string>(boost::any_cast<string>(m["patchSetBizId"]));
+    }
+    if (m.find("patchSetName") != m.end() && !m["patchSetName"].empty()) {
+      patchSetName = make_shared<string>(boost::any_cast<string>(m["patchSetName"]));
+    }
+    if (m.find("patchSetNo") != m.end() && !m["patchSetNo"].empty()) {
+      patchSetNo = make_shared<long>(boost::any_cast<long>(m["patchSetNo"]));
+    }
+    if (m.find("relatedMergeItemType") != m.end() && !m["relatedMergeItemType"].empty()) {
+      relatedMergeItemType = make_shared<string>(boost::any_cast<string>(m["relatedMergeItemType"]));
+    }
+    if (m.find("shortCommitId") != m.end() && !m["shortCommitId"].empty()) {
+      shortCommitId = make_shared<string>(boost::any_cast<string>(m["shortCommitId"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestPatchSetsResponseBodyResult() = default;
+};
+class ListMergeRequestPatchSetsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<vector<ListMergeRequestPatchSetsResponseBodyResult>> result{};
+  shared_ptr<bool> success{};
+
+  ListMergeRequestPatchSetsResponseBody() {}
+
+  explicit ListMergeRequestPatchSetsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMessage) {
+      res["errorMessage"] = boost::any(*errorMessage);
+    }
+    if (requestId) {
+      res["requestId"] = boost::any(*requestId);
+    }
+    if (result) {
+      vector<boost::any> temp1;
+      for(auto item1:*result){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["result"] = boost::any(temp1);
+    }
+    if (success) {
+      res["success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMessage") != m.end() && !m["errorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["errorMessage"]));
+    }
+    if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("result") != m.end() && !m["result"].empty()) {
+      if (typeid(vector<boost::any>) == m["result"].type()) {
+        vector<ListMergeRequestPatchSetsResponseBodyResult> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["result"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListMergeRequestPatchSetsResponseBodyResult model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        result = make_shared<vector<ListMergeRequestPatchSetsResponseBodyResult>>(expect1);
+      }
+    }
+    if (m.find("success") != m.end() && !m["success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["success"]));
+    }
+  }
+
+
+  virtual ~ListMergeRequestPatchSetsResponseBody() = default;
+};
+class ListMergeRequestPatchSetsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListMergeRequestPatchSetsResponseBody> body{};
+
+  ListMergeRequestPatchSetsResponse() {}
+
+  explicit ListMergeRequestPatchSetsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListMergeRequestPatchSetsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListMergeRequestPatchSetsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListMergeRequestPatchSetsResponse() = default;
 };
 class ListMergeRequestsRequest : public Darabonba::Model {
 public:
@@ -56384,6 +59024,8 @@ public:
                                                shared_ptr<map<string, string>> headers,
                                                shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateBranchResponse createBranch(shared_ptr<string> repositoryId, shared_ptr<CreateBranchRequest> request);
+  CreateCommitStatusResponse createCommitStatusWithOptions(shared_ptr<CreateCommitStatusRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateCommitStatusResponse createCommitStatus(shared_ptr<CreateCommitStatusRequest> request);
   CreateDeployKeyResponse createDeployKeyWithOptions(shared_ptr<string> repositoryId,
                                                      shared_ptr<CreateDeployKeyRequest> request,
                                                      shared_ptr<map<string, string>> headers,
@@ -56705,6 +59347,8 @@ public:
                                                      shared_ptr<map<string, string>> headers,
                                                      shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   GetMergeRequestResponse getMergeRequest(shared_ptr<string> repositoryId, shared_ptr<string> localId, shared_ptr<GetMergeRequestRequest> request);
+  GetMergeRequestChangeTreeResponse getMergeRequestChangeTreeWithOptions(shared_ptr<GetMergeRequestChangeTreeRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  GetMergeRequestChangeTreeResponse getMergeRequestChangeTree(shared_ptr<GetMergeRequestChangeTreeRequest> request);
   GetOrganizationMemberResponse getOrganizationMemberWithOptions(shared_ptr<string> organizationId,
                                                                  shared_ptr<string> accountId,
                                                                  shared_ptr<map<string, string>> headers,
@@ -56853,6 +59497,8 @@ public:
                                                          shared_ptr<map<string, string>> headers,
                                                          shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   JoinPipelineGroupResponse joinPipelineGroup(shared_ptr<string> organizationId, shared_ptr<JoinPipelineGroupRequest> request);
+  ListCommitStatusesResponse listCommitStatusesWithOptions(shared_ptr<ListCommitStatusesRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListCommitStatusesResponse listCommitStatuses(shared_ptr<ListCommitStatusesRequest> request);
   ListFlowTagGroupsResponse listFlowTagGroupsWithOptions(shared_ptr<string> organizationId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListFlowTagGroupsResponse listFlowTagGroups(shared_ptr<string> organizationId);
   ListGroupMemberResponse listGroupMemberWithOptions(shared_ptr<string> groupId,
@@ -56870,6 +59516,12 @@ public:
                                                    shared_ptr<map<string, string>> headers,
                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListHostGroupsResponse listHostGroups(shared_ptr<string> organizationId, shared_ptr<ListHostGroupsRequest> request);
+  ListMergeRequestCommentsResponse listMergeRequestCommentsWithOptions(shared_ptr<ListMergeRequestCommentsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMergeRequestCommentsResponse listMergeRequestComments(shared_ptr<ListMergeRequestCommentsRequest> request);
+  ListMergeRequestFilesReadsResponse listMergeRequestFilesReadsWithOptions(shared_ptr<ListMergeRequestFilesReadsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMergeRequestFilesReadsResponse listMergeRequestFilesReads(shared_ptr<ListMergeRequestFilesReadsRequest> request);
+  ListMergeRequestPatchSetsResponse listMergeRequestPatchSetsWithOptions(shared_ptr<ListMergeRequestPatchSetsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListMergeRequestPatchSetsResponse listMergeRequestPatchSets(shared_ptr<ListMergeRequestPatchSetsRequest> request);
   ListMergeRequestsResponse listMergeRequestsWithOptions(shared_ptr<ListMergeRequestsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMergeRequestsResponse listMergeRequests(shared_ptr<ListMergeRequestsRequest> request);
   ListOrganizationMembersResponse listOrganizationMembersWithOptions(shared_ptr<string> organizationId,
