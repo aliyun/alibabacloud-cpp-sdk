@@ -1788,6 +1788,8 @@ public:
   shared_ptr<bool> enableRDMA{};
   shared_ptr<bool> enableTideResource{};
   shared_ptr<string> errorMonitoringArgs{};
+  shared_ptr<long> jobReservedMinutes{};
+  shared_ptr<string> jobReservedPolicy{};
   shared_ptr<string> oversoldType{};
   shared_ptr<string> pipelineId{};
   shared_ptr<map<string, string>> tags{};
@@ -1828,6 +1830,12 @@ public:
     }
     if (errorMonitoringArgs) {
       res["ErrorMonitoringArgs"] = boost::any(*errorMonitoringArgs);
+    }
+    if (jobReservedMinutes) {
+      res["JobReservedMinutes"] = boost::any(*jobReservedMinutes);
+    }
+    if (jobReservedPolicy) {
+      res["JobReservedPolicy"] = boost::any(*jobReservedPolicy);
     }
     if (oversoldType) {
       res["OversoldType"] = boost::any(*oversoldType);
@@ -1873,6 +1881,12 @@ public:
     }
     if (m.find("ErrorMonitoringArgs") != m.end() && !m["ErrorMonitoringArgs"].empty()) {
       errorMonitoringArgs = make_shared<string>(boost::any_cast<string>(m["ErrorMonitoringArgs"]));
+    }
+    if (m.find("JobReservedMinutes") != m.end() && !m["JobReservedMinutes"].empty()) {
+      jobReservedMinutes = make_shared<long>(boost::any_cast<long>(m["JobReservedMinutes"]));
+    }
+    if (m.find("JobReservedPolicy") != m.end() && !m["JobReservedPolicy"].empty()) {
+      jobReservedPolicy = make_shared<string>(boost::any_cast<string>(m["JobReservedPolicy"]));
     }
     if (m.find("OversoldType") != m.end() && !m["OversoldType"].empty()) {
       oversoldType = make_shared<string>(boost::any_cast<string>(m["OversoldType"]));
