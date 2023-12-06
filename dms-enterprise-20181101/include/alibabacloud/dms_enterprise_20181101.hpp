@@ -7738,6 +7738,7 @@ class CreateProcCorrectOrderRequestParam : public Darabonba::Model {
 public:
   shared_ptr<string> classify{};
   shared_ptr<vector<CreateProcCorrectOrderRequestParamDbItemList>> dbItemList{};
+  shared_ptr<string> execMode{};
   shared_ptr<string> execSQL{};
   shared_ptr<string> rollbackAttachmentName{};
   shared_ptr<string> rollbackSQL{};
@@ -7762,6 +7763,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["DbItemList"] = boost::any(temp1);
+    }
+    if (execMode) {
+      res["ExecMode"] = boost::any(*execMode);
     }
     if (execSQL) {
       res["ExecSQL"] = boost::any(*execSQL);
@@ -7794,6 +7798,9 @@ public:
         }
         dbItemList = make_shared<vector<CreateProcCorrectOrderRequestParamDbItemList>>(expect1);
       }
+    }
+    if (m.find("ExecMode") != m.end() && !m["ExecMode"].empty()) {
+      execMode = make_shared<string>(boost::any_cast<string>(m["ExecMode"]));
     }
     if (m.find("ExecSQL") != m.end() && !m["ExecSQL"].empty()) {
       execSQL = make_shared<string>(boost::any_cast<string>(m["ExecSQL"]));
