@@ -5159,6 +5159,7 @@ public:
   shared_ptr<string> cenBandwidthPackageId{};
   shared_ptr<string> cenId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> defaultLinkType{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -5199,6 +5200,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (defaultLinkType) {
+      res["DefaultLinkType"] = boost::any(*defaultLinkType);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -5261,6 +5265,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DefaultLinkType") != m.end() && !m["DefaultLinkType"].empty()) {
+      defaultLinkType = make_shared<string>(boost::any_cast<string>(m["DefaultLinkType"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
@@ -26453,6 +26460,7 @@ public:
   shared_ptr<string> cenBandwidthPackageId{};
   shared_ptr<string> cenId{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> defaultLinkType{};
   shared_ptr<string> geographicSpanId{};
   shared_ptr<string> peerTransitRouterId{};
   shared_ptr<long> peerTransitRouterOwnerId{};
@@ -26493,6 +26501,9 @@ public:
     }
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (defaultLinkType) {
+      res["DefaultLinkType"] = boost::any(*defaultLinkType);
     }
     if (geographicSpanId) {
       res["GeographicSpanId"] = boost::any(*geographicSpanId);
@@ -26555,6 +26566,9 @@ public:
     }
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("DefaultLinkType") != m.end() && !m["DefaultLinkType"].empty()) {
+      defaultLinkType = make_shared<string>(boost::any_cast<string>(m["DefaultLinkType"]));
     }
     if (m.find("GeographicSpanId") != m.end() && !m["GeographicSpanId"].empty()) {
       geographicSpanId = make_shared<string>(boost::any_cast<string>(m["GeographicSpanId"]));
@@ -36466,6 +36480,7 @@ public:
   shared_ptr<string> bandwidthType{};
   shared_ptr<string> cenBandwidthPackageId{};
   shared_ptr<string> clientToken{};
+  shared_ptr<string> defaultLinkType{};
   shared_ptr<bool> dryRun{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
@@ -36499,6 +36514,9 @@ public:
     }
     if (clientToken) {
       res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (defaultLinkType) {
+      res["DefaultLinkType"] = boost::any(*defaultLinkType);
     }
     if (dryRun) {
       res["DryRun"] = boost::any(*dryRun);
@@ -36542,6 +36560,9 @@ public:
     }
     if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
       clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("DefaultLinkType") != m.end() && !m["DefaultLinkType"].empty()) {
+      defaultLinkType = make_shared<string>(boost::any_cast<string>(m["DefaultLinkType"]));
     }
     if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
       dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));

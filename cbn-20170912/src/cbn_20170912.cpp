@@ -1300,6 +1300,9 @@ CreateTransitRouterPeerAttachmentResponse Alibabacloud_Cbn20170912::Client::crea
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultLinkType)) {
+    query->insert(pair<string, string>("DefaultLinkType", *request->defaultLinkType));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
   }
@@ -7569,6 +7572,9 @@ UpdateTransitRouterPeerAttachmentAttributeResponse Alibabacloud_Cbn20170912::Cli
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
     query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->defaultLinkType)) {
+    query->insert(pair<string, string>("DefaultLinkType", *request->defaultLinkType));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
     query->insert(pair<string, bool>("DryRun", *request->dryRun));
