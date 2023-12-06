@@ -2080,6 +2080,7 @@ public:
 };
 class Sku : public Darabonba::Model {
 public:
+  shared_ptr<string> barcode{};
   shared_ptr<bool> canSell{};
   shared_ptr<string> divisionCode{};
   shared_ptr<string> fuzzyQuantity{};
@@ -2106,6 +2107,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (barcode) {
+      res["barcode"] = boost::any(*barcode);
+    }
     if (canSell) {
       res["canSell"] = boost::any(*canSell);
     }
@@ -2159,6 +2163,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("barcode") != m.end() && !m["barcode"].empty()) {
+      barcode = make_shared<string>(boost::any_cast<string>(m["barcode"]));
+    }
     if (m.find("canSell") != m.end() && !m["canSell"].empty()) {
       canSell = make_shared<bool>(boost::any_cast<bool>(m["canSell"]));
     }
@@ -2221,6 +2228,7 @@ public:
 };
 class Product : public Darabonba::Model {
 public:
+  shared_ptr<string> brandName{};
   shared_ptr<bool> canSell{};
   shared_ptr<vector<Category>> categoryChain{};
   shared_ptr<long> categoryLeafId{};
@@ -2253,6 +2261,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (brandName) {
+      res["brandName"] = boost::any(*brandName);
+    }
     if (canSell) {
       res["canSell"] = boost::any(*canSell);
     }
@@ -2336,6 +2347,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("brandName") != m.end() && !m["brandName"].empty()) {
+      brandName = make_shared<string>(boost::any_cast<string>(m["brandName"]));
+    }
     if (m.find("canSell") != m.end() && !m["canSell"].empty()) {
       canSell = make_shared<bool>(boost::any_cast<bool>(m["canSell"]));
     }
