@@ -253,6 +253,34 @@ BatchDeleteCdnDomainConfigResponse Alibabacloud_Cdn20180510::Client::batchDelete
   return batchDeleteCdnDomainConfigWithOptions(request, runtime);
 }
 
+BatchDescribeCdnIpInfoResponse Alibabacloud_Cdn20180510::Client::batchDescribeCdnIpInfoWithOptions(shared_ptr<BatchDescribeCdnIpInfoRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->ipAddrList)) {
+    query->insert(pair<string, string>("IpAddrList", *request->ipAddrList));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("BatchDescribeCdnIpInfo"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return BatchDescribeCdnIpInfoResponse(callApi(params, req, runtime));
+}
+
+BatchDescribeCdnIpInfoResponse Alibabacloud_Cdn20180510::Client::batchDescribeCdnIpInfo(shared_ptr<BatchDescribeCdnIpInfoRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return batchDescribeCdnIpInfoWithOptions(request, runtime);
+}
+
 BatchSetCdnDomainConfigResponse Alibabacloud_Cdn20180510::Client::batchSetCdnDomainConfigWithOptions(shared_ptr<BatchSetCdnDomainConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1335,6 +1363,46 @@ DescribeCdnDeliverListResponse Alibabacloud_Cdn20180510::Client::describeCdnDeli
 DescribeCdnDeliverListResponse Alibabacloud_Cdn20180510::Client::describeCdnDeliverList(shared_ptr<DescribeCdnDeliverListRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return describeCdnDeliverListWithOptions(request, runtime);
+}
+
+DescribeCdnDomainAtoaLogsResponse Alibabacloud_Cdn20180510::Client::describeCdnDomainAtoaLogsWithOptions(shared_ptr<DescribeCdnDomainAtoaLogsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->domainName)) {
+    query->insert(pair<string, string>("DomainName", *request->domainName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
+    query->insert(pair<string, string>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
+    query->insert(pair<string, string>("StartTime", *request->startTime));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeCdnDomainAtoaLogs"))},
+    {"version", boost::any(string("2018-05-10"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeCdnDomainAtoaLogsResponse(callApi(params, req, runtime));
+}
+
+DescribeCdnDomainAtoaLogsResponse Alibabacloud_Cdn20180510::Client::describeCdnDomainAtoaLogs(shared_ptr<DescribeCdnDomainAtoaLogsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeCdnDomainAtoaLogsWithOptions(request, runtime);
 }
 
 DescribeCdnDomainByCertificateResponse Alibabacloud_Cdn20180510::Client::describeCdnDomainByCertificateWithOptions(shared_ptr<DescribeCdnDomainByCertificateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
