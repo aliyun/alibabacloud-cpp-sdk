@@ -2343,6 +2343,9 @@ CreatePostgresExtensionsResponse Alibabacloud_Rds20140815::Client::createPostgre
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->riskConfirmed)) {
+    query->insert(pair<string, bool>("RiskConfirmed", *request->riskConfirmed));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceDatabase)) {
     query->insert(pair<string, string>("SourceDatabase", *request->sourceDatabase));
   }

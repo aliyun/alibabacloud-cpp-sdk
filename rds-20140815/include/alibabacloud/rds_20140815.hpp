@@ -9838,6 +9838,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> riskConfirmed{};
   shared_ptr<string> sourceDatabase{};
 
   CreatePostgresExtensionsRequest() {}
@@ -9880,6 +9881,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (riskConfirmed) {
+      res["RiskConfirmed"] = boost::any(*riskConfirmed);
+    }
     if (sourceDatabase) {
       res["SourceDatabase"] = boost::any(*sourceDatabase);
     }
@@ -9916,6 +9920,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("RiskConfirmed") != m.end() && !m["RiskConfirmed"].empty()) {
+      riskConfirmed = make_shared<bool>(boost::any_cast<bool>(m["RiskConfirmed"]));
     }
     if (m.find("SourceDatabase") != m.end() && !m["SourceDatabase"].empty()) {
       sourceDatabase = make_shared<string>(boost::any_cast<string>(m["SourceDatabase"]));
@@ -31842,6 +31849,7 @@ public:
   shared_ptr<string> communityMinorVersion{};
   shared_ptr<string> engine{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<string> expireDate{};
   shared_ptr<string> expireStatus{};
   shared_ptr<bool> isHotfixVersion{};
   shared_ptr<string> minorVersion{};
@@ -31869,6 +31877,9 @@ public:
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (expireDate) {
+      res["ExpireDate"] = boost::any(*expireDate);
     }
     if (expireStatus) {
       res["ExpireStatus"] = boost::any(*expireStatus);
@@ -31906,6 +31917,9 @@ public:
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("ExpireDate") != m.end() && !m["ExpireDate"].empty()) {
+      expireDate = make_shared<string>(boost::any_cast<string>(m["ExpireDate"]));
     }
     if (m.find("ExpireStatus") != m.end() && !m["ExpireStatus"].empty()) {
       expireStatus = make_shared<string>(boost::any_cast<string>(m["ExpireStatus"]));
