@@ -4338,6 +4338,9 @@ GetInstanceStatusStatisticResponse Alibabacloud_Dataworks-public20200518::Client
   if (!Darabonba_Util::Client::isUnset<long>(request->projectId)) {
     body->insert(pair<string, long>("ProjectId", *request->projectId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->schedulerPeriod)) {
+    body->insert(pair<string, string>("SchedulerPeriod", *request->schedulerPeriod));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->schedulerType)) {
     body->insert(pair<string, string>("SchedulerType", *request->schedulerType));
   }
@@ -6971,6 +6974,9 @@ ListInstancesResponse Alibabacloud_Dataworks-public20200518::Client::listInstanc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->nodeName)) {
     body->insert(pair<string, string>("NodeName", *request->nodeName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->orderBy)) {
+    body->insert(pair<string, string>("OrderBy", *request->orderBy));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->owner)) {
     body->insert(pair<string, string>("Owner", *request->owner));

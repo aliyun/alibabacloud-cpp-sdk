@@ -27804,6 +27804,7 @@ public:
   shared_ptr<string> dagType{};
   shared_ptr<string> projectEnv{};
   shared_ptr<long> projectId{};
+  shared_ptr<string> schedulerPeriod{};
   shared_ptr<string> schedulerType{};
 
   GetInstanceStatusStatisticRequest() {}
@@ -27828,6 +27829,9 @@ public:
     if (projectId) {
       res["ProjectId"] = boost::any(*projectId);
     }
+    if (schedulerPeriod) {
+      res["SchedulerPeriod"] = boost::any(*schedulerPeriod);
+    }
     if (schedulerType) {
       res["SchedulerType"] = boost::any(*schedulerType);
     }
@@ -27846,6 +27850,9 @@ public:
     }
     if (m.find("ProjectId") != m.end() && !m["ProjectId"].empty()) {
       projectId = make_shared<long>(boost::any_cast<long>(m["ProjectId"]));
+    }
+    if (m.find("SchedulerPeriod") != m.end() && !m["SchedulerPeriod"].empty()) {
+      schedulerPeriod = make_shared<string>(boost::any_cast<string>(m["SchedulerPeriod"]));
     }
     if (m.find("SchedulerType") != m.end() && !m["SchedulerType"].empty()) {
       schedulerType = make_shared<string>(boost::any_cast<string>(m["SchedulerType"]));
@@ -52901,6 +52908,7 @@ public:
   shared_ptr<string> endBizdate{};
   shared_ptr<long> nodeId{};
   shared_ptr<string> nodeName{};
+  shared_ptr<string> orderBy{};
   shared_ptr<string> owner{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
@@ -52939,6 +52947,9 @@ public:
     }
     if (nodeName) {
       res["NodeName"] = boost::any(*nodeName);
+    }
+    if (orderBy) {
+      res["OrderBy"] = boost::any(*orderBy);
     }
     if (owner) {
       res["Owner"] = boost::any(*owner);
@@ -52985,6 +52996,9 @@ public:
     }
     if (m.find("NodeName") != m.end() && !m["NodeName"].empty()) {
       nodeName = make_shared<string>(boost::any_cast<string>(m["NodeName"]));
+    }
+    if (m.find("OrderBy") != m.end() && !m["OrderBy"].empty()) {
+      orderBy = make_shared<string>(boost::any_cast<string>(m["OrderBy"]));
     }
     if (m.find("Owner") != m.end() && !m["Owner"].empty()) {
       owner = make_shared<string>(boost::any_cast<string>(m["Owner"]));
