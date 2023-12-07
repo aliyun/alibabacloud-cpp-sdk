@@ -43,7 +43,7 @@ ApplyConfigToMachineGroupResponse Alibabacloud_Sls20201230::Client::applyConfigT
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return ApplyConfigToMachineGroupResponse(execute(params, req, runtime));
 }
