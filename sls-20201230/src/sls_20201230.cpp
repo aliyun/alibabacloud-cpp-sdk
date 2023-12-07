@@ -1223,7 +1223,7 @@ DeleteProjectPolicyResponse Alibabacloud_Sls20201230::Client::deleteProjectPolic
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return DeleteProjectPolicyResponse(execute(params, req, runtime));
 }
@@ -3065,7 +3065,7 @@ PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicyWithO
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
     {"reqBodyType", boost::any(string("json"))},
-    {"bodyType", boost::any(string("json"))}
+    {"bodyType", boost::any(string("none"))}
   }));
   return PutProjectPolicyResponse(execute(params, req, runtime));
 }
