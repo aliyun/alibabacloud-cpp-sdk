@@ -5111,6 +5111,295 @@ public:
 
   virtual ~DeployApplicationGroupResponse() = default;
 };
+class DescribeApplicationGroupBillRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> applicationName{};
+  shared_ptr<string> billingCycle{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> name{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceType{};
+
+  DescribeApplicationGroupBillRequest() {}
+
+  explicit DescribeApplicationGroupBillRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationName) {
+      res["ApplicationName"] = boost::any(*applicationName);
+    }
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationName") != m.end() && !m["ApplicationName"].empty()) {
+      applicationName = make_shared<string>(boost::any_cast<string>(m["ApplicationName"]));
+    }
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationGroupBillRequest() = default;
+};
+class DescribeApplicationGroupBillResponseBodyApplicationGroupConsume : public Darabonba::Model {
+public:
+  shared_ptr<double> amount{};
+  shared_ptr<string> creationTime{};
+  shared_ptr<string> currency{};
+  shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceName{};
+  shared_ptr<string> instanceType{};
+  shared_ptr<string> optimization{};
+  shared_ptr<string> peakType{};
+  shared_ptr<string> performance{};
+  shared_ptr<string> status{};
+
+  DescribeApplicationGroupBillResponseBodyApplicationGroupConsume() {}
+
+  explicit DescribeApplicationGroupBillResponseBodyApplicationGroupConsume(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (amount) {
+      res["Amount"] = boost::any(*amount);
+    }
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
+    if (currency) {
+      res["Currency"] = boost::any(*currency);
+    }
+    if (instanceId) {
+      res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (instanceName) {
+      res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (instanceType) {
+      res["InstanceType"] = boost::any(*instanceType);
+    }
+    if (optimization) {
+      res["Optimization"] = boost::any(*optimization);
+    }
+    if (peakType) {
+      res["PeakType"] = boost::any(*peakType);
+    }
+    if (performance) {
+      res["Performance"] = boost::any(*performance);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Amount") != m.end() && !m["Amount"].empty()) {
+      amount = make_shared<double>(boost::any_cast<double>(m["Amount"]));
+    }
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
+    if (m.find("Currency") != m.end() && !m["Currency"].empty()) {
+      currency = make_shared<string>(boost::any_cast<string>(m["Currency"]));
+    }
+    if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
+      instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
+      instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("InstanceType") != m.end() && !m["InstanceType"].empty()) {
+      instanceType = make_shared<string>(boost::any_cast<string>(m["InstanceType"]));
+    }
+    if (m.find("Optimization") != m.end() && !m["Optimization"].empty()) {
+      optimization = make_shared<string>(boost::any_cast<string>(m["Optimization"]));
+    }
+    if (m.find("PeakType") != m.end() && !m["PeakType"].empty()) {
+      peakType = make_shared<string>(boost::any_cast<string>(m["PeakType"]));
+    }
+    if (m.find("Performance") != m.end() && !m["Performance"].empty()) {
+      performance = make_shared<string>(boost::any_cast<string>(m["Performance"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationGroupBillResponseBodyApplicationGroupConsume() = default;
+};
+class DescribeApplicationGroupBillResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeApplicationGroupBillResponseBodyApplicationGroupConsume>> applicationGroupConsume{};
+  shared_ptr<long> maxResults{};
+  shared_ptr<string> nextToken{};
+  shared_ptr<string> requestId{};
+
+  DescribeApplicationGroupBillResponseBody() {}
+
+  explicit DescribeApplicationGroupBillResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (applicationGroupConsume) {
+      vector<boost::any> temp1;
+      for(auto item1:*applicationGroupConsume){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ApplicationGroupConsume"] = boost::any(temp1);
+    }
+    if (maxResults) {
+      res["MaxResults"] = boost::any(*maxResults);
+    }
+    if (nextToken) {
+      res["NextToken"] = boost::any(*nextToken);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ApplicationGroupConsume") != m.end() && !m["ApplicationGroupConsume"].empty()) {
+      if (typeid(vector<boost::any>) == m["ApplicationGroupConsume"].type()) {
+        vector<DescribeApplicationGroupBillResponseBodyApplicationGroupConsume> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ApplicationGroupConsume"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeApplicationGroupBillResponseBodyApplicationGroupConsume model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        applicationGroupConsume = make_shared<vector<DescribeApplicationGroupBillResponseBodyApplicationGroupConsume>>(expect1);
+      }
+    }
+    if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
+      maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
+    }
+    if (m.find("NextToken") != m.end() && !m["NextToken"].empty()) {
+      nextToken = make_shared<string>(boost::any_cast<string>(m["NextToken"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeApplicationGroupBillResponseBody() = default;
+};
+class DescribeApplicationGroupBillResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeApplicationGroupBillResponseBody> body{};
+
+  DescribeApplicationGroupBillResponse() {}
+
+  explicit DescribeApplicationGroupBillResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeApplicationGroupBillResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeApplicationGroupBillResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeApplicationGroupBillResponse() = default;
+};
 class DescribeRegionsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -5306,6 +5595,7 @@ class GenerateExecutionPolicyRequest : public Darabonba::Model {
 public:
   shared_ptr<string> ramRole{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> templateContent{};
   shared_ptr<string> templateName{};
   shared_ptr<string> templateVersion{};
 
@@ -5325,6 +5615,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (templateContent) {
+      res["TemplateContent"] = boost::any(*templateContent);
+    }
     if (templateName) {
       res["TemplateName"] = boost::any(*templateName);
     }
@@ -5340,6 +5633,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("TemplateContent") != m.end() && !m["TemplateContent"].empty()) {
+      templateContent = make_shared<string>(boost::any_cast<string>(m["TemplateContent"]));
     }
     if (m.find("TemplateName") != m.end() && !m["TemplateName"].empty()) {
       templateName = make_shared<string>(boost::any_cast<string>(m["TemplateName"]));
@@ -17051,6 +17347,7 @@ public:
   shared_ptr<string> createdDateAfter{};
   shared_ptr<string> createdDateBefore{};
   shared_ptr<bool> hasTrigger{};
+  shared_ptr<bool> isFavorite{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
@@ -17087,6 +17384,9 @@ public:
     }
     if (hasTrigger) {
       res["HasTrigger"] = boost::any(*hasTrigger);
+    }
+    if (isFavorite) {
+      res["IsFavorite"] = boost::any(*isFavorite);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -17140,6 +17440,9 @@ public:
     if (m.find("HasTrigger") != m.end() && !m["HasTrigger"].empty()) {
       hasTrigger = make_shared<bool>(boost::any_cast<bool>(m["HasTrigger"]));
     }
+    if (m.find("IsFavorite") != m.end() && !m["IsFavorite"].empty()) {
+      isFavorite = make_shared<bool>(boost::any_cast<bool>(m["IsFavorite"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -17190,6 +17493,7 @@ public:
   shared_ptr<string> createdDateAfter{};
   shared_ptr<string> createdDateBefore{};
   shared_ptr<bool> hasTrigger{};
+  shared_ptr<bool> isFavorite{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> regionId{};
@@ -17226,6 +17530,9 @@ public:
     }
     if (hasTrigger) {
       res["HasTrigger"] = boost::any(*hasTrigger);
+    }
+    if (isFavorite) {
+      res["IsFavorite"] = boost::any(*isFavorite);
     }
     if (maxResults) {
       res["MaxResults"] = boost::any(*maxResults);
@@ -17279,6 +17586,9 @@ public:
     if (m.find("HasTrigger") != m.end() && !m["HasTrigger"].empty()) {
       hasTrigger = make_shared<bool>(boost::any_cast<bool>(m["HasTrigger"]));
     }
+    if (m.find("IsFavorite") != m.end() && !m["IsFavorite"].empty()) {
+      isFavorite = make_shared<bool>(boost::any_cast<bool>(m["IsFavorite"]));
+    }
     if (m.find("MaxResults") != m.end() && !m["MaxResults"].empty()) {
       maxResults = make_shared<long>(boost::any_cast<long>(m["MaxResults"]));
     }
@@ -17320,12 +17630,15 @@ public:
 class ListTemplatesResponseBodyTemplates : public Darabonba::Model {
 public:
   shared_ptr<string> category{};
+  shared_ptr<string> constraints{};
   shared_ptr<string> createdBy{};
   shared_ptr<string> createdDate{};
   shared_ptr<string> description{};
   shared_ptr<bool> hasTrigger{};
   shared_ptr<string> hash{};
+  shared_ptr<bool> isFavorite{};
   shared_ptr<long> popularity{};
+  shared_ptr<string> publisher{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
   shared_ptr<map<string, boost::any>> tags{};
@@ -17351,6 +17664,9 @@ public:
     if (category) {
       res["Category"] = boost::any(*category);
     }
+    if (constraints) {
+      res["Constraints"] = boost::any(*constraints);
+    }
     if (createdBy) {
       res["CreatedBy"] = boost::any(*createdBy);
     }
@@ -17366,8 +17682,14 @@ public:
     if (hash) {
       res["Hash"] = boost::any(*hash);
     }
+    if (isFavorite) {
+      res["IsFavorite"] = boost::any(*isFavorite);
+    }
     if (popularity) {
       res["Popularity"] = boost::any(*popularity);
+    }
+    if (publisher) {
+      res["Publisher"] = boost::any(*publisher);
     }
     if (resourceGroupId) {
       res["ResourceGroupId"] = boost::any(*resourceGroupId);
@@ -17409,6 +17731,9 @@ public:
     if (m.find("Category") != m.end() && !m["Category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["Category"]));
     }
+    if (m.find("Constraints") != m.end() && !m["Constraints"].empty()) {
+      constraints = make_shared<string>(boost::any_cast<string>(m["Constraints"]));
+    }
     if (m.find("CreatedBy") != m.end() && !m["CreatedBy"].empty()) {
       createdBy = make_shared<string>(boost::any_cast<string>(m["CreatedBy"]));
     }
@@ -17424,8 +17749,14 @@ public:
     if (m.find("Hash") != m.end() && !m["Hash"].empty()) {
       hash = make_shared<string>(boost::any_cast<string>(m["Hash"]));
     }
+    if (m.find("IsFavorite") != m.end() && !m["IsFavorite"].empty()) {
+      isFavorite = make_shared<bool>(boost::any_cast<bool>(m["IsFavorite"]));
+    }
     if (m.find("Popularity") != m.end() && !m["Popularity"].empty()) {
       popularity = make_shared<long>(boost::any_cast<long>(m["Popularity"]));
+    }
+    if (m.find("Publisher") != m.end() && !m["Publisher"].empty()) {
+      publisher = make_shared<string>(boost::any_cast<string>(m["Publisher"]));
     }
     if (m.find("ResourceGroupId") != m.end() && !m["ResourceGroupId"].empty()) {
       resourceGroupId = make_shared<string>(boost::any_cast<string>(m["ResourceGroupId"]));
@@ -23282,6 +23613,8 @@ public:
   DeleteTemplatesResponse deleteTemplates(shared_ptr<DeleteTemplatesRequest> request);
   DeployApplicationGroupResponse deployApplicationGroupWithOptions(shared_ptr<DeployApplicationGroupRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeployApplicationGroupResponse deployApplicationGroup(shared_ptr<DeployApplicationGroupRequest> request);
+  DescribeApplicationGroupBillResponse describeApplicationGroupBillWithOptions(shared_ptr<DescribeApplicationGroupBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeApplicationGroupBillResponse describeApplicationGroupBill(shared_ptr<DescribeApplicationGroupBillRequest> request);
   DescribeRegionsResponse describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeRegionsResponse describeRegions(shared_ptr<DescribeRegionsRequest> request);
   GenerateExecutionPolicyResponse generateExecutionPolicyWithOptions(shared_ptr<GenerateExecutionPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

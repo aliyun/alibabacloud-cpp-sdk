@@ -961,6 +961,52 @@ DeployApplicationGroupResponse Alibabacloud_Oos20190601::Client::deployApplicati
   return deployApplicationGroupWithOptions(request, runtime);
 }
 
+DescribeApplicationGroupBillResponse Alibabacloud_Oos20190601::Client::describeApplicationGroupBillWithOptions(shared_ptr<DescribeApplicationGroupBillRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->applicationName)) {
+    query->insert(pair<string, string>("ApplicationName", *request->applicationName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->billingCycle)) {
+    query->insert(pair<string, string>("BillingCycle", *request->billingCycle));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
+    query->insert(pair<string, long>("MaxResults", *request->maxResults));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->nextToken)) {
+    query->insert(pair<string, string>("NextToken", *request->nextToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceType)) {
+    query->insert(pair<string, string>("ResourceType", *request->resourceType));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeApplicationGroupBill"))},
+    {"version", boost::any(string("2019-06-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeApplicationGroupBillResponse(callApi(params, req, runtime));
+}
+
+DescribeApplicationGroupBillResponse Alibabacloud_Oos20190601::Client::describeApplicationGroupBill(shared_ptr<DescribeApplicationGroupBillRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeApplicationGroupBillWithOptions(request, runtime);
+}
+
 DescribeRegionsResponse Alibabacloud_Oos20190601::Client::describeRegionsWithOptions(shared_ptr<DescribeRegionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -1000,6 +1046,9 @@ GenerateExecutionPolicyResponse Alibabacloud_Oos20190601::Client::generateExecut
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->templateContent)) {
+    query->insert(pair<string, string>("TemplateContent", *request->templateContent));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->templateName)) {
     query->insert(pair<string, string>("TemplateName", *request->templateName));
@@ -2627,6 +2676,9 @@ ListTemplatesResponse Alibabacloud_Oos20190601::Client::listTemplatesWithOptions
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->hasTrigger)) {
     query->insert(pair<string, bool>("HasTrigger", *request->hasTrigger));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isFavorite)) {
+    query->insert(pair<string, bool>("IsFavorite", *request->isFavorite));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->maxResults)) {
     query->insert(pair<string, long>("MaxResults", *request->maxResults));
