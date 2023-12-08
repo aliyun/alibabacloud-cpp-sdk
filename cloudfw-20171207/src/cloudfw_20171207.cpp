@@ -2222,9 +2222,6 @@ DescribeVpcFirewallAclGroupListResponse Alibabacloud_Cloudfw20171207::Client::de
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
-    query->insert(pair<string, string>("Lang", *request->lang));
-  }
   if (!Darabonba_Util::Client::isUnset<string>(request->pageSize)) {
     query->insert(pair<string, string>("PageSize", *request->pageSize));
   }
@@ -2996,6 +2993,9 @@ ModifyNatFirewallControlPolicyResponse Alibabacloud_Cloudfw20171207::Client::mod
   if (!Darabonba_Util::Client::isUnset<string>(request->destinationType)) {
     query->insert(pair<string, string>("DestinationType", *request->destinationType));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domainResolveType)) {
     query->insert(pair<string, string>("DomainResolveType", *request->domainResolveType));
   }
@@ -3062,6 +3062,9 @@ ModifyNatFirewallControlPolicyPositionResponse Alibabacloud_Cloudfw20171207::Cli
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->aclUuid)) {
     query->insert(pair<string, string>("AclUuid", *request->aclUuid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->direction)) {
+    query->insert(pair<string, string>("Direction", *request->direction));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));

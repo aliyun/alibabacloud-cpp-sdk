@@ -12241,6 +12241,7 @@ public:
   shared_ptr<string> aclGroupId{};
   shared_ptr<string> aclGroupName{};
   shared_ptr<long> aclRuleCount{};
+  shared_ptr<bool> isDefault{};
   shared_ptr<string> memberUid{};
 
   DescribeVpcFirewallAclGroupListResponseBodyAclGroupList() {}
@@ -12262,6 +12263,9 @@ public:
     if (aclRuleCount) {
       res["AclRuleCount"] = boost::any(*aclRuleCount);
     }
+    if (isDefault) {
+      res["IsDefault"] = boost::any(*isDefault);
+    }
     if (memberUid) {
       res["MemberUid"] = boost::any(*memberUid);
     }
@@ -12277,6 +12281,9 @@ public:
     }
     if (m.find("AclRuleCount") != m.end() && !m["AclRuleCount"].empty()) {
       aclRuleCount = make_shared<long>(boost::any_cast<long>(m["AclRuleCount"]));
+    }
+    if (m.find("IsDefault") != m.end() && !m["IsDefault"].empty()) {
+      isDefault = make_shared<bool>(boost::any_cast<bool>(m["IsDefault"]));
     }
     if (m.find("MemberUid") != m.end() && !m["MemberUid"].empty()) {
       memberUid = make_shared<string>(boost::any_cast<string>(m["MemberUid"]));
@@ -17339,6 +17346,7 @@ public:
   shared_ptr<string> destPortType{};
   shared_ptr<string> destination{};
   shared_ptr<string> destinationType{};
+  shared_ptr<string> direction{};
   shared_ptr<string> domainResolveType{};
   shared_ptr<long> endTime{};
   shared_ptr<string> lang{};
@@ -17389,6 +17397,9 @@ public:
     }
     if (destinationType) {
       res["DestinationType"] = boost::any(*destinationType);
+    }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
     }
     if (domainResolveType) {
       res["DomainResolveType"] = boost::any(*domainResolveType);
@@ -17466,6 +17477,9 @@ public:
     }
     if (m.find("DestinationType") != m.end() && !m["DestinationType"].empty()) {
       destinationType = make_shared<string>(boost::any_cast<string>(m["DestinationType"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
     if (m.find("DomainResolveType") != m.end() && !m["DomainResolveType"].empty()) {
       domainResolveType = make_shared<string>(boost::any_cast<string>(m["DomainResolveType"]));
@@ -17612,6 +17626,7 @@ public:
 class ModifyNatFirewallControlPolicyPositionRequest : public Darabonba::Model {
 public:
   shared_ptr<string> aclUuid{};
+  shared_ptr<string> direction{};
   shared_ptr<string> lang{};
   shared_ptr<string> natGatewayId{};
   shared_ptr<long> newOrder{};
@@ -17629,6 +17644,9 @@ public:
     if (aclUuid) {
       res["AclUuid"] = boost::any(*aclUuid);
     }
+    if (direction) {
+      res["Direction"] = boost::any(*direction);
+    }
     if (lang) {
       res["Lang"] = boost::any(*lang);
     }
@@ -17644,6 +17662,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AclUuid") != m.end() && !m["AclUuid"].empty()) {
       aclUuid = make_shared<string>(boost::any_cast<string>(m["AclUuid"]));
+    }
+    if (m.find("Direction") != m.end() && !m["Direction"].empty()) {
+      direction = make_shared<string>(boost::any_cast<string>(m["Direction"]));
     }
     if (m.find("Lang") != m.end() && !m["Lang"].empty()) {
       lang = make_shared<string>(boost::any_cast<string>(m["Lang"]));
