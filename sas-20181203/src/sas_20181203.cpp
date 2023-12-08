@@ -2387,11 +2387,17 @@ CreateOrUpdateDingTalkResponse Alibabacloud_Sas20181203::Client::createOrUpdateD
 CreateOssBucketScanTaskResponse Alibabacloud_Sas20181203::Client::createOssBucketScanTaskWithOptions(shared_ptr<CreateOssBucketScanTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allKeyPrefix)) {
+    query->insert(pair<string, bool>("AllKeyPrefix", *request->allKeyPrefix));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->excludeKeySuffixList)) {
     query->insert(pair<string, vector<string>>("ExcludeKeySuffixList", *request->excludeKeySuffixList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keyPrefixList)) {
+    query->insert(pair<string, vector<string>>("KeyPrefixList", *request->keyPrefixList));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keySuffixList)) {
     query->insert(pair<string, vector<string>>("KeySuffixList", *request->keySuffixList));
@@ -2424,6 +2430,9 @@ CreateOssBucketScanTaskResponse Alibabacloud_Sas20181203::Client::createOssBucke
 CreateOssScanConfigResponse Alibabacloud_Sas20181203::Client::createOssScanConfigWithOptions(shared_ptr<CreateOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allKeyPrefix)) {
+    query->insert(pair<string, bool>("AllKeyPrefix", *request->allKeyPrefix));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
   }
@@ -2433,8 +2442,14 @@ CreateOssScanConfigResponse Alibabacloud_Sas20181203::Client::createOssScanConfi
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keyPrefixList)) {
+    query->insert(pair<string, vector<string>>("KeyPrefixList", *request->keyPrefixList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keySuffixList)) {
     query->insert(pair<string, vector<string>>("KeySuffixList", *request->keySuffixList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->scanDayList)) {
     query->insert(pair<string, vector<long>>("ScanDayList", *request->scanDayList));
@@ -5057,6 +5072,9 @@ DescribeCheckFixDetailsResponse Alibabacloud_Sas20181203::Client::describeCheckF
 DescribeCheckWarningDetailResponse Alibabacloud_Sas20181203::Client::describeCheckWarningDetailWithOptions(shared_ptr<DescribeCheckWarningDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkId)) {
+    query->insert(pair<string, string>("CheckId", *request->checkId));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->checkWarningId)) {
     query->insert(pair<string, long>("CheckWarningId", *request->checkWarningId));
   }
@@ -5068,6 +5086,9 @@ DescribeCheckWarningDetailResponse Alibabacloud_Sas20181203::Client::describeChe
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sourceIp)) {
     query->insert(pair<string, string>("SourceIp", *request->sourceIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
+    query->insert(pair<string, string>("Uuid", *request->uuid));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -15207,8 +15228,18 @@ GetOssBucketScanStatisticResponse Alibabacloud_Sas20181203::Client::getOssBucket
   return getOssBucketScanStatisticWithOptions(request, runtime);
 }
 
-GetOssScanConfigResponse Alibabacloud_Sas20181203::Client::getOssScanConfigWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>();
+GetOssScanConfigResponse Alibabacloud_Sas20181203::Client::getOssScanConfigWithOptions(shared_ptr<GetOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bucketName)) {
+    query->insert(pair<string, string>("BucketName", *request->bucketName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
   shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
     {"action", boost::any(string("GetOssScanConfig"))},
     {"version", boost::any(string("2018-12-03"))},
@@ -15223,9 +15254,9 @@ GetOssScanConfigResponse Alibabacloud_Sas20181203::Client::getOssScanConfigWithO
   return GetOssScanConfigResponse(callApi(params, req, runtime));
 }
 
-GetOssScanConfigResponse Alibabacloud_Sas20181203::Client::getOssScanConfig() {
+GetOssScanConfigResponse Alibabacloud_Sas20181203::Client::getOssScanConfig(shared_ptr<GetOssScanConfigRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  return getOssScanConfigWithOptions(runtime);
+  return getOssScanConfigWithOptions(request, runtime);
 }
 
 GetPropertyScheduleConfigResponse Alibabacloud_Sas20181203::Client::getPropertyScheduleConfigWithOptions(shared_ptr<GetPropertyScheduleConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -15736,6 +15767,9 @@ IgnoreCheckItemsResponse Alibabacloud_Sas20181203::Client::ignoreCheckItemsWithO
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<vector<IgnoreCheckItemsRequestCheckAndRiskTypeList>>(request->checkAndRiskTypeList)) {
     query->insert(pair<string, vector<IgnoreCheckItemsRequestCheckAndRiskTypeList>>("CheckAndRiskTypeList", *request->checkAndRiskTypeList));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->checkIds)) {
+    query->insert(pair<string, vector<long>>("CheckIds", *request->checkIds));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
     query->insert(pair<string, string>("Lang", *request->lang));
@@ -16640,6 +16674,9 @@ ListCheckItemWarningMachineResponse Alibabacloud_Sas20181203::Client::listCheckI
   if (!Darabonba_Util::Client::isUnset<long>(request->status)) {
     query->insert(pair<string, long>("Status", *request->status));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->uuidList)) {
+    query->insert(pair<string, vector<string>>("UuidList", *request->uuidList));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -16850,6 +16887,12 @@ ListCheckTypesResponse Alibabacloud_Sas20181203::Client::listCheckTypesWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->riskId)) {
     query->insert(pair<string, long>("RiskId", *request->riskId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showChecks)) {
+    query->insert(pair<string, bool>("ShowChecks", *request->showChecks));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
+    query->insert(pair<string, string>("Source", *request->source));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->uuid)) {
     query->insert(pair<string, string>("Uuid", *request->uuid));
@@ -24236,6 +24279,9 @@ UpdateOpaStrategyNewResponse Alibabacloud_Sas20181203::Client::updateOpaStrategy
 UpdateOssScanConfigResponse Alibabacloud_Sas20181203::Client::updateOssScanConfigWithOptions(shared_ptr<UpdateOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->allKeyPrefix)) {
+    query->insert(pair<string, bool>("AllKeyPrefix", *request->allKeyPrefix));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->bucketNameList)) {
     query->insert(pair<string, vector<string>>("BucketNameList", *request->bucketNameList));
   }
@@ -24245,8 +24291,17 @@ UpdateOssScanConfigResponse Alibabacloud_Sas20181203::Client::updateOssScanConfi
   if (!Darabonba_Util::Client::isUnset<string>(request->endTime)) {
     query->insert(pair<string, string>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->id)) {
+    query->insert(pair<string, string>("Id", *request->id));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keyPrefixList)) {
+    query->insert(pair<string, vector<string>>("KeyPrefixList", *request->keyPrefixList));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->keySuffixList)) {
     query->insert(pair<string, vector<string>>("KeySuffixList", *request->keySuffixList));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->name)) {
+    query->insert(pair<string, string>("Name", *request->name));
   }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(request->scanDayList)) {
     query->insert(pair<string, vector<long>>("ScanDayList", *request->scanDayList));
