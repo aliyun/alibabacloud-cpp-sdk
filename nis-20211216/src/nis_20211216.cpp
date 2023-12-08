@@ -244,8 +244,8 @@ GetInternetTupleResponse Alibabacloud_Nis20211216::Client::getInternetTupleWithO
     request->instanceListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->instanceList, make_shared<string>("InstanceList"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->accountIds)) {
-    query->insert(pair<string, vector<string>>("AccountIds", *request->accountIds));
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(request->accountIds)) {
+    query->insert(pair<string, vector<long>>("AccountIds", *request->accountIds));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->beginTime)) {
     query->insert(pair<string, long>("BeginTime", *request->beginTime));
@@ -410,7 +410,7 @@ GetTransitRouterFlowTopNResponse Alibabacloud_Nis20211216::Client::getTransitRou
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetTransitRouterFlowTopNShrinkRequest> request = make_shared<GetTransitRouterFlowTopNShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -494,7 +494,7 @@ GetVbrFlowTopNResponse Alibabacloud_Nis20211216::Client::getVbrFlowTopNWithOptio
   Darabonba_Util::Client::validateModel(tmpReq);
   shared_ptr<GetVbrFlowTopNShrinkRequest> request = make_shared<GetVbrFlowTopNShrinkRequest>();
   Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
-  if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->accountIds)) {
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->accountIds)) {
     request->accountIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->accountIds, make_shared<string>("AccountIds"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());

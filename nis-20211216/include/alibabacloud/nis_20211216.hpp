@@ -1068,7 +1068,7 @@ public:
 };
 class GetInternetTupleRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<long>> accountIds{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cloudIp{};
   shared_ptr<string> cloudIsp{};
@@ -1168,14 +1168,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      accountIds = make_shared<vector<string>>(toVec1);
+      accountIds = make_shared<vector<long>>(toVec1);
     }
     if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
       beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
@@ -1251,7 +1251,7 @@ public:
 };
 class GetInternetTupleShrinkRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<long>> accountIds{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cloudIp{};
   shared_ptr<string> cloudIsp{};
@@ -1351,14 +1351,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      accountIds = make_shared<vector<string>>(toVec1);
+      accountIds = make_shared<vector<long>>(toVec1);
     }
     if (m.find("BeginTime") != m.end() && !m["BeginTime"].empty()) {
       beginTime = make_shared<long>(boost::any_cast<long>(m["BeginTime"]));
@@ -2243,7 +2243,7 @@ public:
 };
 class GetTransitRouterFlowTopNRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<long>> accountIds{};
   shared_ptr<string> bandwithPackageId{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cenId{};
@@ -2331,14 +2331,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      accountIds = make_shared<vector<string>>(toVec1);
+      accountIds = make_shared<vector<long>>(toVec1);
     }
     if (m.find("BandwithPackageId") != m.end() && !m["BandwithPackageId"].empty()) {
       bandwithPackageId = make_shared<string>(boost::any_cast<string>(m["BandwithPackageId"]));
@@ -2778,7 +2778,7 @@ public:
 };
 class GetVbrFlowTopNRequest : public Darabonba::Model {
 public:
-  shared_ptr<vector<string>> accountIds{};
+  shared_ptr<vector<long>> accountIds{};
   shared_ptr<string> attachmentId{};
   shared_ptr<long> beginTime{};
   shared_ptr<string> cenId{};
@@ -2866,14 +2866,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AccountIds") != m.end() && !m["AccountIds"].empty()) {
-      vector<string> toVec1;
+      vector<long> toVec1;
       if (typeid(vector<boost::any>) == m["AccountIds"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AccountIds"]);
         for (auto item:vec1) {
-           toVec1.push_back(boost::any_cast<string>(item));
+           toVec1.push_back(boost::any_cast<long>(item));
         }
       }
-      accountIds = make_shared<vector<string>>(toVec1);
+      accountIds = make_shared<vector<long>>(toVec1);
     }
     if (m.find("AttachmentId") != m.end() && !m["AttachmentId"].empty()) {
       attachmentId = make_shared<string>(boost::any_cast<string>(m["AttachmentId"]));
