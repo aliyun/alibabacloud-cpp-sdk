@@ -1260,6 +1260,7 @@ class GetPackageResponseBodyDataResourceListFunction : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetPackageResponseBodyDataResourceListFunction() {}
 
@@ -1277,6 +1278,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -1294,6 +1298,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -1303,6 +1310,7 @@ class GetPackageResponseBodyDataResourceListResource : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetPackageResponseBodyDataResourceListResource() {}
 
@@ -1320,6 +1328,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -1337,6 +1348,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -1346,6 +1360,7 @@ class GetPackageResponseBodyDataResourceListTable : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetPackageResponseBodyDataResourceListTable() {}
 
@@ -1363,6 +1378,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -1379,6 +1397,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
     }
   }
 
@@ -1527,6 +1548,9 @@ public:
 class GetPackageResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GetPackageResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpCode{};
   shared_ptr<string> requestId{};
 
   GetPackageResponseBody() {}
@@ -1542,6 +1566,15 @@ public:
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
@@ -1555,6 +1588,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<GetPackageResponseBodyData>(model1);
       }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
@@ -2095,6 +2137,7 @@ public:
   shared_ptr<GetProjectResponseBodyDataSaleTag> saleTag{};
   shared_ptr<GetProjectResponseBodyDataSecurityProperties> securityProperties{};
   shared_ptr<string> status{};
+  shared_ptr<vector<string>> superAdmins{};
   shared_ptr<string> type{};
 
   GetProjectResponseBodyData() {}
@@ -2139,6 +2182,9 @@ public:
     }
     if (status) {
       res["status"] = boost::any(*status);
+    }
+    if (superAdmins) {
+      res["superAdmins"] = boost::any(*superAdmins);
     }
     if (type) {
       res["type"] = boost::any(*type);
@@ -2195,6 +2241,16 @@ public:
     }
     if (m.find("status") != m.end() && !m["status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["status"]));
+    }
+    if (m.find("superAdmins") != m.end() && !m["superAdmins"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["superAdmins"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["superAdmins"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      superAdmins = make_shared<vector<string>>(toVec1);
     }
     if (m.find("type") != m.end() && !m["type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["type"]));
@@ -4785,6 +4841,7 @@ class GetRoleAclResponseBodyDataFunction : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataFunction() {}
 
@@ -4802,6 +4859,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -4819,6 +4879,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -4828,6 +4891,7 @@ class GetRoleAclResponseBodyDataInstance : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataInstance() {}
 
@@ -4845,6 +4909,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -4862,6 +4929,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -4871,6 +4941,7 @@ class GetRoleAclResponseBodyDataPackage : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataPackage() {}
 
@@ -4888,6 +4959,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -4905,6 +4979,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -4914,6 +4991,7 @@ class GetRoleAclResponseBodyDataProject : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataProject() {}
 
@@ -4931,6 +5009,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -4948,6 +5029,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -4957,6 +5041,7 @@ class GetRoleAclResponseBodyDataResource : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataResource() {}
 
@@ -4974,6 +5059,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -4991,6 +5079,9 @@ public:
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
     }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
+    }
   }
 
 
@@ -5000,6 +5091,7 @@ class GetRoleAclResponseBodyDataTable : public Darabonba::Model {
 public:
   shared_ptr<vector<string>> actions{};
   shared_ptr<string> name{};
+  shared_ptr<string> schemaName{};
 
   GetRoleAclResponseBodyDataTable() {}
 
@@ -5017,6 +5109,9 @@ public:
     if (name) {
       res["name"] = boost::any(*name);
     }
+    if (schemaName) {
+      res["schemaName"] = boost::any(*schemaName);
+    }
     return res;
   }
 
@@ -5033,6 +5128,9 @@ public:
     }
     if (m.find("name") != m.end() && !m["name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
+    if (m.find("schemaName") != m.end() && !m["schemaName"].empty()) {
+      schemaName = make_shared<string>(boost::any_cast<string>(m["schemaName"]));
     }
   }
 
@@ -5190,6 +5288,9 @@ public:
 class GetRoleAclResponseBody : public Darabonba::Model {
 public:
   shared_ptr<GetRoleAclResponseBodyData> data{};
+  shared_ptr<string> errorCode{};
+  shared_ptr<string> errorMsg{};
+  shared_ptr<long> httpCode{};
   shared_ptr<string> requestId{};
 
   GetRoleAclResponseBody() {}
@@ -5205,6 +5306,15 @@ public:
     if (data) {
       res["data"] = data ? boost::any(data->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (errorCode) {
+      res["errorCode"] = boost::any(*errorCode);
+    }
+    if (errorMsg) {
+      res["errorMsg"] = boost::any(*errorMsg);
+    }
+    if (httpCode) {
+      res["httpCode"] = boost::any(*httpCode);
+    }
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
@@ -5218,6 +5328,15 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["data"]));
         data = make_shared<GetRoleAclResponseBodyData>(model1);
       }
+    }
+    if (m.find("errorCode") != m.end() && !m["errorCode"].empty()) {
+      errorCode = make_shared<string>(boost::any_cast<string>(m["errorCode"]));
+    }
+    if (m.find("errorMsg") != m.end() && !m["errorMsg"].empty()) {
+      errorMsg = make_shared<string>(boost::any_cast<string>(m["errorMsg"]));
+    }
+    if (m.find("httpCode") != m.end() && !m["httpCode"].empty()) {
+      httpCode = make_shared<long>(boost::any_cast<long>(m["httpCode"]));
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
