@@ -1500,6 +1500,7 @@ public:
 };
 class DescribeUsersRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> bizType{};
   shared_ptr<vector<string>> endUserIds{};
   shared_ptr<vector<string>> excludeEndUserIds{};
   shared_ptr<string> filter{};
@@ -1507,6 +1508,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> orgId{};
+  shared_ptr<string> solutionId{};
 
   DescribeUsersRequest() {}
 
@@ -1518,6 +1520,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (bizType) {
+      res["BizType"] = boost::any(*bizType);
+    }
     if (endUserIds) {
       res["EndUserIds"] = boost::any(*endUserIds);
     }
@@ -1539,10 +1544,16 @@ public:
     if (orgId) {
       res["OrgId"] = boost::any(*orgId);
     }
+    if (solutionId) {
+      res["SolutionId"] = boost::any(*solutionId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("BizType") != m.end() && !m["BizType"].empty()) {
+      bizType = make_shared<string>(boost::any_cast<string>(m["BizType"]));
+    }
     if (m.find("EndUserIds") != m.end() && !m["EndUserIds"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["EndUserIds"].type()) {
@@ -1577,6 +1588,9 @@ public:
     }
     if (m.find("OrgId") != m.end() && !m["OrgId"].empty()) {
       orgId = make_shared<string>(boost::any_cast<string>(m["OrgId"]));
+    }
+    if (m.find("SolutionId") != m.end() && !m["SolutionId"].empty()) {
+      solutionId = make_shared<string>(boost::any_cast<string>(m["SolutionId"]));
     }
   }
 
@@ -2550,6 +2564,7 @@ public:
   shared_ptr<bool> isTenantManager{};
   shared_ptr<string> ownerType{};
   shared_ptr<string> phone{};
+  shared_ptr<string> realNickName{};
   shared_ptr<string> remark{};
   shared_ptr<long> status{};
   shared_ptr<vector<FilterUsersResponseBodyUsersUserSetPropertiesModels>> userSetPropertiesModels{};
@@ -2593,6 +2608,9 @@ public:
     }
     if (phone) {
       res["Phone"] = boost::any(*phone);
+    }
+    if (realNickName) {
+      res["RealNickName"] = boost::any(*realNickName);
     }
     if (remark) {
       res["Remark"] = boost::any(*remark);
@@ -2644,6 +2662,9 @@ public:
     }
     if (m.find("Phone") != m.end() && !m["Phone"].empty()) {
       phone = make_shared<string>(boost::any_cast<string>(m["Phone"]));
+    }
+    if (m.find("RealNickName") != m.end() && !m["RealNickName"].empty()) {
+      realNickName = make_shared<string>(boost::any_cast<string>(m["RealNickName"]));
     }
     if (m.find("Remark") != m.end() && !m["Remark"].empty()) {
       remark = make_shared<string>(boost::any_cast<string>(m["Remark"]));

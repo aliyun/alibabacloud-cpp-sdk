@@ -251,6 +251,9 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
     query->insert(pair<string, string>("NextToken", *request->nextToken));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->bizType)) {
+    body->insert(pair<string, string>("BizType", *request->bizType));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->endUserIds)) {
     body->insert(pair<string, vector<string>>("EndUserIds", *request->endUserIds));
   }
@@ -262,6 +265,9 @@ DescribeUsersResponse Alibabacloud_Eds-user20210308::Client::describeUsersWithOp
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->orgId)) {
     body->insert(pair<string, string>("OrgId", *request->orgId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->solutionId)) {
+    body->insert(pair<string, string>("SolutionId", *request->solutionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))},
