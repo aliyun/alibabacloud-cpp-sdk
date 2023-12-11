@@ -1239,6 +1239,34 @@ CreateMigrationJobResponse Alibabacloud_Dts20200101::Client::createMigrationJob(
   return createMigrationJobWithOptions(request, runtime);
 }
 
+CreateReverseDtsJobResponse Alibabacloud_Dts20200101::Client::createReverseDtsJobWithOptions(shared_ptr<CreateReverseDtsJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
+    query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CreateReverseDtsJob"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CreateReverseDtsJobResponse(callApi(params, req, runtime));
+}
+
+CreateReverseDtsJobResponse Alibabacloud_Dts20200101::Client::createReverseDtsJob(shared_ptr<CreateReverseDtsJobRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return createReverseDtsJobWithOptions(request, runtime);
+}
+
 CreateSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::createSubscriptionInstanceWithOptions(shared_ptr<CreateSubscriptionInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -3716,6 +3744,9 @@ ModifyDtsJobResponse Alibabacloud_Dts20200101::Client::modifyDtsJobWithOptions(s
   if (!Darabonba_Util::Client::isUnset<string>(request->dtsInstanceId)) {
     query->insert(pair<string, string>("DtsInstanceId", *request->dtsInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
+    query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->fileOssUrl)) {
     query->insert(pair<string, string>("FileOssUrl", *request->fileOssUrl));
   }
@@ -4522,6 +4553,37 @@ StartMigrationJobResponse Alibabacloud_Dts20200101::Client::startMigrationJobWit
 StartMigrationJobResponse Alibabacloud_Dts20200101::Client::startMigrationJob(shared_ptr<StartMigrationJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startMigrationJobWithOptions(request, runtime);
+}
+
+StartReverseWriterResponse Alibabacloud_Dts20200101::Client::startReverseWriterWithOptions(shared_ptr<StartReverseWriterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->checkPoint)) {
+    query->insert(pair<string, string>("CheckPoint", *request->checkPoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
+    query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartReverseWriter"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartReverseWriterResponse(callApi(params, req, runtime));
+}
+
+StartReverseWriterResponse Alibabacloud_Dts20200101::Client::startReverseWriter(shared_ptr<StartReverseWriterRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startReverseWriterWithOptions(request, runtime);
 }
 
 StartSubscriptionInstanceResponse Alibabacloud_Dts20200101::Client::startSubscriptionInstanceWithOptions(shared_ptr<StartSubscriptionInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {

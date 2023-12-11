@@ -4886,6 +4886,168 @@ public:
 
   virtual ~CreateMigrationJobResponse() = default;
 };
+class CreateReverseDtsJobRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dtsJobId{};
+
+  CreateReverseDtsJobRequest() {}
+
+  explicit CreateReverseDtsJobRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+  }
+
+
+  virtual ~CreateReverseDtsJobRequest() = default;
+};
+class CreateReverseDtsJobResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  CreateReverseDtsJobResponseBody() {}
+
+  explicit CreateReverseDtsJobResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dtsInstanceId) {
+      res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
+      dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~CreateReverseDtsJobResponseBody() = default;
+};
+class CreateReverseDtsJobResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateReverseDtsJobResponseBody> body{};
+
+  CreateReverseDtsJobResponse() {}
+
+  explicit CreateReverseDtsJobResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateReverseDtsJobResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateReverseDtsJobResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateReverseDtsJobResponse() = default;
+};
 class CreateSubscriptionInstanceRequestSourceEndpoint : public Darabonba::Model {
 public:
   shared_ptr<string> instanceType{};
@@ -18131,10 +18293,112 @@ public:
 
   virtual ~DescribeDtsJobsResponseBodyDtsJobListReverseJobErrorDetails() = default;
 };
+class DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> percent{};
+  shared_ptr<string> progress{};
+  shared_ptr<string> status{};
+
+  DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus() {}
+
+  explicit DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<string>(boost::any_cast<string>(m["Percent"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus() = default;
+};
+class DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus : public Darabonba::Model {
+public:
+  shared_ptr<string> errorMessage{};
+  shared_ptr<string> percent{};
+  shared_ptr<string> progress{};
+  shared_ptr<string> status{};
+
+  DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus() {}
+
+  explicit DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errorMessage) {
+      res["ErrorMessage"] = boost::any(*errorMessage);
+    }
+    if (percent) {
+      res["Percent"] = boost::any(*percent);
+    }
+    if (progress) {
+      res["Progress"] = boost::any(*progress);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrorMessage") != m.end() && !m["ErrorMessage"].empty()) {
+      errorMessage = make_shared<string>(boost::any_cast<string>(m["ErrorMessage"]));
+    }
+    if (m.find("Percent") != m.end() && !m["Percent"].empty()) {
+      percent = make_shared<string>(boost::any_cast<string>(m["Percent"]));
+    }
+    if (m.find("Progress") != m.end() && !m["Progress"].empty()) {
+      progress = make_shared<string>(boost::any_cast<string>(m["Progress"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus() = default;
+};
 class DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode : public Darabonba::Model {
 public:
   shared_ptr<bool> dataInitialization{};
   shared_ptr<bool> dataSynchronization{};
+  shared_ptr<bool> fullDataCheck{};
+  shared_ptr<bool> incDataCheck{};
   shared_ptr<bool> structureInitialization{};
 
   DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode() {}
@@ -18153,6 +18417,12 @@ public:
     if (dataSynchronization) {
       res["DataSynchronization"] = boost::any(*dataSynchronization);
     }
+    if (fullDataCheck) {
+      res["FullDataCheck"] = boost::any(*fullDataCheck);
+    }
+    if (incDataCheck) {
+      res["IncDataCheck"] = boost::any(*incDataCheck);
+    }
     if (structureInitialization) {
       res["StructureInitialization"] = boost::any(*structureInitialization);
     }
@@ -18165,6 +18435,12 @@ public:
     }
     if (m.find("DataSynchronization") != m.end() && !m["DataSynchronization"].empty()) {
       dataSynchronization = make_shared<bool>(boost::any_cast<bool>(m["DataSynchronization"]));
+    }
+    if (m.find("FullDataCheck") != m.end() && !m["FullDataCheck"].empty()) {
+      fullDataCheck = make_shared<bool>(boost::any_cast<bool>(m["FullDataCheck"]));
+    }
+    if (m.find("IncDataCheck") != m.end() && !m["IncDataCheck"].empty()) {
+      incDataCheck = make_shared<bool>(boost::any_cast<bool>(m["IncDataCheck"]));
     }
     if (m.find("StructureInitialization") != m.end() && !m["StructureInitialization"].empty()) {
       structureInitialization = make_shared<bool>(boost::any_cast<bool>(m["StructureInitialization"]));
@@ -18494,6 +18770,8 @@ public:
   shared_ptr<string> errorMessage{};
   shared_ptr<string> etlSafeCheckpoint{};
   shared_ptr<string> expireTime{};
+  shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus> fullDataCheckStatus{};
+  shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus> incDataCheckStatus{};
   shared_ptr<string> memUsage{};
   shared_ptr<DescribeDtsJobsResponseBodyDtsJobListReverseJobMigrationMode> migrationMode{};
   shared_ptr<string> payType{};
@@ -18574,6 +18852,12 @@ public:
     }
     if (expireTime) {
       res["ExpireTime"] = boost::any(*expireTime);
+    }
+    if (fullDataCheckStatus) {
+      res["FullDataCheckStatus"] = fullDataCheckStatus ? boost::any(fullDataCheckStatus->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (incDataCheckStatus) {
+      res["IncDataCheckStatus"] = incDataCheckStatus ? boost::any(incDataCheckStatus->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (memUsage) {
       res["MemUsage"] = boost::any(*memUsage);
@@ -18684,6 +18968,20 @@ public:
     }
     if (m.find("ExpireTime") != m.end() && !m["ExpireTime"].empty()) {
       expireTime = make_shared<string>(boost::any_cast<string>(m["ExpireTime"]));
+    }
+    if (m.find("FullDataCheckStatus") != m.end() && !m["FullDataCheckStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["FullDataCheckStatus"].type()) {
+        DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["FullDataCheckStatus"]));
+        fullDataCheckStatus = make_shared<DescribeDtsJobsResponseBodyDtsJobListReverseJobFullDataCheckStatus>(model1);
+      }
+    }
+    if (m.find("IncDataCheckStatus") != m.end() && !m["IncDataCheckStatus"].empty()) {
+      if (typeid(map<string, boost::any>) == m["IncDataCheckStatus"].type()) {
+        DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["IncDataCheckStatus"]));
+        incDataCheckStatus = make_shared<DescribeDtsJobsResponseBodyDtsJobListReverseJobIncDataCheckStatus>(model1);
+      }
     }
     if (m.find("MemUsage") != m.end() && !m["MemUsage"].empty()) {
       memUsage = make_shared<string>(boost::any_cast<string>(m["MemUsage"]));
@@ -35030,6 +35328,7 @@ public:
   shared_ptr<bool> dataSynchronization{};
   shared_ptr<map<string, boost::any>> dbList{};
   shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
   shared_ptr<string> etlOperatorColumnReference{};
   shared_ptr<string> fileOssUrl{};
   shared_ptr<string> filterTableName{};
@@ -35063,6 +35362,9 @@ public:
     }
     if (dtsInstanceId) {
       res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
     }
     if (etlOperatorColumnReference) {
       res["EtlOperatorColumnReference"] = boost::any(*etlOperatorColumnReference);
@@ -35112,6 +35414,9 @@ public:
     if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
       dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
     }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
     if (m.find("EtlOperatorColumnReference") != m.end() && !m["EtlOperatorColumnReference"].empty()) {
       etlOperatorColumnReference = make_shared<string>(boost::any_cast<string>(m["EtlOperatorColumnReference"]));
     }
@@ -35148,6 +35453,7 @@ public:
   shared_ptr<bool> dataSynchronization{};
   shared_ptr<map<string, boost::any>> dbList{};
   shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
   shared_ptr<string> etlOperatorColumnReference{};
   shared_ptr<Darabonba::Stream> fileOssUrlObject{};
   shared_ptr<string> filterTableName{};
@@ -35181,6 +35487,9 @@ public:
     }
     if (dtsInstanceId) {
       res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
     }
     if (etlOperatorColumnReference) {
       res["EtlOperatorColumnReference"] = boost::any(*etlOperatorColumnReference);
@@ -35230,6 +35539,9 @@ public:
     if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
       dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
     }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
     if (m.find("EtlOperatorColumnReference") != m.end() && !m["EtlOperatorColumnReference"].empty()) {
       etlOperatorColumnReference = make_shared<string>(boost::any_cast<string>(m["EtlOperatorColumnReference"]));
     }
@@ -35266,6 +35578,7 @@ public:
   shared_ptr<bool> dataSynchronization{};
   shared_ptr<string> dbListShrink{};
   shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
   shared_ptr<string> etlOperatorColumnReference{};
   shared_ptr<string> fileOssUrl{};
   shared_ptr<string> filterTableName{};
@@ -35299,6 +35612,9 @@ public:
     }
     if (dtsInstanceId) {
       res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
     }
     if (etlOperatorColumnReference) {
       res["EtlOperatorColumnReference"] = boost::any(*etlOperatorColumnReference);
@@ -35342,6 +35658,9 @@ public:
     }
     if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
       dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
     }
     if (m.find("EtlOperatorColumnReference") != m.end() && !m["EtlOperatorColumnReference"].empty()) {
       etlOperatorColumnReference = make_shared<string>(boost::any_cast<string>(m["EtlOperatorColumnReference"]));
@@ -38735,6 +39054,154 @@ public:
 
 
   virtual ~StartMigrationJobResponse() = default;
+};
+class StartReverseWriterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> checkPoint{};
+  shared_ptr<string> dtsJobId{};
+
+  StartReverseWriterRequest() {}
+
+  explicit StartReverseWriterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (checkPoint) {
+      res["CheckPoint"] = boost::any(*checkPoint);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CheckPoint") != m.end() && !m["CheckPoint"].empty()) {
+      checkPoint = make_shared<string>(boost::any_cast<string>(m["CheckPoint"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+  }
+
+
+  virtual ~StartReverseWriterRequest() = default;
+};
+class StartReverseWriterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> requestId{};
+  shared_ptr<string> success{};
+
+  StartReverseWriterResponseBody() {}
+
+  explicit StartReverseWriterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<string>(boost::any_cast<string>(m["Success"]));
+    }
+  }
+
+
+  virtual ~StartReverseWriterResponseBody() = default;
+};
+class StartReverseWriterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<StartReverseWriterResponseBody> body{};
+
+  StartReverseWriterResponse() {}
+
+  explicit StartReverseWriterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        StartReverseWriterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<StartReverseWriterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~StartReverseWriterResponse() = default;
 };
 class StartSubscriptionInstanceRequest : public Darabonba::Model {
 public:
@@ -42422,6 +42889,8 @@ public:
   CreateJobMonitorRuleResponse createJobMonitorRule(shared_ptr<CreateJobMonitorRuleRequest> request);
   CreateMigrationJobResponse createMigrationJobWithOptions(shared_ptr<CreateMigrationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateMigrationJobResponse createMigrationJob(shared_ptr<CreateMigrationJobRequest> request);
+  CreateReverseDtsJobResponse createReverseDtsJobWithOptions(shared_ptr<CreateReverseDtsJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateReverseDtsJobResponse createReverseDtsJob(shared_ptr<CreateReverseDtsJobRequest> request);
   CreateSubscriptionInstanceResponse createSubscriptionInstanceWithOptions(shared_ptr<CreateSubscriptionInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSubscriptionInstanceResponse createSubscriptionInstance(shared_ptr<CreateSubscriptionInstanceRequest> request);
   CreateSynchronizationJobResponse createSynchronizationJobWithOptions(shared_ptr<CreateSynchronizationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -42571,6 +43040,8 @@ public:
   StartDtsJobsResponse startDtsJobs(shared_ptr<StartDtsJobsRequest> request);
   StartMigrationJobResponse startMigrationJobWithOptions(shared_ptr<StartMigrationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartMigrationJobResponse startMigrationJob(shared_ptr<StartMigrationJobRequest> request);
+  StartReverseWriterResponse startReverseWriterWithOptions(shared_ptr<StartReverseWriterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  StartReverseWriterResponse startReverseWriter(shared_ptr<StartReverseWriterRequest> request);
   StartSubscriptionInstanceResponse startSubscriptionInstanceWithOptions(shared_ptr<StartSubscriptionInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   StartSubscriptionInstanceResponse startSubscriptionInstance(shared_ptr<StartSubscriptionInstanceRequest> request);
   StartSynchronizationJobResponse startSynchronizationJobWithOptions(shared_ptr<StartSynchronizationJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
