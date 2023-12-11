@@ -3629,6 +3629,34 @@ DeleteOpaStrategyNewResponse Alibabacloud_Sas20181203::Client::deleteOpaStrategy
   return deleteOpaStrategyNewWithOptions(request, runtime);
 }
 
+DeleteOssScanConfigResponse Alibabacloud_Sas20181203::Client::deleteOssScanConfigWithOptions(shared_ptr<DeleteOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->id)) {
+    query->insert(pair<string, long>("Id", *request->id));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DeleteOssScanConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DeleteOssScanConfigResponse(callApi(params, req, runtime));
+}
+
+DeleteOssScanConfigResponse Alibabacloud_Sas20181203::Client::deleteOssScanConfig(shared_ptr<DeleteOssScanConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return deleteOssScanConfigWithOptions(request, runtime);
+}
+
 DeletePrivateRegistryResponse Alibabacloud_Sas20181203::Client::deletePrivateRegistryWithOptions(shared_ptr<DeletePrivateRegistryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -18351,6 +18379,31 @@ ListOssBucketScanInfoResponse Alibabacloud_Sas20181203::Client::listOssBucketSca
 ListOssBucketScanInfoResponse Alibabacloud_Sas20181203::Client::listOssBucketScanInfo(shared_ptr<ListOssBucketScanInfoRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return listOssBucketScanInfoWithOptions(request, runtime);
+}
+
+ListOssScanConfigResponse Alibabacloud_Sas20181203::Client::listOssScanConfigWithOptions(shared_ptr<ListOssScanConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListOssScanConfig"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListOssScanConfigResponse(callApi(params, req, runtime));
+}
+
+ListOssScanConfigResponse Alibabacloud_Sas20181203::Client::listOssScanConfig(shared_ptr<ListOssScanConfigRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return listOssScanConfigWithOptions(request, runtime);
 }
 
 ListPluginForUuidResponse Alibabacloud_Sas20181203::Client::listPluginForUuidWithOptions(shared_ptr<ListPluginForUuidRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
