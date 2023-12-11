@@ -5880,6 +5880,49 @@ public:
 
   virtual ~AddServiceSourceRequestIngressOptionsRequest() = default;
 };
+class AddServiceSourceRequestToAuthorizeSecurityGroups : public Darabonba::Model {
+public:
+  shared_ptr<string> description{};
+  shared_ptr<string> portRange{};
+  shared_ptr<string> securityGroupId{};
+
+  AddServiceSourceRequestToAuthorizeSecurityGroups() {}
+
+  explicit AddServiceSourceRequestToAuthorizeSecurityGroups(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (description) {
+      res["Description"] = boost::any(*description);
+    }
+    if (portRange) {
+      res["PortRange"] = boost::any(*portRange);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Description") != m.end() && !m["Description"].empty()) {
+      description = make_shared<string>(boost::any_cast<string>(m["Description"]));
+    }
+    if (m.find("PortRange") != m.end() && !m["PortRange"].empty()) {
+      portRange = make_shared<string>(boost::any_cast<string>(m["PortRange"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
+    }
+  }
+
+
+  virtual ~AddServiceSourceRequestToAuthorizeSecurityGroups() = default;
+};
 class AddServiceSourceRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
@@ -5890,6 +5933,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<vector<string>> pathList{};
   shared_ptr<string> source{};
+  shared_ptr<vector<AddServiceSourceRequestToAuthorizeSecurityGroups>> toAuthorizeSecurityGroups{};
   shared_ptr<string> type{};
 
   AddServiceSourceRequest() {}
@@ -5925,6 +5969,13 @@ public:
     }
     if (source) {
       res["Source"] = boost::any(*source);
+    }
+    if (toAuthorizeSecurityGroups) {
+      vector<boost::any> temp1;
+      for(auto item1:*toAuthorizeSecurityGroups){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ToAuthorizeSecurityGroups"] = boost::any(temp1);
     }
     if (type) {
       res["Type"] = boost::any(*type);
@@ -5975,6 +6026,19 @@ public:
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
     }
+    if (m.find("ToAuthorizeSecurityGroups") != m.end() && !m["ToAuthorizeSecurityGroups"].empty()) {
+      if (typeid(vector<boost::any>) == m["ToAuthorizeSecurityGroups"].type()) {
+        vector<AddServiceSourceRequestToAuthorizeSecurityGroups> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ToAuthorizeSecurityGroups"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AddServiceSourceRequestToAuthorizeSecurityGroups model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        toAuthorizeSecurityGroups = make_shared<vector<AddServiceSourceRequestToAuthorizeSecurityGroups>>(expect1);
+      }
+    }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
     }
@@ -5993,6 +6057,7 @@ public:
   shared_ptr<string> name{};
   shared_ptr<string> pathListShrink{};
   shared_ptr<string> source{};
+  shared_ptr<string> toAuthorizeSecurityGroupsShrink{};
   shared_ptr<string> type{};
 
   AddServiceSourceShrinkRequest() {}
@@ -6029,6 +6094,9 @@ public:
     if (source) {
       res["Source"] = boost::any(*source);
     }
+    if (toAuthorizeSecurityGroupsShrink) {
+      res["ToAuthorizeSecurityGroups"] = boost::any(*toAuthorizeSecurityGroupsShrink);
+    }
     if (type) {
       res["Type"] = boost::any(*type);
     }
@@ -6059,6 +6127,9 @@ public:
     }
     if (m.find("Source") != m.end() && !m["Source"].empty()) {
       source = make_shared<string>(boost::any_cast<string>(m["Source"]));
+    }
+    if (m.find("ToAuthorizeSecurityGroups") != m.end() && !m["ToAuthorizeSecurityGroups"].empty()) {
+      toAuthorizeSecurityGroupsShrink = make_shared<string>(boost::any_cast<string>(m["ToAuthorizeSecurityGroups"]));
     }
     if (m.find("Type") != m.end() && !m["Type"].empty()) {
       type = make_shared<string>(boost::any_cast<string>(m["Type"]));
@@ -15435,6 +15506,7 @@ public:
 class DeleteSecurityGroupRuleRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<bool> cascadingDelete{};
   shared_ptr<string> gatewayUniqueId{};
   shared_ptr<long> id{};
 
@@ -15451,6 +15523,9 @@ public:
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
     }
+    if (cascadingDelete) {
+      res["CascadingDelete"] = boost::any(*cascadingDelete);
+    }
     if (gatewayUniqueId) {
       res["GatewayUniqueId"] = boost::any(*gatewayUniqueId);
     }
@@ -15463,6 +15538,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("CascadingDelete") != m.end() && !m["CascadingDelete"].empty()) {
+      cascadingDelete = make_shared<bool>(boost::any_cast<bool>(m["CascadingDelete"]));
     }
     if (m.find("GatewayUniqueId") != m.end() && !m["GatewayUniqueId"].empty()) {
       gatewayUniqueId = make_shared<string>(boost::any_cast<string>(m["GatewayUniqueId"]));
@@ -43515,6 +43593,7 @@ public:
 };
 class ListSecurityGroupRuleResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> authCidrs{};
   shared_ptr<string> description{};
   shared_ptr<long> gatewayId{};
   shared_ptr<string> gatewayUniqueId{};
@@ -43535,6 +43614,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (authCidrs) {
+      res["AuthCidrs"] = boost::any(*authCidrs);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -43566,6 +43648,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthCidrs") != m.end() && !m["AuthCidrs"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["AuthCidrs"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["AuthCidrs"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      authCidrs = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }

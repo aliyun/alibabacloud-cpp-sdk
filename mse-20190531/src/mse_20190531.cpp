@@ -814,6 +814,9 @@ AddServiceSourceResponse Alibabacloud_Mse20190531::Client::addServiceSourceWithO
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->pathList)) {
     request->pathListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->pathList, make_shared<string>("PathList"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<AddServiceSourceRequestToAuthorizeSecurityGroups>>(tmpReq->toAuthorizeSecurityGroups)) {
+    request->toAuthorizeSecurityGroupsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->toAuthorizeSecurityGroups, make_shared<string>("ToAuthorizeSecurityGroups"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
@@ -838,6 +841,9 @@ AddServiceSourceResponse Alibabacloud_Mse20190531::Client::addServiceSourceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->source)) {
     query->insert(pair<string, string>("Source", *request->source));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->toAuthorizeSecurityGroupsShrink)) {
+    query->insert(pair<string, string>("ToAuthorizeSecurityGroups", *request->toAuthorizeSecurityGroupsShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
     query->insert(pair<string, string>("Type", *request->type));
@@ -2412,6 +2418,9 @@ DeleteSecurityGroupRuleResponse Alibabacloud_Mse20190531::Client::deleteSecurity
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->cascadingDelete)) {
+    query->insert(pair<string, bool>("CascadingDelete", *request->cascadingDelete));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->gatewayUniqueId)) {
     query->insert(pair<string, string>("GatewayUniqueId", *request->gatewayUniqueId));
