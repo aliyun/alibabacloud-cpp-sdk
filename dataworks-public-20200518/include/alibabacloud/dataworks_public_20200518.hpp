@@ -49636,8 +49636,6 @@ public:
   shared_ptr<string> extensionCode{};
   shared_ptr<string> extensionDesc{};
   shared_ptr<string> extensionName{};
-  shared_ptr<long> gmtCreate{};
-  shared_ptr<long> gmtModified{};
   shared_ptr<string> modifyUser{};
   shared_ptr<string> owner{};
   shared_ptr<string> parameterSetting{};
@@ -49664,12 +49662,6 @@ public:
     }
     if (extensionName) {
       res["ExtensionName"] = boost::any(*extensionName);
-    }
-    if (gmtCreate) {
-      res["GmtCreate"] = boost::any(*gmtCreate);
-    }
-    if (gmtModified) {
-      res["GmtModified"] = boost::any(*gmtModified);
     }
     if (modifyUser) {
       res["ModifyUser"] = boost::any(*modifyUser);
@@ -49698,12 +49690,6 @@ public:
     }
     if (m.find("ExtensionName") != m.end() && !m["ExtensionName"].empty()) {
       extensionName = make_shared<string>(boost::any_cast<string>(m["ExtensionName"]));
-    }
-    if (m.find("GmtCreate") != m.end() && !m["GmtCreate"].empty()) {
-      gmtCreate = make_shared<long>(boost::any_cast<long>(m["GmtCreate"]));
-    }
-    if (m.find("GmtModified") != m.end() && !m["GmtModified"].empty()) {
-      gmtModified = make_shared<long>(boost::any_cast<long>(m["GmtModified"]));
     }
     if (m.find("ModifyUser") != m.end() && !m["ModifyUser"].empty()) {
       modifyUser = make_shared<string>(boost::any_cast<string>(m["ModifyUser"]));
