@@ -235,6 +235,30 @@ CancelComponentUpgradeResponse Alibabacloud_CS20151215::Client::cancelComponentU
   return cancelComponentUpgradeWithOptions(clusterId, componentId, headers, runtime);
 }
 
+CancelOperationPlanResponse Alibabacloud_CS20151215::Client::cancelOperationPlanWithOptions(shared_ptr<string> planId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("CancelOperationPlan"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/operation/plans/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(planId)))},
+    {"method", boost::any(string("DELETE"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return CancelOperationPlanResponse(callApi(params, req, runtime));
+}
+
+CancelOperationPlanResponse Alibabacloud_CS20151215::Client::cancelOperationPlan(shared_ptr<string> planId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return cancelOperationPlanWithOptions(planId, headers, runtime);
+}
+
 CancelTaskResponse Alibabacloud_CS20151215::Client::cancelTaskWithOptions(shared_ptr<string> taskId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
@@ -2683,6 +2707,33 @@ FixNodePoolVulsResponse Alibabacloud_CS20151215::Client::fixNodePoolVuls(shared_
   return fixNodePoolVulsWithOptions(clusterId, nodepoolId, request, headers, runtime);
 }
 
+GetClusterAddonInstanceResponse Alibabacloud_CS20151215::Client::getClusterAddonInstanceWithOptions(shared_ptr<string> clusterId,
+                                                                                                    shared_ptr<string> instanceName,
+                                                                                                    shared_ptr<map<string, string>> headers,
+                                                                                                    shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("GetClusterAddonInstance"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId)) + string("/addon_instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceName)))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return GetClusterAddonInstanceResponse(callApi(params, req, runtime));
+}
+
+GetClusterAddonInstanceResponse Alibabacloud_CS20151215::Client::getClusterAddonInstance(shared_ptr<string> clusterId, shared_ptr<string> instanceName) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return getClusterAddonInstanceWithOptions(clusterId, instanceName, headers, runtime);
+}
+
 GetClusterCheckResponse Alibabacloud_CS20151215::Client::getClusterCheckWithOptions(shared_ptr<string> clusterId,
                                                                                     shared_ptr<string> checkId,
                                                                                     shared_ptr<map<string, string>> headers,
@@ -2832,6 +2883,75 @@ InstallClusterAddonsResponse Alibabacloud_CS20151215::Client::installClusterAddo
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
   return installClusterAddonsWithOptions(ClusterId, request, headers, runtime);
+}
+
+ListAddonsResponse Alibabacloud_CS20151215::Client::listAddonsWithOptions(shared_ptr<ListAddonsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterId)) {
+    query->insert(pair<string, string>("cluster_id", *request->clusterId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterSpec)) {
+    query->insert(pair<string, string>("cluster_spec", *request->clusterSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterType)) {
+    query->insert(pair<string, string>("cluster_type", *request->clusterType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->clusterVersion)) {
+    query->insert(pair<string, string>("cluster_version", *request->clusterVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->profile)) {
+    query->insert(pair<string, string>("profile", *request->profile));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("region_id", *request->regionId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListAddons"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/addons"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListAddonsResponse(callApi(params, req, runtime));
+}
+
+ListAddonsResponse Alibabacloud_CS20151215::Client::listAddons(shared_ptr<ListAddonsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listAddonsWithOptions(request, headers, runtime);
+}
+
+ListClusterAddonInstancesResponse Alibabacloud_CS20151215::Client::listClusterAddonInstancesWithOptions(shared_ptr<string> clusterId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"headers", !headers ? boost::any() : boost::any(*headers)}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ListClusterAddonInstances"))},
+    {"version", boost::any(string("2015-12-15"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/clusters/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(clusterId)) + string("/addon_instances"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ListClusterAddonInstancesResponse(callApi(params, req, runtime));
+}
+
+ListClusterAddonInstancesResponse Alibabacloud_CS20151215::Client::listClusterAddonInstances(shared_ptr<string> clusterId) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return listClusterAddonInstancesWithOptions(clusterId, headers, runtime);
 }
 
 ListClusterChecksResponse Alibabacloud_CS20151215::Client::listClusterChecksWithOptions(shared_ptr<string> clusterId,
