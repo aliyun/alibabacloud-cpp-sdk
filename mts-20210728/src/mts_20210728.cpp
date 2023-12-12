@@ -83,12 +83,6 @@ string Alibabacloud_Mts20210728::Client::getEndpoint(shared_ptr<string> productI
   return Alibabacloud_EndpointUtil::Client::getEndpointRules(productId, regionId, endpointRule, network, suffix);
 }
 
-QueryCopyrightResponse Alibabacloud_Mts20210728::Client::queryCopyright(shared_ptr<QueryCopyrightRequest> request) {
-  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
-  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryCopyrightWithOptions(request, headers, runtime);
-}
-
 QueryCopyrightResponse Alibabacloud_Mts20210728::Client::queryCopyrightWithOptions(shared_ptr<QueryCopyrightRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -128,10 +122,10 @@ QueryCopyrightResponse Alibabacloud_Mts20210728::Client::queryCopyrightWithOptio
   return QueryCopyrightResponse(callApi(params, req, runtime));
 }
 
-QueryCopyrightExtractResponse Alibabacloud_Mts20210728::Client::queryCopyrightExtract(shared_ptr<QueryCopyrightExtractRequest> request) {
+QueryCopyrightResponse Alibabacloud_Mts20210728::Client::queryCopyright(shared_ptr<QueryCopyrightRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryCopyrightExtractWithOptions(request, headers, runtime);
+  return queryCopyrightWithOptions(request, headers, runtime);
 }
 
 QueryCopyrightExtractResponse Alibabacloud_Mts20210728::Client::queryCopyrightExtractWithOptions(shared_ptr<QueryCopyrightExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -158,10 +152,10 @@ QueryCopyrightExtractResponse Alibabacloud_Mts20210728::Client::queryCopyrightEx
   return QueryCopyrightExtractResponse(callApi(params, req, runtime));
 }
 
-QueryTraceAbResponse Alibabacloud_Mts20210728::Client::queryTraceAb(shared_ptr<QueryTraceAbRequest> request) {
+QueryCopyrightExtractResponse Alibabacloud_Mts20210728::Client::queryCopyrightExtract(shared_ptr<QueryCopyrightExtractRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryTraceAbWithOptions(request, headers, runtime);
+  return queryCopyrightExtractWithOptions(request, headers, runtime);
 }
 
 QueryTraceAbResponse Alibabacloud_Mts20210728::Client::queryTraceAbWithOptions(shared_ptr<QueryTraceAbRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -191,10 +185,10 @@ QueryTraceAbResponse Alibabacloud_Mts20210728::Client::queryTraceAbWithOptions(s
   return QueryTraceAbResponse(callApi(params, req, runtime));
 }
 
-QueryTraceExtractResponse Alibabacloud_Mts20210728::Client::queryTraceExtract(shared_ptr<QueryTraceExtractRequest> request) {
+QueryTraceAbResponse Alibabacloud_Mts20210728::Client::queryTraceAb(shared_ptr<QueryTraceAbRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryTraceExtractWithOptions(request, headers, runtime);
+  return queryTraceAbWithOptions(request, headers, runtime);
 }
 
 QueryTraceExtractResponse Alibabacloud_Mts20210728::Client::queryTraceExtractWithOptions(shared_ptr<QueryTraceExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -221,10 +215,10 @@ QueryTraceExtractResponse Alibabacloud_Mts20210728::Client::queryTraceExtractWit
   return QueryTraceExtractResponse(callApi(params, req, runtime));
 }
 
-QueryTraceMuResponse Alibabacloud_Mts20210728::Client::queryTraceMu(shared_ptr<QueryTraceMuRequest> request) {
+QueryTraceExtractResponse Alibabacloud_Mts20210728::Client::queryTraceExtract(shared_ptr<QueryTraceExtractRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return queryTraceMuWithOptions(request, headers, runtime);
+  return queryTraceExtractWithOptions(request, headers, runtime);
 }
 
 QueryTraceMuResponse Alibabacloud_Mts20210728::Client::queryTraceMuWithOptions(shared_ptr<QueryTraceMuRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -269,10 +263,10 @@ QueryTraceMuResponse Alibabacloud_Mts20210728::Client::queryTraceMuWithOptions(s
   return QueryTraceMuResponse(callApi(params, req, runtime));
 }
 
-SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyrightExtract(shared_ptr<SubmitCopyrightExtractRequest> request) {
+QueryTraceMuResponse Alibabacloud_Mts20210728::Client::queryTraceMu(shared_ptr<QueryTraceMuRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitCopyrightExtractWithOptions(request, headers, runtime);
+  return queryTraceMuWithOptions(request, headers, runtime);
 }
 
 SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyrightExtractWithOptions(shared_ptr<SubmitCopyrightExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -283,6 +277,9 @@ SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyright
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->input)) {
     body->insert(pair<string, string>("Input", *request->input));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->params)) {
+    body->insert(pair<string, string>("Params", *request->params));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->url)) {
     body->insert(pair<string, string>("Url", *request->url));
@@ -308,10 +305,10 @@ SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyright
   return SubmitCopyrightExtractResponse(callApi(params, req, runtime));
 }
 
-SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJob(shared_ptr<SubmitCopyrightJobRequest> request) {
+SubmitCopyrightExtractResponse Alibabacloud_Mts20210728::Client::submitCopyrightExtract(shared_ptr<SubmitCopyrightExtractRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitCopyrightJobWithOptions(request, headers, runtime);
+  return submitCopyrightExtractWithOptions(request, headers, runtime);
 }
 
 SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJobWithOptions(shared_ptr<SubmitCopyrightJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -371,10 +368,10 @@ SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJobW
   return SubmitCopyrightJobResponse(callApi(params, req, runtime));
 }
 
-SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request) {
+SubmitCopyrightJobResponse Alibabacloud_Mts20210728::Client::submitCopyrightJob(shared_ptr<SubmitCopyrightJobRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitImageCopyrightWithOptions(request, headers, runtime);
+  return submitCopyrightJobWithOptions(request, headers, runtime);
 }
 
 SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyrightWithOptions(shared_ptr<SubmitImageCopyrightRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -410,10 +407,10 @@ SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyri
   return SubmitImageCopyrightResponse(callApi(params, req, runtime));
 }
 
-SubmitTraceAbResponse Alibabacloud_Mts20210728::Client::submitTraceAb(shared_ptr<SubmitTraceAbRequest> request) {
+SubmitImageCopyrightResponse Alibabacloud_Mts20210728::Client::submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitTraceAbWithOptions(request, headers, runtime);
+  return submitImageCopyrightWithOptions(request, headers, runtime);
 }
 
 SubmitTraceAbResponse Alibabacloud_Mts20210728::Client::submitTraceAbWithOptions(shared_ptr<SubmitTraceAbRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -464,10 +461,10 @@ SubmitTraceAbResponse Alibabacloud_Mts20210728::Client::submitTraceAbWithOptions
   return SubmitTraceAbResponse(callApi(params, req, runtime));
 }
 
-SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtract(shared_ptr<SubmitTraceExtractRequest> request) {
+SubmitTraceAbResponse Alibabacloud_Mts20210728::Client::submitTraceAb(shared_ptr<SubmitTraceAbRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitTraceExtractWithOptions(request, headers, runtime);
+  return submitTraceAbWithOptions(request, headers, runtime);
 }
 
 SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtractWithOptions(shared_ptr<SubmitTraceExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -503,10 +500,10 @@ SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtractW
   return SubmitTraceExtractResponse(callApi(params, req, runtime));
 }
 
-SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemu(shared_ptr<SubmitTracemuRequest> request) {
+SubmitTraceExtractResponse Alibabacloud_Mts20210728::Client::submitTraceExtract(shared_ptr<SubmitTraceExtractRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return submitTracemuWithOptions(request, headers, runtime);
+  return submitTraceExtractWithOptions(request, headers, runtime);
 }
 
 SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemuWithOptions(shared_ptr<SubmitTracemuRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -540,5 +537,11 @@ SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemuWithOptions
     {"bodyType", boost::any(string("json"))}
   }));
   return SubmitTracemuResponse(callApi(params, req, runtime));
+}
+
+SubmitTracemuResponse Alibabacloud_Mts20210728::Client::submitTracemu(shared_ptr<SubmitTracemuRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return submitTracemuWithOptions(request, headers, runtime);
 }
 

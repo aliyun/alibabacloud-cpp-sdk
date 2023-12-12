@@ -1219,6 +1219,7 @@ class SubmitCopyrightExtractRequest : public Darabonba::Model {
 public:
   shared_ptr<string> callBack{};
   shared_ptr<string> input{};
+  shared_ptr<string> params{};
   shared_ptr<string> url{};
   shared_ptr<string> userData{};
 
@@ -1238,6 +1239,9 @@ public:
     if (input) {
       res["Input"] = boost::any(*input);
     }
+    if (params) {
+      res["Params"] = boost::any(*params);
+    }
     if (url) {
       res["Url"] = boost::any(*url);
     }
@@ -1253,6 +1257,9 @@ public:
     }
     if (m.find("Input") != m.end() && !m["Input"].empty()) {
       input = make_shared<string>(boost::any_cast<string>(m["Input"]));
+    }
+    if (m.find("Params") != m.end() && !m["Params"].empty()) {
+      params = make_shared<string>(boost::any_cast<string>(m["Params"]));
     }
     if (m.find("Url") != m.end() && !m["Url"].empty()) {
       url = make_shared<string>(boost::any_cast<string>(m["Url"]));
@@ -2500,28 +2507,28 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
-  QueryCopyrightResponse queryCopyright(shared_ptr<QueryCopyrightRequest> request);
   QueryCopyrightResponse queryCopyrightWithOptions(shared_ptr<QueryCopyrightRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryCopyrightExtractResponse queryCopyrightExtract(shared_ptr<QueryCopyrightExtractRequest> request);
+  QueryCopyrightResponse queryCopyright(shared_ptr<QueryCopyrightRequest> request);
   QueryCopyrightExtractResponse queryCopyrightExtractWithOptions(shared_ptr<QueryCopyrightExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryTraceAbResponse queryTraceAb(shared_ptr<QueryTraceAbRequest> request);
+  QueryCopyrightExtractResponse queryCopyrightExtract(shared_ptr<QueryCopyrightExtractRequest> request);
   QueryTraceAbResponse queryTraceAbWithOptions(shared_ptr<QueryTraceAbRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryTraceExtractResponse queryTraceExtract(shared_ptr<QueryTraceExtractRequest> request);
+  QueryTraceAbResponse queryTraceAb(shared_ptr<QueryTraceAbRequest> request);
   QueryTraceExtractResponse queryTraceExtractWithOptions(shared_ptr<QueryTraceExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  QueryTraceMuResponse queryTraceMu(shared_ptr<QueryTraceMuRequest> request);
+  QueryTraceExtractResponse queryTraceExtract(shared_ptr<QueryTraceExtractRequest> request);
   QueryTraceMuResponse queryTraceMuWithOptions(shared_ptr<QueryTraceMuRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitCopyrightExtractResponse submitCopyrightExtract(shared_ptr<SubmitCopyrightExtractRequest> request);
+  QueryTraceMuResponse queryTraceMu(shared_ptr<QueryTraceMuRequest> request);
   SubmitCopyrightExtractResponse submitCopyrightExtractWithOptions(shared_ptr<SubmitCopyrightExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitCopyrightJobResponse submitCopyrightJob(shared_ptr<SubmitCopyrightJobRequest> request);
+  SubmitCopyrightExtractResponse submitCopyrightExtract(shared_ptr<SubmitCopyrightExtractRequest> request);
   SubmitCopyrightJobResponse submitCopyrightJobWithOptions(shared_ptr<SubmitCopyrightJobRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitImageCopyrightResponse submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request);
+  SubmitCopyrightJobResponse submitCopyrightJob(shared_ptr<SubmitCopyrightJobRequest> request);
   SubmitImageCopyrightResponse submitImageCopyrightWithOptions(shared_ptr<SubmitImageCopyrightRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitTraceAbResponse submitTraceAb(shared_ptr<SubmitTraceAbRequest> request);
+  SubmitImageCopyrightResponse submitImageCopyright(shared_ptr<SubmitImageCopyrightRequest> request);
   SubmitTraceAbResponse submitTraceAbWithOptions(shared_ptr<SubmitTraceAbRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitTraceExtractResponse submitTraceExtract(shared_ptr<SubmitTraceExtractRequest> request);
+  SubmitTraceAbResponse submitTraceAb(shared_ptr<SubmitTraceAbRequest> request);
   SubmitTraceExtractResponse submitTraceExtractWithOptions(shared_ptr<SubmitTraceExtractRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  SubmitTracemuResponse submitTracemu(shared_ptr<SubmitTracemuRequest> request);
+  SubmitTraceExtractResponse submitTraceExtract(shared_ptr<SubmitTraceExtractRequest> request);
   SubmitTracemuResponse submitTracemuWithOptions(shared_ptr<SubmitTracemuRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitTracemuResponse submitTracemu(shared_ptr<SubmitTracemuRequest> request);
 
   virtual ~Client() = default;
 };
