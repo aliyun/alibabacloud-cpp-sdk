@@ -385,6 +385,9 @@ CreateTagResponse Alibabacloud_Dm20151123::Client::createTagWithOptions(shared_p
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagDescription)) {
+    query->insert(pair<string, string>("TagDescription", *request->tagDescription));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->tagName)) {
     query->insert(pair<string, string>("TagName", *request->tagName));
   }
@@ -1030,6 +1033,9 @@ ModifyTagResponse Alibabacloud_Dm20151123::Client::modifyTagWithOptions(shared_p
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tagDescription)) {
+    query->insert(pair<string, string>("TagDescription", *request->tagDescription));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->tagId)) {
     query->insert(pair<string, long>("TagId", *request->tagId));

@@ -1280,6 +1280,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> tagDescription{};
   shared_ptr<string> tagName{};
 
   CreateTagRequest() {}
@@ -1301,6 +1302,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagName) {
       res["TagName"] = boost::any(*tagName);
     }
@@ -1316,6 +1320,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
     }
     if (m.find("TagName") != m.end() && !m["TagName"].empty()) {
       tagName = make_shared<string>(boost::any_cast<string>(m["TagName"]));
@@ -4457,6 +4464,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> tagDescription{};
   shared_ptr<long> tagId{};
   shared_ptr<string> tagName{};
 
@@ -4479,6 +4487,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagId) {
       res["TagId"] = boost::any(*tagId);
     }
@@ -4497,6 +4508,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
     }
     if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
       tagId = make_shared<long>(boost::any_cast<long>(m["TagId"]));
@@ -6227,6 +6241,7 @@ public:
 };
 class QueryTagByParamResponseBodyDataTag : public Darabonba::Model {
 public:
+  shared_ptr<string> tagDescription{};
   shared_ptr<string> tagId{};
   shared_ptr<string> tagName{};
 
@@ -6240,6 +6255,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (tagDescription) {
+      res["TagDescription"] = boost::any(*tagDescription);
+    }
     if (tagId) {
       res["TagId"] = boost::any(*tagId);
     }
@@ -6250,6 +6268,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("TagDescription") != m.end() && !m["TagDescription"].empty()) {
+      tagDescription = make_shared<string>(boost::any_cast<string>(m["TagDescription"]));
+    }
     if (m.find("TagId") != m.end() && !m["TagId"].empty()) {
       tagId = make_shared<string>(boost::any_cast<string>(m["TagId"]));
     }
