@@ -5520,6 +5520,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> noDataPolicy{};
   shared_ptr<string> noEffectiveInterval{};
+  shared_ptr<string> options{};
   shared_ptr<string> period{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
@@ -5575,6 +5576,9 @@ public:
     }
     if (noEffectiveInterval) {
       res["NoEffectiveInterval"] = boost::any(*noEffectiveInterval);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
     }
     if (period) {
       res["Period"] = boost::any(*period);
@@ -5644,6 +5648,9 @@ public:
     }
     if (m.find("NoEffectiveInterval") != m.end() && !m["NoEffectiveInterval"].empty()) {
       noEffectiveInterval = make_shared<string>(boost::any_cast<string>(m["NoEffectiveInterval"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));
@@ -16329,6 +16336,7 @@ class DescribeAlertLogCountRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactGroup{};
   shared_ptr<long> endTime{};
+  shared_ptr<string> eventType{};
   shared_ptr<string> groupBy{};
   shared_ptr<string> groupId{};
   shared_ptr<string> lastMin{};
@@ -16339,6 +16347,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> product{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> sendStatus{};
@@ -16360,6 +16369,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
     }
     if (groupBy) {
       res["GroupBy"] = boost::any(*groupBy);
@@ -16391,6 +16403,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
     }
@@ -16415,6 +16430,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
     }
     if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
       groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
@@ -16445,6 +16463,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -16689,6 +16710,7 @@ class DescribeAlertLogHistogramRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactGroup{};
   shared_ptr<long> endTime{};
+  shared_ptr<string> eventType{};
   shared_ptr<string> groupBy{};
   shared_ptr<string> groupId{};
   shared_ptr<string> lastMin{};
@@ -16699,6 +16721,7 @@ public:
   shared_ptr<long> pageSize{};
   shared_ptr<string> product{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
   shared_ptr<string> searchKey{};
   shared_ptr<string> sendStatus{};
@@ -16720,6 +16743,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
     }
     if (groupBy) {
       res["GroupBy"] = boost::any(*groupBy);
@@ -16751,6 +16777,9 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (ruleId) {
+      res["RuleId"] = boost::any(*ruleId);
+    }
     if (ruleName) {
       res["RuleName"] = boost::any(*ruleName);
     }
@@ -16775,6 +16804,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
     }
     if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
       groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
@@ -16805,6 +16837,9 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
+      ruleId = make_shared<string>(boost::any_cast<string>(m["RuleId"]));
     }
     if (m.find("RuleName") != m.end() && !m["RuleName"].empty()) {
       ruleName = make_shared<string>(boost::any_cast<string>(m["RuleName"]));
@@ -17006,6 +17041,7 @@ class DescribeAlertLogListRequest : public Darabonba::Model {
 public:
   shared_ptr<string> contactGroup{};
   shared_ptr<long> endTime{};
+  shared_ptr<string> eventType{};
   shared_ptr<string> groupBy{};
   shared_ptr<string> groupId{};
   shared_ptr<string> lastMin{};
@@ -17038,6 +17074,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (eventType) {
+      res["EventType"] = boost::any(*eventType);
     }
     if (groupBy) {
       res["GroupBy"] = boost::any(*groupBy);
@@ -17096,6 +17135,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<long>(boost::any_cast<long>(m["EndTime"]));
+    }
+    if (m.find("EventType") != m.end() && !m["EventType"].empty()) {
+      eventType = make_shared<string>(boost::any_cast<string>(m["EventType"]));
     }
     if (m.find("GroupBy") != m.end() && !m["GroupBy"].empty()) {
       groupBy = make_shared<string>(boost::any_cast<string>(m["GroupBy"]));
@@ -36760,6 +36802,7 @@ public:
 };
 class DescribeMonitoringAgentStatusesResponseBodyNodeStatusListNodeStatus : public Darabonba::Model {
 public:
+  shared_ptr<string> agentInstallErrorCode{};
   shared_ptr<bool> autoInstall{};
   shared_ptr<string> instanceId{};
   shared_ptr<string> osMonitorConfig{};
@@ -36779,6 +36822,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (agentInstallErrorCode) {
+      res["AgentInstallErrorCode"] = boost::any(*agentInstallErrorCode);
+    }
     if (autoInstall) {
       res["AutoInstall"] = boost::any(*autoInstall);
     }
@@ -36807,6 +36853,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AgentInstallErrorCode") != m.end() && !m["AgentInstallErrorCode"].empty()) {
+      agentInstallErrorCode = make_shared<string>(boost::any_cast<string>(m["AgentInstallErrorCode"]));
+    }
     if (m.find("AutoInstall") != m.end() && !m["AutoInstall"].empty()) {
       autoInstall = make_shared<bool>(boost::any_cast<bool>(m["AutoInstall"]));
     }
@@ -41460,6 +41509,7 @@ class DescribeSystemEventAttributeResponseBodySystemEventsSystemEvent : public D
 public:
   shared_ptr<string> content{};
   shared_ptr<string> groupId{};
+  shared_ptr<string> id{};
   shared_ptr<string> instanceName{};
   shared_ptr<string> level{};
   shared_ptr<string> name{};
@@ -41484,6 +41534,9 @@ public:
     }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
+    }
+    if (id) {
+      res["Id"] = boost::any(*id);
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
@@ -41518,6 +41571,9 @@ public:
     }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<string>(boost::any_cast<string>(m["GroupId"]));
+    }
+    if (m.find("Id") != m.end() && !m["Id"].empty()) {
+      id = make_shared<string>(boost::any_cast<string>(m["Id"]));
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
@@ -51809,6 +51865,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> noDataPolicy{};
   shared_ptr<string> noEffectiveInterval{};
+  shared_ptr<string> options{};
   shared_ptr<string> period{};
   shared_ptr<string> ruleId{};
   shared_ptr<string> ruleName{};
@@ -51870,6 +51927,9 @@ public:
     }
     if (noEffectiveInterval) {
       res["NoEffectiveInterval"] = boost::any(*noEffectiveInterval);
+    }
+    if (options) {
+      res["Options"] = boost::any(*options);
     }
     if (period) {
       res["Period"] = boost::any(*period);
@@ -51945,6 +52005,9 @@ public:
     }
     if (m.find("NoEffectiveInterval") != m.end() && !m["NoEffectiveInterval"].empty()) {
       noEffectiveInterval = make_shared<string>(boost::any_cast<string>(m["NoEffectiveInterval"]));
+    }
+    if (m.find("Options") != m.end() && !m["Options"].empty()) {
+      options = make_shared<string>(boost::any_cast<string>(m["Options"]));
     }
     if (m.find("Period") != m.end() && !m["Period"].empty()) {
       period = make_shared<string>(boost::any_cast<string>(m["Period"]));

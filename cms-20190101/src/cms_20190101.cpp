@@ -2007,6 +2007,9 @@ DescribeAlertLogCountResponse Alibabacloud_Cms20190101::Client::describeAlertLog
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
+    query->insert(pair<string, string>("EventType", *request->eventType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupBy)) {
     query->insert(pair<string, string>("GroupBy", *request->groupBy));
   }
@@ -2033,6 +2036,9 @@ DescribeAlertLogCountResponse Alibabacloud_Cms20190101::Client::describeAlertLog
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
     query->insert(pair<string, string>("Product", *request->product));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleId)) {
+    query->insert(pair<string, string>("RuleId", *request->ruleId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     query->insert(pair<string, string>("RuleName", *request->ruleName));
@@ -2080,6 +2086,9 @@ DescribeAlertLogHistogramResponse Alibabacloud_Cms20190101::Client::describeAler
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
+    query->insert(pair<string, string>("EventType", *request->eventType));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupBy)) {
     query->insert(pair<string, string>("GroupBy", *request->groupBy));
   }
@@ -2106,6 +2115,9 @@ DescribeAlertLogHistogramResponse Alibabacloud_Cms20190101::Client::describeAler
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->product)) {
     query->insert(pair<string, string>("Product", *request->product));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->ruleId)) {
+    query->insert(pair<string, string>("RuleId", *request->ruleId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ruleName)) {
     query->insert(pair<string, string>("RuleName", *request->ruleName));
@@ -2152,6 +2164,9 @@ DescribeAlertLogListResponse Alibabacloud_Cms20190101::Client::describeAlertLogL
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
     query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->eventType)) {
+    query->insert(pair<string, string>("EventType", *request->eventType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->groupBy)) {
     query->insert(pair<string, string>("GroupBy", *request->groupBy));
@@ -5918,6 +5933,9 @@ PutGroupMetricRuleResponse Alibabacloud_Cms20190101::Client::putGroupMetricRuleW
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->noEffectiveInterval)) {
     query->insert(pair<string, string>("NoEffectiveInterval", *request->noEffectiveInterval));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->options)) {
+    query->insert(pair<string, string>("Options", *request->options));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->period)) {
     query->insert(pair<string, string>("Period", *request->period));
