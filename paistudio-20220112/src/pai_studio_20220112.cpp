@@ -1326,6 +1326,9 @@ UpdateQuotaResponse Alibabacloud_PaiStudio20220112::Client::updateQuotaWithOptio
   if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->labels)) {
     body->insert(pair<string, vector<Label>>("Labels", *request->labels));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->queueStrategy)) {
+    body->insert(pair<string, string>("QueueStrategy", *request->queueStrategy));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}

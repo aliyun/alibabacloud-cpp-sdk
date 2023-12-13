@@ -2202,6 +2202,91 @@ public:
 
   virtual ~Permission() = default;
 };
+class QueueInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> gmtEnqueuedTime{};
+  shared_ptr<string> gmtPositionModifiedTime{};
+  shared_ptr<long> position{};
+  shared_ptr<long> priority{};
+  shared_ptr<string> queueStrategy{};
+  shared_ptr<string> quotaId{};
+  shared_ptr<string> workloadId{};
+  shared_ptr<string> workloadType{};
+  shared_ptr<string> workspaceId{};
+
+  QueueInfo() {}
+
+  explicit QueueInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (gmtEnqueuedTime) {
+      res["GmtEnqueuedTime"] = boost::any(*gmtEnqueuedTime);
+    }
+    if (gmtPositionModifiedTime) {
+      res["GmtPositionModifiedTime"] = boost::any(*gmtPositionModifiedTime);
+    }
+    if (position) {
+      res["Position"] = boost::any(*position);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
+    }
+    if (queueStrategy) {
+      res["QueueStrategy"] = boost::any(*queueStrategy);
+    }
+    if (quotaId) {
+      res["QuotaId"] = boost::any(*quotaId);
+    }
+    if (workloadId) {
+      res["WorkloadId"] = boost::any(*workloadId);
+    }
+    if (workloadType) {
+      res["WorkloadType"] = boost::any(*workloadType);
+    }
+    if (workspaceId) {
+      res["WorkspaceId"] = boost::any(*workspaceId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("GmtEnqueuedTime") != m.end() && !m["GmtEnqueuedTime"].empty()) {
+      gmtEnqueuedTime = make_shared<string>(boost::any_cast<string>(m["GmtEnqueuedTime"]));
+    }
+    if (m.find("GmtPositionModifiedTime") != m.end() && !m["GmtPositionModifiedTime"].empty()) {
+      gmtPositionModifiedTime = make_shared<string>(boost::any_cast<string>(m["GmtPositionModifiedTime"]));
+    }
+    if (m.find("Position") != m.end() && !m["Position"].empty()) {
+      position = make_shared<long>(boost::any_cast<long>(m["Position"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
+    }
+    if (m.find("QueueStrategy") != m.end() && !m["QueueStrategy"].empty()) {
+      queueStrategy = make_shared<string>(boost::any_cast<string>(m["QueueStrategy"]));
+    }
+    if (m.find("QuotaId") != m.end() && !m["QuotaId"].empty()) {
+      quotaId = make_shared<string>(boost::any_cast<string>(m["QuotaId"]));
+    }
+    if (m.find("WorkloadId") != m.end() && !m["WorkloadId"].empty()) {
+      workloadId = make_shared<string>(boost::any_cast<string>(m["WorkloadId"]));
+    }
+    if (m.find("WorkloadType") != m.end() && !m["WorkloadType"].empty()) {
+      workloadType = make_shared<string>(boost::any_cast<string>(m["WorkloadType"]));
+    }
+    if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
+      workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
+    }
+  }
+
+
+  virtual ~QueueInfo() = default;
+};
 class ResourceSpec : public Darabonba::Model {
 public:
   shared_ptr<vector<NodeSpec>> nodeSpecs{};
@@ -7331,10 +7416,70 @@ public:
 
   virtual ~GetResourceGroupTotalResponse() = default;
 };
+class GetTrainingJobResponseBodyComputeResourceInstanceSpec : public Darabonba::Model {
+public:
+  shared_ptr<string> CPU{};
+  shared_ptr<string> GPU{};
+  shared_ptr<string> GPUType{};
+  shared_ptr<string> memory{};
+  shared_ptr<string> sharedMemory{};
+
+  GetTrainingJobResponseBodyComputeResourceInstanceSpec() {}
+
+  explicit GetTrainingJobResponseBodyComputeResourceInstanceSpec(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (CPU) {
+      res["CPU"] = boost::any(*CPU);
+    }
+    if (GPU) {
+      res["GPU"] = boost::any(*GPU);
+    }
+    if (GPUType) {
+      res["GPUType"] = boost::any(*GPUType);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (sharedMemory) {
+      res["SharedMemory"] = boost::any(*sharedMemory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("CPU") != m.end() && !m["CPU"].empty()) {
+      CPU = make_shared<string>(boost::any_cast<string>(m["CPU"]));
+    }
+    if (m.find("GPU") != m.end() && !m["GPU"].empty()) {
+      GPU = make_shared<string>(boost::any_cast<string>(m["GPU"]));
+    }
+    if (m.find("GPUType") != m.end() && !m["GPUType"].empty()) {
+      GPUType = make_shared<string>(boost::any_cast<string>(m["GPUType"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<string>(boost::any_cast<string>(m["Memory"]));
+    }
+    if (m.find("SharedMemory") != m.end() && !m["SharedMemory"].empty()) {
+      sharedMemory = make_shared<string>(boost::any_cast<string>(m["SharedMemory"]));
+    }
+  }
+
+
+  virtual ~GetTrainingJobResponseBodyComputeResourceInstanceSpec() = default;
+};
 class GetTrainingJobResponseBodyComputeResource : public Darabonba::Model {
 public:
   shared_ptr<long> ecsCount{};
   shared_ptr<string> ecsSpec{};
+  shared_ptr<long> instanceCount{};
+  shared_ptr<GetTrainingJobResponseBodyComputeResourceInstanceSpec> instanceSpec{};
+  shared_ptr<string> resourceId{};
 
   GetTrainingJobResponseBodyComputeResource() {}
 
@@ -7352,6 +7497,15 @@ public:
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
     }
+    if (instanceCount) {
+      res["InstanceCount"] = boost::any(*instanceCount);
+    }
+    if (instanceSpec) {
+      res["InstanceSpec"] = instanceSpec ? boost::any(instanceSpec->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
     return res;
   }
 
@@ -7361,6 +7515,19 @@ public:
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
+    }
+    if (m.find("InstanceCount") != m.end() && !m["InstanceCount"].empty()) {
+      instanceCount = make_shared<long>(boost::any_cast<long>(m["InstanceCount"]));
+    }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      if (typeid(map<string, boost::any>) == m["InstanceSpec"].type()) {
+        GetTrainingJobResponseBodyComputeResourceInstanceSpec model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["InstanceSpec"]));
+        instanceSpec = make_shared<GetTrainingJobResponseBodyComputeResourceInstanceSpec>(model1);
+      }
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
     }
   }
 
@@ -7727,6 +7894,42 @@ public:
 
   virtual ~GetTrainingJobResponseBodyOutputChannels() = default;
 };
+class GetTrainingJobResponseBodyOutputModel : public Darabonba::Model {
+public:
+  shared_ptr<string> outputChannelName{};
+  shared_ptr<string> uri{};
+
+  GetTrainingJobResponseBodyOutputModel() {}
+
+  explicit GetTrainingJobResponseBodyOutputModel(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (outputChannelName) {
+      res["OutputChannelName"] = boost::any(*outputChannelName);
+    }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("OutputChannelName") != m.end() && !m["OutputChannelName"].empty()) {
+      outputChannelName = make_shared<string>(boost::any_cast<string>(m["OutputChannelName"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
+    }
+  }
+
+
+  virtual ~GetTrainingJobResponseBodyOutputModel() = default;
+};
 class GetTrainingJobResponseBodyScheduler : public Darabonba::Model {
 public:
   shared_ptr<long> maxRunningTimeInSeconds{};
@@ -7888,6 +8091,7 @@ public:
   shared_ptr<vector<GetTrainingJobResponseBodyLatestMetrics>> latestMetrics{};
   shared_ptr<GetTrainingJobResponseBodyLatestProgress> latestProgress{};
   shared_ptr<vector<GetTrainingJobResponseBodyOutputChannels>> outputChannels{};
+  shared_ptr<GetTrainingJobResponseBodyOutputModel> outputModel{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
   shared_ptr<string> requestId{};
@@ -7984,6 +8188,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["OutputChannels"] = boost::any(temp1);
+    }
+    if (outputModel) {
+      res["OutputModel"] = outputModel ? boost::any(outputModel->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (reasonCode) {
       res["ReasonCode"] = boost::any(*reasonCode);
@@ -8153,6 +8360,13 @@ public:
           }
         }
         outputChannels = make_shared<vector<GetTrainingJobResponseBodyOutputChannels>>(expect1);
+      }
+    }
+    if (m.find("OutputModel") != m.end() && !m["OutputModel"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OutputModel"].type()) {
+        GetTrainingJobResponseBodyOutputModel model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OutputModel"]));
+        outputModel = make_shared<GetTrainingJobResponseBodyOutputModel>(model1);
       }
     }
     if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
@@ -11594,6 +11808,7 @@ class UpdateQuotaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
   shared_ptr<vector<Label>> labels{};
+  shared_ptr<string> queueStrategy{};
 
   UpdateQuotaRequest() {}
 
@@ -11615,6 +11830,9 @@ public:
       }
       res["Labels"] = boost::any(temp1);
     }
+    if (queueStrategy) {
+      res["QueueStrategy"] = boost::any(*queueStrategy);
+    }
     return res;
   }
 
@@ -11634,6 +11852,9 @@ public:
         }
         labels = make_shared<vector<Label>>(expect1);
       }
+    }
+    if (m.find("QueueStrategy") != m.end() && !m["QueueStrategy"].empty()) {
+      queueStrategy = make_shared<string>(boost::any_cast<string>(m["QueueStrategy"]));
     }
   }
 
