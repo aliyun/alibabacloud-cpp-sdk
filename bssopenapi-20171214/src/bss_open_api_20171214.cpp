@@ -971,6 +971,9 @@ DescribeInstanceBillResponse Alibabacloud_BssOpenApi20171214::Client::describeIn
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pipCode)) {
+    query->insert(pair<string, string>("PipCode", *request->pipCode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->productCode)) {
     query->insert(pair<string, string>("ProductCode", *request->productCode));
   }

@@ -6083,6 +6083,7 @@ public:
   shared_ptr<long> maxResults{};
   shared_ptr<string> nextToken{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> pipCode{};
   shared_ptr<string> productCode{};
   shared_ptr<string> productType{};
   shared_ptr<string> subscriptionType{};
@@ -6127,6 +6128,9 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (pipCode) {
+      res["PipCode"] = boost::any(*pipCode);
+    }
     if (productCode) {
       res["ProductCode"] = boost::any(*productCode);
     }
@@ -6169,6 +6173,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PipCode") != m.end() && !m["PipCode"].empty()) {
+      pipCode = make_shared<string>(boost::any_cast<string>(m["PipCode"]));
     }
     if (m.find("ProductCode") != m.end() && !m["ProductCode"].empty()) {
       productCode = make_shared<string>(boost::any_cast<string>(m["ProductCode"]));
@@ -17191,6 +17198,7 @@ public:
   shared_ptr<string> creditAmount{};
   shared_ptr<string> currency{};
   shared_ptr<string> mybankCreditAmount{};
+  shared_ptr<string> quotaLimit{};
 
   QueryAccountBalanceResponseBodyData() {}
 
@@ -17217,6 +17225,9 @@ public:
     if (mybankCreditAmount) {
       res["MybankCreditAmount"] = boost::any(*mybankCreditAmount);
     }
+    if (quotaLimit) {
+      res["QuotaLimit"] = boost::any(*quotaLimit);
+    }
     return res;
   }
 
@@ -17235,6 +17246,9 @@ public:
     }
     if (m.find("MybankCreditAmount") != m.end() && !m["MybankCreditAmount"].empty()) {
       mybankCreditAmount = make_shared<string>(boost::any_cast<string>(m["MybankCreditAmount"]));
+    }
+    if (m.find("QuotaLimit") != m.end() && !m["QuotaLimit"].empty()) {
+      quotaLimit = make_shared<string>(boost::any_cast<string>(m["QuotaLimit"]));
     }
   }
 
@@ -29136,14 +29150,20 @@ public:
 class QuerySavingsPlansDeductLogResponseBodyDataItems : public Darabonba::Model {
 public:
   shared_ptr<string> billModule{};
+  shared_ptr<string> billingCycle{};
+  shared_ptr<string> billingOfficialPrice{};
   shared_ptr<string> deductCommodity{};
   shared_ptr<string> deductFee{};
   shared_ptr<string> deductInstanceId{};
   shared_ptr<string> deductRate{};
+  shared_ptr<string> deductedOfficialPrice{};
   shared_ptr<string> discountRate{};
   shared_ptr<string> endTime{};
   shared_ptr<string> instanceId{};
+  shared_ptr<string> instanceSpec{};
+  shared_ptr<string> instanceTypeFamily{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> region{};
   shared_ptr<string> savingsType{};
   shared_ptr<string> startTime{};
   shared_ptr<long> userId{};
@@ -29161,6 +29181,12 @@ public:
     if (billModule) {
       res["BillModule"] = boost::any(*billModule);
     }
+    if (billingCycle) {
+      res["BillingCycle"] = boost::any(*billingCycle);
+    }
+    if (billingOfficialPrice) {
+      res["BillingOfficialPrice"] = boost::any(*billingOfficialPrice);
+    }
     if (deductCommodity) {
       res["DeductCommodity"] = boost::any(*deductCommodity);
     }
@@ -29173,6 +29199,9 @@ public:
     if (deductRate) {
       res["DeductRate"] = boost::any(*deductRate);
     }
+    if (deductedOfficialPrice) {
+      res["DeductedOfficialPrice"] = boost::any(*deductedOfficialPrice);
+    }
     if (discountRate) {
       res["DiscountRate"] = boost::any(*discountRate);
     }
@@ -29182,8 +29211,17 @@ public:
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
     }
+    if (instanceSpec) {
+      res["InstanceSpec"] = boost::any(*instanceSpec);
+    }
+    if (instanceTypeFamily) {
+      res["InstanceTypeFamily"] = boost::any(*instanceTypeFamily);
+    }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (region) {
+      res["Region"] = boost::any(*region);
     }
     if (savingsType) {
       res["SavingsType"] = boost::any(*savingsType);
@@ -29201,6 +29239,12 @@ public:
     if (m.find("BillModule") != m.end() && !m["BillModule"].empty()) {
       billModule = make_shared<string>(boost::any_cast<string>(m["BillModule"]));
     }
+    if (m.find("BillingCycle") != m.end() && !m["BillingCycle"].empty()) {
+      billingCycle = make_shared<string>(boost::any_cast<string>(m["BillingCycle"]));
+    }
+    if (m.find("BillingOfficialPrice") != m.end() && !m["BillingOfficialPrice"].empty()) {
+      billingOfficialPrice = make_shared<string>(boost::any_cast<string>(m["BillingOfficialPrice"]));
+    }
     if (m.find("DeductCommodity") != m.end() && !m["DeductCommodity"].empty()) {
       deductCommodity = make_shared<string>(boost::any_cast<string>(m["DeductCommodity"]));
     }
@@ -29213,6 +29257,9 @@ public:
     if (m.find("DeductRate") != m.end() && !m["DeductRate"].empty()) {
       deductRate = make_shared<string>(boost::any_cast<string>(m["DeductRate"]));
     }
+    if (m.find("DeductedOfficialPrice") != m.end() && !m["DeductedOfficialPrice"].empty()) {
+      deductedOfficialPrice = make_shared<string>(boost::any_cast<string>(m["DeductedOfficialPrice"]));
+    }
     if (m.find("DiscountRate") != m.end() && !m["DiscountRate"].empty()) {
       discountRate = make_shared<string>(boost::any_cast<string>(m["DiscountRate"]));
     }
@@ -29222,8 +29269,17 @@ public:
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
     }
+    if (m.find("InstanceSpec") != m.end() && !m["InstanceSpec"].empty()) {
+      instanceSpec = make_shared<string>(boost::any_cast<string>(m["InstanceSpec"]));
+    }
+    if (m.find("InstanceTypeFamily") != m.end() && !m["InstanceTypeFamily"].empty()) {
+      instanceTypeFamily = make_shared<string>(boost::any_cast<string>(m["InstanceTypeFamily"]));
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("Region") != m.end() && !m["Region"].empty()) {
+      region = make_shared<string>(boost::any_cast<string>(m["Region"]));
     }
     if (m.find("SavingsType") != m.end() && !m["SavingsType"].empty()) {
       savingsType = make_shared<string>(boost::any_cast<string>(m["SavingsType"]));
