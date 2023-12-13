@@ -1263,6 +1263,147 @@ public:
 
   virtual ~AddVodDomainResponse() = default;
 };
+class AddVodStorageForAppRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> appId{};
+  shared_ptr<string> storageLocation{};
+  shared_ptr<string> storageType{};
+
+  AddVodStorageForAppRequest() {}
+
+  explicit AddVodStorageForAppRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (appId) {
+      res["AppId"] = boost::any(*appId);
+    }
+    if (storageLocation) {
+      res["StorageLocation"] = boost::any(*storageLocation);
+    }
+    if (storageType) {
+      res["StorageType"] = boost::any(*storageType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AppId") != m.end() && !m["AppId"].empty()) {
+      appId = make_shared<string>(boost::any_cast<string>(m["AppId"]));
+    }
+    if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
+      storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
+    }
+    if (m.find("StorageType") != m.end() && !m["StorageType"].empty()) {
+      storageType = make_shared<string>(boost::any_cast<string>(m["StorageType"]));
+    }
+  }
+
+
+  virtual ~AddVodStorageForAppRequest() = default;
+};
+class AddVodStorageForAppResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+  shared_ptr<string> storageLocation{};
+
+  AddVodStorageForAppResponseBody() {}
+
+  explicit AddVodStorageForAppResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (storageLocation) {
+      res["StorageLocation"] = boost::any(*storageLocation);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("StorageLocation") != m.end() && !m["StorageLocation"].empty()) {
+      storageLocation = make_shared<string>(boost::any_cast<string>(m["StorageLocation"]));
+    }
+  }
+
+
+  virtual ~AddVodStorageForAppResponseBody() = default;
+};
+class AddVodStorageForAppResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AddVodStorageForAppResponseBody> body{};
+
+  AddVodStorageForAppResponse() {}
+
+  explicit AddVodStorageForAppResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AddVodStorageForAppResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AddVodStorageForAppResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AddVodStorageForAppResponse() = default;
+};
 class AddVodTemplateRequest : public Darabonba::Model {
 public:
   shared_ptr<string> appId{};
@@ -22503,6 +22644,7 @@ public:
   shared_ptr<string> duration{};
   shared_ptr<string> mediaType{};
   shared_ptr<string> status{};
+  shared_ptr<string> storageClass{};
   shared_ptr<string> title{};
   shared_ptr<string> videoId{};
 
@@ -22534,6 +22676,9 @@ public:
     if (status) {
       res["Status"] = boost::any(*status);
     }
+    if (storageClass) {
+      res["StorageClass"] = boost::any(*storageClass);
+    }
     if (title) {
       res["Title"] = boost::any(*title);
     }
@@ -22561,6 +22706,9 @@ public:
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StorageClass") != m.end() && !m["StorageClass"].empty()) {
+      storageClass = make_shared<string>(boost::any_cast<string>(m["StorageClass"]));
     }
     if (m.find("Title") != m.end() && !m["Title"].empty()) {
       title = make_shared<string>(boost::any_cast<string>(m["Title"]));
@@ -36673,6 +36821,7 @@ public:
 };
 class UpdateMediaStorageClassRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> allowUpdateWithoutTimeLimit{};
   shared_ptr<string> mediaIds{};
   shared_ptr<string> restoreTier{};
   shared_ptr<string> scope{};
@@ -36688,6 +36837,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (allowUpdateWithoutTimeLimit) {
+      res["AllowUpdateWithoutTimeLimit"] = boost::any(*allowUpdateWithoutTimeLimit);
+    }
     if (mediaIds) {
       res["MediaIds"] = boost::any(*mediaIds);
     }
@@ -36704,6 +36856,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AllowUpdateWithoutTimeLimit") != m.end() && !m["AllowUpdateWithoutTimeLimit"].empty()) {
+      allowUpdateWithoutTimeLimit = make_shared<bool>(boost::any_cast<bool>(m["AllowUpdateWithoutTimeLimit"]));
+    }
     if (m.find("MediaIds") != m.end() && !m["MediaIds"].empty()) {
       mediaIds = make_shared<string>(boost::any_cast<string>(m["MediaIds"]));
     }
@@ -38477,6 +38632,8 @@ public:
   AddTranscodeTemplateGroupResponse addTranscodeTemplateGroup(shared_ptr<AddTranscodeTemplateGroupRequest> request);
   AddVodDomainResponse addVodDomainWithOptions(shared_ptr<AddVodDomainRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddVodDomainResponse addVodDomain(shared_ptr<AddVodDomainRequest> request);
+  AddVodStorageForAppResponse addVodStorageForAppWithOptions(shared_ptr<AddVodStorageForAppRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AddVodStorageForAppResponse addVodStorageForApp(shared_ptr<AddVodStorageForAppRequest> request);
   AddVodTemplateResponse addVodTemplateWithOptions(shared_ptr<AddVodTemplateRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   AddVodTemplateResponse addVodTemplate(shared_ptr<AddVodTemplateRequest> request);
   AddWatermarkResponse addWatermarkWithOptions(shared_ptr<AddWatermarkRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
