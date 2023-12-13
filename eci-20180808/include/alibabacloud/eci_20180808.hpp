@@ -2607,6 +2607,35 @@ public:
 
   virtual ~CreateContainerGroupRequestInitContainer() = default;
 };
+class CreateContainerGroupRequestOverheadReservationOption : public Darabonba::Model {
+public:
+  shared_ptr<bool> enableOverheadReservation{};
+
+  CreateContainerGroupRequestOverheadReservationOption() {}
+
+  explicit CreateContainerGroupRequestOverheadReservationOption(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enableOverheadReservation) {
+      res["EnableOverheadReservation"] = boost::any(*enableOverheadReservation);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableOverheadReservation") != m.end() && !m["EnableOverheadReservation"].empty()) {
+      enableOverheadReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableOverheadReservation"]));
+    }
+  }
+
+
+  virtual ~CreateContainerGroupRequestOverheadReservationOption() = default;
+};
 class CreateContainerGroupRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -3087,6 +3116,7 @@ public:
   shared_ptr<double> memory{};
   shared_ptr<vector<string>> ntpServer{};
   shared_ptr<string> osType{};
+  shared_ptr<CreateContainerGroupRequestOverheadReservationOption> overheadReservationOption{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> plainHttpRegistry{};
@@ -3277,6 +3307,9 @@ public:
     }
     if (osType) {
       res["OsType"] = boost::any(*osType);
+    }
+    if (overheadReservationOption) {
+      res["OverheadReservationOption"] = overheadReservationOption ? boost::any(overheadReservationOption->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -3562,6 +3595,13 @@ public:
     }
     if (m.find("OsType") != m.end() && !m["OsType"].empty()) {
       osType = make_shared<string>(boost::any_cast<string>(m["OsType"]));
+    }
+    if (m.find("OverheadReservationOption") != m.end() && !m["OverheadReservationOption"].empty()) {
+      if (typeid(map<string, boost::any>) == m["OverheadReservationOption"].type()) {
+        CreateContainerGroupRequestOverheadReservationOption model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OverheadReservationOption"]));
+        overheadReservationOption = make_shared<CreateContainerGroupRequestOverheadReservationOption>(model1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
