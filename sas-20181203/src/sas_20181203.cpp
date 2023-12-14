@@ -22968,6 +22968,37 @@ RemoveCheckResultWhiteListResponse Alibabacloud_Sas20181203::Client::removeCheck
   return removeCheckResultWhiteListWithOptions(request, runtime);
 }
 
+ResetHoneypotResponse Alibabacloud_Sas20181203::Client::resetHoneypotWithOptions(shared_ptr<ResetHoneypotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->honeypotId)) {
+    query->insert(pair<string, string>("HoneypotId", *request->honeypotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ResetHoneypot"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ResetHoneypotResponse(callApi(params, req, runtime));
+}
+
+ResetHoneypotResponse Alibabacloud_Sas20181203::Client::resetHoneypot(shared_ptr<ResetHoneypotRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return resetHoneypotWithOptions(request, runtime);
+}
+
 RetryAgentlessTaskResponse Alibabacloud_Sas20181203::Client::retryAgentlessTaskWithOptions(shared_ptr<RetryAgentlessTaskRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -23340,6 +23371,37 @@ StartDiscoverDatabaseTaskResponse Alibabacloud_Sas20181203::Client::startDiscove
 StartDiscoverDatabaseTaskResponse Alibabacloud_Sas20181203::Client::startDiscoverDatabaseTask() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return startDiscoverDatabaseTaskWithOptions(runtime);
+}
+
+StartHoneypotResponse Alibabacloud_Sas20181203::Client::startHoneypotWithOptions(shared_ptr<StartHoneypotRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->honeypotId)) {
+    query->insert(pair<string, string>("HoneypotId", *request->honeypotId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->lang)) {
+    query->insert(pair<string, string>("Lang", *request->lang));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("StartHoneypot"))},
+    {"version", boost::any(string("2018-12-03"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return StartHoneypotResponse(callApi(params, req, runtime));
+}
+
+StartHoneypotResponse Alibabacloud_Sas20181203::Client::startHoneypot(shared_ptr<StartHoneypotRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return startHoneypotWithOptions(request, runtime);
 }
 
 StartPreCheckDatabaseResponse Alibabacloud_Sas20181203::Client::startPreCheckDatabaseWithOptions(shared_ptr<StartPreCheckDatabaseRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
