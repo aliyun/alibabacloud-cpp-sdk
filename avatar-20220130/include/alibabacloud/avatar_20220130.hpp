@@ -6785,6 +6785,10 @@ public:
 class SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
 
   SubmitAudioTo2DAvatarVideoTaskRequestAvatarInfo() {}
 
@@ -6799,12 +6803,36 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
     }
   }
 
@@ -8067,6 +8095,10 @@ public:
 class SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<long> height{};
+  shared_ptr<long> width{};
+  shared_ptr<long> x{};
+  shared_ptr<long> y{};
 
   SubmitTextTo2DAvatarVideoTaskRequestAvatarInfo() {}
 
@@ -8081,12 +8113,36 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    if (x) {
+      res["X"] = boost::any(*x);
+    }
+    if (y) {
+      res["Y"] = boost::any(*y);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<long>(boost::any_cast<long>(m["Height"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<long>(boost::any_cast<long>(m["Width"]));
+    }
+    if (m.find("X") != m.end() && !m["X"].empty()) {
+      x = make_shared<long>(boost::any_cast<long>(m["X"]));
+    }
+    if (m.find("Y") != m.end() && !m["Y"].empty()) {
+      y = make_shared<long>(boost::any_cast<long>(m["Y"]));
     }
   }
 
