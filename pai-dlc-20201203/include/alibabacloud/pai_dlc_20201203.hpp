@@ -3258,6 +3258,7 @@ class CreateJobRequestDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> uri{};
 
   CreateJobRequestDataSources() {}
 
@@ -3275,6 +3276,9 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -3284,6 +3288,9 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
@@ -4224,6 +4231,7 @@ class GetJobResponseBodyDataSources : public Darabonba::Model {
 public:
   shared_ptr<string> dataSourceId{};
   shared_ptr<string> mountPath{};
+  shared_ptr<string> uri{};
 
   GetJobResponseBodyDataSources() {}
 
@@ -4241,6 +4249,9 @@ public:
     if (mountPath) {
       res["MountPath"] = boost::any(*mountPath);
     }
+    if (uri) {
+      res["Uri"] = boost::any(*uri);
+    }
     return res;
   }
 
@@ -4250,6 +4261,9 @@ public:
     }
     if (m.find("MountPath") != m.end() && !m["MountPath"].empty()) {
       mountPath = make_shared<string>(boost::any_cast<string>(m["MountPath"]));
+    }
+    if (m.find("Uri") != m.end() && !m["Uri"].empty()) {
+      uri = make_shared<string>(boost::any_cast<string>(m["Uri"]));
     }
   }
 
@@ -6248,6 +6262,7 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<map<string, string>> tags{};
+  shared_ptr<string> userIdForFilter{};
   shared_ptr<string> workspaceId{};
 
   ListJobsRequest() {}
@@ -6310,6 +6325,9 @@ public:
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
+    }
+    if (userIdForFilter) {
+      res["UserIdForFilter"] = boost::any(*userIdForFilter);
     }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
@@ -6374,6 +6392,9 @@ public:
       }
       tags = make_shared<map<string, string>>(toMap1);
     }
+    if (m.find("UserIdForFilter") != m.end() && !m["UserIdForFilter"].empty()) {
+      userIdForFilter = make_shared<string>(boost::any_cast<string>(m["UserIdForFilter"]));
+    }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
     }
@@ -6401,6 +6422,7 @@ public:
   shared_ptr<string> startTime{};
   shared_ptr<string> status{};
   shared_ptr<string> tagsShrink{};
+  shared_ptr<string> userIdForFilter{};
   shared_ptr<string> workspaceId{};
 
   ListJobsShrinkRequest() {}
@@ -6464,6 +6486,9 @@ public:
     if (tagsShrink) {
       res["Tags"] = boost::any(*tagsShrink);
     }
+    if (userIdForFilter) {
+      res["UserIdForFilter"] = boost::any(*userIdForFilter);
+    }
     if (workspaceId) {
       res["WorkspaceId"] = boost::any(*workspaceId);
     }
@@ -6521,6 +6546,9 @@ public:
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       tagsShrink = make_shared<string>(boost::any_cast<string>(m["Tags"]));
+    }
+    if (m.find("UserIdForFilter") != m.end() && !m["UserIdForFilter"].empty()) {
+      userIdForFilter = make_shared<string>(boost::any_cast<string>(m["UserIdForFilter"]));
     }
     if (m.find("WorkspaceId") != m.end() && !m["WorkspaceId"].empty()) {
       workspaceId = make_shared<string>(boost::any_cast<string>(m["WorkspaceId"]));
