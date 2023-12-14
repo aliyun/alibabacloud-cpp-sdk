@@ -481,6 +481,9 @@ CreateApiResponse Alibabacloud_CloudAPI20160714::Client::createApiWithOptions(sh
   if (!Darabonba_Util::Client::isUnset<string>(request->serviceConfig)) {
     query->insert(pair<string, string>("ServiceConfig", *request->serviceConfig));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateApiRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateApiRequestTag>>("Tag", *request->tag));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->visibility)) {
     query->insert(pair<string, string>("Visibility", *request->visibility));
   }
@@ -774,6 +777,9 @@ CreateDatasetResponse Alibabacloud_CloudAPI20160714::Client::createDatasetWithOp
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateDatasetRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateDatasetRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -1025,6 +1031,9 @@ CreateModelResponse Alibabacloud_CloudAPI20160714::Client::createModelWithOption
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->schema)) {
     query->insert(pair<string, string>("Schema", *request->schema));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<CreateModelRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<CreateModelRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
@@ -3531,6 +3540,9 @@ DescribeDatasetListResponse Alibabacloud_CloudAPI20160714::Client::describeDatas
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeDatasetListRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeDatasetListRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4473,6 +4485,9 @@ DescribeModelsResponse Alibabacloud_CloudAPI20160714::Client::describeModelsWith
   if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
     query->insert(pair<string, long>("PageSize", *request->pageSize));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeModelsRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeModelsRequestTag>>("Tag", *request->tag));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -5150,6 +5165,9 @@ DescribeVpcAccessesResponse Alibabacloud_CloudAPI20160714::Client::describeVpcAc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<DescribeVpcAccessesRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<DescribeVpcAccessesRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcAccessId)) {
     query->insert(pair<string, string>("VpcAccessId", *request->vpcAccessId));
@@ -5865,6 +5883,46 @@ ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupWith
 ModifyApiGroupResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroup(shared_ptr<ModifyApiGroupRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return modifyApiGroupWithOptions(request, runtime);
+}
+
+ModifyApiGroupInstanceResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupInstanceWithOptions(shared_ptr<ModifyApiGroupInstanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->groupId)) {
+    query->insert(pair<string, string>("GroupId", *request->groupId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->remark)) {
+    query->insert(pair<string, string>("Remark", *request->remark));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
+    query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<ModifyApiGroupInstanceRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<ModifyApiGroupInstanceRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->targetInstanceId)) {
+    query->insert(pair<string, string>("TargetInstanceId", *request->targetInstanceId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyApiGroupInstance"))},
+    {"version", boost::any(string("2016-07-14"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyApiGroupInstanceResponse(callApi(params, req, runtime));
+}
+
+ModifyApiGroupInstanceResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupInstance(shared_ptr<ModifyApiGroupInstanceRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyApiGroupInstanceWithOptions(request, runtime);
 }
 
 ModifyApiGroupNetworkPolicyResponse Alibabacloud_CloudAPI20160714::Client::modifyApiGroupNetworkPolicyWithOptions(shared_ptr<ModifyApiGroupNetworkPolicyRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -7731,6 +7789,9 @@ SetVpcAccessResponse Alibabacloud_CloudAPI20160714::Client::setVpcAccessWithOpti
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->securityToken)) {
     query->insert(pair<string, string>("SecurityToken", *request->securityToken));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<SetVpcAccessRequestTag>>(request->tag)) {
+    query->insert(pair<string, vector<SetVpcAccessRequestTag>>("Tag", *request->tag));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
     query->insert(pair<string, string>("VpcId", *request->vpcId));
