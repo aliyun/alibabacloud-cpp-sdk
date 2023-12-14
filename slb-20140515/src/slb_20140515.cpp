@@ -641,11 +641,17 @@ CreateLoadBalancerHTTPListenerResponse Alibabacloud_Slb20140515::Client::createL
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor)) {
     query->insert(pair<string, string>("XForwardedFor", *request->XForwardedFor));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_ClientSrcPort)) {
+    query->insert(pair<string, string>("XForwardedFor_ClientSrcPort", *request->XForwardedFor_ClientSrcPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBID)) {
     query->insert(pair<string, string>("XForwardedFor_SLBID", *request->XForwardedFor_SLBID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBIP)) {
     query->insert(pair<string, string>("XForwardedFor_SLBIP", *request->XForwardedFor_SLBIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBPORT)) {
+    query->insert(pair<string, string>("XForwardedFor_SLBPORT", *request->XForwardedFor_SLBPORT));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_proto)) {
     query->insert(pair<string, string>("XForwardedFor_proto", *request->XForwardedFor_proto));
@@ -789,11 +795,17 @@ CreateLoadBalancerHTTPSListenerResponse Alibabacloud_Slb20140515::Client::create
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor)) {
     query->insert(pair<string, string>("XForwardedFor", *request->XForwardedFor));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_ClientSrcPort)) {
+    query->insert(pair<string, string>("XForwardedFor_ClientSrcPort", *request->XForwardedFor_ClientSrcPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBID)) {
     query->insert(pair<string, string>("XForwardedFor_SLBID", *request->XForwardedFor_SLBID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBIP)) {
     query->insert(pair<string, string>("XForwardedFor_SLBIP", *request->XForwardedFor_SLBIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBPORT)) {
+    query->insert(pair<string, string>("XForwardedFor_SLBPORT", *request->XForwardedFor_SLBPORT));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_proto)) {
     query->insert(pair<string, string>("XForwardedFor_proto", *request->XForwardedFor_proto));
@@ -4273,11 +4285,17 @@ SetLoadBalancerHTTPListenerAttributeResponse Alibabacloud_Slb20140515::Client::s
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor)) {
     query->insert(pair<string, string>("XForwardedFor", *request->XForwardedFor));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_ClientSrcPort)) {
+    query->insert(pair<string, string>("XForwardedFor_ClientSrcPort", *request->XForwardedFor_ClientSrcPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBID)) {
     query->insert(pair<string, string>("XForwardedFor_SLBID", *request->XForwardedFor_SLBID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBIP)) {
     query->insert(pair<string, string>("XForwardedFor_SLBIP", *request->XForwardedFor_SLBIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBPORT)) {
+    query->insert(pair<string, string>("XForwardedFor_SLBPORT", *request->XForwardedFor_SLBPORT));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_proto)) {
     query->insert(pair<string, string>("XForwardedFor_proto", *request->XForwardedFor_proto));
@@ -4418,11 +4436,17 @@ SetLoadBalancerHTTPSListenerAttributeResponse Alibabacloud_Slb20140515::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor)) {
     query->insert(pair<string, string>("XForwardedFor", *request->XForwardedFor));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_ClientSrcPort)) {
+    query->insert(pair<string, string>("XForwardedFor_ClientSrcPort", *request->XForwardedFor_ClientSrcPort));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBID)) {
     query->insert(pair<string, string>("XForwardedFor_SLBID", *request->XForwardedFor_SLBID));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBIP)) {
     query->insert(pair<string, string>("XForwardedFor_SLBIP", *request->XForwardedFor_SLBIP));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_SLBPORT)) {
+    query->insert(pair<string, string>("XForwardedFor_SLBPORT", *request->XForwardedFor_SLBPORT));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->XForwardedFor_proto)) {
     query->insert(pair<string, string>("XForwardedFor_proto", *request->XForwardedFor_proto));

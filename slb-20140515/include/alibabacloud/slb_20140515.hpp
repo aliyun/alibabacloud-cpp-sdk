@@ -1979,8 +1979,10 @@ public:
   shared_ptr<long> unhealthyThreshold{};
   shared_ptr<string> VServerGroupId{};
   shared_ptr<string> XForwardedFor{};
+  shared_ptr<string> XForwardedFor_ClientSrcPort{};
   shared_ptr<string> XForwardedFor_SLBID{};
   shared_ptr<string> XForwardedFor_SLBIP{};
+  shared_ptr<string> XForwardedFor_SLBPORT{};
   shared_ptr<string> XForwardedFor_proto{};
 
   CreateLoadBalancerHTTPListenerRequest() {}
@@ -2105,11 +2107,17 @@ public:
     if (XForwardedFor) {
       res["XForwardedFor"] = boost::any(*XForwardedFor);
     }
+    if (XForwardedFor_ClientSrcPort) {
+      res["XForwardedFor_ClientSrcPort"] = boost::any(*XForwardedFor_ClientSrcPort);
+    }
     if (XForwardedFor_SLBID) {
       res["XForwardedFor_SLBID"] = boost::any(*XForwardedFor_SLBID);
     }
     if (XForwardedFor_SLBIP) {
       res["XForwardedFor_SLBIP"] = boost::any(*XForwardedFor_SLBIP);
+    }
+    if (XForwardedFor_SLBPORT) {
+      res["XForwardedFor_SLBPORT"] = boost::any(*XForwardedFor_SLBPORT);
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
@@ -2236,11 +2244,17 @@ public:
     if (m.find("XForwardedFor") != m.end() && !m["XForwardedFor"].empty()) {
       XForwardedFor = make_shared<string>(boost::any_cast<string>(m["XForwardedFor"]));
     }
+    if (m.find("XForwardedFor_ClientSrcPort") != m.end() && !m["XForwardedFor_ClientSrcPort"].empty()) {
+      XForwardedFor_ClientSrcPort = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_ClientSrcPort"]));
+    }
     if (m.find("XForwardedFor_SLBID") != m.end() && !m["XForwardedFor_SLBID"].empty()) {
       XForwardedFor_SLBID = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBID"]));
     }
     if (m.find("XForwardedFor_SLBIP") != m.end() && !m["XForwardedFor_SLBIP"].empty()) {
       XForwardedFor_SLBIP = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBIP"]));
+    }
+    if (m.find("XForwardedFor_SLBPORT") != m.end() && !m["XForwardedFor_SLBPORT"].empty()) {
+      XForwardedFor_SLBPORT = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBPORT"]));
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
@@ -2417,8 +2431,10 @@ public:
   shared_ptr<long> unhealthyThreshold{};
   shared_ptr<string> VServerGroupId{};
   shared_ptr<string> XForwardedFor{};
+  shared_ptr<string> XForwardedFor_ClientSrcPort{};
   shared_ptr<string> XForwardedFor_SLBID{};
   shared_ptr<string> XForwardedFor_SLBIP{};
+  shared_ptr<string> XForwardedFor_SLBPORT{};
   shared_ptr<string> XForwardedFor_proto{};
 
   CreateLoadBalancerHTTPSListenerRequest() {}
@@ -2549,11 +2565,17 @@ public:
     if (XForwardedFor) {
       res["XForwardedFor"] = boost::any(*XForwardedFor);
     }
+    if (XForwardedFor_ClientSrcPort) {
+      res["XForwardedFor_ClientSrcPort"] = boost::any(*XForwardedFor_ClientSrcPort);
+    }
     if (XForwardedFor_SLBID) {
       res["XForwardedFor_SLBID"] = boost::any(*XForwardedFor_SLBID);
     }
     if (XForwardedFor_SLBIP) {
       res["XForwardedFor_SLBIP"] = boost::any(*XForwardedFor_SLBIP);
+    }
+    if (XForwardedFor_SLBPORT) {
+      res["XForwardedFor_SLBPORT"] = boost::any(*XForwardedFor_SLBPORT);
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
@@ -2686,11 +2708,17 @@ public:
     if (m.find("XForwardedFor") != m.end() && !m["XForwardedFor"].empty()) {
       XForwardedFor = make_shared<string>(boost::any_cast<string>(m["XForwardedFor"]));
     }
+    if (m.find("XForwardedFor_ClientSrcPort") != m.end() && !m["XForwardedFor_ClientSrcPort"].empty()) {
+      XForwardedFor_ClientSrcPort = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_ClientSrcPort"]));
+    }
     if (m.find("XForwardedFor_SLBID") != m.end() && !m["XForwardedFor_SLBID"].empty()) {
       XForwardedFor_SLBID = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBID"]));
     }
     if (m.find("XForwardedFor_SLBIP") != m.end() && !m["XForwardedFor_SLBIP"].empty()) {
       XForwardedFor_SLBIP = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBIP"]));
+    }
+    if (m.find("XForwardedFor_SLBPORT") != m.end() && !m["XForwardedFor_SLBPORT"].empty()) {
+      XForwardedFor_SLBPORT = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBPORT"]));
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
@@ -10693,8 +10721,10 @@ public:
   shared_ptr<long> unhealthyThreshold{};
   shared_ptr<string> VServerGroupId{};
   shared_ptr<string> XForwardedFor{};
+  shared_ptr<string> XForwardedFor_ClientSrcPort{};
   shared_ptr<string> XForwardedFor_SLBID{};
   shared_ptr<string> XForwardedFor_SLBIP{};
+  shared_ptr<string> XForwardedFor_SLBPORT{};
   shared_ptr<string> XForwardedFor_proto{};
 
   DescribeLoadBalancerHTTPListenerAttributeResponseBody() {}
@@ -10812,11 +10842,17 @@ public:
     if (XForwardedFor) {
       res["XForwardedFor"] = boost::any(*XForwardedFor);
     }
+    if (XForwardedFor_ClientSrcPort) {
+      res["XForwardedFor_ClientSrcPort"] = boost::any(*XForwardedFor_ClientSrcPort);
+    }
     if (XForwardedFor_SLBID) {
       res["XForwardedFor_SLBID"] = boost::any(*XForwardedFor_SLBID);
     }
     if (XForwardedFor_SLBIP) {
       res["XForwardedFor_SLBIP"] = boost::any(*XForwardedFor_SLBIP);
+    }
+    if (XForwardedFor_SLBPORT) {
+      res["XForwardedFor_SLBPORT"] = boost::any(*XForwardedFor_SLBPORT);
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
@@ -10938,11 +10974,17 @@ public:
     if (m.find("XForwardedFor") != m.end() && !m["XForwardedFor"].empty()) {
       XForwardedFor = make_shared<string>(boost::any_cast<string>(m["XForwardedFor"]));
     }
+    if (m.find("XForwardedFor_ClientSrcPort") != m.end() && !m["XForwardedFor_ClientSrcPort"].empty()) {
+      XForwardedFor_ClientSrcPort = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_ClientSrcPort"]));
+    }
     if (m.find("XForwardedFor_SLBID") != m.end() && !m["XForwardedFor_SLBID"].empty()) {
       XForwardedFor_SLBID = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBID"]));
     }
     if (m.find("XForwardedFor_SLBIP") != m.end() && !m["XForwardedFor_SLBIP"].empty()) {
       XForwardedFor_SLBIP = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBIP"]));
+    }
+    if (m.find("XForwardedFor_SLBPORT") != m.end() && !m["XForwardedFor_SLBPORT"].empty()) {
+      XForwardedFor_SLBPORT = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBPORT"]));
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
@@ -23218,8 +23260,10 @@ public:
   shared_ptr<string> VServerGroup{};
   shared_ptr<string> VServerGroupId{};
   shared_ptr<string> XForwardedFor{};
+  shared_ptr<string> XForwardedFor_ClientSrcPort{};
   shared_ptr<string> XForwardedFor_SLBID{};
   shared_ptr<string> XForwardedFor_SLBIP{};
+  shared_ptr<string> XForwardedFor_SLBPORT{};
   shared_ptr<string> XForwardedFor_proto{};
 
   SetLoadBalancerHTTPListenerAttributeRequest() {}
@@ -23331,11 +23375,17 @@ public:
     if (XForwardedFor) {
       res["XForwardedFor"] = boost::any(*XForwardedFor);
     }
+    if (XForwardedFor_ClientSrcPort) {
+      res["XForwardedFor_ClientSrcPort"] = boost::any(*XForwardedFor_ClientSrcPort);
+    }
     if (XForwardedFor_SLBID) {
       res["XForwardedFor_SLBID"] = boost::any(*XForwardedFor_SLBID);
     }
     if (XForwardedFor_SLBIP) {
       res["XForwardedFor_SLBIP"] = boost::any(*XForwardedFor_SLBIP);
+    }
+    if (XForwardedFor_SLBPORT) {
+      res["XForwardedFor_SLBPORT"] = boost::any(*XForwardedFor_SLBPORT);
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
@@ -23443,11 +23493,17 @@ public:
     if (m.find("XForwardedFor") != m.end() && !m["XForwardedFor"].empty()) {
       XForwardedFor = make_shared<string>(boost::any_cast<string>(m["XForwardedFor"]));
     }
+    if (m.find("XForwardedFor_ClientSrcPort") != m.end() && !m["XForwardedFor_ClientSrcPort"].empty()) {
+      XForwardedFor_ClientSrcPort = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_ClientSrcPort"]));
+    }
     if (m.find("XForwardedFor_SLBID") != m.end() && !m["XForwardedFor_SLBID"].empty()) {
       XForwardedFor_SLBID = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBID"]));
     }
     if (m.find("XForwardedFor_SLBIP") != m.end() && !m["XForwardedFor_SLBIP"].empty()) {
       XForwardedFor_SLBIP = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBIP"]));
+    }
+    if (m.find("XForwardedFor_SLBPORT") != m.end() && !m["XForwardedFor_SLBPORT"].empty()) {
+      XForwardedFor_SLBPORT = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBPORT"]));
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
@@ -23587,8 +23643,10 @@ public:
   shared_ptr<string> VServerGroup{};
   shared_ptr<string> VServerGroupId{};
   shared_ptr<string> XForwardedFor{};
+  shared_ptr<string> XForwardedFor_ClientSrcPort{};
   shared_ptr<string> XForwardedFor_SLBID{};
   shared_ptr<string> XForwardedFor_SLBIP{};
+  shared_ptr<string> XForwardedFor_SLBPORT{};
   shared_ptr<string> XForwardedFor_proto{};
 
   SetLoadBalancerHTTPSListenerAttributeRequest() {}
@@ -23712,11 +23770,17 @@ public:
     if (XForwardedFor) {
       res["XForwardedFor"] = boost::any(*XForwardedFor);
     }
+    if (XForwardedFor_ClientSrcPort) {
+      res["XForwardedFor_ClientSrcPort"] = boost::any(*XForwardedFor_ClientSrcPort);
+    }
     if (XForwardedFor_SLBID) {
       res["XForwardedFor_SLBID"] = boost::any(*XForwardedFor_SLBID);
     }
     if (XForwardedFor_SLBIP) {
       res["XForwardedFor_SLBIP"] = boost::any(*XForwardedFor_SLBIP);
+    }
+    if (XForwardedFor_SLBPORT) {
+      res["XForwardedFor_SLBPORT"] = boost::any(*XForwardedFor_SLBPORT);
     }
     if (XForwardedFor_proto) {
       res["XForwardedFor_proto"] = boost::any(*XForwardedFor_proto);
@@ -23836,11 +23900,17 @@ public:
     if (m.find("XForwardedFor") != m.end() && !m["XForwardedFor"].empty()) {
       XForwardedFor = make_shared<string>(boost::any_cast<string>(m["XForwardedFor"]));
     }
+    if (m.find("XForwardedFor_ClientSrcPort") != m.end() && !m["XForwardedFor_ClientSrcPort"].empty()) {
+      XForwardedFor_ClientSrcPort = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_ClientSrcPort"]));
+    }
     if (m.find("XForwardedFor_SLBID") != m.end() && !m["XForwardedFor_SLBID"].empty()) {
       XForwardedFor_SLBID = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBID"]));
     }
     if (m.find("XForwardedFor_SLBIP") != m.end() && !m["XForwardedFor_SLBIP"].empty()) {
       XForwardedFor_SLBIP = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBIP"]));
+    }
+    if (m.find("XForwardedFor_SLBPORT") != m.end() && !m["XForwardedFor_SLBPORT"].empty()) {
+      XForwardedFor_SLBPORT = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_SLBPORT"]));
     }
     if (m.find("XForwardedFor_proto") != m.end() && !m["XForwardedFor_proto"].empty()) {
       XForwardedFor_proto = make_shared<string>(boost::any_cast<string>(m["XForwardedFor_proto"]));
