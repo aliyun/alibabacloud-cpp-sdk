@@ -11611,6 +11611,85 @@ public:
 
   virtual ~ScreenECRequest() = default;
 };
+class ScreenECAdvanceRequestURLList : public Darabonba::Model {
+public:
+  shared_ptr<Darabonba::Stream> URLObject{};
+
+  ScreenECAdvanceRequestURLList() {}
+
+  explicit ScreenECAdvanceRequestURLList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (URLObject) {
+      res["URL"] = boost::any(*URLObject);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("URL") != m.end() && !m["URL"].empty()) {
+      URLObject = make_shared<Darabonba::Stream>(boost::any_cast<Darabonba::Stream>(m["URL"]));
+    }
+  }
+
+
+  virtual ~ScreenECAdvanceRequestURLList() = default;
+};
+class ScreenECAdvanceRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> dataSourceType{};
+  shared_ptr<vector<ScreenECAdvanceRequestURLList>> URLList{};
+
+  ScreenECAdvanceRequest() {}
+
+  explicit ScreenECAdvanceRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (dataSourceType) {
+      res["DataSourceType"] = boost::any(*dataSourceType);
+    }
+    if (URLList) {
+      vector<boost::any> temp1;
+      for(auto item1:*URLList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["URLList"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DataSourceType") != m.end() && !m["DataSourceType"].empty()) {
+      dataSourceType = make_shared<string>(boost::any_cast<string>(m["DataSourceType"]));
+    }
+    if (m.find("URLList") != m.end() && !m["URLList"].empty()) {
+      if (typeid(vector<boost::any>) == m["URLList"].type()) {
+        vector<ScreenECAdvanceRequestURLList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["URLList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScreenECAdvanceRequestURLList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        URLList = make_shared<vector<ScreenECAdvanceRequestURLList>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~ScreenECAdvanceRequest() = default;
+};
 class ScreenECResponseBodyDataLesion : public Darabonba::Model {
 public:
   shared_ptr<string> benignVolume{};
@@ -14081,6 +14160,7 @@ public:
   ScreenChestCTResponse screenChestCTAdvance(shared_ptr<ScreenChestCTAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenECWithOptions(shared_ptr<ScreenECRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenECResponse screenEC(shared_ptr<ScreenECRequest> request);
+  ScreenECResponse screenECAdvance(shared_ptr<ScreenECAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenGCResponse screenGCWithOptions(shared_ptr<ScreenGCRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScreenGCResponse screenGC(shared_ptr<ScreenGCRequest> request);
   ScreenGCResponse screenGCAdvance(shared_ptr<ScreenGCAdvanceRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
