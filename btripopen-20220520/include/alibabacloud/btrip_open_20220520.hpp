@@ -96983,6 +96983,7 @@ public:
   shared_ptr<long> segmentIndex{};
   shared_ptr<string> startTime{};
   shared_ptr<string> ticketNo{};
+  shared_ptr<long> ticketStatus{};
   shared_ptr<string> toCityName{};
   shared_ptr<string> toStationName{};
   shared_ptr<string> useTicket{};
@@ -97057,6 +97058,9 @@ public:
     }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
+    }
+    if (ticketStatus) {
+      res["ticket_status"] = boost::any(*ticketStatus);
     }
     if (toCityName) {
       res["to_city_name"] = boost::any(*toCityName);
@@ -97133,6 +97137,9 @@ public:
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
+    }
+    if (m.find("ticket_status") != m.end() && !m["ticket_status"].empty()) {
+      ticketStatus = make_shared<long>(boost::any_cast<long>(m["ticket_status"]));
     }
     if (m.find("to_city_name") != m.end() && !m["to_city_name"].empty()) {
       toCityName = make_shared<string>(boost::any_cast<string>(m["to_city_name"]));
