@@ -3283,8 +3283,6 @@ public:
 class CreateCategoryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> agentKey{};
-  shared_ptr<string> bizCode{};
-  shared_ptr<long> knowledgeType{};
   shared_ptr<string> name{};
   shared_ptr<long> parentCategoryId{};
 
@@ -3301,12 +3299,6 @@ public:
     if (agentKey) {
       res["AgentKey"] = boost::any(*agentKey);
     }
-    if (bizCode) {
-      res["BizCode"] = boost::any(*bizCode);
-    }
-    if (knowledgeType) {
-      res["KnowledgeType"] = boost::any(*knowledgeType);
-    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -3319,12 +3311,6 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AgentKey") != m.end() && !m["AgentKey"].empty()) {
       agentKey = make_shared<string>(boost::any_cast<string>(m["AgentKey"]));
-    }
-    if (m.find("BizCode") != m.end() && !m["BizCode"].empty()) {
-      bizCode = make_shared<string>(boost::any_cast<string>(m["BizCode"]));
-    }
-    if (m.find("KnowledgeType") != m.end() && !m["KnowledgeType"].empty()) {
-      knowledgeType = make_shared<long>(boost::any_cast<long>(m["KnowledgeType"]));
     }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
@@ -9635,7 +9621,7 @@ public:
 };
 class GetConversationListResponseBody : public Darabonba::Model {
 public:
-  shared_ptr<vector<map<string, boost::any>>> messages{};
+  shared_ptr<vector<map<string, string>>> messages{};
   shared_ptr<long> pageNumber{};
   shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
@@ -9671,19 +9657,19 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Messages") != m.end() && !m["Messages"].empty()) {
-      vector<map<string, boost::any>> toVec1;
+      vector<map<string, string>> toVec1;
       if (typeid(vector<boost::any>) == m["Messages"].type()) {
         vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Messages"]);
         for (auto item:vec1) {
-          map<string, boost::any> map2 = boost::any_cast<map<string, boost::any>>(item);
-          map<string, boost::any> toMap2;
+          map<string, string> map2 = boost::any_cast<map<string, string>>(item);
+          map<string, string> toMap2;
           for (auto item:map2) {
              toMap2[item.first] = item.second;
           }
            toVec1.push_back(toMap2);
         }
       }
-      messages = make_shared<vector<map<string, boost::any>>>(toVec1);
+      messages = make_shared<vector<map<string, string>>>(toVec1);
     }
     if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
       pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
