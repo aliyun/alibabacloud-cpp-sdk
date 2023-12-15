@@ -5105,8 +5105,13 @@ SubmitPreprocessJobsResponse Alibabacloud_Vod20170321::Client::submitPreprocessJ
   return submitPreprocessJobsWithOptions(request, runtime);
 }
 
-SubmitSnapshotJobResponse Alibabacloud_Vod20170321::Client::submitSnapshotJobWithOptions(shared_ptr<SubmitSnapshotJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+SubmitSnapshotJobResponse Alibabacloud_Vod20170321::Client::submitSnapshotJobWithOptions(shared_ptr<SubmitSnapshotJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<SubmitSnapshotJobShrinkRequest> request = make_shared<SubmitSnapshotJobShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->specifiedOffsetTimes)) {
+    request->specifiedOffsetTimesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->specifiedOffsetTimes, make_shared<string>("SpecifiedOffsetTimes"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<long>(request->count)) {
     query->insert(pair<string, long>("Count", *request->count));
@@ -5122,6 +5127,9 @@ SubmitSnapshotJobResponse Alibabacloud_Vod20170321::Client::submitSnapshotJobWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->specifiedOffsetTime)) {
     query->insert(pair<string, long>("SpecifiedOffsetTime", *request->specifiedOffsetTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specifiedOffsetTimesShrink)) {
+    query->insert(pair<string, string>("SpecifiedOffsetTimes", *request->specifiedOffsetTimesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spriteSnapshotConfig)) {
     query->insert(pair<string, string>("SpriteSnapshotConfig", *request->spriteSnapshotConfig));

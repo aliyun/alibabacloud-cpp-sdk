@@ -35345,6 +35345,7 @@ public:
   shared_ptr<long> interval{};
   shared_ptr<string> snapshotTemplateId{};
   shared_ptr<long> specifiedOffsetTime{};
+  shared_ptr<vector<long>> specifiedOffsetTimes{};
   shared_ptr<string> spriteSnapshotConfig{};
   shared_ptr<string> userData{};
   shared_ptr<string> videoId{};
@@ -35374,6 +35375,9 @@ public:
     }
     if (specifiedOffsetTime) {
       res["SpecifiedOffsetTime"] = boost::any(*specifiedOffsetTime);
+    }
+    if (specifiedOffsetTimes) {
+      res["SpecifiedOffsetTimes"] = boost::any(*specifiedOffsetTimes);
     }
     if (spriteSnapshotConfig) {
       res["SpriteSnapshotConfig"] = boost::any(*spriteSnapshotConfig);
@@ -35406,6 +35410,16 @@ public:
     if (m.find("SpecifiedOffsetTime") != m.end() && !m["SpecifiedOffsetTime"].empty()) {
       specifiedOffsetTime = make_shared<long>(boost::any_cast<long>(m["SpecifiedOffsetTime"]));
     }
+    if (m.find("SpecifiedOffsetTimes") != m.end() && !m["SpecifiedOffsetTimes"].empty()) {
+      vector<long> toVec1;
+      if (typeid(vector<boost::any>) == m["SpecifiedOffsetTimes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["SpecifiedOffsetTimes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<long>(item));
+        }
+      }
+      specifiedOffsetTimes = make_shared<vector<long>>(toVec1);
+    }
     if (m.find("SpriteSnapshotConfig") != m.end() && !m["SpriteSnapshotConfig"].empty()) {
       spriteSnapshotConfig = make_shared<string>(boost::any_cast<string>(m["SpriteSnapshotConfig"]));
     }
@@ -35422,6 +35436,98 @@ public:
 
 
   virtual ~SubmitSnapshotJobRequest() = default;
+};
+class SubmitSnapshotJobShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> count{};
+  shared_ptr<string> height{};
+  shared_ptr<long> interval{};
+  shared_ptr<string> snapshotTemplateId{};
+  shared_ptr<long> specifiedOffsetTime{};
+  shared_ptr<string> specifiedOffsetTimesShrink{};
+  shared_ptr<string> spriteSnapshotConfig{};
+  shared_ptr<string> userData{};
+  shared_ptr<string> videoId{};
+  shared_ptr<string> width{};
+
+  SubmitSnapshotJobShrinkRequest() {}
+
+  explicit SubmitSnapshotJobShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (count) {
+      res["Count"] = boost::any(*count);
+    }
+    if (height) {
+      res["Height"] = boost::any(*height);
+    }
+    if (interval) {
+      res["Interval"] = boost::any(*interval);
+    }
+    if (snapshotTemplateId) {
+      res["SnapshotTemplateId"] = boost::any(*snapshotTemplateId);
+    }
+    if (specifiedOffsetTime) {
+      res["SpecifiedOffsetTime"] = boost::any(*specifiedOffsetTime);
+    }
+    if (specifiedOffsetTimesShrink) {
+      res["SpecifiedOffsetTimes"] = boost::any(*specifiedOffsetTimesShrink);
+    }
+    if (spriteSnapshotConfig) {
+      res["SpriteSnapshotConfig"] = boost::any(*spriteSnapshotConfig);
+    }
+    if (userData) {
+      res["UserData"] = boost::any(*userData);
+    }
+    if (videoId) {
+      res["VideoId"] = boost::any(*videoId);
+    }
+    if (width) {
+      res["Width"] = boost::any(*width);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Count") != m.end() && !m["Count"].empty()) {
+      count = make_shared<long>(boost::any_cast<long>(m["Count"]));
+    }
+    if (m.find("Height") != m.end() && !m["Height"].empty()) {
+      height = make_shared<string>(boost::any_cast<string>(m["Height"]));
+    }
+    if (m.find("Interval") != m.end() && !m["Interval"].empty()) {
+      interval = make_shared<long>(boost::any_cast<long>(m["Interval"]));
+    }
+    if (m.find("SnapshotTemplateId") != m.end() && !m["SnapshotTemplateId"].empty()) {
+      snapshotTemplateId = make_shared<string>(boost::any_cast<string>(m["SnapshotTemplateId"]));
+    }
+    if (m.find("SpecifiedOffsetTime") != m.end() && !m["SpecifiedOffsetTime"].empty()) {
+      specifiedOffsetTime = make_shared<long>(boost::any_cast<long>(m["SpecifiedOffsetTime"]));
+    }
+    if (m.find("SpecifiedOffsetTimes") != m.end() && !m["SpecifiedOffsetTimes"].empty()) {
+      specifiedOffsetTimesShrink = make_shared<string>(boost::any_cast<string>(m["SpecifiedOffsetTimes"]));
+    }
+    if (m.find("SpriteSnapshotConfig") != m.end() && !m["SpriteSnapshotConfig"].empty()) {
+      spriteSnapshotConfig = make_shared<string>(boost::any_cast<string>(m["SpriteSnapshotConfig"]));
+    }
+    if (m.find("UserData") != m.end() && !m["UserData"].empty()) {
+      userData = make_shared<string>(boost::any_cast<string>(m["UserData"]));
+    }
+    if (m.find("VideoId") != m.end() && !m["VideoId"].empty()) {
+      videoId = make_shared<string>(boost::any_cast<string>(m["VideoId"]));
+    }
+    if (m.find("Width") != m.end() && !m["Width"].empty()) {
+      width = make_shared<string>(boost::any_cast<string>(m["Width"]));
+    }
+  }
+
+
+  virtual ~SubmitSnapshotJobShrinkRequest() = default;
 };
 class SubmitSnapshotJobResponseBodySnapshotJob : public Darabonba::Model {
 public:
@@ -38890,7 +38996,7 @@ public:
   SubmitMediaDNADeleteJobResponse submitMediaDNADeleteJob(shared_ptr<SubmitMediaDNADeleteJobRequest> request);
   SubmitPreprocessJobsResponse submitPreprocessJobsWithOptions(shared_ptr<SubmitPreprocessJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitPreprocessJobsResponse submitPreprocessJobs(shared_ptr<SubmitPreprocessJobsRequest> request);
-  SubmitSnapshotJobResponse submitSnapshotJobWithOptions(shared_ptr<SubmitSnapshotJobRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  SubmitSnapshotJobResponse submitSnapshotJobWithOptions(shared_ptr<SubmitSnapshotJobRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitSnapshotJobResponse submitSnapshotJob(shared_ptr<SubmitSnapshotJobRequest> request);
   SubmitTranscodeJobsResponse submitTranscodeJobsWithOptions(shared_ptr<SubmitTranscodeJobsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SubmitTranscodeJobsResponse submitTranscodeJobs(shared_ptr<SubmitTranscodeJobsRequest> request);
