@@ -11643,6 +11643,9 @@ ModifyDBProxyResponse Alibabacloud_Rds20140815::Client::modifyDBProxyWithOptions
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->persistentConnectionStatus)) {
+    query->insert(pair<string, string>("PersistentConnectionStatus", *request->persistentConnectionStatus));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }

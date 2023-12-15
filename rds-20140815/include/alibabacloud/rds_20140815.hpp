@@ -32430,7 +32430,7 @@ public:
   shared_ptr<string> DBProxyInstanceSize{};
   shared_ptr<string> DBProxyInstanceStatus{};
   shared_ptr<string> DBProxyInstanceType{};
-  shared_ptr<string> DBProxyPersistentConnectionSupport{};
+  shared_ptr<string> DBProxyPersistentConnectionStatus{};
   shared_ptr<string> DBProxyServiceStatus{};
   shared_ptr<DescribeDBProxyResponseBodyDbProxyEndpointItems> dbProxyEndpointItems{};
   shared_ptr<string> requestId{};
@@ -32476,8 +32476,8 @@ public:
     if (DBProxyInstanceType) {
       res["DBProxyInstanceType"] = boost::any(*DBProxyInstanceType);
     }
-    if (DBProxyPersistentConnectionSupport) {
-      res["DBProxyPersistentConnectionSupport"] = boost::any(*DBProxyPersistentConnectionSupport);
+    if (DBProxyPersistentConnectionStatus) {
+      res["DBProxyPersistentConnectionStatus"] = boost::any(*DBProxyPersistentConnectionStatus);
     }
     if (DBProxyServiceStatus) {
       res["DBProxyServiceStatus"] = boost::any(*DBProxyServiceStatus);
@@ -32533,8 +32533,8 @@ public:
     if (m.find("DBProxyInstanceType") != m.end() && !m["DBProxyInstanceType"].empty()) {
       DBProxyInstanceType = make_shared<string>(boost::any_cast<string>(m["DBProxyInstanceType"]));
     }
-    if (m.find("DBProxyPersistentConnectionSupport") != m.end() && !m["DBProxyPersistentConnectionSupport"].empty()) {
-      DBProxyPersistentConnectionSupport = make_shared<string>(boost::any_cast<string>(m["DBProxyPersistentConnectionSupport"]));
+    if (m.find("DBProxyPersistentConnectionStatus") != m.end() && !m["DBProxyPersistentConnectionStatus"].empty()) {
+      DBProxyPersistentConnectionStatus = make_shared<string>(boost::any_cast<string>(m["DBProxyPersistentConnectionStatus"]));
     }
     if (m.find("DBProxyServiceStatus") != m.end() && !m["DBProxyServiceStatus"].empty()) {
       DBProxyServiceStatus = make_shared<string>(boost::any_cast<string>(m["DBProxyServiceStatus"]));
@@ -64225,6 +64225,7 @@ public:
   shared_ptr<string> DBProxyInstanceType{};
   shared_ptr<string> instanceNetworkType{};
   shared_ptr<long> ownerId{};
+  shared_ptr<string> persistentConnectionStatus{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
@@ -64262,6 +64263,9 @@ public:
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (persistentConnectionStatus) {
+      res["PersistentConnectionStatus"] = boost::any(*persistentConnectionStatus);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -64305,6 +64309,9 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PersistentConnectionStatus") != m.end() && !m["PersistentConnectionStatus"].empty()) {
+      persistentConnectionStatus = make_shared<string>(boost::any_cast<string>(m["PersistentConnectionStatus"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
