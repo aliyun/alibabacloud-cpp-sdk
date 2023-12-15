@@ -2517,6 +2517,7 @@ class CreateBackendRequest : public Darabonba::Model {
 public:
   shared_ptr<string> backendName{};
   shared_ptr<string> backendType{};
+  shared_ptr<bool> createEventBridgeServiceLinkedRole{};
   shared_ptr<bool> createSlr{};
   shared_ptr<string> description{};
   shared_ptr<string> securityToken{};
@@ -2537,6 +2538,9 @@ public:
     }
     if (backendType) {
       res["BackendType"] = boost::any(*backendType);
+    }
+    if (createEventBridgeServiceLinkedRole) {
+      res["CreateEventBridgeServiceLinkedRole"] = boost::any(*createEventBridgeServiceLinkedRole);
     }
     if (createSlr) {
       res["CreateSlr"] = boost::any(*createSlr);
@@ -2563,6 +2567,9 @@ public:
     }
     if (m.find("BackendType") != m.end() && !m["BackendType"].empty()) {
       backendType = make_shared<string>(boost::any_cast<string>(m["BackendType"]));
+    }
+    if (m.find("CreateEventBridgeServiceLinkedRole") != m.end() && !m["CreateEventBridgeServiceLinkedRole"].empty()) {
+      createEventBridgeServiceLinkedRole = make_shared<bool>(boost::any_cast<bool>(m["CreateEventBridgeServiceLinkedRole"]));
     }
     if (m.find("CreateSlr") != m.end() && !m["CreateSlr"].empty()) {
       createSlr = make_shared<bool>(boost::any_cast<bool>(m["CreateSlr"]));
