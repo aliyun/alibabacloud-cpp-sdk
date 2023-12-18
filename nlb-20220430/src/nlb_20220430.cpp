@@ -200,8 +200,13 @@ CancelShiftLoadBalancerZonesResponse Alibabacloud_Nlb20220430::Client::cancelShi
   return cancelShiftLoadBalancerZonesWithOptions(request, runtime);
 }
 
-CreateListenerResponse Alibabacloud_Nlb20220430::Client::createListenerWithOptions(shared_ptr<CreateListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+CreateListenerResponse Alibabacloud_Nlb20220430::Client::createListenerWithOptions(shared_ptr<CreateListenerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<CreateListenerShrinkRequest> request = make_shared<CreateListenerShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<CreateListenerRequestProxyProtocolV2Config>(tmpReq->proxyProtocolV2Config)) {
+    request->proxyProtocolV2ConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->proxyProtocolV2Config, make_shared<string>("ProxyProtocolV2Config"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->alpnEnabled)) {
     body->insert(pair<string, bool>("AlpnEnabled", *request->alpnEnabled));
@@ -251,6 +256,9 @@ CreateListenerResponse Alibabacloud_Nlb20220430::Client::createListenerWithOptio
   if (!Darabonba_Util::Client::isUnset<bool>(request->proxyProtocolEnabled)) {
     body->insert(pair<string, bool>("ProxyProtocolEnabled", *request->proxyProtocolEnabled));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyProtocolV2ConfigShrink)) {
+    body->insert(pair<string, string>("ProxyProtocolV2Config", *request->proxyProtocolV2ConfigShrink));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));
   }
@@ -266,8 +274,8 @@ CreateListenerResponse Alibabacloud_Nlb20220430::Client::createListenerWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->startPort)) {
     body->insert(pair<string, long>("StartPort", *request->startPort));
   }
-  if (!Darabonba_Util::Client::isUnset<vector<CreateListenerRequestTag>>(request->tag)) {
-    body->insert(pair<string, vector<CreateListenerRequestTag>>("Tag", *request->tag));
+  if (!Darabonba_Util::Client::isUnset<vector<CreateListenerShrinkRequestTag>>(request->tag)) {
+    body->insert(pair<string, vector<CreateListenerShrinkRequestTag>>("Tag", *request->tag));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
@@ -1745,8 +1753,13 @@ UntagResourcesResponse Alibabacloud_Nlb20220430::Client::untagResources(shared_p
   return untagResourcesWithOptions(request, runtime);
 }
 
-UpdateListenerAttributeResponse Alibabacloud_Nlb20220430::Client::updateListenerAttributeWithOptions(shared_ptr<UpdateListenerAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+UpdateListenerAttributeResponse Alibabacloud_Nlb20220430::Client::updateListenerAttributeWithOptions(shared_ptr<UpdateListenerAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<UpdateListenerAttributeShrinkRequest> request = make_shared<UpdateListenerAttributeShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<UpdateListenerAttributeRequestProxyProtocolV2Config>(tmpReq->proxyProtocolV2Config)) {
+    request->proxyProtocolV2ConfigShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->proxyProtocolV2Config, make_shared<string>("ProxyProtocolV2Config"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<bool>(request->alpnEnabled)) {
     body->insert(pair<string, bool>("AlpnEnabled", *request->alpnEnabled));
@@ -1786,6 +1799,9 @@ UpdateListenerAttributeResponse Alibabacloud_Nlb20220430::Client::updateListener
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->proxyProtocolEnabled)) {
     body->insert(pair<string, bool>("ProxyProtocolEnabled", *request->proxyProtocolEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->proxyProtocolV2ConfigShrink)) {
+    body->insert(pair<string, string>("ProxyProtocolV2Config", *request->proxyProtocolV2ConfigShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     body->insert(pair<string, string>("RegionId", *request->regionId));

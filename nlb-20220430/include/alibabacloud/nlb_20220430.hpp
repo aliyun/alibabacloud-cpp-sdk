@@ -769,6 +769,49 @@ public:
 
   virtual ~CancelShiftLoadBalancerZonesResponse() = default;
 };
+class CreateListenerRequestProxyProtocolV2Config : public Darabonba::Model {
+public:
+  shared_ptr<bool> ppv2PrivateLinkEpIdEnabled{};
+  shared_ptr<bool> ppv2PrivateLinkEpsIdEnabled{};
+  shared_ptr<bool> ppv2VpcIdEnabled{};
+
+  CreateListenerRequestProxyProtocolV2Config() {}
+
+  explicit CreateListenerRequestProxyProtocolV2Config(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ppv2PrivateLinkEpIdEnabled) {
+      res["Ppv2PrivateLinkEpIdEnabled"] = boost::any(*ppv2PrivateLinkEpIdEnabled);
+    }
+    if (ppv2PrivateLinkEpsIdEnabled) {
+      res["Ppv2PrivateLinkEpsIdEnabled"] = boost::any(*ppv2PrivateLinkEpsIdEnabled);
+    }
+    if (ppv2VpcIdEnabled) {
+      res["Ppv2VpcIdEnabled"] = boost::any(*ppv2VpcIdEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ppv2PrivateLinkEpIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpIdEnabled"].empty()) {
+      ppv2PrivateLinkEpIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpIdEnabled"]));
+    }
+    if (m.find("Ppv2PrivateLinkEpsIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpsIdEnabled"].empty()) {
+      ppv2PrivateLinkEpsIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpsIdEnabled"]));
+    }
+    if (m.find("Ppv2VpcIdEnabled") != m.end() && !m["Ppv2VpcIdEnabled"].empty()) {
+      ppv2VpcIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2VpcIdEnabled"]));
+    }
+  }
+
+
+  virtual ~CreateListenerRequestProxyProtocolV2Config() = default;
+};
 class CreateListenerRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -823,6 +866,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<long> mss{};
   shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<CreateListenerRequestProxyProtocolV2Config> proxyProtocolV2Config{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> secSensorEnabled{};
   shared_ptr<string> securityPolicyId{};
@@ -887,6 +931,9 @@ public:
     }
     if (proxyProtocolEnabled) {
       res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2Config) {
+      res["ProxyProtocolV2Config"] = proxyProtocolV2Config ? boost::any(proxyProtocolV2Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -976,6 +1023,13 @@ public:
     if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
       proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
     }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyProtocolV2Config"].type()) {
+        CreateListenerRequestProxyProtocolV2Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyProtocolV2Config"]));
+        proxyProtocolV2Config = make_shared<CreateListenerRequestProxyProtocolV2Config>(model1);
+      }
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -1008,6 +1062,253 @@ public:
 
 
   virtual ~CreateListenerRequest() = default;
+};
+class CreateListenerShrinkRequestTag : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  CreateListenerShrinkRequestTag() {}
+
+  explicit CreateListenerShrinkRequestTag(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~CreateListenerShrinkRequestTag() = default;
+};
+class CreateListenerShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> alpnEnabled{};
+  shared_ptr<string> alpnPolicy{};
+  shared_ptr<vector<string>> caCertificateIds{};
+  shared_ptr<bool> caEnabled{};
+  shared_ptr<vector<string>> certificateIds{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> cps{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<long> endPort{};
+  shared_ptr<long> idleTimeout{};
+  shared_ptr<string> listenerDescription{};
+  shared_ptr<long> listenerPort{};
+  shared_ptr<string> listenerProtocol{};
+  shared_ptr<string> loadBalancerId{};
+  shared_ptr<long> mss{};
+  shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<string> proxyProtocolV2ConfigShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<bool> secSensorEnabled{};
+  shared_ptr<string> securityPolicyId{};
+  shared_ptr<string> serverGroupId{};
+  shared_ptr<long> startPort{};
+  shared_ptr<vector<CreateListenerShrinkRequestTag>> tag{};
+
+  CreateListenerShrinkRequest() {}
+
+  explicit CreateListenerShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpnEnabled) {
+      res["AlpnEnabled"] = boost::any(*alpnEnabled);
+    }
+    if (alpnPolicy) {
+      res["AlpnPolicy"] = boost::any(*alpnPolicy);
+    }
+    if (caCertificateIds) {
+      res["CaCertificateIds"] = boost::any(*caCertificateIds);
+    }
+    if (caEnabled) {
+      res["CaEnabled"] = boost::any(*caEnabled);
+    }
+    if (certificateIds) {
+      res["CertificateIds"] = boost::any(*certificateIds);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (cps) {
+      res["Cps"] = boost::any(*cps);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (endPort) {
+      res["EndPort"] = boost::any(*endPort);
+    }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
+    if (listenerDescription) {
+      res["ListenerDescription"] = boost::any(*listenerDescription);
+    }
+    if (listenerPort) {
+      res["ListenerPort"] = boost::any(*listenerPort);
+    }
+    if (listenerProtocol) {
+      res["ListenerProtocol"] = boost::any(*listenerProtocol);
+    }
+    if (loadBalancerId) {
+      res["LoadBalancerId"] = boost::any(*loadBalancerId);
+    }
+    if (mss) {
+      res["Mss"] = boost::any(*mss);
+    }
+    if (proxyProtocolEnabled) {
+      res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2ConfigShrink) {
+      res["ProxyProtocolV2Config"] = boost::any(*proxyProtocolV2ConfigShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secSensorEnabled) {
+      res["SecSensorEnabled"] = boost::any(*secSensorEnabled);
+    }
+    if (securityPolicyId) {
+      res["SecurityPolicyId"] = boost::any(*securityPolicyId);
+    }
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    if (startPort) {
+      res["StartPort"] = boost::any(*startPort);
+    }
+    if (tag) {
+      vector<boost::any> temp1;
+      for(auto item1:*tag){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tag"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlpnEnabled") != m.end() && !m["AlpnEnabled"].empty()) {
+      alpnEnabled = make_shared<bool>(boost::any_cast<bool>(m["AlpnEnabled"]));
+    }
+    if (m.find("AlpnPolicy") != m.end() && !m["AlpnPolicy"].empty()) {
+      alpnPolicy = make_shared<string>(boost::any_cast<string>(m["AlpnPolicy"]));
+    }
+    if (m.find("CaCertificateIds") != m.end() && !m["CaCertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CaCertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CaCertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      caCertificateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CaEnabled") != m.end() && !m["CaEnabled"].empty()) {
+      caEnabled = make_shared<bool>(boost::any_cast<bool>(m["CaEnabled"]));
+    }
+    if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Cps") != m.end() && !m["Cps"].empty()) {
+      cps = make_shared<long>(boost::any_cast<long>(m["Cps"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("EndPort") != m.end() && !m["EndPort"].empty()) {
+      endPort = make_shared<long>(boost::any_cast<long>(m["EndPort"]));
+    }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
+    if (m.find("ListenerDescription") != m.end() && !m["ListenerDescription"].empty()) {
+      listenerDescription = make_shared<string>(boost::any_cast<string>(m["ListenerDescription"]));
+    }
+    if (m.find("ListenerPort") != m.end() && !m["ListenerPort"].empty()) {
+      listenerPort = make_shared<long>(boost::any_cast<long>(m["ListenerPort"]));
+    }
+    if (m.find("ListenerProtocol") != m.end() && !m["ListenerProtocol"].empty()) {
+      listenerProtocol = make_shared<string>(boost::any_cast<string>(m["ListenerProtocol"]));
+    }
+    if (m.find("LoadBalancerId") != m.end() && !m["LoadBalancerId"].empty()) {
+      loadBalancerId = make_shared<string>(boost::any_cast<string>(m["LoadBalancerId"]));
+    }
+    if (m.find("Mss") != m.end() && !m["Mss"].empty()) {
+      mss = make_shared<long>(boost::any_cast<long>(m["Mss"]));
+    }
+    if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
+      proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
+    }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      proxyProtocolV2ConfigShrink = make_shared<string>(boost::any_cast<string>(m["ProxyProtocolV2Config"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecSensorEnabled") != m.end() && !m["SecSensorEnabled"].empty()) {
+      secSensorEnabled = make_shared<bool>(boost::any_cast<bool>(m["SecSensorEnabled"]));
+    }
+    if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
+      securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
+    }
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+    if (m.find("StartPort") != m.end() && !m["StartPort"].empty()) {
+      startPort = make_shared<long>(boost::any_cast<long>(m["StartPort"]));
+    }
+    if (m.find("Tag") != m.end() && !m["Tag"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tag"].type()) {
+        vector<CreateListenerShrinkRequestTag> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tag"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateListenerShrinkRequestTag model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tag = make_shared<vector<CreateListenerShrinkRequestTag>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateListenerShrinkRequest() = default;
 };
 class CreateListenerResponseBody : public Darabonba::Model {
 public:
@@ -3983,6 +4284,49 @@ public:
 
   virtual ~GetListenerAttributeRequest() = default;
 };
+class GetListenerAttributeResponseBodyProxyProtocolV2Config : public Darabonba::Model {
+public:
+  shared_ptr<bool> ppv2PrivateLinkEpIdEnabled{};
+  shared_ptr<bool> ppv2PrivateLinkEpsIdEnabled{};
+  shared_ptr<bool> ppv2VpcIdEnabled{};
+
+  GetListenerAttributeResponseBodyProxyProtocolV2Config() {}
+
+  explicit GetListenerAttributeResponseBodyProxyProtocolV2Config(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ppv2PrivateLinkEpIdEnabled) {
+      res["Ppv2PrivateLinkEpIdEnabled"] = boost::any(*ppv2PrivateLinkEpIdEnabled);
+    }
+    if (ppv2PrivateLinkEpsIdEnabled) {
+      res["Ppv2PrivateLinkEpsIdEnabled"] = boost::any(*ppv2PrivateLinkEpsIdEnabled);
+    }
+    if (ppv2VpcIdEnabled) {
+      res["Ppv2VpcIdEnabled"] = boost::any(*ppv2VpcIdEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ppv2PrivateLinkEpIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpIdEnabled"].empty()) {
+      ppv2PrivateLinkEpIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpIdEnabled"]));
+    }
+    if (m.find("Ppv2PrivateLinkEpsIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpsIdEnabled"].empty()) {
+      ppv2PrivateLinkEpsIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpsIdEnabled"]));
+    }
+    if (m.find("Ppv2VpcIdEnabled") != m.end() && !m["Ppv2VpcIdEnabled"].empty()) {
+      ppv2VpcIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2VpcIdEnabled"]));
+    }
+  }
+
+
+  virtual ~GetListenerAttributeResponseBodyProxyProtocolV2Config() = default;
+};
 class GetListenerAttributeResponseBodyTags : public Darabonba::Model {
 public:
   shared_ptr<string> tagKey{};
@@ -4037,6 +4381,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<long> mss{};
   shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<GetListenerAttributeResponseBodyProxyProtocolV2Config> proxyProtocolV2Config{};
   shared_ptr<string> regionId{};
   shared_ptr<string> requestId{};
   shared_ptr<bool> secSensorEnabled{};
@@ -4102,6 +4447,9 @@ public:
     }
     if (proxyProtocolEnabled) {
       res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2Config) {
+      res["ProxyProtocolV2Config"] = proxyProtocolV2Config ? boost::any(proxyProtocolV2Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -4193,6 +4541,13 @@ public:
     }
     if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
       proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
+    }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyProtocolV2Config"].type()) {
+        GetListenerAttributeResponseBodyProxyProtocolV2Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyProtocolV2Config"]));
+        proxyProtocolV2Config = make_shared<GetListenerAttributeResponseBodyProxyProtocolV2Config>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -5760,6 +6115,49 @@ public:
 
   virtual ~ListListenersRequest() = default;
 };
+class ListListenersResponseBodyListenersProxyProtocolV2Config : public Darabonba::Model {
+public:
+  shared_ptr<bool> ppv2PrivateLinkEpIdEnabled{};
+  shared_ptr<bool> ppv2PrivateLinkEpsIdEnabled{};
+  shared_ptr<bool> ppv2VpcIdEnabled{};
+
+  ListListenersResponseBodyListenersProxyProtocolV2Config() {}
+
+  explicit ListListenersResponseBodyListenersProxyProtocolV2Config(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ppv2PrivateLinkEpIdEnabled) {
+      res["Ppv2PrivateLinkEpIdEnabled"] = boost::any(*ppv2PrivateLinkEpIdEnabled);
+    }
+    if (ppv2PrivateLinkEpsIdEnabled) {
+      res["Ppv2PrivateLinkEpsIdEnabled"] = boost::any(*ppv2PrivateLinkEpsIdEnabled);
+    }
+    if (ppv2VpcIdEnabled) {
+      res["Ppv2VpcIdEnabled"] = boost::any(*ppv2VpcIdEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ppv2PrivateLinkEpIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpIdEnabled"].empty()) {
+      ppv2PrivateLinkEpIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpIdEnabled"]));
+    }
+    if (m.find("Ppv2PrivateLinkEpsIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpsIdEnabled"].empty()) {
+      ppv2PrivateLinkEpsIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpsIdEnabled"]));
+    }
+    if (m.find("Ppv2VpcIdEnabled") != m.end() && !m["Ppv2VpcIdEnabled"].empty()) {
+      ppv2VpcIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2VpcIdEnabled"]));
+    }
+  }
+
+
+  virtual ~ListListenersResponseBodyListenersProxyProtocolV2Config() = default;
+};
 class ListListenersResponseBodyListenersTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -5814,6 +6212,7 @@ public:
   shared_ptr<string> loadBalancerId{};
   shared_ptr<long> mss{};
   shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<ListListenersResponseBodyListenersProxyProtocolV2Config> proxyProtocolV2Config{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> secSensorEnabled{};
   shared_ptr<string> securityPolicyId{};
@@ -5878,6 +6277,9 @@ public:
     }
     if (proxyProtocolEnabled) {
       res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2Config) {
+      res["ProxyProtocolV2Config"] = proxyProtocolV2Config ? boost::any(proxyProtocolV2Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -5966,6 +6368,13 @@ public:
     }
     if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
       proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
+    }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyProtocolV2Config"].type()) {
+        ListListenersResponseBodyListenersProxyProtocolV2Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyProtocolV2Config"]));
+        proxyProtocolV2Config = make_shared<ListListenersResponseBodyListenersProxyProtocolV2Config>(model1);
+      }
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -10561,6 +10970,49 @@ public:
 
   virtual ~UntagResourcesResponse() = default;
 };
+class UpdateListenerAttributeRequestProxyProtocolV2Config : public Darabonba::Model {
+public:
+  shared_ptr<bool> ppv2PrivateLinkEpIdEnabled{};
+  shared_ptr<bool> ppv2PrivateLinkEpsIdEnabled{};
+  shared_ptr<bool> ppv2VpcIdEnabled{};
+
+  UpdateListenerAttributeRequestProxyProtocolV2Config() {}
+
+  explicit UpdateListenerAttributeRequestProxyProtocolV2Config(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (ppv2PrivateLinkEpIdEnabled) {
+      res["Ppv2PrivateLinkEpIdEnabled"] = boost::any(*ppv2PrivateLinkEpIdEnabled);
+    }
+    if (ppv2PrivateLinkEpsIdEnabled) {
+      res["Ppv2PrivateLinkEpsIdEnabled"] = boost::any(*ppv2PrivateLinkEpsIdEnabled);
+    }
+    if (ppv2VpcIdEnabled) {
+      res["Ppv2VpcIdEnabled"] = boost::any(*ppv2VpcIdEnabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Ppv2PrivateLinkEpIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpIdEnabled"].empty()) {
+      ppv2PrivateLinkEpIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpIdEnabled"]));
+    }
+    if (m.find("Ppv2PrivateLinkEpsIdEnabled") != m.end() && !m["Ppv2PrivateLinkEpsIdEnabled"].empty()) {
+      ppv2PrivateLinkEpsIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2PrivateLinkEpsIdEnabled"]));
+    }
+    if (m.find("Ppv2VpcIdEnabled") != m.end() && !m["Ppv2VpcIdEnabled"].empty()) {
+      ppv2VpcIdEnabled = make_shared<bool>(boost::any_cast<bool>(m["Ppv2VpcIdEnabled"]));
+    }
+  }
+
+
+  virtual ~UpdateListenerAttributeRequestProxyProtocolV2Config() = default;
+};
 class UpdateListenerAttributeRequest : public Darabonba::Model {
 public:
   shared_ptr<bool> alpnEnabled{};
@@ -10576,6 +11028,7 @@ public:
   shared_ptr<string> listenerId{};
   shared_ptr<long> mss{};
   shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<UpdateListenerAttributeRequestProxyProtocolV2Config> proxyProtocolV2Config{};
   shared_ptr<string> regionId{};
   shared_ptr<bool> secSensorEnabled{};
   shared_ptr<string> securityPolicyId{};
@@ -10629,6 +11082,9 @@ public:
     }
     if (proxyProtocolEnabled) {
       res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2Config) {
+      res["ProxyProtocolV2Config"] = proxyProtocolV2Config ? boost::any(proxyProtocolV2Config->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -10699,6 +11155,13 @@ public:
     if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
       proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
     }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ProxyProtocolV2Config"].type()) {
+        UpdateListenerAttributeRequestProxyProtocolV2Config model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ProxyProtocolV2Config"]));
+        proxyProtocolV2Config = make_shared<UpdateListenerAttributeRequestProxyProtocolV2Config>(model1);
+      }
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
@@ -10715,6 +11178,168 @@ public:
 
 
   virtual ~UpdateListenerAttributeRequest() = default;
+};
+class UpdateListenerAttributeShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> alpnEnabled{};
+  shared_ptr<string> alpnPolicy{};
+  shared_ptr<vector<string>> caCertificateIds{};
+  shared_ptr<bool> caEnabled{};
+  shared_ptr<vector<string>> certificateIds{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> cps{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<long> idleTimeout{};
+  shared_ptr<string> listenerDescription{};
+  shared_ptr<string> listenerId{};
+  shared_ptr<long> mss{};
+  shared_ptr<bool> proxyProtocolEnabled{};
+  shared_ptr<string> proxyProtocolV2ConfigShrink{};
+  shared_ptr<string> regionId{};
+  shared_ptr<bool> secSensorEnabled{};
+  shared_ptr<string> securityPolicyId{};
+  shared_ptr<string> serverGroupId{};
+
+  UpdateListenerAttributeShrinkRequest() {}
+
+  explicit UpdateListenerAttributeShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (alpnEnabled) {
+      res["AlpnEnabled"] = boost::any(*alpnEnabled);
+    }
+    if (alpnPolicy) {
+      res["AlpnPolicy"] = boost::any(*alpnPolicy);
+    }
+    if (caCertificateIds) {
+      res["CaCertificateIds"] = boost::any(*caCertificateIds);
+    }
+    if (caEnabled) {
+      res["CaEnabled"] = boost::any(*caEnabled);
+    }
+    if (certificateIds) {
+      res["CertificateIds"] = boost::any(*certificateIds);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (cps) {
+      res["Cps"] = boost::any(*cps);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (idleTimeout) {
+      res["IdleTimeout"] = boost::any(*idleTimeout);
+    }
+    if (listenerDescription) {
+      res["ListenerDescription"] = boost::any(*listenerDescription);
+    }
+    if (listenerId) {
+      res["ListenerId"] = boost::any(*listenerId);
+    }
+    if (mss) {
+      res["Mss"] = boost::any(*mss);
+    }
+    if (proxyProtocolEnabled) {
+      res["ProxyProtocolEnabled"] = boost::any(*proxyProtocolEnabled);
+    }
+    if (proxyProtocolV2ConfigShrink) {
+      res["ProxyProtocolV2Config"] = boost::any(*proxyProtocolV2ConfigShrink);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (secSensorEnabled) {
+      res["SecSensorEnabled"] = boost::any(*secSensorEnabled);
+    }
+    if (securityPolicyId) {
+      res["SecurityPolicyId"] = boost::any(*securityPolicyId);
+    }
+    if (serverGroupId) {
+      res["ServerGroupId"] = boost::any(*serverGroupId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AlpnEnabled") != m.end() && !m["AlpnEnabled"].empty()) {
+      alpnEnabled = make_shared<bool>(boost::any_cast<bool>(m["AlpnEnabled"]));
+    }
+    if (m.find("AlpnPolicy") != m.end() && !m["AlpnPolicy"].empty()) {
+      alpnPolicy = make_shared<string>(boost::any_cast<string>(m["AlpnPolicy"]));
+    }
+    if (m.find("CaCertificateIds") != m.end() && !m["CaCertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CaCertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CaCertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      caCertificateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("CaEnabled") != m.end() && !m["CaEnabled"].empty()) {
+      caEnabled = make_shared<bool>(boost::any_cast<bool>(m["CaEnabled"]));
+    }
+    if (m.find("CertificateIds") != m.end() && !m["CertificateIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["CertificateIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["CertificateIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      certificateIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("Cps") != m.end() && !m["Cps"].empty()) {
+      cps = make_shared<long>(boost::any_cast<long>(m["Cps"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("IdleTimeout") != m.end() && !m["IdleTimeout"].empty()) {
+      idleTimeout = make_shared<long>(boost::any_cast<long>(m["IdleTimeout"]));
+    }
+    if (m.find("ListenerDescription") != m.end() && !m["ListenerDescription"].empty()) {
+      listenerDescription = make_shared<string>(boost::any_cast<string>(m["ListenerDescription"]));
+    }
+    if (m.find("ListenerId") != m.end() && !m["ListenerId"].empty()) {
+      listenerId = make_shared<string>(boost::any_cast<string>(m["ListenerId"]));
+    }
+    if (m.find("Mss") != m.end() && !m["Mss"].empty()) {
+      mss = make_shared<long>(boost::any_cast<long>(m["Mss"]));
+    }
+    if (m.find("ProxyProtocolEnabled") != m.end() && !m["ProxyProtocolEnabled"].empty()) {
+      proxyProtocolEnabled = make_shared<bool>(boost::any_cast<bool>(m["ProxyProtocolEnabled"]));
+    }
+    if (m.find("ProxyProtocolV2Config") != m.end() && !m["ProxyProtocolV2Config"].empty()) {
+      proxyProtocolV2ConfigShrink = make_shared<string>(boost::any_cast<string>(m["ProxyProtocolV2Config"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SecSensorEnabled") != m.end() && !m["SecSensorEnabled"].empty()) {
+      secSensorEnabled = make_shared<bool>(boost::any_cast<bool>(m["SecSensorEnabled"]));
+    }
+    if (m.find("SecurityPolicyId") != m.end() && !m["SecurityPolicyId"].empty()) {
+      securityPolicyId = make_shared<string>(boost::any_cast<string>(m["SecurityPolicyId"]));
+    }
+    if (m.find("ServerGroupId") != m.end() && !m["ServerGroupId"].empty()) {
+      serverGroupId = make_shared<string>(boost::any_cast<string>(m["ServerGroupId"]));
+    }
+  }
+
+
+  virtual ~UpdateListenerAttributeShrinkRequest() = default;
 };
 class UpdateListenerAttributeResponseBody : public Darabonba::Model {
 public:
@@ -12359,7 +12984,7 @@ public:
   AttachCommonBandwidthPackageToLoadBalancerResponse attachCommonBandwidthPackageToLoadBalancer(shared_ptr<AttachCommonBandwidthPackageToLoadBalancerRequest> request);
   CancelShiftLoadBalancerZonesResponse cancelShiftLoadBalancerZonesWithOptions(shared_ptr<CancelShiftLoadBalancerZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CancelShiftLoadBalancerZonesResponse cancelShiftLoadBalancerZones(shared_ptr<CancelShiftLoadBalancerZonesRequest> request);
-  CreateListenerResponse createListenerWithOptions(shared_ptr<CreateListenerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateListenerResponse createListenerWithOptions(shared_ptr<CreateListenerRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateListenerResponse createListener(shared_ptr<CreateListenerRequest> request);
   CreateLoadBalancerResponse createLoadBalancerWithOptions(shared_ptr<CreateLoadBalancerRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateLoadBalancerResponse createLoadBalancer(shared_ptr<CreateLoadBalancerRequest> request);
@@ -12429,7 +13054,7 @@ public:
   TagResourcesResponse tagResources(shared_ptr<TagResourcesRequest> request);
   UntagResourcesResponse untagResourcesWithOptions(shared_ptr<UntagResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UntagResourcesResponse untagResources(shared_ptr<UntagResourcesRequest> request);
-  UpdateListenerAttributeResponse updateListenerAttributeWithOptions(shared_ptr<UpdateListenerAttributeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateListenerAttributeResponse updateListenerAttributeWithOptions(shared_ptr<UpdateListenerAttributeRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateListenerAttributeResponse updateListenerAttribute(shared_ptr<UpdateListenerAttributeRequest> request);
   UpdateLoadBalancerAddressTypeConfigResponse updateLoadBalancerAddressTypeConfigWithOptions(shared_ptr<UpdateLoadBalancerAddressTypeConfigRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateLoadBalancerAddressTypeConfigResponse updateLoadBalancerAddressTypeConfig(shared_ptr<UpdateLoadBalancerAddressTypeConfigRequest> request);
