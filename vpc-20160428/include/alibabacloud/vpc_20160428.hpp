@@ -35243,9 +35243,11 @@ public:
   shared_ptr<string> instanceType{};
   shared_ptr<string> internetChargeType{};
   shared_ptr<string> ipAddress{};
+  shared_ptr<string> mode{};
   shared_ptr<string> name{};
   shared_ptr<string> netmode{};
   shared_ptr<DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocks> operationLocks{};
+  shared_ptr<string> privateIpAddress{};
   shared_ptr<string> publicIpAddressPoolId{};
   shared_ptr<string> regionId{};
   shared_ptr<string> reservationActiveTime{};
@@ -35335,6 +35337,9 @@ public:
     if (ipAddress) {
       res["IpAddress"] = boost::any(*ipAddress);
     }
+    if (mode) {
+      res["Mode"] = boost::any(*mode);
+    }
     if (name) {
       res["Name"] = boost::any(*name);
     }
@@ -35343,6 +35348,9 @@ public:
     }
     if (operationLocks) {
       res["OperationLocks"] = operationLocks ? boost::any(operationLocks->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
     }
     if (publicIpAddressPoolId) {
       res["PublicIpAddressPoolId"] = boost::any(*publicIpAddressPoolId);
@@ -35456,6 +35464,9 @@ public:
     if (m.find("IpAddress") != m.end() && !m["IpAddress"].empty()) {
       ipAddress = make_shared<string>(boost::any_cast<string>(m["IpAddress"]));
     }
+    if (m.find("Mode") != m.end() && !m["Mode"].empty()) {
+      mode = make_shared<string>(boost::any_cast<string>(m["Mode"]));
+    }
     if (m.find("Name") != m.end() && !m["Name"].empty()) {
       name = make_shared<string>(boost::any_cast<string>(m["Name"]));
     }
@@ -35468,6 +35479,9 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["OperationLocks"]));
         operationLocks = make_shared<DescribeEipAddressesResponseBodyEipAddressesEipAddressOperationLocks>(model1);
       }
+    }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
     }
     if (m.find("PublicIpAddressPoolId") != m.end() && !m["PublicIpAddressPoolId"].empty()) {
       publicIpAddressPoolId = make_shared<string>(boost::any_cast<string>(m["PublicIpAddressPoolId"]));
@@ -74334,6 +74348,7 @@ public:
   shared_ptr<string> prefixListId{};
   shared_ptr<string> prefixListName{};
   shared_ptr<string> prefixListStatus{};
+  shared_ptr<string> prefixListType{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> shareType{};
@@ -74376,6 +74391,9 @@ public:
     }
     if (prefixListStatus) {
       res["PrefixListStatus"] = boost::any(*prefixListStatus);
+    }
+    if (prefixListType) {
+      res["PrefixListType"] = boost::any(*prefixListType);
     }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
@@ -74433,6 +74451,9 @@ public:
     }
     if (m.find("PrefixListStatus") != m.end() && !m["PrefixListStatus"].empty()) {
       prefixListStatus = make_shared<string>(boost::any_cast<string>(m["PrefixListStatus"]));
+    }
+    if (m.find("PrefixListType") != m.end() && !m["PrefixListType"].empty()) {
+      prefixListType = make_shared<string>(boost::any_cast<string>(m["PrefixListType"]));
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
@@ -76474,6 +76495,7 @@ public:
 };
 class ListTrafficMirrorFiltersResponseBodyTrafficMirrorFilters : public Darabonba::Model {
 public:
+  shared_ptr<string> creationTime{};
   shared_ptr<vector<ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules>> egressRules{};
   shared_ptr<vector<ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersIngressRules>> ingressRules{};
   shared_ptr<string> resourceGroupId{};
@@ -76493,6 +76515,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
     if (egressRules) {
       vector<boost::any> temp1;
       for(auto item1:*egressRules){
@@ -76533,6 +76558,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
     if (m.find("EgressRules") != m.end() && !m["EgressRules"].empty()) {
       if (typeid(vector<boost::any>) == m["EgressRules"].type()) {
         vector<ListTrafficMirrorFiltersResponseBodyTrafficMirrorFiltersEgressRules> expect1;
@@ -76968,6 +76996,7 @@ public:
 };
 class ListTrafficMirrorSessionsResponseBodyTrafficMirrorSessions : public Darabonba::Model {
 public:
+  shared_ptr<string> creationTime{};
   shared_ptr<bool> enabled{};
   shared_ptr<long> packetLength{};
   shared_ptr<long> priority{};
@@ -76994,6 +77023,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (creationTime) {
+      res["CreationTime"] = boost::any(*creationTime);
+    }
     if (enabled) {
       res["Enabled"] = boost::any(*enabled);
     }
@@ -77047,6 +77079,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
+      creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
+    }
     if (m.find("Enabled") != m.end() && !m["Enabled"].empty()) {
       enabled = make_shared<bool>(boost::any_cast<bool>(m["Enabled"]));
     }
