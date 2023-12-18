@@ -744,6 +744,7 @@ public:
   shared_ptr<string> DBInstanceDescription{};
   shared_ptr<string> DBInstanceGroupCount{};
   shared_ptr<string> DBInstanceMode{};
+  shared_ptr<bool> enableSSL{};
   shared_ptr<string> encryptionKey{};
   shared_ptr<string> encryptionType{};
   shared_ptr<string> engine{};
@@ -808,6 +809,9 @@ public:
     }
     if (DBInstanceMode) {
       res["DBInstanceMode"] = boost::any(*DBInstanceMode);
+    }
+    if (enableSSL) {
+      res["EnableSSL"] = boost::any(*enableSSL);
     }
     if (encryptionKey) {
       res["EncryptionKey"] = boost::any(*encryptionKey);
@@ -930,6 +934,9 @@ public:
     }
     if (m.find("DBInstanceMode") != m.end() && !m["DBInstanceMode"].empty()) {
       DBInstanceMode = make_shared<string>(boost::any_cast<string>(m["DBInstanceMode"]));
+    }
+    if (m.find("EnableSSL") != m.end() && !m["EnableSSL"].empty()) {
+      enableSSL = make_shared<bool>(boost::any_cast<bool>(m["EnableSSL"]));
     }
     if (m.find("EncryptionKey") != m.end() && !m["EncryptionKey"].empty()) {
       encryptionKey = make_shared<string>(boost::any_cast<string>(m["EncryptionKey"]));
@@ -4832,6 +4839,7 @@ public:
   shared_ptr<string> key{};
   shared_ptr<string> nodeType{};
   shared_ptr<string> nodes{};
+  shared_ptr<string> resourceGroupName{};
   shared_ptr<string> startTime{};
 
   DescribeDBClusterPerformanceRequest() {}
@@ -4859,6 +4867,9 @@ public:
     if (nodes) {
       res["Nodes"] = boost::any(*nodes);
     }
+    if (resourceGroupName) {
+      res["ResourceGroupName"] = boost::any(*resourceGroupName);
+    }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
@@ -4880,6 +4891,9 @@ public:
     }
     if (m.find("Nodes") != m.end() && !m["Nodes"].empty()) {
       nodes = make_shared<string>(boost::any_cast<string>(m["Nodes"]));
+    }
+    if (m.find("ResourceGroupName") != m.end() && !m["ResourceGroupName"].empty()) {
+      resourceGroupName = make_shared<string>(boost::any_cast<string>(m["ResourceGroupName"]));
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
@@ -8884,6 +8898,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<DescribeDBInstancesRequestTag>> tag{};
+  shared_ptr<string> vpcId{};
 
   DescribeDBInstancesRequest() {}
 
@@ -8937,6 +8952,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Tag"] = boost::any(temp1);
+    }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
     }
     return res;
   }
@@ -9019,6 +9037,9 @@ public:
         tag = make_shared<vector<DescribeDBInstancesRequestTag>>(expect1);
       }
     }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
+    }
   }
 
 
@@ -9075,6 +9096,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<vector<DescribeDBInstancesShrinkRequestTag>> tag{};
+  shared_ptr<string> vpcId{};
 
   DescribeDBInstancesShrinkRequest() {}
 
@@ -9129,6 +9151,9 @@ public:
       }
       res["Tag"] = boost::any(temp1);
     }
+    if (vpcId) {
+      res["VpcId"] = boost::any(*vpcId);
+    }
     return res;
   }
 
@@ -9181,6 +9206,9 @@ public:
         }
         tag = make_shared<vector<DescribeDBInstancesShrinkRequestTag>>(expect1);
       }
+    }
+    if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
+      vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
     }
   }
 

@@ -268,6 +268,9 @@ CreateDBInstanceResponse Alibabacloud_Gpdb20160503::Client::createDBInstanceWith
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceMode)) {
     query->insert(pair<string, string>("DBInstanceMode", *request->DBInstanceMode));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableSSL)) {
+    query->insert(pair<string, bool>("EnableSSL", *request->enableSSL));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->encryptionKey)) {
     query->insert(pair<string, string>("EncryptionKey", *request->encryptionKey));
   }
@@ -1191,6 +1194,9 @@ DescribeDBClusterPerformanceResponse Alibabacloud_Gpdb20160503::Client::describe
   if (!Darabonba_Util::Client::isUnset<string>(request->nodes)) {
     query->insert(pair<string, string>("Nodes", *request->nodes));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupName)) {
+    query->insert(pair<string, string>("ResourceGroupName", *request->resourceGroupName));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->startTime)) {
     query->insert(pair<string, string>("StartTime", *request->startTime));
   }
@@ -1715,6 +1721,9 @@ DescribeDBInstancesResponse Alibabacloud_Gpdb20160503::Client::describeDBInstanc
   }
   if (!Darabonba_Util::Client::isUnset<vector<DescribeDBInstancesShrinkRequestTag>>(request->tag)) {
     query->insert(pair<string, vector<DescribeDBInstancesShrinkRequestTag>>("Tag", *request->tag));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpcId)) {
+    query->insert(pair<string, string>("VpcId", *request->vpcId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
