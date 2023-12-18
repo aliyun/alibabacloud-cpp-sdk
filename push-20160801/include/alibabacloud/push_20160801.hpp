@@ -1830,6 +1830,7 @@ public:
   shared_ptr<string> androidRenderStyle{};
   shared_ptr<long> androidTargetUserType{};
   shared_ptr<long> androidVivoPushMode{};
+  shared_ptr<string> androidVivoReceiptId{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
   shared_ptr<string> androidXiaoMiNotifyTitle{};
@@ -1972,6 +1973,9 @@ public:
     }
     if (androidVivoPushMode) {
       res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
+    }
+    if (androidVivoReceiptId) {
+      res["AndroidVivoReceiptId"] = boost::any(*androidVivoReceiptId);
     }
     if (androidXiaoMiActivity) {
       res["AndroidXiaoMiActivity"] = boost::any(*androidXiaoMiActivity);
@@ -2174,6 +2178,9 @@ public:
     }
     if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
       androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
+    }
+    if (m.find("AndroidVivoReceiptId") != m.end() && !m["AndroidVivoReceiptId"].empty()) {
+      androidVivoReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidVivoReceiptId"]));
     }
     if (m.find("AndroidXiaoMiActivity") != m.end() && !m["AndroidXiaoMiActivity"].empty()) {
       androidXiaoMiActivity = make_shared<string>(boost::any_cast<string>(m["AndroidXiaoMiActivity"]));
@@ -2502,6 +2509,7 @@ public:
   shared_ptr<long> androidRenderStyle{};
   shared_ptr<long> androidTargetUserType{};
   shared_ptr<long> androidVivoPushMode{};
+  shared_ptr<string> androidVivoReceiptId{};
   shared_ptr<string> androidXiaoMiActivity{};
   shared_ptr<string> androidXiaoMiNotifyBody{};
   shared_ptr<string> androidXiaoMiNotifyTitle{};
@@ -2650,6 +2658,9 @@ public:
     }
     if (androidVivoPushMode) {
       res["AndroidVivoPushMode"] = boost::any(*androidVivoPushMode);
+    }
+    if (androidVivoReceiptId) {
+      res["AndroidVivoReceiptId"] = boost::any(*androidVivoReceiptId);
     }
     if (androidXiaoMiActivity) {
       res["AndroidXiaoMiActivity"] = boost::any(*androidXiaoMiActivity);
@@ -2870,6 +2881,9 @@ public:
     }
     if (m.find("AndroidVivoPushMode") != m.end() && !m["AndroidVivoPushMode"].empty()) {
       androidVivoPushMode = make_shared<long>(boost::any_cast<long>(m["AndroidVivoPushMode"]));
+    }
+    if (m.find("AndroidVivoReceiptId") != m.end() && !m["AndroidVivoReceiptId"].empty()) {
+      androidVivoReceiptId = make_shared<string>(boost::any_cast<string>(m["AndroidVivoReceiptId"]));
     }
     if (m.find("AndroidXiaoMiActivity") != m.end() && !m["AndroidXiaoMiActivity"].empty()) {
       androidXiaoMiActivity = make_shared<string>(boost::any_cast<string>(m["AndroidXiaoMiActivity"]));

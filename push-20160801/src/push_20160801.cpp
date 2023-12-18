@@ -573,6 +573,9 @@ PushResponse Alibabacloud_Push20160801::Client::pushWithOptions(shared_ptr<PushR
   if (!Darabonba_Util::Client::isUnset<long>(request->androidVivoPushMode)) {
     query->insert(pair<string, long>("AndroidVivoPushMode", *request->androidVivoPushMode));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->androidVivoReceiptId)) {
+    query->insert(pair<string, string>("AndroidVivoReceiptId", *request->androidVivoReceiptId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->androidXiaoMiActivity)) {
     query->insert(pair<string, string>("AndroidXiaoMiActivity", *request->androidXiaoMiActivity));
   }
