@@ -86,6 +86,42 @@ public:
 
   virtual ~CreateTaskRequestInput() = default;
 };
+class CreateTaskRequestParametersMeetingAssistance : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> types{};
+
+  CreateTaskRequestParametersMeetingAssistance() {}
+
+  explicit CreateTaskRequestParametersMeetingAssistance(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (types) {
+      res["Types"] = boost::any(*types);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Types") != m.end() && !m["Types"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      types = make_shared<vector<string>>(toVec1);
+    }
+  }
+
+
+  virtual ~CreateTaskRequestParametersMeetingAssistance() = default;
+};
 class CreateTaskRequestParametersSummarization : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> types{};
@@ -304,6 +340,7 @@ public:
 class CreateTaskRequestParameters : public Darabonba::Model {
 public:
   shared_ptr<bool> autoChaptersEnabled{};
+  shared_ptr<CreateTaskRequestParametersMeetingAssistance> meetingAssistance{};
   shared_ptr<bool> meetingAssistanceEnabled{};
   shared_ptr<bool> pptExtractionEnabled{};
   shared_ptr<CreateTaskRequestParametersSummarization> summarization{};
@@ -325,6 +362,9 @@ public:
     map<string, boost::any> res;
     if (autoChaptersEnabled) {
       res["AutoChaptersEnabled"] = boost::any(*autoChaptersEnabled);
+    }
+    if (meetingAssistance) {
+      res["MeetingAssistance"] = meetingAssistance ? boost::any(meetingAssistance->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (meetingAssistanceEnabled) {
       res["MeetingAssistanceEnabled"] = boost::any(*meetingAssistanceEnabled);
@@ -356,6 +396,13 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AutoChaptersEnabled") != m.end() && !m["AutoChaptersEnabled"].empty()) {
       autoChaptersEnabled = make_shared<bool>(boost::any_cast<bool>(m["AutoChaptersEnabled"]));
+    }
+    if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
+      if (typeid(map<string, boost::any>) == m["MeetingAssistance"].type()) {
+        CreateTaskRequestParametersMeetingAssistance model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["MeetingAssistance"]));
+        meetingAssistance = make_shared<CreateTaskRequestParametersMeetingAssistance>(model1);
+      }
     }
     if (m.find("MeetingAssistanceEnabled") != m.end() && !m["MeetingAssistanceEnabled"].empty()) {
       meetingAssistanceEnabled = make_shared<bool>(boost::any_cast<bool>(m["MeetingAssistanceEnabled"]));
