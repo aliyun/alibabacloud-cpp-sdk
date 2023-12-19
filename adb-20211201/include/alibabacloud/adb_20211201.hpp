@@ -3570,6 +3570,7 @@ public:
   shared_ptr<string> maxComputeResource{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<string> regionId{};
 
   CreateDBResourceGroupRequest() {}
 
@@ -3608,6 +3609,9 @@ public:
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -3638,6 +3642,9 @@ public:
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 
@@ -25771,6 +25778,7 @@ public:
   shared_ptr<string> maxComputeResource{};
   shared_ptr<long> minClusterCount{};
   shared_ptr<string> minComputeResource{};
+  shared_ptr<string> regionId{};
 
   ModifyDBResourceGroupRequest() {}
 
@@ -25809,6 +25817,9 @@ public:
     if (minComputeResource) {
       res["MinComputeResource"] = boost::any(*minComputeResource);
     }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
     return res;
   }
 
@@ -25839,6 +25850,9 @@ public:
     }
     if (m.find("MinComputeResource") != m.end() && !m["MinComputeResource"].empty()) {
       minComputeResource = make_shared<string>(boost::any_cast<string>(m["MinComputeResource"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
     }
   }
 

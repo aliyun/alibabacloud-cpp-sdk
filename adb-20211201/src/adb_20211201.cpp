@@ -423,6 +423,9 @@ CreateDBResourceGroupResponse Alibabacloud_Adb20211201::Client::createDBResource
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -4184,6 +4187,9 @@ ModifyDBResourceGroupResponse Alibabacloud_Adb20211201::Client::modifyDBResource
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->minComputeResource)) {
     query->insert(pair<string, string>("MinComputeResource", *request->minComputeResource));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
