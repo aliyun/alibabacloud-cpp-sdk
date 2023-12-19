@@ -2136,6 +2136,7 @@ public:
 };
 class GetUserCertificateDetailRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> certFilter{};
   shared_ptr<long> certId{};
 
   GetUserCertificateDetailRequest() {}
@@ -2148,6 +2149,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certFilter) {
+      res["CertFilter"] = boost::any(*certFilter);
+    }
     if (certId) {
       res["CertId"] = boost::any(*certId);
     }
@@ -2155,6 +2159,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertFilter") != m.end() && !m["CertFilter"].empty()) {
+      certFilter = make_shared<bool>(boost::any_cast<bool>(m["CertFilter"]));
+    }
     if (m.find("CertId") != m.end() && !m["CertId"].empty()) {
       certId = make_shared<long>(boost::any_cast<long>(m["CertId"]));
     }
@@ -2165,6 +2172,7 @@ public:
 };
 class GetUserCertificateDetailResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<string> algorithm{};
   shared_ptr<bool> buyInAliyun{};
   shared_ptr<string> cert{};
   shared_ptr<string> city{};
@@ -2199,6 +2207,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (algorithm) {
+      res["Algorithm"] = boost::any(*algorithm);
+    }
     if (buyInAliyun) {
       res["BuyInAliyun"] = boost::any(*buyInAliyun);
     }
@@ -2272,6 +2283,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Algorithm") != m.end() && !m["Algorithm"].empty()) {
+      algorithm = make_shared<string>(boost::any_cast<string>(m["Algorithm"]));
+    }
     if (m.find("BuyInAliyun") != m.end() && !m["BuyInAliyun"].empty()) {
       buyInAliyun = make_shared<bool>(boost::any_cast<bool>(m["BuyInAliyun"]));
     }
@@ -2410,6 +2424,7 @@ public:
 };
 class ListCertRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> certType{};
   shared_ptr<long> currentPage{};
   shared_ptr<string> keyWord{};
   shared_ptr<long> showSize{};
@@ -2427,6 +2442,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
+    }
     if (currentPage) {
       res["CurrentPage"] = boost::any(*currentPage);
     }
@@ -2449,6 +2467,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
+    }
     if (m.find("CurrentPage") != m.end() && !m["CurrentPage"].empty()) {
       currentPage = make_shared<long>(boost::any_cast<long>(m["CurrentPage"]));
     }
@@ -2476,6 +2497,7 @@ class ListCertResponseBodyCertList : public Darabonba::Model {
 public:
   shared_ptr<long> afterDate{};
   shared_ptr<long> beforeDate{};
+  shared_ptr<string> certType{};
   shared_ptr<string> commonName{};
   shared_ptr<bool> existPrivateKey{};
   shared_ptr<string> identifier{};
@@ -2501,6 +2523,9 @@ public:
     }
     if (beforeDate) {
       res["BeforeDate"] = boost::any(*beforeDate);
+    }
+    if (certType) {
+      res["CertType"] = boost::any(*certType);
     }
     if (commonName) {
       res["CommonName"] = boost::any(*commonName);
@@ -2538,6 +2563,9 @@ public:
     }
     if (m.find("BeforeDate") != m.end() && !m["BeforeDate"].empty()) {
       beforeDate = make_shared<long>(boost::any_cast<long>(m["BeforeDate"]));
+    }
+    if (m.find("CertType") != m.end() && !m["CertType"].empty()) {
+      certType = make_shared<string>(boost::any_cast<string>(m["CertType"]));
     }
     if (m.find("CommonName") != m.end() && !m["CommonName"].empty()) {
       commonName = make_shared<string>(boost::any_cast<string>(m["CommonName"]));

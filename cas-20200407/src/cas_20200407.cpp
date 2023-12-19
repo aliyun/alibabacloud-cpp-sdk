@@ -21,7 +21,6 @@ Alibabacloud_Cas20200407::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
   _endpointMap = make_shared<map<string, string>>(map<string, string>({
     {"cn-hangzhou", "cas.aliyuncs.com"},
     {"ap-northeast-2-pop", "cas.aliyuncs.com"},
-    {"ap-southeast-1", "cas.aliyuncs.com"},
     {"ap-southeast-3", "cas.aliyuncs.com"},
     {"ap-southeast-5", "cas.aliyuncs.com"},
     {"cn-beijing", "cas.aliyuncs.com"},
@@ -43,6 +42,7 @@ Alibabacloud_Cas20200407::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-hongkong", "cas.aliyuncs.com"},
     {"cn-hongkong-finance-pop", "cas.aliyuncs.com"},
     {"cn-huhehaote", "cas.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1", "cas.aliyuncs.com"},
     {"cn-north-2-gov-1", "cas.aliyuncs.com"},
     {"cn-qingdao", "cas.aliyuncs.com"},
     {"cn-qingdao-nebula", "cas.aliyuncs.com"},
@@ -58,7 +58,9 @@ Alibabacloud_Cas20200407::Client::Client(const shared_ptr<Alibabacloud_OpenApi::
     {"cn-shenzhen-st4-d01", "cas.aliyuncs.com"},
     {"cn-shenzhen-su18-b01", "cas.aliyuncs.com"},
     {"cn-wuhan", "cas.aliyuncs.com"},
+    {"cn-wulanchabu", "cas.aliyuncs.com"},
     {"cn-yushanfang", "cas.aliyuncs.com"},
+    {"cn-zhangbei", "cas.aliyuncs.com"},
     {"cn-zhangbei-na61-b01", "cas.aliyuncs.com"},
     {"cn-zhangjiakou", "cas.aliyuncs.com"},
     {"cn-zhangjiakou-na62-a01", "cas.aliyuncs.com"},
@@ -595,6 +597,9 @@ GetCertWarehouseQuotaResponse Alibabacloud_Cas20200407::Client::getCertWarehouse
 GetUserCertificateDetailResponse Alibabacloud_Cas20200407::Client::getUserCertificateDetailWithOptions(shared_ptr<GetUserCertificateDetailRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->certFilter)) {
+    query->insert(pair<string, bool>("CertFilter", *request->certFilter));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->certId)) {
     query->insert(pair<string, long>("CertId", *request->certId));
   }
@@ -623,6 +628,9 @@ GetUserCertificateDetailResponse Alibabacloud_Cas20200407::Client::getUserCertif
 ListCertResponse Alibabacloud_Cas20200407::Client::listCertWithOptions(shared_ptr<ListCertRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->certType)) {
+    query->insert(pair<string, string>("CertType", *request->certType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->currentPage)) {
     query->insert(pair<string, long>("CurrentPage", *request->currentPage));
   }
