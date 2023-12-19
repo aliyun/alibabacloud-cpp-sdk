@@ -62434,6 +62434,232 @@ public:
 
   virtual ~DescribeVpnGatewayResponse() = default;
 };
+class DescribeVpnGatewayAvailableZonesRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> acceptLanguage{};
+  shared_ptr<string> ownerAccount{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> spec{};
+
+  DescribeVpnGatewayAvailableZonesRequest() {}
+
+  explicit DescribeVpnGatewayAvailableZonesRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (acceptLanguage) {
+      res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (ownerAccount) {
+      res["OwnerAccount"] = boost::any(*ownerAccount);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (spec) {
+      res["Spec"] = boost::any(*spec);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
+      acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
+      ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("Spec") != m.end() && !m["Spec"].empty()) {
+      spec = make_shared<string>(boost::any_cast<string>(m["Spec"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewayAvailableZonesRequest() = default;
+};
+class DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList : public Darabonba::Model {
+public:
+  shared_ptr<string> zoneId{};
+  shared_ptr<string> zoneName{};
+
+  DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList() {}
+
+  explicit DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (zoneId) {
+      res["ZoneId"] = boost::any(*zoneId);
+    }
+    if (zoneName) {
+      res["ZoneName"] = boost::any(*zoneName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ZoneId") != m.end() && !m["ZoneId"].empty()) {
+      zoneId = make_shared<string>(boost::any_cast<string>(m["ZoneId"]));
+    }
+    if (m.find("ZoneName") != m.end() && !m["ZoneName"].empty()) {
+      zoneName = make_shared<string>(boost::any_cast<string>(m["ZoneName"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList() = default;
+};
+class DescribeVpnGatewayAvailableZonesResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<vector<DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList>> availableZoneIdList{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> requestId{};
+
+  DescribeVpnGatewayAvailableZonesResponseBody() {}
+
+  explicit DescribeVpnGatewayAvailableZonesResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (availableZoneIdList) {
+      vector<boost::any> temp1;
+      for(auto item1:*availableZoneIdList){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AvailableZoneIdList"] = boost::any(temp1);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AvailableZoneIdList") != m.end() && !m["AvailableZoneIdList"].empty()) {
+      if (typeid(vector<boost::any>) == m["AvailableZoneIdList"].type()) {
+        vector<DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AvailableZoneIdList"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        availableZoneIdList = make_shared<vector<DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList>>(expect1);
+      }
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewayAvailableZonesResponseBody() = default;
+};
+class DescribeVpnGatewayAvailableZonesResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DescribeVpnGatewayAvailableZonesResponseBody> body{};
+
+  DescribeVpnGatewayAvailableZonesResponse() {}
+
+  explicit DescribeVpnGatewayAvailableZonesResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DescribeVpnGatewayAvailableZonesResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DescribeVpnGatewayAvailableZonesResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DescribeVpnGatewayAvailableZonesResponse() = default;
+};
 class DescribeVpnGatewaysRequestTag : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
@@ -64517,6 +64743,309 @@ public:
 
 
   virtual ~DetachDhcpOptionsSetFromVpcResponse() = default;
+};
+class DiagnoseVpnConnectionsRequest : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> regionId{};
+  shared_ptr<long> resourceOwnerId{};
+  shared_ptr<vector<string>> tunnelIds{};
+  shared_ptr<vector<string>> vpnConnectionIds{};
+  shared_ptr<string> vpnGatewayId{};
+
+  DiagnoseVpnConnectionsRequest() {}
+
+  explicit DiagnoseVpnConnectionsRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (resourceOwnerId) {
+      res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (tunnelIds) {
+      res["TunnelIds"] = boost::any(*tunnelIds);
+    }
+    if (vpnConnectionIds) {
+      res["VpnConnectionIds"] = boost::any(*vpnConnectionIds);
+    }
+    if (vpnGatewayId) {
+      res["VpnGatewayId"] = boost::any(*vpnGatewayId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
+      resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("TunnelIds") != m.end() && !m["TunnelIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TunnelIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TunnelIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      tunnelIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VpnConnectionIds") != m.end() && !m["VpnConnectionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["VpnConnectionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["VpnConnectionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      vpnConnectionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("VpnGatewayId") != m.end() && !m["VpnGatewayId"].empty()) {
+      vpnGatewayId = make_shared<string>(boost::any_cast<string>(m["VpnGatewayId"]));
+    }
+  }
+
+
+  virtual ~DiagnoseVpnConnectionsRequest() = default;
+};
+class DiagnoseVpnConnectionsResponseBodyVpnConnections : public Darabonba::Model {
+public:
+  shared_ptr<string> failedReason{};
+  shared_ptr<string> failedReasonCode{};
+  shared_ptr<long> failedTime{};
+  shared_ptr<string> mismatchLocalParam{};
+  shared_ptr<string> mismatchRemoteParam{};
+  shared_ptr<string> severity{};
+  shared_ptr<string> sourceLog{};
+  shared_ptr<string> tunnelId{};
+  shared_ptr<string> vpnConnectionId{};
+
+  DiagnoseVpnConnectionsResponseBodyVpnConnections() {}
+
+  explicit DiagnoseVpnConnectionsResponseBodyVpnConnections(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (failedReason) {
+      res["FailedReason"] = boost::any(*failedReason);
+    }
+    if (failedReasonCode) {
+      res["FailedReasonCode"] = boost::any(*failedReasonCode);
+    }
+    if (failedTime) {
+      res["FailedTime"] = boost::any(*failedTime);
+    }
+    if (mismatchLocalParam) {
+      res["MismatchLocalParam"] = boost::any(*mismatchLocalParam);
+    }
+    if (mismatchRemoteParam) {
+      res["MismatchRemoteParam"] = boost::any(*mismatchRemoteParam);
+    }
+    if (severity) {
+      res["Severity"] = boost::any(*severity);
+    }
+    if (sourceLog) {
+      res["SourceLog"] = boost::any(*sourceLog);
+    }
+    if (tunnelId) {
+      res["TunnelId"] = boost::any(*tunnelId);
+    }
+    if (vpnConnectionId) {
+      res["VpnConnectionId"] = boost::any(*vpnConnectionId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FailedReason") != m.end() && !m["FailedReason"].empty()) {
+      failedReason = make_shared<string>(boost::any_cast<string>(m["FailedReason"]));
+    }
+    if (m.find("FailedReasonCode") != m.end() && !m["FailedReasonCode"].empty()) {
+      failedReasonCode = make_shared<string>(boost::any_cast<string>(m["FailedReasonCode"]));
+    }
+    if (m.find("FailedTime") != m.end() && !m["FailedTime"].empty()) {
+      failedTime = make_shared<long>(boost::any_cast<long>(m["FailedTime"]));
+    }
+    if (m.find("MismatchLocalParam") != m.end() && !m["MismatchLocalParam"].empty()) {
+      mismatchLocalParam = make_shared<string>(boost::any_cast<string>(m["MismatchLocalParam"]));
+    }
+    if (m.find("MismatchRemoteParam") != m.end() && !m["MismatchRemoteParam"].empty()) {
+      mismatchRemoteParam = make_shared<string>(boost::any_cast<string>(m["MismatchRemoteParam"]));
+    }
+    if (m.find("Severity") != m.end() && !m["Severity"].empty()) {
+      severity = make_shared<string>(boost::any_cast<string>(m["Severity"]));
+    }
+    if (m.find("SourceLog") != m.end() && !m["SourceLog"].empty()) {
+      sourceLog = make_shared<string>(boost::any_cast<string>(m["SourceLog"]));
+    }
+    if (m.find("TunnelId") != m.end() && !m["TunnelId"].empty()) {
+      tunnelId = make_shared<string>(boost::any_cast<string>(m["TunnelId"]));
+    }
+    if (m.find("VpnConnectionId") != m.end() && !m["VpnConnectionId"].empty()) {
+      vpnConnectionId = make_shared<string>(boost::any_cast<string>(m["VpnConnectionId"]));
+    }
+  }
+
+
+  virtual ~DiagnoseVpnConnectionsResponseBodyVpnConnections() = default;
+};
+class DiagnoseVpnConnectionsResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
+  shared_ptr<string> requestId{};
+  shared_ptr<long> totalCount{};
+  shared_ptr<vector<DiagnoseVpnConnectionsResponseBodyVpnConnections>> vpnConnections{};
+
+  DiagnoseVpnConnectionsResponseBody() {}
+
+  explicit DiagnoseVpnConnectionsResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
+    if (vpnConnections) {
+      vector<boost::any> temp1;
+      for(auto item1:*vpnConnections){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["VpnConnections"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
+    }
+    if (m.find("VpnConnections") != m.end() && !m["VpnConnections"].empty()) {
+      if (typeid(vector<boost::any>) == m["VpnConnections"].type()) {
+        vector<DiagnoseVpnConnectionsResponseBodyVpnConnections> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["VpnConnections"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DiagnoseVpnConnectionsResponseBodyVpnConnections model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        vpnConnections = make_shared<vector<DiagnoseVpnConnectionsResponseBodyVpnConnections>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~DiagnoseVpnConnectionsResponseBody() = default;
+};
+class DiagnoseVpnConnectionsResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DiagnoseVpnConnectionsResponseBody> body{};
+
+  DiagnoseVpnConnectionsResponse() {}
+
+  explicit DiagnoseVpnConnectionsResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DiagnoseVpnConnectionsResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DiagnoseVpnConnectionsResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DiagnoseVpnConnectionsResponse() = default;
 };
 class DiagnoseVpnGatewayRequest : public Darabonba::Model {
 public:
@@ -101342,6 +101871,8 @@ public:
   DescribeVpnCrossAccountAuthorizationsResponse describeVpnCrossAccountAuthorizations(shared_ptr<DescribeVpnCrossAccountAuthorizationsRequest> request);
   DescribeVpnGatewayResponse describeVpnGatewayWithOptions(shared_ptr<DescribeVpnGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVpnGatewayResponse describeVpnGateway(shared_ptr<DescribeVpnGatewayRequest> request);
+  DescribeVpnGatewayAvailableZonesResponse describeVpnGatewayAvailableZonesWithOptions(shared_ptr<DescribeVpnGatewayAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DescribeVpnGatewayAvailableZonesResponse describeVpnGatewayAvailableZones(shared_ptr<DescribeVpnGatewayAvailableZonesRequest> request);
   DescribeVpnGatewaysResponse describeVpnGatewaysWithOptions(shared_ptr<DescribeVpnGatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DescribeVpnGatewaysResponse describeVpnGateways(shared_ptr<DescribeVpnGatewaysRequest> request);
   DescribeVpnPbrRouteEntriesResponse describeVpnPbrRouteEntriesWithOptions(shared_ptr<DescribeVpnPbrRouteEntriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -101354,6 +101885,8 @@ public:
   DescribeZonesResponse describeZones(shared_ptr<DescribeZonesRequest> request);
   DetachDhcpOptionsSetFromVpcResponse detachDhcpOptionsSetFromVpcWithOptions(shared_ptr<DetachDhcpOptionsSetFromVpcRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DetachDhcpOptionsSetFromVpcResponse detachDhcpOptionsSetFromVpc(shared_ptr<DetachDhcpOptionsSetFromVpcRequest> request);
+  DiagnoseVpnConnectionsResponse diagnoseVpnConnectionsWithOptions(shared_ptr<DiagnoseVpnConnectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DiagnoseVpnConnectionsResponse diagnoseVpnConnections(shared_ptr<DiagnoseVpnConnectionsRequest> request);
   DiagnoseVpnGatewayResponse diagnoseVpnGatewayWithOptions(shared_ptr<DiagnoseVpnGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DiagnoseVpnGatewayResponse diagnoseVpnGateway(shared_ptr<DiagnoseVpnGatewayRequest> request);
   DisableNatGatewayEcsMetricResponse disableNatGatewayEcsMetricWithOptions(shared_ptr<DisableNatGatewayEcsMetricRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

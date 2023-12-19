@@ -11959,6 +11959,31 @@ DescribeVpnGatewayResponse Alibabacloud_Vpc20160428::Client::describeVpnGateway(
   return describeVpnGatewayWithOptions(request, runtime);
 }
 
+DescribeVpnGatewayAvailableZonesResponse Alibabacloud_Vpc20160428::Client::describeVpnGatewayAvailableZonesWithOptions(shared_ptr<DescribeVpnGatewayAvailableZonesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> query = make_shared<map<string, string>>(Alibabacloud_OpenApiUtil::Client::query(make_shared<map<string, boost::any>>(Darabonba_Util::Client::toMap(request))));
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DescribeVpnGatewayAvailableZones"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("GET"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DescribeVpnGatewayAvailableZonesResponse(callApi(params, req, runtime));
+}
+
+DescribeVpnGatewayAvailableZonesResponse Alibabacloud_Vpc20160428::Client::describeVpnGatewayAvailableZones(shared_ptr<DescribeVpnGatewayAvailableZonesRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return describeVpnGatewayAvailableZonesWithOptions(request, runtime);
+}
+
 DescribeVpnGatewaysResponse Alibabacloud_Vpc20160428::Client::describeVpnGatewaysWithOptions(shared_ptr<DescribeVpnGatewaysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
@@ -12284,6 +12309,52 @@ DetachDhcpOptionsSetFromVpcResponse Alibabacloud_Vpc20160428::Client::detachDhcp
 DetachDhcpOptionsSetFromVpcResponse Alibabacloud_Vpc20160428::Client::detachDhcpOptionsSetFromVpc(shared_ptr<DetachDhcpOptionsSetFromVpcRequest> request) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   return detachDhcpOptionsSetFromVpcWithOptions(request, runtime);
+}
+
+DiagnoseVpnConnectionsResponse Alibabacloud_Vpc20160428::Client::diagnoseVpnConnectionsWithOptions(shared_ptr<DiagnoseVpnConnectionsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageNumber)) {
+    query->insert(pair<string, long>("PageNumber", *request->pageNumber));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->pageSize)) {
+    query->insert(pair<string, long>("PageSize", *request->pageSize));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
+    query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->tunnelIds)) {
+    query->insert(pair<string, vector<string>>("TunnelIds", *request->tunnelIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->vpnConnectionIds)) {
+    query->insert(pair<string, vector<string>>("VpnConnectionIds", *request->vpnConnectionIds));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->vpnGatewayId)) {
+    query->insert(pair<string, string>("VpnGatewayId", *request->vpnGatewayId));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("DiagnoseVpnConnections"))},
+    {"version", boost::any(string("2016-04-28"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return DiagnoseVpnConnectionsResponse(callApi(params, req, runtime));
+}
+
+DiagnoseVpnConnectionsResponse Alibabacloud_Vpc20160428::Client::diagnoseVpnConnections(shared_ptr<DiagnoseVpnConnectionsRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return diagnoseVpnConnectionsWithOptions(request, runtime);
 }
 
 DiagnoseVpnGatewayResponse Alibabacloud_Vpc20160428::Client::diagnoseVpnGatewayWithOptions(shared_ptr<DiagnoseVpnGatewayRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
