@@ -1086,6 +1086,9 @@ CreateCircuitBreakerRuleResponse Alibabacloud_Mse20190531::Client::createCircuit
   if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
     query->insert(pair<string, string>("Resource", *request->resource));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceType)) {
+    query->insert(pair<string, long>("ResourceType", *request->resourceType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->retryTimeoutMs)) {
     query->insert(pair<string, long>("RetryTimeoutMs", *request->retryTimeoutMs));
   }
@@ -1286,6 +1289,9 @@ CreateFlowRuleResponse Alibabacloud_Mse20190531::Client::createFlowRuleWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resource)) {
     query->insert(pair<string, string>("Resource", *request->resource));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->resourceType)) {
+    query->insert(pair<string, long>("ResourceType", *request->resourceType));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->threshold)) {
     query->insert(pair<string, long>("Threshold", *request->threshold));

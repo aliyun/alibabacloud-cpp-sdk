@@ -7514,6 +7514,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
+  shared_ptr<long> resourceType{};
   shared_ptr<long> retryTimeoutMs{};
   shared_ptr<long> statIntervalMs{};
   shared_ptr<long> strategy{};
@@ -7561,6 +7562,9 @@ public:
     }
     if (resource) {
       res["Resource"] = boost::any(*resource);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (retryTimeoutMs) {
       res["RetryTimeoutMs"] = boost::any(*retryTimeoutMs);
@@ -7610,6 +7614,9 @@ public:
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<long>(boost::any_cast<long>(m["ResourceType"]));
     }
     if (m.find("RetryTimeoutMs") != m.end() && !m["RetryTimeoutMs"].empty()) {
       retryTimeoutMs = make_shared<long>(boost::any_cast<long>(m["RetryTimeoutMs"]));
@@ -8513,6 +8520,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
+  shared_ptr<long> resourceType{};
   shared_ptr<long> threshold{};
 
   CreateFlowRuleRequest() {}
@@ -8552,6 +8560,9 @@ public:
     if (resource) {
       res["Resource"] = boost::any(*resource);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (threshold) {
       res["Threshold"] = boost::any(*threshold);
     }
@@ -8585,6 +8596,9 @@ public:
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<long>(boost::any_cast<long>(m["ResourceType"]));
     }
     if (m.find("Threshold") != m.end() && !m["Threshold"].empty()) {
       threshold = make_shared<long>(boost::any_cast<long>(m["Threshold"]));
@@ -31697,6 +31711,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
+  shared_ptr<long> resourceType{};
   shared_ptr<long> retryTimeoutMs{};
   shared_ptr<long> ruleId{};
   shared_ptr<long> statIntervalMs{};
@@ -31745,6 +31760,9 @@ public:
     }
     if (resource) {
       res["Resource"] = boost::any(*resource);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
     }
     if (retryTimeoutMs) {
       res["RetryTimeoutMs"] = boost::any(*retryTimeoutMs);
@@ -31797,6 +31815,9 @@ public:
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<long>(boost::any_cast<long>(m["ResourceType"]));
     }
     if (m.find("RetryTimeoutMs") != m.end() && !m["RetryTimeoutMs"].empty()) {
       retryTimeoutMs = make_shared<long>(boost::any_cast<long>(m["RetryTimeoutMs"]));
@@ -35420,6 +35441,7 @@ public:
   shared_ptr<string> namespace_{};
   shared_ptr<string> regionId{};
   shared_ptr<string> resource{};
+  shared_ptr<long> resourceType{};
   shared_ptr<long> ruleId{};
   shared_ptr<double> threshold{};
   shared_ptr<map<string, boost::any>> trafficTags{};
@@ -35464,6 +35486,9 @@ public:
     if (resource) {
       res["Resource"] = boost::any(*resource);
     }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
     if (ruleId) {
       res["RuleId"] = boost::any(*ruleId);
     }
@@ -35506,6 +35531,9 @@ public:
     }
     if (m.find("Resource") != m.end() && !m["Resource"].empty()) {
       resource = make_shared<string>(boost::any_cast<string>(m["Resource"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<long>(boost::any_cast<long>(m["ResourceType"]));
     }
     if (m.find("RuleId") != m.end() && !m["RuleId"].empty()) {
       ruleId = make_shared<long>(boost::any_cast<long>(m["RuleId"]));
