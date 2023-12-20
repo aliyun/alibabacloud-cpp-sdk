@@ -15646,6 +15646,8 @@ public:
   shared_ptr<string> orderId{};
   shared_ptr<double> orderPrice{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<double> personSettleFee{};
   shared_ptr<long> primaryId{};
   shared_ptr<string> projectCode{};
@@ -15819,6 +15821,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (personSettleFee) {
       res["person_settle_fee"] = boost::any(*personSettleFee);
@@ -16042,6 +16050,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("person_settle_fee") != m.end() && !m["person_settle_fee"].empty()) {
       personSettleFee = make_shared<double>(boost::any_cast<double>(m["person_settle_fee"]));
@@ -23766,6 +23780,8 @@ public:
   shared_ptr<double> oilFee{};
   shared_ptr<string> orderId{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<double> personSettlePrice{};
   shared_ptr<string> preBookTip{};
   shared_ptr<long> primaryId{};
@@ -24005,6 +24021,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (personSettlePrice) {
       res["person_settle_price"] = boost::any(*personSettlePrice);
@@ -24294,6 +24316,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("person_settle_price") != m.end() && !m["person_settle_price"].empty()) {
       personSettlePrice = make_shared<double>(boost::any_cast<double>(m["person_settle_price"]));
@@ -60226,6 +60254,8 @@ public:
   shared_ptr<double> orderPrice{};
   shared_ptr<string> orderType{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<double> personRefundFee{};
   shared_ptr<double> personSettlePrice{};
   shared_ptr<long> primaryId{};
@@ -60404,6 +60434,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (personRefundFee) {
       res["person_refund_fee"] = boost::any(*personRefundFee);
@@ -60630,6 +60666,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("person_refund_fee") != m.end() && !m["person_refund_fee"].empty()) {
       personRefundFee = make_shared<double>(boost::any_cast<double>(m["person_refund_fee"]));
@@ -72043,6 +72085,8 @@ public:
   shared_ptr<string> orderId{};
   shared_ptr<string> orderStatusDesc{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<long> primaryId{};
   shared_ptr<string> projectCode{};
   shared_ptr<string> projectName{};
@@ -72258,6 +72302,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (primaryId) {
       res["primary_id"] = boost::any(*primaryId);
@@ -72517,6 +72567,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("primary_id") != m.end() && !m["primary_id"].empty()) {
       primaryId = make_shared<long>(boost::any_cast<long>(m["primary_id"]));
@@ -72964,6 +73020,8 @@ public:
   shared_ptr<string> orderStatusDesc{};
   shared_ptr<string> orderType{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<double> personRefundFee{};
   shared_ptr<double> personSettlePrice{};
   shared_ptr<long> primaryId{};
@@ -73158,6 +73216,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (personRefundFee) {
       res["person_refund_fee"] = boost::any(*personRefundFee);
@@ -73408,6 +73472,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("person_refund_fee") != m.end() && !m["person_refund_fee"].empty()) {
       personRefundFee = make_shared<double>(boost::any_cast<double>(m["person_refund_fee"]));
@@ -93704,6 +93774,8 @@ public:
   shared_ptr<string> orderId{};
   shared_ptr<double> orderPrice{};
   shared_ptr<string> overApplyId{};
+  shared_ptr<string> paymentDepartmentId{};
+  shared_ptr<string> paymentDepartmentName{};
   shared_ptr<long> primaryId{};
   shared_ptr<double> printTicketPrice{};
   shared_ptr<string> projectCode{};
@@ -93868,6 +93940,12 @@ public:
     }
     if (overApplyId) {
       res["over_apply_id"] = boost::any(*overApplyId);
+    }
+    if (paymentDepartmentId) {
+      res["payment_department_id"] = boost::any(*paymentDepartmentId);
+    }
+    if (paymentDepartmentName) {
+      res["payment_department_name"] = boost::any(*paymentDepartmentName);
     }
     if (primaryId) {
       res["primary_id"] = boost::any(*primaryId);
@@ -94088,6 +94166,12 @@ public:
     }
     if (m.find("over_apply_id") != m.end() && !m["over_apply_id"].empty()) {
       overApplyId = make_shared<string>(boost::any_cast<string>(m["over_apply_id"]));
+    }
+    if (m.find("payment_department_id") != m.end() && !m["payment_department_id"].empty()) {
+      paymentDepartmentId = make_shared<string>(boost::any_cast<string>(m["payment_department_id"]));
+    }
+    if (m.find("payment_department_name") != m.end() && !m["payment_department_name"].empty()) {
+      paymentDepartmentName = make_shared<string>(boost::any_cast<string>(m["payment_department_name"]));
     }
     if (m.find("primary_id") != m.end() && !m["primary_id"].empty()) {
       primaryId = make_shared<long>(boost::any_cast<long>(m["primary_id"]));
