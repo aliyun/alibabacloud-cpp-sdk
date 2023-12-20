@@ -11338,6 +11338,9 @@ ModifyDBInstanceSSLResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceSS
   if (!Darabonba_Util::Client::isUnset<string>(request->DBInstanceId)) {
     query->insert(pair<string, string>("DBInstanceId", *request->DBInstanceId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->forceEncryption)) {
+    query->insert(pair<string, string>("ForceEncryption", *request->forceEncryption));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -11361,6 +11364,9 @@ ModifyDBInstanceSSLResponse Alibabacloud_Rds20140815::Client::modifyDBInstanceSS
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->serverKey)) {
     query->insert(pair<string, string>("ServerKey", *request->serverKey));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tlsVersion)) {
+    query->insert(pair<string, string>("TlsVersion", *request->tlsVersion));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}

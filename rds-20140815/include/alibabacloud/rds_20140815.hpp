@@ -28417,6 +28417,7 @@ public:
   shared_ptr<string> clientCACertExpireTime{};
   shared_ptr<string> clientCertRevocationList{};
   shared_ptr<string> connectionString{};
+  shared_ptr<string> forceEncryption{};
   shared_ptr<string> lastModifyStatus{};
   shared_ptr<string> modifyStatusReason{};
   shared_ptr<string> replicationACL{};
@@ -28430,6 +28431,7 @@ public:
   shared_ptr<string> serverCAUrl{};
   shared_ptr<string> serverCert{};
   shared_ptr<string> serverKey{};
+  shared_ptr<string> tlsVersion{};
 
   DescribeDBInstanceSSLResponseBody() {}
 
@@ -28458,6 +28460,9 @@ public:
     }
     if (connectionString) {
       res["ConnectionString"] = boost::any(*connectionString);
+    }
+    if (forceEncryption) {
+      res["ForceEncryption"] = boost::any(*forceEncryption);
     }
     if (lastModifyStatus) {
       res["LastModifyStatus"] = boost::any(*lastModifyStatus);
@@ -28498,6 +28503,9 @@ public:
     if (serverKey) {
       res["ServerKey"] = boost::any(*serverKey);
     }
+    if (tlsVersion) {
+      res["TlsVersion"] = boost::any(*tlsVersion);
+    }
     return res;
   }
 
@@ -28519,6 +28527,9 @@ public:
     }
     if (m.find("ConnectionString") != m.end() && !m["ConnectionString"].empty()) {
       connectionString = make_shared<string>(boost::any_cast<string>(m["ConnectionString"]));
+    }
+    if (m.find("ForceEncryption") != m.end() && !m["ForceEncryption"].empty()) {
+      forceEncryption = make_shared<string>(boost::any_cast<string>(m["ForceEncryption"]));
     }
     if (m.find("LastModifyStatus") != m.end() && !m["LastModifyStatus"].empty()) {
       lastModifyStatus = make_shared<string>(boost::any_cast<string>(m["LastModifyStatus"]));
@@ -28558,6 +28569,9 @@ public:
     }
     if (m.find("ServerKey") != m.end() && !m["ServerKey"].empty()) {
       serverKey = make_shared<string>(boost::any_cast<string>(m["ServerKey"]));
+    }
+    if (m.find("TlsVersion") != m.end() && !m["TlsVersion"].empty()) {
+      tlsVersion = make_shared<string>(boost::any_cast<string>(m["TlsVersion"]));
     }
   }
 
@@ -62884,6 +62898,7 @@ public:
   shared_ptr<long> clientCrlEnabled{};
   shared_ptr<string> connectionString{};
   shared_ptr<string> DBInstanceId{};
+  shared_ptr<string> forceEncryption{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> replicationACL{};
@@ -62892,6 +62907,7 @@ public:
   shared_ptr<long> SSLEnabled{};
   shared_ptr<string> serverCert{};
   shared_ptr<string> serverKey{};
+  shared_ptr<string> tlsVersion{};
 
   ModifyDBInstanceSSLRequest() {}
 
@@ -62927,6 +62943,9 @@ public:
     if (DBInstanceId) {
       res["DBInstanceId"] = boost::any(*DBInstanceId);
     }
+    if (forceEncryption) {
+      res["ForceEncryption"] = boost::any(*forceEncryption);
+    }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
     }
@@ -62950,6 +62969,9 @@ public:
     }
     if (serverKey) {
       res["ServerKey"] = boost::any(*serverKey);
+    }
+    if (tlsVersion) {
+      res["TlsVersion"] = boost::any(*tlsVersion);
     }
     return res;
   }
@@ -62979,6 +63001,9 @@ public:
     if (m.find("DBInstanceId") != m.end() && !m["DBInstanceId"].empty()) {
       DBInstanceId = make_shared<string>(boost::any_cast<string>(m["DBInstanceId"]));
     }
+    if (m.find("ForceEncryption") != m.end() && !m["ForceEncryption"].empty()) {
+      forceEncryption = make_shared<string>(boost::any_cast<string>(m["ForceEncryption"]));
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -63002,6 +63027,9 @@ public:
     }
     if (m.find("ServerKey") != m.end() && !m["ServerKey"].empty()) {
       serverKey = make_shared<string>(boost::any_cast<string>(m["ServerKey"]));
+    }
+    if (m.find("TlsVersion") != m.end() && !m["TlsVersion"].empty()) {
+      tlsVersion = make_shared<string>(boost::any_cast<string>(m["TlsVersion"]));
     }
   }
 
