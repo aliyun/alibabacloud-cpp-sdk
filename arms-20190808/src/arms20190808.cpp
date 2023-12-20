@@ -6486,6 +6486,66 @@ QueryAppMetadataResponse Alibabacloud_ARMS20190808::Client::queryAppMetadata(sha
   return queryAppMetadataWithOptions(request, runtime);
 }
 
+QueryAppTopologyResponse Alibabacloud_ARMS20190808::Client::queryAppTopologyWithOptions(shared_ptr<QueryAppTopologyRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<QueryAppTopologyShrinkRequest> request = make_shared<QueryAppTopologyShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<map<string, string>>(tmpReq->filters)) {
+    request->filtersShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->filters, make_shared<string>("Filters"), make_shared<string>("json")));
+  }
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->appType)) {
+    query->insert(pair<string, string>("AppType", *request->appType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->db)) {
+    query->insert(pair<string, string>("Db", *request->db));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dbName)) {
+    query->insert(pair<string, string>("DbName", *request->dbName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->endTime)) {
+    query->insert(pair<string, long>("EndTime", *request->endTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->filtersShrink)) {
+    query->insert(pair<string, string>("Filters", *request->filtersShrink));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->pid)) {
+    query->insert(pair<string, string>("Pid", *request->pid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->rpc)) {
+    query->insert(pair<string, string>("Rpc", *request->rpc));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
+    query->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->type)) {
+    query->insert(pair<string, string>("Type", *request->type));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("QueryAppTopology"))},
+    {"version", boost::any(string("2019-08-08"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return QueryAppTopologyResponse(callApi(params, req, runtime));
+}
+
+QueryAppTopologyResponse Alibabacloud_ARMS20190808::Client::queryAppTopology(shared_ptr<QueryAppTopologyRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return queryAppTopologyWithOptions(request, runtime);
+}
+
 QueryCommercialUsageResponse Alibabacloud_ARMS20190808::Client::queryCommercialUsageWithOptions(shared_ptr<QueryCommercialUsageRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
