@@ -10392,13 +10392,13 @@ class ModifyClusterOfflineConfigRequest : public Darabonba::Model {
 public:
   shared_ptr<string> buildMode{};
   shared_ptr<map<string, long>> config{};
-  shared_ptr<string> dataSource{};
+  shared_ptr<string> dataSourceName{};
   shared_ptr<string> dataSourceType{};
   shared_ptr<long> dataTimeSec{};
   shared_ptr<string> domain{};
   shared_ptr<long> generation{};
   shared_ptr<string> partition{};
-  shared_ptr<bool> triggerBuild{};
+  shared_ptr<string> pushMode{};
 
   ModifyClusterOfflineConfigRequest() {}
 
@@ -10416,8 +10416,8 @@ public:
     if (config) {
       res["config"] = boost::any(*config);
     }
-    if (dataSource) {
-      res["dataSource"] = boost::any(*dataSource);
+    if (dataSourceName) {
+      res["dataSourceName"] = boost::any(*dataSourceName);
     }
     if (dataSourceType) {
       res["dataSourceType"] = boost::any(*dataSourceType);
@@ -10434,8 +10434,8 @@ public:
     if (partition) {
       res["partition"] = boost::any(*partition);
     }
-    if (triggerBuild) {
-      res["triggerBuild"] = boost::any(*triggerBuild);
+    if (pushMode) {
+      res["pushMode"] = boost::any(*pushMode);
     }
     return res;
   }
@@ -10452,8 +10452,8 @@ public:
       }
       config = make_shared<map<string, long>>(toMap1);
     }
-    if (m.find("dataSource") != m.end() && !m["dataSource"].empty()) {
-      dataSource = make_shared<string>(boost::any_cast<string>(m["dataSource"]));
+    if (m.find("dataSourceName") != m.end() && !m["dataSourceName"].empty()) {
+      dataSourceName = make_shared<string>(boost::any_cast<string>(m["dataSourceName"]));
     }
     if (m.find("dataSourceType") != m.end() && !m["dataSourceType"].empty()) {
       dataSourceType = make_shared<string>(boost::any_cast<string>(m["dataSourceType"]));
@@ -10470,8 +10470,8 @@ public:
     if (m.find("partition") != m.end() && !m["partition"].empty()) {
       partition = make_shared<string>(boost::any_cast<string>(m["partition"]));
     }
-    if (m.find("triggerBuild") != m.end() && !m["triggerBuild"].empty()) {
-      triggerBuild = make_shared<bool>(boost::any_cast<bool>(m["triggerBuild"]));
+    if (m.find("pushMode") != m.end() && !m["pushMode"].empty()) {
+      pushMode = make_shared<string>(boost::any_cast<string>(m["pushMode"]));
     }
   }
 
@@ -12943,8 +12943,8 @@ public:
                                                            shared_ptr<map<string, string>> headers,
                                                            shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListAdvanceConfigsResponse listAdvanceConfigs(shared_ptr<string> instanceId, shared_ptr<ListAdvanceConfigsRequest> request);
-  ListClusterNamesResponse listClusterNamesWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
-  ListClusterNamesResponse listClusterNames(shared_ptr<string> instanceId);
+  ListClusterNamesResponse listClusterNamesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListClusterNamesResponse listClusterNames();
   ListClusterTasksResponse listClusterTasksWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListClusterTasksResponse listClusterTasks(shared_ptr<string> instanceId);
   ListClustersResponse listClustersWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

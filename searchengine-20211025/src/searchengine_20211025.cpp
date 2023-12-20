@@ -875,7 +875,7 @@ ListAdvanceConfigsResponse Alibabacloud_Searchengine20211025::Client::listAdvanc
   return listAdvanceConfigsWithOptions(instanceId, request, headers, runtime);
 }
 
-ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterNamesWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterNamesWithOptions(shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)}
   }));
@@ -883,7 +883,7 @@ ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterN
     {"action", boost::any(string("ListClusterNames"))},
     {"version", boost::any(string("2021-10-25"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/openapi/ha3/instances/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(instanceId)) + string("/cluster-names"))},
+    {"pathname", boost::any(string("/openapi/ha3/cluster-names"))},
     {"method", boost::any(string("GET"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -893,10 +893,10 @@ ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterN
   return ListClusterNamesResponse(callApi(params, req, runtime));
 }
 
-ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterNames(shared_ptr<string> instanceId) {
+ListClusterNamesResponse Alibabacloud_Searchengine20211025::Client::listClusterNames() {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return listClusterNamesWithOptions(instanceId, headers, runtime);
+  return listClusterNamesWithOptions(headers, runtime);
 }
 
 ListClusterTasksResponse Alibabacloud_Searchengine20211025::Client::listClusterTasksWithOptions(shared_ptr<string> instanceId, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
@@ -1336,8 +1336,8 @@ ModifyClusterOfflineConfigResponse Alibabacloud_Searchengine20211025::Client::mo
   if (!Darabonba_Util::Client::isUnset<map<string, long>>(request->config)) {
     body->insert(pair<string, map<string, long>>("config", *request->config));
   }
-  if (!Darabonba_Util::Client::isUnset<string>(request->dataSource)) {
-    body->insert(pair<string, string>("dataSource", *request->dataSource));
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceName)) {
+    body->insert(pair<string, string>("dataSourceName", *request->dataSourceName));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->dataSourceType)) {
     body->insert(pair<string, string>("dataSourceType", *request->dataSourceType));
@@ -1354,8 +1354,8 @@ ModifyClusterOfflineConfigResponse Alibabacloud_Searchengine20211025::Client::mo
   if (!Darabonba_Util::Client::isUnset<string>(request->partition)) {
     body->insert(pair<string, string>("partition", *request->partition));
   }
-  if (!Darabonba_Util::Client::isUnset<bool>(request->triggerBuild)) {
-    body->insert(pair<string, bool>("triggerBuild", *request->triggerBuild));
+  if (!Darabonba_Util::Client::isUnset<string>(request->pushMode)) {
+    body->insert(pair<string, string>("pushMode", *request->pushMode));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"headers", !headers ? boost::any() : boost::any(*headers)},
