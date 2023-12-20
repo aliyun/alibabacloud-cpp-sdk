@@ -48576,6 +48576,7 @@ public:
   shared_ptr<string> aclEntryList{};
   shared_ptr<string> aclId{};
   shared_ptr<string> appVersion{};
+  shared_ptr<bool> canUpdate{};
   shared_ptr<string> chargeType{};
   shared_ptr<string> clusterAliasName{};
   shared_ptr<string> clusterName{};
@@ -48613,6 +48614,7 @@ public:
   shared_ptr<string> securityGroupType{};
   shared_ptr<map<string, boost::any>> tags{};
   shared_ptr<string> vSwitchId{};
+  shared_ptr<string> versionCode{};
   shared_ptr<string> vpcId{};
 
   QueryClusterInfoResponseBodyData() {}
@@ -48633,6 +48635,9 @@ public:
     }
     if (appVersion) {
       res["AppVersion"] = boost::any(*appVersion);
+    }
+    if (canUpdate) {
+      res["CanUpdate"] = boost::any(*canUpdate);
     }
     if (chargeType) {
       res["ChargeType"] = boost::any(*chargeType);
@@ -48749,6 +48754,9 @@ public:
     if (vSwitchId) {
       res["VSwitchId"] = boost::any(*vSwitchId);
     }
+    if (versionCode) {
+      res["VersionCode"] = boost::any(*versionCode);
+    }
     if (vpcId) {
       res["VpcId"] = boost::any(*vpcId);
     }
@@ -48764,6 +48772,9 @@ public:
     }
     if (m.find("AppVersion") != m.end() && !m["AppVersion"].empty()) {
       appVersion = make_shared<string>(boost::any_cast<string>(m["AppVersion"]));
+    }
+    if (m.find("CanUpdate") != m.end() && !m["CanUpdate"].empty()) {
+      canUpdate = make_shared<bool>(boost::any_cast<bool>(m["CanUpdate"]));
     }
     if (m.find("ChargeType") != m.end() && !m["ChargeType"].empty()) {
       chargeType = make_shared<string>(boost::any_cast<string>(m["ChargeType"]));
@@ -48901,6 +48912,9 @@ public:
     }
     if (m.find("VSwitchId") != m.end() && !m["VSwitchId"].empty()) {
       vSwitchId = make_shared<string>(boost::any_cast<string>(m["VSwitchId"]));
+    }
+    if (m.find("VersionCode") != m.end() && !m["VersionCode"].empty()) {
+      versionCode = make_shared<string>(boost::any_cast<string>(m["VersionCode"]));
     }
     if (m.find("VpcId") != m.end() && !m["VpcId"].empty()) {
       vpcId = make_shared<string>(boost::any_cast<string>(m["VpcId"]));
