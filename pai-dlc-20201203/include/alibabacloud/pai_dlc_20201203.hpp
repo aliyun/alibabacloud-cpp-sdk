@@ -15,6 +15,70 @@
 using namespace std;
 
 namespace Alibabacloud_Pai-dlc20201203 {
+class AIMasterMessage : public Darabonba::Model {
+public:
+  shared_ptr<string> extended{};
+  shared_ptr<long> jobRestartCount{};
+  shared_ptr<string> messageContent{};
+  shared_ptr<string> messageEvent{};
+  shared_ptr<long> messageVersion{};
+  shared_ptr<string> restartType{};
+
+  AIMasterMessage() {}
+
+  explicit AIMasterMessage(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (extended) {
+      res["Extended"] = boost::any(*extended);
+    }
+    if (jobRestartCount) {
+      res["JobRestartCount"] = boost::any(*jobRestartCount);
+    }
+    if (messageContent) {
+      res["MessageContent"] = boost::any(*messageContent);
+    }
+    if (messageEvent) {
+      res["MessageEvent"] = boost::any(*messageEvent);
+    }
+    if (messageVersion) {
+      res["MessageVersion"] = boost::any(*messageVersion);
+    }
+    if (restartType) {
+      res["RestartType"] = boost::any(*restartType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Extended") != m.end() && !m["Extended"].empty()) {
+      extended = make_shared<string>(boost::any_cast<string>(m["Extended"]));
+    }
+    if (m.find("JobRestartCount") != m.end() && !m["JobRestartCount"].empty()) {
+      jobRestartCount = make_shared<long>(boost::any_cast<long>(m["JobRestartCount"]));
+    }
+    if (m.find("MessageContent") != m.end() && !m["MessageContent"].empty()) {
+      messageContent = make_shared<string>(boost::any_cast<string>(m["MessageContent"]));
+    }
+    if (m.find("MessageEvent") != m.end() && !m["MessageEvent"].empty()) {
+      messageEvent = make_shared<string>(boost::any_cast<string>(m["MessageEvent"]));
+    }
+    if (m.find("MessageVersion") != m.end() && !m["MessageVersion"].empty()) {
+      messageVersion = make_shared<long>(boost::any_cast<long>(m["MessageVersion"]));
+    }
+    if (m.find("RestartType") != m.end() && !m["RestartType"].empty()) {
+      restartType = make_shared<string>(boost::any_cast<string>(m["RestartType"]));
+    }
+  }
+
+
+  virtual ~AIMasterMessage() = default;
+};
 class AliyunAccounts : public Darabonba::Model {
 public:
   shared_ptr<string> aliyunUid{};
@@ -1786,12 +1850,14 @@ public:
   shared_ptr<bool> enableErrorMonitoringInAIMaster{};
   shared_ptr<bool> enableOssAppend{};
   shared_ptr<bool> enableRDMA{};
+  shared_ptr<bool> enableSanityCheck{};
   shared_ptr<bool> enableTideResource{};
   shared_ptr<string> errorMonitoringArgs{};
   shared_ptr<long> jobReservedMinutes{};
   shared_ptr<string> jobReservedPolicy{};
   shared_ptr<string> oversoldType{};
   shared_ptr<string> pipelineId{};
+  shared_ptr<string> sanityCheckArgs{};
   shared_ptr<map<string, string>> tags{};
 
   JobSettings() {}
@@ -1825,6 +1891,9 @@ public:
     if (enableRDMA) {
       res["EnableRDMA"] = boost::any(*enableRDMA);
     }
+    if (enableSanityCheck) {
+      res["EnableSanityCheck"] = boost::any(*enableSanityCheck);
+    }
     if (enableTideResource) {
       res["EnableTideResource"] = boost::any(*enableTideResource);
     }
@@ -1842,6 +1911,9 @@ public:
     }
     if (pipelineId) {
       res["PipelineId"] = boost::any(*pipelineId);
+    }
+    if (sanityCheckArgs) {
+      res["SanityCheckArgs"] = boost::any(*sanityCheckArgs);
     }
     if (tags) {
       res["Tags"] = boost::any(*tags);
@@ -1876,6 +1948,9 @@ public:
     if (m.find("EnableRDMA") != m.end() && !m["EnableRDMA"].empty()) {
       enableRDMA = make_shared<bool>(boost::any_cast<bool>(m["EnableRDMA"]));
     }
+    if (m.find("EnableSanityCheck") != m.end() && !m["EnableSanityCheck"].empty()) {
+      enableSanityCheck = make_shared<bool>(boost::any_cast<bool>(m["EnableSanityCheck"]));
+    }
     if (m.find("EnableTideResource") != m.end() && !m["EnableTideResource"].empty()) {
       enableTideResource = make_shared<bool>(boost::any_cast<bool>(m["EnableTideResource"]));
     }
@@ -1893,6 +1968,9 @@ public:
     }
     if (m.find("PipelineId") != m.end() && !m["PipelineId"].empty()) {
       pipelineId = make_shared<string>(boost::any_cast<string>(m["PipelineId"]));
+    }
+    if (m.find("SanityCheckArgs") != m.end() && !m["SanityCheckArgs"].empty()) {
+      sanityCheckArgs = make_shared<string>(boost::any_cast<string>(m["SanityCheckArgs"]));
     }
     if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
       map<string, string> map1 = boost::any_cast<map<string, string>>(m["Tags"]);
@@ -2952,6 +3030,63 @@ public:
 
 
   virtual ~SmartCache() = default;
+};
+class StatusTransitionItem : public Darabonba::Model {
+public:
+  shared_ptr<string> endTime{};
+  shared_ptr<string> reasonCode{};
+  shared_ptr<string> reasonMessage{};
+  shared_ptr<string> startTime{};
+  shared_ptr<string> status{};
+
+  StatusTransitionItem() {}
+
+  explicit StatusTransitionItem(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endTime) {
+      res["EndTime"] = boost::any(*endTime);
+    }
+    if (reasonCode) {
+      res["ReasonCode"] = boost::any(*reasonCode);
+    }
+    if (reasonMessage) {
+      res["ReasonMessage"] = boost::any(*reasonMessage);
+    }
+    if (startTime) {
+      res["StartTime"] = boost::any(*startTime);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
+      endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("ReasonCode") != m.end() && !m["ReasonCode"].empty()) {
+      reasonCode = make_shared<string>(boost::any_cast<string>(m["ReasonCode"]));
+    }
+    if (m.find("ReasonMessage") != m.end() && !m["ReasonMessage"].empty()) {
+      reasonMessage = make_shared<string>(boost::any_cast<string>(m["ReasonMessage"]));
+    }
+    if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
+      startTime = make_shared<string>(boost::any_cast<string>(m["StartTime"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+  }
+
+
+  virtual ~StatusTransitionItem() = default;
 };
 class Tensorboard : public Darabonba::Model {
 public:
