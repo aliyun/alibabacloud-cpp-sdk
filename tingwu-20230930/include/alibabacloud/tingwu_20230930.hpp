@@ -4,7 +4,6 @@
 #define ALIBABACLOUD_TINGWU20230930_H_
 
 #include <alibabacloud/open_api.hpp>
-#include <boost/any.hpp>
 #include <boost/throw_exception.hpp>
 #include <darabonba/core.hpp>
 #include <darabonba/util.hpp>
@@ -124,7 +123,7 @@ public:
 };
 class CreateTaskRequestParametersSummarization : public Darabonba::Model {
 public:
-  shared_ptr<map<string, boost::any>> types{};
+  shared_ptr<vector<string>> types{};
 
   CreateTaskRequestParametersSummarization() {}
 
@@ -144,12 +143,14 @@ public:
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Types") != m.end() && !m["Types"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["Types"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Types"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Types"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      types = make_shared<map<string, boost::any>>(toMap1);
+      types = make_shared<vector<string>>(toVec1);
     }
   }
 
@@ -299,7 +300,7 @@ public:
 class CreateTaskRequestParametersTranslation : public Darabonba::Model {
 public:
   shared_ptr<long> outputLevel{};
-  shared_ptr<map<string, boost::any>> targetLanguages{};
+  shared_ptr<vector<string>> targetLanguages{};
 
   CreateTaskRequestParametersTranslation() {}
 
@@ -325,12 +326,14 @@ public:
       outputLevel = make_shared<long>(boost::any_cast<long>(m["OutputLevel"]));
     }
     if (m.find("TargetLanguages") != m.end() && !m["TargetLanguages"].empty()) {
-      map<string, boost::any> map1 = boost::any_cast<map<string, boost::any>>(m["TargetLanguages"]);
-      map<string, boost::any> toMap1;
-      for (auto item:map1) {
-         toMap1[item.first] = item.second;
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["TargetLanguages"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["TargetLanguages"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
       }
-      targetLanguages = make_shared<map<string, boost::any>>(toMap1);
+      targetLanguages = make_shared<vector<string>>(toVec1);
     }
   }
 
