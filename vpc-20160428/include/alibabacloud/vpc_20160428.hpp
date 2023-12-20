@@ -72032,6 +72032,8 @@ public:
   shared_ptr<string> ipProtocol{};
   shared_ptr<long> maxResults{};
   shared_ptr<string> natGatewayId{};
+  shared_ptr<string> natIp{};
+  shared_ptr<string> natIpPort{};
   shared_ptr<vector<string>> networkInterfaceIds{};
   shared_ptr<string> nextToken{};
   shared_ptr<string> ownerAccount{};
@@ -72070,6 +72072,12 @@ public:
     }
     if (natGatewayId) {
       res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (natIp) {
+      res["NatIp"] = boost::any(*natIp);
+    }
+    if (natIpPort) {
+      res["NatIpPort"] = boost::any(*natIpPort);
     }
     if (networkInterfaceIds) {
       res["NetworkInterfaceIds"] = boost::any(*networkInterfaceIds);
@@ -72123,6 +72131,12 @@ public:
     }
     if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
       natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("NatIp") != m.end() && !m["NatIp"].empty()) {
+      natIp = make_shared<string>(boost::any_cast<string>(m["NatIp"]));
+    }
+    if (m.find("NatIpPort") != m.end() && !m["NatIpPort"].empty()) {
+      natIpPort = make_shared<string>(boost::any_cast<string>(m["NatIpPort"]));
     }
     if (m.find("NetworkInterfaceIds") != m.end() && !m["NetworkInterfaceIds"].empty()) {
       vector<string> toVec1;

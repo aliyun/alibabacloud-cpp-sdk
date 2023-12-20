@@ -13674,6 +13674,12 @@ ListFullNatEntriesResponse Alibabacloud_Vpc20160428::Client::listFullNatEntriesW
   if (!Darabonba_Util::Client::isUnset<string>(request->natGatewayId)) {
     query->insert(pair<string, string>("NatGatewayId", *request->natGatewayId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->natIp)) {
+    query->insert(pair<string, string>("NatIp", *request->natIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->natIpPort)) {
+    query->insert(pair<string, string>("NatIpPort", *request->natIpPort));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->networkInterfaceIds)) {
     query->insert(pair<string, vector<string>>("NetworkInterfaceIds", *request->networkInterfaceIds));
   }
