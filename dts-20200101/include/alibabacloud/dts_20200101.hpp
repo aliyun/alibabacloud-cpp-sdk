@@ -36324,6 +36324,266 @@ public:
 
   virtual ~ModifyDtsJobDuLimitResponse() = default;
 };
+class ModifyDtsJobEndpointRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> aliyunUid{};
+  shared_ptr<string> database{};
+  shared_ptr<bool> dryRun{};
+  shared_ptr<string> dtsInstanceId{};
+  shared_ptr<string> dtsJobId{};
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> endpointInstanceId{};
+  shared_ptr<string> endpointInstanceType{};
+  shared_ptr<string> endpointIp{};
+  shared_ptr<string> endpointPort{};
+  shared_ptr<string> password{};
+  shared_ptr<string> regionId{};
+  shared_ptr<string> roleName{};
+  shared_ptr<string> shardPassword{};
+  shared_ptr<string> shardUsername{};
+  shared_ptr<string> synchronizationDirection{};
+  shared_ptr<string> username{};
+
+  ModifyDtsJobEndpointRequest() {}
+
+  explicit ModifyDtsJobEndpointRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (aliyunUid) {
+      res["AliyunUid"] = boost::any(*aliyunUid);
+    }
+    if (database) {
+      res["Database"] = boost::any(*database);
+    }
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
+    if (dtsInstanceId) {
+      res["DtsInstanceId"] = boost::any(*dtsInstanceId);
+    }
+    if (dtsJobId) {
+      res["DtsJobId"] = boost::any(*dtsJobId);
+    }
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (endpointInstanceId) {
+      res["EndpointInstanceId"] = boost::any(*endpointInstanceId);
+    }
+    if (endpointInstanceType) {
+      res["EndpointInstanceType"] = boost::any(*endpointInstanceType);
+    }
+    if (endpointIp) {
+      res["EndpointIp"] = boost::any(*endpointIp);
+    }
+    if (endpointPort) {
+      res["EndpointPort"] = boost::any(*endpointPort);
+    }
+    if (password) {
+      res["Password"] = boost::any(*password);
+    }
+    if (regionId) {
+      res["RegionId"] = boost::any(*regionId);
+    }
+    if (roleName) {
+      res["RoleName"] = boost::any(*roleName);
+    }
+    if (shardPassword) {
+      res["ShardPassword"] = boost::any(*shardPassword);
+    }
+    if (shardUsername) {
+      res["ShardUsername"] = boost::any(*shardUsername);
+    }
+    if (synchronizationDirection) {
+      res["SynchronizationDirection"] = boost::any(*synchronizationDirection);
+    }
+    if (username) {
+      res["Username"] = boost::any(*username);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AliyunUid") != m.end() && !m["AliyunUid"].empty()) {
+      aliyunUid = make_shared<string>(boost::any_cast<string>(m["AliyunUid"]));
+    }
+    if (m.find("Database") != m.end() && !m["Database"].empty()) {
+      database = make_shared<string>(boost::any_cast<string>(m["Database"]));
+    }
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
+    if (m.find("DtsInstanceId") != m.end() && !m["DtsInstanceId"].empty()) {
+      dtsInstanceId = make_shared<string>(boost::any_cast<string>(m["DtsInstanceId"]));
+    }
+    if (m.find("DtsJobId") != m.end() && !m["DtsJobId"].empty()) {
+      dtsJobId = make_shared<string>(boost::any_cast<string>(m["DtsJobId"]));
+    }
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("EndpointInstanceId") != m.end() && !m["EndpointInstanceId"].empty()) {
+      endpointInstanceId = make_shared<string>(boost::any_cast<string>(m["EndpointInstanceId"]));
+    }
+    if (m.find("EndpointInstanceType") != m.end() && !m["EndpointInstanceType"].empty()) {
+      endpointInstanceType = make_shared<string>(boost::any_cast<string>(m["EndpointInstanceType"]));
+    }
+    if (m.find("EndpointIp") != m.end() && !m["EndpointIp"].empty()) {
+      endpointIp = make_shared<string>(boost::any_cast<string>(m["EndpointIp"]));
+    }
+    if (m.find("EndpointPort") != m.end() && !m["EndpointPort"].empty()) {
+      endpointPort = make_shared<string>(boost::any_cast<string>(m["EndpointPort"]));
+    }
+    if (m.find("Password") != m.end() && !m["Password"].empty()) {
+      password = make_shared<string>(boost::any_cast<string>(m["Password"]));
+    }
+    if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
+      regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("RoleName") != m.end() && !m["RoleName"].empty()) {
+      roleName = make_shared<string>(boost::any_cast<string>(m["RoleName"]));
+    }
+    if (m.find("ShardPassword") != m.end() && !m["ShardPassword"].empty()) {
+      shardPassword = make_shared<string>(boost::any_cast<string>(m["ShardPassword"]));
+    }
+    if (m.find("ShardUsername") != m.end() && !m["ShardUsername"].empty()) {
+      shardUsername = make_shared<string>(boost::any_cast<string>(m["ShardUsername"]));
+    }
+    if (m.find("SynchronizationDirection") != m.end() && !m["SynchronizationDirection"].empty()) {
+      synchronizationDirection = make_shared<string>(boost::any_cast<string>(m["SynchronizationDirection"]));
+    }
+    if (m.find("Username") != m.end() && !m["Username"].empty()) {
+      username = make_shared<string>(boost::any_cast<string>(m["Username"]));
+    }
+  }
+
+
+  virtual ~ModifyDtsJobEndpointRequest() = default;
+};
+class ModifyDtsJobEndpointResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> errCode{};
+  shared_ptr<string> errMessage{};
+  shared_ptr<string> httpStatusCode{};
+  shared_ptr<string> requestId{};
+  shared_ptr<bool> success{};
+
+  ModifyDtsJobEndpointResponseBody() {}
+
+  explicit ModifyDtsJobEndpointResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (errCode) {
+      res["ErrCode"] = boost::any(*errCode);
+    }
+    if (errMessage) {
+      res["ErrMessage"] = boost::any(*errMessage);
+    }
+    if (httpStatusCode) {
+      res["HttpStatusCode"] = boost::any(*httpStatusCode);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    if (success) {
+      res["Success"] = boost::any(*success);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ErrCode") != m.end() && !m["ErrCode"].empty()) {
+      errCode = make_shared<string>(boost::any_cast<string>(m["ErrCode"]));
+    }
+    if (m.find("ErrMessage") != m.end() && !m["ErrMessage"].empty()) {
+      errMessage = make_shared<string>(boost::any_cast<string>(m["ErrMessage"]));
+    }
+    if (m.find("HttpStatusCode") != m.end() && !m["HttpStatusCode"].empty()) {
+      httpStatusCode = make_shared<string>(boost::any_cast<string>(m["HttpStatusCode"]));
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+    if (m.find("Success") != m.end() && !m["Success"].empty()) {
+      success = make_shared<bool>(boost::any_cast<bool>(m["Success"]));
+    }
+  }
+
+
+  virtual ~ModifyDtsJobEndpointResponseBody() = default;
+};
+class ModifyDtsJobEndpointResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ModifyDtsJobEndpointResponseBody> body{};
+
+  ModifyDtsJobEndpointResponse() {}
+
+  explicit ModifyDtsJobEndpointResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ModifyDtsJobEndpointResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ModifyDtsJobEndpointResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ModifyDtsJobEndpointResponse() = default;
+};
 class ModifyDtsJobNameRequest : public Darabonba::Model {
 public:
   shared_ptr<string> dtsJobId{};
@@ -43010,6 +43270,8 @@ public:
   ModifyDtsJobDedicatedClusterResponse modifyDtsJobDedicatedCluster(shared_ptr<ModifyDtsJobDedicatedClusterRequest> request);
   ModifyDtsJobDuLimitResponse modifyDtsJobDuLimitWithOptions(shared_ptr<ModifyDtsJobDuLimitRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDtsJobDuLimitResponse modifyDtsJobDuLimit(shared_ptr<ModifyDtsJobDuLimitRequest> request);
+  ModifyDtsJobEndpointResponse modifyDtsJobEndpointWithOptions(shared_ptr<ModifyDtsJobEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ModifyDtsJobEndpointResponse modifyDtsJobEndpoint(shared_ptr<ModifyDtsJobEndpointRequest> request);
   ModifyDtsJobNameResponse modifyDtsJobNameWithOptions(shared_ptr<ModifyDtsJobNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ModifyDtsJobNameResponse modifyDtsJobName(shared_ptr<ModifyDtsJobNameRequest> request);
   ModifyDtsJobPasswordResponse modifyDtsJobPasswordWithOptions(shared_ptr<ModifyDtsJobPasswordRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);

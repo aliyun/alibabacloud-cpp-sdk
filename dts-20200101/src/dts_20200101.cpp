@@ -3980,6 +3980,82 @@ ModifyDtsJobDuLimitResponse Alibabacloud_Dts20200101::Client::modifyDtsJobDuLimi
   return modifyDtsJobDuLimitWithOptions(request, runtime);
 }
 
+ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpointWithOptions(shared_ptr<ModifyDtsJobEndpointRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->aliyunUid)) {
+    query->insert(pair<string, string>("AliyunUid", *request->aliyunUid));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->database)) {
+    query->insert(pair<string, string>("Database", *request->database));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsInstanceId)) {
+    query->insert(pair<string, string>("DtsInstanceId", *request->dtsInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dtsJobId)) {
+    query->insert(pair<string, string>("DtsJobId", *request->dtsJobId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpoint)) {
+    query->insert(pair<string, string>("Endpoint", *request->endpoint));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointInstanceId)) {
+    query->insert(pair<string, string>("EndpointInstanceId", *request->endpointInstanceId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointInstanceType)) {
+    query->insert(pair<string, string>("EndpointInstanceType", *request->endpointInstanceType));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointIp)) {
+    query->insert(pair<string, string>("EndpointIp", *request->endpointIp));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->endpointPort)) {
+    query->insert(pair<string, string>("EndpointPort", *request->endpointPort));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->password)) {
+    query->insert(pair<string, string>("Password", *request->password));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
+    query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->roleName)) {
+    query->insert(pair<string, string>("RoleName", *request->roleName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shardPassword)) {
+    query->insert(pair<string, string>("ShardPassword", *request->shardPassword));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->shardUsername)) {
+    query->insert(pair<string, string>("ShardUsername", *request->shardUsername));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->synchronizationDirection)) {
+    query->insert(pair<string, string>("SynchronizationDirection", *request->synchronizationDirection));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->username)) {
+    query->insert(pair<string, string>("Username", *request->username));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("ModifyDtsJobEndpoint"))},
+    {"version", boost::any(string("2020-01-01"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/"))},
+    {"method", boost::any(string("POST"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("RPC"))},
+    {"reqBodyType", boost::any(string("formData"))},
+    {"bodyType", boost::any(string("json"))}
+  }));
+  return ModifyDtsJobEndpointResponse(callApi(params, req, runtime));
+}
+
+ModifyDtsJobEndpointResponse Alibabacloud_Dts20200101::Client::modifyDtsJobEndpoint(shared_ptr<ModifyDtsJobEndpointRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  return modifyDtsJobEndpointWithOptions(request, runtime);
+}
+
 ModifyDtsJobNameResponse Alibabacloud_Dts20200101::Client::modifyDtsJobNameWithOptions(shared_ptr<ModifyDtsJobNameRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
