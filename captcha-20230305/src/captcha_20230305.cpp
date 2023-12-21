@@ -71,6 +71,9 @@ VerifyIntelligentCaptchaResponse Alibabacloud_Captcha20230305::Client::verifyInt
   if (!Darabonba_Util::Client::isUnset<string>(request->captchaVerifyParam)) {
     body->insert(pair<string, string>("CaptchaVerifyParam", *request->captchaVerifyParam));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->sceneId)) {
+    body->insert(pair<string, string>("SceneId", *request->sceneId));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
   }));

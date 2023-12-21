@@ -197,6 +197,7 @@ public:
 class VerifyIntelligentCaptchaRequest : public Darabonba::Model {
 public:
   shared_ptr<string> captchaVerifyParam{};
+  shared_ptr<string> sceneId{};
 
   VerifyIntelligentCaptchaRequest() {}
 
@@ -211,12 +212,18 @@ public:
     if (captchaVerifyParam) {
       res["CaptchaVerifyParam"] = boost::any(*captchaVerifyParam);
     }
+    if (sceneId) {
+      res["SceneId"] = boost::any(*sceneId);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CaptchaVerifyParam") != m.end() && !m["CaptchaVerifyParam"].empty()) {
       captchaVerifyParam = make_shared<string>(boost::any_cast<string>(m["CaptchaVerifyParam"]));
+    }
+    if (m.find("SceneId") != m.end() && !m["SceneId"].empty()) {
+      sceneId = make_shared<string>(boost::any_cast<string>(m["SceneId"]));
     }
   }
 
@@ -225,6 +232,7 @@ public:
 };
 class VerifyIntelligentCaptchaResponseBodyResult : public Darabonba::Model {
 public:
+  shared_ptr<string> verifyCode{};
   shared_ptr<bool> verifyResult{};
 
   VerifyIntelligentCaptchaResponseBodyResult() {}
@@ -237,6 +245,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (verifyCode) {
+      res["VerifyCode"] = boost::any(*verifyCode);
+    }
     if (verifyResult) {
       res["VerifyResult"] = boost::any(*verifyResult);
     }
@@ -244,6 +255,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("VerifyCode") != m.end() && !m["VerifyCode"].empty()) {
+      verifyCode = make_shared<string>(boost::any_cast<string>(m["VerifyCode"]));
+    }
     if (m.find("VerifyResult") != m.end() && !m["VerifyResult"].empty()) {
       verifyResult = make_shared<bool>(boost::any_cast<bool>(m["VerifyResult"]));
     }
