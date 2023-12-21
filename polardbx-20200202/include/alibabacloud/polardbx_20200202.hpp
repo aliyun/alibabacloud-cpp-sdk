@@ -1328,6 +1328,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> securityAccountName{};
   shared_ptr<string> securityAccountPassword{};
+  shared_ptr<string> storagePoolName{};
 
   CreateDBRequest() {}
 
@@ -1369,6 +1370,9 @@ public:
     if (securityAccountPassword) {
       res["SecurityAccountPassword"] = boost::any(*securityAccountPassword);
     }
+    if (storagePoolName) {
+      res["StoragePoolName"] = boost::any(*storagePoolName);
+    }
     return res;
   }
 
@@ -1402,6 +1406,9 @@ public:
     }
     if (m.find("SecurityAccountPassword") != m.end() && !m["SecurityAccountPassword"].empty()) {
       securityAccountPassword = make_shared<string>(boost::any_cast<string>(m["SecurityAccountPassword"]));
+    }
+    if (m.find("StoragePoolName") != m.end() && !m["StoragePoolName"].empty()) {
+      storagePoolName = make_shared<string>(boost::any_cast<string>(m["StoragePoolName"]));
     }
   }
 
@@ -1524,6 +1531,7 @@ public:
   shared_ptr<string> DNNodeCount{};
   shared_ptr<string> dnClass{};
   shared_ptr<string> engineVersion{};
+  shared_ptr<bool> isColumnarReadDBInstance{};
   shared_ptr<bool> isReadDBInstance{};
   shared_ptr<string> networkType{};
   shared_ptr<string> payType{};
@@ -1576,6 +1584,9 @@ public:
     }
     if (engineVersion) {
       res["EngineVersion"] = boost::any(*engineVersion);
+    }
+    if (isColumnarReadDBInstance) {
+      res["IsColumnarReadDBInstance"] = boost::any(*isColumnarReadDBInstance);
     }
     if (isReadDBInstance) {
       res["IsReadDBInstance"] = boost::any(*isReadDBInstance);
@@ -1652,6 +1663,9 @@ public:
     }
     if (m.find("EngineVersion") != m.end() && !m["EngineVersion"].empty()) {
       engineVersion = make_shared<string>(boost::any_cast<string>(m["EngineVersion"]));
+    }
+    if (m.find("IsColumnarReadDBInstance") != m.end() && !m["IsColumnarReadDBInstance"].empty()) {
+      isColumnarReadDBInstance = make_shared<bool>(boost::any_cast<bool>(m["IsColumnarReadDBInstance"]));
     }
     if (m.find("IsReadDBInstance") != m.end() && !m["IsReadDBInstance"].empty()) {
       isReadDBInstance = make_shared<bool>(boost::any_cast<bool>(m["IsReadDBInstance"]));
@@ -13462,6 +13476,10 @@ public:
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> dnClass{};
   shared_ptr<string> regionId{};
+  shared_ptr<bool> specifiedDNScale{};
+  shared_ptr<string> specifiedDNSpecMapJson{};
+  shared_ptr<string> switchTime{};
+  shared_ptr<string> switchTimeMode{};
   shared_ptr<string> targetDBInstanceClass{};
 
   ModifyDBInstanceClassRequest() {}
@@ -13489,6 +13507,18 @@ public:
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
     }
+    if (specifiedDNScale) {
+      res["SpecifiedDNScale"] = boost::any(*specifiedDNScale);
+    }
+    if (specifiedDNSpecMapJson) {
+      res["SpecifiedDNSpecMapJson"] = boost::any(*specifiedDNSpecMapJson);
+    }
+    if (switchTime) {
+      res["SwitchTime"] = boost::any(*switchTime);
+    }
+    if (switchTimeMode) {
+      res["SwitchTimeMode"] = boost::any(*switchTimeMode);
+    }
     if (targetDBInstanceClass) {
       res["TargetDBInstanceClass"] = boost::any(*targetDBInstanceClass);
     }
@@ -13510,6 +13540,18 @@ public:
     }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("SpecifiedDNScale") != m.end() && !m["SpecifiedDNScale"].empty()) {
+      specifiedDNScale = make_shared<bool>(boost::any_cast<bool>(m["SpecifiedDNScale"]));
+    }
+    if (m.find("SpecifiedDNSpecMapJson") != m.end() && !m["SpecifiedDNSpecMapJson"].empty()) {
+      specifiedDNSpecMapJson = make_shared<string>(boost::any_cast<string>(m["SpecifiedDNSpecMapJson"]));
+    }
+    if (m.find("SwitchTime") != m.end() && !m["SwitchTime"].empty()) {
+      switchTime = make_shared<string>(boost::any_cast<string>(m["SwitchTime"]));
+    }
+    if (m.find("SwitchTimeMode") != m.end() && !m["SwitchTimeMode"].empty()) {
+      switchTimeMode = make_shared<string>(boost::any_cast<string>(m["SwitchTimeMode"]));
     }
     if (m.find("TargetDBInstanceClass") != m.end() && !m["TargetDBInstanceClass"].empty()) {
       targetDBInstanceClass = make_shared<string>(boost::any_cast<string>(m["TargetDBInstanceClass"]));
@@ -16508,12 +16550,15 @@ public:
 };
 class UpdatePolarDBXInstanceNodeRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> addDNSpec{};
   shared_ptr<string> CNNodeCount{};
   shared_ptr<string> clientToken{};
   shared_ptr<string> DBInstanceName{};
   shared_ptr<string> DNNodeCount{};
   shared_ptr<string> dbInstanceNodeCount{};
+  shared_ptr<string> deleteDNIds{};
   shared_ptr<string> regionId{};
+  shared_ptr<string> storagePoolName{};
 
   UpdatePolarDBXInstanceNodeRequest() {}
 
@@ -16525,6 +16570,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (addDNSpec) {
+      res["AddDNSpec"] = boost::any(*addDNSpec);
+    }
     if (CNNodeCount) {
       res["CNNodeCount"] = boost::any(*CNNodeCount);
     }
@@ -16540,13 +16588,22 @@ public:
     if (dbInstanceNodeCount) {
       res["DbInstanceNodeCount"] = boost::any(*dbInstanceNodeCount);
     }
+    if (deleteDNIds) {
+      res["DeleteDNIds"] = boost::any(*deleteDNIds);
+    }
     if (regionId) {
       res["RegionId"] = boost::any(*regionId);
+    }
+    if (storagePoolName) {
+      res["StoragePoolName"] = boost::any(*storagePoolName);
     }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AddDNSpec") != m.end() && !m["AddDNSpec"].empty()) {
+      addDNSpec = make_shared<string>(boost::any_cast<string>(m["AddDNSpec"]));
+    }
     if (m.find("CNNodeCount") != m.end() && !m["CNNodeCount"].empty()) {
       CNNodeCount = make_shared<string>(boost::any_cast<string>(m["CNNodeCount"]));
     }
@@ -16562,8 +16619,14 @@ public:
     if (m.find("DbInstanceNodeCount") != m.end() && !m["DbInstanceNodeCount"].empty()) {
       dbInstanceNodeCount = make_shared<string>(boost::any_cast<string>(m["DbInstanceNodeCount"]));
     }
+    if (m.find("DeleteDNIds") != m.end() && !m["DeleteDNIds"].empty()) {
+      deleteDNIds = make_shared<string>(boost::any_cast<string>(m["DeleteDNIds"]));
+    }
     if (m.find("RegionId") != m.end() && !m["RegionId"].empty()) {
       regionId = make_shared<string>(boost::any_cast<string>(m["RegionId"]));
+    }
+    if (m.find("StoragePoolName") != m.end() && !m["StoragePoolName"].empty()) {
+      storagePoolName = make_shared<string>(boost::any_cast<string>(m["StoragePoolName"]));
     }
   }
 

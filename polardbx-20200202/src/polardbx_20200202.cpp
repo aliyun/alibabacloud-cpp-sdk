@@ -421,6 +421,9 @@ CreateDBResponse Alibabacloud_Polardbx20200202::Client::createDBWithOptions(shar
   if (!Darabonba_Util::Client::isUnset<string>(request->securityAccountPassword)) {
     query->insert(pair<string, string>("SecurityAccountPassword", *request->securityAccountPassword));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storagePoolName)) {
+    query->insert(pair<string, string>("StoragePoolName", *request->storagePoolName));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));
@@ -472,6 +475,9 @@ CreateDBInstanceResponse Alibabacloud_Polardbx20200202::Client::createDBInstance
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->engineVersion)) {
     query->insert(pair<string, string>("EngineVersion", *request->engineVersion));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->isColumnarReadDBInstance)) {
+    query->insert(pair<string, bool>("IsColumnarReadDBInstance", *request->isColumnarReadDBInstance));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->isReadDBInstance)) {
     query->insert(pair<string, bool>("IsReadDBInstance", *request->isReadDBInstance));
@@ -2030,6 +2036,18 @@ ModifyDBInstanceClassResponse Alibabacloud_Polardbx20200202::Client::modifyDBIns
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->specifiedDNScale)) {
+    query->insert(pair<string, bool>("SpecifiedDNScale", *request->specifiedDNScale));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->specifiedDNSpecMapJson)) {
+    query->insert(pair<string, string>("SpecifiedDNSpecMapJson", *request->specifiedDNSpecMapJson));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->switchTime)) {
+    query->insert(pair<string, string>("SwitchTime", *request->switchTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->switchTimeMode)) {
+    query->insert(pair<string, string>("SwitchTimeMode", *request->switchTimeMode));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->targetDBInstanceClass)) {
     query->insert(pair<string, string>("TargetDBInstanceClass", *request->targetDBInstanceClass));
   }
@@ -2719,6 +2737,9 @@ UpdateDBInstanceTDEResponse Alibabacloud_Polardbx20200202::Client::updateDBInsta
 UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::updatePolarDBXInstanceNodeWithOptions(shared_ptr<UpdatePolarDBXInstanceNodeRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->addDNSpec)) {
+    query->insert(pair<string, string>("AddDNSpec", *request->addDNSpec));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->CNNodeCount)) {
     query->insert(pair<string, string>("CNNodeCount", *request->CNNodeCount));
   }
@@ -2734,8 +2755,14 @@ UpdatePolarDBXInstanceNodeResponse Alibabacloud_Polardbx20200202::Client::update
   if (!Darabonba_Util::Client::isUnset<string>(request->dbInstanceNodeCount)) {
     query->insert(pair<string, string>("DbInstanceNodeCount", *request->dbInstanceNodeCount));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->deleteDNIds)) {
+    query->insert(pair<string, string>("DeleteDNIds", *request->deleteDNIds));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storagePoolName)) {
+    query->insert(pair<string, string>("StoragePoolName", *request->storagePoolName));
   }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
