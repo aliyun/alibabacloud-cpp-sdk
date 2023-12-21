@@ -6131,12 +6131,42 @@ public:
 
   virtual ~CreateDeliveryPlanShrinkHeaders() = default;
 };
+class CreateDeliveryPlanRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  CreateDeliveryPlanRequestTenantContext() {}
+
+  explicit CreateDeliveryPlanRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~CreateDeliveryPlanRequestTenantContext() = default;
+};
 class CreateDeliveryPlanRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> content{};
   shared_ptr<long> endTime{};
   shared_ptr<string> resId{};
   shared_ptr<long> startTime{};
+  shared_ptr<CreateDeliveryPlanRequestTenantContext> tenantContext{};
   shared_ptr<vector<string>> userIdList{};
 
   CreateDeliveryPlanRequest() {}
@@ -6160,6 +6190,9 @@ public:
     }
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
+    }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (userIdList) {
       res["UserIdList"] = boost::any(*userIdList);
@@ -6185,6 +6218,13 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        CreateDeliveryPlanRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<CreateDeliveryPlanRequestTenantContext>(model1);
+      }
+    }
     if (m.find("UserIdList") != m.end() && !m["UserIdList"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["UserIdList"].type()) {
@@ -6206,6 +6246,7 @@ public:
   shared_ptr<long> endTime{};
   shared_ptr<string> resId{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> tenantContextShrink{};
   shared_ptr<string> userIdListShrink{};
 
   CreateDeliveryPlanShrinkRequest() {}
@@ -6230,6 +6271,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
     if (userIdListShrink) {
       res["UserIdList"] = boost::any(*userIdListShrink);
     }
@@ -6248,6 +6292,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
     }
     if (m.find("UserIdList") != m.end() && !m["UserIdList"].empty()) {
       userIdListShrink = make_shared<string>(boost::any_cast<string>(m["UserIdList"]));
@@ -57037,11 +57084,41 @@ public:
 
   virtual ~SendBannerShrinkHeaders() = default;
 };
+class SendBannerRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  SendBannerRequestTenantContext() {}
+
+  explicit SendBannerRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~SendBannerRequestTenantContext() = default;
+};
 class SendBannerRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> content{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<SendBannerRequestTenantContext> tenantContext{};
 
   SendBannerRequest() {}
 
@@ -57062,6 +57139,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -57080,6 +57160,13 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        SendBannerRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<SendBannerRequestTenantContext>(model1);
+      }
+    }
   }
 
 
@@ -57090,6 +57177,7 @@ public:
   shared_ptr<string> contentShrink{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> tenantContextShrink{};
 
   SendBannerShrinkRequest() {}
 
@@ -57110,6 +57198,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
     return res;
   }
 
@@ -57122,6 +57213,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
     }
   }
 
@@ -57369,11 +57463,41 @@ public:
 
   virtual ~SendPopupShrinkHeaders() = default;
 };
+class SendPopupRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  SendPopupRequestTenantContext() {}
+
+  explicit SendPopupRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~SendPopupRequestTenantContext() = default;
+};
 class SendPopupRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> content{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<SendPopupRequestTenantContext> tenantContext{};
 
   SendPopupRequest() {}
 
@@ -57394,6 +57518,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -57412,6 +57539,13 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        SendPopupRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<SendPopupRequestTenantContext>(model1);
+      }
+    }
   }
 
 
@@ -57422,6 +57556,7 @@ public:
   shared_ptr<string> contentShrink{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> tenantContextShrink{};
 
   SendPopupShrinkRequest() {}
 
@@ -57442,6 +57577,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
     return res;
   }
 
@@ -57454,6 +57592,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
     }
   }
 
@@ -57701,11 +57842,41 @@ public:
 
   virtual ~SendSearchShadeShrinkHeaders() = default;
 };
+class SendSearchShadeRequestTenantContext : public Darabonba::Model {
+public:
+  shared_ptr<string> tenantId{};
+
+  SendSearchShadeRequestTenantContext() {}
+
+  explicit SendSearchShadeRequestTenantContext(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (tenantId) {
+      res["tenantId"] = boost::any(*tenantId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("tenantId") != m.end() && !m["tenantId"].empty()) {
+      tenantId = make_shared<string>(boost::any_cast<string>(m["tenantId"]));
+    }
+  }
+
+
+  virtual ~SendSearchShadeRequestTenantContext() = default;
+};
 class SendSearchShadeRequest : public Darabonba::Model {
 public:
   shared_ptr<map<string, boost::any>> content{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<SendSearchShadeRequestTenantContext> tenantContext{};
 
   SendSearchShadeRequest() {}
 
@@ -57726,6 +57897,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContext) {
+      res["TenantContext"] = tenantContext ? boost::any(tenantContext->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -57744,6 +57918,13 @@ public:
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
     }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      if (typeid(map<string, boost::any>) == m["TenantContext"].type()) {
+        SendSearchShadeRequestTenantContext model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["TenantContext"]));
+        tenantContext = make_shared<SendSearchShadeRequestTenantContext>(model1);
+      }
+    }
   }
 
 
@@ -57754,6 +57935,7 @@ public:
   shared_ptr<string> contentShrink{};
   shared_ptr<long> endTime{};
   shared_ptr<long> startTime{};
+  shared_ptr<string> tenantContextShrink{};
 
   SendSearchShadeShrinkRequest() {}
 
@@ -57774,6 +57956,9 @@ public:
     if (startTime) {
       res["StartTime"] = boost::any(*startTime);
     }
+    if (tenantContextShrink) {
+      res["TenantContext"] = boost::any(*tenantContextShrink);
+    }
     return res;
   }
 
@@ -57786,6 +57971,9 @@ public:
     }
     if (m.find("StartTime") != m.end() && !m["StartTime"].empty()) {
       startTime = make_shared<long>(boost::any_cast<long>(m["StartTime"]));
+    }
+    if (m.find("TenantContext") != m.end() && !m["TenantContext"].empty()) {
+      tenantContextShrink = make_shared<string>(boost::any_cast<string>(m["TenantContext"]));
     }
   }
 

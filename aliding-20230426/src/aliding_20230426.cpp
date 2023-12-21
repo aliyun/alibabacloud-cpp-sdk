@@ -921,6 +921,9 @@ CreateDeliveryPlanResponse Alibabacloud_Aliding20230426::Client::createDeliveryP
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->content)) {
     request->contentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->content, make_shared<string>("Content"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateDeliveryPlanRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(tmpReq->userIdList)) {
     request->userIdListShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->userIdList, make_shared<string>("UserIdList"), make_shared<string>("json")));
   }
@@ -936,6 +939,9 @@ CreateDeliveryPlanResponse Alibabacloud_Aliding20230426::Client::createDeliveryP
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->userIdListShrink)) {
     body->insert(pair<string, string>("UserIdList", *request->userIdListShrink));
@@ -7051,6 +7057,9 @@ SendBannerResponse Alibabacloud_Aliding20230426::Client::sendBannerWithOptions(s
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->content)) {
     request->contentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->content, make_shared<string>("Content"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SendBannerRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->contentShrink)) {
     body->insert(pair<string, string>("Content", *request->contentShrink));
@@ -7060,6 +7069,9 @@ SendBannerResponse Alibabacloud_Aliding20230426::Client::sendBannerWithOptions(s
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -7104,6 +7116,9 @@ SendPopupResponse Alibabacloud_Aliding20230426::Client::sendPopupWithOptions(sha
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->content)) {
     request->contentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->content, make_shared<string>("Content"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SendPopupRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->contentShrink)) {
     body->insert(pair<string, string>("Content", *request->contentShrink));
@@ -7113,6 +7128,9 @@ SendPopupResponse Alibabacloud_Aliding20230426::Client::sendPopupWithOptions(sha
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -7157,6 +7175,9 @@ SendSearchShadeResponse Alibabacloud_Aliding20230426::Client::sendSearchShadeWit
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(tmpReq->content)) {
     request->contentShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->content, make_shared<string>("Content"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<SendSearchShadeRequestTenantContext>(tmpReq->tenantContext)) {
+    request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->contentShrink)) {
     body->insert(pair<string, string>("Content", *request->contentShrink));
@@ -7166,6 +7187,9 @@ SendSearchShadeResponse Alibabacloud_Aliding20230426::Client::sendSearchShadeWit
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->startTime)) {
     body->insert(pair<string, long>("StartTime", *request->startTime));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->tenantContextShrink)) {
+    body->insert(pair<string, string>("TenantContext", *request->tenantContextShrink));
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
