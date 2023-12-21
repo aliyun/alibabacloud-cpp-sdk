@@ -1,0 +1,4 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/alibabacloud_xr_engine_20230313Targets.cmake")
+check_required_components("alibabacloud_xr_engine_20230313")
