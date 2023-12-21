@@ -772,6 +772,9 @@ EnableControlPolicyResponse Alibabacloud_ResourceDirectoryMaster20220419::Client
 EnableResourceDirectoryResponse Alibabacloud_ResourceDirectoryMaster20220419::Client::enableResourceDirectoryWithOptions(shared_ptr<EnableResourceDirectoryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dryRun)) {
+    query->insert(pair<string, bool>("DryRun", *request->dryRun));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->enableMode)) {
     query->insert(pair<string, string>("EnableMode", *request->enableMode));
   }

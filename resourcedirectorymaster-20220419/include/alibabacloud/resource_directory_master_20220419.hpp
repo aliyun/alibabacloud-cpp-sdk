@@ -3884,6 +3884,7 @@ public:
 };
 class EnableResourceDirectoryRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> dryRun{};
   shared_ptr<string> enableMode{};
   shared_ptr<string> MAName{};
   shared_ptr<string> MASecureMobilePhone{};
@@ -3899,6 +3900,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (dryRun) {
+      res["DryRun"] = boost::any(*dryRun);
+    }
     if (enableMode) {
       res["EnableMode"] = boost::any(*enableMode);
     }
@@ -3915,6 +3919,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("DryRun") != m.end() && !m["DryRun"].empty()) {
+      dryRun = make_shared<bool>(boost::any_cast<bool>(m["DryRun"]));
+    }
     if (m.find("EnableMode") != m.end() && !m["EnableMode"].empty()) {
       enableMode = make_shared<string>(boost::any_cast<string>(m["EnableMode"]));
     }
