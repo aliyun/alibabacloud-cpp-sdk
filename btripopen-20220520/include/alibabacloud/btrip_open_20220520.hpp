@@ -97066,6 +97066,7 @@ public:
   shared_ptr<string> outTicketStatus{};
   shared_ptr<long> segmentIndex{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> ticketEntrance{};
   shared_ptr<string> ticketNo{};
   shared_ptr<long> ticketStatus{};
   shared_ptr<string> toCityName{};
@@ -97139,6 +97140,9 @@ public:
     }
     if (startTime) {
       res["start_time"] = boost::any(*startTime);
+    }
+    if (ticketEntrance) {
+      res["ticket_entrance"] = boost::any(*ticketEntrance);
     }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
@@ -97218,6 +97222,9 @@ public:
     }
     if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["start_time"]));
+    }
+    if (m.find("ticket_entrance") != m.end() && !m["ticket_entrance"].empty()) {
+      ticketEntrance = make_shared<string>(boost::any_cast<string>(m["ticket_entrance"]));
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
@@ -97697,6 +97704,7 @@ public:
   shared_ptr<long> segmentIndex{};
   shared_ptr<double> serviceFee{};
   shared_ptr<string> startTime{};
+  shared_ptr<string> ticketEntrance{};
   shared_ptr<string> ticketNo{};
   shared_ptr<double> ticketPrice{};
   shared_ptr<long> ticketStatus{};
@@ -97755,6 +97763,9 @@ public:
     }
     if (startTime) {
       res["start_time"] = boost::any(*startTime);
+    }
+    if (ticketEntrance) {
+      res["ticket_entrance"] = boost::any(*ticketEntrance);
     }
     if (ticketNo) {
       res["ticket_no"] = boost::any(*ticketNo);
@@ -97819,6 +97830,9 @@ public:
     }
     if (m.find("start_time") != m.end() && !m["start_time"].empty()) {
       startTime = make_shared<string>(boost::any_cast<string>(m["start_time"]));
+    }
+    if (m.find("ticket_entrance") != m.end() && !m["ticket_entrance"].empty()) {
+      ticketEntrance = make_shared<string>(boost::any_cast<string>(m["ticket_entrance"]));
     }
     if (m.find("ticket_no") != m.end() && !m["ticket_no"].empty()) {
       ticketNo = make_shared<string>(boost::any_cast<string>(m["ticket_no"]));
