@@ -1669,9 +1669,9 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
   if (!Darabonba_Util::Client::isUnset<string>(request->qualifier)) {
     query->insert(pair<string, string>("qualifier", *request->qualifier));
   }
-  shared_ptr<string> body = make_shared<string>("");
+  shared_ptr<vector<uint8_t>> body;
   if (!Darabonba_Util::Client::isUnset<vector<uint8_t>>(request->body)) {
-    body = make_shared<string>(Darabonba_Util::Client::toString(request->body));
+    body = request->body;
   }
   shared_ptr<map<string, string>> realHeaders = make_shared<map<string, string>>(map<string, string>());
   if (!Darabonba_Util::Client::isUnset<map<string, string>>(headers->commonHeaders)) {
@@ -1711,7 +1711,7 @@ InvokeFunctionResponse Alibabacloud_FC-Open20210406::Client::invokeFunctionWithO
     {"method", boost::any(string("POST"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
-    {"reqBodyType", boost::any(string("json"))},
+    {"reqBodyType", boost::any(string("byte"))},
     {"bodyType", boost::any(string("byte"))}
   }));
   return InvokeFunctionResponse(callApi(params, req, runtime));
