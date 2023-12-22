@@ -1340,6 +1340,7 @@ public:
   shared_ptr<string> accountStatus{};
   shared_ptr<string> alarmThreshold{};
   shared_ptr<string> availableCredit{};
+  shared_ptr<string> consumedUndeductedValue{};
   shared_ptr<string> creditLine{};
   shared_ptr<string> outstandingBalance{};
   shared_ptr<string> zeroCreditShutdownPolicy{};
@@ -1363,6 +1364,9 @@ public:
     }
     if (availableCredit) {
       res["AvailableCredit"] = boost::any(*availableCredit);
+    }
+    if (consumedUndeductedValue) {
+      res["ConsumedUndeductedValue"] = boost::any(*consumedUndeductedValue);
     }
     if (creditLine) {
       res["CreditLine"] = boost::any(*creditLine);
@@ -1388,6 +1392,9 @@ public:
     }
     if (m.find("AvailableCredit") != m.end() && !m["AvailableCredit"].empty()) {
       availableCredit = make_shared<string>(boost::any_cast<string>(m["AvailableCredit"]));
+    }
+    if (m.find("ConsumedUndeductedValue") != m.end() && !m["ConsumedUndeductedValue"].empty()) {
+      consumedUndeductedValue = make_shared<string>(boost::any_cast<string>(m["ConsumedUndeductedValue"]));
     }
     if (m.find("CreditLine") != m.end() && !m["CreditLine"].empty()) {
       creditLine = make_shared<string>(boost::any_cast<string>(m["CreditLine"]));
