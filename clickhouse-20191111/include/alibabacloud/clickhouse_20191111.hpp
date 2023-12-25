@@ -10874,6 +10874,8 @@ public:
   shared_ptr<string> dbClusterId{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
 
@@ -10896,6 +10898,12 @@ public:
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
     }
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (resourceOwnerAccount) {
       res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
     }
@@ -10914,6 +10922,12 @@ public:
     }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
     }
     if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
       resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
@@ -10992,8 +11006,11 @@ public:
 };
 class DescribeSynDbsResponseBody : public Darabonba::Model {
 public:
+  shared_ptr<long> pageNumber{};
+  shared_ptr<long> pageSize{};
   shared_ptr<string> requestId{};
   shared_ptr<vector<DescribeSynDbsResponseBodySynDbs>> synDbs{};
+  shared_ptr<long> totalCount{};
 
   DescribeSynDbsResponseBody() {}
 
@@ -11005,6 +11022,12 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (pageNumber) {
+      res["PageNumber"] = boost::any(*pageNumber);
+    }
+    if (pageSize) {
+      res["PageSize"] = boost::any(*pageSize);
+    }
     if (requestId) {
       res["RequestId"] = boost::any(*requestId);
     }
@@ -11015,10 +11038,19 @@ public:
       }
       res["SynDbs"] = boost::any(temp1);
     }
+    if (totalCount) {
+      res["TotalCount"] = boost::any(*totalCount);
+    }
     return res;
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("PageNumber") != m.end() && !m["PageNumber"].empty()) {
+      pageNumber = make_shared<long>(boost::any_cast<long>(m["PageNumber"]));
+    }
+    if (m.find("PageSize") != m.end() && !m["PageSize"].empty()) {
+      pageSize = make_shared<long>(boost::any_cast<long>(m["PageSize"]));
+    }
     if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
     }
@@ -11034,6 +11066,9 @@ public:
         }
         synDbs = make_shared<vector<DescribeSynDbsResponseBodySynDbs>>(expect1);
       }
+    }
+    if (m.find("TotalCount") != m.end() && !m["TotalCount"].empty()) {
+      totalCount = make_shared<long>(boost::any_cast<long>(m["TotalCount"]));
     }
   }
 
