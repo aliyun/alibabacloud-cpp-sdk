@@ -180,6 +180,9 @@ AttachDBInstancesResponse Alibabacloud_Ess20220222::Client::attachDBInstances(sh
 AttachInstancesResponse Alibabacloud_Ess20220222::Client::attachInstancesWithOptions(shared_ptr<AttachInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->entrusted)) {
     query->insert(pair<string, bool>("Entrusted", *request->entrusted));
   }
@@ -580,6 +583,18 @@ CreateEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createEc
   if (!Darabonba_Util::Client::isUnset<long>(request->cpuOptionsThreadsPerCore)) {
     query->insert(pair<string, long>("CpuOptionsThreadsPerCore", *request->cpuOptionsThreadsPerCore));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataCacheBucket)) {
+    query->insert(pair<string, string>("DataCacheBucket", *request->dataCacheBucket));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dataCacheBurstingEnabled)) {
+    query->insert(pair<string, bool>("DataCacheBurstingEnabled", *request->dataCacheBurstingEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataCachePL)) {
+    query->insert(pair<string, string>("DataCachePL", *request->dataCachePL));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataCacheProvisionedIops)) {
+    query->insert(pair<string, long>("DataCacheProvisionedIops", *request->dataCacheProvisionedIops));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -627,6 +642,9 @@ CreateEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createEc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceFamilyLevel)) {
     query->insert(pair<string, string>("InstanceFamilyLevel", *request->instanceFamilyLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypes)) {
+    query->insert(pair<string, vector<string>>("InstanceTypes", *request->instanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ipv6AddressCount)) {
     query->insert(pair<string, long>("Ipv6AddressCount", *request->ipv6AddressCount));
@@ -941,6 +959,12 @@ CreateScalingConfigurationResponse Alibabacloud_Ess20220222::Client::createScali
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->spotStrategy)) {
     query->insert(pair<string, string>("SpotStrategy", *request->spotStrategy));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageSetId)) {
+    query->insert(pair<string, string>("StorageSetId", *request->storageSetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->storageSetPartitionNumber)) {
+    query->insert(pair<string, long>("StorageSetPartitionNumber", *request->storageSetPartitionNumber));
   }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->systemDiskCategories)) {
     query->insert(pair<string, vector<string>>("SystemDiskCategories", *request->systemDiskCategories));
@@ -2251,6 +2275,9 @@ DescribeScalingInstancesResponse Alibabacloud_Ess20220222::Client::describeScali
   if (!Darabonba_Util::Client::isUnset<string>(request->lifecycleState)) {
     query->insert(pair<string, string>("LifecycleState", *request->lifecycleState));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->lifecycleStates)) {
+    query->insert(pair<string, vector<string>>("LifecycleStates", *request->lifecycleStates));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -2520,6 +2547,9 @@ DetachDBInstancesResponse Alibabacloud_Ess20220222::Client::detachDBInstances(sh
 DetachInstancesResponse Alibabacloud_Ess20220222::Client::detachInstancesWithOptions(shared_ptr<DetachInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->decreaseDesiredCapacity)) {
     query->insert(pair<string, bool>("DecreaseDesiredCapacity", *request->decreaseDesiredCapacity));
   }
@@ -3279,6 +3309,18 @@ ModifyEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyEc
   if (!Darabonba_Util::Client::isUnset<long>(request->cpuOptionsThreadsPerCore)) {
     query->insert(pair<string, long>("CpuOptionsThreadsPerCore", *request->cpuOptionsThreadsPerCore));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataCacheBucket)) {
+    query->insert(pair<string, string>("DataCacheBucket", *request->dataCacheBucket));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->dataCacheBurstingEnabled)) {
+    query->insert(pair<string, bool>("DataCacheBurstingEnabled", *request->dataCacheBurstingEnabled));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->dataCachePL)) {
+    query->insert(pair<string, string>("DataCachePL", *request->dataCachePL));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->dataCacheProvisionedIops)) {
+    query->insert(pair<string, long>("DataCacheProvisionedIops", *request->dataCacheProvisionedIops));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->description)) {
     query->insert(pair<string, string>("Description", *request->description));
   }
@@ -3326,6 +3368,9 @@ ModifyEciScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyEc
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceFamilyLevel)) {
     query->insert(pair<string, string>("InstanceFamilyLevel", *request->instanceFamilyLevel));
+  }
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->instanceTypes)) {
+    query->insert(pair<string, vector<string>>("InstanceTypes", *request->instanceTypes));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ipv6AddressCount)) {
     query->insert(pair<string, long>("Ipv6AddressCount", *request->ipv6AddressCount));
@@ -3638,6 +3683,12 @@ ModifyScalingConfigurationResponse Alibabacloud_Ess20220222::Client::modifyScali
   if (!Darabonba_Util::Client::isUnset<string>(request->spotStrategy)) {
     query->insert(pair<string, string>("SpotStrategy", *request->spotStrategy));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->storageSetId)) {
+    query->insert(pair<string, string>("StorageSetId", *request->storageSetId));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->storageSetPartitionNumber)) {
+    query->insert(pair<string, long>("StorageSetPartitionNumber", *request->storageSetPartitionNumber));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<string>>(request->systemDiskCategories)) {
     query->insert(pair<string, vector<string>>("SystemDiskCategories", *request->systemDiskCategories));
   }
@@ -3707,6 +3758,9 @@ ModifyScalingGroupResponse Alibabacloud_Ess20220222::Client::modifyScalingGroupW
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->desiredCapacity)) {
     query->insert(pair<string, long>("DesiredCapacity", *request->desiredCapacity));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disableDesiredCapacity)) {
+    query->insert(pair<string, bool>("DisableDesiredCapacity", *request->disableDesiredCapacity));
   }
   if (!Darabonba_Util::Client::isUnset<bool>(request->groupDeletionProtection)) {
     query->insert(pair<string, bool>("GroupDeletionProtection", *request->groupDeletionProtection));
@@ -4061,6 +4115,9 @@ RecordLifecycleActionHeartbeatResponse Alibabacloud_Ess20220222::Client::recordL
 RemoveInstancesResponse Alibabacloud_Ess20220222::Client::removeInstancesWithOptions(shared_ptr<RemoveInstancesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->clientToken)) {
+    query->insert(pair<string, string>("ClientToken", *request->clientToken));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->decreaseDesiredCapacity)) {
     query->insert(pair<string, bool>("DecreaseDesiredCapacity", *request->decreaseDesiredCapacity));
   }
@@ -4153,8 +4210,13 @@ ResumeProcessesResponse Alibabacloud_Ess20220222::Client::resumeProcesses(shared
   return resumeProcessesWithOptions(request, runtime);
 }
 
-ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmentWithOptions(shared_ptr<ScaleWithAdjustmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
-  Darabonba_Util::Client::validateModel(request);
+ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmentWithOptions(shared_ptr<ScaleWithAdjustmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(tmpReq);
+  shared_ptr<ScaleWithAdjustmentShrinkRequest> request = make_shared<ScaleWithAdjustmentShrinkRequest>();
+  Alibabacloud_OpenApiUtil::Client::convert(tmpReq, request);
+  if (!Darabonba_Util::Client::isUnset<ScaleWithAdjustmentRequestOverrides>(tmpReq->overrides)) {
+    request->overridesShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->overrides, make_shared<string>("Overrides"), make_shared<string>("json")));
+  }
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->adjustmentType)) {
     query->insert(pair<string, string>("AdjustmentType", *request->adjustmentType));
@@ -4167,6 +4229,9 @@ ScaleWithAdjustmentResponse Alibabacloud_Ess20220222::Client::scaleWithAdjustmen
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->minAdjustmentMagnitude)) {
     query->insert(pair<string, long>("MinAdjustmentMagnitude", *request->minAdjustmentMagnitude));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->overridesShrink)) {
+    query->insert(pair<string, string>("Overrides", *request->overridesShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->ownerId)) {
     query->insert(pair<string, long>("OwnerId", *request->ownerId));

@@ -412,6 +412,7 @@ public:
 };
 class AttachInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> entrusted{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<bool> lifecycleHook{};
@@ -433,6 +434,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (entrusted) {
       res["Entrusted"] = boost::any(*entrusted);
     }
@@ -467,6 +471,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("Entrusted") != m.end() && !m["Entrusted"].empty()) {
       entrusted = make_shared<bool>(boost::any_cast<bool>(m["Entrusted"]));
     }
@@ -3903,6 +3910,10 @@ public:
   shared_ptr<double> cpu{};
   shared_ptr<long> cpuOptionsCore{};
   shared_ptr<long> cpuOptionsThreadsPerCore{};
+  shared_ptr<string> dataCacheBucket{};
+  shared_ptr<bool> dataCacheBurstingEnabled{};
+  shared_ptr<string> dataCachePL{};
+  shared_ptr<long> dataCacheProvisionedIops{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> dnsConfigNameServers{};
   shared_ptr<vector<CreateEciScalingConfigurationRequestDnsConfigOptions>> dnsConfigOptions{};
@@ -3919,6 +3930,7 @@ public:
   shared_ptr<long> ingressBandwidth{};
   shared_ptr<vector<CreateEciScalingConfigurationRequestInitContainers>> initContainers{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<long> ipv6AddressCount{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<double> memory{};
@@ -3986,6 +3998,18 @@ public:
     if (cpuOptionsThreadsPerCore) {
       res["CpuOptionsThreadsPerCore"] = boost::any(*cpuOptionsThreadsPerCore);
     }
+    if (dataCacheBucket) {
+      res["DataCacheBucket"] = boost::any(*dataCacheBucket);
+    }
+    if (dataCacheBurstingEnabled) {
+      res["DataCacheBurstingEnabled"] = boost::any(*dataCacheBurstingEnabled);
+    }
+    if (dataCachePL) {
+      res["DataCachePL"] = boost::any(*dataCachePL);
+    }
+    if (dataCacheProvisionedIops) {
+      res["DataCacheProvisionedIops"] = boost::any(*dataCacheProvisionedIops);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -4049,6 +4073,9 @@ public:
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
     }
     if (ipv6AddressCount) {
       res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
@@ -4170,6 +4197,18 @@ public:
     if (m.find("CpuOptionsThreadsPerCore") != m.end() && !m["CpuOptionsThreadsPerCore"].empty()) {
       cpuOptionsThreadsPerCore = make_shared<long>(boost::any_cast<long>(m["CpuOptionsThreadsPerCore"]));
     }
+    if (m.find("DataCacheBucket") != m.end() && !m["DataCacheBucket"].empty()) {
+      dataCacheBucket = make_shared<string>(boost::any_cast<string>(m["DataCacheBucket"]));
+    }
+    if (m.find("DataCacheBurstingEnabled") != m.end() && !m["DataCacheBurstingEnabled"].empty()) {
+      dataCacheBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["DataCacheBurstingEnabled"]));
+    }
+    if (m.find("DataCachePL") != m.end() && !m["DataCachePL"].empty()) {
+      dataCachePL = make_shared<string>(boost::any_cast<string>(m["DataCachePL"]));
+    }
+    if (m.find("DataCacheProvisionedIops") != m.end() && !m["DataCacheProvisionedIops"].empty()) {
+      dataCacheProvisionedIops = make_shared<long>(boost::any_cast<long>(m["DataCacheProvisionedIops"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -4271,6 +4310,16 @@ public:
     }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
       ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
@@ -5315,6 +5364,8 @@ public:
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<CreateScalingConfigurationRequestSpotPriceLimits>> spotPriceLimits{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
   shared_ptr<vector<string>> systemDiskCategories{};
   shared_ptr<string> tags{};
   shared_ptr<string> tenancy{};
@@ -5487,6 +5538,12 @@ public:
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
     }
     if (systemDiskCategories) {
       res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
@@ -5718,6 +5775,12 @@ public:
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
     }
     if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
       vector<string> toVec1;
@@ -6243,6 +6306,8 @@ public:
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<CreateScalingConfigurationShrinkRequestSpotPriceLimits>> spotPriceLimits{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
   shared_ptr<vector<string>> systemDiskCategories{};
   shared_ptr<string> tags{};
   shared_ptr<string> tenancy{};
@@ -6415,6 +6480,12 @@ public:
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
     }
     if (systemDiskCategories) {
       res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
@@ -6641,6 +6712,12 @@ public:
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
     }
     if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
       vector<string> toVec1;
@@ -7006,6 +7083,7 @@ public:
 class CreateScalingGroupRequestTags : public Darabonba::Model {
 public:
   shared_ptr<string> key{};
+  shared_ptr<bool> propagate{};
   shared_ptr<string> value{};
 
   CreateScalingGroupRequestTags() {}
@@ -7021,6 +7099,9 @@ public:
     if (key) {
       res["Key"] = boost::any(*key);
     }
+    if (propagate) {
+      res["Propagate"] = boost::any(*propagate);
+    }
     if (value) {
       res["Value"] = boost::any(*value);
     }
@@ -7030,6 +7111,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Key") != m.end() && !m["Key"].empty()) {
       key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Propagate") != m.end() && !m["Propagate"].empty()) {
+      propagate = make_shared<bool>(boost::any_cast<bool>(m["Propagate"]));
     }
     if (m.find("Value") != m.end() && !m["Value"].empty()) {
       value = make_shared<string>(boost::any_cast<string>(m["Value"]));
@@ -11392,6 +11476,8 @@ public:
   shared_ptr<string> flexVolumeDriver{};
   shared_ptr<string> flexVolumeFsType{};
   shared_ptr<string> flexVolumeOptions{};
+  shared_ptr<string> hostPathVolumePath{};
+  shared_ptr<string> hostPathVolumeType{};
   shared_ptr<string> NFSVolumePath{};
   shared_ptr<bool> NFSVolumeReadOnly{};
   shared_ptr<string> NFSVolumeServer{};
@@ -11441,6 +11527,12 @@ public:
     }
     if (flexVolumeOptions) {
       res["FlexVolumeOptions"] = boost::any(*flexVolumeOptions);
+    }
+    if (hostPathVolumePath) {
+      res["HostPathVolumePath"] = boost::any(*hostPathVolumePath);
+    }
+    if (hostPathVolumeType) {
+      res["HostPathVolumeType"] = boost::any(*hostPathVolumeType);
     }
     if (NFSVolumePath) {
       res["NFSVolumePath"] = boost::any(*NFSVolumePath);
@@ -11501,6 +11593,12 @@ public:
     if (m.find("FlexVolumeOptions") != m.end() && !m["FlexVolumeOptions"].empty()) {
       flexVolumeOptions = make_shared<string>(boost::any_cast<string>(m["FlexVolumeOptions"]));
     }
+    if (m.find("HostPathVolumePath") != m.end() && !m["HostPathVolumePath"].empty()) {
+      hostPathVolumePath = make_shared<string>(boost::any_cast<string>(m["HostPathVolumePath"]));
+    }
+    if (m.find("HostPathVolumeType") != m.end() && !m["HostPathVolumeType"].empty()) {
+      hostPathVolumeType = make_shared<string>(boost::any_cast<string>(m["HostPathVolumeType"]));
+    }
     if (m.find("NFSVolumePath") != m.end() && !m["NFSVolumePath"].empty()) {
       NFSVolumePath = make_shared<string>(boost::any_cast<string>(m["NFSVolumePath"]));
     }
@@ -11534,6 +11632,10 @@ public:
   shared_ptr<long> cpuOptionsCore{};
   shared_ptr<long> cpuOptionsThreadsPerCore{};
   shared_ptr<string> creationTime{};
+  shared_ptr<string> dataCacheBucket{};
+  shared_ptr<bool> dataCacheBurstingEnabled{};
+  shared_ptr<string> dataCachePL{};
+  shared_ptr<long> dataCacheProvisionedIops{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> dnsConfigNameServers{};
   shared_ptr<vector<DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsDnsConfigOptions>> dnsConfigOptions{};
@@ -11549,6 +11651,7 @@ public:
   shared_ptr<long> ingressBandwidth{};
   shared_ptr<vector<DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsInitContainers>> initContainers{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<long> ipv6AddressCount{};
   shared_ptr<string> lifecycleState{};
   shared_ptr<long> loadBalancerWeight{};
@@ -11621,6 +11724,18 @@ public:
     if (creationTime) {
       res["CreationTime"] = boost::any(*creationTime);
     }
+    if (dataCacheBucket) {
+      res["DataCacheBucket"] = boost::any(*dataCacheBucket);
+    }
+    if (dataCacheBurstingEnabled) {
+      res["DataCacheBurstingEnabled"] = boost::any(*dataCacheBurstingEnabled);
+    }
+    if (dataCachePL) {
+      res["DataCachePL"] = boost::any(*dataCachePL);
+    }
+    if (dataCacheProvisionedIops) {
+      res["DataCacheProvisionedIops"] = boost::any(*dataCacheProvisionedIops);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -11681,6 +11796,9 @@ public:
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
     }
     if (ipv6AddressCount) {
       res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
@@ -11811,6 +11929,18 @@ public:
     if (m.find("CreationTime") != m.end() && !m["CreationTime"].empty()) {
       creationTime = make_shared<string>(boost::any_cast<string>(m["CreationTime"]));
     }
+    if (m.find("DataCacheBucket") != m.end() && !m["DataCacheBucket"].empty()) {
+      dataCacheBucket = make_shared<string>(boost::any_cast<string>(m["DataCacheBucket"]));
+    }
+    if (m.find("DataCacheBurstingEnabled") != m.end() && !m["DataCacheBurstingEnabled"].empty()) {
+      dataCacheBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["DataCacheBurstingEnabled"]));
+    }
+    if (m.find("DataCachePL") != m.end() && !m["DataCachePL"].empty()) {
+      dataCachePL = make_shared<string>(boost::any_cast<string>(m["DataCachePL"]));
+    }
+    if (m.find("DataCacheProvisionedIops") != m.end() && !m["DataCacheProvisionedIops"].empty()) {
+      dataCacheProvisionedIops = make_shared<long>(boost::any_cast<long>(m["DataCacheProvisionedIops"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -11909,6 +12039,16 @@ public:
     }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
       ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
@@ -14592,6 +14732,8 @@ public:
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<DescribeScalingConfigurationsResponseBodyScalingConfigurationsSpotPriceLimits>> spotPriceLimits{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
   shared_ptr<string> systemDiskAutoSnapshotPolicyId{};
   shared_ptr<bool> systemDiskBurstingEnabled{};
   shared_ptr<vector<string>> systemDiskCategories{};
@@ -14769,6 +14911,12 @@ public:
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
     }
     if (systemDiskAutoSnapshotPolicyId) {
       res["SystemDiskAutoSnapshotPolicyId"] = boost::any(*systemDiskAutoSnapshotPolicyId);
@@ -15014,6 +15162,12 @@ public:
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
     }
     if (m.find("SystemDiskAutoSnapshotPolicyId") != m.end() && !m["SystemDiskAutoSnapshotPolicyId"].empty()) {
       systemDiskAutoSnapshotPolicyId = make_shared<string>(boost::any_cast<string>(m["SystemDiskAutoSnapshotPolicyId"]));
@@ -15577,6 +15731,49 @@ public:
 
   virtual ~DescribeScalingGroupsResponseBodyScalingGroupsServerGroups() = default;
 };
+class DescribeScalingGroupsResponseBodyScalingGroupsTags : public Darabonba::Model {
+public:
+  shared_ptr<bool> propagate{};
+  shared_ptr<string> tagKey{};
+  shared_ptr<string> tagValue{};
+
+  DescribeScalingGroupsResponseBodyScalingGroupsTags() {}
+
+  explicit DescribeScalingGroupsResponseBodyScalingGroupsTags(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (propagate) {
+      res["Propagate"] = boost::any(*propagate);
+    }
+    if (tagKey) {
+      res["TagKey"] = boost::any(*tagKey);
+    }
+    if (tagValue) {
+      res["TagValue"] = boost::any(*tagValue);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Propagate") != m.end() && !m["Propagate"].empty()) {
+      propagate = make_shared<bool>(boost::any_cast<bool>(m["Propagate"]));
+    }
+    if (m.find("TagKey") != m.end() && !m["TagKey"].empty()) {
+      tagKey = make_shared<string>(boost::any_cast<string>(m["TagKey"]));
+    }
+    if (m.find("TagValue") != m.end() && !m["TagValue"].empty()) {
+      tagValue = make_shared<string>(boost::any_cast<string>(m["TagValue"]));
+    }
+  }
+
+
+  virtual ~DescribeScalingGroupsResponseBodyScalingGroupsTags() = default;
+};
 class DescribeScalingGroupsResponseBodyScalingGroupsVServerGroupsVServerGroupAttributes : public Darabonba::Model {
 public:
   shared_ptr<long> port{};
@@ -15723,6 +15920,7 @@ public:
   shared_ptr<long> stoppedCapacity{};
   shared_ptr<vector<string>> suspendedProcesses{};
   shared_ptr<bool> systemSuspended{};
+  shared_ptr<vector<DescribeScalingGroupsResponseBodyScalingGroupsTags>> tags{};
   shared_ptr<long> totalCapacity{};
   shared_ptr<long> totalInstanceCount{};
   shared_ptr<vector<DescribeScalingGroupsResponseBodyScalingGroupsVServerGroups>> VServerGroups{};
@@ -15908,6 +16106,13 @@ public:
     }
     if (systemSuspended) {
       res["SystemSuspended"] = boost::any(*systemSuspended);
+    }
+    if (tags) {
+      vector<boost::any> temp1;
+      for(auto item1:*tags){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Tags"] = boost::any(temp1);
     }
     if (totalCapacity) {
       res["TotalCapacity"] = boost::any(*totalCapacity);
@@ -16156,6 +16361,19 @@ public:
     if (m.find("SystemSuspended") != m.end() && !m["SystemSuspended"].empty()) {
       systemSuspended = make_shared<bool>(boost::any_cast<bool>(m["SystemSuspended"]));
     }
+    if (m.find("Tags") != m.end() && !m["Tags"].empty()) {
+      if (typeid(vector<boost::any>) == m["Tags"].type()) {
+        vector<DescribeScalingGroupsResponseBodyScalingGroupsTags> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Tags"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            DescribeScalingGroupsResponseBodyScalingGroupsTags model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        tags = make_shared<vector<DescribeScalingGroupsResponseBodyScalingGroupsTags>>(expect1);
+      }
+    }
     if (m.find("TotalCapacity") != m.end() && !m["TotalCapacity"].empty()) {
       totalCapacity = make_shared<long>(boost::any_cast<long>(m["TotalCapacity"]));
     }
@@ -16336,6 +16554,7 @@ public:
   shared_ptr<string> healthStatus{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> lifecycleState{};
+  shared_ptr<vector<string>> lifecycleStates{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<long> pageNumber{};
@@ -16371,6 +16590,9 @@ public:
     }
     if (lifecycleState) {
       res["LifecycleState"] = boost::any(*lifecycleState);
+    }
+    if (lifecycleStates) {
+      res["LifecycleStates"] = boost::any(*lifecycleStates);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -16435,6 +16657,16 @@ public:
     if (m.find("LifecycleState") != m.end() && !m["LifecycleState"].empty()) {
       lifecycleState = make_shared<string>(boost::any_cast<string>(m["LifecycleState"]));
     }
+    if (m.find("LifecycleStates") != m.end() && !m["LifecycleStates"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["LifecycleStates"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["LifecycleStates"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      lifecycleStates = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
     }
@@ -16482,9 +16714,11 @@ public:
   shared_ptr<string> launchTemplateVersion{};
   shared_ptr<string> lifecycleState{};
   shared_ptr<long> loadBalancerWeight{};
+  shared_ptr<string> privateIpAddress{};
   shared_ptr<string> scalingActivityId{};
   shared_ptr<string> scalingConfigurationId{};
   shared_ptr<string> scalingGroupId{};
+  shared_ptr<string> scalingInstanceId{};
   shared_ptr<string> spotStrategy{};
   shared_ptr<string> warmupState{};
   shared_ptr<long> weightedCapacity{};
@@ -16530,6 +16764,9 @@ public:
     if (loadBalancerWeight) {
       res["LoadBalancerWeight"] = boost::any(*loadBalancerWeight);
     }
+    if (privateIpAddress) {
+      res["PrivateIpAddress"] = boost::any(*privateIpAddress);
+    }
     if (scalingActivityId) {
       res["ScalingActivityId"] = boost::any(*scalingActivityId);
     }
@@ -16538,6 +16775,9 @@ public:
     }
     if (scalingGroupId) {
       res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (scalingInstanceId) {
+      res["ScalingInstanceId"] = boost::any(*scalingInstanceId);
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
@@ -16585,6 +16825,9 @@ public:
     if (m.find("LoadBalancerWeight") != m.end() && !m["LoadBalancerWeight"].empty()) {
       loadBalancerWeight = make_shared<long>(boost::any_cast<long>(m["LoadBalancerWeight"]));
     }
+    if (m.find("PrivateIpAddress") != m.end() && !m["PrivateIpAddress"].empty()) {
+      privateIpAddress = make_shared<string>(boost::any_cast<string>(m["PrivateIpAddress"]));
+    }
     if (m.find("ScalingActivityId") != m.end() && !m["ScalingActivityId"].empty()) {
       scalingActivityId = make_shared<string>(boost::any_cast<string>(m["ScalingActivityId"]));
     }
@@ -16593,6 +16836,9 @@ public:
     }
     if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
       scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("ScalingInstanceId") != m.end() && !m["ScalingInstanceId"].empty()) {
+      scalingInstanceId = make_shared<string>(boost::any_cast<string>(m["ScalingInstanceId"]));
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
@@ -18234,6 +18480,7 @@ public:
 };
 class DetachInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> decreaseDesiredCapacity{};
   shared_ptr<string> detachOption{};
   shared_ptr<vector<string>> instanceIds{};
@@ -18254,6 +18501,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (decreaseDesiredCapacity) {
       res["DecreaseDesiredCapacity"] = boost::any(*decreaseDesiredCapacity);
     }
@@ -18285,6 +18535,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("DecreaseDesiredCapacity") != m.end() && !m["DecreaseDesiredCapacity"].empty()) {
       decreaseDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["DecreaseDesiredCapacity"]));
     }
@@ -23286,6 +23539,10 @@ public:
   shared_ptr<double> cpu{};
   shared_ptr<long> cpuOptionsCore{};
   shared_ptr<long> cpuOptionsThreadsPerCore{};
+  shared_ptr<string> dataCacheBucket{};
+  shared_ptr<bool> dataCacheBurstingEnabled{};
+  shared_ptr<string> dataCachePL{};
+  shared_ptr<long> dataCacheProvisionedIops{};
   shared_ptr<string> description{};
   shared_ptr<vector<string>> dnsConfigNameServers{};
   shared_ptr<vector<ModifyEciScalingConfigurationRequestDnsConfigOptions>> dnsConfigOptions{};
@@ -23302,6 +23559,7 @@ public:
   shared_ptr<long> ingressBandwidth{};
   shared_ptr<vector<ModifyEciScalingConfigurationRequestInitContainers>> initContainers{};
   shared_ptr<string> instanceFamilyLevel{};
+  shared_ptr<vector<string>> instanceTypes{};
   shared_ptr<long> ipv6AddressCount{};
   shared_ptr<long> loadBalancerWeight{};
   shared_ptr<double> memory{};
@@ -23372,6 +23630,18 @@ public:
     if (cpuOptionsThreadsPerCore) {
       res["CpuOptionsThreadsPerCore"] = boost::any(*cpuOptionsThreadsPerCore);
     }
+    if (dataCacheBucket) {
+      res["DataCacheBucket"] = boost::any(*dataCacheBucket);
+    }
+    if (dataCacheBurstingEnabled) {
+      res["DataCacheBurstingEnabled"] = boost::any(*dataCacheBurstingEnabled);
+    }
+    if (dataCachePL) {
+      res["DataCachePL"] = boost::any(*dataCachePL);
+    }
+    if (dataCacheProvisionedIops) {
+      res["DataCacheProvisionedIops"] = boost::any(*dataCacheProvisionedIops);
+    }
     if (description) {
       res["Description"] = boost::any(*description);
     }
@@ -23435,6 +23705,9 @@ public:
     }
     if (instanceFamilyLevel) {
       res["InstanceFamilyLevel"] = boost::any(*instanceFamilyLevel);
+    }
+    if (instanceTypes) {
+      res["InstanceTypes"] = boost::any(*instanceTypes);
     }
     if (ipv6AddressCount) {
       res["Ipv6AddressCount"] = boost::any(*ipv6AddressCount);
@@ -23559,6 +23832,18 @@ public:
     if (m.find("CpuOptionsThreadsPerCore") != m.end() && !m["CpuOptionsThreadsPerCore"].empty()) {
       cpuOptionsThreadsPerCore = make_shared<long>(boost::any_cast<long>(m["CpuOptionsThreadsPerCore"]));
     }
+    if (m.find("DataCacheBucket") != m.end() && !m["DataCacheBucket"].empty()) {
+      dataCacheBucket = make_shared<string>(boost::any_cast<string>(m["DataCacheBucket"]));
+    }
+    if (m.find("DataCacheBurstingEnabled") != m.end() && !m["DataCacheBurstingEnabled"].empty()) {
+      dataCacheBurstingEnabled = make_shared<bool>(boost::any_cast<bool>(m["DataCacheBurstingEnabled"]));
+    }
+    if (m.find("DataCachePL") != m.end() && !m["DataCachePL"].empty()) {
+      dataCachePL = make_shared<string>(boost::any_cast<string>(m["DataCachePL"]));
+    }
+    if (m.find("DataCacheProvisionedIops") != m.end() && !m["DataCacheProvisionedIops"].empty()) {
+      dataCacheProvisionedIops = make_shared<long>(boost::any_cast<long>(m["DataCacheProvisionedIops"]));
+    }
     if (m.find("Description") != m.end() && !m["Description"].empty()) {
       description = make_shared<string>(boost::any_cast<string>(m["Description"]));
     }
@@ -23660,6 +23945,16 @@ public:
     }
     if (m.find("InstanceFamilyLevel") != m.end() && !m["InstanceFamilyLevel"].empty()) {
       instanceFamilyLevel = make_shared<string>(boost::any_cast<string>(m["InstanceFamilyLevel"]));
+    }
+    if (m.find("InstanceTypes") != m.end() && !m["InstanceTypes"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["InstanceTypes"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["InstanceTypes"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      instanceTypes = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Ipv6AddressCount") != m.end() && !m["Ipv6AddressCount"].empty()) {
       ipv6AddressCount = make_shared<long>(boost::any_cast<long>(m["Ipv6AddressCount"]));
@@ -24707,6 +25002,8 @@ public:
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<ModifyScalingConfigurationRequestSpotPriceLimits>> spotPriceLimits{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
   shared_ptr<vector<string>> systemDiskCategories{};
   shared_ptr<string> tags{};
   shared_ptr<string> tenancy{};
@@ -24867,6 +25164,12 @@ public:
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
     }
     if (systemDiskCategories) {
       res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
@@ -25086,6 +25389,12 @@ public:
     }
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
+    }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
     }
     if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
       vector<string> toVec1;
@@ -25607,6 +25916,8 @@ public:
   shared_ptr<string> spotInterruptionBehavior{};
   shared_ptr<vector<ModifyScalingConfigurationShrinkRequestSpotPriceLimits>> spotPriceLimits{};
   shared_ptr<string> spotStrategy{};
+  shared_ptr<string> storageSetId{};
+  shared_ptr<long> storageSetPartitionNumber{};
   shared_ptr<vector<string>> systemDiskCategories{};
   shared_ptr<string> tags{};
   shared_ptr<string> tenancy{};
@@ -25767,6 +26078,12 @@ public:
     }
     if (spotStrategy) {
       res["SpotStrategy"] = boost::any(*spotStrategy);
+    }
+    if (storageSetId) {
+      res["StorageSetId"] = boost::any(*storageSetId);
+    }
+    if (storageSetPartitionNumber) {
+      res["StorageSetPartitionNumber"] = boost::any(*storageSetPartitionNumber);
     }
     if (systemDiskCategories) {
       res["SystemDiskCategories"] = boost::any(*systemDiskCategories);
@@ -25982,6 +26299,12 @@ public:
     if (m.find("SpotStrategy") != m.end() && !m["SpotStrategy"].empty()) {
       spotStrategy = make_shared<string>(boost::any_cast<string>(m["SpotStrategy"]));
     }
+    if (m.find("StorageSetId") != m.end() && !m["StorageSetId"].empty()) {
+      storageSetId = make_shared<string>(boost::any_cast<string>(m["StorageSetId"]));
+    }
+    if (m.find("StorageSetPartitionNumber") != m.end() && !m["StorageSetPartitionNumber"].empty()) {
+      storageSetPartitionNumber = make_shared<long>(boost::any_cast<long>(m["StorageSetPartitionNumber"]));
+    }
     if (m.find("SystemDiskCategories") != m.end() && !m["SystemDiskCategories"].empty()) {
       vector<string> toVec1;
       if (typeid(vector<boost::any>) == m["SystemDiskCategories"].type()) {
@@ -26152,6 +26475,7 @@ public:
   shared_ptr<string> customPolicyARN{};
   shared_ptr<long> defaultCooldown{};
   shared_ptr<long> desiredCapacity{};
+  shared_ptr<bool> disableDesiredCapacity{};
   shared_ptr<bool> groupDeletionProtection{};
   shared_ptr<string> healthCheckType{};
   shared_ptr<string> launchTemplateId{};
@@ -26205,6 +26529,9 @@ public:
     }
     if (desiredCapacity) {
       res["DesiredCapacity"] = boost::any(*desiredCapacity);
+    }
+    if (disableDesiredCapacity) {
+      res["DisableDesiredCapacity"] = boost::any(*disableDesiredCapacity);
     }
     if (groupDeletionProtection) {
       res["GroupDeletionProtection"] = boost::any(*groupDeletionProtection);
@@ -26300,6 +26627,9 @@ public:
     }
     if (m.find("DesiredCapacity") != m.end() && !m["DesiredCapacity"].empty()) {
       desiredCapacity = make_shared<long>(boost::any_cast<long>(m["DesiredCapacity"]));
+    }
+    if (m.find("DisableDesiredCapacity") != m.end() && !m["DisableDesiredCapacity"].empty()) {
+      disableDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["DisableDesiredCapacity"]));
     }
     if (m.find("GroupDeletionProtection") != m.end() && !m["GroupDeletionProtection"].empty()) {
       groupDeletionProtection = make_shared<bool>(boost::any_cast<bool>(m["GroupDeletionProtection"]));
@@ -27433,6 +27763,7 @@ public:
 };
 class RemoveInstancesRequest : public Darabonba::Model {
 public:
+  shared_ptr<string> clientToken{};
   shared_ptr<bool> decreaseDesiredCapacity{};
   shared_ptr<vector<string>> instanceIds{};
   shared_ptr<string> ownerAccount{};
@@ -27453,6 +27784,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
     if (decreaseDesiredCapacity) {
       res["DecreaseDesiredCapacity"] = boost::any(*decreaseDesiredCapacity);
     }
@@ -27484,6 +27818,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
     if (m.find("DecreaseDesiredCapacity") != m.end() && !m["DecreaseDesiredCapacity"].empty()) {
       decreaseDesiredCapacity = make_shared<bool>(boost::any_cast<bool>(m["DecreaseDesiredCapacity"]));
     }
@@ -27783,12 +28120,198 @@ public:
 
   virtual ~ResumeProcessesResponse() = default;
 };
+class ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars() {}
+
+  explicit ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars() = default;
+};
+class ScaleWithAdjustmentRequestOverridesContainerOverrides : public Darabonba::Model {
+public:
+  shared_ptr<vector<string>> args{};
+  shared_ptr<vector<string>> commands{};
+  shared_ptr<double> cpu{};
+  shared_ptr<vector<ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars>> environmentVars{};
+  shared_ptr<double> memory{};
+  shared_ptr<string> name{};
+
+  ScaleWithAdjustmentRequestOverridesContainerOverrides() {}
+
+  explicit ScaleWithAdjustmentRequestOverridesContainerOverrides(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (args) {
+      res["Args"] = boost::any(*args);
+    }
+    if (commands) {
+      res["Commands"] = boost::any(*commands);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (environmentVars) {
+      vector<boost::any> temp1;
+      for(auto item1:*environmentVars){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["EnvironmentVars"] = boost::any(temp1);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    if (name) {
+      res["Name"] = boost::any(*name);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Args") != m.end() && !m["Args"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Args"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Args"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      args = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Commands") != m.end() && !m["Commands"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["Commands"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["Commands"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      commands = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("EnvironmentVars") != m.end() && !m["EnvironmentVars"].empty()) {
+      if (typeid(vector<boost::any>) == m["EnvironmentVars"].type()) {
+        vector<ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["EnvironmentVars"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        environmentVars = make_shared<vector<ScaleWithAdjustmentRequestOverridesContainerOverridesEnvironmentVars>>(expect1);
+      }
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+    if (m.find("Name") != m.end() && !m["Name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["Name"]));
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentRequestOverridesContainerOverrides() = default;
+};
+class ScaleWithAdjustmentRequestOverrides : public Darabonba::Model {
+public:
+  shared_ptr<vector<ScaleWithAdjustmentRequestOverridesContainerOverrides>> containerOverrides{};
+  shared_ptr<double> cpu{};
+  shared_ptr<double> memory{};
+
+  ScaleWithAdjustmentRequestOverrides() {}
+
+  explicit ScaleWithAdjustmentRequestOverrides(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (containerOverrides) {
+      vector<boost::any> temp1;
+      for(auto item1:*containerOverrides){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ContainerOverrides"] = boost::any(temp1);
+    }
+    if (cpu) {
+      res["Cpu"] = boost::any(*cpu);
+    }
+    if (memory) {
+      res["Memory"] = boost::any(*memory);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContainerOverrides") != m.end() && !m["ContainerOverrides"].empty()) {
+      if (typeid(vector<boost::any>) == m["ContainerOverrides"].type()) {
+        vector<ScaleWithAdjustmentRequestOverridesContainerOverrides> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ContainerOverrides"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ScaleWithAdjustmentRequestOverridesContainerOverrides model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        containerOverrides = make_shared<vector<ScaleWithAdjustmentRequestOverridesContainerOverrides>>(expect1);
+      }
+    }
+    if (m.find("Cpu") != m.end() && !m["Cpu"].empty()) {
+      cpu = make_shared<double>(boost::any_cast<double>(m["Cpu"]));
+    }
+    if (m.find("Memory") != m.end() && !m["Memory"].empty()) {
+      memory = make_shared<double>(boost::any_cast<double>(m["Memory"]));
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentRequestOverrides() = default;
+};
 class ScaleWithAdjustmentRequest : public Darabonba::Model {
 public:
   shared_ptr<string> adjustmentType{};
   shared_ptr<long> adjustmentValue{};
   shared_ptr<string> clientToken{};
   shared_ptr<long> minAdjustmentMagnitude{};
+  shared_ptr<ScaleWithAdjustmentRequestOverrides> overrides{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<string> scalingGroupId{};
@@ -27815,6 +28338,9 @@ public:
     }
     if (minAdjustmentMagnitude) {
       res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
+    }
+    if (overrides) {
+      res["Overrides"] = overrides ? boost::any(overrides->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (ownerId) {
       res["OwnerId"] = boost::any(*ownerId);
@@ -27844,6 +28370,13 @@ public:
     if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
       minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
     }
+    if (m.find("Overrides") != m.end() && !m["Overrides"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Overrides"].type()) {
+        ScaleWithAdjustmentRequestOverrides model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Overrides"]));
+        overrides = make_shared<ScaleWithAdjustmentRequestOverrides>(model1);
+      }
+    }
     if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
       ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
     }
@@ -27860,6 +28393,91 @@ public:
 
 
   virtual ~ScaleWithAdjustmentRequest() = default;
+};
+class ScaleWithAdjustmentShrinkRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> adjustmentType{};
+  shared_ptr<long> adjustmentValue{};
+  shared_ptr<string> clientToken{};
+  shared_ptr<long> minAdjustmentMagnitude{};
+  shared_ptr<string> overridesShrink{};
+  shared_ptr<long> ownerId{};
+  shared_ptr<string> resourceOwnerAccount{};
+  shared_ptr<string> scalingGroupId{};
+  shared_ptr<bool> syncActivity{};
+
+  ScaleWithAdjustmentShrinkRequest() {}
+
+  explicit ScaleWithAdjustmentShrinkRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (adjustmentType) {
+      res["AdjustmentType"] = boost::any(*adjustmentType);
+    }
+    if (adjustmentValue) {
+      res["AdjustmentValue"] = boost::any(*adjustmentValue);
+    }
+    if (clientToken) {
+      res["ClientToken"] = boost::any(*clientToken);
+    }
+    if (minAdjustmentMagnitude) {
+      res["MinAdjustmentMagnitude"] = boost::any(*minAdjustmentMagnitude);
+    }
+    if (overridesShrink) {
+      res["Overrides"] = boost::any(*overridesShrink);
+    }
+    if (ownerId) {
+      res["OwnerId"] = boost::any(*ownerId);
+    }
+    if (resourceOwnerAccount) {
+      res["ResourceOwnerAccount"] = boost::any(*resourceOwnerAccount);
+    }
+    if (scalingGroupId) {
+      res["ScalingGroupId"] = boost::any(*scalingGroupId);
+    }
+    if (syncActivity) {
+      res["SyncActivity"] = boost::any(*syncActivity);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AdjustmentType") != m.end() && !m["AdjustmentType"].empty()) {
+      adjustmentType = make_shared<string>(boost::any_cast<string>(m["AdjustmentType"]));
+    }
+    if (m.find("AdjustmentValue") != m.end() && !m["AdjustmentValue"].empty()) {
+      adjustmentValue = make_shared<long>(boost::any_cast<long>(m["AdjustmentValue"]));
+    }
+    if (m.find("ClientToken") != m.end() && !m["ClientToken"].empty()) {
+      clientToken = make_shared<string>(boost::any_cast<string>(m["ClientToken"]));
+    }
+    if (m.find("MinAdjustmentMagnitude") != m.end() && !m["MinAdjustmentMagnitude"].empty()) {
+      minAdjustmentMagnitude = make_shared<long>(boost::any_cast<long>(m["MinAdjustmentMagnitude"]));
+    }
+    if (m.find("Overrides") != m.end() && !m["Overrides"].empty()) {
+      overridesShrink = make_shared<string>(boost::any_cast<string>(m["Overrides"]));
+    }
+    if (m.find("OwnerId") != m.end() && !m["OwnerId"].empty()) {
+      ownerId = make_shared<long>(boost::any_cast<long>(m["OwnerId"]));
+    }
+    if (m.find("ResourceOwnerAccount") != m.end() && !m["ResourceOwnerAccount"].empty()) {
+      resourceOwnerAccount = make_shared<string>(boost::any_cast<string>(m["ResourceOwnerAccount"]));
+    }
+    if (m.find("ScalingGroupId") != m.end() && !m["ScalingGroupId"].empty()) {
+      scalingGroupId = make_shared<string>(boost::any_cast<string>(m["ScalingGroupId"]));
+    }
+    if (m.find("SyncActivity") != m.end() && !m["SyncActivity"].empty()) {
+      syncActivity = make_shared<bool>(boost::any_cast<bool>(m["SyncActivity"]));
+    }
+  }
+
+
+  virtual ~ScaleWithAdjustmentShrinkRequest() = default;
 };
 class ScaleWithAdjustmentResponseBody : public Darabonba::Model {
 public:
@@ -29402,7 +30020,7 @@ public:
   RemoveInstancesResponse removeInstances(shared_ptr<RemoveInstancesRequest> request);
   ResumeProcessesResponse resumeProcessesWithOptions(shared_ptr<ResumeProcessesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ResumeProcessesResponse resumeProcesses(shared_ptr<ResumeProcessesRequest> request);
-  ScaleWithAdjustmentResponse scaleWithAdjustmentWithOptions(shared_ptr<ScaleWithAdjustmentRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ScaleWithAdjustmentResponse scaleWithAdjustmentWithOptions(shared_ptr<ScaleWithAdjustmentRequest> tmpReq, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ScaleWithAdjustmentResponse scaleWithAdjustment(shared_ptr<ScaleWithAdjustmentRequest> request);
   SetGroupDeletionProtectionResponse setGroupDeletionProtectionWithOptions(shared_ptr<SetGroupDeletionProtectionRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SetGroupDeletionProtectionResponse setGroupDeletionProtection(shared_ptr<SetGroupDeletionProtectionRequest> request);
