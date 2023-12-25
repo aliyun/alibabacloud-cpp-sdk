@@ -983,8 +983,73 @@ public:
 
   virtual ~DeleteTranscriptionPhrasesResponse() = default;
 };
+class GetTaskInfoResponseBodyDataResult : public Darabonba::Model {
+public:
+  shared_ptr<string> autoChapters{};
+  shared_ptr<string> meetingAssistance{};
+  shared_ptr<string> pptExtraction{};
+  shared_ptr<string> summarization{};
+  shared_ptr<string> transcription{};
+  shared_ptr<string> translation{};
+
+  GetTaskInfoResponseBodyDataResult() {}
+
+  explicit GetTaskInfoResponseBodyDataResult(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (autoChapters) {
+      res["AutoChapters"] = boost::any(*autoChapters);
+    }
+    if (meetingAssistance) {
+      res["MeetingAssistance"] = boost::any(*meetingAssistance);
+    }
+    if (pptExtraction) {
+      res["PptExtraction"] = boost::any(*pptExtraction);
+    }
+    if (summarization) {
+      res["Summarization"] = boost::any(*summarization);
+    }
+    if (transcription) {
+      res["Transcription"] = boost::any(*transcription);
+    }
+    if (translation) {
+      res["Translation"] = boost::any(*translation);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AutoChapters") != m.end() && !m["AutoChapters"].empty()) {
+      autoChapters = make_shared<string>(boost::any_cast<string>(m["AutoChapters"]));
+    }
+    if (m.find("MeetingAssistance") != m.end() && !m["MeetingAssistance"].empty()) {
+      meetingAssistance = make_shared<string>(boost::any_cast<string>(m["MeetingAssistance"]));
+    }
+    if (m.find("PptExtraction") != m.end() && !m["PptExtraction"].empty()) {
+      pptExtraction = make_shared<string>(boost::any_cast<string>(m["PptExtraction"]));
+    }
+    if (m.find("Summarization") != m.end() && !m["Summarization"].empty()) {
+      summarization = make_shared<string>(boost::any_cast<string>(m["Summarization"]));
+    }
+    if (m.find("Transcription") != m.end() && !m["Transcription"].empty()) {
+      transcription = make_shared<string>(boost::any_cast<string>(m["Transcription"]));
+    }
+    if (m.find("Translation") != m.end() && !m["Translation"].empty()) {
+      translation = make_shared<string>(boost::any_cast<string>(m["Translation"]));
+    }
+  }
+
+
+  virtual ~GetTaskInfoResponseBodyDataResult() = default;
+};
 class GetTaskInfoResponseBodyData : public Darabonba::Model {
 public:
+  shared_ptr<GetTaskInfoResponseBodyDataResult> result{};
   shared_ptr<string> taskId{};
   shared_ptr<string> taskKey{};
   shared_ptr<string> taskStatus{};
@@ -999,6 +1064,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (result) {
+      res["Result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     if (taskId) {
       res["TaskId"] = boost::any(*taskId);
     }
@@ -1012,6 +1080,13 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Result") != m.end() && !m["Result"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Result"].type()) {
+        GetTaskInfoResponseBodyDataResult model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Result"]));
+        result = make_shared<GetTaskInfoResponseBodyDataResult>(model1);
+      }
+    }
     if (m.find("TaskId") != m.end() && !m["TaskId"].empty()) {
       taskId = make_shared<string>(boost::any_cast<string>(m["TaskId"]));
     }
