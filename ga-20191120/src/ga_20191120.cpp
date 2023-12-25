@@ -4197,6 +4197,9 @@ ListCustomRoutingEndpointGroupsResponse Alibabacloud_Ga20191120::Client::listCus
   if (!Darabonba_Util::Client::isUnset<string>(request->acceleratorId)) {
     query->insert(pair<string, string>("AcceleratorId", *request->acceleratorId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->accessLogSwitch)) {
+    query->insert(pair<string, string>("AccessLogSwitch", *request->accessLogSwitch));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->endpointGroupId)) {
     query->insert(pair<string, string>("EndpointGroupId", *request->endpointGroupId));
   }

@@ -26574,6 +26574,7 @@ public:
 class ListCustomRoutingEndpointGroupsRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceleratorId{};
+  shared_ptr<string> accessLogSwitch{};
   shared_ptr<string> endpointGroupId{};
   shared_ptr<string> listenerId{};
   shared_ptr<long> pageNumber{};
@@ -26592,6 +26593,9 @@ public:
     map<string, boost::any> res;
     if (acceleratorId) {
       res["AcceleratorId"] = boost::any(*acceleratorId);
+    }
+    if (accessLogSwitch) {
+      res["AccessLogSwitch"] = boost::any(*accessLogSwitch);
     }
     if (endpointGroupId) {
       res["EndpointGroupId"] = boost::any(*endpointGroupId);
@@ -26614,6 +26618,9 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceleratorId") != m.end() && !m["AcceleratorId"].empty()) {
       acceleratorId = make_shared<string>(boost::any_cast<string>(m["AcceleratorId"]));
+    }
+    if (m.find("AccessLogSwitch") != m.end() && !m["AccessLogSwitch"].empty()) {
+      accessLogSwitch = make_shared<string>(boost::any_cast<string>(m["AccessLogSwitch"]));
     }
     if (m.find("EndpointGroupId") != m.end() && !m["EndpointGroupId"].empty()) {
       endpointGroupId = make_shared<string>(boost::any_cast<string>(m["EndpointGroupId"]));
