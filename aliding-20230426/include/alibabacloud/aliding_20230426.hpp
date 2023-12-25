@@ -8485,6 +8485,92 @@ public:
 
   virtual ~CreateMeetingRoomShrinkHeaders() = default;
 };
+class CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers : public Darabonba::Model {
+public:
+  shared_ptr<string> memberId{};
+  shared_ptr<string> memberName{};
+  shared_ptr<string> memberType{};
+
+  CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers() {}
+
+  explicit CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberId) {
+      res["MemberId"] = boost::any(*memberId);
+    }
+    if (memberName) {
+      res["MemberName"] = boost::any(*memberName);
+    }
+    if (memberType) {
+      res["MemberType"] = boost::any(*memberType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
+      memberId = make_shared<string>(boost::any_cast<string>(m["MemberId"]));
+    }
+    if (m.find("MemberName") != m.end() && !m["MemberName"].empty()) {
+      memberName = make_shared<string>(boost::any_cast<string>(m["MemberName"]));
+    }
+    if (m.find("MemberType") != m.end() && !m["MemberType"].empty()) {
+      memberType = make_shared<string>(boost::any_cast<string>(m["MemberType"]));
+    }
+  }
+
+
+  virtual ~CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers() = default;
+};
+class CreateMeetingRoomRequestReservationAuthority : public Darabonba::Model {
+public:
+  shared_ptr<vector<CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers>> authorizedMembers{};
+
+  CreateMeetingRoomRequestReservationAuthority() {}
+
+  explicit CreateMeetingRoomRequestReservationAuthority(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizedMembers) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizedMembers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizedMembers"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizedMembers") != m.end() && !m["AuthorizedMembers"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizedMembers"].type()) {
+        vector<CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizedMembers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizedMembers = make_shared<vector<CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~CreateMeetingRoomRequestReservationAuthority() = default;
+};
 class CreateMeetingRoomRequestRoomLocation : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
@@ -8552,8 +8638,10 @@ public:
 };
 class CreateMeetingRoomRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableCycleReservation{};
   shared_ptr<long> groupId{};
   shared_ptr<string> isvRoomId{};
+  shared_ptr<CreateMeetingRoomRequestReservationAuthority> reservationAuthority{};
   shared_ptr<long> roomCapacity{};
   shared_ptr<vector<long>> roomLabelIds{};
   shared_ptr<CreateMeetingRoomRequestRoomLocation> roomLocation{};
@@ -8572,11 +8660,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableCycleReservation) {
+      res["EnableCycleReservation"] = boost::any(*enableCycleReservation);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
     if (isvRoomId) {
       res["IsvRoomId"] = boost::any(*isvRoomId);
+    }
+    if (reservationAuthority) {
+      res["ReservationAuthority"] = reservationAuthority ? boost::any(reservationAuthority->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (roomCapacity) {
       res["RoomCapacity"] = boost::any(*roomCapacity);
@@ -8603,11 +8697,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableCycleReservation") != m.end() && !m["EnableCycleReservation"].empty()) {
+      enableCycleReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableCycleReservation"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
     }
     if (m.find("IsvRoomId") != m.end() && !m["IsvRoomId"].empty()) {
       isvRoomId = make_shared<string>(boost::any_cast<string>(m["IsvRoomId"]));
+    }
+    if (m.find("ReservationAuthority") != m.end() && !m["ReservationAuthority"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReservationAuthority"].type()) {
+        CreateMeetingRoomRequestReservationAuthority model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReservationAuthority"]));
+        reservationAuthority = make_shared<CreateMeetingRoomRequestReservationAuthority>(model1);
+      }
     }
     if (m.find("RoomCapacity") != m.end() && !m["RoomCapacity"].empty()) {
       roomCapacity = make_shared<long>(boost::any_cast<long>(m["RoomCapacity"]));
@@ -8652,8 +8756,10 @@ public:
 };
 class CreateMeetingRoomShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableCycleReservation{};
   shared_ptr<long> groupId{};
   shared_ptr<string> isvRoomId{};
+  shared_ptr<string> reservationAuthorityShrink{};
   shared_ptr<long> roomCapacity{};
   shared_ptr<string> roomLabelIdsShrink{};
   shared_ptr<string> roomLocationShrink{};
@@ -8672,11 +8778,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableCycleReservation) {
+      res["EnableCycleReservation"] = boost::any(*enableCycleReservation);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
     if (isvRoomId) {
       res["IsvRoomId"] = boost::any(*isvRoomId);
+    }
+    if (reservationAuthorityShrink) {
+      res["ReservationAuthority"] = boost::any(*reservationAuthorityShrink);
     }
     if (roomCapacity) {
       res["RoomCapacity"] = boost::any(*roomCapacity);
@@ -8703,11 +8815,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableCycleReservation") != m.end() && !m["EnableCycleReservation"].empty()) {
+      enableCycleReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableCycleReservation"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
     }
     if (m.find("IsvRoomId") != m.end() && !m["IsvRoomId"].empty()) {
       isvRoomId = make_shared<string>(boost::any_cast<string>(m["IsvRoomId"]));
+    }
+    if (m.find("ReservationAuthority") != m.end() && !m["ReservationAuthority"].empty()) {
+      reservationAuthorityShrink = make_shared<string>(boost::any_cast<string>(m["ReservationAuthority"]));
     }
     if (m.find("RoomCapacity") != m.end() && !m["RoomCapacity"].empty()) {
       roomCapacity = make_shared<long>(boost::any_cast<long>(m["RoomCapacity"]));
@@ -8739,6 +8857,8 @@ class CreateMeetingRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<string> result{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
 
   CreateMeetingRoomResponseBody() {}
 
@@ -8756,6 +8876,12 @@ public:
     if (result) {
       res["result"] = boost::any(*result);
     }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
     return res;
   }
 
@@ -8765,6 +8891,12 @@ public:
     }
     if (m.find("result") != m.end() && !m["result"].empty()) {
       result = make_shared<string>(boost::any_cast<string>(m["result"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
     }
   }
 
@@ -48677,6 +48809,92 @@ public:
 
   virtual ~QueryMeetingRoomShrinkRequest() = default;
 };
+class QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers : public Darabonba::Model {
+public:
+  shared_ptr<string> memberId{};
+  shared_ptr<string> memberName{};
+  shared_ptr<string> memberType{};
+
+  QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers() {}
+
+  explicit QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberId) {
+      res["MemberId"] = boost::any(*memberId);
+    }
+    if (memberName) {
+      res["MemberName"] = boost::any(*memberName);
+    }
+    if (memberType) {
+      res["MemberType"] = boost::any(*memberType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
+      memberId = make_shared<string>(boost::any_cast<string>(m["MemberId"]));
+    }
+    if (m.find("MemberName") != m.end() && !m["MemberName"].empty()) {
+      memberName = make_shared<string>(boost::any_cast<string>(m["MemberName"]));
+    }
+    if (m.find("MemberType") != m.end() && !m["MemberType"].empty()) {
+      memberType = make_shared<string>(boost::any_cast<string>(m["MemberType"]));
+    }
+  }
+
+
+  virtual ~QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers() = default;
+};
+class QueryMeetingRoomResponseBodyResultReservationAuthority : public Darabonba::Model {
+public:
+  shared_ptr<vector<QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers>> authorizedMembers{};
+
+  QueryMeetingRoomResponseBodyResultReservationAuthority() {}
+
+  explicit QueryMeetingRoomResponseBodyResultReservationAuthority(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizedMembers) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizedMembers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizedMembers"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizedMembers") != m.end() && !m["AuthorizedMembers"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizedMembers"].type()) {
+        vector<QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizedMembers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizedMembers = make_shared<vector<QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~QueryMeetingRoomResponseBodyResultReservationAuthority() = default;
+};
 class QueryMeetingRoomResponseBodyResultRoomGroup : public Darabonba::Model {
 public:
   shared_ptr<long> groupId{};
@@ -48795,7 +49013,10 @@ public:
 class QueryMeetingRoomResponseBodyResult : public Darabonba::Model {
 public:
   shared_ptr<string> corpId{};
+  shared_ptr<vector<string>> deviceUnionIds{};
+  shared_ptr<bool> enableCycleReservation{};
   shared_ptr<string> isvRoomId{};
+  shared_ptr<QueryMeetingRoomResponseBodyResultReservationAuthority> reservationAuthority{};
   shared_ptr<long> roomCapacity{};
   shared_ptr<QueryMeetingRoomResponseBodyResultRoomGroup> roomGroup{};
   shared_ptr<string> roomId{};
@@ -48819,8 +49040,17 @@ public:
     if (corpId) {
       res["CorpId"] = boost::any(*corpId);
     }
+    if (deviceUnionIds) {
+      res["DeviceUnionIds"] = boost::any(*deviceUnionIds);
+    }
+    if (enableCycleReservation) {
+      res["EnableCycleReservation"] = boost::any(*enableCycleReservation);
+    }
     if (isvRoomId) {
       res["IsvRoomId"] = boost::any(*isvRoomId);
+    }
+    if (reservationAuthority) {
+      res["ReservationAuthority"] = reservationAuthority ? boost::any(reservationAuthority->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (roomCapacity) {
       res["RoomCapacity"] = boost::any(*roomCapacity);
@@ -48860,8 +49090,28 @@ public:
     if (m.find("CorpId") != m.end() && !m["CorpId"].empty()) {
       corpId = make_shared<string>(boost::any_cast<string>(m["CorpId"]));
     }
+    if (m.find("DeviceUnionIds") != m.end() && !m["DeviceUnionIds"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["DeviceUnionIds"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["DeviceUnionIds"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      deviceUnionIds = make_shared<vector<string>>(toVec1);
+    }
+    if (m.find("EnableCycleReservation") != m.end() && !m["EnableCycleReservation"].empty()) {
+      enableCycleReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableCycleReservation"]));
+    }
     if (m.find("IsvRoomId") != m.end() && !m["IsvRoomId"].empty()) {
       isvRoomId = make_shared<string>(boost::any_cast<string>(m["IsvRoomId"]));
+    }
+    if (m.find("ReservationAuthority") != m.end() && !m["ReservationAuthority"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReservationAuthority"].type()) {
+        QueryMeetingRoomResponseBodyResultReservationAuthority model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReservationAuthority"]));
+        reservationAuthority = make_shared<QueryMeetingRoomResponseBodyResultReservationAuthority>(model1);
+      }
     }
     if (m.find("RoomCapacity") != m.end() && !m["RoomCapacity"].empty()) {
       roomCapacity = make_shared<long>(boost::any_cast<long>(m["RoomCapacity"]));
@@ -48917,6 +49167,8 @@ class QueryMeetingRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> requestId{};
   shared_ptr<QueryMeetingRoomResponseBodyResult> result{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
 
   QueryMeetingRoomResponseBody() {}
 
@@ -48934,6 +49186,12 @@ public:
     if (result) {
       res["result"] = result ? boost::any(result->toMap()) : boost::any(map<string,boost::any>({}));
     }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
     return res;
   }
 
@@ -48947,6 +49205,12 @@ public:
         model1.fromMap(boost::any_cast<map<string, boost::any>>(m["result"]));
         result = make_shared<QueryMeetingRoomResponseBodyResult>(model1);
       }
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
     }
   }
 
@@ -62827,6 +63091,92 @@ public:
 
   virtual ~UpdateMeetingRoomShrinkHeaders() = default;
 };
+class UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers : public Darabonba::Model {
+public:
+  shared_ptr<string> memberId{};
+  shared_ptr<string> memberName{};
+  shared_ptr<string> memberType{};
+
+  UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers() {}
+
+  explicit UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (memberId) {
+      res["MemberId"] = boost::any(*memberId);
+    }
+    if (memberName) {
+      res["MemberName"] = boost::any(*memberName);
+    }
+    if (memberType) {
+      res["MemberType"] = boost::any(*memberType);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("MemberId") != m.end() && !m["MemberId"].empty()) {
+      memberId = make_shared<string>(boost::any_cast<string>(m["MemberId"]));
+    }
+    if (m.find("MemberName") != m.end() && !m["MemberName"].empty()) {
+      memberName = make_shared<string>(boost::any_cast<string>(m["MemberName"]));
+    }
+    if (m.find("MemberType") != m.end() && !m["MemberType"].empty()) {
+      memberType = make_shared<string>(boost::any_cast<string>(m["MemberType"]));
+    }
+  }
+
+
+  virtual ~UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers() = default;
+};
+class UpdateMeetingRoomRequestReservationAuthority : public Darabonba::Model {
+public:
+  shared_ptr<vector<UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers>> authorizedMembers{};
+
+  UpdateMeetingRoomRequestReservationAuthority() {}
+
+  explicit UpdateMeetingRoomRequestReservationAuthority(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (authorizedMembers) {
+      vector<boost::any> temp1;
+      for(auto item1:*authorizedMembers){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AuthorizedMembers"] = boost::any(temp1);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AuthorizedMembers") != m.end() && !m["AuthorizedMembers"].empty()) {
+      if (typeid(vector<boost::any>) == m["AuthorizedMembers"].type()) {
+        vector<UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AuthorizedMembers"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        authorizedMembers = make_shared<vector<UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers>>(expect1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateMeetingRoomRequestReservationAuthority() = default;
+};
 class UpdateMeetingRoomRequestRoomLocation : public Darabonba::Model {
 public:
   shared_ptr<string> desc{};
@@ -62894,8 +63244,10 @@ public:
 };
 class UpdateMeetingRoomRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableCycleReservation{};
   shared_ptr<long> groupId{};
   shared_ptr<string> isvRoomId{};
+  shared_ptr<UpdateMeetingRoomRequestReservationAuthority> reservationAuthority{};
   shared_ptr<long> roomCapacity{};
   shared_ptr<string> roomId{};
   shared_ptr<vector<long>> roomLabelIds{};
@@ -62915,11 +63267,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableCycleReservation) {
+      res["EnableCycleReservation"] = boost::any(*enableCycleReservation);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
     if (isvRoomId) {
       res["IsvRoomId"] = boost::any(*isvRoomId);
+    }
+    if (reservationAuthority) {
+      res["ReservationAuthority"] = reservationAuthority ? boost::any(reservationAuthority->toMap()) : boost::any(map<string,boost::any>({}));
     }
     if (roomCapacity) {
       res["RoomCapacity"] = boost::any(*roomCapacity);
@@ -62949,11 +63307,21 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableCycleReservation") != m.end() && !m["EnableCycleReservation"].empty()) {
+      enableCycleReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableCycleReservation"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
     }
     if (m.find("IsvRoomId") != m.end() && !m["IsvRoomId"].empty()) {
       isvRoomId = make_shared<string>(boost::any_cast<string>(m["IsvRoomId"]));
+    }
+    if (m.find("ReservationAuthority") != m.end() && !m["ReservationAuthority"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ReservationAuthority"].type()) {
+        UpdateMeetingRoomRequestReservationAuthority model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ReservationAuthority"]));
+        reservationAuthority = make_shared<UpdateMeetingRoomRequestReservationAuthority>(model1);
+      }
     }
     if (m.find("RoomCapacity") != m.end() && !m["RoomCapacity"].empty()) {
       roomCapacity = make_shared<long>(boost::any_cast<long>(m["RoomCapacity"]));
@@ -63001,8 +63369,10 @@ public:
 };
 class UpdateMeetingRoomShrinkRequest : public Darabonba::Model {
 public:
+  shared_ptr<bool> enableCycleReservation{};
   shared_ptr<long> groupId{};
   shared_ptr<string> isvRoomId{};
+  shared_ptr<string> reservationAuthorityShrink{};
   shared_ptr<long> roomCapacity{};
   shared_ptr<string> roomId{};
   shared_ptr<string> roomLabelIdsShrink{};
@@ -63022,11 +63392,17 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (enableCycleReservation) {
+      res["EnableCycleReservation"] = boost::any(*enableCycleReservation);
+    }
     if (groupId) {
       res["GroupId"] = boost::any(*groupId);
     }
     if (isvRoomId) {
       res["IsvRoomId"] = boost::any(*isvRoomId);
+    }
+    if (reservationAuthorityShrink) {
+      res["ReservationAuthority"] = boost::any(*reservationAuthorityShrink);
     }
     if (roomCapacity) {
       res["RoomCapacity"] = boost::any(*roomCapacity);
@@ -63056,11 +63432,17 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("EnableCycleReservation") != m.end() && !m["EnableCycleReservation"].empty()) {
+      enableCycleReservation = make_shared<bool>(boost::any_cast<bool>(m["EnableCycleReservation"]));
+    }
     if (m.find("GroupId") != m.end() && !m["GroupId"].empty()) {
       groupId = make_shared<long>(boost::any_cast<long>(m["GroupId"]));
     }
     if (m.find("IsvRoomId") != m.end() && !m["IsvRoomId"].empty()) {
       isvRoomId = make_shared<string>(boost::any_cast<string>(m["IsvRoomId"]));
+    }
+    if (m.find("ReservationAuthority") != m.end() && !m["ReservationAuthority"].empty()) {
+      reservationAuthorityShrink = make_shared<string>(boost::any_cast<string>(m["ReservationAuthority"]));
     }
     if (m.find("RoomCapacity") != m.end() && !m["RoomCapacity"].empty()) {
       roomCapacity = make_shared<long>(boost::any_cast<long>(m["RoomCapacity"]));
@@ -63095,6 +63477,8 @@ class UpdateMeetingRoomResponseBody : public Darabonba::Model {
 public:
   shared_ptr<bool> result{};
   shared_ptr<string> requestId{};
+  shared_ptr<string> vendorRequestId{};
+  shared_ptr<string> vendorType{};
 
   UpdateMeetingRoomResponseBody() {}
 
@@ -63112,6 +63496,12 @@ public:
     if (requestId) {
       res["requestId"] = boost::any(*requestId);
     }
+    if (vendorRequestId) {
+      res["vendorRequestId"] = boost::any(*vendorRequestId);
+    }
+    if (vendorType) {
+      res["vendorType"] = boost::any(*vendorType);
+    }
     return res;
   }
 
@@ -63121,6 +63511,12 @@ public:
     }
     if (m.find("requestId") != m.end() && !m["requestId"].empty()) {
       requestId = make_shared<string>(boost::any_cast<string>(m["requestId"]));
+    }
+    if (m.find("vendorRequestId") != m.end() && !m["vendorRequestId"].empty()) {
+      vendorRequestId = make_shared<string>(boost::any_cast<string>(m["vendorRequestId"]));
+    }
+    if (m.find("vendorType") != m.end() && !m["vendorType"].empty()) {
+      vendorType = make_shared<string>(boost::any_cast<string>(m["vendorType"]));
     }
   }
 

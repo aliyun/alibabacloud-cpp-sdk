@@ -1158,6 +1158,9 @@ CreateMeetingRoomResponse Alibabacloud_Aliding20230426::Client::createMeetingRoo
   if (!Darabonba_Util::Client::isUnset<CreateMeetingRoomHeadersAccountContext>(tmpHeader->accountContext)) {
     headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<CreateMeetingRoomRequestReservationAuthority>(tmpReq->reservationAuthority)) {
+    request->reservationAuthorityShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->reservationAuthority, make_shared<string>("ReservationAuthority"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->roomLabelIds)) {
     request->roomLabelIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->roomLabelIds, make_shared<string>("RoomLabelIds"), make_shared<string>("json")));
   }
@@ -1168,11 +1171,17 @@ CreateMeetingRoomResponse Alibabacloud_Aliding20230426::Client::createMeetingRoo
     request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCycleReservation)) {
+    body->insert(pair<string, bool>("EnableCycleReservation", *request->enableCycleReservation));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     body->insert(pair<string, long>("GroupId", *request->groupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvRoomId)) {
     body->insert(pair<string, string>("IsvRoomId", *request->isvRoomId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reservationAuthorityShrink)) {
+    body->insert(pair<string, string>("ReservationAuthority", *request->reservationAuthorityShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->roomCapacity)) {
     body->insert(pair<string, long>("RoomCapacity", *request->roomCapacity));
@@ -8003,6 +8012,9 @@ UpdateMeetingRoomResponse Alibabacloud_Aliding20230426::Client::updateMeetingRoo
   if (!Darabonba_Util::Client::isUnset<UpdateMeetingRoomHeadersAccountContext>(tmpHeader->accountContext)) {
     headers->accountContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpHeader->accountContext, make_shared<string>("AccountContext"), make_shared<string>("json")));
   }
+  if (!Darabonba_Util::Client::isUnset<UpdateMeetingRoomRequestReservationAuthority>(tmpReq->reservationAuthority)) {
+    request->reservationAuthorityShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->reservationAuthority, make_shared<string>("ReservationAuthority"), make_shared<string>("json")));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<long>>(tmpReq->roomLabelIds)) {
     request->roomLabelIdsShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->roomLabelIds, make_shared<string>("RoomLabelIds"), make_shared<string>("json")));
   }
@@ -8013,11 +8025,17 @@ UpdateMeetingRoomResponse Alibabacloud_Aliding20230426::Client::updateMeetingRoo
     request->tenantContextShrink = make_shared<string>(Alibabacloud_OpenApiUtil::Client::arrayToStringWithSpecifiedStyle(tmpReq->tenantContext, make_shared<string>("TenantContext"), make_shared<string>("json")));
   }
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enableCycleReservation)) {
+    body->insert(pair<string, bool>("EnableCycleReservation", *request->enableCycleReservation));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->groupId)) {
     body->insert(pair<string, long>("GroupId", *request->groupId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->isvRoomId)) {
     body->insert(pair<string, string>("IsvRoomId", *request->isvRoomId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->reservationAuthorityShrink)) {
+    body->insert(pair<string, string>("ReservationAuthority", *request->reservationAuthorityShrink));
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->roomCapacity)) {
     body->insert(pair<string, long>("RoomCapacity", *request->roomCapacity));
