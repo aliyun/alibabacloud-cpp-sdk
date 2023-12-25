@@ -43,8 +43,66 @@ public:
 
   virtual ~AcceptResourceShareInvitationRequest() = default;
 };
+class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> associateType{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusMessage{};
+
+  AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails() {}
+
+  explicit AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associateType) {
+      res["AssociateType"] = boost::any(*associateType);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusMessage) {
+      res["StatusMessage"] = boost::any(*statusMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateType") != m.end() && !m["AssociateType"].empty()) {
+      associateType = make_shared<string>(boost::any_cast<string>(m["AssociateType"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusMessage") != m.end() && !m["StatusMessage"].empty()) {
+      statusMessage = make_shared<string>(boost::any_cast<string>(m["StatusMessage"]));
+    }
+  }
+
+
+  virtual ~AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails() = default;
+};
 class AcceptResourceShareInvitationResponseBodyResourceShareInvitation : public Darabonba::Model {
 public:
+  shared_ptr<vector<AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails>> acceptInvitationFailedDetails{};
   shared_ptr<string> createTime{};
   shared_ptr<string> receiverAccountId{};
   shared_ptr<string> resourceShareId{};
@@ -63,6 +121,13 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (acceptInvitationFailedDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*acceptInvitationFailedDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["AcceptInvitationFailedDetails"] = boost::any(temp1);
+    }
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
     }
@@ -88,6 +153,19 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("AcceptInvitationFailedDetails") != m.end() && !m["AcceptInvitationFailedDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["AcceptInvitationFailedDetails"].type()) {
+        vector<AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["AcceptInvitationFailedDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        acceptInvitationFailedDetails = make_shared<vector<AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails>>(expect1);
+      }
+    }
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
     }
@@ -3048,9 +3126,67 @@ public:
 
   virtual ~ListResourceShareInvitationsRequest() = default;
 };
+class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails : public Darabonba::Model {
+public:
+  shared_ptr<string> associateType{};
+  shared_ptr<string> resourceId{};
+  shared_ptr<string> resourceType{};
+  shared_ptr<string> status{};
+  shared_ptr<string> statusMessage{};
+
+  ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails() {}
+
+  explicit ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (associateType) {
+      res["AssociateType"] = boost::any(*associateType);
+    }
+    if (resourceId) {
+      res["ResourceId"] = boost::any(*resourceId);
+    }
+    if (resourceType) {
+      res["ResourceType"] = boost::any(*resourceType);
+    }
+    if (status) {
+      res["Status"] = boost::any(*status);
+    }
+    if (statusMessage) {
+      res["StatusMessage"] = boost::any(*statusMessage);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("AssociateType") != m.end() && !m["AssociateType"].empty()) {
+      associateType = make_shared<string>(boost::any_cast<string>(m["AssociateType"]));
+    }
+    if (m.find("ResourceId") != m.end() && !m["ResourceId"].empty()) {
+      resourceId = make_shared<string>(boost::any_cast<string>(m["ResourceId"]));
+    }
+    if (m.find("ResourceType") != m.end() && !m["ResourceType"].empty()) {
+      resourceType = make_shared<string>(boost::any_cast<string>(m["ResourceType"]));
+    }
+    if (m.find("Status") != m.end() && !m["Status"].empty()) {
+      status = make_shared<string>(boost::any_cast<string>(m["Status"]));
+    }
+    if (m.find("StatusMessage") != m.end() && !m["StatusMessage"].empty()) {
+      statusMessage = make_shared<string>(boost::any_cast<string>(m["StatusMessage"]));
+    }
+  }
+
+
+  virtual ~ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails() = default;
+};
 class ListResourceShareInvitationsResponseBodyResourceShareInvitations : public Darabonba::Model {
 public:
   shared_ptr<string> createTime{};
+  shared_ptr<vector<ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails>> invitationFailedDetails{};
   shared_ptr<string> receiverAccountId{};
   shared_ptr<string> resourceShareId{};
   shared_ptr<string> resourceShareInvitationId{};
@@ -3070,6 +3206,13 @@ public:
     map<string, boost::any> res;
     if (createTime) {
       res["CreateTime"] = boost::any(*createTime);
+    }
+    if (invitationFailedDetails) {
+      vector<boost::any> temp1;
+      for(auto item1:*invitationFailedDetails){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["InvitationFailedDetails"] = boost::any(temp1);
     }
     if (receiverAccountId) {
       res["ReceiverAccountId"] = boost::any(*receiverAccountId);
@@ -3095,6 +3238,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("CreateTime") != m.end() && !m["CreateTime"].empty()) {
       createTime = make_shared<string>(boost::any_cast<string>(m["CreateTime"]));
+    }
+    if (m.find("InvitationFailedDetails") != m.end() && !m["InvitationFailedDetails"].empty()) {
+      if (typeid(vector<boost::any>) == m["InvitationFailedDetails"].type()) {
+        vector<ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["InvitationFailedDetails"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        invitationFailedDetails = make_shared<vector<ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails>>(expect1);
+      }
     }
     if (m.find("ReceiverAccountId") != m.end() && !m["ReceiverAccountId"].empty()) {
       receiverAccountId = make_shared<string>(boost::any_cast<string>(m["ReceiverAccountId"]));
