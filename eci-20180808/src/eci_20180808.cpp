@@ -1303,6 +1303,9 @@ DescribeContainerGroupsResponse Alibabacloud_Eci20180808::Client::describeContai
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->securityGroupId)) {
+    query->insert(pair<string, string>("SecurityGroupId", *request->securityGroupId));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->status)) {
     query->insert(pair<string, string>("Status", *request->status));
   }

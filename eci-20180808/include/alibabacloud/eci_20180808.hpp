@@ -9973,6 +9973,7 @@ public:
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<string> securityGroupId{};
   shared_ptr<string> status{};
   shared_ptr<vector<DescribeContainerGroupsRequestTag>> tag{};
   shared_ptr<string> vSwitchId{};
@@ -10018,6 +10019,9 @@ public:
     }
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
+    }
+    if (securityGroupId) {
+      res["SecurityGroupId"] = boost::any(*securityGroupId);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -10071,6 +10075,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
+      securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -12283,6 +12290,7 @@ public:
 };
 class DescribeContainerGroupsResponseBodyContainerGroups : public Darabonba::Model {
 public:
+  shared_ptr<string> computeCategory{};
   shared_ptr<string> containerGroupId{};
   shared_ptr<string> containerGroupName{};
   shared_ptr<vector<DescribeContainerGroupsResponseBodyContainerGroupsContainers>> containers{};
@@ -12332,6 +12340,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (computeCategory) {
+      res["ComputeCategory"] = boost::any(*computeCategory);
+    }
     if (containerGroupId) {
       res["ContainerGroupId"] = boost::any(*containerGroupId);
     }
@@ -12474,6 +12485,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ComputeCategory") != m.end() && !m["ComputeCategory"].empty()) {
+      computeCategory = make_shared<string>(boost::any_cast<string>(m["ComputeCategory"]));
+    }
     if (m.find("ContainerGroupId") != m.end() && !m["ContainerGroupId"].empty()) {
       containerGroupId = make_shared<string>(boost::any_cast<string>(m["ContainerGroupId"]));
     }
