@@ -345,6 +345,9 @@ CreateModelResponse Alibabacloud_AIWorkSpace20210204::Client::createModelWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     body->insert(pair<string, string>("Domain", *request->domain));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extraInfo)) {
+    body->insert(pair<string, map<string, boost::any>>("ExtraInfo", *request->extraInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<vector<Label>>(request->labels)) {
     body->insert(pair<string, vector<Label>>("Labels", *request->labels));
   }
@@ -357,17 +360,14 @@ CreateModelResponse Alibabacloud_AIWorkSpace20210204::Client::createModelWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->modelName)) {
     body->insert(pair<string, string>("ModelName", *request->modelName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelType)) {
+    body->insert(pair<string, string>("ModelType", *request->modelType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->orderNumber)) {
     body->insert(pair<string, long>("OrderNumber", *request->orderNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
     body->insert(pair<string, string>("Origin", *request->origin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
-    body->insert(pair<string, string>("SourceId", *request->sourceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
-    body->insert(pair<string, string>("SourceType", *request->sourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->task)) {
     body->insert(pair<string, string>("Task", *request->task));
@@ -440,6 +440,12 @@ CreateModelVersionResponse Alibabacloud_AIWorkSpace20210204::Client::createModel
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalStatus)) {
     body->insert(pair<string, string>("ApprovalStatus", *request->approvalStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->evaluationSpec)) {
+    body->insert(pair<string, map<string, boost::any>>("EvaluationSpec", *request->evaluationSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extraInfo)) {
+    body->insert(pair<string, map<string, boost::any>>("ExtraInfo", *request->extraInfo));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->formatType)) {
     body->insert(pair<string, string>("FormatType", *request->formatType));
@@ -1557,6 +1563,9 @@ ListModelVersionsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelVer
 ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptions(shared_ptr<ListModelsRequest> request, shared_ptr<map<string, string>> headers, shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> query = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<string>(request->collections)) {
+    query->insert(pair<string, string>("Collections", *request->collections));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     query->insert(pair<string, string>("Domain", *request->domain));
   }
@@ -1565,6 +1574,9 @@ ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelName)) {
     query->insert(pair<string, string>("ModelName", *request->modelName));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelType)) {
+    query->insert(pair<string, string>("ModelType", *request->modelType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->order)) {
     query->insert(pair<string, string>("Order", *request->order));
@@ -1586,12 +1598,6 @@ ListModelsResponse Alibabacloud_AIWorkSpace20210204::Client::listModelsWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->sortBy)) {
     query->insert(pair<string, string>("SortBy", *request->sortBy));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->souceType)) {
-    query->insert(pair<string, string>("SouceType", *request->souceType));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
-    query->insert(pair<string, string>("SourceId", *request->sourceId));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->task)) {
     query->insert(pair<string, string>("Task", *request->task));
@@ -2017,7 +2023,7 @@ RemoveImageResponse Alibabacloud_AIWorkSpace20210204::Client::removeImage(shared
 }
 
 RemoveImageLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::removeImageLabelsWithOptions(shared_ptr<string> ImageId,
-                                                                                                 shared_ptr<string> LabelKeys,
+                                                                                                 shared_ptr<string> LabelKey,
                                                                                                  shared_ptr<map<string, string>> headers,
                                                                                                  shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
@@ -2027,7 +2033,7 @@ RemoveImageLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::removeImageL
     {"action", boost::any(string("RemoveImageLabels"))},
     {"version", boost::any(string("2021-02-04"))},
     {"protocol", boost::any(string("HTTPS"))},
-    {"pathname", boost::any(string("/api/v1/images/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ImageId)) + string("/labels/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(LabelKeys)))},
+    {"pathname", boost::any(string("/api/v1/images/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(ImageId)) + string("/labels/") + string(Alibabacloud_OpenApiUtil::Client::getEncodeParam(LabelKey)))},
     {"method", boost::any(string("DELETE"))},
     {"authType", boost::any(string("AK"))},
     {"style", boost::any(string("ROA"))},
@@ -2037,10 +2043,10 @@ RemoveImageLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::removeImageL
   return RemoveImageLabelsResponse(callApi(params, req, runtime));
 }
 
-RemoveImageLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::removeImageLabels(shared_ptr<string> ImageId, shared_ptr<string> LabelKeys) {
+RemoveImageLabelsResponse Alibabacloud_AIWorkSpace20210204::Client::removeImageLabels(shared_ptr<string> ImageId, shared_ptr<string> LabelKey) {
   shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
   shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
-  return removeImageLabelsWithOptions(ImageId, LabelKeys, headers, runtime);
+  return removeImageLabelsWithOptions(ImageId, LabelKey, headers, runtime);
 }
 
 RemoveMemberRoleResponse Alibabacloud_AIWorkSpace20210204::Client::removeMemberRoleWithOptions(shared_ptr<string> WorkspaceId,
@@ -2152,6 +2158,9 @@ UpdateModelResponse Alibabacloud_AIWorkSpace20210204::Client::updateModelWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->domain)) {
     body->insert(pair<string, string>("Domain", *request->domain));
   }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extraInfo)) {
+    body->insert(pair<string, map<string, boost::any>>("ExtraInfo", *request->extraInfo));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->modelDescription)) {
     body->insert(pair<string, string>("ModelDescription", *request->modelDescription));
   }
@@ -2161,17 +2170,14 @@ UpdateModelResponse Alibabacloud_AIWorkSpace20210204::Client::updateModelWithOpt
   if (!Darabonba_Util::Client::isUnset<string>(request->modelName)) {
     body->insert(pair<string, string>("ModelName", *request->modelName));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->modelType)) {
+    body->insert(pair<string, string>("ModelType", *request->modelType));
+  }
   if (!Darabonba_Util::Client::isUnset<long>(request->orderNumber)) {
     body->insert(pair<string, long>("OrderNumber", *request->orderNumber));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->origin)) {
     body->insert(pair<string, string>("Origin", *request->origin));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceId)) {
-    body->insert(pair<string, string>("SourceId", *request->sourceId));
-  }
-  if (!Darabonba_Util::Client::isUnset<string>(request->sourceType)) {
-    body->insert(pair<string, string>("SourceType", *request->sourceType));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->task)) {
     body->insert(pair<string, string>("Task", *request->task));
@@ -2209,6 +2215,12 @@ UpdateModelVersionResponse Alibabacloud_AIWorkSpace20210204::Client::updateModel
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
   if (!Darabonba_Util::Client::isUnset<string>(request->approvalStatus)) {
     body->insert(pair<string, string>("ApprovalStatus", *request->approvalStatus));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->evaluationSpec)) {
+    body->insert(pair<string, map<string, boost::any>>("EvaluationSpec", *request->evaluationSpec));
+  }
+  if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->extraInfo)) {
+    body->insert(pair<string, map<string, boost::any>>("ExtraInfo", *request->extraInfo));
   }
   if (!Darabonba_Util::Client::isUnset<map<string, boost::any>>(request->inferenceSpec)) {
     body->insert(pair<string, map<string, boost::any>>("InferenceSpec", *request->inferenceSpec));
