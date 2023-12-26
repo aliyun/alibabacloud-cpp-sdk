@@ -15,6 +15,253 @@
 using namespace std;
 
 namespace Alibabacloud_ResourceCenter20221201 {
+class AssociateDefaultFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterName{};
+
+  AssociateDefaultFilterRequest() {}
+
+  explicit AssociateDefaultFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterName) {
+      res["FilterName"] = boost::any(*filterName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterName") != m.end() && !m["FilterName"].empty()) {
+      filterName = make_shared<string>(boost::any_cast<string>(m["FilterName"]));
+    }
+  }
+
+
+  virtual ~AssociateDefaultFilterRequest() = default;
+};
+class AssociateDefaultFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  AssociateDefaultFilterResponseBody() {}
+
+  explicit AssociateDefaultFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~AssociateDefaultFilterResponseBody() = default;
+};
+class AssociateDefaultFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<AssociateDefaultFilterResponseBody> body{};
+
+  AssociateDefaultFilterResponse() {}
+
+  explicit AssociateDefaultFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        AssociateDefaultFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<AssociateDefaultFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~AssociateDefaultFilterResponse() = default;
+};
+class CreateFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterConfiguration{};
+  shared_ptr<string> filterName{};
+
+  CreateFilterRequest() {}
+
+  explicit CreateFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterConfiguration) {
+      res["FilterConfiguration"] = boost::any(*filterConfiguration);
+    }
+    if (filterName) {
+      res["FilterName"] = boost::any(*filterName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterConfiguration") != m.end() && !m["FilterConfiguration"].empty()) {
+      filterConfiguration = make_shared<string>(boost::any_cast<string>(m["FilterConfiguration"]));
+    }
+    if (m.find("FilterName") != m.end() && !m["FilterName"].empty()) {
+      filterName = make_shared<string>(boost::any_cast<string>(m["FilterName"]));
+    }
+  }
+
+
+  virtual ~CreateFilterRequest() = default;
+};
+class CreateFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  CreateFilterResponseBody() {}
+
+  explicit CreateFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~CreateFilterResponseBody() = default;
+};
+class CreateFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<CreateFilterResponseBody> body{};
+
+  CreateFilterResponse() {}
+
+  explicit CreateFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        CreateFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<CreateFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~CreateFilterResponse() = default;
+};
 class CreateSavedQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -155,6 +402,126 @@ public:
 
 
   virtual ~CreateSavedQueryResponse() = default;
+};
+class DeleteFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterName{};
+
+  DeleteFilterRequest() {}
+
+  explicit DeleteFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterName) {
+      res["FilterName"] = boost::any(*filterName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterName") != m.end() && !m["FilterName"].empty()) {
+      filterName = make_shared<string>(boost::any_cast<string>(m["FilterName"]));
+    }
+  }
+
+
+  virtual ~DeleteFilterRequest() = default;
+};
+class DeleteFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DeleteFilterResponseBody() {}
+
+  explicit DeleteFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DeleteFilterResponseBody() = default;
+};
+class DeleteFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DeleteFilterResponseBody> body{};
+
+  DeleteFilterResponse() {}
+
+  explicit DeleteFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DeleteFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DeleteFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DeleteFilterResponse() = default;
 };
 class DeleteSavedQueryRequest : public Darabonba::Model {
 public:
@@ -457,6 +824,97 @@ public:
 
 
   virtual ~DisableResourceCenterResponse() = default;
+};
+class DisassociateDefaultFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  DisassociateDefaultFilterResponseBody() {}
+
+  explicit DisassociateDefaultFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~DisassociateDefaultFilterResponseBody() = default;
+};
+class DisassociateDefaultFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<DisassociateDefaultFilterResponseBody> body{};
+
+  DisassociateDefaultFilterResponse() {}
+
+  explicit DisassociateDefaultFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        DisassociateDefaultFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<DisassociateDefaultFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~DisassociateDefaultFilterResponse() = default;
 };
 class EnableMultiAccountResourceCenterResponseBody : public Darabonba::Model {
 public:
@@ -2854,6 +3312,161 @@ public:
 
 
   virtual ~ListExampleQueriesResponse() = default;
+};
+class ListFiltersResponseBodyFilters : public Darabonba::Model {
+public:
+  shared_ptr<string> filterConfiguration{};
+  shared_ptr<string> filterName{};
+
+  ListFiltersResponseBodyFilters() {}
+
+  explicit ListFiltersResponseBodyFilters(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterConfiguration) {
+      res["FilterConfiguration"] = boost::any(*filterConfiguration);
+    }
+    if (filterName) {
+      res["FilterName"] = boost::any(*filterName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterConfiguration") != m.end() && !m["FilterConfiguration"].empty()) {
+      filterConfiguration = make_shared<string>(boost::any_cast<string>(m["FilterConfiguration"]));
+    }
+    if (m.find("FilterName") != m.end() && !m["FilterName"].empty()) {
+      filterName = make_shared<string>(boost::any_cast<string>(m["FilterName"]));
+    }
+  }
+
+
+  virtual ~ListFiltersResponseBodyFilters() = default;
+};
+class ListFiltersResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> defaultFilterName{};
+  shared_ptr<vector<ListFiltersResponseBodyFilters>> filters{};
+  shared_ptr<string> requestId{};
+
+  ListFiltersResponseBody() {}
+
+  explicit ListFiltersResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (defaultFilterName) {
+      res["DefaultFilterName"] = boost::any(*defaultFilterName);
+    }
+    if (filters) {
+      vector<boost::any> temp1;
+      for(auto item1:*filters){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filters"] = boost::any(temp1);
+    }
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("DefaultFilterName") != m.end() && !m["DefaultFilterName"].empty()) {
+      defaultFilterName = make_shared<string>(boost::any_cast<string>(m["DefaultFilterName"]));
+    }
+    if (m.find("Filters") != m.end() && !m["Filters"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filters"].type()) {
+        vector<ListFiltersResponseBodyFilters> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filters"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListFiltersResponseBodyFilters model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filters = make_shared<vector<ListFiltersResponseBodyFilters>>(expect1);
+      }
+    }
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~ListFiltersResponseBody() = default;
+};
+class ListFiltersResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<ListFiltersResponseBody> body{};
+
+  ListFiltersResponse() {}
+
+  explicit ListFiltersResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        ListFiltersResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<ListFiltersResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~ListFiltersResponse() = default;
 };
 class ListMultiAccountResourceGroupsRequest : public Darabonba::Model {
 public:
@@ -5372,6 +5985,133 @@ public:
 
   virtual ~SearchResourcesResponse() = default;
 };
+class UpdateFilterRequest : public Darabonba::Model {
+public:
+  shared_ptr<string> filterConfiguration{};
+  shared_ptr<string> filterName{};
+
+  UpdateFilterRequest() {}
+
+  explicit UpdateFilterRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (filterConfiguration) {
+      res["FilterConfiguration"] = boost::any(*filterConfiguration);
+    }
+    if (filterName) {
+      res["FilterName"] = boost::any(*filterName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("FilterConfiguration") != m.end() && !m["FilterConfiguration"].empty()) {
+      filterConfiguration = make_shared<string>(boost::any_cast<string>(m["FilterConfiguration"]));
+    }
+    if (m.find("FilterName") != m.end() && !m["FilterName"].empty()) {
+      filterName = make_shared<string>(boost::any_cast<string>(m["FilterName"]));
+    }
+  }
+
+
+  virtual ~UpdateFilterRequest() = default;
+};
+class UpdateFilterResponseBody : public Darabonba::Model {
+public:
+  shared_ptr<string> requestId{};
+
+  UpdateFilterResponseBody() {}
+
+  explicit UpdateFilterResponseBody(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (requestId) {
+      res["RequestId"] = boost::any(*requestId);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("RequestId") != m.end() && !m["RequestId"].empty()) {
+      requestId = make_shared<string>(boost::any_cast<string>(m["RequestId"]));
+    }
+  }
+
+
+  virtual ~UpdateFilterResponseBody() = default;
+};
+class UpdateFilterResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+  shared_ptr<UpdateFilterResponseBody> body{};
+
+  UpdateFilterResponse() {}
+
+  explicit UpdateFilterResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+    if (!body) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("body is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    if (body) {
+      res["body"] = body ? boost::any(body->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+    if (m.find("body") != m.end() && !m["body"].empty()) {
+      if (typeid(map<string, boost::any>) == m["body"].type()) {
+        UpdateFilterResponseBody model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["body"]));
+        body = make_shared<UpdateFilterResponseBody>(model1);
+      }
+    }
+  }
+
+
+  virtual ~UpdateFilterResponse() = default;
+};
 class UpdateSavedQueryRequest : public Darabonba::Model {
 public:
   shared_ptr<string> description{};
@@ -5523,14 +6263,22 @@ public:
                      shared_ptr<string> suffix,
                      shared_ptr<map<string, string>> endpointMap,
                      shared_ptr<string> endpoint);
+  AssociateDefaultFilterResponse associateDefaultFilterWithOptions(shared_ptr<AssociateDefaultFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  AssociateDefaultFilterResponse associateDefaultFilter(shared_ptr<AssociateDefaultFilterRequest> request);
+  CreateFilterResponse createFilterWithOptions(shared_ptr<CreateFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  CreateFilterResponse createFilter(shared_ptr<CreateFilterRequest> request);
   CreateSavedQueryResponse createSavedQueryWithOptions(shared_ptr<CreateSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   CreateSavedQueryResponse createSavedQuery(shared_ptr<CreateSavedQueryRequest> request);
+  DeleteFilterResponse deleteFilterWithOptions(shared_ptr<DeleteFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DeleteFilterResponse deleteFilter(shared_ptr<DeleteFilterRequest> request);
   DeleteSavedQueryResponse deleteSavedQueryWithOptions(shared_ptr<DeleteSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DeleteSavedQueryResponse deleteSavedQuery(shared_ptr<DeleteSavedQueryRequest> request);
   DisableMultiAccountResourceCenterResponse disableMultiAccountResourceCenterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableMultiAccountResourceCenterResponse disableMultiAccountResourceCenter();
   DisableResourceCenterResponse disableResourceCenterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   DisableResourceCenterResponse disableResourceCenter();
+  DisassociateDefaultFilterResponse disassociateDefaultFilterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  DisassociateDefaultFilterResponse disassociateDefaultFilter();
   EnableMultiAccountResourceCenterResponse enableMultiAccountResourceCenterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   EnableMultiAccountResourceCenterResponse enableMultiAccountResourceCenter();
   EnableResourceCenterResponse enableResourceCenterWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5555,6 +6303,8 @@ public:
   GetSavedQueryResponse getSavedQuery(shared_ptr<GetSavedQueryRequest> request);
   ListExampleQueriesResponse listExampleQueriesWithOptions(shared_ptr<ListExampleQueriesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListExampleQueriesResponse listExampleQueries(shared_ptr<ListExampleQueriesRequest> request);
+  ListFiltersResponse listFiltersWithOptions(shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  ListFiltersResponse listFilters();
   ListMultiAccountResourceGroupsResponse listMultiAccountResourceGroupsWithOptions(shared_ptr<ListMultiAccountResourceGroupsRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   ListMultiAccountResourceGroupsResponse listMultiAccountResourceGroups(shared_ptr<ListMultiAccountResourceGroupsRequest> request);
   ListMultiAccountTagKeysResponse listMultiAccountTagKeysWithOptions(shared_ptr<ListMultiAccountTagKeysRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
@@ -5573,6 +6323,8 @@ public:
   SearchMultiAccountResourcesResponse searchMultiAccountResources(shared_ptr<SearchMultiAccountResourcesRequest> request);
   SearchResourcesResponse searchResourcesWithOptions(shared_ptr<SearchResourcesRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   SearchResourcesResponse searchResources(shared_ptr<SearchResourcesRequest> request);
+  UpdateFilterResponse updateFilterWithOptions(shared_ptr<UpdateFilterRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  UpdateFilterResponse updateFilter(shared_ptr<UpdateFilterRequest> request);
   UpdateSavedQueryResponse updateSavedQueryWithOptions(shared_ptr<UpdateSavedQueryRequest> request, shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   UpdateSavedQueryResponse updateSavedQuery(shared_ptr<UpdateSavedQueryRequest> request);
 
