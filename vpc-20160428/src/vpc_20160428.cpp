@@ -13610,6 +13610,9 @@ ListEnhanhcedNatGatewayAvailableZonesResponse Alibabacloud_Vpc20160428::Client::
   if (!Darabonba_Util::Client::isUnset<string>(request->acceptLanguage)) {
     query->insert(pair<string, string>("AcceptLanguage", *request->acceptLanguage));
   }
+  if (!Darabonba_Util::Client::isUnset<vector<ListEnhanhcedNatGatewayAvailableZonesRequestFilter>>(request->filter)) {
+    query->insert(pair<string, vector<ListEnhanhcedNatGatewayAvailableZonesRequestFilter>>("Filter", *request->filter));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ownerAccount)) {
     query->insert(pair<string, string>("OwnerAccount", *request->ownerAccount));
   }
@@ -17150,6 +17153,9 @@ ModifyVirtualBorderRouterAttributeResponse Alibabacloud_Vpc20160428::Client::mod
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->sitelinkEnable)) {
+    query->insert(pair<string, bool>("SitelinkEnable", *request->sitelinkEnable));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->vbrId)) {
     query->insert(pair<string, string>("VbrId", *request->vbrId));

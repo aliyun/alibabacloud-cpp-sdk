@@ -56072,6 +56072,8 @@ public:
   shared_ptr<string> description{};
   shared_ptr<long> detectMultiplier{};
   shared_ptr<string> eccId{};
+  shared_ptr<string> ecrAttatchStatus{};
+  shared_ptr<string> ecrId{};
   shared_ptr<bool> enableIpv6{};
   shared_ptr<string> localGatewayIp{};
   shared_ptr<string> localIpv6GatewayIp{};
@@ -56091,6 +56093,7 @@ public:
   shared_ptr<string> recoveryTime{};
   shared_ptr<string> resourceGroupId{};
   shared_ptr<string> routeTableId{};
+  shared_ptr<bool> sitelinkEnable{};
   shared_ptr<string> status{};
   shared_ptr<DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtualBorderRouterTypeTags> tags{};
   shared_ptr<string> terminationTime{};
@@ -56141,6 +56144,12 @@ public:
     }
     if (eccId) {
       res["EccId"] = boost::any(*eccId);
+    }
+    if (ecrAttatchStatus) {
+      res["EcrAttatchStatus"] = boost::any(*ecrAttatchStatus);
+    }
+    if (ecrId) {
+      res["EcrId"] = boost::any(*ecrId);
     }
     if (enableIpv6) {
       res["EnableIpv6"] = boost::any(*enableIpv6);
@@ -56198,6 +56207,9 @@ public:
     }
     if (routeTableId) {
       res["RouteTableId"] = boost::any(*routeTableId);
+    }
+    if (sitelinkEnable) {
+      res["SitelinkEnable"] = boost::any(*sitelinkEnable);
     }
     if (status) {
       res["Status"] = boost::any(*status);
@@ -56265,6 +56277,12 @@ public:
     if (m.find("EccId") != m.end() && !m["EccId"].empty()) {
       eccId = make_shared<string>(boost::any_cast<string>(m["EccId"]));
     }
+    if (m.find("EcrAttatchStatus") != m.end() && !m["EcrAttatchStatus"].empty()) {
+      ecrAttatchStatus = make_shared<string>(boost::any_cast<string>(m["EcrAttatchStatus"]));
+    }
+    if (m.find("EcrId") != m.end() && !m["EcrId"].empty()) {
+      ecrId = make_shared<string>(boost::any_cast<string>(m["EcrId"]));
+    }
     if (m.find("EnableIpv6") != m.end() && !m["EnableIpv6"].empty()) {
       enableIpv6 = make_shared<bool>(boost::any_cast<bool>(m["EnableIpv6"]));
     }
@@ -56321,6 +56339,9 @@ public:
     }
     if (m.find("RouteTableId") != m.end() && !m["RouteTableId"].empty()) {
       routeTableId = make_shared<string>(boost::any_cast<string>(m["RouteTableId"]));
+    }
+    if (m.find("SitelinkEnable") != m.end() && !m["SitelinkEnable"].empty()) {
+      sitelinkEnable = make_shared<bool>(boost::any_cast<bool>(m["SitelinkEnable"]));
     }
     if (m.find("Status") != m.end() && !m["Status"].empty()) {
       status = make_shared<string>(boost::any_cast<string>(m["Status"]));
@@ -71811,9 +71832,46 @@ public:
 
   virtual ~ListDhcpOptionsSetsResponse() = default;
 };
+class ListEnhanhcedNatGatewayAvailableZonesRequestFilter : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  ListEnhanhcedNatGatewayAvailableZonesRequestFilter() {}
+
+  explicit ListEnhanhcedNatGatewayAvailableZonesRequestFilter(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~ListEnhanhcedNatGatewayAvailableZonesRequestFilter() = default;
+};
 class ListEnhanhcedNatGatewayAvailableZonesRequest : public Darabonba::Model {
 public:
   shared_ptr<string> acceptLanguage{};
+  shared_ptr<vector<ListEnhanhcedNatGatewayAvailableZonesRequestFilter>> filter{};
   shared_ptr<string> ownerAccount{};
   shared_ptr<long> ownerId{};
   shared_ptr<string> regionId{};
@@ -71832,6 +71890,13 @@ public:
     map<string, boost::any> res;
     if (acceptLanguage) {
       res["AcceptLanguage"] = boost::any(*acceptLanguage);
+    }
+    if (filter) {
+      vector<boost::any> temp1;
+      for(auto item1:*filter){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Filter"] = boost::any(temp1);
     }
     if (ownerAccount) {
       res["OwnerAccount"] = boost::any(*ownerAccount);
@@ -71854,6 +71919,19 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("AcceptLanguage") != m.end() && !m["AcceptLanguage"].empty()) {
       acceptLanguage = make_shared<string>(boost::any_cast<string>(m["AcceptLanguage"]));
+    }
+    if (m.find("Filter") != m.end() && !m["Filter"].empty()) {
+      if (typeid(vector<boost::any>) == m["Filter"].type()) {
+        vector<ListEnhanhcedNatGatewayAvailableZonesRequestFilter> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Filter"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ListEnhanhcedNatGatewayAvailableZonesRequestFilter model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        filter = make_shared<vector<ListEnhanhcedNatGatewayAvailableZonesRequestFilter>>(expect1);
+      }
     }
     if (m.find("OwnerAccount") != m.end() && !m["OwnerAccount"].empty()) {
       ownerAccount = make_shared<string>(boost::any_cast<string>(m["OwnerAccount"]));
@@ -88174,6 +88252,7 @@ public:
   shared_ptr<string> regionId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> sitelinkEnable{};
   shared_ptr<string> vbrId{};
   shared_ptr<long> vlanId{};
 
@@ -88250,6 +88329,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (sitelinkEnable) {
+      res["SitelinkEnable"] = boost::any(*sitelinkEnable);
+    }
     if (vbrId) {
       res["VbrId"] = boost::any(*vbrId);
     }
@@ -88322,6 +88404,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("SitelinkEnable") != m.end() && !m["SitelinkEnable"].empty()) {
+      sitelinkEnable = make_shared<bool>(boost::any_cast<bool>(m["SitelinkEnable"]));
     }
     if (m.find("VbrId") != m.end() && !m["VbrId"].empty()) {
       vbrId = make_shared<string>(boost::any_cast<string>(m["VbrId"]));
