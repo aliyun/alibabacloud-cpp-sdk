@@ -71,13 +71,16 @@ public:
   shared_ptr<string> autoSnapshotPolicyId{};
   shared_ptr<bool> burstingEnabled{};
   shared_ptr<string> category{};
+  shared_ptr<string> device{};
   shared_ptr<string> encrypted{};
   shared_ptr<string> fileSystem{};
   shared_ptr<string> kmsKeyId{};
   shared_ptr<string> mountTarget{};
+  shared_ptr<string> name{};
   shared_ptr<string> performanceLevel{};
   shared_ptr<long> provisionedIops{};
   shared_ptr<long> size{};
+  shared_ptr<string> snapshotId{};
 
   DataDisk() {}
 
@@ -101,6 +104,9 @@ public:
     if (category) {
       res["category"] = boost::any(*category);
     }
+    if (device) {
+      res["device"] = boost::any(*device);
+    }
     if (encrypted) {
       res["encrypted"] = boost::any(*encrypted);
     }
@@ -113,6 +119,9 @@ public:
     if (mountTarget) {
       res["mount_target"] = boost::any(*mountTarget);
     }
+    if (name) {
+      res["name"] = boost::any(*name);
+    }
     if (performanceLevel) {
       res["performance_level"] = boost::any(*performanceLevel);
     }
@@ -121,6 +130,9 @@ public:
     }
     if (size) {
       res["size"] = boost::any(*size);
+    }
+    if (snapshotId) {
+      res["snapshot_id"] = boost::any(*snapshotId);
     }
     return res;
   }
@@ -138,6 +150,9 @@ public:
     if (m.find("category") != m.end() && !m["category"].empty()) {
       category = make_shared<string>(boost::any_cast<string>(m["category"]));
     }
+    if (m.find("device") != m.end() && !m["device"].empty()) {
+      device = make_shared<string>(boost::any_cast<string>(m["device"]));
+    }
     if (m.find("encrypted") != m.end() && !m["encrypted"].empty()) {
       encrypted = make_shared<string>(boost::any_cast<string>(m["encrypted"]));
     }
@@ -150,6 +165,9 @@ public:
     if (m.find("mount_target") != m.end() && !m["mount_target"].empty()) {
       mountTarget = make_shared<string>(boost::any_cast<string>(m["mount_target"]));
     }
+    if (m.find("name") != m.end() && !m["name"].empty()) {
+      name = make_shared<string>(boost::any_cast<string>(m["name"]));
+    }
     if (m.find("performance_level") != m.end() && !m["performance_level"].empty()) {
       performanceLevel = make_shared<string>(boost::any_cast<string>(m["performance_level"]));
     }
@@ -158,6 +176,9 @@ public:
     }
     if (m.find("size") != m.end() && !m["size"].empty()) {
       size = make_shared<long>(boost::any_cast<long>(m["size"]));
+    }
+    if (m.find("snapshot_id") != m.end() && !m["snapshot_id"].empty()) {
+      snapshotId = make_shared<string>(boost::any_cast<string>(m["snapshot_id"]));
     }
   }
 
