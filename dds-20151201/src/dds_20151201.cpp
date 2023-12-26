@@ -3154,6 +3154,9 @@ DescribeSecurityIpsResponse Alibabacloud_Dds20151201::Client::describeSecurityIp
   if (!Darabonba_Util::Client::isUnset<long>(request->resourceOwnerId)) {
     query->insert(pair<string, long>("ResourceOwnerId", *request->resourceOwnerId));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->showHDMIps)) {
+    query->insert(pair<string, bool>("ShowHDMIps", *request->showHDMIps));
+  }
   shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
     {"query", boost::any(Alibabacloud_OpenApiUtil::Client::query(query))}
   }));

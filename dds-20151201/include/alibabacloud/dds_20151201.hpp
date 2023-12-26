@@ -18303,6 +18303,7 @@ public:
   shared_ptr<long> ownerId{};
   shared_ptr<string> resourceOwnerAccount{};
   shared_ptr<long> resourceOwnerId{};
+  shared_ptr<bool> showHDMIps{};
 
   DescribeSecurityIpsRequest() {}
 
@@ -18329,6 +18330,9 @@ public:
     if (resourceOwnerId) {
       res["ResourceOwnerId"] = boost::any(*resourceOwnerId);
     }
+    if (showHDMIps) {
+      res["ShowHDMIps"] = boost::any(*showHDMIps);
+    }
     return res;
   }
 
@@ -18347,6 +18351,9 @@ public:
     }
     if (m.find("ResourceOwnerId") != m.end() && !m["ResourceOwnerId"].empty()) {
       resourceOwnerId = make_shared<long>(boost::any_cast<long>(m["ResourceOwnerId"]));
+    }
+    if (m.find("ShowHDMIps") != m.end() && !m["ShowHDMIps"].empty()) {
+      showHDMIps = make_shared<bool>(boost::any_cast<bool>(m["ShowHDMIps"]));
     }
   }
 
