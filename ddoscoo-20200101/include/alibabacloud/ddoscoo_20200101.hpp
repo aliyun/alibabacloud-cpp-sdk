@@ -19521,6 +19521,7 @@ public:
 };
 class DescribeSchedulerRulesResponseBodySchedulerRulesRules : public Darabonba::Model {
 public:
+  shared_ptr<string> line{};
   shared_ptr<long> priority{};
   shared_ptr<string> regionId{};
   shared_ptr<long> restoreDelay{};
@@ -19539,6 +19540,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (line) {
+      res["Line"] = boost::any(*line);
+    }
     if (priority) {
       res["Priority"] = boost::any(*priority);
     }
@@ -19564,6 +19568,9 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("Line") != m.end() && !m["Line"].empty()) {
+      line = make_shared<string>(boost::any_cast<string>(m["Line"]));
+    }
     if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
       priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
@@ -23432,6 +23439,7 @@ public:
   shared_ptr<long> blackWhiteListEnable{};
   shared_ptr<long> ccCustomRuleEnable{};
   shared_ptr<long> ccEnable{};
+  shared_ptr<string> ccGlobalSwitch{};
   shared_ptr<string> ccTemplate{};
   shared_ptr<string> domain{};
   shared_ptr<long> preciseRuleEnable{};
@@ -23464,6 +23472,9 @@ public:
     }
     if (ccEnable) {
       res["CcEnable"] = boost::any(*ccEnable);
+    }
+    if (ccGlobalSwitch) {
+      res["CcGlobalSwitch"] = boost::any(*ccGlobalSwitch);
     }
     if (ccTemplate) {
       res["CcTemplate"] = boost::any(*ccTemplate);
@@ -23498,6 +23509,9 @@ public:
     }
     if (m.find("CcEnable") != m.end() && !m["CcEnable"].empty()) {
       ccEnable = make_shared<long>(boost::any_cast<long>(m["CcEnable"]));
+    }
+    if (m.find("CcGlobalSwitch") != m.end() && !m["CcGlobalSwitch"].empty()) {
+      ccGlobalSwitch = make_shared<string>(boost::any_cast<string>(m["CcGlobalSwitch"]));
     }
     if (m.find("CcTemplate") != m.end() && !m["CcTemplate"].empty()) {
       ccTemplate = make_shared<string>(boost::any_cast<string>(m["CcTemplate"]));
@@ -24113,6 +24127,7 @@ public:
 class DescribeWebPreciseAccessRuleResponseBodyPreciseAccessConfigListRuleListConditionList : public Darabonba::Model {
 public:
   shared_ptr<string> content{};
+  shared_ptr<vector<string>> contentList{};
   shared_ptr<string> field{};
   shared_ptr<string> headerName{};
   shared_ptr<string> matchMethod{};
@@ -24130,6 +24145,9 @@ public:
     if (content) {
       res["Content"] = boost::any(*content);
     }
+    if (contentList) {
+      res["ContentList"] = boost::any(*contentList);
+    }
     if (field) {
       res["Field"] = boost::any(*field);
     }
@@ -24145,6 +24163,16 @@ public:
   void fromMap(map<string, boost::any> m) override {
     if (m.find("Content") != m.end() && !m["Content"].empty()) {
       content = make_shared<string>(boost::any_cast<string>(m["Content"]));
+    }
+    if (m.find("ContentList") != m.end() && !m["ContentList"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ContentList"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ContentList"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      contentList = make_shared<vector<string>>(toVec1);
     }
     if (m.find("Field") != m.end() && !m["Field"].empty()) {
       field = make_shared<string>(boost::any_cast<string>(m["Field"]));
