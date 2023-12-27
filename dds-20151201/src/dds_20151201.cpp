@@ -1363,6 +1363,9 @@ DescribeAvailabilityZonesResponse Alibabacloud_Dds20151201::Client::describeAvai
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->replicationFactor)) {
+    query->insert(pair<string, string>("ReplicationFactor", *request->replicationFactor));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
   }
@@ -1466,6 +1469,9 @@ DescribeAvailableResourceResponse Alibabacloud_Dds20151201::Client::describeAvai
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->regionId)) {
     query->insert(pair<string, string>("RegionId", *request->regionId));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->replicationFactor)) {
+    query->insert(pair<string, string>("ReplicationFactor", *request->replicationFactor));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->resourceGroupId)) {
     query->insert(pair<string, string>("ResourceGroupId", *request->resourceGroupId));
