@@ -12982,6 +12982,83 @@ public:
 
   virtual ~PutProjectPolicyResponse() = default;
 };
+class PutProjectTransferAccelerationRequest : public Darabonba::Model {
+public:
+  shared_ptr<bool> enabled{};
+
+  PutProjectTransferAccelerationRequest() {}
+
+  explicit PutProjectTransferAccelerationRequest(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (enabled) {
+      res["enabled"] = boost::any(*enabled);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("enabled") != m.end() && !m["enabled"].empty()) {
+      enabled = make_shared<bool>(boost::any_cast<bool>(m["enabled"]));
+    }
+  }
+
+
+  virtual ~PutProjectTransferAccelerationRequest() = default;
+};
+class PutProjectTransferAccelerationResponse : public Darabonba::Model {
+public:
+  shared_ptr<map<string, string>> headers{};
+  shared_ptr<long> statusCode{};
+
+  PutProjectTransferAccelerationResponse() {}
+
+  explicit PutProjectTransferAccelerationResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {
+    if (!headers) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("headers is required.")));
+    }
+    if (!statusCode) {
+      BOOST_THROW_EXCEPTION(boost::enable_error_info(std::runtime_error("statusCode is required.")));
+    }
+  }
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (headers) {
+      res["headers"] = boost::any(*headers);
+    }
+    if (statusCode) {
+      res["statusCode"] = boost::any(*statusCode);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("headers") != m.end() && !m["headers"].empty()) {
+      map<string, string> map1 = boost::any_cast<map<string, string>>(m["headers"]);
+      map<string, string> toMap1;
+      for (auto item:map1) {
+         toMap1[item.first] = item.second;
+      }
+      headers = make_shared<map<string, string>>(toMap1);
+    }
+    if (m.find("statusCode") != m.end() && !m["statusCode"].empty()) {
+      statusCode = make_shared<long>(boost::any_cast<long>(m["statusCode"]));
+    }
+  }
+
+
+  virtual ~PutProjectTransferAccelerationResponse() = default;
+};
 class PutWebtrackingRequest : public Darabonba::Model {
 public:
   shared_ptr<vector<map<string, string>>> logs{};
@@ -16444,6 +16521,11 @@ public:
                                                        shared_ptr<map<string, string>> headers,
                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
   PutProjectPolicyResponse putProjectPolicy(shared_ptr<string> project, shared_ptr<PutProjectPolicyRequest> request);
+  PutProjectTransferAccelerationResponse putProjectTransferAccelerationWithOptions(shared_ptr<string> project,
+                                                                                   shared_ptr<PutProjectTransferAccelerationRequest> request,
+                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime);
+  PutProjectTransferAccelerationResponse putProjectTransferAcceleration(shared_ptr<string> project, shared_ptr<PutProjectTransferAccelerationRequest> request);
   PutWebtrackingResponse putWebtrackingWithOptions(shared_ptr<string> project,
                                                    shared_ptr<string> logstoreName,
                                                    shared_ptr<PutWebtrackingRequest> request,

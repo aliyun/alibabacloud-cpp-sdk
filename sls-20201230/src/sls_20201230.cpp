@@ -3076,6 +3076,42 @@ PutProjectPolicyResponse Alibabacloud_Sls20201230::Client::putProjectPolicy(shar
   return putProjectPolicyWithOptions(project, request, headers, runtime);
 }
 
+PutProjectTransferAccelerationResponse Alibabacloud_Sls20201230::Client::putProjectTransferAccelerationWithOptions(shared_ptr<string> project,
+                                                                                                                   shared_ptr<PutProjectTransferAccelerationRequest> request,
+                                                                                                                   shared_ptr<map<string, string>> headers,
+                                                                                                                   shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
+  Darabonba_Util::Client::validateModel(request);
+  shared_ptr<map<string, string>> hostMap = make_shared<map<string, string>>(map<string, string>());
+  hostMap->insert(pair<string, string>("project", *project));
+  shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<bool>(request->enabled)) {
+    body->insert(pair<string, bool>("enabled", *request->enabled));
+  }
+  shared_ptr<Alibabacloud_OpenApi::OpenApiRequest> req = make_shared<Alibabacloud_OpenApi::OpenApiRequest>(map<string, boost::any>({
+    {"hostMap", !hostMap ? boost::any() : boost::any(*hostMap)},
+    {"headers", !headers ? boost::any() : boost::any(*headers)},
+    {"body", boost::any(Alibabacloud_OpenApiUtil::Client::parseToMap(body))}
+  }));
+  shared_ptr<Alibabacloud_OpenApi::Params> params = make_shared<Alibabacloud_OpenApi::Params>(map<string, boost::any>({
+    {"action", boost::any(string("PutProjectTransferAcceleration"))},
+    {"version", boost::any(string("2020-12-30"))},
+    {"protocol", boost::any(string("HTTPS"))},
+    {"pathname", boost::any(string("/transferacceleration"))},
+    {"method", boost::any(string("PUT"))},
+    {"authType", boost::any(string("AK"))},
+    {"style", boost::any(string("ROA"))},
+    {"reqBodyType", boost::any(string("json"))},
+    {"bodyType", boost::any(string("none"))}
+  }));
+  return PutProjectTransferAccelerationResponse(execute(params, req, runtime));
+}
+
+PutProjectTransferAccelerationResponse Alibabacloud_Sls20201230::Client::putProjectTransferAcceleration(shared_ptr<string> project, shared_ptr<PutProjectTransferAccelerationRequest> request) {
+  shared_ptr<Darabonba_Util::RuntimeOptions> runtime = make_shared<Darabonba_Util::RuntimeOptions>();
+  shared_ptr<map<string, string>> headers = make_shared<map<string, string>>(map<string, string>());
+  return putProjectTransferAccelerationWithOptions(project, request, headers, runtime);
+}
+
 PutWebtrackingResponse Alibabacloud_Sls20201230::Client::putWebtrackingWithOptions(shared_ptr<string> project,
                                                                                    shared_ptr<string> logstoreName,
                                                                                    shared_ptr<PutWebtrackingRequest> request,
