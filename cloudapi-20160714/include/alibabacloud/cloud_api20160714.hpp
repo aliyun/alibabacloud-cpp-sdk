@@ -22313,10 +22313,54 @@ public:
 
   virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig() = default;
 };
+class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig : public Darabonba::Model {
+public:
+  shared_ptr<string> connectString{};
+  shared_ptr<string> namespace_{};
+  shared_ptr<string> serviceName{};
+
+  DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig() {}
+
+  explicit DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectString) {
+      res["ConnectString"] = boost::any(*connectString);
+    }
+    if (namespace_) {
+      res["Namespace"] = boost::any(*namespace_);
+    }
+    if (serviceName) {
+      res["ServiceName"] = boost::any(*serviceName);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectString") != m.end() && !m["ConnectString"].empty()) {
+      connectString = make_shared<string>(boost::any_cast<string>(m["ConnectString"]));
+    }
+    if (m.find("Namespace") != m.end() && !m["Namespace"].empty()) {
+      namespace_ = make_shared<string>(boost::any_cast<string>(m["Namespace"]));
+    }
+    if (m.find("ServiceName") != m.end() && !m["ServiceName"].empty()) {
+      serviceName = make_shared<string>(boost::any_cast<string>(m["ServiceName"]));
+    }
+  }
+
+
+  virtual ~DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig() = default;
+};
 class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig : public Darabonba::Model {
 public:
   shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigNacosConfig> nacosConfig{};
   shared_ptr<string> rcType{};
+  shared_ptr<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig> zookeeperConfig{};
 
   DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfig() {}
 
@@ -22334,6 +22378,9 @@ public:
     if (rcType) {
       res["RcType"] = boost::any(*rcType);
     }
+    if (zookeeperConfig) {
+      res["ZookeeperConfig"] = zookeeperConfig ? boost::any(zookeeperConfig->toMap()) : boost::any(map<string,boost::any>({}));
+    }
     return res;
   }
 
@@ -22347,6 +22394,13 @@ public:
     }
     if (m.find("RcType") != m.end() && !m["RcType"].empty()) {
       rcType = make_shared<string>(boost::any_cast<string>(m["RcType"]));
+    }
+    if (m.find("ZookeeperConfig") != m.end() && !m["ZookeeperConfig"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ZookeeperConfig"].type()) {
+        DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ZookeeperConfig"]));
+        zookeeperConfig = make_shared<DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigDiscoveryConfigZookeeperConfig>(model1);
+      }
     }
   }
 
