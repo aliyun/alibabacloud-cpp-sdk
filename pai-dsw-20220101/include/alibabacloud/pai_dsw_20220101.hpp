@@ -79,6 +79,275 @@ public:
 
   virtual ~DemoCategory() = default;
 };
+class ForwardInfo : public Darabonba::Model {
+public:
+  shared_ptr<string> containerName{};
+  shared_ptr<string> eipAllocationId{};
+  shared_ptr<bool> enable{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> port{};
+  shared_ptr<string> SSHPublicKey{};
+
+  ForwardInfo() {}
+
+  explicit ForwardInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (containerName) {
+      res["ContainerName"] = boost::any(*containerName);
+    }
+    if (eipAllocationId) {
+      res["EipAllocationId"] = boost::any(*eipAllocationId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (SSHPublicKey) {
+      res["SSHPublicKey"] = boost::any(*SSHPublicKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ContainerName") != m.end() && !m["ContainerName"].empty()) {
+      containerName = make_shared<string>(boost::any_cast<string>(m["ContainerName"]));
+    }
+    if (m.find("EipAllocationId") != m.end() && !m["EipAllocationId"].empty()) {
+      eipAllocationId = make_shared<string>(boost::any_cast<string>(m["EipAllocationId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("SSHPublicKey") != m.end() && !m["SSHPublicKey"].empty()) {
+      SSHPublicKey = make_shared<string>(boost::any_cast<string>(m["SSHPublicKey"]));
+    }
+  }
+
+
+  virtual ~ForwardInfo() = default;
+};
+class ForwardInfoResponseConnectInfoInternet : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> port{};
+
+  ForwardInfoResponseConnectInfoInternet() {}
+
+  explicit ForwardInfoResponseConnectInfoInternet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+  }
+
+
+  virtual ~ForwardInfoResponseConnectInfoInternet() = default;
+};
+class ForwardInfoResponseConnectInfoIntranet : public Darabonba::Model {
+public:
+  shared_ptr<string> endpoint{};
+  shared_ptr<string> port{};
+
+  ForwardInfoResponseConnectInfoIntranet() {}
+
+  explicit ForwardInfoResponseConnectInfoIntranet(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (endpoint) {
+      res["Endpoint"] = boost::any(*endpoint);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Endpoint") != m.end() && !m["Endpoint"].empty()) {
+      endpoint = make_shared<string>(boost::any_cast<string>(m["Endpoint"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+  }
+
+
+  virtual ~ForwardInfoResponseConnectInfoIntranet() = default;
+};
+class ForwardInfoResponseConnectInfo : public Darabonba::Model {
+public:
+  shared_ptr<ForwardInfoResponseConnectInfoInternet> internet{};
+  shared_ptr<ForwardInfoResponseConnectInfoIntranet> intranet{};
+  shared_ptr<string> message{};
+  shared_ptr<string> phase{};
+
+  ForwardInfoResponseConnectInfo() {}
+
+  explicit ForwardInfoResponseConnectInfo(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (internet) {
+      res["Internet"] = internet ? boost::any(internet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (intranet) {
+      res["Intranet"] = intranet ? boost::any(intranet->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (message) {
+      res["Message"] = boost::any(*message);
+    }
+    if (phase) {
+      res["Phase"] = boost::any(*phase);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Internet") != m.end() && !m["Internet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Internet"].type()) {
+        ForwardInfoResponseConnectInfoInternet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Internet"]));
+        internet = make_shared<ForwardInfoResponseConnectInfoInternet>(model1);
+      }
+    }
+    if (m.find("Intranet") != m.end() && !m["Intranet"].empty()) {
+      if (typeid(map<string, boost::any>) == m["Intranet"].type()) {
+        ForwardInfoResponseConnectInfoIntranet model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["Intranet"]));
+        intranet = make_shared<ForwardInfoResponseConnectInfoIntranet>(model1);
+      }
+    }
+    if (m.find("Message") != m.end() && !m["Message"].empty()) {
+      message = make_shared<string>(boost::any_cast<string>(m["Message"]));
+    }
+    if (m.find("Phase") != m.end() && !m["Phase"].empty()) {
+      phase = make_shared<string>(boost::any_cast<string>(m["Phase"]));
+    }
+  }
+
+
+  virtual ~ForwardInfoResponseConnectInfo() = default;
+};
+class ForwardInfoResponse : public Darabonba::Model {
+public:
+  shared_ptr<ForwardInfoResponseConnectInfo> connectInfo{};
+  shared_ptr<string> containerName{};
+  shared_ptr<string> eipAllocationId{};
+  shared_ptr<bool> enable{};
+  shared_ptr<string> natGatewayId{};
+  shared_ptr<string> port{};
+  shared_ptr<string> SSHPublicKey{};
+
+  ForwardInfoResponse() {}
+
+  explicit ForwardInfoResponse(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (connectInfo) {
+      res["ConnectInfo"] = connectInfo ? boost::any(connectInfo->toMap()) : boost::any(map<string,boost::any>({}));
+    }
+    if (containerName) {
+      res["ContainerName"] = boost::any(*containerName);
+    }
+    if (eipAllocationId) {
+      res["EipAllocationId"] = boost::any(*eipAllocationId);
+    }
+    if (enable) {
+      res["Enable"] = boost::any(*enable);
+    }
+    if (natGatewayId) {
+      res["NatGatewayId"] = boost::any(*natGatewayId);
+    }
+    if (port) {
+      res["Port"] = boost::any(*port);
+    }
+    if (SSHPublicKey) {
+      res["SSHPublicKey"] = boost::any(*SSHPublicKey);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("ConnectInfo") != m.end() && !m["ConnectInfo"].empty()) {
+      if (typeid(map<string, boost::any>) == m["ConnectInfo"].type()) {
+        ForwardInfoResponseConnectInfo model1;
+        model1.fromMap(boost::any_cast<map<string, boost::any>>(m["ConnectInfo"]));
+        connectInfo = make_shared<ForwardInfoResponseConnectInfo>(model1);
+      }
+    }
+    if (m.find("ContainerName") != m.end() && !m["ContainerName"].empty()) {
+      containerName = make_shared<string>(boost::any_cast<string>(m["ContainerName"]));
+    }
+    if (m.find("EipAllocationId") != m.end() && !m["EipAllocationId"].empty()) {
+      eipAllocationId = make_shared<string>(boost::any_cast<string>(m["EipAllocationId"]));
+    }
+    if (m.find("Enable") != m.end() && !m["Enable"].empty()) {
+      enable = make_shared<bool>(boost::any_cast<bool>(m["Enable"]));
+    }
+    if (m.find("NatGatewayId") != m.end() && !m["NatGatewayId"].empty()) {
+      natGatewayId = make_shared<string>(boost::any_cast<string>(m["NatGatewayId"]));
+    }
+    if (m.find("Port") != m.end() && !m["Port"].empty()) {
+      port = make_shared<string>(boost::any_cast<string>(m["Port"]));
+    }
+    if (m.find("SSHPublicKey") != m.end() && !m["SSHPublicKey"].empty()) {
+      SSHPublicKey = make_shared<string>(boost::any_cast<string>(m["SSHPublicKey"]));
+    }
+  }
+
+
+  virtual ~ForwardInfoResponse() = default;
+};
 class CreateIdleInstanceCullerRequest : public Darabonba::Model {
 public:
   shared_ptr<long> cpuPercentThreshold{};
@@ -424,6 +693,7 @@ class CreateInstanceRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
+  shared_ptr<vector<ForwardInfo>> forwardInfos{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -443,6 +713,13 @@ public:
     }
     if (extendedCIDRs) {
       res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
+    }
+    if (forwardInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*forwardInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ForwardInfos"] = boost::any(temp1);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -470,6 +747,19 @@ public:
       }
       extendedCIDRs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ForwardInfos") != m.end() && !m["ForwardInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ForwardInfos"].type()) {
+        vector<ForwardInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ForwardInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ForwardInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        forwardInfos = make_shared<vector<ForwardInfo>>(expect1);
+      }
+    }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
@@ -489,6 +779,7 @@ public:
   shared_ptr<string> accessibility{};
   shared_ptr<vector<CreateInstanceRequestCloudDisks>> cloudDisks{};
   shared_ptr<vector<CreateInstanceRequestDatasets>> datasets{};
+  shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> imageId{};
@@ -529,6 +820,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Datasets"] = boost::any(temp1);
+    }
+    if (driver) {
+      res["Driver"] = boost::any(*driver);
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -605,6 +899,9 @@ public:
         }
         datasets = make_shared<vector<CreateInstanceRequestDatasets>>(expect1);
       }
+    }
+    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
+      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -999,8 +1296,10 @@ public:
 };
 class CreateInstanceSnapshotRequest : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> excludePaths{};
   shared_ptr<string> imageUrl{};
   shared_ptr<vector<CreateInstanceSnapshotRequestLabels>> labels{};
+  shared_ptr<bool> overwrite{};
   shared_ptr<string> snapshotDescription{};
   shared_ptr<string> snapshotName{};
 
@@ -1014,6 +1313,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludePaths) {
+      res["ExcludePaths"] = boost::any(*excludePaths);
+    }
     if (imageUrl) {
       res["ImageUrl"] = boost::any(*imageUrl);
     }
@@ -1023,6 +1325,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Labels"] = boost::any(temp1);
+    }
+    if (overwrite) {
+      res["Overwrite"] = boost::any(*overwrite);
     }
     if (snapshotDescription) {
       res["SnapshotDescription"] = boost::any(*snapshotDescription);
@@ -1034,6 +1339,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludePaths") != m.end() && !m["ExcludePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludePaths = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("ImageUrl") != m.end() && !m["ImageUrl"].empty()) {
       imageUrl = make_shared<string>(boost::any_cast<string>(m["ImageUrl"]));
     }
@@ -1049,6 +1364,9 @@ public:
         }
         labels = make_shared<vector<CreateInstanceSnapshotRequestLabels>>(expect1);
       }
+    }
+    if (m.find("Overwrite") != m.end() && !m["Overwrite"].empty()) {
+      overwrite = make_shared<bool>(boost::any_cast<bool>(m["Overwrite"]));
     }
     if (m.find("SnapshotDescription") != m.end() && !m["SnapshotDescription"].empty()) {
       snapshotDescription = make_shared<string>(boost::any_cast<string>(m["SnapshotDescription"]));
@@ -2312,6 +2630,7 @@ class GetInstanceResponseBodyUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
+  shared_ptr<vector<ForwardInfoResponse>> forwardInfos{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -2331,6 +2650,13 @@ public:
     }
     if (extendedCIDRs) {
       res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
+    }
+    if (forwardInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*forwardInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ForwardInfos"] = boost::any(temp1);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -2358,6 +2684,19 @@ public:
       }
       extendedCIDRs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ForwardInfos") != m.end() && !m["ForwardInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ForwardInfos"].type()) {
+        vector<ForwardInfoResponse> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ForwardInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ForwardInfoResponse model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        forwardInfos = make_shared<vector<ForwardInfoResponse>>(expect1);
+      }
+    }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
@@ -2380,6 +2719,7 @@ public:
   shared_ptr<vector<GetInstanceResponseBodyCloudDisks>> cloudDisks{};
   shared_ptr<string> code{};
   shared_ptr<vector<GetInstanceResponseBodyDatasets>> datasets{};
+  shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> gmtCreateTime{};
@@ -2452,6 +2792,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Datasets"] = boost::any(temp1);
+    }
+    if (driver) {
+      res["Driver"] = boost::any(*driver);
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -2610,6 +2953,9 @@ public:
         }
         datasets = make_shared<vector<GetInstanceResponseBodyDatasets>>(expect1);
       }
+    }
+    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
+      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -3268,15 +3614,53 @@ public:
 
   virtual ~GetInstanceShutdownTimerResponse() = default;
 };
+class GetInstanceSnapshotResponseBodyLabels : public Darabonba::Model {
+public:
+  shared_ptr<string> key{};
+  shared_ptr<string> value{};
+
+  GetInstanceSnapshotResponseBodyLabels() {}
+
+  explicit GetInstanceSnapshotResponseBodyLabels(const std::map<string, boost::any> &config) : Darabonba::Model(config) {
+    fromMap(config);
+  };
+
+  void validate() override {}
+
+  map<string, boost::any> toMap() override {
+    map<string, boost::any> res;
+    if (key) {
+      res["Key"] = boost::any(*key);
+    }
+    if (value) {
+      res["Value"] = boost::any(*value);
+    }
+    return res;
+  }
+
+  void fromMap(map<string, boost::any> m) override {
+    if (m.find("Key") != m.end() && !m["Key"].empty()) {
+      key = make_shared<string>(boost::any_cast<string>(m["Key"]));
+    }
+    if (m.find("Value") != m.end() && !m["Value"].empty()) {
+      value = make_shared<string>(boost::any_cast<string>(m["Value"]));
+    }
+  }
+
+
+  virtual ~GetInstanceSnapshotResponseBodyLabels() = default;
+};
 class GetInstanceSnapshotResponseBody : public Darabonba::Model {
 public:
   shared_ptr<string> code{};
+  shared_ptr<vector<string>> excludePaths{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<long> httpStatusCode{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceId{};
+  shared_ptr<vector<GetInstanceSnapshotResponseBodyLabels>> labels{};
   shared_ptr<string> message{};
   shared_ptr<string> reasonCode{};
   shared_ptr<string> reasonMessage{};
@@ -3299,6 +3683,9 @@ public:
     if (code) {
       res["Code"] = boost::any(*code);
     }
+    if (excludePaths) {
+      res["ExcludePaths"] = boost::any(*excludePaths);
+    }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
@@ -3316,6 +3703,13 @@ public:
     }
     if (instanceId) {
       res["InstanceId"] = boost::any(*instanceId);
+    }
+    if (labels) {
+      vector<boost::any> temp1;
+      for(auto item1:*labels){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["Labels"] = boost::any(temp1);
     }
     if (message) {
       res["Message"] = boost::any(*message);
@@ -3348,6 +3742,16 @@ public:
     if (m.find("Code") != m.end() && !m["Code"].empty()) {
       code = make_shared<string>(boost::any_cast<string>(m["Code"]));
     }
+    if (m.find("ExcludePaths") != m.end() && !m["ExcludePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludePaths = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
     }
@@ -3365,6 +3769,19 @@ public:
     }
     if (m.find("InstanceId") != m.end() && !m["InstanceId"].empty()) {
       instanceId = make_shared<string>(boost::any_cast<string>(m["InstanceId"]));
+    }
+    if (m.find("Labels") != m.end() && !m["Labels"].empty()) {
+      if (typeid(vector<boost::any>) == m["Labels"].type()) {
+        vector<GetInstanceSnapshotResponseBodyLabels> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["Labels"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            GetInstanceSnapshotResponseBodyLabels model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        labels = make_shared<vector<GetInstanceSnapshotResponseBodyLabels>>(expect1);
+      }
     }
     if (m.find("Message") != m.end() && !m["Message"].empty()) {
       message = make_shared<string>(boost::any_cast<string>(m["Message"]));
@@ -4760,6 +5177,7 @@ public:
 };
 class ListInstanceSnapshotResponseBodySnapshots : public Darabonba::Model {
 public:
+  shared_ptr<vector<string>> excludePaths{};
   shared_ptr<string> gmtCreateTime{};
   shared_ptr<string> gmtModifiedTime{};
   shared_ptr<string> imageId{};
@@ -4782,6 +5200,9 @@ public:
 
   map<string, boost::any> toMap() override {
     map<string, boost::any> res;
+    if (excludePaths) {
+      res["ExcludePaths"] = boost::any(*excludePaths);
+    }
     if (gmtCreateTime) {
       res["GmtCreateTime"] = boost::any(*gmtCreateTime);
     }
@@ -4823,6 +5244,16 @@ public:
   }
 
   void fromMap(map<string, boost::any> m) override {
+    if (m.find("ExcludePaths") != m.end() && !m["ExcludePaths"].empty()) {
+      vector<string> toVec1;
+      if (typeid(vector<boost::any>) == m["ExcludePaths"].type()) {
+        vector<boost::any> vec1 = boost::any_cast<vector<boost::any>>(m["ExcludePaths"]);
+        for (auto item:vec1) {
+           toVec1.push_back(boost::any_cast<string>(item));
+        }
+      }
+      excludePaths = make_shared<vector<string>>(toVec1);
+    }
     if (m.find("GmtCreateTime") != m.end() && !m["GmtCreateTime"].empty()) {
       gmtCreateTime = make_shared<string>(boost::any_cast<string>(m["GmtCreateTime"]));
     }
@@ -5756,6 +6187,7 @@ class ListInstancesResponseBodyInstancesUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
+  shared_ptr<vector<ForwardInfoResponse>> forwardInfos{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -5775,6 +6207,13 @@ public:
     }
     if (extendedCIDRs) {
       res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
+    }
+    if (forwardInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*forwardInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ForwardInfos"] = boost::any(temp1);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -5802,6 +6241,19 @@ public:
       }
       extendedCIDRs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ForwardInfos") != m.end() && !m["ForwardInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ForwardInfos"].type()) {
+        vector<ForwardInfoResponse> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ForwardInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ForwardInfoResponse model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        forwardInfos = make_shared<vector<ForwardInfoResponse>>(expect1);
+      }
+    }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
@@ -5823,6 +6275,7 @@ public:
   shared_ptr<long> accumulatedRunningTimeInMs{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesCloudDisks>> cloudDisks{};
   shared_ptr<vector<ListInstancesResponseBodyInstancesDatasets>> datasets{};
+  shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<map<string, string>> environmentVariables{};
   shared_ptr<string> gmtCreateTime{};
@@ -5888,6 +6341,9 @@ public:
         temp1.push_back(boost::any(item1.toMap()));
       }
       res["Datasets"] = boost::any(temp1);
+    }
+    if (driver) {
+      res["Driver"] = boost::any(*driver);
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -6031,6 +6487,9 @@ public:
         }
         datasets = make_shared<vector<ListInstancesResponseBodyInstancesDatasets>>(expect1);
       }
+    }
+    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
+      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -6703,6 +7162,7 @@ class UpdateInstanceRequestUserVpc : public Darabonba::Model {
 public:
   shared_ptr<string> defaultRoute{};
   shared_ptr<vector<string>> extendedCIDRs{};
+  shared_ptr<vector<ForwardInfo>> forwardInfos{};
   shared_ptr<string> securityGroupId{};
   shared_ptr<string> vSwitchId{};
   shared_ptr<string> vpcId{};
@@ -6722,6 +7182,13 @@ public:
     }
     if (extendedCIDRs) {
       res["ExtendedCIDRs"] = boost::any(*extendedCIDRs);
+    }
+    if (forwardInfos) {
+      vector<boost::any> temp1;
+      for(auto item1:*forwardInfos){
+        temp1.push_back(boost::any(item1.toMap()));
+      }
+      res["ForwardInfos"] = boost::any(temp1);
     }
     if (securityGroupId) {
       res["SecurityGroupId"] = boost::any(*securityGroupId);
@@ -6749,6 +7216,19 @@ public:
       }
       extendedCIDRs = make_shared<vector<string>>(toVec1);
     }
+    if (m.find("ForwardInfos") != m.end() && !m["ForwardInfos"].empty()) {
+      if (typeid(vector<boost::any>) == m["ForwardInfos"].type()) {
+        vector<ForwardInfo> expect1;
+        for(auto item1:boost::any_cast<vector<boost::any>>(m["ForwardInfos"])){
+          if (typeid(map<string, boost::any>) == item1.type()) {
+            ForwardInfo model2;
+            model2.fromMap(boost::any_cast<map<string, boost::any>>(item1));
+            expect1.push_back(model2);
+          }
+        }
+        forwardInfos = make_shared<vector<ForwardInfo>>(expect1);
+      }
+    }
     if (m.find("SecurityGroupId") != m.end() && !m["SecurityGroupId"].empty()) {
       securityGroupId = make_shared<string>(boost::any_cast<string>(m["SecurityGroupId"]));
     }
@@ -6768,11 +7248,14 @@ public:
   shared_ptr<string> accessibility{};
   shared_ptr<vector<UpdateInstanceRequestDatasets>> datasets{};
   shared_ptr<bool> disassociateDatasets{};
+  shared_ptr<bool> disassociateDriver{};
   shared_ptr<bool> disassociateVpc{};
+  shared_ptr<string> driver{};
   shared_ptr<string> ecsSpec{};
   shared_ptr<string> imageId{};
   shared_ptr<string> imageUrl{};
   shared_ptr<string> instanceName{};
+  shared_ptr<long> priority{};
   shared_ptr<UpdateInstanceRequestRequestedResource> requestedResource{};
   shared_ptr<string> userId{};
   shared_ptr<UpdateInstanceRequestUserVpc> userVpc{};
@@ -6801,8 +7284,14 @@ public:
     if (disassociateDatasets) {
       res["DisassociateDatasets"] = boost::any(*disassociateDatasets);
     }
+    if (disassociateDriver) {
+      res["DisassociateDriver"] = boost::any(*disassociateDriver);
+    }
     if (disassociateVpc) {
       res["DisassociateVpc"] = boost::any(*disassociateVpc);
+    }
+    if (driver) {
+      res["Driver"] = boost::any(*driver);
     }
     if (ecsSpec) {
       res["EcsSpec"] = boost::any(*ecsSpec);
@@ -6815,6 +7304,9 @@ public:
     }
     if (instanceName) {
       res["InstanceName"] = boost::any(*instanceName);
+    }
+    if (priority) {
+      res["Priority"] = boost::any(*priority);
     }
     if (requestedResource) {
       res["RequestedResource"] = requestedResource ? boost::any(requestedResource->toMap()) : boost::any(map<string,boost::any>({}));
@@ -6851,8 +7343,14 @@ public:
     if (m.find("DisassociateDatasets") != m.end() && !m["DisassociateDatasets"].empty()) {
       disassociateDatasets = make_shared<bool>(boost::any_cast<bool>(m["DisassociateDatasets"]));
     }
+    if (m.find("DisassociateDriver") != m.end() && !m["DisassociateDriver"].empty()) {
+      disassociateDriver = make_shared<bool>(boost::any_cast<bool>(m["DisassociateDriver"]));
+    }
     if (m.find("DisassociateVpc") != m.end() && !m["DisassociateVpc"].empty()) {
       disassociateVpc = make_shared<bool>(boost::any_cast<bool>(m["DisassociateVpc"]));
+    }
+    if (m.find("Driver") != m.end() && !m["Driver"].empty()) {
+      driver = make_shared<string>(boost::any_cast<string>(m["Driver"]));
     }
     if (m.find("EcsSpec") != m.end() && !m["EcsSpec"].empty()) {
       ecsSpec = make_shared<string>(boost::any_cast<string>(m["EcsSpec"]));
@@ -6865,6 +7363,9 @@ public:
     }
     if (m.find("InstanceName") != m.end() && !m["InstanceName"].empty()) {
       instanceName = make_shared<string>(boost::any_cast<string>(m["InstanceName"]));
+    }
+    if (m.find("Priority") != m.end() && !m["Priority"].empty()) {
+      priority = make_shared<long>(boost::any_cast<long>(m["Priority"]));
     }
     if (m.find("RequestedResource") != m.end() && !m["RequestedResource"].empty()) {
       if (typeid(map<string, boost::any>) == m["RequestedResource"].type()) {

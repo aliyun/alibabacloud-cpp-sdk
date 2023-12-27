@@ -89,6 +89,9 @@ CreateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::createInstanceWithO
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceRequestDatasets>>(request->datasets)) {
     body->insert(pair<string, vector<CreateInstanceRequestDatasets>>("Datasets", *request->datasets));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->driver)) {
+    body->insert(pair<string, string>("Driver", *request->driver));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsSpec)) {
     body->insert(pair<string, string>("EcsSpec", *request->ecsSpec));
   }
@@ -194,11 +197,17 @@ CreateInstanceSnapshotResponse Alibabacloud_Pai-dsw20220101::Client::createInsta
                                                                                                        shared_ptr<Darabonba_Util::RuntimeOptions> runtime) {
   Darabonba_Util::Client::validateModel(request);
   shared_ptr<map<string, boost::any>> body = make_shared<map<string, boost::any>>(map<string, boost::any>());
+  if (!Darabonba_Util::Client::isUnset<vector<string>>(request->excludePaths)) {
+    body->insert(pair<string, vector<string>>("ExcludePaths", *request->excludePaths));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->imageUrl)) {
     body->insert(pair<string, string>("ImageUrl", *request->imageUrl));
   }
   if (!Darabonba_Util::Client::isUnset<vector<CreateInstanceSnapshotRequestLabels>>(request->labels)) {
     body->insert(pair<string, vector<CreateInstanceSnapshotRequestLabels>>("Labels", *request->labels));
+  }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->overwrite)) {
+    body->insert(pair<string, bool>("Overwrite", *request->overwrite));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->snapshotDescription)) {
     body->insert(pair<string, string>("SnapshotDescription", *request->snapshotDescription));
@@ -860,8 +869,14 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateDatasets)) {
     body->insert(pair<string, bool>("DisassociateDatasets", *request->disassociateDatasets));
   }
+  if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateDriver)) {
+    body->insert(pair<string, bool>("DisassociateDriver", *request->disassociateDriver));
+  }
   if (!Darabonba_Util::Client::isUnset<bool>(request->disassociateVpc)) {
     body->insert(pair<string, bool>("DisassociateVpc", *request->disassociateVpc));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->driver)) {
+    body->insert(pair<string, string>("Driver", *request->driver));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->ecsSpec)) {
     body->insert(pair<string, string>("EcsSpec", *request->ecsSpec));
@@ -874,6 +889,9 @@ UpdateInstanceResponse Alibabacloud_Pai-dsw20220101::Client::updateInstanceWithO
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->instanceName)) {
     body->insert(pair<string, string>("InstanceName", *request->instanceName));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->priority)) {
+    body->insert(pair<string, long>("Priority", *request->priority));
   }
   if (!Darabonba_Util::Client::isUnset<UpdateInstanceRequestRequestedResource>(request->requestedResource)) {
     body->insert(pair<string, UpdateInstanceRequestRequestedResource>("RequestedResource", *request->requestedResource));
