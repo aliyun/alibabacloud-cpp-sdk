@@ -1885,6 +1885,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> elasticPlanEnable{};
   shared_ptr<string> elasticPlanEndDay{};
+  shared_ptr<string> elasticPlanMonthlyRepeat{};
   shared_ptr<string> elasticPlanName{};
   shared_ptr<long> elasticPlanNodeNum{};
   shared_ptr<string> elasticPlanStartDay{};
@@ -1917,6 +1918,9 @@ public:
     }
     if (elasticPlanEndDay) {
       res["ElasticPlanEndDay"] = boost::any(*elasticPlanEndDay);
+    }
+    if (elasticPlanMonthlyRepeat) {
+      res["ElasticPlanMonthlyRepeat"] = boost::any(*elasticPlanMonthlyRepeat);
     }
     if (elasticPlanName) {
       res["ElasticPlanName"] = boost::any(*elasticPlanName);
@@ -1969,6 +1973,9 @@ public:
     }
     if (m.find("ElasticPlanEndDay") != m.end() && !m["ElasticPlanEndDay"].empty()) {
       elasticPlanEndDay = make_shared<string>(boost::any_cast<string>(m["ElasticPlanEndDay"]));
+    }
+    if (m.find("ElasticPlanMonthlyRepeat") != m.end() && !m["ElasticPlanMonthlyRepeat"].empty()) {
+      elasticPlanMonthlyRepeat = make_shared<string>(boost::any_cast<string>(m["ElasticPlanMonthlyRepeat"]));
     }
     if (m.find("ElasticPlanName") != m.end() && !m["ElasticPlanName"].empty()) {
       elasticPlanName = make_shared<string>(boost::any_cast<string>(m["ElasticPlanName"]));
@@ -13458,6 +13465,7 @@ public:
   shared_ptr<bool> enable{};
   shared_ptr<string> endDay{};
   shared_ptr<string> endTime{};
+  shared_ptr<string> monthlyRepeat{};
   shared_ptr<string> planName{};
   shared_ptr<string> resourcePoolName{};
   shared_ptr<string> startDay{};
@@ -13491,6 +13499,9 @@ public:
     }
     if (endTime) {
       res["EndTime"] = boost::any(*endTime);
+    }
+    if (monthlyRepeat) {
+      res["MonthlyRepeat"] = boost::any(*monthlyRepeat);
     }
     if (planName) {
       res["PlanName"] = boost::any(*planName);
@@ -13528,6 +13539,9 @@ public:
     }
     if (m.find("EndTime") != m.end() && !m["EndTime"].empty()) {
       endTime = make_shared<string>(boost::any_cast<string>(m["EndTime"]));
+    }
+    if (m.find("MonthlyRepeat") != m.end() && !m["MonthlyRepeat"].empty()) {
+      monthlyRepeat = make_shared<string>(boost::any_cast<string>(m["MonthlyRepeat"]));
     }
     if (m.find("PlanName") != m.end() && !m["PlanName"].empty()) {
       planName = make_shared<string>(boost::any_cast<string>(m["PlanName"]));
@@ -24415,6 +24429,7 @@ public:
   shared_ptr<string> DBClusterId{};
   shared_ptr<bool> elasticPlanEnable{};
   shared_ptr<string> elasticPlanEndDay{};
+  shared_ptr<string> elasticPlanMonthlyRepeat{};
   shared_ptr<string> elasticPlanName{};
   shared_ptr<long> elasticPlanNodeNum{};
   shared_ptr<string> elasticPlanStartDay{};
@@ -24447,6 +24462,9 @@ public:
     }
     if (elasticPlanEndDay) {
       res["ElasticPlanEndDay"] = boost::any(*elasticPlanEndDay);
+    }
+    if (elasticPlanMonthlyRepeat) {
+      res["ElasticPlanMonthlyRepeat"] = boost::any(*elasticPlanMonthlyRepeat);
     }
     if (elasticPlanName) {
       res["ElasticPlanName"] = boost::any(*elasticPlanName);
@@ -24499,6 +24517,9 @@ public:
     }
     if (m.find("ElasticPlanEndDay") != m.end() && !m["ElasticPlanEndDay"].empty()) {
       elasticPlanEndDay = make_shared<string>(boost::any_cast<string>(m["ElasticPlanEndDay"]));
+    }
+    if (m.find("ElasticPlanMonthlyRepeat") != m.end() && !m["ElasticPlanMonthlyRepeat"].empty()) {
+      elasticPlanMonthlyRepeat = make_shared<string>(boost::any_cast<string>(m["ElasticPlanMonthlyRepeat"]));
     }
     if (m.find("ElasticPlanName") != m.end() && !m["ElasticPlanName"].empty()) {
       elasticPlanName = make_shared<string>(boost::any_cast<string>(m["ElasticPlanName"]));

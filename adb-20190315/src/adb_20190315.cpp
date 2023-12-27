@@ -620,6 +620,9 @@ CreateElasticPlanResponse Alibabacloud_Adb20190315::Client::createElasticPlanWit
   if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanEndDay)) {
     query->insert(pair<string, string>("ElasticPlanEndDay", *request->elasticPlanEndDay));
   }
+  if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanMonthlyRepeat)) {
+    query->insert(pair<string, string>("ElasticPlanMonthlyRepeat", *request->elasticPlanMonthlyRepeat));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanName)) {
     query->insert(pair<string, string>("ElasticPlanName", *request->elasticPlanName));
   }
@@ -4603,6 +4606,9 @@ ModifyElasticPlanResponse Alibabacloud_Adb20190315::Client::modifyElasticPlanWit
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanEndDay)) {
     query->insert(pair<string, string>("ElasticPlanEndDay", *request->elasticPlanEndDay));
+  }
+  if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanMonthlyRepeat)) {
+    query->insert(pair<string, string>("ElasticPlanMonthlyRepeat", *request->elasticPlanMonthlyRepeat));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->elasticPlanName)) {
     query->insert(pair<string, string>("ElasticPlanName", *request->elasticPlanName));
