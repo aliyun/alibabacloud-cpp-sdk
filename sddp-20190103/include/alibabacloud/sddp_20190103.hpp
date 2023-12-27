@@ -11811,6 +11811,7 @@ public:
   shared_ptr<long> instanceTotalCount{};
   shared_ptr<long> labStatus{};
   shared_ptr<long> ossTotalSize{};
+  shared_ptr<long> protectionDays{};
   shared_ptr<bool> purchased{};
   shared_ptr<long> releaseDays{};
   shared_ptr<long> releaseTime{};
@@ -11862,6 +11863,9 @@ public:
     }
     if (ossTotalSize) {
       res["OssTotalSize"] = boost::any(*ossTotalSize);
+    }
+    if (protectionDays) {
+      res["ProtectionDays"] = boost::any(*protectionDays);
     }
     if (purchased) {
       res["Purchased"] = boost::any(*purchased);
@@ -11923,6 +11927,9 @@ public:
     }
     if (m.find("OssTotalSize") != m.end() && !m["OssTotalSize"].empty()) {
       ossTotalSize = make_shared<long>(boost::any_cast<long>(m["OssTotalSize"]));
+    }
+    if (m.find("ProtectionDays") != m.end() && !m["ProtectionDays"].empty()) {
+      protectionDays = make_shared<long>(boost::any_cast<long>(m["ProtectionDays"]));
     }
     if (m.find("Purchased") != m.end() && !m["Purchased"].empty()) {
       purchased = make_shared<bool>(boost::any_cast<bool>(m["Purchased"]));
