@@ -2394,6 +2394,7 @@ public:
   shared_ptr<bool> enableTracking{};
   shared_ptr<EncryptConf> encryptConf{};
   shared_ptr<long> hotTtl{};
+  shared_ptr<long> infrequentAccessTTL{};
   shared_ptr<long> lastModifyTime{};
   shared_ptr<string> logstoreName{};
   shared_ptr<long> maxSplitShard{};
@@ -2430,6 +2431,9 @@ public:
     }
     if (hotTtl) {
       res["hot_ttl"] = boost::any(*hotTtl);
+    }
+    if (infrequentAccessTTL) {
+      res["infrequentAccessTTL"] = boost::any(*infrequentAccessTTL);
     }
     if (lastModifyTime) {
       res["lastModifyTime"] = boost::any(*lastModifyTime);
@@ -2480,6 +2484,9 @@ public:
     }
     if (m.find("hot_ttl") != m.end() && !m["hot_ttl"].empty()) {
       hotTtl = make_shared<long>(boost::any_cast<long>(m["hot_ttl"]));
+    }
+    if (m.find("infrequentAccessTTL") != m.end() && !m["infrequentAccessTTL"].empty()) {
+      infrequentAccessTTL = make_shared<long>(boost::any_cast<long>(m["infrequentAccessTTL"]));
     }
     if (m.find("lastModifyTime") != m.end() && !m["lastModifyTime"].empty()) {
       lastModifyTime = make_shared<long>(boost::any_cast<long>(m["lastModifyTime"]));
@@ -3888,6 +3895,7 @@ public:
   shared_ptr<bool> enableTracking{};
   shared_ptr<EncryptConf> encryptConf{};
   shared_ptr<long> hotTtl{};
+  shared_ptr<long> infrequentAccessTTL{};
   shared_ptr<string> logstoreName{};
   shared_ptr<long> maxSplitShard{};
   shared_ptr<string> mode{};
@@ -3919,6 +3927,9 @@ public:
     }
     if (hotTtl) {
       res["hot_ttl"] = boost::any(*hotTtl);
+    }
+    if (infrequentAccessTTL) {
+      res["infrequentAccessTTL"] = boost::any(*infrequentAccessTTL);
     }
     if (logstoreName) {
       res["logstoreName"] = boost::any(*logstoreName);
@@ -3960,6 +3971,9 @@ public:
     }
     if (m.find("hot_ttl") != m.end() && !m["hot_ttl"].empty()) {
       hotTtl = make_shared<long>(boost::any_cast<long>(m["hot_ttl"]));
+    }
+    if (m.find("infrequentAccessTTL") != m.end() && !m["infrequentAccessTTL"].empty()) {
+      infrequentAccessTTL = make_shared<long>(boost::any_cast<long>(m["infrequentAccessTTL"]));
     }
     if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
       logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));
@@ -14432,6 +14446,7 @@ public:
   shared_ptr<bool> enableTracking{};
   shared_ptr<EncryptConf> encryptConf{};
   shared_ptr<long> hotTtl{};
+  shared_ptr<long> infrequentAccessTTL{};
   shared_ptr<string> logstoreName{};
   shared_ptr<long> maxSplitShard{};
   shared_ptr<string> mode{};
@@ -14463,6 +14478,9 @@ public:
     }
     if (hotTtl) {
       res["hot_ttl"] = boost::any(*hotTtl);
+    }
+    if (infrequentAccessTTL) {
+      res["infrequentAccessTTL"] = boost::any(*infrequentAccessTTL);
     }
     if (logstoreName) {
       res["logstoreName"] = boost::any(*logstoreName);
@@ -14504,6 +14522,9 @@ public:
     }
     if (m.find("hot_ttl") != m.end() && !m["hot_ttl"].empty()) {
       hotTtl = make_shared<long>(boost::any_cast<long>(m["hot_ttl"]));
+    }
+    if (m.find("infrequentAccessTTL") != m.end() && !m["infrequentAccessTTL"].empty()) {
+      infrequentAccessTTL = make_shared<long>(boost::any_cast<long>(m["infrequentAccessTTL"]));
     }
     if (m.find("logstoreName") != m.end() && !m["logstoreName"].empty()) {
       logstoreName = make_shared<string>(boost::any_cast<string>(m["logstoreName"]));

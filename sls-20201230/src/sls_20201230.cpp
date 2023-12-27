@@ -416,6 +416,9 @@ CreateLogStoreResponse Alibabacloud_Sls20201230::Client::createLogStoreWithOptio
   if (!Darabonba_Util::Client::isUnset<long>(request->hotTtl)) {
     body->insert(pair<string, long>("hot_ttl", *request->hotTtl));
   }
+  if (!Darabonba_Util::Client::isUnset<long>(request->infrequentAccessTTL)) {
+    body->insert(pair<string, long>("infrequentAccessTTL", *request->infrequentAccessTTL));
+  }
   if (!Darabonba_Util::Client::isUnset<string>(request->logstoreName)) {
     body->insert(pair<string, string>("logstoreName", *request->logstoreName));
   }
@@ -3601,6 +3604,9 @@ UpdateLogStoreResponse Alibabacloud_Sls20201230::Client::updateLogStoreWithOptio
   }
   if (!Darabonba_Util::Client::isUnset<long>(request->hotTtl)) {
     body->insert(pair<string, long>("hot_ttl", *request->hotTtl));
+  }
+  if (!Darabonba_Util::Client::isUnset<long>(request->infrequentAccessTTL)) {
+    body->insert(pair<string, long>("infrequentAccessTTL", *request->infrequentAccessTTL));
   }
   if (!Darabonba_Util::Client::isUnset<string>(request->logstoreName)) {
     body->insert(pair<string, string>("logstoreName", *request->logstoreName));
